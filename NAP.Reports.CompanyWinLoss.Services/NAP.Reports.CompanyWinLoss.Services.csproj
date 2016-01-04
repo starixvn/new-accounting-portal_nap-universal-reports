@@ -66,8 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMainReportSportsbookService.cs" />
     <Compile Include="IMainReportService.cs" />
+    <Compile Include="IMainReportSportsbookService.cs" />
     <Compile Include="MainReportSportsbookService.cs" />
     <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="NAP.Reports.CompanyWinLoss.Services.csproj.orig" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
