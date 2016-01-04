@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.UITests", "UITests\NAP.Reports.CompanyWinLoss.UITests\NAP.Reports.CompanyWinLoss.UITests.csproj", "{5A2BA395-E012-410D-ACD7-1CF9C48AA042}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UITests", "UITests", "{B32162A7-27BA-4D13-A4FB-CB4138D4F44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Site", "NAP.Reports.CompanyWinLoss.Site\NAP.Reports.CompanyWinLoss.Site.csproj", "{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A002EC53-5A73-4075-9680-0E152ADA1FC1}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A2BA395-E012-410D-ACD7-1CF9C48AA042} = {B32162A7-27BA-4D13-A4FB-CB4138D4F44E}
+	EndGlobalSection
+EndGlobal
