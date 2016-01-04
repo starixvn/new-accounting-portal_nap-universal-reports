@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Services", "NAP.Reports.CompanyWinLoss.Services\NAP.Reports.CompanyWinLoss.Services.csproj", "{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Services.UnitTests", "BackendTests\NAP.Reports.CompanyWinLoss.Services.UnitTests\NAP.Reports.CompanyWinLoss.Services.UnitTests.csproj", "{9923FB72-5F41-4912-A9E6-26E25130358E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +81,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042} = {B32162A7-27BA-4D13-A4FB-CB4138D4F44E}
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{9923FB72-5F41-4912-A9E6-26E25130358E} = {C074583A-B1D9-412C-8649-DD98B9234224}
 	EndGlobalSection
 EndGlobal
