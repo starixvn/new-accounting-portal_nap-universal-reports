@@ -84,6 +84,10 @@
       <Project>{f0bf60c1-ce75-4a1c-ab9b-f1a8a7c0258f}</Project>
       <Name>NAP.Reports.CompanyWinLoss.QueryModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NAP.Reports.CompanyWinLoss.Services\NAP.Reports.CompanyWinLoss.Services.csproj">
+      <Project>{133cc1fd-14d4-48a5-a6bf-ed18aa702fc5}</Project>
+      <Name>NAP.Reports.CompanyWinLoss.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

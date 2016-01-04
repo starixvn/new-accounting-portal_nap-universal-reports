@@ -3,7 +3,7 @@ namespace NAP.Reports.CompanyWinLoss.Models.MainReport
 {
     public class WinLoss
     {
-        public string Tittle { get; set; }
+        public string Title { get; set; }
 
         public decimal MemberWinLoss { get; set; }
 
@@ -11,15 +11,15 @@ namespace NAP.Reports.CompanyWinLoss.Models.MainReport
 
         public decimal Commission { get; set; }
 
-        public decimal CompanyRealIncome { get; set; }
+        public decimal RealIncome { get; set; }
 
-        public decimal CompanyVirtualIncome { get; set; }
+        public decimal VirtualIncome { get; set; }
 
-        public decimal CompanyVarianceIncome { get; set; }
+        public decimal VarianceIncome { get; set; }
 
-        public decimal CompanyRealTurnover { get; set; }
+        public decimal RealTurnover { get; set; }
 
-        public decimal CompanyVirtualTurnover { get; set; }
+        public decimal VirtualTurnover { get; set; }
 
         public decimal RealMargin { get; set; }
 
