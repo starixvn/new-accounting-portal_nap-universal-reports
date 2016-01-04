@@ -32,3 +32,4 @@ packages/
 Fanex.Oneyed.WebService/*.xml
 *.GhostDoc.xml
 *.pubxml
+.sass-cache

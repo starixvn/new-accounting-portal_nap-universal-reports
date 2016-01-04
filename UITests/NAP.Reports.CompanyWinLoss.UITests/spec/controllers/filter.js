@@ -1,10 +1,10 @@
-/// <reference path="../../../companywinloss.site/scripts/angular.js" />
-/// <reference path="../../../companywinloss.site/scripts/angular-route.js" />
-/// <reference path="../../../companywinloss.site/scripts/angular-mocks.js" />
+/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular.js" />
+/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular-route.js" />
+/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular-mocks.js" />
 /// <reference path="../../scripts/jasmine.js" />
 /// <reference path="../../scripts/jasmine-html.js" />
-/// <reference path="../../../companywinloss.site/app-scripts/app.js" />
-/// <reference path="../../../companywinloss.site/app-scripts/controllers/filter.js" />
+/// <reference path="../../../../nap.reports.companywinloss.site/app-scripts/app.js" />
+/// <reference path="../../../../nap.reports.companywinloss.site/app-scripts/controllers/filter.js" />
 
 'use strict';
 
