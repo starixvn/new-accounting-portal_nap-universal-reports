@@ -4,10 +4,10 @@ namespace NAP.Reports.CompanyWinLoss.Models.MainReport
 {
     public class MainReportWinLoss
     {
-        public SportsbookWinLoss SportsbookWinLoss { get; set; }
+        public ProductWinLoss Sportsbook { get; set; }
 
-        public List<OtherProductWinLoss> OtherProductWinLoss { get; set; }
+        public List<ProductWinLoss> OtherProducts { get; set; }
 
-        public List<WinLoss> Total { get; set; }
+        public ProductWinLoss Total { get; set; }
     }
 }

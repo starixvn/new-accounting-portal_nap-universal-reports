@@ -40,8 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainReport\MainReportWinLoss.cs" />
-    <Compile Include="MainReport\OtherProductWinLoss.cs" />
-    <Compile Include="MainReport\SportsbookWinLoss.cs" />
+    <Compile Include="MainReport\ProductWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainReport\WinLoss.cs" />
   </ItemGroup>

@@ -74,7 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainReportSportsbookServiceUnitTest.cs" />
+    <Compile Include="CalculationServiceUnitTests.cs" />
+    <Compile Include="MainReportSportsbookServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

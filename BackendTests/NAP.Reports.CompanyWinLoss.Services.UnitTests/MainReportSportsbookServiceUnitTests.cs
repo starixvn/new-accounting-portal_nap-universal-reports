@@ -8,13 +8,13 @@ using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
-    public class MainReportSportsbookServiceUnitTest
+    public class MainReportSportsbookServiceUnitTests
     {
         [Test]
         public void QuerySportsbook_ReturnRightTotalValue()
         {
             // Arrange
-            var expectedData = CreateExpectedWinLoss();
+            var expectedData = CreateExpectedProductWinLoss();
             var fakeData = GetSportsbookWinLossFromFakeQueryService();
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
@@ -27,7 +27,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
             // Assert
 
-            var areEqual = AreTwoSportsbookWinLossEqual(result, expectedData);
+            var areEqual = AreTwoProductWinLossEqual(result, expectedData);
             Assert.True(areEqual);
         }
 
@@ -65,7 +65,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
 
-        private SportsbookWinLoss CreateExpectedWinLoss()
+        private ProductWinLoss CreateExpectedProductWinLoss()
         {
             var liveWinLoss = CreateWinLoss("Sportsbook Live", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
             var nonLiveWinLoss = CreateWinLoss("Sportsbook Non-Live", 110, 210, 20, 310, 410, -100, 1100, 1300, 310.0m / 1100, 410.0m / 1300);
@@ -73,7 +73,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var outrightWinLoss = CreateWinLoss("Outright", 130, 230, 40, 330, 430, -100, 1300, 1500, 330.0m / 1300, 430.0m / 1500);
             var totalWinLoss = CreateWinLoss("Sportsbook Total", 460, 860, 100, 1260, 1660, -400, 4600, 5400, 1260.0m / 4600, 1660.0m / 5400);
 
-            return new SportsbookWinLoss
+            return new ProductWinLoss
             {
                 Products = new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss },
                 Total = totalWinLoss
@@ -110,7 +110,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             };
         }
 
-        private bool AreTwoSportsbookWinLossEqual(SportsbookWinLoss first, SportsbookWinLoss second)
+        private bool AreTwoProductWinLossEqual(ProductWinLoss first, ProductWinLoss second)
         {
             if (!AreTwoWinLossEqual(first.Total, second.Total))
             {

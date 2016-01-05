@@ -17,12 +17,12 @@ namespace NAP.Reports.CompanyWinLoss.Services
             _repository = repository;
         }
 
-        public SportsbookWinLoss Query(MainReportQuery query)
+        public ProductWinLoss Query(MainReportQuery query)
         {
             var criteria = new MainReportSportsbookCriteria { StartDate = query.StartDate, EndDate = query.EndDate };
             var rawSportsbookWinLoss = _repository.Query<RawWinLoss>(criteria).ToArray();
 
-            return new SportsbookWinLoss
+            return new ProductWinLoss
             {
                 Products = CalculateSportsbookProducts(rawSportsbookWinLoss),
                 Total = CalculateTotal(rawSportsbookWinLoss)
