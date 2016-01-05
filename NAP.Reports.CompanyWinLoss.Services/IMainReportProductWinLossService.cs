@@ -3,7 +3,7 @@ using NAP.Reports.CompanyWinLoss.QueryModels;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public interface IMainReportSportsbookService
+    public interface IMainReportProductWinLossService
     {
         ProductWinLoss Query(MainReportQuery query);
     }

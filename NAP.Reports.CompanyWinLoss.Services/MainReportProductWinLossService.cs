@@ -8,13 +8,13 @@ using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public class MainReportSportsbookService : IMainReportSportsbookService
+    public class MainReportProductWinLossService : IMainReportProductWinLossService
     {
         private IDynamicRepository _repository;
 
         private ICalculationService _calculationService;
 
-        public MainReportSportsbookService(IDynamicRepository repository, ICalculationService calculationService)
+        public MainReportProductWinLossService(IDynamicRepository repository, ICalculationService calculationService)
         {
             _repository = repository;
             _calculationService = calculationService;

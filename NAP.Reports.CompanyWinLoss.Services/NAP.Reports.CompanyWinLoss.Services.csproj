@@ -69,9 +69,9 @@
     <Compile Include="Criteria\MainReportSportsbookCriteria.cs" />
     <Compile Include="ICalculationService.cs" />
     <Compile Include="IMainReportService.cs" />
-    <Compile Include="IMainReportSportsbookService.cs" />
+    <Compile Include="IMainReportProductWinLossService.cs" />
     <Compile Include="CalculationService.cs" />
-    <Compile Include="MainReportSportsbookService.cs" />
+    <Compile Include="MainReportProductWinLossService.cs" />
     <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

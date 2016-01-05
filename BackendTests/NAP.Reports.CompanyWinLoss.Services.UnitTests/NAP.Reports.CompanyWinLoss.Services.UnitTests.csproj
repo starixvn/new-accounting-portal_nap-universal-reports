@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculationServiceUnitTests.cs" />
-    <Compile Include="MainReportSportsbookServiceUnitTests.cs" />
+    <Compile Include="MainReportProductWinLossServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

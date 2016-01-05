@@ -8,33 +8,32 @@ using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
-    public class MainReportSportsbookServiceUnitTests
+    public class MainReportProductWinLossServiceUnitTests
     {
         [Test]
-        public void QuerySportsbook_ReturnRightTotalValue()
+        public void Query_Sportsbook_ReturnRightTotalValue()
         {
             // Arrange
             var expectedData = CreateExpectedProductWinLoss();
-            var fakeData = GetSportsbookWinLossFromFakeQueryService();
+            var fakeData = CreateRawWinLossesForFakeQueryService();
             
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
             var calculationService = new CalculationService();
 
-            var service = new MainReportSportsbookService(dynamicRepository, calculationService);
+            var service = new MainReportProductWinLossService(dynamicRepository, calculationService);
 
             // Act
             var query = new MainReportQuery();
             var result = service.Query(query);
 
             // Assert
-
             var areEqual = AreTwoProductWinLossEqual(result, expectedData);
             Assert.True(areEqual);
         }
 
-        private List<RawWinLoss> GetSportsbookWinLossFromFakeQueryService()
+        private List<RawWinLoss> CreateRawWinLossesForFakeQueryService()
         {
             var liveWinLoss = CreateRawWinLoss("Sportsbook Live", 100, 200, 10, 300, 400, 1000, 1200);
             var nonLiveWinLoss = CreateRawWinLoss("Sportsbook Non-Live", 110, 210, 20, 310, 410, 1100, 1300);
