@@ -11,7 +11,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
     public class MainReportSportsbookServiceUnitTest
     {
         [Test]
-        public void QuerySportsbook_CalculateTotal()
+        public void QuerySportsbook_ReturnRightTotalValue()
         {
             // Arrange
             var expectedData = CreateExpectedWinLoss();
@@ -22,7 +22,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var service = new MainReportSportsbookService(dynamicRepository);
 
             // Act
-            var result = service.Query(Arg.Any<MainReportQuery>());
+            var query = new MainReportQuery();
+            var result = service.Query(query);
 
             // Assert
 
@@ -66,11 +67,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
         private SportsbookWinLoss CreateExpectedWinLoss()
         {
-            var liveWinLoss = CreateWinLoss("Sportsbook Live", 100, 200, 10, 300, 400, 100, 1000, 1200, 300m / 1000, 400m / 1200);
-            var nonLiveWinLoss = CreateWinLoss("Sportsbook Non-Live", 110, 210, 20, 310, 410, 100, 1100, 1300, 310.0m / 1100, 410.0m / 1300);
-            var parlayWinLoss = CreateWinLoss("Parlay", 120, 220, 30, 320, 420, 100, 1200, 1400, 320.0m / 1200, 420.0m / 1400);
-            var outrightWinLoss = CreateWinLoss("Outright", 130, 230, 40, 330, 430, 100, 1300, 1500, 330.0m / 1300, 430.0m / 1500);
-            var totalWinLoss = CreateWinLoss("Sportsbook Total", 460, 860, 100, 1260, 1660, 400, 4600, 5400, 1260.0m / 4600, 1660.0m / 5400);
+            var liveWinLoss = CreateWinLoss("Sportsbook Live", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
+            var nonLiveWinLoss = CreateWinLoss("Sportsbook Non-Live", 110, 210, 20, 310, 410, -100, 1100, 1300, 310.0m / 1100, 410.0m / 1300);
+            var parlayWinLoss = CreateWinLoss("Parlay", 120, 220, 30, 320, 420, -100, 1200, 1400, 320.0m / 1200, 420.0m / 1400);
+            var outrightWinLoss = CreateWinLoss("Outright", 130, 230, 40, 330, 430, -100, 1300, 1500, 330.0m / 1300, 430.0m / 1500);
+            var totalWinLoss = CreateWinLoss("Sportsbook Total", 460, 860, 100, 1260, 1660, -400, 4600, 5400, 1260.0m / 4600, 1660.0m / 5400);
 
             return new SportsbookWinLoss
             {
