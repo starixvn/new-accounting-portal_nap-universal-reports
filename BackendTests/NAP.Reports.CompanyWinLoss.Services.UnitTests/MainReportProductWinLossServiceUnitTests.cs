@@ -16,7 +16,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Arrange
             var expectedData = CreateExpectedProductWinLoss();
             var fakeData = CreateRawWinLossesForFakeQueryService();
-            
+
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
@@ -26,7 +26,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
             // Act
             var query = new MainReportQuery();
-            var result = service.Query(query);
+            var result = service.Query(Arg.Any<string>(), query);
 
             // Assert
             var areEqual = AreTwoProductWinLossEqual(result, expectedData);

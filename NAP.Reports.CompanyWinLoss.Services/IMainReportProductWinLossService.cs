@@ -5,6 +5,6 @@ namespace NAP.Reports.CompanyWinLoss.Services
 {
     public interface IMainReportProductWinLossService
     {
-        ProductWinLoss Query(MainReportQuery query);
+        ProductWinLoss Query(string productName, MainReportQuery query);
     }
 }

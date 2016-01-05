@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Criteria\MainReportSportsbookCriteria.cs" />
     <Compile Include="ICalculationService.cs" />
+    <Compile Include="MainReportService.cs" />
     <Compile Include="IMainReportService.cs" />
     <Compile Include="IMainReportProductWinLossService.cs" />
     <Compile Include="CalculationService.cs" />

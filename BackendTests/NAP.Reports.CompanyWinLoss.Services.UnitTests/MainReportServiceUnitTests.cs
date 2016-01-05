@@ -20,7 +20,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var result = service.Query(Arg.Any<MainReportQuery>());
 
             // Assert
-            productWinLossService.Query(Arg.Any<MainReportQuery>()).Received(3);
+            productWinLossService.Query(Arg.Any<string>(), Arg.Any<MainReportQuery>()).Received(3);
         }
 
         [Test]
