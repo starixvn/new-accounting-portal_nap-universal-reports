@@ -16,10 +16,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Arrange
             var expectedData = CreateExpectedProductWinLoss();
             var fakeData = GetSportsbookWinLossFromFakeQueryService();
+            
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
-            var service = new MainReportSportsbookService(dynamicRepository);
+            var calculationService = new CalculationService();
+
+            var service = new MainReportSportsbookService(dynamicRepository, calculationService);
 
             // Act
             var query = new MainReportQuery();
