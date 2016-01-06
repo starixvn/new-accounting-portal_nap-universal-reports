@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name companyWinlossApp.controller:MainCtrl
@@ -7,7 +5,15 @@
  * # MainCtrl
  * Controller of the companyWinlossApp
  */
-angular.module('companyWinlossApp')
-  .controller('MainCtrl', function () {
-   
-  });
+(function () {
+    'use strict';
+
+    angular
+        .module('companyWinlossApp')
+        .controller('MainCtrl', MainController);
+
+    MainController.$injector = [];
+
+    function MainController() {
+    }
+})();
