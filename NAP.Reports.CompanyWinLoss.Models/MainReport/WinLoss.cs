@@ -1,5 +1,4 @@
-﻿
-namespace NAP.Reports.CompanyWinLoss.Models.MainReport
+﻿namespace NAP.Reports.CompanyWinLoss.Models.MainReport
 {
     public class WinLoss
     {

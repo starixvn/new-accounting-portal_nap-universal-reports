@@ -1,9 +1,10 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NAP.Reports.CompanyWinLoss.QueryModels;
-using NAP.Reports.CompanyWinLoss.Services;
+using NAP.Reports.CompanyWinLoss.Services.MainReport;
 using NSubstitute;
 using NUnit.Framework;
 using System;
+
 namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
 {
     public class MainReportControllerUnitTests

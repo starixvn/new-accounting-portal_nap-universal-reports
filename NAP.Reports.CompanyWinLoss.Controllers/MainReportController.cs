@@ -1,6 +1,6 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NAP.Reports.CompanyWinLoss.QueryModels;
-using NAP.Reports.CompanyWinLoss.Services;
+using NAP.Reports.CompanyWinLoss.Services.MainReport;
 using System.Web.Http;
 
 namespace NAP.Reports.CompanyWinLoss.Controllers

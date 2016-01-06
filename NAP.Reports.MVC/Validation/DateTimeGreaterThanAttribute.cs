@@ -9,7 +9,7 @@ namespace NAP.Reports.MVC.Validation
         private string _dateFromFieldName;
 
         public DateTimeGreaterThanAttribute(string dateFromFieldName)
-            : base("")
+            : base(string.Empty)
         {
             _dateFromFieldName = dateFromFieldName;
         }

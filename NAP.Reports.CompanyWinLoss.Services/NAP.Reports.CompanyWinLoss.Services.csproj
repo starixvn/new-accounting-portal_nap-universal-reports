@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NAP.Reports.CompanyWinLoss.Services</RootNamespace>
     <AssemblyName>NAP.Reports.CompanyWinLoss.Services</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
@@ -66,13 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Criteria\MainReportSportsbookCriteria.cs" />
+    <Compile Include="BalanceUpSourceChooser.cs" />
+    <Compile Include="IBalanceUpSourceChooser.cs" />
+    <Compile Include="MainReport\ISportsbookWinLossService.cs" />
+    <Compile Include="MainReport\SportsbookWinLossDetailCriteria.cs" />
+    <Compile Include="MainReport\ProductWinLossCriteria.cs" />
     <Compile Include="ICalculationService.cs" />
-    <Compile Include="MainReportService.cs" />
-    <Compile Include="IMainReportService.cs" />
-    <Compile Include="IMainReportProductWinLossService.cs" />
+    <Compile Include="MainReport\MainReportService.cs" />
+    <Compile Include="MainReport\IMainReportService.cs" />
+    <Compile Include="MainReport\IProductWinLossService.cs" />
     <Compile Include="CalculationService.cs" />
-    <Compile Include="MainReportProductWinLossService.cs" />
+    <Compile Include="MainReport\SportsbookWinLossService.cs" />
+    <Compile Include="MainReport\ProductWinLossService.cs" />
+    <Compile Include="Models\BalanceUpSource.cs" />
     <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +99,9 @@
     <None Include="app.config" />
     <None Include="NAP.Reports.CompanyWinLoss.Services.csproj.orig" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Criteria\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

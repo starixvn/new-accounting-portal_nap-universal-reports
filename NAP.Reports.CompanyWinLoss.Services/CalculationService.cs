@@ -1,5 +1,6 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NAP.Reports.CompanyWinLoss.Services.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services
@@ -29,21 +30,64 @@ namespace NAP.Reports.CompanyWinLoss.Services
             return turnover > 0 ? income / turnover : 0;
         }
 
-        public WinLoss CalculateTotal(RawWinLoss[] rawWinLosses, string totalTitle)
+        public WinLoss CalculateTotal(string totalTitle, WinLoss credit, WinLoss deposit)
         {
-            var rawTotalWinLoss = new RawWinLoss
+            var totalWinLoss = new WinLoss
             {
                 Title = totalTitle,
-                Commission = rawWinLosses.Sum(r => r.Commission),
-                MemberWinLoss = rawWinLosses.Sum(r => r.MemberWinLoss),
-                RealIncome = rawWinLosses.Sum(r => r.RealIncome),
-                RealTurnover = rawWinLosses.Sum(r => r.RealTurnover),
-                SMAWinLoss = rawWinLosses.Sum(r => r.SMAWinLoss),
-                VirtualIncome = rawWinLosses.Sum(r => r.VirtualIncome),
-                VirtualTurnover = rawWinLosses.Sum(r => r.VirtualTurnover)
+                Commission = credit.Commission + deposit.Commission,
+                MemberWinLoss = credit.MemberWinLoss + deposit.MemberWinLoss,
+                RealIncome = credit.RealIncome + deposit.RealIncome,
+                VirtualIncome = credit.VirtualIncome + deposit.VirtualIncome,
+                VarianceIncome = credit.VarianceIncome + deposit.VarianceIncome,
+                RealTurnover = credit.RealTurnover + deposit.RealTurnover,
+                SMAWinLoss = credit.SMAWinLoss + deposit.SMAWinLoss,
+                VirtualTurnover = credit.VirtualTurnover + deposit.VirtualTurnover
             };
 
-            return FromRawWinLoss(rawTotalWinLoss);
+            totalWinLoss.VirtualMargin = CalculateMargin(totalWinLoss.VirtualTurnover, totalWinLoss.VirtualIncome);
+            totalWinLoss.RealMargin = CalculateMargin(totalWinLoss.RealTurnover, totalWinLoss.RealIncome);
+
+            return totalWinLoss;
+        }
+
+        public WinLoss CalculateSum(string totalTitle, IEnumerable<WinLoss> winlosses)
+        {
+            var sumWinLoss = new WinLoss
+            {
+                Title = totalTitle,
+                Commission = winlosses.Sum(r => r.Commission),
+                MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
+                RealIncome = winlosses.Sum(r => r.RealIncome),
+                VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
+                VarianceIncome = winlosses.Sum(r => r.VarianceIncome),
+                RealTurnover = winlosses.Sum(r => r.RealTurnover),
+                SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
+                VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
+            };
+
+            sumWinLoss.VirtualMargin = CalculateMargin(sumWinLoss.VirtualTurnover, sumWinLoss.VirtualIncome);
+            sumWinLoss.RealMargin = CalculateMargin(sumWinLoss.RealTurnover, sumWinLoss.RealIncome);
+
+            return sumWinLoss;
+        }
+
+        public WinLoss CreateEmptyWinLoss(string title)
+        {
+            return new WinLoss
+            {
+                Title = title,
+                Commission = 0,
+                MemberWinLoss = 0,
+                RealIncome = 0,
+                RealTurnover = 0,
+                SMAWinLoss = 0,
+                VirtualIncome = 0,
+                VirtualTurnover = 0,
+                VarianceIncome = 0,
+                RealMargin = 0,
+                VirtualMargin = 0,
+            };
         }
     }
 }
