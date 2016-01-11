@@ -1718,7 +1718,7 @@ html {
 /* line 27, ../stylesheets/bootstrap/_scaffolding.scss */
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.42857;
   color: #333333;
   background-color: #fff;
@@ -1795,8 +1795,8 @@ img {
 
 /* line 113, ../stylesheets/bootstrap/_scaffolding.scss */
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 18px;
+  margin-bottom: 18px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -1860,8 +1860,8 @@ h6 .small,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 18px;
+  margin-bottom: 9px;
 }
 /* line 30, ../stylesheets/bootstrap/_type.scss */
 h1 small,
@@ -1880,8 +1880,8 @@ h3 .small, .h3 small,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 /* line 41, ../stylesheets/bootstrap/_type.scss */
 h4 small,
@@ -1898,27 +1898,27 @@ h6 .small, .h6 small,
 
 /* line 47, ../stylesheets/bootstrap/_type.scss */
 h1, .h1 {
-  font-size: 36px;
+  font-size: 33px;
 }
 
 /* line 48, ../stylesheets/bootstrap/_type.scss */
 h2, .h2 {
-  font-size: 30px;
+  font-size: 27px;
 }
 
 /* line 49, ../stylesheets/bootstrap/_type.scss */
 h3, .h3 {
-  font-size: 24px;
+  font-size: 23px;
 }
 
 /* line 50, ../stylesheets/bootstrap/_type.scss */
 h4, .h4 {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 /* line 51, ../stylesheets/bootstrap/_type.scss */
 h5, .h5 {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* line 52, ../stylesheets/bootstrap/_type.scss */
@@ -1928,27 +1928,27 @@ h6, .h6 {
 
 /* line 58, ../stylesheets/bootstrap/_type.scss */
 p {
-  margin: 0 0 10px;
+  margin: 0 0 9px;
 }
 
 /* line 62, ../stylesheets/bootstrap/_type.scss */
 .lead {
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 18px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   /* line 62, ../stylesheets/bootstrap/_type.scss */
   .lead {
-    font-size: 21px;
+    font-size: 19.5px;
   }
 }
 
 /* line 78, ../stylesheets/bootstrap/_type.scss */
 small,
 .small {
-  font-size: 85%;
+  font-size: 92%;
 }
 
 /* line 83, ../stylesheets/bootstrap/_type.scss */
@@ -2120,8 +2120,8 @@ a.bg-danger:focus {
 
 /* line 138, ../stylesheets/bootstrap/_type.scss */
 .page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  margin: 36px 0 18px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -2129,7 +2129,7 @@ a.bg-danger:focus {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 /* line 153, ../stylesheets/bootstrap/_type.scss */
 ul ul,
@@ -2161,7 +2161,7 @@ ol ol {
 /* line 185, ../stylesheets/bootstrap/_type.scss */
 dl {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* line 189, ../stylesheets/bootstrap/_type.scss */
@@ -2220,9 +2220,9 @@ abbr[data-original-title] {
 
 /* line 241, ../stylesheets/bootstrap/_type.scss */
 blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  font-size: 17.5px;
+  padding: 9px 18px;
+  margin: 0 0 18px;
+  font-size: 16.25px;
   border-left: 5px solid #eeeeee;
 }
 /* line 250, ../stylesheets/bootstrap/_type.scss */
@@ -2277,7 +2277,7 @@ blockquote.pull-right .small:after {
 
 /* line 294, ../stylesheets/bootstrap/_type.scss */
 address {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-style: normal;
   line-height: 1.42857;
 }
@@ -2319,9 +2319,9 @@ kbd kbd {
 /* line 41, ../stylesheets/bootstrap/_code.scss */
 pre {
   display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
+  padding: 8.5px;
+  margin: 0 0 9px;
+  font-size: 12px;
   line-height: 1.42857;
   word-break: break-all;
   word-wrap: break-word;
@@ -3486,7 +3486,7 @@ th {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 /* line 31, ../stylesheets/bootstrap/_tables.scss */
 .table > thead > tr > th,
@@ -3686,7 +3686,7 @@ table th[class*="col-"] {
   /* line 171, ../stylesheets/bootstrap/_tables.scss */
   .table-responsive {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 13.5px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #ddd;
@@ -3748,8 +3748,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
-  font-size: 21px;
+  margin-bottom: 18px;
+  font-size: 19.5px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -3809,7 +3809,7 @@ input[type="checkbox"]:focus {
 output {
   display: block;
   padding-top: 7px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.42857;
   color: #555555;
 }
@@ -3818,9 +3818,9 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 34px;
+  height: 32px;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.42857;
   color: #555555;
   background-color: #fff;
@@ -3884,7 +3884,7 @@ input[type="search"] {
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
-    line-height: 34px;
+    line-height: 32px;
   }
   /* line 197, ../stylesheets/bootstrap/_forms.scss */
   input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control,
@@ -3905,7 +3905,7 @@ input[type="search"] {
   .input-group-sm > input[type="month"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="month"].btn, .input-group-sm
   input[type="month"] {
-    line-height: 30px;
+    line-height: 26px;
   }
   /* line 202, ../stylesheets/bootstrap/_forms.scss */
   input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control,
@@ -3926,7 +3926,7 @@ input[type="search"] {
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn, .input-group-lg
   input[type="month"] {
-    line-height: 46px;
+    line-height: 45px;
   }
 }
 /* line 215, ../stylesheets/bootstrap/_forms.scss */
@@ -3945,7 +3945,7 @@ input[type="search"] {
 /* line 231, ../stylesheets/bootstrap/_forms.scss */
 .radio label,
 .checkbox label {
-  min-height: 20px;
+  min-height: 18px;
   padding-left: 20px;
   margin-bottom: 0;
   font-weight: normal;
@@ -4014,7 +4014,7 @@ input[type="checkbox"] {
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
-  min-height: 34px;
+  min-height: 31px;
 }
 /* line 315, ../stylesheets/bootstrap/_forms.scss */
 .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control,
@@ -4030,8 +4030,8 @@ input[type="checkbox"] {
 .input-sm, .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  height: 30px;
-  padding: 5px 10px;
+  height: 26px;
+  padding: 3px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
@@ -4041,8 +4041,8 @@ input[type="checkbox"] {
 select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > select.input-group-addon,
 .input-group-sm > .input-group-btn > select.btn {
-  height: 30px;
-  line-height: 30px;
+  height: 26px;
+  line-height: 26px;
 }
 
 /* line 84, ../stylesheets/bootstrap/mixins/_forms.scss */
@@ -4058,16 +4058,16 @@ select[multiple].input-sm,
 
 /* line 333, ../stylesheets/bootstrap/_forms.scss */
 .form-group-sm .form-control {
-  height: 30px;
-  padding: 5px 10px;
+  height: 26px;
+  padding: 3px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
 /* line 340, ../stylesheets/bootstrap/_forms.scss */
 .form-group-sm select.form-control {
-  height: 30px;
-  line-height: 30px;
+  height: 26px;
+  line-height: 26px;
 }
 /* line 344, ../stylesheets/bootstrap/_forms.scss */
 .form-group-sm textarea.form-control,
@@ -4076,9 +4076,9 @@ select[multiple].input-sm,
 }
 /* line 348, ../stylesheets/bootstrap/_forms.scss */
 .form-group-sm .form-control-static {
-  height: 30px;
-  min-height: 32px;
-  padding: 6px 10px;
+  height: 26px;
+  min-height: 30px;
+  padding: 4px 10px;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -4087,9 +4087,9 @@ select[multiple].input-sm,
 .input-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 46px;
+  height: 45px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.33333;
   border-radius: 6px;
 }
@@ -4098,8 +4098,8 @@ select[multiple].input-sm,
 select.input-lg, .input-group-lg > select.form-control,
 .input-group-lg > select.input-group-addon,
 .input-group-lg > .input-group-btn > select.btn {
-  height: 46px;
-  line-height: 46px;
+  height: 45px;
+  line-height: 45px;
 }
 
 /* line 84, ../stylesheets/bootstrap/mixins/_forms.scss */
@@ -4115,16 +4115,16 @@ select[multiple].input-lg,
 
 /* line 359, ../stylesheets/bootstrap/_forms.scss */
 .form-group-lg .form-control {
-  height: 46px;
+  height: 45px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.33333;
   border-radius: 6px;
 }
 /* line 366, ../stylesheets/bootstrap/_forms.scss */
 .form-group-lg select.form-control {
-  height: 46px;
-  line-height: 46px;
+  height: 45px;
+  line-height: 45px;
 }
 /* line 370, ../stylesheets/bootstrap/_forms.scss */
 .form-group-lg textarea.form-control,
@@ -4133,10 +4133,10 @@ select[multiple].input-lg,
 }
 /* line 374, ../stylesheets/bootstrap/_forms.scss */
 .form-group-lg .form-control-static {
-  height: 46px;
-  min-height: 38px;
+  height: 45px;
+  min-height: 35px;
   padding: 11px 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.33333;
 }
 
@@ -4146,7 +4146,7 @@ select[multiple].input-lg,
 }
 /* line 393, ../stylesheets/bootstrap/_forms.scss */
 .has-feedback .form-control {
-  padding-right: 42.5px;
+  padding-right: 40px;
 }
 
 /* line 398, ../stylesheets/bootstrap/_forms.scss */
@@ -4156,9 +4156,9 @@ select[multiple].input-lg,
   right: 0;
   z-index: 2;
   display: block;
-  width: 34px;
-  height: 34px;
-  line-height: 34px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   text-align: center;
   pointer-events: none;
 }
@@ -4169,9 +4169,9 @@ select[multiple].input-lg,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback {
-  width: 46px;
-  height: 46px;
-  line-height: 46px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
 }
 
 /* line 417, ../stylesheets/bootstrap/_forms.scss */
@@ -4180,9 +4180,9 @@ select[multiple].input-lg,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
 }
 
 /* line 8, ../stylesheets/bootstrap/mixins/_forms.scss */
@@ -4283,7 +4283,7 @@ select[multiple].input-lg,
 
 /* line 439, ../stylesheets/bootstrap/_forms.scss */
 .has-feedback label ~ .form-control-feedback {
-  top: 25px;
+  top: 23px;
 }
 /* line 442, ../stylesheets/bootstrap/_forms.scss */
 .has-feedback label.sr-only ~ .form-control-feedback {
@@ -4372,7 +4372,7 @@ select[multiple].input-lg,
 /* line 569, ../stylesheets/bootstrap/_forms.scss */
 .form-horizontal .radio,
 .form-horizontal .checkbox {
-  min-height: 27px;
+  min-height: 25px;
 }
 /* line 575, ../stylesheets/bootstrap/_forms.scss */
 .form-horizontal .form-group {
@@ -4404,13 +4404,13 @@ select[multiple].input-lg,
   /* line 603, ../stylesheets/bootstrap/_forms.scss */
   .form-horizontal .form-group-lg .control-label {
     padding-top: 11px;
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 @media (min-width: 768px) {
   /* line 611, ../stylesheets/bootstrap/_forms.scss */
   .form-horizontal .form-group-sm .control-label {
-    padding-top: 6px;
+    padding-top: 4px;
     font-size: 12px;
   }
 }
@@ -4428,7 +4428,7 @@ select[multiple].input-lg,
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.42857;
   border-radius: 4px;
   -webkit-user-select: none;
@@ -4769,14 +4769,14 @@ a.btn.disabled, fieldset[disabled] a.btn {
 /* line 135, ../stylesheets/bootstrap/_buttons.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.33333;
   border-radius: 6px;
 }
 
 /* line 139, ../stylesheets/bootstrap/_buttons.scss */
 .btn-sm, .btn-group-sm > .btn {
-  padding: 5px 10px;
+  padding: 3px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
@@ -4888,7 +4888,7 @@ tbody.collapse.in {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 13px;
   text-align: left;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -4906,7 +4906,7 @@ tbody.collapse.in {
 /* line 60, ../stylesheets/bootstrap/_dropdowns.scss */
 .dropdown-menu .divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 8px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -5320,7 +5320,7 @@ tbody.collapse.in {
 /* line 77, ../stylesheets/bootstrap/_input-groups.scss */
 .input-group-addon {
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1;
   color: #555555;
@@ -5333,7 +5333,7 @@ tbody.collapse.in {
 .input-group-addon.input-sm,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
-  padding: 5px 10px;
+  padding: 3px 10px;
   font-size: 12px;
   border-radius: 3px;
 }
@@ -5342,7 +5342,7 @@ tbody.collapse.in {
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 17px;
   border-radius: 6px;
 }
 /* line 101, ../stylesheets/bootstrap/_input-groups.scss */
@@ -5465,7 +5465,7 @@ tbody.collapse.in {
 /* line 59, ../stylesheets/bootstrap/_navs.scss */
 .nav .nav-divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 8px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -5614,7 +5614,7 @@ tbody.collapse.in {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border: 1px solid transparent;
 }
 /* line 14, ../stylesheets/bootstrap/mixins/_clearfix.scss */
@@ -5772,9 +5772,9 @@ tbody.collapse.in {
 /* line 163, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+  padding: 16px 15px;
+  font-size: 17px;
+  line-height: 18px;
   height: 50px;
 }
 /* line 170, ../stylesheets/bootstrap/_navbar.scss */
@@ -5829,13 +5829,13 @@ tbody.collapse.in {
 
 /* line 232, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-nav {
-  margin: 7.5px -15px;
+  margin: 8px -15px;
 }
 /* line 235, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 18px;
 }
 @media (max-width: 767px) {
   /* line 243, ../stylesheets/bootstrap/_navbar.scss */
@@ -5855,7 +5855,7 @@ tbody.collapse.in {
   }
   /* line 255, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 20px;
+    line-height: 18px;
   }
   /* line 257, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -5874,8 +5874,8 @@ tbody.collapse.in {
   }
   /* line 272, ../stylesheets/bootstrap/_navbar.scss */
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 }
 
@@ -5888,8 +5888,8 @@ tbody.collapse.in {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 @media (min-width: 768px) {
   /* line 478, ../stylesheets/bootstrap/_forms.scss */
@@ -5994,13 +5994,13 @@ tbody.collapse.in {
 
 /* line 343, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-btn {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 /* line 346, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 /* line 349, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
@@ -6010,8 +6010,8 @@ tbody.collapse.in {
 
 /* line 359, ../stylesheets/bootstrap/_navbar.scss */
 .navbar-text {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 @media (min-width: 768px) {
   /* line 359, ../stylesheets/bootstrap/_navbar.scss */
@@ -6251,7 +6251,7 @@ tbody.collapse.in {
 /* line 6, ../stylesheets/bootstrap/_breadcrumbs.scss */
 .breadcrumb {
   padding: 8px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -6275,7 +6275,7 @@ tbody.collapse.in {
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin: 18px 0;
   border-radius: 4px;
 }
 /* line 10, ../stylesheets/bootstrap/_pagination.scss */
@@ -6345,7 +6345,7 @@ tbody.collapse.in {
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.33333;
 }
 /* line 12, ../stylesheets/bootstrap/mixins/_pagination.scss */
@@ -6364,7 +6364,7 @@ tbody.collapse.in {
 /* line 5, ../stylesheets/bootstrap/mixins/_pagination.scss */
 .pagination-sm > li > a,
 .pagination-sm > li > span {
-  padding: 5px 10px;
+  padding: 3px 10px;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -6384,7 +6384,7 @@ tbody.collapse.in {
 /* line 6, ../stylesheets/bootstrap/_pager.scss */
 .pager {
   padding-left: 0;
-  margin: 20px 0;
+  margin: 18px 0;
   list-style: none;
   text-align: center;
 }
@@ -6590,7 +6590,7 @@ a.badge:hover, a.badge:focus {
 /* line 18, ../stylesheets/bootstrap/_jumbotron.scss */
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 200;
 }
 /* line 24, ../stylesheets/bootstrap/_jumbotron.scss */
@@ -6621,7 +6621,7 @@ a.badge:hover, a.badge:focus {
   /* line 49, ../stylesheets/bootstrap/_jumbotron.scss */
   .jumbotron h1,
   .jumbotron .h1 {
-    font-size: 63px;
+    font-size: 59px;
   }
 }
 
@@ -6629,7 +6629,7 @@ a.badge:hover, a.badge:focus {
 .thumbnail {
   display: block;
   padding: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   line-height: 1.42857;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -6663,7 +6663,7 @@ a.thumbnail.active {
 /* line 9, ../stylesheets/bootstrap/_alerts.scss */
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -6779,8 +6779,8 @@ a.thumbnail.active {
 /* line 26, ../stylesheets/bootstrap/_progress-bars.scss */
 .progress {
   overflow: hidden;
-  height: 20px;
-  margin-bottom: 20px;
+  height: 18px;
+  margin-bottom: 18px;
   background-color: #f5f5f5;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -6793,7 +6793,7 @@ a.thumbnail.active {
   width: 0%;
   height: 100%;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 18px;
   color: #fff;
   text-align: center;
   background-color: #337ab7;
@@ -7171,7 +7171,7 @@ button.list-group-item-danger.active:focus {
 
 /* line 7, ../stylesheets/bootstrap/_panels.scss */
 .panel {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -7209,7 +7209,7 @@ button.list-group-item-danger.active:focus {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 15px;
   color: inherit;
 }
 /* line 39, ../stylesheets/bootstrap/_panels.scss */
@@ -7433,7 +7433,7 @@ button.list-group-item-danger.active:focus {
 
 /* line 222, ../stylesheets/bootstrap/_panels.scss */
 .panel-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 /* line 226, ../stylesheets/bootstrap/_panels.scss */
 .panel-group .panel {
@@ -7643,9 +7643,9 @@ button.list-group-item-danger.active:focus {
 .well {
   min-height: 20px;
   padding: 19px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
+  margin-bottom: 5px;
+  background-color: #edecea;
+  border: 1px solid #dddbd7;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -7671,7 +7671,7 @@ button.list-group-item-danger.active:focus {
 /* line 6, ../stylesheets/bootstrap/_close.scss */
 .close {
   float: right;
-  font-size: 21px;
+  font-size: 19.5px;
   font-weight: bold;
   line-height: 1;
   color: #000;
@@ -8033,7 +8033,7 @@ button.close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-size: 14px;
+  font-size: 13px;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ccc;
@@ -8063,7 +8063,7 @@ button.close {
 .popover-title {
   margin: 0;
   padding: 8px 14px;
-  font-size: 14px;
+  font-size: 13px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-radius: 5px 5px 0 0;
@@ -8792,56 +8792,151 @@ button.close {
   }
 }
 /* line 4, ../stylesheets/Site.scss */
-body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+.date-picker {
+  width: 120px;
 }
-
-/* Set padding to keep content from hitting the edges */
-/* line 10, ../stylesheets/Site.scss */
-.body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+/* line 7, ../stylesheets/Site.scss */
+.date-picker .date-picker-input {
+  padding: 3px 8px;
+  cursor: pointer;
+  background: url("/images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
 }
-
-/* styles for validation helpers */
-/* line 16, ../stylesheets/Site.scss */
-.field-validation-error {
-  color: #b94a48;
+/* line 13, ../stylesheets/Site.scss */
+.date-picker .dropdown-menu {
+  display: block;
 }
-
-/* line 20, ../stylesheets/Site.scss */
-.field-validation-valid {
-  display: none;
+/* line 17, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar {
+  padding-left: 5px;
+  padding-right: 5px;
 }
-
-/* line 24, ../stylesheets/Site.scss */
-input.input-validation-error {
-  border: 1px solid #b94a48;
+/* line 21, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-header {
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-bottom: 5px;
+  width: 260px;
 }
-
 /* line 28, ../stylesheets/Site.scss */
-input[type="checkbox"].input-validation-error {
-  border: 0 none;
+.date-picker .date-picker-calendar .calendar-header .calendar-previous .btn-previous {
+  padding: 3px 10px;
 }
-
-/* line 32, ../stylesheets/Site.scss */
-.validation-summary-errors {
-  color: #b94a48;
+/* line 34, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-header .calendar-next .next-button {
+  padding: 3px 10px;
 }
-
-/* line 36, ../stylesheets/Site.scss */
-.validation-summary-valid {
-  display: none;
-}
-
 /* line 40, ../stylesheets/Site.scss */
-.modal-dialog.modal-full {
-  width: 90%;
+.date-picker .date-picker-calendar .calendar-header .calendar-month .calendar-month-select {
+  padding: 3px;
+  width: 100%;
+}
+/* line 47, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-header .calendar-year .calendar-year-select {
+  padding: 3px;
+  width: 100%;
+}
+/* line 53, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-header .col-xs-2 {
+  padding: 0 5px;
+}
+/* line 57, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-header .col-xs-4 {
+  padding: 0 5px;
+}
+/* line 63, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-day.weekend {
+  color: #c84519;
+}
+/* line 70, ../stylesheets/Site.scss */
+.date-picker .date-picker-calendar .calendar-date .date-button.date-past, .date-picker .date-picker-calendar .calendar-date .date-button.date-future {
+  color: gray;
 }
 
-/* line 44, ../stylesheets/Site.scss */
-.modal-dialog.modal-full .modal-body {
-  height: 500px;
-  overflow: auto;
+/* line 78, ../stylesheets/Site.scss */
+.legend-information {
+  display: block;
+  position: relative;
+}
+/* line 82, ../stylesheets/Site.scss */
+.legend-information .information-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  background: url("/images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
+  cursor: help;
+  width: 16px;
+  height: 16px;
+}
+/* line 93, ../stylesheets/Site.scss */
+.legend-information .information-button:hover {
+  background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
+}
+
+/* line 99, ../stylesheets/Site.scss */
+.btn-filter {
+  color: white;
+  font-size: .85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.5);
+  border: solid 1px #3c5b9b;
+  background: -webkit-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
+  background: -moz-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
+  background: -o-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
+}
+/* line 110, ../stylesheets/Site.scss */
+.btn-filter:hover {
+  color: white;
+  background: -webkit-linear-gradient(#486cb8, #6891e8) #6891e8;
+  background: -moz-linear-gradient(#486cb8, #6891e8) #6891e8;
+  background: -o-linear-gradient(#486cb8, #6891e8) #6891e8;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 116, ../stylesheets/Site.scss */
+.btn-filter:active, .btn-filter:focus {
+  color: white;
+  background: -webkit-linear-gradient(#5a7dc1, #486cb8) #486cb8;
+  background: -moz-linear-gradient(#5a7dc1, #486cb8) #486cb8;
+  background: -o-linear-gradient(#5a7dc1, #486cb8) #486cb8;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 122, ../stylesheets/Site.scss */
+.btn-filter:disabled {
+  border: solid 1px darkgray;
+  color: #979797;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  background: -webkit-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
+  background: -moz-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
+  background: -o-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
+}
+
+/* line 130, ../stylesheets/Site.scss */
+.filter-note {
+  margin-bottom: 5px;
+}
+/* line 133, ../stylesheets/Site.scss */
+.filter-note .note-button {
+  background: transparent;
+  padding: 0;
+  font-weight: bold;
+  padding-left: 18px;
+  background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
+  cursor: pointer;
+}
+/* line 141, ../stylesheets/Site.scss */
+.filter-note .note-button.collapsed {
+  background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
+}
+/* line 146, ../stylesheets/Site.scss */
+.filter-note .note-body {
+  font-size: 11px;
 }

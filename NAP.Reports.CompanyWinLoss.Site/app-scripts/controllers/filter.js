@@ -18,21 +18,24 @@
         /*jshint validthis: true */
         var vm = this;
 
+        vm.today = settings.today;
+        vm.yesterday = settings.yesterday;
         vm.date = settings.today;
         vm.disableExport = true;
         vm.disableExpand = true;
         vm.generate = function () {
             vm.disableExport = false;
             vm.disableExpand = false;
+            console.log(vm.date);
         };
 
         vm.todayClicked = function () {
-            vm.date = settings.today;
+            vm.date = vm.today;
             vm.generate();
         };
 
         vm.yesterdayClicked = function () {
-            vm.date = settings.yesterday;
+            vm.date = vm.yesterday;
             vm.generate();
         };
     }

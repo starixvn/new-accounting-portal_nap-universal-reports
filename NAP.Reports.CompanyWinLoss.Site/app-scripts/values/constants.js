@@ -4,7 +4,7 @@
     angular
         .module('companyWinlossApp')
         .constant('settings', {
-            today: '2016-01-05',
-            yesterday: '2016-01-04'
+            today: new Date(2016, 0, 5),
+            yesterday: new Date(2016, 0, 4)
         });
 })();

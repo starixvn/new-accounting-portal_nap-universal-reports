@@ -15,8 +15,8 @@ describe('Controller: FilterCtrl', function () {
     beforeEach(function () {
         module('companyWinlossApp', function ($provide) {
             settings = {
-                today: '2016-01-05',
-                yesterday: '2016-01-04'
+                today: new Date(2016, 0, 5),
+                yesterday: new Date(2016, 0, 4)
             };
             $provide.constant('settings', settings);
         });

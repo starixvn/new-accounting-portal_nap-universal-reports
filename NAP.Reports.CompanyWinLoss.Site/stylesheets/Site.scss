@@ -1,47 +1,149 @@
 @import "bootstrap-compass";
 @import "bootstrap";
 
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+.date-picker {
+    width: 120px;
+
+    .date-picker-input {
+        padding: 3px 8px;
+        cursor: pointer;
+        background: url("/images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
+    }
+
+    .dropdown-menu {
+        display: block;
+    }
+
+    .date-picker-calendar {
+        padding-left: 5px;
+        padding-right: 5px;
+
+        .calendar-header {
+            margin-left: -5px;
+            margin-right: -5px;
+            margin-bottom: 5px;
+            width: 260px;
+
+            .calendar-previous {
+                .btn-previous {
+                    padding: 3px 10px;
+                }
+            }
+
+            .calendar-next {
+                .next-button {
+                    padding: 3px 10px;
+                }
+            }
+
+            .calendar-month {
+                .calendar-month-select {
+                    padding: 3px;
+                    width: 100%;
+                }
+            }
+
+            .calendar-year {
+                .calendar-year-select {
+                    padding: 3px;
+                    width: 100%;
+                }
+            }
+
+            .col-xs-2 {
+                padding: 0 5px;
+            }
+
+            .col-xs-4 {
+                padding: 0 5px;
+            }
+        }
+
+        .calendar-day {
+            &.weekend {
+                color: #c84519;
+            }
+        }
+
+        .calendar-date {
+            .date-button {
+                &.date-past, &.date-future {
+                    color: gray;
+                }
+            }
+        }
+    }
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.legend-information {
+    display: block;
+    position: relative;
+
+    .information-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        display: block;
+        background: url("/images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
+        cursor: help;
+        width: 16px;
+        height: 16px;
+
+        &:hover {
+            background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
+        }
+    }
 }
 
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
+.btn-filter {
+    color: white;
+    font-size: .85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.5);
+    border: solid 1px #3c5b9b;
+    @include gradient-button;
+    @include border-radius(2px);
+    @include box-shadow(inset 0px 1px 1px rgba(255, 255, 255, 0.25));
+
+    &:hover {
+        color: white;
+        @include gradient-button(#486cb8, #6891e8, #6891e8);
+        @include box-shadow(0 0 4px 1px rgba(0, 0, 0, 0.1));
+    }
+
+    &:active, &:focus {
+        color: white;
+        @include gradient-button(#5a7dc1, #486cb8, #486cb8);
+        @include box-shadow(0 0 4px 1px rgba(0, 0, 0, 0.1));
+    }
+
+    &:disabled {
+        border: solid 1px darkgray;
+        color: #979797;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+        @include gradient-button(#d0d0d0, #e5e5e5, #e5e5e5);
+    }
 }
 
-.field-validation-valid {
-    display: none;
-}
+.filter-note {
+    margin-bottom: 5px;
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
-}
+    .note-button {
+        background: transparent;
+        padding: 0;
+        font-weight: bold;
+        padding-left: 18px;
+        background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
+        cursor: pointer;
 
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
-}
+        &.collapsed {
+            background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
+        }
+    }
 
-.validation-summary-errors {
-    color: #b94a48;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
-.modal-dialog.modal-full{
-    width: 90%;
-}
-
-.modal-dialog.modal-full .modal-body{
-    height: 500px;
-    overflow: auto;
+    .note-body {
+        font-size: 11px;
+    }
 }
