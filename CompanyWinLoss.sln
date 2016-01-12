@@ -1,14 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.UITests", "UITests\NAP.Reports.CompanyWinLoss.UITests\NAP.Reports.CompanyWinLoss.UITests.csproj", "{5A2BA395-E012-410D-ACD7-1CF9C48AA042}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UITests", "UITests", "{B32162A7-27BA-4D13-A4FB-CB4138D4F44E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Site", "NAP.Reports.CompanyWinLoss.Site\NAP.Reports.CompanyWinLoss.Site.csproj", "{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A002EC53-5A73-4075-9680-0E152ADA1FC1}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -16,21 +10,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A002EC
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UITests", "UITests", "{B32162A7-27BA-4D13-A4FB-CB4138D4F44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests", "UITests\UITests\UITests.csproj", "{5A2BA395-E012-410D-ACD7-1CF9C48AA042}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEndTests", "BackEndTests", "{C074583A-B1D9-412C-8649-DD98B9234224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Controllers.UnitTests", "BackendTests\NAP.Reports.CompanyWinLoss.Controllers.UnitTests\NAP.Reports.CompanyWinLoss.Controllers.UnitTests.csproj", "{DA4D6205-93AC-41D9-A5A4-2042F303FC47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers.UnitTests", "BackendTests\Controllers.UnitTests\Controllers.UnitTests.csproj", "{DA4D6205-93AC-41D9-A5A4-2042F303FC47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Models", "NAP.Reports.CompanyWinLoss.Models\NAP.Reports.CompanyWinLoss.Models.csproj", "{938DB0A4-0956-4A88-BE1F-E9E6C627B603}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.UnitTests", "BackendTests\Services.UnitTests\Services.UnitTests.csproj", "{9923FB72-5F41-4912-A9E6-26E25130358E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.QueryModels", "NAP.Reports.CompanyWinLoss.QueryModels\NAP.Reports.CompanyWinLoss.QueryModels.csproj", "{F0BF60C1-CE75-4A1C-AB9B-F1A8A7C0258F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sites", "Sources\Sites\Sites.csproj", "{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.MVC", "NAP.Reports.MVC\NAP.Reports.MVC.csproj", "{21081CDE-E5A1-4A31-9EF0-E0AC65547881}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Sources\Models\Models.csproj", "{938DB0A4-0956-4A88-BE1F-E9E6C627B603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Controllers", "NAP.Reports.CompanyWinLoss.Controllers\NAP.Reports.CompanyWinLoss.Controllers.csproj", "{4AF4C911-E9DE-40AC-9120-2DFDAA346C5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryModels", "Sources\QueryModels\QueryModels.csproj", "{F0BF60C1-CE75-4A1C-AB9B-F1A8A7C0258F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Services", "NAP.Reports.CompanyWinLoss.Services\NAP.Reports.CompanyWinLoss.Services.csproj", "{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "Sources\MVC\MVC.csproj", "{21081CDE-E5A1-4A31-9EF0-E0AC65547881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAP.Reports.CompanyWinLoss.Services.UnitTests", "BackendTests\NAP.Reports.CompanyWinLoss.Services.UnitTests\NAP.Reports.CompanyWinLoss.Services.UnitTests.csproj", "{9923FB72-5F41-4912-A9E6-26E25130358E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers", "Sources\Controllers\Controllers.csproj", "{4AF4C911-E9DE-40AC-9120-2DFDAA346C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Sources\Services\Services.csproj", "{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{DE058F5A-050F-4458-B87B-01567F1F5631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +44,18 @@ Global
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{938DB0A4-0956-4A88-BE1F-E9E6C627B603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{938DB0A4-0956-4A88-BE1F-E9E6C627B603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{938DB0A4-0956-4A88-BE1F-E9E6C627B603}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,10 +76,6 @@ Global
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9923FB72-5F41-4912-A9E6-26E25130358E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9923FB72-5F41-4912-A9E6-26E25130358E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,5 +84,11 @@ Global
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042} = {B32162A7-27BA-4D13-A4FB-CB4138D4F44E}
 		{DA4D6205-93AC-41D9-A5A4-2042F303FC47} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{9923FB72-5F41-4912-A9E6-26E25130358E} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{938DB0A4-0956-4A88-BE1F-E9E6C627B603} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{F0BF60C1-CE75-4A1C-AB9B-F1A8A7C0258F} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{21081CDE-E5A1-4A31-9EF0-E0AC65547881} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{4AF4C911-E9DE-40AC-9120-2DFDAA346C5C} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 	EndGlobalSection
 EndGlobal

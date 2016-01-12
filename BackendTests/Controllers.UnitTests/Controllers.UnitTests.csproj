@@ -43,8 +43,8 @@
       <HintPath>..\..\packages\NSubstitute.1.9.2.0\lib\net45\NSubstitute.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -73,21 +73,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NAP.Reports.CompanyWinLoss.Controllers\NAP.Reports.CompanyWinLoss.Controllers.csproj">
+    <ProjectReference Include="..\..\Sources\Controllers\Controllers.csproj">
       <Project>{4af4c911-e9de-40ac-9120-2dfdaa346c5c}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.Controllers</Name>
+      <Name>Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NAP.Reports.CompanyWinLoss.Models\NAP.Reports.CompanyWinLoss.Models.csproj">
+    <ProjectReference Include="..\..\Sources\Models\Models.csproj">
       <Project>{938db0a4-0956-4a88-be1f-e9e6c627b603}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.Models</Name>
+      <Name>Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NAP.Reports.CompanyWinLoss.QueryModels\NAP.Reports.CompanyWinLoss.QueryModels.csproj">
+    <ProjectReference Include="..\..\Sources\QueryModels\QueryModels.csproj">
       <Project>{f0bf60c1-ce75-4a1c-ab9b-f1a8a7c0258f}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.QueryModels</Name>
+      <Name>QueryModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NAP.Reports.CompanyWinLoss.Services\NAP.Reports.CompanyWinLoss.Services.csproj">
+    <ProjectReference Include="..\..\Sources\Services\Services.csproj">
       <Project>{133cc1fd-14d4-48a5-a6bf-ed18aa702fc5}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.Services</Name>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

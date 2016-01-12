@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4AF4C911-E9DE-40AC-9120-2DFDAA346C5C}</ProjectGuid>
+    <ProjectGuid>{133CC1FD-14D4-48A5-A6BF-ED18AA702FC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NAP.Reports.CompanyWinLoss.Controllers</RootNamespace>
-    <AssemblyName>NAP.Reports.CompanyWinLoss.Controllers</AssemblyName>
+    <RootNamespace>NAP.Reports.CompanyWinLoss.Services</RootNamespace>
+    <AssemblyName>NAP.Reports.CompanyWinLoss.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -35,25 +35,33 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,25 +69,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainReportController.cs" />
+    <Compile Include="BalanceUpSourceChooser.cs" />
+    <Compile Include="IBalanceUpSourceChooser.cs" />
+    <Compile Include="MainReport\ISportsbookWinLossService.cs" />
+    <Compile Include="MainReport\SportsbookWinLossDetailCriteria.cs" />
+    <Compile Include="MainReport\ProductWinLossCriteria.cs" />
+    <Compile Include="ICalculationService.cs" />
+    <Compile Include="MainReport\MainReportService.cs" />
+    <Compile Include="MainReport\IMainReportService.cs" />
+    <Compile Include="MainReport\IProductWinLossService.cs" />
+    <Compile Include="CalculationService.cs" />
+    <Compile Include="MainReport\SportsbookWinLossService.cs" />
+    <Compile Include="MainReport\ProductWinLossService.cs" />
+    <Compile Include="Models\BalanceUpSource.cs" />
+    <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NAP.Reports.CompanyWinLoss.Models\NAP.Reports.CompanyWinLoss.Models.csproj">
+    <ProjectReference Include="..\Models\Models.csproj">
       <Project>{938db0a4-0956-4a88-be1f-e9e6c627b603}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.Models</Name>
+      <Name>Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NAP.Reports.CompanyWinLoss.QueryModels\NAP.Reports.CompanyWinLoss.QueryModels.csproj">
+    <ProjectReference Include="..\QueryModels\QueryModels.csproj">
       <Project>{f0bf60c1-ce75-4a1c-ab9b-f1a8a7c0258f}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.QueryModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NAP.Reports.CompanyWinLoss.Services\NAP.Reports.CompanyWinLoss.Services.csproj">
-      <Project>{133cc1fd-14d4-48a5-a6bf-ed18aa702fc5}</Project>
-      <Name>NAP.Reports.CompanyWinLoss.Services</Name>
+      <Name>QueryModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="NAP.Reports.CompanyWinLoss.Services.csproj.orig" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Criteria\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
