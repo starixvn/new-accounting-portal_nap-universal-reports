@@ -81,6 +81,7 @@
                 <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExpand">Expand</button>
             </div>
             <div class="form-group" data-ng-switch-when="false">
+                <nap-month-picker data-from-date="vm.fromDate" data-to-date="vm.toDate"></nap-month-picker>
                 <button type="button" class="btn btn-sm btn-filter" ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" ng-click="vm.viewNormalMode()">Back</button>
                 <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExport">Export</button>

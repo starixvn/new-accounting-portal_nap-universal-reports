@@ -75,6 +75,69 @@
     }
 }
 
+.month-picker {
+    .button-month {
+        .glyphicon {
+            &:hover {
+                color: #337ab7;
+            }
+
+            &.glyphicon-chevron-left {
+                margin-right: 5px;
+            }
+
+            &.glyphicon-chevron-right {
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .dropdown-month {
+        min-width: 120px;
+        max-height: 400px;
+        overflow-x: auto;
+
+        & > li > dl {
+            margin-bottom: 5px;
+
+            dt {
+                font-size: 1.2em;
+                padding: 3px 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f5f5f5;
+                    color: #4f82c6;
+                }
+            }
+
+            dd {
+                padding: 3px 20px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f5f5f5;
+                }
+
+                &.active {
+                    background-color: #337ab7;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .dropdown-day {
+        min-width: 52px;
+        max-height: 400px;
+        overflow-x: auto;
+
+        & > li > a {
+            padding: 3px 10px;
+        }
+    }
+}
+
 .legend-information {
     display: block;
     position: relative;

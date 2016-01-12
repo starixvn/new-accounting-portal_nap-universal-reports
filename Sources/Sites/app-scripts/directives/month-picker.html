@@ -1,0 +1,47 @@
+﻿<div class="form-group month-picker">
+    <label>Month</label>
+    <div class="btn-group">
+        <button class="btn btn-sm btn-default button-month" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-chevron-left" data-ng-click="vm.goPreviousMonth($event, vm.previousYear, vm.previousMonth)"></span>
+            <span class="month-text">{{vm.text}}</span>
+            <span class="glyphicon glyphicon-chevron-right" data-ng-click="vm.goNextMonth($event, vm.nextYear, vm.nextMonth)"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-month">
+            <li data-ng-repeat="year in vm.years track by year.value">
+                <dl>
+                    <dt data-ng-click="vm.selectYear($event, year.value)">{{year.value}}</dt>
+                    <dd data-ng-show="year.expand"
+                        data-ng-class="{active: vm.year===year.value && vm.month===month.value}"
+                        data-ng-repeat="month in year.months track by month.value"
+                        data-ng-click="vm.selectMonth(year.value, month.value)">
+                        {{month.text}}
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <label>from</label>
+    <div class="btn-group">
+        <button class="btn btn-sm btn-default button-day-to" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{vm.fromDay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-day">
+            <li data-ng-repeat="day in vm.daysOfMonth track by day" data-ng-class="{active: day===vm.fromDay}">
+                <a href="#" data-ng-click="vm.selectFromDay(day)">{{day}}</a>
+            </li>
+        </ul>
+    </div>
+    <label>to</label>
+    <div class="btn-group">
+        <button class="btn btn-sm btn-default button-day-from" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{vm.toDay}}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-day">
+            <li data-ng-repeat="day in vm.daysOfMonth track by day" data-ng-class="{active: day===vm.toDay}">
+                <a href="#" data-ng-click="vm.selectToDay(day)">{{day}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

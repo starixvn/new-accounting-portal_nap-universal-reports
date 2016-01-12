@@ -18,10 +18,12 @@
         /*jshint validthis: true */
         var vm = this;
 
-        vm.normalMode = true;
+        vm.normalMode = false;
         vm.today = settings.today;
         vm.yesterday = settings.yesterday;
         vm.date = settings.today;
+        vm.fromDate = settings.today;
+        vm.toDate = settings.today;
         vm.disableExport = true;
         vm.disableExpand = true;
         vm.generate = function () {

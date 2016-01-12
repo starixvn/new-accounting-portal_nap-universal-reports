@@ -103,7 +103,10 @@
     <None Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\errors.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="app-scripts\directives\date-picker-directive.js" />
+    <Content Include="app-scripts\directives\date-picker.html" />
+    <Content Include="app-scripts\directives\date-picker.js" />
+    <Content Include="app-scripts\directives\month-picker.html" />
+    <Content Include="app-scripts\directives\month-picker.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="images\filter\legend-information-hover.png" />
     <Content Include="images\filter\legend-information.png" />

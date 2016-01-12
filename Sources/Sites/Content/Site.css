@@ -8852,12 +8852,70 @@ button.close {
   color: gray;
 }
 
-/* line 78, ../stylesheets/Site.scss */
+/* line 81, ../stylesheets/Site.scss */
+.month-picker .button-month .glyphicon:hover {
+  color: #337ab7;
+}
+/* line 85, ../stylesheets/Site.scss */
+.month-picker .button-month .glyphicon.glyphicon-chevron-left {
+  margin-right: 5px;
+}
+/* line 89, ../stylesheets/Site.scss */
+.month-picker .button-month .glyphicon.glyphicon-chevron-right {
+  margin-left: 5px;
+}
+/* line 95, ../stylesheets/Site.scss */
+.month-picker .dropdown-month {
+  min-width: 120px;
+  max-height: 400px;
+  overflow-x: auto;
+}
+/* line 100, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl {
+  margin-bottom: 5px;
+}
+/* line 103, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl dt {
+  font-size: 1.2em;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+/* line 108, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl dt:hover {
+  background-color: #f5f5f5;
+  color: #4f82c6;
+}
+/* line 114, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl dd {
+  padding: 3px 20px;
+  cursor: pointer;
+}
+/* line 118, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl dd:hover {
+  background-color: #f5f5f5;
+}
+/* line 122, ../stylesheets/Site.scss */
+.month-picker .dropdown-month > li > dl dd.active {
+  background-color: #337ab7;
+  color: #fff;
+}
+/* line 130, ../stylesheets/Site.scss */
+.month-picker .dropdown-day {
+  min-width: 52px;
+  max-height: 400px;
+  overflow-x: auto;
+}
+/* line 135, ../stylesheets/Site.scss */
+.month-picker .dropdown-day > li > a {
+  padding: 3px 10px;
+}
+
+/* line 141, ../stylesheets/Site.scss */
 .legend-information {
   display: block;
   position: relative;
 }
-/* line 82, ../stylesheets/Site.scss */
+/* line 145, ../stylesheets/Site.scss */
 .legend-information .information-button {
   position: absolute;
   top: 0;
@@ -8869,12 +8927,12 @@ button.close {
   width: 16px;
   height: 16px;
 }
-/* line 93, ../stylesheets/Site.scss */
+/* line 156, ../stylesheets/Site.scss */
 .legend-information .information-button:hover {
   background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
 }
 
-/* line 99, ../stylesheets/Site.scss */
+/* line 162, ../stylesheets/Site.scss */
 .btn-filter {
   color: white;
   font-size: .85em;
@@ -8891,7 +8949,7 @@ button.close {
   -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
 }
-/* line 110, ../stylesheets/Site.scss */
+/* line 173, ../stylesheets/Site.scss */
 .btn-filter:hover {
   color: white;
   background: -webkit-linear-gradient(#486cb8, #6891e8) #6891e8;
@@ -8900,7 +8958,7 @@ button.close {
   -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 116, ../stylesheets/Site.scss */
+/* line 179, ../stylesheets/Site.scss */
 .btn-filter:active, .btn-filter:focus {
   color: white;
   background: -webkit-linear-gradient(#5a7dc1, #486cb8) #486cb8;
@@ -8909,7 +8967,7 @@ button.close {
   -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 122, ../stylesheets/Site.scss */
+/* line 185, ../stylesheets/Site.scss */
 .btn-filter:disabled {
   border: solid 1px darkgray;
   color: #979797;
@@ -8919,11 +8977,11 @@ button.close {
   background: -o-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
 }
 
-/* line 130, ../stylesheets/Site.scss */
+/* line 193, ../stylesheets/Site.scss */
 .filter-note {
   margin-bottom: 5px;
 }
-/* line 133, ../stylesheets/Site.scss */
+/* line 196, ../stylesheets/Site.scss */
 .filter-note .note-button {
   background: transparent;
   padding: 0;
@@ -8932,34 +8990,34 @@ button.close {
   background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
   cursor: pointer;
 }
-/* line 141, ../stylesheets/Site.scss */
+/* line 204, ../stylesheets/Site.scss */
 .filter-note .note-button.collapsed {
   background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
 }
-/* line 146, ../stylesheets/Site.scss */
+/* line 209, ../stylesheets/Site.scss */
 .filter-note .note-body {
   font-size: 11px;
 }
 
-/* line 152, ../stylesheets/Site.scss */
+/* line 215, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-title {
   font-weight: bold;
 }
-/* line 157, ../stylesheets/Site.scss */
+/* line 220, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-body .nav-tabs {
   margin-bottom: 5px;
 }
-/* line 160, ../stylesheets/Site.scss */
+/* line 223, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-body .nav-tabs li {
   font-weight: bold;
 }
 
-/* line 167, ../stylesheets/Site.scss */
+/* line 230, ../stylesheets/Site.scss */
 .page-header {
   text-shadow: 0 1px rgba(0, 0, 0, 0.25);
   padding-bottom: 0;
 }
-/* line 171, ../stylesheets/Site.scss */
+/* line 234, ../stylesheets/Site.scss */
 .page-header .active {
   color: #0136ac;
 }
