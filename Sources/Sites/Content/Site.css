@@ -8953,3 +8953,13 @@ button.close {
 .legend-information-dialog .modal-body .nav-tabs li {
   font-weight: bold;
 }
+
+/* line 167, ../stylesheets/Site.scss */
+.page-header {
+  text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+  padding-bottom: 0;
+}
+/* line 171, ../stylesheets/Site.scss */
+.page-header .active {
+  color: #0136ac;
+}
