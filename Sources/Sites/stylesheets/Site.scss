@@ -147,3 +147,19 @@
         font-size: 11px;
     }
 }
+
+.legend-information-dialog {
+    .modal-title {
+        font-weight: bold;
+    }
+
+    .modal-body {
+        .nav-tabs {
+            margin-bottom: 5px;
+
+            li {
+                font-weight: bold;
+            }
+        }
+    }
+}

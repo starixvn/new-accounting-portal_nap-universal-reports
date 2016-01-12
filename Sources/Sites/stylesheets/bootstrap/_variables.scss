@@ -424,20 +424,20 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          10px 15px !default;
+$nav-link-padding:                          5px 8px !default;
 $nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
 //== Tabs
-$nav-tabs-border-color:                     #ddd !default;
+$nav-tabs-border-color:                     #CEE1EE !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
-$nav-tabs-active-link-hover-bg:             $body-bg !default;
+$nav-tabs-active-link-hover-bg:             #CDDEF2 !default;
 $nav-tabs-active-link-hover-color:          $gray !default;
-$nav-tabs-active-link-hover-border-color:   #ddd !default;
+$nav-tabs-active-link-hover-border-color:   #3361A2 !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
@@ -593,10 +593,10 @@ $label-link-hover-color:      #fff !default;
 //##
 
 //** Padding applied to the modal body
-$modal-inner-padding:         15px !default;
+$modal-inner-padding:         10px !default;
 
 //** Padding applied to the modal title
-$modal-title-padding:         15px !default;
+$modal-title-padding:         10px !default;
 //** Modal title line-height
 $modal-title-line-height:     $line-height-base !default;
 

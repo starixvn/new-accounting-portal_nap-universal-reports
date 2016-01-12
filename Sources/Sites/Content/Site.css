@@ -367,8 +367,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1451893303);
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1451893303#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff2?1451893303) format("woff2"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1451893303) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1451893303) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1451893303#glyphicons_halflingsregular) format("svg");
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1452566583);
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1452566583#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff2?1452566583) format("woff2"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1452566583) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1452566583) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1452566583#glyphicons_halflingsregular) format("svg");
 }
 /* line 24, ../stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -5439,7 +5439,7 @@ tbody.collapse.in {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 5px 8px;
 }
 /* line 23, ../stylesheets/bootstrap/_navs.scss */
 .nav > li > a:hover, .nav > li > a:focus {
@@ -5476,7 +5476,7 @@ tbody.collapse.in {
 
 /* line 76, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #CEE1EE;
 }
 /* line 78, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li {
@@ -5492,13 +5492,13 @@ tbody.collapse.in {
 }
 /* line 89, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li > a:hover {
-  border-color: #eeeeee #eeeeee #ddd;
+  border-color: #eeeeee #eeeeee #CEE1EE;
 }
 /* line 96, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #CDDEF2;
+  border: 1px solid #3361A2;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -7783,7 +7783,7 @@ button.close {
 
 /* line 79, ../stylesheets/bootstrap/_modals.scss */
 .modal-header {
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #e5e5e5;
 }
 /* line 14, ../stylesheets/bootstrap/mixins/_clearfix.scss */
@@ -7810,12 +7810,12 @@ button.close {
 /* line 97, ../stylesheets/bootstrap/_modals.scss */
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 10px;
 }
 
 /* line 103, ../stylesheets/bootstrap/_modals.scss */
 .modal-footer {
-  padding: 15px;
+  padding: 10px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
@@ -8939,4 +8939,17 @@ button.close {
 /* line 146, ../stylesheets/Site.scss */
 .filter-note .note-body {
   font-size: 11px;
+}
+
+/* line 152, ../stylesheets/Site.scss */
+.legend-information-dialog .modal-title {
+  font-weight: bold;
+}
+/* line 157, ../stylesheets/Site.scss */
+.legend-information-dialog .modal-body .nav-tabs {
+  margin-bottom: 5px;
+}
+/* line 160, ../stylesheets/Site.scss */
+.legend-information-dialog .modal-body .nav-tabs li {
+  font-weight: bold;
 }
