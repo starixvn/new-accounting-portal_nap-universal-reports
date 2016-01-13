@@ -58,8 +58,8 @@
 }
 
 @mixin gradient-button($start-color: #486cb8, $end-color: #5a7dc1, $default-color: #5a7dc1) {
+    background: $default-color;
     background: -webkit-linear-gradient($start-color, $end-color) $default-color; // Safari 5.1-6, Chrome 10+
     background: -moz-linear-gradient($start-color, $end-color) $default-color; // Firefox 3.6 to 15
     background: -o-linear-gradient($start-color, $end-color) $default-color; // Opera 12
-    
 }

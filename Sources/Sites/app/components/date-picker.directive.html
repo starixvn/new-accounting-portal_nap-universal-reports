@@ -34,7 +34,7 @@
                             <td class="calendar-date"
                                 data-ng-repeat="date in week.dates"
                                 data-ng-click="vm.changeDate(date)">
-                                <button type="button" style="min-width: 100%" class="btn btn-default btn-sm date-button" data-ng-class="{\'btn-primary\': date.active,'date-past\': date.past,'date-future\': date.future}" data-ng-disabled="date.disabled">{{date.text}}</button>
+                                <button type="button" style="min-width: 100%" class="btn btn-default btn-sm date-button" data-ng-class="{'btn-primary': date.active, 'date-past': date.past, 'date-future': date.future}" data-ng-disabled="date.disabled">{{date.text}}</button>
                             </td>
                         </tr>
                     </tbody>

@@ -22,7 +22,7 @@
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
-        vm.fromDate = config.today;
+        vm.fromDate = moment.utc(config.today).startOf('month').toDate();
         vm.toDate = config.today;
         vm.disableExport = true;
         vm.disableExpand = true;

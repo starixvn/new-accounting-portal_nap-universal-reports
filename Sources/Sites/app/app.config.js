@@ -3,8 +3,13 @@
 
     angular
         .module('companyWinlossApp')
-        .constant('config', {
-            today: new Date(2016, 0, 5),
-            yesterday: new Date(2016, 0, 4)
-        });
+        .constant('config', (function () {
+            var today = moment.utc();
+            var yesterday = moment.utc().subtract(1, 'days');
+            return {
+                today: today.toDate(),
+                yesterday: yesterday.toDate()
+            }
+        })());
+
 })();

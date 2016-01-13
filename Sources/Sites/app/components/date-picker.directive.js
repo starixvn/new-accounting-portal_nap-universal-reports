@@ -3,10 +3,6 @@
 
     angular
         .module('companyWinlossApp')
-        .constant('napDatePickerConfiguration', {
-            minDate: moment('2014-8-25', 'YYYY-MM-DD'),
-            maxDate: moment()
-        })
         .directive('napDatePicker', napDatePicker);
 
     function napDatePicker() {
@@ -23,12 +19,12 @@
         };
         return directive;
 
-        controller.$inject = ['$scope', '$element', '$document', 'napDatePickerConfiguration'];
-        function controller($scope, $element, $document, napDatePickerConfiguration) {
+        controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
+        function controller($scope, $element, $document, moment, config) {
             var vm = this;
             var selectedDate;
-            var minDate = moment.utc(napDatePickerConfiguration.minDate);
-            var maxDate = moment.utc(napDatePickerConfiguration.maxDate);
+            var minDate = moment.utc([2011, 0, 1]);
+            var maxDate = moment.utc(config.today);
             var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');
             var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');
 
@@ -39,19 +35,21 @@
             };
 
             vm.goPreviousMonth = function () {
-                if (vm.previousMonth) {
-                    selectedDate = vm.previousMonth;
-                    correctSelectedDate();
-                    generateModel();
+                if (vm.previousDisabled) {
+                    return;
                 }
+                selectedDate = vm.previousMonth;
+                correctSelectedDate();
+                generateModel();
             };
 
             vm.goNextMonth = function () {
-                if (vm.nextMonth) {
-                    selectedDate = vm.nextMonth;
-                    correctSelectedDate();
-                    generateModel();
+                if (vm.nextDisabled) {
+                    return;
                 }
+                selectedDate = vm.nextMonth;
+                correctSelectedDate();
+                generateModel();
             };
 
             vm.changeMonth = function () {
@@ -121,15 +119,19 @@
 
                 var previousMonth = moment(selectedDate).subtract(1, 'months');
                 vm.previousDisabled = previousMonth.isBefore(startOfMonthOfMinDate);
-                vm.previousMonth = vm.previousDisabled ? null : previousMonth;
+                if (!vm.previousDisabled) {
+                    vm.previousMonth = previousMonth;
+                }
 
                 var nextMonth = moment(selectedDate).add(1, 'months');
                 vm.nextDisabled = nextMonth.isAfter(endOfMonthOfMaxDate);
-                vm.nextMonth = vm.nextDisabled ? null : nextMonth;
+                if (!vm.nextDisabled) {
+                    vm.nextMonth = nextMonth;
+                }
 
                 function generateMonthOptions() {
+                    var monthShortNames = moment.monthsShort();
                     var monthOptions = [];
-                    var shortNames = moment.monthsShort();
                     var date = moment(selectedDate);
                     for (var monthNumber = 0; monthNumber < 12; monthNumber++) {
                         date.month(monthNumber);
@@ -137,9 +139,8 @@
                             continue;
                         }
 
-                        var shortName = shortNames[monthNumber];
                         monthOptions.push({
-                            name: shortName,
+                            name: monthShortNames[monthNumber],
                             value: monthNumber
                         });
                     }
@@ -159,12 +160,12 @@
                 }
 
                 function generateDayHeaders() {
+                    var dayShortNames = moment.weekdaysMin();
+                    var dayFullNames = moment.weekdays();
                     var dayHeaders = [];
-                    var shortNames = moment.weekdaysMin();
-                    var fullNames = moment.weekdays();
                     for (var dayNumber = 0; dayNumber < 7; dayNumber++) {
-                        var shortName = shortNames[dayNumber];
-                        var fullName = fullNames[dayNumber];
+                        var shortName = dayShortNames[dayNumber];
+                        var fullName = dayFullNames[dayNumber];
                         var weekend = dayNumber === 0 || dayNumber === 6;
                         dayHeaders.push({
                             name: shortName,

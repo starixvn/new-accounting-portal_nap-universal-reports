@@ -8852,70 +8852,57 @@ button.close {
   color: gray;
 }
 
-/* line 81, ../stylesheets/Site.scss */
-.month-picker .button-month .glyphicon:hover {
-  color: #337ab7;
-}
-/* line 85, ../stylesheets/Site.scss */
-.month-picker .button-month .glyphicon.glyphicon-chevron-left {
-  margin-right: 5px;
-}
-/* line 89, ../stylesheets/Site.scss */
-.month-picker .button-month .glyphicon.glyphicon-chevron-right {
-  margin-left: 5px;
-}
-/* line 95, ../stylesheets/Site.scss */
+/* line 79, ../stylesheets/Site.scss */
 .month-picker .dropdown-month {
   min-width: 120px;
-  max-height: 400px;
   overflow-x: auto;
 }
-/* line 100, ../stylesheets/Site.scss */
+/* line 83, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl {
   margin-bottom: 5px;
 }
-/* line 103, ../stylesheets/Site.scss */
+/* line 86, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl dt {
   font-size: 1.2em;
   padding: 3px 10px;
   cursor: pointer;
 }
-/* line 108, ../stylesheets/Site.scss */
+/* line 91, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl dt:hover {
   background-color: #f5f5f5;
   color: #4f82c6;
 }
-/* line 114, ../stylesheets/Site.scss */
+/* line 97, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl dd {
   padding: 3px 20px;
   cursor: pointer;
 }
-/* line 118, ../stylesheets/Site.scss */
+/* line 101, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl dd:hover {
   background-color: #f5f5f5;
 }
-/* line 122, ../stylesheets/Site.scss */
+/* line 105, ../stylesheets/Site.scss */
 .month-picker .dropdown-month > li > dl dd.active {
   background-color: #337ab7;
   color: #fff;
 }
-/* line 130, ../stylesheets/Site.scss */
+/* line 113, ../stylesheets/Site.scss */
 .month-picker .dropdown-day {
   min-width: 52px;
   max-height: 400px;
   overflow-x: auto;
 }
-/* line 135, ../stylesheets/Site.scss */
+/* line 118, ../stylesheets/Site.scss */
 .month-picker .dropdown-day > li > a {
   padding: 3px 10px;
 }
 
-/* line 141, ../stylesheets/Site.scss */
+/* line 124, ../stylesheets/Site.scss */
 .legend-information {
   display: block;
   position: relative;
 }
-/* line 145, ../stylesheets/Site.scss */
+/* line 128, ../stylesheets/Site.scss */
 .legend-information .information-button {
   position: absolute;
   top: 0;
@@ -8927,12 +8914,12 @@ button.close {
   width: 16px;
   height: 16px;
 }
-/* line 156, ../stylesheets/Site.scss */
+/* line 139, ../stylesheets/Site.scss */
 .legend-information .information-button:hover {
   background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
 }
 
-/* line 162, ../stylesheets/Site.scss */
+/* line 145, ../stylesheets/Site.scss */
 .btn-filter {
   color: white;
   font-size: .85em;
@@ -8940,6 +8927,7 @@ button.close {
   text-transform: uppercase;
   text-shadow: 0 1px rgba(0, 0, 0, 0.5);
   border: solid 1px #3c5b9b;
+  background: #5a7dc1;
   background: -webkit-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
   background: -moz-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
   background: -o-linear-gradient(#486cb8, #5a7dc1) #5a7dc1;
@@ -8949,39 +8937,42 @@ button.close {
   -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
   box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.25);
 }
-/* line 173, ../stylesheets/Site.scss */
+/* line 156, ../stylesheets/Site.scss */
 .btn-filter:hover {
   color: white;
+  background: #6891e8;
   background: -webkit-linear-gradient(#486cb8, #6891e8) #6891e8;
   background: -moz-linear-gradient(#486cb8, #6891e8) #6891e8;
   background: -o-linear-gradient(#486cb8, #6891e8) #6891e8;
   -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 179, ../stylesheets/Site.scss */
+/* line 162, ../stylesheets/Site.scss */
 .btn-filter:active, .btn-filter:focus {
   color: white;
+  background: #486cb8;
   background: -webkit-linear-gradient(#5a7dc1, #486cb8) #486cb8;
   background: -moz-linear-gradient(#5a7dc1, #486cb8) #486cb8;
   background: -o-linear-gradient(#5a7dc1, #486cb8) #486cb8;
   -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 185, ../stylesheets/Site.scss */
+/* line 168, ../stylesheets/Site.scss */
 .btn-filter:disabled {
   border: solid 1px darkgray;
   color: #979797;
   text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  background: #e5e5e5;
   background: -webkit-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
   background: -moz-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
   background: -o-linear-gradient(#d0d0d0, #e5e5e5) #e5e5e5;
 }
 
-/* line 193, ../stylesheets/Site.scss */
+/* line 176, ../stylesheets/Site.scss */
 .filter-note {
   margin-bottom: 5px;
 }
-/* line 196, ../stylesheets/Site.scss */
+/* line 179, ../stylesheets/Site.scss */
 .filter-note .note-button {
   background: transparent;
   padding: 0;
@@ -8990,34 +8981,34 @@ button.close {
   background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
   cursor: pointer;
 }
-/* line 204, ../stylesheets/Site.scss */
+/* line 187, ../stylesheets/Site.scss */
 .filter-note .note-button.collapsed {
   background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
 }
-/* line 209, ../stylesheets/Site.scss */
+/* line 192, ../stylesheets/Site.scss */
 .filter-note .note-body {
   font-size: 11px;
 }
 
-/* line 215, ../stylesheets/Site.scss */
+/* line 198, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-title {
   font-weight: bold;
 }
-/* line 220, ../stylesheets/Site.scss */
+/* line 203, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-body .nav-tabs {
   margin-bottom: 5px;
 }
-/* line 223, ../stylesheets/Site.scss */
+/* line 206, ../stylesheets/Site.scss */
 .legend-information-dialog .modal-body .nav-tabs li {
   font-weight: bold;
 }
 
-/* line 230, ../stylesheets/Site.scss */
+/* line 213, ../stylesheets/Site.scss */
 .page-header {
   text-shadow: 0 1px rgba(0, 0, 0, 0.25);
   padding-bottom: 0;
 }
-/* line 234, ../stylesheets/Site.scss */
+/* line 217, ../stylesheets/Site.scss */
 .page-header .active {
   color: #0136ac;
 }

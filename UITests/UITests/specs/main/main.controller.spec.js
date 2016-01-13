@@ -1,3 +1,4 @@
+/// <reference path="../../../../sources/sites/scripts/moment.min.js" />
 /// <reference path="../../../../sources/sites/scripts/angular.min.js" />
 /// <reference path="../../../../sources/sites/scripts/angular-route.min.js" />
 /// <reference path="../../../../sources/sites/scripts/angular-mocks.js" />

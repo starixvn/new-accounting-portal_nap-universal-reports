@@ -20,9 +20,17 @@
         };
         return directive;
 
-        controller.$inject = ['$log'];
-        function controller($log) {
+        controller.$inject = ['$log', 'moment', 'config'];
+        function controller($log, moment, config) {
             var vm = this;
+            var minDate = moment.utc(config.today).subtract(2, 'years');
+            var monthOfMinDate = minDate.month();
+            var yearOfMinDate = minDate.year();
+            var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');
+            var maxDate = moment.utc(config.today);
+            var monthOfMaxDate = maxDate.month();
+            var yearOfMaxDate = maxDate.year();
+            var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');
             var fromDate = moment.utc(vm.fromDate);
             var toDate = moment.utc(vm.toDate);
             if (fromDate.year() !== toDate.year() || fromDate.month() !== toDate.month()) {
@@ -34,26 +42,40 @@
 
             vm.goPreviousMonth = function ($event, year, month) {
                 $event.stopPropagation();
+                if (vm.previousDisabled) {
+                    return;
+                }
+
                 vm.selectMonth(year, month);
             };
 
             vm.goNextMonth = function ($event, year, month) {
                 $event.stopPropagation();
+                if (vm.nextDisabled) {
+                    return;
+                }
+
                 vm.selectMonth(year, month);
             };
 
-            vm.selectFromDay = function (day) {
+            vm.selectFromDay = function ($event, day) {
+                $event.preventDefault();
                 vm.fromDay = day;
+                fromDate.date(vm.fromDay);
                 if (vm.toDay < vm.fromDay) {
                     vm.toDay = vm.fromDay;
+                    toDate.date(vm.toDay);
                 }
                 updateScope();
             };
 
-            vm.selectToDay = function (day) {
+            vm.selectToDay = function ($event, day) {
+                $event.preventDefault();
                 vm.toDay = day;
+                toDate.date(vm.toDay);
                 if (vm.toDay < vm.fromDay) {
                     vm.fromDay = vm.toDay;
+                    fromDate.date(vm.fromDay);
                 }
                 updateScope();
             };
@@ -66,33 +88,44 @@
             };
 
             vm.selectMonth = function (year, month) {
-                fromDate = moment.utc([year, month, 1]);
-                toDate = moment(fromDate).endOf('month');
+                var fromDay = year === yearOfMinDate && month === monthOfMinDate ? minDate.date() : 1;
+                fromDate = moment.utc([year, month, fromDay]);
+                var toDay = year === yearOfMaxDate && month === monthOfMaxDate ? maxDate.date() : fromDate.daysInMonth();
+                toDate = moment.utc([year, month, toDay]);
                 generateModel();
                 updateScope();
             };
 
             function generateModel() {
-                var previousMonth = moment(fromDate).subtract(1, 'months');
-                var nextMonth = moment(fromDate).add(1, 'months');
-                vm.previousMonth = previousMonth.month();
-                vm.previousYear = previousMonth.year();
-                vm.nextMonth = nextMonth.month();
-                vm.nextYear = nextMonth.year();
+                var previousMonth = moment(fromDate).subtract(1, 'months').startOf('month');
+                var nextMonth = moment(fromDate).add(1, 'months').endOf('month');
                 vm.year = fromDate.year();
                 vm.month = fromDate.month();
                 vm.text = fromDate.format('MMM YYYY');
                 vm.years = generateYears();
+                vm.fromDay = fromDate.date();
+                vm.toDay = toDate.date();
                 vm.daysOfMonth = generateDaysOfMonth();
-                vm.fromDay = vm.daysOfMonth[fromDate.date() - 1];
-                vm.toDay = vm.daysOfMonth[toDate.date() - 1];
+
+                vm.previousDisabled = previousMonth.isBefore(startOfMonthOfMinDate);
+                if (!vm.previousDisabled) {
+                    vm.previousMonth = previousMonth.month();
+                    vm.previousYear = previousMonth.year();
+                }
+                vm.nextDisabled = nextMonth.isAfter(endOfMonthOfMaxDate);
+                if (!vm.nextDisabled) {
+                    vm.nextMonth = nextMonth.month();
+                    vm.nextYear = nextMonth.year();
+                }
 
                 function generateYears() {
-                    var years = [];
                     var monthFullNames = moment.months();
-                    for (var yearNumber = 2014; yearNumber <= 2016; yearNumber++) {
+                    var years = [];
+                    for (var yearNumber = yearOfMinDate; yearNumber <= yearOfMaxDate; yearNumber++) {
                         var months = [];
-                        for (var monthNumber = 0; monthNumber < 12; monthNumber++) {
+                        var minMonth = yearNumber === yearOfMinDate ? monthOfMinDate : 0;
+                        var maxMonth = yearNumber === yearOfMaxDate ? monthOfMaxDate : 11;
+                        for (var monthNumber = minMonth; monthNumber <= maxMonth; monthNumber++) {
                             months.push({
                                 value: monthNumber,
                                 text: monthFullNames[monthNumber]
@@ -110,8 +143,7 @@
 
                 function generateDaysOfMonth() {
                     var daysOfMonth = [];
-                    var maxDay = fromDate.daysInMonth();
-                    for (var dayNumber = 1; dayNumber <= maxDay; dayNumber++) {
+                    for (var dayNumber = vm.fromDay; dayNumber <= vm.toDay; dayNumber++) {
                         daysOfMonth.push(dayNumber);
                     }
 

@@ -10,10 +10,11 @@
     'use strict';
 
     angular
-      .module('companyWinlossApp', [
-        'ngRoute'
-      ])
-      .config(config);
+        .module('companyWinlossApp', [
+            'ngRoute'
+        ])
+        .constant('moment', moment)
+        .config(config);
 
     function config($routeProvider) {
         $routeProvider

@@ -1,10 +1,18 @@
 ﻿<div class="form-group month-picker">
     <label>Month</label>
-    <div class="btn-group">
-        <button class="btn btn-sm btn-default button-month" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span class="glyphicon glyphicon-chevron-left" data-ng-click="vm.goPreviousMonth($event, vm.previousYear, vm.previousMonth)"></span>
-            <span class="month-text">{{vm.text}}</span>
-            <span class="glyphicon glyphicon-chevron-right" data-ng-click="vm.goNextMonth($event, vm.nextYear, vm.nextMonth)"></span>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-default"
+                data-ng-disabled="vm.previousDisabled"
+                data-ng-click="vm.goPreviousMonth($event, vm.previousYear, vm.previousMonth)">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
+        <button type="button" class="btn btn-default button-month" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{vm.text}}
+        </button>
+        <button type="button" class="btn btn-default"
+                data-ng-disabled="vm.nextDisabled"
+                data-ng-click="vm.goNextMonth($event, vm.nextYear, vm.nextMonth)">
+            <span class="glyphicon glyphicon-chevron-right"></span>
         </button>
         <ul class="dropdown-menu dropdown-month">
             <li data-ng-repeat="year in vm.years track by year.value">
@@ -20,6 +28,7 @@
             </li>
         </ul>
     </div>
+
     <label>from</label>
     <div class="btn-group">
         <button class="btn btn-sm btn-default button-day-to" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -28,7 +37,7 @@
         </button>
         <ul class="dropdown-menu dropdown-day">
             <li data-ng-repeat="day in vm.daysOfMonth track by day" data-ng-class="{active: day===vm.fromDay}">
-                <a href="#" data-ng-click="vm.selectFromDay(day)">{{day}}</a>
+                <a href="#" data-ng-click="vm.selectFromDay($event, day)">{{day}}</a>
             </li>
         </ul>
     </div>
@@ -40,7 +49,7 @@
         </button>
         <ul class="dropdown-menu dropdown-day">
             <li data-ng-repeat="day in vm.daysOfMonth track by day" data-ng-class="{active: day===vm.toDay}">
-                <a href="#" data-ng-click="vm.selectToDay(day)">{{day}}</a>
+                <a href="#" data-ng-click="vm.selectToDay($event, day)">{{day}}</a>
             </li>
         </ul>
     </div>

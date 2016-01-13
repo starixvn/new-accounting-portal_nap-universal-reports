@@ -76,25 +76,8 @@
 }
 
 .month-picker {
-    .button-month {
-        .glyphicon {
-            &:hover {
-                color: #337ab7;
-            }
-
-            &.glyphicon-chevron-left {
-                margin-right: 5px;
-            }
-
-            &.glyphicon-chevron-right {
-                margin-left: 5px;
-            }
-        }
-    }
-
     .dropdown-month {
         min-width: 120px;
-        max-height: 400px;
         overflow-x: auto;
 
         & > li > dl {
