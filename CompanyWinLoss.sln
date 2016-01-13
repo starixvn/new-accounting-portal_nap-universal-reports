@@ -34,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Sources\Service
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{DE058F5A-050F-4458-B87B-01567F1F5631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "BackendTests\Services.IntegrationTests\Services.Tests.csproj", "{F6ACA125-6A4A-42A3-8170-95470C68D7A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "BackendTests\Services.Tests\Services.Tests.csproj", "{F6ACA125-6A4A-42A3-8170-95470C68D7A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

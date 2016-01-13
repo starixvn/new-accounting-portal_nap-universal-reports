@@ -17,7 +17,7 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("Integration-Data-Service")]
+        [Category("IntegrationDataService")]
         public void QueryBalanceUp_Successful()
         {
             // Arrange
@@ -29,7 +29,7 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("Integration-Data-Service")]
+        [Category("IntegrationDataService")]
         public void QueryBalanceUp_Twice_CallDynamicRepository_One()
         {
             // Arrange

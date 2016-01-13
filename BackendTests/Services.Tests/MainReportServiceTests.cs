@@ -12,7 +12,7 @@ namespace NAP.Reports.Services.Tests
         protected const string Sportsbook = "Sportsbook";
 
         [Test]
-        [Category("Integration-Data-Service")]
+        [Category("IntegrationDataService")]
         public void Query_DateRangeForThreeSources()
         {
             // Arrange
@@ -23,7 +23,7 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("Integration-Data-Service")]
+        [Category("IntegrationDataService")]
         public void QueryAync_DateRangeForThreeSources()
         {
             // Arrange

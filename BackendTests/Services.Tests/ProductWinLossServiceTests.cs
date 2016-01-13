@@ -6,20 +6,20 @@ using NUnit.Framework;
 
 namespace NAP.Reports.Services.Tests
 {
-    public class SportsbookWinLossServiceTests : ReportServiceBaseTests
+    public class ProductWinLossServiceTests : ReportServiceBaseTests
     {
         [Test]
-        [Category("Integration-Data-Service")]
+        [Category("IntegrationDataService")]
         public void Query_DateRangeForThreeSources()
         {
             // Arrange
-            var sportsbookWinLossService = CreateSportsbookWinLossService();
+            var productWinLossService = CreateProductWinLossService();
 
             // Act
-            sportsbookWinLossService.Query(MainReportQuery);
+            productWinLossService.Query("NumberGame", MainReportQuery);
         }
 
-        private SportsbookWinLossService CreateSportsbookWinLossService()
+        private ProductWinLossService CreateProductWinLossService()
         {
             var balanceUpService = Substitute.For<IBalanceUpService>();
             balanceUpService.Query().Returns(BalanceUpRange);
@@ -27,7 +27,7 @@ namespace NAP.Reports.Services.Tests
 
             var dynamicRepository = new DynamicRepository();
             var calculationService = new CalculationService();
-            return new SportsbookWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
+            return new ProductWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
         }
     }
 }
