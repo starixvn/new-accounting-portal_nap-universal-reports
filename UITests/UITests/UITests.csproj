@@ -51,6 +51,7 @@
     <Content Include="Scripts\jasmine-html.js" />
     <Content Include="Scripts\jasmine.js" />
     <Content Include="specs\main\main.controller.spec.js" />
+    <Content Include="spec\controllers\main.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
