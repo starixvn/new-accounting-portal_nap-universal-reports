@@ -181,10 +181,11 @@
     <None Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\errors.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="app-scripts\directives\date-picker.html" />
-    <Content Include="app-scripts\directives\date-picker.js" />
-    <Content Include="app-scripts\directives\month-picker.html" />
-    <Content Include="app-scripts\directives\month-picker.js" />
+    <Content Include="app\app.config.js" />
+    <Content Include="app\components\date-picker.directive.html" />
+    <Content Include="app\components\date-picker.directive.js" />
+    <Content Include="app\components\month-picker.directive.html" />
+    <Content Include="app\components\month-picker.directive.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="images\filter\legend-information-hover.png" />
     <Content Include="images\filter\legend-information.png" />
@@ -289,11 +290,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app-scripts\app.js" />
-    <Content Include="app-scripts\controllers\filter.js" />
-    <Content Include="app-scripts\controllers\main.js" />
-    <Content Include="app-scripts\values\constants.js" />
-    <Content Include="app-scripts\views\filter.html" />
+    <Content Include="app\app.js" />
+    <Content Include="app\main\main.controller.js" />
+    <Content Include="app\main\main.html" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="javascripts\bootstrap-sprockets.js" />

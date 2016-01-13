@@ -12,7 +12,7 @@
     function napDatePicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: '/app-scripts/directives/date-picker.html',
+            templateUrl: '/app/components/date-picker.directive.html',
             scope: {
                 ngModel: '='
             },

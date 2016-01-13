@@ -50,7 +50,7 @@
     <Content Include="css\jasmine.css" />
     <Content Include="Scripts\jasmine-html.js" />
     <Content Include="Scripts\jasmine.js" />
-    <Content Include="spec\controllers\filter.js" />
+    <Content Include="specs\main\main.controller.spec.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

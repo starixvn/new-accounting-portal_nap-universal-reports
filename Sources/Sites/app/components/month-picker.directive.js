@@ -8,7 +8,7 @@
     function napMonthPicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: '/app-scripts/directives/month-picker.html',
+            templateUrl: '/app/components/month-picker.directive.html',
             scope: {
                 fromDate: '=',
                 toDate: '='

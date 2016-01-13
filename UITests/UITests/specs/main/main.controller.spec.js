@@ -1,31 +1,31 @@
-/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular.js" />
-/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular-route.js" />
-/// <reference path="../../../../nap.reports.companywinloss.site/scripts/angular-mocks.js" />
+/// <reference path="../../../../sources/sites/scripts/angular.min.js" />
+/// <reference path="../../../../sources/sites/scripts/angular-route.min.js" />
+/// <reference path="../../../../sources/sites/scripts/angular-mocks.js" />
 /// <reference path="../../scripts/jasmine.js" />
 /// <reference path="../../scripts/jasmine-html.js" />
-/// <reference path="../../../../nap.reports.companywinloss.site/app-scripts/app.js" />
-/// <reference path="../../../../nap.reports.companywinloss.site/app-scripts/values/constants.js" />
-/// <reference path="../../../../nap.reports.companywinloss.site/app-scripts/controllers/filter.js" />
+/// <reference path="../../../../sources/sites/app/app.js" />
+/// <reference path="../../../../sources/sites/app/app.config.js" />
+/// <reference path="../../../../sources/sites/app/main/main.controller.js" />
 
-describe('Controller: FilterCtrl', function () {
+describe('Controller: MainController', function () {
     var controller,
         settings;
 
     // load the controller's module
     beforeEach(function () {
         module('companyWinlossApp', function ($provide) {
-            settings = {
+            config = {
                 today: new Date(2016, 0, 5),
                 yesterday: new Date(2016, 0, 4)
             };
-            $provide.constant('settings', settings);
+            $provide.constant('config', config);
         });
     });
 
     // Initialize the controller and a mock scope
     beforeEach(function () {
         inject(function ($controller) {
-            controller = $controller('FilterCtrl');
+            controller = $controller('MainController');
         });
     });
 
@@ -39,8 +39,12 @@ describe('Controller: FilterCtrl', function () {
             expect(controller.disableExpand).toBe(true);
         });
 
+        it('the current mode is normal', function () {
+            expect(controller.normalMode).toBe(true);
+        });
+
         it('the selected date is today', function () {
-            expect(controller.date).toBe(settings.today);
+            expect(controller.date).toBe(config.today);
         });
     });
 
@@ -61,7 +65,7 @@ describe('Controller: FilterCtrl', function () {
 
         it('the selected date is today', function () {
             controller.todayClicked();
-            expect(controller.date).toBe(settings.today);
+            expect(controller.date).toBe(config.today);
         });
     });
 
@@ -74,7 +78,21 @@ describe('Controller: FilterCtrl', function () {
 
         it('the selected date is yesterday', function () {
             controller.yesterdayClicked();
-            expect(controller.date).toBe(settings.yesterday);
+            expect(controller.date).toBe(config.yesterday);
+        });
+    });
+
+    describe('after the button history is clicked', function () {
+        it('the current mode is history', function () {
+            controller.viewHistoryMode();
+            expect(controller.normalMode).toBe(false);
+        });
+    });
+
+    describe('after the button back is clicked', function () {
+        it('the current mode is normal', function () {
+            controller.viewNormalMode();
+            expect(controller.normalMode).toBe(true);
         });
     });
 });

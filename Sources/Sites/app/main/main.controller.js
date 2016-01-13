@@ -10,20 +10,20 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('FilterCtrl', FilterController);
+        .controller('MainController', MainController);
 
-    FilterController.$inject = ['settings'];
+    MainController.$inject = ['config'];
 
-    function FilterController(settings) {
+    function MainController(config) {
         /*jshint validthis: true */
         var vm = this;
 
-        vm.normalMode = false;
-        vm.today = settings.today;
-        vm.yesterday = settings.yesterday;
-        vm.date = settings.today;
-        vm.fromDate = settings.today;
-        vm.toDate = settings.today;
+        vm.normalMode = true;
+        vm.today = config.today;
+        vm.yesterday = config.yesterday;
+        vm.date = config.today;
+        vm.fromDate = config.today;
+        vm.toDate = config.today;
         vm.disableExport = true;
         vm.disableExpand = true;
         vm.generate = function () {

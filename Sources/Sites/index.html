@@ -10,19 +10,18 @@
         <div class="page-header">
             <h4>Main / <span class="active">Company Win Loss By Products</span></h4>
         </div>
-        <div data-ng-include="'/app-scripts/views/filter.html'"></div>
+        <div data-ng-view></div>
     </div>
     <script src="Scripts/jquery-2.1.4.min.js"></script>
     <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
-    <script src="Scripts/jquery.nexDatePicker.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
-    <script src="app-scripts/app.js"></script>
-    <script src="app-scripts/values/constants.js"></script>
-    <script src="app-scripts/directives/date-picker.js"></script>
-    <script src="app-scripts/directives/month-picker.js"></script>
-    <script src="app-scripts/controllers/filter.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/components/date-picker.directive.js"></script>
+    <script src="app/components/month-picker.directive.js"></script>
+    <script src="app/main/main.controller.js"></script>
 </body>
 </html>
