@@ -1,5 +1,4 @@
-﻿using NAP.Reports.CompanyWinLoss.Models;
-using NAP.Reports.CompanyWinLoss.Services.Models;
+﻿using NAP.Reports.CompanyWinLoss.Services.Models;
 using System;
 using System.Collections.Generic;
 
@@ -7,15 +6,17 @@ namespace NAP.Reports.CompanyWinLoss.Services
 {
     public class BalanceUpSourceChooser : IBalanceUpSourceChooser
     {
-        private BalanceUpRange _balanceUpRange;
+        private IBalanceUpService _balanceUpService;
 
-        public BalanceUpSourceChooser(BalanceUpRange balaceUpRange)
+        public BalanceUpSourceChooser(IBalanceUpService balanceUpService)
         {
-            _balanceUpRange = balaceUpRange;
+            _balanceUpService = balanceUpService;
         }
 
         public IEnumerable<BalanceUpSource> Determine(DateTime startDate, DateTime endDate)
         {
+            var _balanceUpRange = _balanceUpService.Query();
+
             if (startDate > _balanceUpRange.MoveBetsDate)
             {
                 yield return new BalanceUpSource { StartDate = startDate, EndDate = endDate, Source = "BetTrans" };
@@ -41,7 +42,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
                     yield return new BalanceUpSource { StartDate = _balanceUpRange.BalanceUpDate, EndDate = _balanceUpRange.MoveBetsDate, Source = "BetTrans14" };
                 }
 
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = _balanceUpRange.BalanceUpDate.AddDays(-1), Source = "DataWarehouse" };
+                yield return new BalanceUpSource { StartDate = startDate, EndDate = _balanceUpRange.BalanceUpDate.AddDays(-1), Source = "Warehouse" };
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
@@ -8,6 +10,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         private const string NumberGame = "Number Game";
 
         [Test]
+        [Category("CalculationServiceUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -23,6 +26,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
+        [Category("CalculationServiceUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -37,6 +41,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
+        [Category("CalculationServiceUnitTests")]
         public void FromRawWinLoss_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
@@ -53,6 +58,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
+        [Category("CalculationServiceUnitTests")]
         public void CalculateTotal_ReturnsRightTotalValue()
         {
             // Arrange
@@ -70,6 +76,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
+        [Category("CalculationServiceUnitTests")]
         public void CalculateSum_TwoWinLoss_ReturnsRightSumValue()
         {
             // Arrange
@@ -86,6 +93,67 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Assert
             var areEqual = WinLossComparision.AreTwoWinLossEqual(expectedSum, result);
             Assert.True(areEqual);
+        }
+
+        [Test]
+        [Category("CalculationServiceUnitTests")]
+        public void CalculateSum_TwoArrayWithTwoItems_ReturnsRightSumValue()
+        {
+            // Arrange
+            var expectedSum = new List<WinLoss>
+            {
+                WinLossFactory.CreateWinLoss("Deposit", 210, 410, 30, 610, 810, -200, 2100, 2500, 610.0m / 2100, 810.0m / 2500),
+                WinLossFactory.CreateWinLoss("Credit", 210, 410, 30, 610, 810, -200, 2100, 2500, 610.0m / 2100, 810.0m / 2500),
+            };
+
+            var deposit1 = WinLossFactory.CreateWinLoss("Deposit", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
+            var deposit2 = WinLossFactory.CreateWinLoss("Deposit", 110, 210, 20, 310, 410, -100, 1100, 1300, 310m / 1100, 410m / 1300);
+            var credit1 = WinLossFactory.CreateWinLoss("Credit", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
+            var credit2 = WinLossFactory.CreateWinLoss("Credit", 110, 210, 20, 310, 410, -100, 1100, 1300, 310m / 1100, 410m / 1300);
+
+            var group1 = new WinLoss[] { deposit1, credit1 };
+            var group2 = new WinLoss[] { deposit2, credit2 };
+            var winlosses = new[] { group1, group2 };
+
+            // Act
+            var calculationService = new CalculationService();
+            var result = calculationService.CalculateSum(winlosses).ToList<WinLoss>();
+
+            // Assert
+            var areEqual1 = WinLossComparision.AreTwoWinLossEqual(expectedSum[0], result[0]);
+            var areEqual2 = WinLossComparision.AreTwoWinLossEqual(expectedSum[1], result[1]);
+            Assert.True(areEqual1);
+            Assert.True(areEqual2);
+        }
+
+        [Test]
+        [Category("CalculationServiceUnitTests")]
+        public void CalculateSum_ArrayWithTwoItemsAndArrayWithOneItem_ReturnsRightSumValue()
+        {
+            // Arrange
+            var expectedSum = new List<WinLoss>
+            {
+                WinLossFactory.CreateWinLoss("Deposit", 210, 410, 30, 610, 810, -200, 2100, 2500, 610.0m / 2100, 810.0m / 2500),
+                WinLossFactory.CreateWinLoss("Credit", 100, 200, 10, 300, 400, -100, 1000, 1200, 300.0m / 1000, 400.0m / 1200),
+            };
+
+            var deposit1 = WinLossFactory.CreateWinLoss("Deposit", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
+            var deposit2 = WinLossFactory.CreateWinLoss("Deposit", 110, 210, 20, 310, 410, -100, 1100, 1300, 310m / 1100, 410m / 1300);
+            var credit1 = WinLossFactory.CreateWinLoss("Credit", 100, 200, 10, 300, 400, -100, 1000, 1200, 300m / 1000, 400m / 1200);
+
+            var group1 = new WinLoss[] { deposit1, credit1 };
+            var group2 = new WinLoss[] { deposit2 };
+            var winlosses = new[] { group1, group2 };
+
+            // Act
+            var calculationService = new CalculationService();
+            var result = calculationService.CalculateSum(winlosses).ToList<WinLoss>();
+
+            // Assert
+            var areEqual1 = WinLossComparision.AreTwoWinLossEqual(expectedSum[0], result[0]);
+            var areEqual2 = WinLossComparision.AreTwoWinLossEqual(expectedSum[1], result[1]);
+            Assert.True(areEqual1);
+            Assert.True(areEqual2);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NAP.Reports.CompanyWinLoss.QueryModels;
 using NAP.Reports.CompanyWinLoss.Services.MainReport;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace NAP.Reports.CompanyWinLoss.Controllers
@@ -14,11 +15,11 @@ namespace NAP.Reports.CompanyWinLoss.Controllers
             _service = service;
         }
 
-        public MainReportWinLoss Values(MainReportQuery query)
+        public async Task<MainReportWinLoss> Values(MainReportQuery query)
         {
             return ModelState.IsValid
-                ? _service.Query(query)
-                : null;
+                ? await _service.QueryAsync(query)
+                : await Task.FromResult<MainReportWinLoss>(null);
         }
     }
 }

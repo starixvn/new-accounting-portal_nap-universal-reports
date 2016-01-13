@@ -35,8 +35,28 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Couchbase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81137140da4e57ef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Couchbase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.12.0.0, Culture=neutral, PublicKeyToken=81137140da4e57ef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Enyim.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Caching, Version=1.0.404.95, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Fanex.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Caching.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -69,8 +89,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="BalanceUpService.cs" />
     <Compile Include="BalanceUpSourceChooser.cs" />
+    <Compile Include="Criteria\BalanceUpCriteria.cs" />
+    <Compile Include="IBalanceUpService.cs" />
     <Compile Include="IBalanceUpSourceChooser.cs" />
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="MainReport\ISportsbookWinLossService.cs" />
     <Compile Include="MainReport\SportsbookWinLossDetailCriteria.cs" />
     <Compile Include="MainReport\ProductWinLossCriteria.cs" />
@@ -97,14 +122,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="NAP.Reports.CompanyWinLoss.Services.csproj.orig" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Criteria\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

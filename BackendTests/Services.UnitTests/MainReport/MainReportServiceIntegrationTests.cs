@@ -1,21 +1,27 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
 using NAP.Reports.CompanyWinLoss.Services.MainReport;
+using NSubstitute;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
 {
     public class MainReportServiceIntegrationTests : MainReportServiceBaseTests
     {
         [Test]
+        [Category("ServiceUnitTests")]
         public void Query_SportsbookAndNumberGame_CalculateRightGrandTotal()
         {
             // Arrange   
             var expectedGrandTotal = CreateExpectedGrandTotal();
             var calculationService = new CalculationService();
+            var configuration = Substitute.For<IConfiguration>();
+            configuration.Products.Returns(new List<string> { "Sportsbook", "NumberGame" });
+
             Initialize();
 
             // Act 
-            MainReportService = new MainReportService(SportsbookWinLossService, ProductWinLossService, calculationService, NumberGame);
+            MainReportService = new MainReportService(SportsbookWinLossService, ProductWinLossService, calculationService, configuration);
             var result = MainReportService.Query(Query);
 
             // Assert

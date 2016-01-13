@@ -15,5 +15,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
         WinLoss CalculateSum(string totalTitle, IEnumerable<WinLoss> winlosses);
 
         WinLoss CreateEmptyWinLoss(string title);
+
+        IEnumerable<WinLoss> CalculateSum(IEnumerable<IEnumerable<WinLoss>> twoDimensionWinLosses);
     }
 }

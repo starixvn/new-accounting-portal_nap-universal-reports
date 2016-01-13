@@ -9,14 +9,18 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
     public class MainReportServiceUnitTests : MainReportServiceBaseTests
     {
         [Test]
+        [Category("ServiceUnitTests")]
         public void Query_SportsbookAndNumberGame_CallAllOtherServices()
         {
             // Arrange            
             var calculationService = Substitute.For<ICalculationService>();
+            var configuration = Substitute.For<IConfiguration>();
+            configuration.Products.Returns(new List<string> { "Sportsbook", "NumberGame" });
+
             Initialize();
 
             // Act 
-            MainReportService = new MainReportService(SportsbookWinLossService, ProductWinLossService, calculationService, NumberGame);
+            MainReportService = new MainReportService(SportsbookWinLossService, ProductWinLossService, calculationService, configuration);
             var result = MainReportService.Query(Query);
 
             // Assert

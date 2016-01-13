@@ -9,9 +9,12 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
 
         public DateTime EndDate { get; set; }
 
+        [SpParam(Ignored = true)]
+        public string Source { get; set; }
+
         public override string GetSettingKey()
         {
-            return "MainReport-SportsbookWinLossDetail";
+            return $"CompanyWinLoss-Main-SportsbookDetail-{Source}";
         }
 
         public override bool IsValid()

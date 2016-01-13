@@ -6,9 +6,7 @@ namespace NAP.Reports.CompanyWinLoss.Models.MainReport
     {
         public List<WinLoss> SportsbookDetail { get; set; }
 
-        public ProductWinLoss Sportsbook { get; set; }
-
-        public List<ProductWinLoss> OtherProducts { get; set; }
+        public List<ProductWinLoss> Products { get; set; }
 
         public ProductWinLoss GrandTotal { get; set; }
     }

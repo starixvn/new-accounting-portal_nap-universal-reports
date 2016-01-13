@@ -1,5 +1,4 @@
 ﻿using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.QueryModels;
 using NAP.Reports.CompanyWinLoss.Services.MainReport;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using NSubstitute;
@@ -11,20 +10,22 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
     public class SportsbookWinLossServiceUnitTests
     {
         [Test]
-        public void Query_CallCalculationServiceFourTimes()
+        [Category("ServiceUnitTests")]
+        public void QueryBySource_FourRawWinLoss_CallCalculationServiceFourTimes()
         {
             // Arrange
             var fakeData = CreateFakeRawWinLosses();
 
             var calculationService = Substitute.For<ICalculationService>();
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
+            dynamicRepository.Fetch<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
-            var service = new SportsbookWinLossService(dynamicRepository, calculationService);
+            var balanceUpSourceChooser = Substitute.For<IBalanceUpSourceChooser>();
+            var service = new SportsbookWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
 
             // Act
-            var query = new MainReportQuery();
-            var result = service.Query(query);
+            var balanceUpSource = new BalanceUpSource();
+            var result = service.QueryBySource(balanceUpSource);
 
             // Assert
             calculationService.Received(4).FromRawWinLoss(Arg.Any<RawWinLoss>());

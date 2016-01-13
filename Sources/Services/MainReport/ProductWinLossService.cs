@@ -4,6 +4,7 @@ using NAP.Reports.CompanyWinLoss.QueryModels;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace NAP.Reports.CompanyWinLoss.Services.MainReport
 {
@@ -26,19 +27,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
         {
             var sources = _balanceUpSourceChooser.Determine(query.StartDate, query.EndDate);
             var winlossesBySources = sources.Select(s => QueryBySource(productName, s)).ToArray();
-            var creditWinLossesBySources = winlossesBySources.Select(w => w.Credit);
-            var depositWinLossesBySources = winlossesBySources.Select(w => w.Deposit);
 
-            var creditWinLoss = _calculationService.CalculateSum("Credit", creditWinLossesBySources);
-            var depositWinLoss = _calculationService.CalculateSum("Deposit", depositWinLossesBySources);
-            var totalWinLoss = _calculationService.CalculateTotal(productName, creditWinLoss, depositWinLoss);
-
-            return new ProductWinLoss
-            {
-                Credit = creditWinLoss,
-                Deposit = depositWinLoss,
-                Total = totalWinLoss
-            };
+            return CalculateProductWinLoss(productName, winlossesBySources);
         }
 
         public ProductWinLoss QueryBySource(string productName, BalanceUpSource source)
@@ -51,7 +41,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
                 ProductName = productName,
             };
 
-            var rawWinLosses = _repository.Query<RawWinLoss>(criteria).ToArray();
+            var rawWinLosses = _repository.Fetch<RawWinLoss>(criteria).ToArray();
             var creditWinLoss = CalculateSiteWinLoss("Credit", rawWinLosses);
             var depositWinLoss = CalculateSiteWinLoss("Deposit", rawWinLosses);
 
@@ -69,6 +59,37 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
             return rawSiteWinLosses == null
                                     ? _calculationService.CreateEmptyWinLoss(title)
                                     : _calculationService.FromRawWinLoss(rawSiteWinLosses);
+        }
+
+        private ProductWinLoss CalculateProductWinLoss(string productName, ProductWinLoss[] winlossesBySources)
+        {
+            var creditWinLossesBySources = winlossesBySources.Select(w => w.Credit);
+            var depositWinLossesBySources = winlossesBySources.Select(w => w.Deposit);
+
+            var creditWinLoss = _calculationService.CalculateSum("Credit", creditWinLossesBySources);
+            var depositWinLoss = _calculationService.CalculateSum("Deposit", depositWinLossesBySources);
+            var totalWinLoss = _calculationService.CalculateTotal(productName, creditWinLoss, depositWinLoss);
+
+            return new ProductWinLoss
+            {
+                Credit = creditWinLoss,
+                Deposit = depositWinLoss,
+                Total = totalWinLoss
+            };
+        }
+
+        public async Task<ProductWinLoss> QueryAsync(string productName, MainReportQuery query)
+        {
+            var sources = _balanceUpSourceChooser.Determine(query.StartDate, query.EndDate);
+            var tasks = sources.Select(s => QueryBySourceAsync(productName, s));
+            var winlossesBySources = await Task.WhenAll(tasks);
+
+            return CalculateProductWinLoss(productName, winlossesBySources);
+        }
+
+        public async Task<ProductWinLoss> QueryBySourceAsync(string productName, BalanceUpSource source)
+        {
+            return await Task.Run(() => QueryBySource(productName, source));
         }
     }
 }

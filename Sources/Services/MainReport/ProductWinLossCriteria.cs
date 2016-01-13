@@ -17,7 +17,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
 
         public override string GetSettingKey()
         {
-            return $"MainReport-{Source}-{ProductName}";
+            return $"CompanyWinLoss-Main-{ProductName}-{Source}";
         }
 
         public override bool IsValid()

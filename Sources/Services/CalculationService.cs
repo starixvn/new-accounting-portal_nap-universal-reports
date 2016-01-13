@@ -72,6 +72,20 @@ namespace NAP.Reports.CompanyWinLoss.Services
             return sumWinLoss;
         }
 
+        public IEnumerable<WinLoss> CalculateSum(IEnumerable<IEnumerable<WinLoss>> twoDimensionWinLosses)
+        {
+            var products = twoDimensionWinLosses.SelectMany(w => w.Select(p => p.Title))
+                                                .Distinct()
+                                                .ToArray();
+
+            foreach (var product in products)
+            {
+                var productWinLosses = twoDimensionWinLosses.Select(w => w.FirstOrDefault(p => p.Title == product))
+                                                         .Where(w => w != null);
+                yield return CalculateSum(product, productWinLosses);
+            }
+        }
+
         public WinLoss CreateEmptyWinLoss(string title)
         {
             return new WinLoss

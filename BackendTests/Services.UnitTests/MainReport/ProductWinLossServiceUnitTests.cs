@@ -10,11 +10,12 @@ using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
 {
-    public class ProductWinLossServiceUnitTests
+    public class ServiceUnitTests
     {
         private const string NumberGame = "Number Game";
 
         [Test]
+        [Category("ServiceUnitTests")]
         public void QueryBySource_NumberGame_DynamicRepositoryReturnsFullData_Calls_CalculationService_FromRawWinLoss()
         {
             // Arrange
@@ -22,7 +23,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
             var fakeData = CreateFakeRawWinLosses();
 
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
+            dynamicRepository.Fetch<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
             var calculationService = Substitute.For<ICalculationService>();
             var balanceUpSourceChooser = Substitute.For<IBalanceUpSourceChooser>();
@@ -56,6 +57,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
         }
 
         [Test]
+        [Category("ServiceUnitTests")]
         public void QueryBySource_NumberGame_MissingCreditAndDeposit_Calls_CalculationService_CreateEmptyWinLoss()
         {
             // Arrange
@@ -63,7 +65,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
             var fakeData = new List<RawWinLoss>();
 
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            dynamicRepository.Query<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
+            dynamicRepository.Fetch<RawWinLoss>(Arg.Any<ICriteria>()).Returns(fakeData);
 
             var calculationService = Substitute.For<ICalculationService>();
             var balanceUpSourceChooser = Substitute.For<IBalanceUpSourceChooser>();
@@ -89,6 +91,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
         }
 
         [Test]
+        [Category("ServiceUnitTests")]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
         {
             // Arrange
@@ -106,13 +109,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.MainReport
             var result = service.Query(NumberGame, query);
 
             // Assert
-            dynamicRepository.Received(2).Query<RawWinLoss>(Arg.Any<ProductWinLossCriteria>());
+            dynamicRepository.Received(2).Fetch<RawWinLoss>(Arg.Any<ProductWinLossCriteria>());
         }
 
         private List<BalanceUpSource> CreateBalanceUpSources()
         {
-            return new List<BalanceUpSource> 
-            { 
+            return new List<BalanceUpSource>
+            {
                 CreateBalanceUpSource(1, 5, "BetTrans14"),
                 CreateBalanceUpSource(6, 8, "BetTrans")
             };
