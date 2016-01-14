@@ -1,6 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using NAP.Reports.CompanyWinLoss.Services;
-using NAP.Reports.CompanyWinLoss.Services.MainReport;
+using NAP.Reports.CompanyWinLoss.Services.Main;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
@@ -19,11 +19,9 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Register<IBalanceUpService, BalanceUpService>(Lifestyle.Transient);
             container.Register<IBalanceUpSourceChooser, BalanceUpSourceChooser>(Lifestyle.Transient);
             container.Register<ICalculationService, CalculationService>(Lifestyle.Transient);
-            container.Register<IProductWinLossService, ProductWinLossService>(Lifestyle.Transient);
-            container.Register<ISportsbookWinLossService, SportsbookWinLossService>(Lifestyle.Transient);
-            container.Register<IMainReportService, MainReportService>(Lifestyle.Transient);
+            container.Register<IRawWinLossService, RawWinLossService>(Lifestyle.Transient);
+            container.Register<IMainService, MainService>(Lifestyle.Transient);
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
-            container.Register<IConfiguration, Configuration>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
@@ -31,7 +29,6 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Verify();
 
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
-
         }
     }
 }

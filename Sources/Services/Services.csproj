@@ -89,23 +89,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
     <Compile Include="BalanceUpService.cs" />
     <Compile Include="BalanceUpSourceChooser.cs" />
     <Compile Include="Criteria\BalanceUpCriteria.cs" />
     <Compile Include="IBalanceUpService.cs" />
     <Compile Include="IBalanceUpSourceChooser.cs" />
-    <Compile Include="IConfiguration.cs" />
-    <Compile Include="MainReport\ISportsbookWinLossService.cs" />
-    <Compile Include="MainReport\SportsbookWinLossDetailCriteria.cs" />
-    <Compile Include="MainReport\ProductWinLossCriteria.cs" />
+    <Compile Include="Main\WinLossCriteria.cs" />
     <Compile Include="ICalculationService.cs" />
-    <Compile Include="MainReport\MainReportService.cs" />
-    <Compile Include="MainReport\IMainReportService.cs" />
-    <Compile Include="MainReport\IProductWinLossService.cs" />
+    <Compile Include="Main\MainReportService.cs" />
+    <Compile Include="Main\IMainReportService.cs" />
+    <Compile Include="Main\IRawWinLossService.cs" />
     <Compile Include="CalculationService.cs" />
-    <Compile Include="MainReport\SportsbookWinLossService.cs" />
-    <Compile Include="MainReport\ProductWinLossService.cs" />
+    <Compile Include="Main\RawWinLossService.cs" />
     <Compile Include="Models\BalanceUpSource.cs" />
     <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

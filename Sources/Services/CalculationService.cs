@@ -1,4 +1,4 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
+﻿using NAP.Reports.CompanyWinLoss.Models.Main;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
         {
             return new WinLoss
             {
-                Title = rawWinLoss.Title,
+                Title = rawWinLoss.Site,
                 Commission = rawWinLoss.Commission,
                 MemberWinLoss = rawWinLoss.MemberWinLoss,
                 RealIncome = rawWinLoss.RealIncome,
@@ -28,6 +28,35 @@ namespace NAP.Reports.CompanyWinLoss.Services
         public decimal CalculateMargin(decimal turnover, decimal income)
         {
             return turnover > 0 ? income / turnover : 0;
+        }
+
+        public RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses)
+        {
+            var sumWinLoss = new RawWinLoss
+            {
+                Site = winlosses.First().Site,
+                Product = winlosses.First().Product,
+                Commission = winlosses.Sum(r => r.Commission),
+                MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
+                RealIncome = winlosses.Sum(r => r.RealIncome),
+                VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
+                RealTurnover = winlosses.Sum(r => r.RealTurnover),
+                SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
+                VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
+            };
+
+            return sumWinLoss;
+        }
+
+        public IEnumerable<RawWinLoss> CalculateSum(IEnumerable<IEnumerable<RawWinLoss>> sources)
+        {
+            var count = sources.First().Count();
+            for (var i = 0; i < count; i++)
+            {
+                var items = sources.Select(s => s.ElementAt(i));
+
+                yield return CalculateSum(items);
+            }
         }
 
         public WinLoss CalculateTotal(string totalTitle, WinLoss credit, WinLoss deposit)
@@ -49,59 +78,6 @@ namespace NAP.Reports.CompanyWinLoss.Services
             totalWinLoss.RealMargin = CalculateMargin(totalWinLoss.RealTurnover, totalWinLoss.RealIncome);
 
             return totalWinLoss;
-        }
-
-        public WinLoss CalculateSum(string totalTitle, IEnumerable<WinLoss> winlosses)
-        {
-            var sumWinLoss = new WinLoss
-            {
-                Title = totalTitle,
-                Commission = winlosses.Sum(r => r.Commission),
-                MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
-                RealIncome = winlosses.Sum(r => r.RealIncome),
-                VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
-                VarianceIncome = winlosses.Sum(r => r.VarianceIncome),
-                RealTurnover = winlosses.Sum(r => r.RealTurnover),
-                SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
-                VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
-            };
-
-            sumWinLoss.VirtualMargin = CalculateMargin(sumWinLoss.VirtualTurnover, sumWinLoss.VirtualIncome);
-            sumWinLoss.RealMargin = CalculateMargin(sumWinLoss.RealTurnover, sumWinLoss.RealIncome);
-
-            return sumWinLoss;
-        }
-
-        public IEnumerable<WinLoss> CalculateSum(IEnumerable<IEnumerable<WinLoss>> twoDimensionWinLosses)
-        {
-            var products = twoDimensionWinLosses.SelectMany(w => w.Select(p => p.Title))
-                                                .Distinct()
-                                                .ToArray();
-
-            foreach (var product in products)
-            {
-                var productWinLosses = twoDimensionWinLosses.Select(w => w.FirstOrDefault(p => p.Title == product))
-                                                         .Where(w => w != null);
-                yield return CalculateSum(product, productWinLosses);
-            }
-        }
-
-        public WinLoss CreateEmptyWinLoss(string title)
-        {
-            return new WinLoss
-            {
-                Title = title,
-                Commission = 0,
-                MemberWinLoss = 0,
-                RealIncome = 0,
-                RealTurnover = 0,
-                SMAWinLoss = 0,
-                VirtualIncome = 0,
-                VirtualTurnover = 0,
-                VarianceIncome = 0,
-                RealMargin = 0,
-                VirtualMargin = 0,
-            };
         }
     }
 }

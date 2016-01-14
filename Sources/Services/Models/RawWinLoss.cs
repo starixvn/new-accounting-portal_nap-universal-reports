@@ -2,7 +2,9 @@
 {
     public class RawWinLoss
     {
-        public string Title { get; set; }
+        public string Product { get; set; }
+
+        public string Site { get; set; }
 
         public decimal MemberWinLoss { get; set; }
 

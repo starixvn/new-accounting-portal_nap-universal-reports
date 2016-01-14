@@ -1,32 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Main">
-    <Setting Key="CompanyWinLoss-Main-BetTrade-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_BetTrade" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Bingo-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_Bingo" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Casino-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_Casino" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-ColossusBets-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_ColossusBets" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Keno-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_Keno" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-LiveCasino-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_LiveCasino" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-MetricGaming-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_MetricGaming" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-NumberGame-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_NumberGame" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Racing-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_Racing" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Sportsbook-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_Sportsbook" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-SportsbookDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_SportsbookDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-VirtualSports-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main_VirtualSports" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Main-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Main" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Main-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
 
-  <Function Name="Main-14">
-    <Setting Key="CompanyWinLoss-Main-BetTrade-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_BetTrade_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Bingo-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_Bingo_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Casino-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_Casino_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-ColossusBets-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_ColossusBets_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Keno-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_Keno_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-LiveCasino-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_LiveCasino_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-MetricGaming-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_MetricGaming_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-NumberGame-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_NumberGame_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Racing-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_Racing_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Sportsbook-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_Sportsbook_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-SportsbookDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_SportsbookDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-VirtualSports-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Main_VirtualSports_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-  </Function>
 </Functions>

@@ -1,4 +1,4 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
+﻿using NAP.Reports.CompanyWinLoss.Models.Main;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
@@ -6,7 +6,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
     internal class WinLossFactory
     {
         internal static RawWinLoss CreateRawWinLoss(
-            string title,
+            string product,
+            string site,
             decimal memberWinLoss,
             decimal smaWinLoss,
             decimal commission,
@@ -17,7 +18,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             return new RawWinLoss
             {
-                Title = title,
+                Product = product,
+                Site = site,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
                 Commission = commission,

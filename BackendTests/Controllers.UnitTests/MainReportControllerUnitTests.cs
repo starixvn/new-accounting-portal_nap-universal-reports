@@ -1,24 +1,23 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
-using NAP.Reports.CompanyWinLoss.QueryModels;
-using NAP.Reports.CompanyWinLoss.Services.MainReport;
+﻿using NAP.Reports.CompanyWinLoss.Models.Main;
+using NAP.Reports.CompanyWinLoss.QueryModels.Main;
+using NAP.Reports.CompanyWinLoss.Services.Main;
 using NSubstitute;
 using NUnit.Framework;
 using System;
-using System.Threading.Tasks;
 
 namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
 {
     [TestFixture]
-    public class MainReportControllerUnitTests
+    public class MainControllerUnitTests
     {
         [Test]
-        [Category("MainReportControllerUnitTests")]
+        [Category("MainControllerUnitTests")]
         public void Values_InvalidDateRange_ReturnsNull()
         {
             // Arrange
-            var service = Substitute.For<IMainReportService>();
-            var controller = new MainReportController(service);
-            var model = new MainReportQuery
+            var service = Substitute.For<IMainService>();
+            var controller = new MainController(service);
+            var model = new MainQuery
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(+1)
@@ -27,31 +26,31 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
             controller.ModelState.AddModelError("DateTo", "DateFrom must be less than DateTo");
 
             // Act
-            var result = controller.Values(model).Result;
+            var result = controller.Values(model);
 
             // Assert
             Assert.Null(result);
         }
 
         [Test]
-        [Category("MainReportControllerUnitTests")]
-        
+        [Category("MainControllerUnitTests")]
+
         public void Values_ValidDateRange_ReturnsDataFromService()
         {
             // Arrange
-            var expectedReportData = new MainReportWinLoss();
-            var service = Substitute.For<IMainReportService>();
-            service.QueryAsync(Arg.Any<MainReportQuery>()).Returns(Task.FromResult(expectedReportData));
+            var expectedReportData = new MainWinLoss();
+            var service = Substitute.For<IMainService>();
+            service.Query(Arg.Any<MainQuery>()).Returns(expectedReportData);
 
-            var controller = new MainReportController(service);
-            var model = new MainReportQuery
+            var controller = new MainController(service);
+            var model = new MainQuery
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(+1)
             };
 
             // Act
-            var result = controller.Values(model).Result;
+            var result = controller.Values(model);
 
             // Assert
             Assert.AreEqual(expectedReportData, result);

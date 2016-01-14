@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Main-Warehouse">
-    <Setting Key="CompanyWinLoss-Main-BetTrade-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_BetTrade_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Bingo-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Bingo_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Casino-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Casino_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-ColossusBets-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_ColossusBets_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Keno-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Keno_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-LiveCasino-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_LiveCasino_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-MetricGaming-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_MetricGaming_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-NumberGame-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_NumberGame_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Racing-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Racing_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-Sportsbook-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Sportsbook_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-SportsbookDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_SportsbookDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Main-VirtualSports-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_VirtualSports_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Main-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
 </Functions>

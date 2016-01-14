@@ -79,11 +79,8 @@
   <ItemGroup>
     <Compile Include="BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="CalculationServiceUnitTests.cs" />
-    <Compile Include="MainReport\MainReportServiceBaseTests.cs" />
-    <Compile Include="MainReport\MainReportServiceIntegrationTests.cs" />
-    <Compile Include="MainReport\MainReportServiceUnitTests.cs" />
-    <Compile Include="MainReport\SportsbookWinLossServiceUnitTests.cs" />
-    <Compile Include="MainReport\ProductWinLossServiceUnitTests.cs" />
+    <Compile Include="Main\MainReportServiceUnitTests.cs" />
+    <Compile Include="Main\RawWinLossServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinLossComparision.cs" />
     <Compile Include="WinLossFactory.cs" />

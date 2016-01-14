@@ -1,25 +1,24 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.MainReport;
-using NAP.Reports.CompanyWinLoss.QueryModels;
-using NAP.Reports.CompanyWinLoss.Services.MainReport;
-using System.Threading.Tasks;
+﻿using NAP.Reports.CompanyWinLoss.Models.Main;
+using NAP.Reports.CompanyWinLoss.QueryModels.Main;
+using NAP.Reports.CompanyWinLoss.Services.Main;
 using System.Web.Http;
 
 namespace NAP.Reports.CompanyWinLoss.Controllers
 {
-    public class MainReportController : ApiController
+    public class MainController : ApiController
     {
-        private IMainReportService _service;
+        private IMainService _service;
 
-        public MainReportController(IMainReportService service)
+        public MainController(IMainService service)
         {
             _service = service;
         }
 
-        public async Task<MainReportWinLoss> Values(MainReportQuery query)
+        public MainWinLoss Values(MainQuery query)
         {
             return ModelState.IsValid
-                ? await _service.QueryAsync(query)
-                : await Task.FromResult<MainReportWinLoss>(null);
+                ? _service.Query(query)
+                : null;
         }
     }
 }

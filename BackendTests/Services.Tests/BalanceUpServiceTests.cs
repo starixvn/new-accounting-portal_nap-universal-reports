@@ -10,7 +10,7 @@ namespace NAP.Reports.Services.Tests
 {
     public class BalanceUpServiceTests
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
             DbSettingProviderManager.Current.Start();
@@ -30,7 +30,7 @@ namespace NAP.Reports.Services.Tests
 
         [Test]
         [Category("IntegrationDataService")]
-        public void QueryBalanceUp_Twice_CallDynamicRepository_One()
+        public void QueryBalanceUp_Twice_CallDynamicRepository_One_BecauseOfCaching()
         {
             // Arrange
             var emptyBalanceUpRange = new BalanceUpRange();
@@ -46,6 +46,29 @@ namespace NAP.Reports.Services.Tests
 
             // Assert
             dynamicRepository.Received(1).Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>());
+        }
+
+        [Test]
+        [Category("IntegrationDataService")]
+        public void QueryBalanceUp_Twice_ReturnValidValue()
+        {
+            // Arrange
+            var emptyBalanceUpRange = new BalanceUpRange();
+            var dynamicRepository = Substitute.For<IDynamicRepository>();
+            dynamicRepository.Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>()).Returns(emptyBalanceUpRange);
+
+            var balanceUpService = new BalanceUpService(dynamicRepository);
+            balanceUpService.ClearCache();
+
+            // Act
+            balanceUpService.Query();
+            balanceUpService.Query();
+
+            // Assert
+            dynamicRepository.Received(1).Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>());
+
+            // Clean 
+            balanceUpService.ClearCache();
         }
     }
 }

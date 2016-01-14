@@ -74,11 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ReportServiceBaseTests.cs" />
-    <Compile Include="MainReportServiceTests.cs" />
-    <Compile Include="ProductWinLossServiceTests.cs" />
+    <Compile Include="RawWinLossServiceTests.cs" />
     <Compile Include="BalanceUpServiceTests.cs" />
-    <Compile Include="SportsbookWinLossServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,9 @@
 ﻿using Fanex.Data.Repository;
 using System;
 
-namespace NAP.Reports.CompanyWinLoss.Services.MainReport
+namespace NAP.Reports.CompanyWinLoss.Services.Main
 {
-    internal class SportsbookWinLossDetailCriteria : CriteriaBase
+    public class WinLossCriteria : CriteriaBase
     {
         public DateTime StartDate { get; set; }
 
@@ -14,7 +14,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.MainReport
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Main-SportsbookDetail-{Source}";
+            return $"CompanyWinLoss-Main-{Source}";
         }
 
         public override bool IsValid()

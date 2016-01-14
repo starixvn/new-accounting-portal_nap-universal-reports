@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace NAP.Reports.CompanyWinLoss.Models.MainReport
+namespace NAP.Reports.CompanyWinLoss.Models.Main
 {
-    public class MainReportWinLoss
+    public class MainWinLoss
     {
         public List<WinLoss> SportsbookDetail { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace NAP.Reports.CompanyWinLoss.Models.MainReport
+﻿namespace NAP.Reports.CompanyWinLoss.Models.Main
 {
     public class ProductWinLoss
     {
