@@ -12,10 +12,17 @@
         .module('companyWinlossApp')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['config'];
+    MainController.$inject = ['config', 'dataService'];
 
-    function MainController(config) {
+    function MainController(config, dataService) {
         /*jshint validthis: true */
+        var reportData = {
+            SportsbookDetail: createFakeSportBookDetail(),
+            Sportsbook: createFakeSportBook(),
+            OtherProducts: createFakeOtherProducts(),
+            GrandTotal: createFakeGrandTotal()
+        };
+
         var vm = this;
 
         vm.normalMode = true;
@@ -26,10 +33,14 @@
         vm.toDate = config.today;
         vm.disableExport = true;
         vm.disableExpand = true;
+        vm.isExpand = true;
         vm.generate = function () {
             vm.disableExport = false;
             vm.disableExpand = false;
-            //vm.renderMainReport(vm.reportData);
+            //getData().then(function () {
+
+            //});
+            renderMainReport(reportData);
         };
 
         vm.viewHistoryMode = function () {
@@ -50,12 +61,16 @@
             vm.generate();
         };
 
-        vm.reportData = {
-            SportsbookDetail: createFakeSportBookDetail(),
-            Sportsbook: createFakeSportBook(),
-            OtherProducts: createFakeOtherProducts(),
-            GrandTotal: createFakeGrandTotal()
+        vm.toggleCollapseExpand = function () {
+            vm.isExpand = !vm.isExpand;
         };
+
+        function getData() {
+            var promise = vm.normalMode ? dataService.getDataNormal() : dataService.getDataHistory();
+            return promise.then(function (data) {
+                vm.data = data;
+            });
+        }
 
         function createFakeSportBookDetail() {
             var sportbookDetail = [
@@ -66,19 +81,19 @@
             ];
 
             return sportbookDetail;
-        };
+        }
 
         function createFakeSportBook() {
             return createFakeProductWinLoss("Sportbook Total");
-        };
+        }
 
         function createFakeOtherProducts() {
             return createFakeProductWinLoss("Number Game");
-        };
+        }
 
         function createFakeGrandTotal() {
             return createFakeProductWinLoss("Grand Total");
-        };
+        }
 
         function createFakeProductWinLoss(productName) {
             var winLoss = {
@@ -88,54 +103,21 @@
             };
 
             return winLoss;
-        };
+        }
 
-        vm.createMainReportHeader = function () {
-            var header = [
-                 { HeaderText: "Product", Width: 120, Name: "Product", HeaderAlign: "center", CellAlign: "left" },
-                 { HeaderText: "Member Win Loss", Width: 100, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "SMA Win Loss", Width: 100, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Commission", Width: 100, Name: "Commission", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Variance", Width: 100, Name: "Variance", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right" }
-            ];
-
-            return header;
-        };
-
-        vm.createMainReportGroupHeader = function () {
-            var groupHeader = [
-                { HeaderText: "Product", Name: "Product", MergeRowNumber: 2 },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeColNumber: 2 },
-                { HeaderText: "Variance", Name: "Variance", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeColNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeColNumber: 2 }
-            ];
-
-            return groupHeader;
-        };
-
-        vm.createProductWinLossDataRow = function (productWinLossItem) {
+        function createProductWinLossDataRow(productWinLossItem) {
             var productDataRow = {
-                Columns: vm.createWinLossDataRow(productWinLossItem.Total),
+                Columns: createWinLossDataRow(productWinLossItem.Total),
                 SubRows: []
             };
 
-            productDataRow.SubRows.push({ Columns: vm.createWinLossDataRow(productWinLossItem.Credit) });
-            productDataRow.SubRows.push({ Columns: vm.createWinLossDataRow(productWinLossItem.Deposit) });
+            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Credit) });
+            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Deposit) });
 
             return productDataRow;
-        };
+        }
 
-        vm.createWinLossDataRow = function (winLoss) {
+        function createWinLossDataRow(winLoss) {
             var winLossDataRow = [
                 { Name: "Product", Value: winLoss.Title },
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
@@ -151,21 +133,21 @@
             ];
 
             return winLossDataRow;
-        };
+        }
 
-        vm.createSportbookTotalDataRow = function (sportbookTotal) {
+        function createSportbookTotalDataRow(sportbookTotal) {
             var sportbookTotalDataRow = {
-                Columns: vm.createTotalDataRow(sportbookTotal.Total),
+                Columns: createTotalDataRow(sportbookTotal.Total),
                 SubRows: []
             };
 
-            sportbookTotalDataRow.SubRows.push({ Columns: vm.createWinLossDataRow(sportbookTotal.Credit) });
-            sportbookTotalDataRow.SubRows.push({ Columns: vm.createWinLossDataRow(sportbookTotal.Deposit) });
+            sportbookTotalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportbookTotal.Credit) });
+            sportbookTotalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportbookTotal.Deposit) });
 
             return sportbookTotalDataRow;
-        };
+        }
 
-        vm.createTotalDataRow = function (sportBookTotal) {
+        function createTotalDataRow(sportBookTotal) {
             var totalDataRow = [
                 { Name: "Product", Value: sportBookTotal.Title, TdClass: "subTotal" },
                 { Name: "MemberWinLoss", Value: sportBookTotal.MemberWinLoss, TdClass: "subTotal" },
@@ -181,9 +163,9 @@
             ];
 
             return totalDataRow;
-        };
+        }
 
-        vm.createMainReportBodyData = function (mainReportData) {
+        function createMainReportBodyData(mainReportData) {
             var bodyData = [];
             var sportbookDetail = mainReportData.SportsbookDetail;
             var sportbookTotal = mainReportData.Sportsbook;
@@ -192,36 +174,61 @@
             for (var i = 0; i < sportbookDetail.length; i++) {
                 var sportbookItem = sportbookDetail[i];
                 bodyData.push({
-                    Columns: vm.createWinLossDataRow(sportbookItem)
+                    Columns: createWinLossDataRow(sportbookItem)
                 });
             }
 
-            bodyData.push(vm.createSportbookTotalDataRow(mainReportData.Sportsbook));
+            bodyData.push(createSportbookTotalDataRow(mainReportData.Sportsbook));
 
             for (var i = 0; i < otherProducts.length; i++) {
                 var productItem = otherProducts[i];
-                bodyData.push(vm.createProductWinLossDataRow(productItem));
+                bodyData.push(createProductWinLossDataRow(productItem));
             }
 
             return bodyData;
-        };
+        }
 
-        vm.createMainReportFooterData = function (mainReportData) {
+        function createMainReportFooterData(mainReportData) {
             var footerRow = [];
             var grandTotal = mainReportData.GrandTotal;
-            footerRow.push(vm.createProductWinLossDataRow(grandTotal));
+            footerRow.push(createProductWinLossDataRow(grandTotal));
 
             return footerRow;
-        };
+        }
 
-        vm.createMainReportGridOptions = function (mainReportData) {
+        function createMainReportGridOptions(mainReportData) {
+            var columns = [
+                 { HeaderText: "Product", Width: 120, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
+                 { HeaderText: "Member Win Loss", Width: 100, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "SMA Win Loss", Width: 100, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Commission", Width: 100, Name: "Commission", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Real", Width: 100, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Virtual", Width: 100, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Variance", Width: 100, Name: "Variance", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Real", Width: 100, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Virtual", Width: 100, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Real", Width: 100, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right" },
+                 { HeaderText: "Virtual", Width: 100, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right" }
+            ];
+
+            var groupHeaderRowsColumns = [
+                { HeaderText: "Product", Name: "Product", MergeRowNumber: 2 },
+                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
+                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
+                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
+                { HeaderText: "Company Income", Name: "RealIncome", MergeColNumber: 2 },
+                { HeaderText: "Variance", Name: "Variance", MergeRowNumber: 2 },
+                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeColNumber: 2 },
+                { HeaderText: "Margin", Name: "RealMargin", MergeColNumber: 2 }
+            ];
+
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [
-                    { Columns: vm.createMainReportGroupHeader() }
+                    { Columns: groupHeaderRowsColumns }
                 ],
-                columns: vm.createMainReportHeader(),
-                bodyRows: vm.createMainReportBodyData(mainReportData),
+                columns: columns,
+                bodyRows: createMainReportBodyData(mainReportData),
                 showTree: true,
                 showTitle: true,
                 titleInfo:
@@ -231,10 +238,10 @@
             };
 
             return gridOptions;
-        };
+        }
 
-        vm.renderMainReport = function (mainReportData) {
-            var gridOptions = vm.createMainReportGridOptions(mainReportData);
+        function renderMainReport(mainReportData) {
+            var gridOptions = createMainReportGridOptions(mainReportData);
             $("#main-report-container").removeClass("display-none");
             $("#main-report-grid-content").fanexGrid(gridOptions);
         }

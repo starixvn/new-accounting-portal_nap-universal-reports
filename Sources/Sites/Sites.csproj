@@ -155,6 +155,7 @@
     <None Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <None Include="images\.keep" />
     <None Include="packages.config" />
+    <Content Include="app\main\main.service.js" />
     <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

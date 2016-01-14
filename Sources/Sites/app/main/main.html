@@ -73,19 +73,19 @@
             <div class="form-group" data-ng-switch-when="true">
                 <label>Date</label>
                 <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.generate()">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.todayClicked()">{{vm.today | date : 'MMM dd, yyyy'}}</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.yesterdayClicked()">{{vm.yesterday | date : 'MMM dd, yyyy'}}</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.viewHistoryMode()">History Report</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExport">Export</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExpand">Expand</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.todayClicked()">{{vm.today | date : 'MMM dd, yyyy'}}</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | date : 'MMM dd, yyyy'}}</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-disabled="vm.disableExport">Export</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-disabled="vm.disableExpand" data-ng-click="vm.toggleCollapseExpand()">Expand</button>
             </div>
             <div class="form-group" data-ng-switch-when="false">
                 <nap-month-picker data-from-date="vm.fromDate" data-to-date="vm.toDate"></nap-month-picker>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.generate()">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-click="vm.viewNormalMode()">Back</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExport">Export</button>
-                <button type="button" class="btn btn-sm btn-filter" ng-disabled="vm.disableExpand">Expand</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-disabled="vm.disableExport">Export</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-disabled="vm.disableExpand" data-ng-click="vm.toggleCollapseExpand()">Expand</button>
             </div>
         </form>
     </div>
