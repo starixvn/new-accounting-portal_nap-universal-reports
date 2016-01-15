@@ -43,10 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalanceUpRange.cs" />
+    <Compile Include="GroupOfSiteWinLoss.cs" />
+    <Compile Include="GroupOfWinLoss.cs" />
     <Compile Include="Main\MainReportWinLoss.cs" />
-    <Compile Include="Main\ProductWinLoss.cs" />
+    <Compile Include="SiteWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Main\WinLoss.cs" />
+    <Compile Include="WinLoss.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

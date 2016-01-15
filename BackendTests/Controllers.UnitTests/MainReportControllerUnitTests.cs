@@ -1,6 +1,7 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models.Main;
 using NAP.Reports.CompanyWinLoss.QueryModels.Main;
-using NAP.Reports.CompanyWinLoss.Services.Main;
+using NAP.Reports.CompanyWinLoss.Services;
+using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -15,7 +16,7 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         public void Values_InvalidDateRange_ReturnsNull()
         {
             // Arrange
-            var service = Substitute.For<IMainService>();
+            var service = Substitute.For<IProductService>();
             var controller = new MainController(service);
             var model = new MainQuery
             {
@@ -39,8 +40,8 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         {
             // Arrange
             var expectedReportData = new MainWinLoss();
-            var service = Substitute.For<IMainService>();
-            service.Query(Arg.Any<MainQuery>()).Returns(expectedReportData);
+            var service = Substitute.For<IProductService>();
+            service.Query(Arg.Any<WinLossCriteria>()).Returns(expectedReportData);
 
             var controller = new MainController(service);
             var model = new MainQuery

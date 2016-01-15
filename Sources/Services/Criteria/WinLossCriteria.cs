@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using System;
 
-namespace NAP.Reports.CompanyWinLoss.Services.Main
+namespace NAP.Reports.CompanyWinLoss.Services.Criteria
 {
     public class WinLossCriteria : CriteriaBase
     {

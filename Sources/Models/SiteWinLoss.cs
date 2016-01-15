@@ -1,6 +1,6 @@
-﻿namespace NAP.Reports.CompanyWinLoss.Models.Main
+﻿namespace NAP.Reports.CompanyWinLoss.Models
 {
-    public class ProductWinLoss
+    public class SiteWinLoss
     {
         public WinLoss Total { get; set; }
 

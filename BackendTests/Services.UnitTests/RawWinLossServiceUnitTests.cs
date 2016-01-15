@@ -1,6 +1,5 @@
 ﻿using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.QueryModels.Main;
-using NAP.Reports.CompanyWinLoss.Services.Main;
+using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using NSubstitute;
 using NUnit.Framework;
@@ -8,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
+namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
     public class RawWinLossServiceUnitTests
     {
@@ -27,8 +26,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
             var service = new RawWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
 
             // Act
-            var query = new MainQuery { StartDate = DateTime.Today, EndDate = DateTime.Today };
-            var result = service.Query(query);
+            var criteria = new WinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
+            var result = service.Query(criteria);
 
             // Assert
             dynamicRepository.Received(2).Fetch<RawWinLoss>(Arg.Any<WinLossCriteria>());
@@ -67,11 +66,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
 
             var service = Substitute.ForPartsOf<RawWinLossService>(dynamicRepository, calculationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
-            service.QueryBySource(Arg.Any<BalanceUpSource>()).Returns(fakeWinLoss);
+            service.QueryBySource(Arg.Any<BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
             // Act
-            var query = new MainQuery { StartDate = DateTime.Today, EndDate = DateTime.Today };
-            var result = service.Query(query);
+            var criteria = new WinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
+            var result = service.Query(criteria);
 
             // Assert
             calculationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<RawWinLoss>>>(x => x.Count() == 2));
@@ -79,8 +78,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
 
         private List<RawWinLoss> CreateFakeRawWinLosses()
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Credit", 100, 200, 10, 300, 400, 1000, 1200);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Deposit", 110, 210, 20, 310, 410, 1100, 1300);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Credit", 100, 110, 10, 500, 600, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

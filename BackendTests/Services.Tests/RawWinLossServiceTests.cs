@@ -1,8 +1,7 @@
 ﻿using Fanex.Data.Configuration;
 using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.QueryModels.Main;
 using NAP.Reports.CompanyWinLoss.Services;
-using NAP.Reports.CompanyWinLoss.Services.Main;
+using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NUnit.Framework;
 
 namespace NAP.Reports.Services.Tests
@@ -20,11 +19,11 @@ namespace NAP.Reports.Services.Tests
         public void Query_DateRangeForThreeSources()
         {
             // Arrange
-            var query = CreateMainQuery();
-            var productWinLossService = CreateRawWinLossService();
+            var criteria = CreateCriteria();
+            var rawWinLossService = CreateRawWinLossService();
 
             // Act
-            productWinLossService.Query(query);
+            rawWinLossService.Query(criteria);
         }
 
         private RawWinLossService CreateRawWinLossService()
@@ -37,13 +36,13 @@ namespace NAP.Reports.Services.Tests
             return new RawWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
         }
 
-        private MainQuery CreateMainQuery()
+        private WinLossCriteria CreateCriteria()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new BalanceUpService(dynamicRepository);
             var balanceUpRange = balanceUpService.Query();
 
-            return new MainQuery
+            return new WinLossCriteria
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2)

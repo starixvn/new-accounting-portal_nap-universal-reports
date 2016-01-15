@@ -1,4 +1,5 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.Main;
+﻿using NAP.Reports.CompanyWinLoss.Models;
+using NAP.Reports.CompanyWinLoss.Models.Main;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
     internal class WinLossComparision
     {
-        internal static bool AreTwoProductWinLossEqual(ProductWinLoss first, ProductWinLoss second)
+        internal static bool AreTwoSiteWinLossEqual(SiteWinLoss first, SiteWinLoss second)
         {
             return AreTwoWinLossEqual(first.Total, second.Total)
                 && AreTwoWinLossEqual(first.Deposit, second.Deposit)
@@ -30,7 +31,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
         internal static bool AreTwoRawWinLossEqual(RawWinLoss first, RawWinLoss second)
         {
-            return first.Product == second.Product &&
+            return first.Group == second.Group &&
                 first.Site == second.Site &&
                     first.MemberWinLoss == second.MemberWinLoss &&
                     first.SMAWinLoss == second.SMAWinLoss &&
@@ -59,7 +60,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             return true;
         }
 
-        internal static bool AreTwoProductWinLossListEqual(List<ProductWinLoss> first, List<ProductWinLoss> second)
+        internal static bool AreTwoSiteWinLossListEqual(List<SiteWinLoss> first, List<SiteWinLoss> second)
         {
             if (first.Count != second.Count)
             {
@@ -68,7 +69,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
             for (var i = 0; i < first.Count; i++)
             {
-                if (!AreTwoProductWinLossEqual(first[i], second[i]))
+                if (!AreTwoSiteWinLossEqual(first[i], second[i]))
                 {
                     return false;
                 }
@@ -80,8 +81,16 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         internal static bool AreTwoMainWinLossEqual(MainWinLoss first, MainWinLoss second)
         {
             return AreTwoWinLossListEqual(first.SportsbookDetail, second.SportsbookDetail)
-                && AreTwoProductWinLossEqual(first.GrandTotal, second.GrandTotal)
-                && AreTwoProductWinLossListEqual(first.Products, second.Products);
+                && AreTwoSiteWinLossEqual(first.GrandTotal, second.GrandTotal)
+                && AreTwoSiteWinLossListEqual(first.Products, second.Products);
+        }
+
+        internal static bool AreTwoGroupSiteWinLossEqual(GroupOfSiteWinLoss first, GroupOfSiteWinLoss second)
+        {
+            return AreTwoSiteWinLossEqual(first.LiveGrandTotal, second.LiveGrandTotal)
+                && AreTwoSiteWinLossEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
+                && AreTwoSiteWinLossListEqual(first.Live, second.Live)
+                && AreTwoSiteWinLossListEqual(first.NonLive, second.NonLive);
         }
     }
 }

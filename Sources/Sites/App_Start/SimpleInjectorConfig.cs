@@ -1,6 +1,5 @@
 ﻿using Fanex.Data.Repository;
 using NAP.Reports.CompanyWinLoss.Services;
-using NAP.Reports.CompanyWinLoss.Services.Main;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
@@ -20,7 +19,7 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Register<IBalanceUpSourceChooser, BalanceUpSourceChooser>(Lifestyle.Transient);
             container.Register<ICalculationService, CalculationService>(Lifestyle.Transient);
             container.Register<IRawWinLossService, RawWinLossService>(Lifestyle.Transient);
-            container.Register<IMainService, MainService>(Lifestyle.Transient);
+            container.Register<IProductService, ProductService>(Lifestyle.Transient);
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.

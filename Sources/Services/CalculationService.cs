@@ -1,4 +1,4 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.Main;
+﻿using NAP.Reports.CompanyWinLoss.Models;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,8 @@ namespace NAP.Reports.CompanyWinLoss.Services
             var sumWinLoss = new RawWinLoss
             {
                 Site = winlosses.First().Site,
-                Product = winlosses.First().Product,
+                Group = winlosses.First().Group,
+                IsLive = winlosses.First().IsLive,
                 Commission = winlosses.Sum(r => r.Commission),
                 MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
                 RealIncome = winlosses.Sum(r => r.RealIncome),
@@ -78,6 +79,56 @@ namespace NAP.Reports.CompanyWinLoss.Services
             totalWinLoss.RealMargin = CalculateMargin(totalWinLoss.RealTurnover, totalWinLoss.RealIncome);
 
             return totalWinLoss;
+        }
+
+        public virtual IEnumerable<SiteWinLoss> CalculateGroupWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var groups = rawWinLosses.Select(r => r.Group).Distinct();
+            foreach (var group in groups)
+            {
+                var productWinLoss = rawWinLosses.Where(r => r.Group == group).ToArray();
+                var rawCreditWinLoss = productWinLoss.First(r => r.Site == "Credit");
+                var rawDepositWinLoss = productWinLoss.First(r => r.Site == "Deposit");
+                var creditWinLoss = FromRawWinLoss(rawCreditWinLoss);
+                var depositWinLoss = FromRawWinLoss(rawDepositWinLoss);
+                var totalWinLoss = CalculateTotal(group, creditWinLoss, depositWinLoss);
+
+                yield return new SiteWinLoss
+                {
+                    Credit = creditWinLoss,
+                    Deposit = depositWinLoss,
+                    Total = totalWinLoss
+                };
+            }
+        }
+
+        public virtual SiteWinLoss CalculateGrandTotal(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var grandTotal = new SiteWinLoss
+            {
+                Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
+                Deposit = SumDepositGrandTotalWinLoss(rawWinLosses),
+            };
+
+            grandTotal.Total = CalculateTotal("Grand Total", grandTotal.Credit, grandTotal.Deposit);
+
+            return grandTotal;
+        }
+
+        private WinLoss SumCreditGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var creditData = rawWinLosses.Where(r => r.Site == "Credit");
+            var sumData = CalculateSum(creditData);
+
+            return FromRawWinLoss(sumData);
+        }
+
+        private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var depositData = rawWinLosses.Where(r => r.Site == "Deposit");
+            var sumData = CalculateSum(depositData);
+
+            return FromRawWinLoss(sumData);
         }
     }
 }

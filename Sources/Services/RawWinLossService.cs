@@ -1,11 +1,11 @@
 ﻿using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.QueryModels.Main;
+using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NAP.Reports.CompanyWinLoss.Services.Main
+namespace NAP.Reports.CompanyWinLoss.Services
 {
     public class RawWinLossService : IRawWinLossService
     {
@@ -22,31 +22,28 @@ namespace NAP.Reports.CompanyWinLoss.Services.Main
             _balanceUpSourceChooser = balanceUpSourceChooser;
         }
 
-        public virtual List<RawWinLoss> Query(MainQuery query)
+        public virtual List<RawWinLoss> Query(WinLossCriteria criteria)
         {
-            var sources = _balanceUpSourceChooser.Determine(query.StartDate, query.EndDate);
-            var tasks = sources.Select(s => QueryBySourceAsync(s)).ToArray();
+            var sources = _balanceUpSourceChooser.Determine(criteria.StartDate, criteria.EndDate);
+            var tasks = sources.Select(s => QueryBySourceAsync(s, criteria)).ToArray();
             Task.WaitAll(tasks);
 
             var winlossesBySources = tasks.Select(t => t.Result);
             return _calculationService.CalculateSum(winlossesBySources).ToList();
         }
 
-        public virtual List<RawWinLoss> QueryBySource(BalanceUpSource source)
+        public virtual List<RawWinLoss> QueryBySource(BalanceUpSource source, WinLossCriteria criteria)
         {
-            var criteria = new WinLossCriteria
-            {
-                StartDate = source.StartDate,
-                EndDate = source.EndDate,
-                Source = source.Source,
-            };
+            criteria.StartDate = source.StartDate;
+            criteria.EndDate = source.EndDate;
+            criteria.Source = source.Source;
 
             return _repository.Fetch<RawWinLoss>(criteria).ToList();
         }
 
-        public async Task<List<RawWinLoss>> QueryBySourceAsync(BalanceUpSource source)
+        public async Task<List<RawWinLoss>> QueryBySourceAsync(BalanceUpSource source, WinLossCriteria criteria)
         {
-            return await Task.Run(() => QueryBySource(source));
+            return await Task.Run(() => QueryBySource(source, criteria));
         }
     }
 }
