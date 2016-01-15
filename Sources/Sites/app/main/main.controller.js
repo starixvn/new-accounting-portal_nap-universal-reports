@@ -12,9 +12,9 @@
         .module('companyWinlossApp')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['config', 'dataService'];
+    MainController.$inject = ['config', 'fanexGridConfig', 'dataService'];
 
-    function MainController(config, dataService) {
+    function MainController(config, fanexGridConfig, dataService) {
         /*jshint validthis: true */
         var reportData = {
             SportsbookDetail: createFakeSportBookDetail(),
@@ -22,7 +22,7 @@
             OtherProducts: createFakeOtherProducts(),
             GrandTotal: createFakeGrandTotal()
         };
-        var formatConstant = config.formatFanexGridConstant;
+        var formatStrings = fanexGridConfig.formatStrings;
 
         var vm = this;
 
@@ -40,14 +40,6 @@
             renderMainReport(reportData);
         };
 
-        vm.viewHistoryMode = function () {
-            vm.normalMode = false;
-        };
-
-        vm.viewNormalMode = function () {
-            vm.normalMode = true;
-        };
-
         vm.todayClicked = function () {
             vm.date = vm.today;
             vm.generate();
@@ -56,6 +48,14 @@
         vm.yesterdayClicked = function () {
             vm.date = vm.yesterday;
             vm.generate();
+        };
+
+        vm.viewHistoryMode = function () {
+            vm.normalMode = false;
+        };
+
+        vm.viewNormalMode = function () {
+            vm.normalMode = true;
         };
 
         function getData() {
@@ -192,16 +192,16 @@
         function createMainReportGridOptions(mainReportData) {
             var columns = [
                  { HeaderText: "Product", Width: 150, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_PERCENT_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_PERCENT_NUMBER }
+                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
             var groupHeaderRowsColumns = [

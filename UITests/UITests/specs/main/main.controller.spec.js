@@ -15,6 +15,7 @@ describe('Controller: MainController', function () {
     var scope,
         controller,
         config,
+        fanexGridConfig,
         httpBackend,
         fakeProductWinLossData;
 
@@ -26,14 +27,15 @@ describe('Controller: MainController', function () {
         scope = $rootScope.$new();
         config = {
             today: new Date(2016, 0, 5),
-            yesterday: new Date(2016, 0, 4),
-            formatFanexGridConstant: {}
+            yesterday: new Date(2016, 0, 4)
         };
+        fanexGridConfig = $injector.get('fanexGridConfig');
         httpBackend = $httpBackend;
         setupFakeHttpRequests();
         controller = $controller('MainController', {
             $scope: scope,
-            config: config
+            config: config,
+            fanexGridConfig: fanexGridConfig
         });
 
         function setupFakeHttpRequests() {

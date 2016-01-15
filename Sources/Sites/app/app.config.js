@@ -4,9 +4,15 @@
     angular
         .module('companyWinlossApp')
         .constant('config', (function () {
-            var today = moment.utc();
-            var yesterday = moment.utc().subtract(1, 'days');
-            var formatConstant = {
+            var today = moment.utc(napConfig.today, 'MM/DD/YYYY');
+            var yesterday = moment(today).subtract(1, 'days');
+            return {
+                today: today.toDate(),
+                yesterday: yesterday.toDate()
+            }
+        })())
+        .constant('fanexGridConfig', {
+            formatStrings: {
                 INT_NUMBER: '0,0',
                 TWO_DECIMAL_NUMBER: '0,0.00',
                 FOUR_DECIMAL_NUMBER: '0,0.0000',
@@ -22,12 +28,6 @@
                 MMM_DD_YYYY_H_M_STRING: 'MMM DD, YYYY HH:mm',
                 MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
                 PERCENT_NUMBER: '0%'
-            };
-            return {
-                today: today.toDate(),
-                yesterday: yesterday.toDate(),
-                formatFanexGridConstant: formatConstant
             }
-        })());
-
+        });
 })();
