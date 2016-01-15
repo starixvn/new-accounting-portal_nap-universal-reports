@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public class ProductService : IProductService
+    public class ProductWinLossService : IProductWinLossService
     {
         private IRawWinLossService _rawWinLossService;
 
         private ICalculationService _calculationService;
 
-        public ProductService(
+        public ProductWinLossService(
             IRawWinLossService rawWinLossService,
             ICalculationService calculationService)
         {
@@ -25,11 +25,6 @@ namespace NAP.Reports.CompanyWinLoss.Services
         {
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
-            return CalculateMainWinLoss(rawWinLosses);
-        }
-
-        public virtual MainWinLoss CalculateMainWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
-        {
             var rawSportsbookDetail = rawWinLosses.Where(r => r.Group == "Sportsbook Detail");
             var rawProductWinLoss = rawWinLosses.Where(r => r.Group != "Sportsbook Detail");
 

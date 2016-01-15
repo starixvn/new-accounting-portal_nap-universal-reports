@@ -1,18 +1,16 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models;
 using NAP.Reports.CompanyWinLoss.Services.Criteria;
-using NAP.Reports.CompanyWinLoss.Services.Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public class GroupOfWinLossService : IGroupOfWinLossService
+    public class FlatGroupOfWinLossService : IFlatGroupOfWinLossService
     {
         private IRawWinLossService _rawWinLossService;
 
         private ICalculationService _calculationService;
 
-        public GroupOfWinLossService(
+        public FlatGroupOfWinLossService(
             IRawWinLossService rawWinLossService,
             ICalculationService calculationService)
         {
@@ -20,21 +18,16 @@ namespace NAP.Reports.CompanyWinLoss.Services
             _calculationService = calculationService;
         }
 
-        public GroupOfWinLoss Query(WinLossCriteria criteria)
+        public FlatGroupOfWinLoss Query(WinLossCriteria criteria)
         {
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
-            return CalculateGroupOfWinLoss(rawWinLosses);
-        }
-
-        public virtual GroupOfWinLoss CalculateGroupOfWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
-        {
             var winlosses = rawWinLosses.Select(r => _calculationService.FromRawWinLoss(r)).ToList();
             var rawTotal = _calculationService.CalculateSum(rawWinLosses);
             var grandTotal = _calculationService.FromRawWinLoss(rawTotal);
             grandTotal.Title = "Total";
 
-            return new GroupOfWinLoss
+            return new FlatGroupOfWinLoss
             {
                 WinLosses = winlosses,
                 GrandTotal = grandTotal

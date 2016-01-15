@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 {
-    public class ProductServiceUnitTests
+    public class ProductWinLossServiceUnitTests
     {
         [Test]
         [Category("ServiceUnitTests")]
@@ -22,7 +22,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var fakeData = CreateFakeSportsbookDetail();
 
             // Act 
-            var service = new ProductService(rawWinLossService, calculationService);
+            var service = new ProductWinLossService(rawWinLossService, calculationService);
             var result = service.CalculateSportsbookDetail(fakeData);
 
             // Assert
@@ -47,24 +47,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             return new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
 
-        [Test]
-        [Category("ServiceUnitTests")]
-        public void Query_CalculateMainWinLoss()
-        {
-            // Arrange   
-            var calculationService = new CalculationService();
-            var rawWinLossService = Substitute.For<IRawWinLossService>();
-
-            // Act 
-            var service = Substitute.ForPartsOf<ProductService>(rawWinLossService, calculationService);
-            service.CalculateMainWinLoss(Arg.Any<IEnumerable<RawWinLoss>>()).Returns(new MainWinLoss());
-
-            var criteria = new WinLossCriteria();
-            var result = service.Query(criteria);
-
-            // Assert
-            service.Received().CalculateMainWinLoss(Arg.Any<IEnumerable<RawWinLoss>>());
-        }
 
         [Test]
         [Category("ServiceUnitTests")]
@@ -75,10 +57,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var calculationService = new CalculationService();
             var rawWinLossService = Substitute.For<IRawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ProductService(rawWinLossService, calculationService);
-            var result = service.CalculateMainWinLoss(fakeData);
+            var service = new ProductWinLossService(rawWinLossService, calculationService);
+            var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
             var equal = WinLossComparision.AreTwoMainWinLossEqual(expectedMainWinLoss, result);

@@ -6,11 +6,9 @@ using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public interface IProductService
+    public interface IProductWinLossService
     {
         MainWinLoss Query(WinLossCriteria criteria);
-
-        MainWinLoss CalculateMainWinLoss(IEnumerable<RawWinLoss> rawWinLosses);
 
         List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses);
     }

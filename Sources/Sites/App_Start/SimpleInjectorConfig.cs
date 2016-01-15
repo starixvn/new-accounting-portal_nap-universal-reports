@@ -19,7 +19,7 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Register<IBalanceUpSourceChooser, BalanceUpSourceChooser>(Lifestyle.Transient);
             container.Register<ICalculationService, CalculationService>(Lifestyle.Transient);
             container.Register<IRawWinLossService, RawWinLossService>(Lifestyle.Transient);
-            container.Register<IProductService, ProductService>(Lifestyle.Transient);
+            container.Register<IProductWinLossService, ProductWinLossService>(Lifestyle.Transient);
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.

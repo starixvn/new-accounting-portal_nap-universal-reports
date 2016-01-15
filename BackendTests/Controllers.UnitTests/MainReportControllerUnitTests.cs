@@ -16,7 +16,7 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         public void Values_InvalidDateRange_ReturnsNull()
         {
             // Arrange
-            var service = Substitute.For<IProductService>();
+            var service = Substitute.For<IProductWinLossService>();
             var controller = new MainController(service);
             var model = new MainQuery
             {
@@ -40,7 +40,7 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         {
             // Arrange
             var expectedReportData = new MainWinLoss();
-            var service = Substitute.For<IProductService>();
+            var service = Substitute.For<IProductWinLossService>();
             service.Query(Arg.Any<WinLossCriteria>()).Returns(expectedReportData);
 
             var controller = new MainController(service);

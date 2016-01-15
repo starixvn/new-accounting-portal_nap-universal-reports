@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalanceUpRange.cs" />
-    <Compile Include="GroupOfSiteWinLoss.cs" />
+    <Compile Include="HybridGroupOfWinLoss.cs" />
     <Compile Include="GroupOfWinLoss.cs" />
+    <Compile Include="GroupOfSiteWinLoss.cs" />
+    <Compile Include="FlatGroupOfWinLoss.cs" />
     <Compile Include="Main\MainReportWinLoss.cs" />
     <Compile Include="SiteWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,6 +6,6 @@ namespace NAP.Reports.CompanyWinLoss.Models
     {
         public List<WinLoss> WinLosses { get; set; }
 
-        public WinLoss GrandTotal { get; set; }
+        public string Name { get; set; }
     }
 }

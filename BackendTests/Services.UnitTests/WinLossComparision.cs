@@ -92,5 +92,47 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
                 && AreTwoSiteWinLossListEqual(first.Live, second.Live)
                 && AreTwoSiteWinLossListEqual(first.NonLive, second.NonLive);
         }
+
+        internal static bool AreTwoHybridGroupOfWinLossEqual(HybridGroupOfWinLoss first, HybridGroupOfWinLoss second)
+        {
+            return AreTwoWinLossEqual(first.GrandTotal, second.GrandTotal)
+                && AreTwoGroupOfWinLossListEqual(first.WinLosses, second.WinLosses);
+        }
+
+        internal static bool AreTwoGroupOfWinLossListEqual(List<GroupOfWinLoss> first, List<GroupOfWinLoss> second)
+        {
+            if (first.Count != second.Count)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < first.Count; i++)
+            {
+                if (!AreTwoGroupOfWinLossEqual(first[i], second[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        internal static bool AreTwoGroupOfWinLossEqual(GroupOfWinLoss first, GroupOfWinLoss second)
+        {
+            if (first.Name != second.Name || first.WinLosses.Count != second.WinLosses.Count)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < first.WinLosses.Count; i++)
+            {
+                if (!AreTwoWinLossEqual(first.WinLosses[i], second.WinLosses[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
