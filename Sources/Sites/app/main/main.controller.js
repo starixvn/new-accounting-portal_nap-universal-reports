@@ -22,6 +22,7 @@
             OtherProducts: createFakeOtherProducts(),
             GrandTotal: createFakeGrandTotal()
         };
+        var formatConstant = config.formatFanexGridConstant;
 
         var vm = this;
 
@@ -31,12 +32,8 @@
         vm.date = config.today;
         vm.fromDate = moment.utc(config.today).startOf('month').toDate();
         vm.toDate = config.today;
-        vm.disableExport = true;
-        vm.disableExpand = true;
-        vm.isExpand = true;
+
         vm.generate = function () {
-            vm.disableExport = false;
-            vm.disableExpand = false;
             //getData().then(function () {
 
             //});
@@ -59,10 +56,6 @@
         vm.yesterdayClicked = function () {
             vm.date = vm.yesterday;
             vm.generate();
-        };
-
-        vm.toggleCollapseExpand = function () {
-            vm.isExpand = !vm.isExpand;
         };
 
         function getData() {
@@ -198,17 +191,17 @@
 
         function createMainReportGridOptions(mainReportData) {
             var columns = [
-                 { HeaderText: "Product", Width: 120, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 100, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "SMA Win Loss", Width: 100, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Commission", Width: 100, Name: "Commission", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Variance", Width: 100, Name: "Variance", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Real", Width: 100, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right" },
-                 { HeaderText: "Virtual", Width: 100, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right" }
+                 { HeaderText: "Product", Width: 150, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
+                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatConstant.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_PERCENT_NUMBER },
+                 { HeaderText: "Virtual", Width: 120, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatConstant.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
             var groupHeaderRowsColumns = [
@@ -230,10 +223,15 @@
                 columns: columns,
                 bodyRows: createMainReportBodyData(mainReportData),
                 showTree: true,
+                defaultCollapseAllGroups: true,
                 showTitle: true,
                 titleInfo:
                 {
-                    text: "PRODUCT WIN/LOSS REPORT"
+                    text: "PRODUCT WIN/LOSS REPORT",
+                    showCollapseExpandButton: true,
+                    showExcelButton: true,
+                    exportExcelFunction: function () {
+                    }
                 }
             };
 

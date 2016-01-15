@@ -26,7 +26,8 @@ describe('Controller: MainController', function () {
         scope = $rootScope.$new();
         config = {
             today: new Date(2016, 0, 5),
-            yesterday: new Date(2016, 0, 4)
+            yesterday: new Date(2016, 0, 4),
+            formatFanexGridConstant: {}
         };
         httpBackend = $httpBackend;
         setupFakeHttpRequests();
@@ -59,11 +60,6 @@ describe('Controller: MainController', function () {
     });
 
     describe('after the form is loaded', function () {
-        it('the button export and expand are disable', function () {
-            expect(controller.disableExport).toBe(true);
-            expect(controller.disableExpand).toBe(true);
-        });
-
         it('the current mode is normal', function () {
             expect(controller.normalMode).toBe(true);
         });
@@ -73,21 +69,7 @@ describe('Controller: MainController', function () {
         });
     });
 
-    describe('after the button generate is clicked', function () {
-        it('the button export and expand are enable', function () {
-            controller.generate();
-            expect(controller.disableExport).toBe(false);
-            expect(controller.disableExpand).toBe(false);
-        });
-    });
-
     describe('after the button today is clicked', function () {
-        it('the button export and expand are enable', function () {
-            controller.todayClicked();
-            expect(controller.disableExport).toBe(false);
-            expect(controller.disableExpand).toBe(false);
-        });
-
         it('the selected date is today', function () {
             controller.todayClicked();
             expect(controller.date).toBe(config.today);
@@ -95,12 +77,6 @@ describe('Controller: MainController', function () {
     });
 
     describe('after the button yesterday is clicked', function () {
-        it('the button export and expand are enable', function () {
-            controller.yesterdayClicked();
-            expect(controller.disableExport).toBe(false);
-            expect(controller.disableExpand).toBe(false);
-        });
-
         it('the selected date is yesterday', function () {
             controller.yesterdayClicked();
             expect(controller.date).toBe(config.yesterday);
