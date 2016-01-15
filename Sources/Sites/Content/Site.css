@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -9048,4 +9048,8 @@ button.close {
 .alert-container .alert {
   padding: 5px;
   font-weight: bold;
+}
+.freegrid .grid-fixed-table tr.sub-total td {
+   background-color: #f4f4be;
+   font-weight: bold;
 }

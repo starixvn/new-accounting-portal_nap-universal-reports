@@ -6,6 +6,7 @@
         .constant('config', (function () {
             var today = moment().utcOffset(-4);
             var yesterday = moment(today).subtract(1, 'days');
+            
             return {
                 today: today,
                 yesterday: yesterday

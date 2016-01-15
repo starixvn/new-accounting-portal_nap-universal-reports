@@ -18,7 +18,6 @@
         /*jshint validthis: true */
         var reportData = {
             SportsbookDetail: createFakeSportBookDetail(),
-            Sportsbook: createFakeSportBook(),
             OtherProducts: createFakeOtherProducts(),
             GrandTotal: createFakeGrandTotal()
         };
@@ -31,6 +30,7 @@
         vm.date = config.today;
         vm.fromDate = moment.utc(config.today).startOf('month').toDate();
         vm.toDate = config.today;
+
 
         vm.generate = function () {
             getData().then(function (data) {
@@ -80,7 +80,15 @@
         }
 
         function createFakeOtherProducts() {
-            return createFakeProductWinLoss("Number Game");
+            var otherProducts = [];
+            var sportbooksTotal = createFakeProductWinLoss("Sportsbook Total");
+            var numberGame = createFakeProductWinLoss("Number Game");
+            var casino = createFakeProductWinLoss("Casino");
+            otherProducts.push(sportbooksTotal);
+            otherProducts.push(numberGame);
+            otherProducts.push(casino);
+
+            return otherProducts;
         }
 
         function createFakeGrandTotal() {
@@ -103,8 +111,8 @@
                 SubRows: []
             };
 
-            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Credit) });
-            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Deposit) });
+            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Credit), CssClass: 'align-right' });
+            productDataRow.SubRows.push({ Columns: createWinLossDataRow(productWinLossItem.Deposit), CssClass: 'align-right' });
 
             return productDataRow;
         }
@@ -127,32 +135,15 @@
             return winLossDataRow;
         }
 
-        function createSportbookTotalDataRow(sportbookTotal) {
-            var sportbookTotalDataRow = {
-                Columns: createTotalDataRow(sportbookTotal.Total),
-                SubRows: []
+        function createSportsbookTotalRow(sportsbookTotal) {
+            var totalDataRow = {
+                Columns: createWinLossDataRow(sportsbookTotal.Total),
+                SubRows: [],
+                CssClass: 'sub-total'
             };
 
-            sportbookTotalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportbookTotal.Credit) });
-            sportbookTotalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportbookTotal.Deposit) });
-
-            return sportbookTotalDataRow;
-        }
-
-        function createTotalDataRow(sportBookTotal) {
-            var totalDataRow = [
-                { Name: "Product", Value: sportBookTotal.Title, TdClass: "subTotal" },
-                { Name: "MemberWinLoss", Value: sportBookTotal.MemberWinLoss, TdClass: "subTotal" },
-                { Name: "SMAWinLoss", Value: sportBookTotal.SMAWinLoss, TdClass: "subTotal" },
-                { Name: "Commission", Value: sportBookTotal.Commission, TdClass: "subTotal" },
-                { Name: "RealIncome", Value: sportBookTotal.RealIncome, TdClass: "subTotal" },
-                { Name: "VirtualIncome", Value: sportBookTotal.VirtualIncome, TdClass: "subTotal" },
-                { Name: "Variance", Value: sportBookTotal.VarianceIncome, TdClass: "subTotal" },
-                { Name: "RealTurnover", Value: sportBookTotal.RealTurnover, TdClass: "subTotal" },
-                { Name: "VirtualTurnover", Value: sportBookTotal.VirtualTurnover, TdClass: "subTotal" },
-                { Name: "RealMargin", Value: sportBookTotal.RealMargin, TdClass: "subTotal" },
-                { Name: "VirtualMargin", Value: sportBookTotal.VirtualMargin, TdClass: "subTotal" }
-            ];
+            totalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportsbookTotal.Credit), CssClass: 'sub-total' });
+            totalDataRow.SubRows.push({ Columns: createWinLossDataRow(sportsbookTotal.Deposit), CssClass: 'sub-total' });
 
             return totalDataRow;
         }
@@ -160,8 +151,8 @@
         function createMainReportBodyData(mainReportData) {
             var bodyData = [];
             var sportbookDetail = mainReportData.SportsbookDetail;
-            var sportbookTotal = mainReportData.Sportsbook;
             var otherProducts = mainReportData.OtherProducts;
+            var sportbookTotal = otherProducts[0];
 
             for (var i = 0; i < sportbookDetail.length; i++) {
                 var sportbookItem = sportbookDetail[i];
@@ -170,9 +161,9 @@
                 });
             }
 
-            bodyData.push(createSportbookTotalDataRow(mainReportData.Sportsbook));
+            bodyData.push(createSportsbookTotalRow(otherProducts[0]));
 
-            for (var i = 0; i < otherProducts.length; i++) {
+            for (var i = 1; i < otherProducts.length; i++) {
                 var productItem = otherProducts[i];
                 bodyData.push(createProductWinLossDataRow(productItem));
             }
@@ -183,7 +174,9 @@
         function createMainReportFooterData(mainReportData) {
             var footerRow = [];
             var grandTotal = mainReportData.GrandTotal;
-            footerRow.push(createProductWinLossDataRow(grandTotal));
+            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Total) });
+            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Credit) });
+            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Deposit) });
 
             return footerRow;
         }
@@ -231,7 +224,9 @@
                     showExcelButton: true,
                     exportExcelFunction: function () {
                     }
-                }
+                },
+                showFooter: true,
+                footerRows: createMainReportFooterData(mainReportData)
             };
 
             return gridOptions;
