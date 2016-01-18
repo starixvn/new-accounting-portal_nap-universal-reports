@@ -218,3 +218,40 @@
         color: #0136ac;
     }
 }
+
+.loading-container {
+    & > .block-overlay {
+        z-index: $zindex-modal + 2;
+        background: white;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    & > .block-loading {
+        z-index: $zindex-modal + 1;
+        background: url(/images/loading/loading.gif) no-repeat center center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.alert-container {
+    position: absolute;
+    top: 28px;
+    left: 30%;
+    right: 30%;
+    z-index: $zindex-modal - 1;
+
+    .alert {
+        padding: 5px;
+        font-weight: bold;
+    }
+}

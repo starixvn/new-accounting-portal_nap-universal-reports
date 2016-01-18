@@ -38,7 +38,7 @@
                 return;
             }
 
-            generateModel();
+            generateViewModel();
 
             vm.goPreviousMonth = function ($event, year, month) {
                 $event.stopPropagation();
@@ -66,7 +66,7 @@
                     vm.toDay = vm.fromDay;
                     toDate.date(vm.toDay);
                 }
-                updateScope();
+                updateModel();
             };
 
             vm.selectToDay = function ($event, day) {
@@ -77,7 +77,7 @@
                     vm.fromDay = vm.toDay;
                     fromDate.date(vm.fromDay);
                 }
-                updateScope();
+                updateModel();
             };
 
             vm.selectYear = function ($event, year) {
@@ -92,11 +92,11 @@
                 fromDate = moment.utc([year, month, fromDay]);
                 var toDay = year === yearOfMaxDate && month === monthOfMaxDate ? maxDate.date() : fromDate.daysInMonth();
                 toDate = moment.utc([year, month, toDay]);
-                generateModel();
-                updateScope();
+                generateViewModel();
+                updateModel();
             };
 
-            function generateModel() {
+            function generateViewModel() {
                 var previousMonth = moment(fromDate).subtract(1, 'months').startOf('month');
                 var nextMonth = moment(fromDate).add(1, 'months').endOf('month');
                 vm.year = fromDate.year();
@@ -151,9 +151,9 @@
                 }
             }
 
-            function updateScope() {
-                vm.fromDate = fromDate.toDate();
-                vm.toDate = toDate.toDate();
+            function updateModel() {
+                vm.fromDate = moment.utc(fromDate);
+                vm.toDate = moment.utc(toDate);
             }
         }
     }

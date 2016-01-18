@@ -12,9 +12,9 @@
         .module('companyWinlossApp')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['config', 'fanexGridConfig', 'dataService'];
+    MainController.$inject = ['config', 'formatStrings', 'dataService'];
 
-    function MainController(config, fanexGridConfig, dataService) {
+    function MainController(config, formatStrings, dataService) {
         /*jshint validthis: true */
         var reportData = {
             SportsbookDetail: createFakeSportBookDetail(),
@@ -22,7 +22,6 @@
             OtherProducts: createFakeOtherProducts(),
             GrandTotal: createFakeGrandTotal()
         };
-        var formatStrings = fanexGridConfig.formatStrings;
 
         var vm = this;
 
@@ -34,10 +33,9 @@
         vm.toDate = config.today;
 
         vm.generate = function () {
-            //getData().then(function () {
-
-            //});
-            renderMainReport(reportData);
+            getData().then(function (data) {
+                renderMainReport(vm.data);
+            });
         };
 
         vm.todayClicked = function () {
@@ -62,6 +60,7 @@
             var promise = vm.normalMode ? dataService.getDataNormal() : dataService.getDataHistory();
             return promise.then(function (data) {
                 vm.data = data;
+                vm.data = reportData;
             });
         }
 
@@ -240,8 +239,7 @@
 
         function renderMainReport(mainReportData) {
             var gridOptions = createMainReportGridOptions(mainReportData);
-            $("#main-report-container").removeClass("display-none");
-            $("#main-report-grid-content").fanexGrid(gridOptions);
+            $(".freegrid").fanexGrid(gridOptions);
         }
     }
 })();

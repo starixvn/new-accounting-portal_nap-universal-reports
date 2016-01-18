@@ -23,6 +23,8 @@
             <h4>Main / <span class="active">Company Win Loss By Products</span></h4>
         </div>
         <div data-ng-view></div>
+        <nap-alert></nap-alert>
+        <nap-loading></nap-loading>
     </div>
     <script type="text/javascript">
         var napConfig = {
@@ -33,6 +35,7 @@
     <script src="Scripts/moment.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-moment.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
     <script src="Scripts/numeral/numeral.min.js"></script>
     <script src="Scripts/Fanex.Grid.js"></script>
@@ -40,6 +43,9 @@
 
     <script src="app/app.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/common/logger.js"></script>
+    <script src="app/components/alert.directive.js"></script>
+    <script src="app/components/loading.directive.js"></script>
     <script src="app/components/date-picker.directive.js"></script>
     <script src="app/components/month-picker.directive.js"></script>
     <script src="app/main/main.service.js"></script>

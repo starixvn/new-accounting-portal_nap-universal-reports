@@ -40,7 +40,7 @@
                 }
                 selectedDate = vm.previousMonth;
                 correctSelectedDate();
-                generateModel();
+                generateViewModel();
             };
 
             vm.goNextMonth = function () {
@@ -49,19 +49,19 @@
                 }
                 selectedDate = vm.nextMonth;
                 correctSelectedDate();
-                generateModel();
+                generateViewModel();
             };
 
             vm.changeMonth = function () {
                 selectedDate.month(vm.month.value);
                 correctSelectedDate();
-                generateModel();
+                generateViewModel();
             };
 
             vm.changeYear = function () {
                 selectedDate.year(vm.year);
                 correctSelectedDate();
-                generateModel();
+                generateViewModel();
             };
 
             vm.changeDate = function (date) {
@@ -70,9 +70,9 @@
                 }
 
                 selectedDate = date.value;
-                generateModel();
+                generateViewModel();
                 vm.text = selectedDate.format('MMM DD, YYYY');
-                vm.ngModel = selectedDate.toDate();
+                vm.ngModel = moment.utc(selectedDate);
             };
 
             $scope.$on('$destroy', function () {
@@ -87,7 +87,7 @@
                 selectedDate = moment(vm.ngModel);
                 vm.isOpen = false;
                 vm.text = selectedDate.format('MMM DD, YYYY');
-                generateModel();
+                generateViewModel();
             }
 
             function correctSelectedDate() {
@@ -98,7 +98,7 @@
                 }
             }
 
-            function generateModel() {
+            function generateViewModel() {
                 var selectedMonth = selectedDate.month();
                 var selectedYear = selectedDate.year();
                 var startOfMonth = moment.utc(selectedDate).startOf('month');

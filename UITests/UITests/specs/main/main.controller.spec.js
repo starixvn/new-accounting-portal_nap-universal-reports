@@ -6,8 +6,10 @@
 /// <reference path="../../../../sources/sites/scripts/angular-mocks.js" />
 /// <reference path="../../scripts/jasmine.js" />
 /// <reference path="../../scripts/jasmine-html.js" />
+/// <reference path="../../../../sources/sites/scripts/angular-moment.min.js" />
 /// <reference path="../../../../sources/sites/app/app.js" />
 /// <reference path="../../../../sources/sites/app/app.config.js" />
+/// <reference path="../../../../sources/sites/app/common/logger.js" />
 /// <reference path="../../../../sources/sites/app/main/main.service.js" />
 /// <reference path="../../../../sources/sites/app/main/main.controller.js" />
 
@@ -15,9 +17,8 @@ describe('Controller: MainController', function () {
     var scope,
         controller,
         config,
-        fanexGridConfig,
-        httpBackend,
-        fakeProductWinLossData;
+        formatStrings,
+        httpBackend;
 
     // load the controller's module
     beforeEach(module('companyWinlossApp'));
@@ -29,13 +30,12 @@ describe('Controller: MainController', function () {
             today: new Date(2016, 0, 5),
             yesterday: new Date(2016, 0, 4)
         };
-        fanexGridConfig = $injector.get('fanexGridConfig');
+        formatStrings = $injector.get('formatStrings');
         httpBackend = $httpBackend;
         setupFakeHttpRequests();
         controller = $controller('MainController', {
             $scope: scope,
-            config: config,
-            fanexGridConfig: fanexGridConfig
+            config: config
         });
 
         function setupFakeHttpRequests() {
@@ -45,7 +45,6 @@ describe('Controller: MainController', function () {
             httpBackend.whenGET('/api/companywinloss/history').respond(mockData);
         }
 
-        fakeProductWinLossData = createFakeProductWinLoss('Number Game');
         function createFakeProductWinLoss(productName) {
             var winLoss = {
                 Total: { Title: productName, MemberWinLoss: 210, SMAWinLoss: 410, Commission: 30, RealIncome: 610, VirtualIncome: 810, VarianceIncome: -200, RealTurnover: 2100, VirtualTurnover: 2500, RealMargin: 0.290476, VirtualMargin: 0.324 },
@@ -107,14 +106,14 @@ describe('Controller: MainController', function () {
             expect(controller.data).toBeDefined();
         });
 
-        it('title of data is Normal if current mode is normal', function () {
+        it('title of grid is Normal if current mode is normal', function () {
             controller.normalMode = true;
             controller.generate();
             httpBackend.flush();
             expect(controller.data.Total.Title).toBe('Normal');
         });
 
-        it('title of data is History if current mode is history', function () {
+        it('title of grid is History if current mode is history', function () {
             controller.normalMode = false;
             controller.generate();
             httpBackend.flush();

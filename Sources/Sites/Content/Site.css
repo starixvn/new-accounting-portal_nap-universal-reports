@@ -9012,3 +9012,40 @@ button.close {
 .page-header .active {
   color: #0136ac;
 }
+
+/* line 223, ../stylesheets/Site.scss */
+.loading-container > .block-overlay {
+  z-index: 1052;
+  background: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/* line 235, ../stylesheets/Site.scss */
+.loading-container > .block-loading {
+  z-index: 1051;
+  background: url(/images/loading/loading.gif) no-repeat center center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* line 246, ../stylesheets/Site.scss */
+.alert-container {
+  position: absolute;
+  top: 28px;
+  left: 30%;
+  right: 30%;
+  z-index: 1049;
+}
+/* line 253, ../stylesheets/Site.scss */
+.alert-container .alert {
+  padding: 5px;
+  font-weight: bold;
+}

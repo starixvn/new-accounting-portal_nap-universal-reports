@@ -155,6 +155,10 @@
     <None Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <None Include="images\.keep" />
     <None Include="packages.config" />
+    <Content Include="app\common\logger.js" />
+    <Content Include="app\components\alert.directive.html" />
+    <Content Include="app\components\alert.directive.js" />
+    <Content Include="app\components\loading.directive.js" />
     <Content Include="app\main\main.service.js" />
     <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -166,15 +170,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="sass\ie.scss" />
-    <Content Include="sass\print.scss" />
-    <Content Include="sass\screen.scss" />
+    <Content Include="images\loading\loading.gif" />
     <None Include="Scripts\angular-animate.min.js.map" />
     <None Include="Scripts\angular-aria.min.js.map" />
     <None Include="Scripts\angular-cookies.min.js.map" />
     <None Include="Scripts\angular-loader.min.js.map" />
     <None Include="Scripts\angular-message-format.min.js.map" />
     <None Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-moment.js" />
+    <Content Include="Scripts\angular-moment.min.js" />
+    <Content Include="Scripts\angular-moment.min.js.map" />
     <None Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\angular-sanitize.min.js.map" />

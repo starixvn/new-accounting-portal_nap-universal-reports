@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('dataService', dataService);
 
-    dataService.$inject = ['$http'];
-    function dataService($http) {
+    dataService.$inject = ['$http', 'logger'];
+    function dataService($http, logger) {
         var service = {
             getDataNormal: getDataNormal,
             getDataHistory: getDataHistory
@@ -14,23 +14,24 @@
         return service;
 
         function getDataNormal(date) {
-            return $http.get('/api/companywinloss/normal')
+            return $http.get('/index2.html')
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
         function getDataHistory(fromDate, toDate) {
-            return $http.get('/api/companywinloss/history')
+            return $http.get('/index2.html')
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
         function getDataComplete(response) {
+            logger.hide();
             return response.data;
         }
 
         function getDataFailed(error) {
-            alert('XHR Failed. ' + error.data);
+            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.')
         }
     }
 })();
