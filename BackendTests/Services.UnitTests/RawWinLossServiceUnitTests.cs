@@ -78,8 +78,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
         private List<RawWinLoss> CreateFakeRawWinLosses()
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss("Number Game", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 100, 110, 10, 500, 600, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

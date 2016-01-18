@@ -1,0 +1,73 @@
+﻿using NAP.Reports.CompanyWinLoss.Models;
+using NAP.Reports.CompanyWinLoss.QueryModels;
+using NAP.Reports.CompanyWinLoss.Services;
+using NAP.Reports.CompanyWinLoss.Services.Criteria;
+using System.Web.Http;
+
+namespace NAP.Reports.CompanyWinLoss.Controllers
+{
+    public class NumberGameWinLossController : ApiController
+    {
+        private INumberGameBetTypeSummaryWinLossService _summaryService;
+
+        private INumberGameMatchDetailWinLossService _detailService;
+
+        private ISiteWinLossService _siteService;
+
+        public NumberGameWinLossController(
+            INumberGameBetTypeSummaryWinLossService summaryService,
+            INumberGameMatchDetailWinLossService detailService,
+            ISiteWinLossService siteWinLossService)
+        {
+            _summaryService = summaryService;
+            _detailService = detailService;
+            _siteService = siteWinLossService;
+        }
+
+        public NumberGameBetTypeWinLossSummary Summary(NumberGameQuery query)
+        {
+            var criteria = new NumberGameWinLossCriteria
+            {
+                StartDate = query.StartDate,
+                EndDate = query.EndDate
+            };
+
+            return ModelState.IsValid
+                ? _summaryService.Query(criteria)
+                : null;
+        }
+
+        public NumberGameMatchDetailWinLoss MatchDetail(NumberGameMatchDetailQuery query)
+        {
+            var criteria = new NumberGameMatchDetailWinLossCriteria
+            {
+                StartDate = query.StartDate,
+                EndDate = query.EndDate,
+                BetType = query.BetType,
+                IsLive = query.IsLive,
+                SportType = query.SportType
+            };
+
+            return ModelState.IsValid
+                ? _detailService.Query(criteria)
+                : null;
+        }
+
+        public SiteWinLoss SiteWinLoss(NumberGameSiteQuery query)
+        {
+            var criteria = new NumberGameSiteWinLossCriteria
+            {
+                StartDate = query.StartDate,
+                EndDate = query.EndDate,
+                SportType = query.SportType,
+                BetType = query.BetType,
+                IsLive = query.IsLive,
+                Site = query.Site
+            };
+
+            return ModelState.IsValid
+                ? _siteService.Query(criteria)
+                : null;
+        }
+    }
+}

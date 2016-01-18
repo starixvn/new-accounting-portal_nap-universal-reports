@@ -2,9 +2,11 @@
 {
     public class RawWinLoss
     {
-        public string Group { get; set; }
+        public string GroupName { get; set; }
 
-        public string Site { get; set; }
+        public int GroupId { get; set; }
+
+        public string RowName { get; set; }
 
         public bool IsLive { get; set; }
 

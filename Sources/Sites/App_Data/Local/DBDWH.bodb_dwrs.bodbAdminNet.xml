@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
-  <Function Name="Main-Warehouse">
-    <Setting Key="CompanyWinLoss-Main-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Main_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  <Function Name="CompanyWinLoss-Products">
+    <Setting Key="CompanyWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+
+  <Function Name="CompanyWinLoss-NumberGame">
+    <Setting Key="CompanyWinLoss-NumberGame-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Old" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBACC.bodb02.bodbAdminNet"></Setting>   
+  </Function>
+  
 </Functions>

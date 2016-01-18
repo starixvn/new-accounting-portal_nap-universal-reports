@@ -1,11 +1,11 @@
-﻿namespace NAP.Reports.CompanyWinLoss.Models
+﻿using System.Collections.Generic;
+
+namespace NAP.Reports.CompanyWinLoss.Models
 {
     public class SiteWinLoss
     {
+        public List<WinLoss> Sites { get; set; }
+
         public WinLoss Total { get; set; }
-
-        public WinLoss Credit { get; set; }
-
-        public WinLoss Deposit { get; set; }
     }
 }

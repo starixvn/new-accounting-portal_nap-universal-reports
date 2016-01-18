@@ -83,10 +83,11 @@
   <ItemGroup>
     <Compile Include="BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="CalculationServiceUnitTests.cs" />
-    <Compile Include="HybridGroupOfWinLossServiceUnitTests.cs" />
+    <Compile Include="SiteWinLossServiceUnitTests.cs" />
+    <Compile Include="NumberGameMatchDetailWinLossServiceUnitTests.cs" />
     <Compile Include="ProductWinLossServiceUnitTests.cs" />
     <Compile Include="RawWinLossServiceUnitTests.cs" />
-    <Compile Include="GroupSiteServiceUnitTests.cs" />
+    <Compile Include="NumberGameBetTypeSummaryWinLossServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinLossComparision.cs" />
     <Compile Include="WinLossFactory.cs" />

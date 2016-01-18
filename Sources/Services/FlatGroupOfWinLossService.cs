@@ -23,9 +23,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
             var winlosses = rawWinLosses.Select(r => _calculationService.FromRawWinLoss(r)).ToList();
-            var rawTotal = _calculationService.CalculateSum(rawWinLosses);
-            var grandTotal = _calculationService.FromRawWinLoss(rawTotal);
-            grandTotal.Title = "Total";
+            var grandTotal = _calculationService.CalculateTotal("Total", rawWinLosses);
 
             return new FlatGroupOfWinLoss
             {

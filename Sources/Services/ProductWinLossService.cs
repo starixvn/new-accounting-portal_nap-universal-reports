@@ -1,5 +1,4 @@
 ﻿using NAP.Reports.CompanyWinLoss.Models;
-using NAP.Reports.CompanyWinLoss.Models.Main;
 using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NAP.Reports.CompanyWinLoss.Services.Models;
 using System.Collections.Generic;
@@ -21,19 +20,19 @@ namespace NAP.Reports.CompanyWinLoss.Services
             _calculationService = calculationService;
         }
 
-        public virtual MainWinLoss Query(WinLossCriteria criteria)
+        public virtual ProductWinLoss Query(WinLossCriteria criteria)
         {
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
-            var rawSportsbookDetail = rawWinLosses.Where(r => r.Group == "Sportsbook Detail");
-            var rawProductWinLoss = rawWinLosses.Where(r => r.Group != "Sportsbook Detail");
+            var rawSportsbookDetail = rawWinLosses.Where(r => r.GroupName == "Sportsbook Detail");
+            var rawProductWinLoss = rawWinLosses.Where(r => r.GroupName != "Sportsbook Detail");
 
             var sportsbookDetail = CalculateSportsbookDetail(rawSportsbookDetail);
-            var productWinLoss = _calculationService.CalculateGroupWinLoss(rawProductWinLoss);
+            var productWinLoss = _calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
 
-            var grandTotal = _calculationService.CalculateGrandTotal(rawProductWinLoss);
+            var grandTotal = _calculationService.CalculateGrandTotal("GRAND TOTAL", rawProductWinLoss);
 
-            return new MainWinLoss
+            return new ProductWinLoss
             {
                 GrandTotal = grandTotal,
                 Products = productWinLoss.ToList(),

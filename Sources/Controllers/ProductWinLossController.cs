@@ -1,23 +1,23 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.Main;
-using NAP.Reports.CompanyWinLoss.QueryModels.Main;
+﻿using NAP.Reports.CompanyWinLoss.Models;
+using NAP.Reports.CompanyWinLoss.QueryModels;
 using NAP.Reports.CompanyWinLoss.Services;
 using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using System.Web.Http;
 
 namespace NAP.Reports.CompanyWinLoss.Controllers
 {
-    public class MainController : ApiController
+    public class ProductWinLossController : ApiController
     {
         private IProductWinLossService _service;
 
-        public MainController(IProductWinLossService service)
+        public ProductWinLossController(IProductWinLossService service)
         {
             _service = service;
         }
 
-        public MainWinLoss Values(MainQuery query)
+        public ProductWinLoss Values(ProductWinLossQuery query)
         {
-            var criteria = new WinLossCriteria
+            var criteria = new ProductWinLossCriteria
             {
                 StartDate = query.StartDate,
                 EndDate = query.EndDate

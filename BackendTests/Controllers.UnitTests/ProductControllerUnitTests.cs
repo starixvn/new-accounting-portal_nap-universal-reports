@@ -1,5 +1,5 @@
-﻿using NAP.Reports.CompanyWinLoss.Models.Main;
-using NAP.Reports.CompanyWinLoss.QueryModels.Main;
+﻿using NAP.Reports.CompanyWinLoss.Models;
+using NAP.Reports.CompanyWinLoss.QueryModels;
 using NAP.Reports.CompanyWinLoss.Services;
 using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NSubstitute;
@@ -17,8 +17,8 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         {
             // Arrange
             var service = Substitute.For<IProductWinLossService>();
-            var controller = new MainController(service);
-            var model = new MainQuery
+            var controller = new ProductWinLossController(service);
+            var model = new ProductWinLossQuery
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(+1)
@@ -39,12 +39,12 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         public void Values_ValidDateRange_ReturnsDataFromService()
         {
             // Arrange
-            var expectedReportData = new MainWinLoss();
+            var expectedReportData = new ProductWinLoss();
             var service = Substitute.For<IProductWinLossService>();
             service.Query(Arg.Any<WinLossCriteria>()).Returns(expectedReportData);
 
-            var controller = new MainController(service);
-            var model = new MainQuery
+            var controller = new ProductWinLossController(service);
+            var model = new ProductWinLossQuery
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today.AddDays(+1)

@@ -6,7 +6,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
     internal class WinLossFactory
     {
         internal static RawWinLoss CreateRawWinLoss(
-           string product,
+            int groupId,
+           string groupName,
            string site,
            decimal memberWinLoss,
            decimal smaWinLoss,
@@ -18,8 +19,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             return new RawWinLoss
             {
-                Group = product,
-                Site = site,
+                GroupId = groupId,
+                GroupName = groupName,
+                RowName = site,
                 IsLive = false,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
@@ -32,7 +34,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         internal static RawWinLoss CreateRawWinLoss(
-           string product,
+            int groupId,
+           string groupName,
            string site,
            bool isLive,
            decimal memberWinLoss,
@@ -45,8 +48,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             return new RawWinLoss
             {
-                Group = product,
-                Site = site,
+                GroupId = groupId,
+                GroupName = groupName,
+                RowName = site,
                 IsLive = isLive,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
@@ -59,7 +63,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         internal static WinLoss CreateWinLoss(
-            string title,
+            int groupId,
+            string groupName,
             decimal memberWinLoss,
             decimal smaWinLoss,
             decimal commission,
@@ -73,7 +78,8 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             return new WinLoss
             {
-                Title = title,
+                GroupName = groupName,
+                GroupId = groupId,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
                 Commission = commission,

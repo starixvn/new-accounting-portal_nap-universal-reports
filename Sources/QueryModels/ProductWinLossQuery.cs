@@ -1,9 +1,9 @@
 ﻿using NAP.Reports.MVC.Validation;
 using System;
 
-namespace NAP.Reports.CompanyWinLoss.QueryModels.Main
+namespace NAP.Reports.CompanyWinLoss.QueryModels
 {
-    public class MainQuery
+    public class ProductWinLossQuery
     {
         public DateTime StartDate { get; set; }
 

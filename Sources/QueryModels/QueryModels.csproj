@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\MainQuery.cs" />
+    <Compile Include="NumberGameSiteQuery.cs" />
+    <Compile Include="NumberGameMatchDetailQuery.cs" />
+    <Compile Include="NumberGameQuery.cs" />
+    <Compile Include="ProductWinLossQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +54,9 @@
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>MVC</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Main\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
