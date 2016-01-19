@@ -94,7 +94,7 @@
     <Compile Include="Criteria\BalanceUpCriteria.cs" />
     <Compile Include="Criteria\NumberGameMatchDetailWinLossCriteria.cs" />
     <Compile Include="Criteria\NumberGameSiteWinLossCriteria.cs" />
-    <Compile Include="Criteria\NumberGameWinLossCriteria.cs" />
+    <Compile Include="Criteria\NumberGameBetTypeSummaryWinLossCriteria.cs" />
     <Compile Include="Criteria\ProductWinLossCriteria.cs" />
     <Compile Include="INumberGameMatchDetailWinLossService.cs" />
     <Compile Include="ISiteWinLossService.cs" />

@@ -1,9 +1,10 @@
 ﻿using Fanex.Data.Repository;
+using NAP.Reports.CompanyWinLoss.Services.Models;
 using System;
 
 namespace NAP.Reports.CompanyWinLoss.Services.Criteria
 {
-    public class WinLossCriteria : CriteriaBase
+    public abstract class WinLossCriteria : CriteriaBase
     {
         public virtual DateTime StartDate { get; set; }
 
@@ -15,6 +16,15 @@ namespace NAP.Reports.CompanyWinLoss.Services.Criteria
         public override bool IsValid()
         {
             return true;
+        }
+
+        public abstract WinLossCriteria Clone(BalanceUpSource source);
+
+        protected virtual void Update(BalanceUpSource source)
+        {
+            StartDate = source.StartDate;
+            EndDate = source.EndDate;
+            Source = source.Source;
         }
     }
 }

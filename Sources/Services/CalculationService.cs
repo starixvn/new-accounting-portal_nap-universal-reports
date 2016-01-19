@@ -32,7 +32,12 @@ namespace NAP.Reports.CompanyWinLoss.Services
 
         public RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses)
         {
-            var sumWinLoss = new RawWinLoss
+            if (!winlosses.Any())
+            {
+                return new RawWinLoss();
+            }
+
+            return new RawWinLoss
             {
                 RowName = winlosses.First().RowName,
                 GroupName = winlosses.First().GroupName,
@@ -45,8 +50,6 @@ namespace NAP.Reports.CompanyWinLoss.Services
                 SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
                 VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
             };
-
-            return sumWinLoss;
         }
 
         public IEnumerable<RawWinLoss> CalculateSum(IEnumerable<IEnumerable<RawWinLoss>> sources)

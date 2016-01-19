@@ -78,7 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RawWinLossServiceTests.cs" />
+    <Compile Include="BaseWinLossServiceTests.cs" />
+    <Compile Include="NumberGameSiteWinLossServiceTests.cs" />
+    <Compile Include="NumberGameMatchDetailWinLossServiceTests.cs" />
+    <Compile Include="NumberGameBetTypeSummaryWinLossServiceTests.cs" />
+    <Compile Include="ProductWinLossServiceTests.cs" />
     <Compile Include="BalanceUpServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

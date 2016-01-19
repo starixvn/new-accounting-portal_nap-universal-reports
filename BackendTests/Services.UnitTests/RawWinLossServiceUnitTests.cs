@@ -1,6 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using NAP.Reports.CompanyWinLoss.Services.Criteria;
 using NAP.Reports.CompanyWinLoss.Services.Models;
+using NAP.Reports.CompanyWinLoss.Services.UnitTests.Fake;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -25,7 +26,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var service = new RawWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
 
             // Act
-            var criteria = new WinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
+            var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
             var result = service.Query(criteria);
 
             // Assert
@@ -67,7 +68,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             service.QueryBySource(Arg.Any<BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
             // Act
-            var criteria = new WinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
+            var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
             var result = service.Query(criteria);
 
             // Assert

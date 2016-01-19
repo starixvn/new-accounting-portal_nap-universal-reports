@@ -26,7 +26,7 @@ namespace NAP.Reports.CompanyWinLoss.Controllers
 
         public NumberGameBetTypeWinLossSummary Summary(NumberGameQuery query)
         {
-            var criteria = new NumberGameWinLossCriteria
+            var criteria = new NumberGameBetTypeSummaryWinLossCriteria
             {
                 StartDate = query.StartDate,
                 EndDate = query.EndDate

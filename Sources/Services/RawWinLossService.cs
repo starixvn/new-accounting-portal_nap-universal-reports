@@ -24,7 +24,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
 
         public virtual List<RawWinLoss> Query(WinLossCriteria criteria)
         {
-            var sources = _balanceUpSourceChooser.Determine(criteria.StartDate, criteria.EndDate);
+            var sources = _balanceUpSourceChooser.Determine(criteria.StartDate, criteria.EndDate).ToArray();
             var tasks = sources.Select(s => QueryBySourceAsync(s, criteria)).ToArray();
             Task.WaitAll(tasks);
 
@@ -34,11 +34,8 @@ namespace NAP.Reports.CompanyWinLoss.Services
 
         public virtual List<RawWinLoss> QueryBySource(BalanceUpSource source, WinLossCriteria criteria)
         {
-            criteria.StartDate = source.StartDate;
-            criteria.EndDate = source.EndDate;
-            criteria.Source = source.Source;
-
-            return _repository.Fetch<RawWinLoss>(criteria).ToList();
+            var executingCriteria = criteria.Clone(source);
+            return _repository.Fetch<RawWinLoss>(executingCriteria).ToList();
         }
 
         public async Task<List<RawWinLoss>> QueryBySourceAsync(BalanceUpSource source, WinLossCriteria criteria)
