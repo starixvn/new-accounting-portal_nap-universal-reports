@@ -39,10 +39,8 @@ describe('Controller: MainController', function () {
         });
 
         function setupFakeHttpRequests() {
-            var mockData = createFakeProductWinLoss("Normal");
-            httpBackend.whenGET('/api/companywinloss/normal').respond(mockData);
-            mockData = createFakeProductWinLoss("History");
-            httpBackend.whenGET('/api/companywinloss/history').respond(mockData);
+            var mockData = createFakeProductWinLoss("NumberGame");
+            httpBackend.whenPOST('/api/productwinloss/values').respond(mockData);
         }
 
         function createFakeProductWinLoss(productName) {
