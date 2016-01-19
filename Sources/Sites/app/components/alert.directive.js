@@ -8,6 +8,7 @@
     function napAlert() {
         var directive = {
             restrict: 'EA',
+            scope: {},
             templateUrl: '/app/components/alert.directive.html',
             replace: true,
             controller: controller,

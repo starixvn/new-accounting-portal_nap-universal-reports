@@ -8,6 +8,7 @@
     function napLoading() {
         var directive = {
             restrict: 'EA',
+            scope: {},
             template: '<div class="loading-container" data-ng-show="vm.isLoading"><div class="block-overlay"></div><div class="block-loading"></div></div>',
             replace: true,
             controller: controller,

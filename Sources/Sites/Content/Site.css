@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -9015,7 +9015,7 @@ button.close {
 
 /* line 223, ../stylesheets/Site.scss */
 .loading-container > .block-overlay {
-  z-index: 1052;
+  z-index: 1051;
   background: white;
   opacity: 0.5;
   filter: alpha(opacity=50);
@@ -9027,7 +9027,7 @@ button.close {
 }
 /* line 235, ../stylesheets/Site.scss */
 .loading-container > .block-loading {
-  z-index: 1051;
+  z-index: 1052;
   background: url(/images/loading/loading.gif) no-repeat center center;
   position: fixed;
   left: 0;
@@ -9048,8 +9048,4 @@ button.close {
 .alert-container .alert {
   padding: 5px;
   font-weight: bold;
-}
-.freegrid .grid-fixed-table tr.sub-total td {
-   background-color: #f4f4be;
-   font-weight: bold;
 }

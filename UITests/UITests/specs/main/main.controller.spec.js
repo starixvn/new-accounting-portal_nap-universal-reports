@@ -8,6 +8,7 @@
 /// <reference path="../../scripts/jasmine-html.js" />
 /// <reference path="../../../../sources/sites/scripts/angular-moment.min.js" />
 /// <reference path="../../../../sources/sites/app/app.js" />
+/// <reference path="../../../../sources/sites/app/app.constants.js" />
 /// <reference path="../../../../sources/sites/app/app.config.js" />
 /// <reference path="../../../../sources/sites/app/common/logger.js" />
 /// <reference path="../../../../sources/sites/app/main/main.service.js" />
