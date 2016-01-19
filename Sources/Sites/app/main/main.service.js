@@ -14,14 +14,14 @@
         return service;
 
         function getDataNormal(date) {
-            var data = new { startdate: date, enddate: date };
+            var data = { startdate: date, enddate: date };
             return $http.post('/api/productwinloss/values', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
         function getDataHistory(startdate, enddate) {
-            var data = new { startdate: startdate, enddate: enddate };
+            var data = { startdate: startdate, enddate: enddate };
             return $http.post('/api/productwinloss/values', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
