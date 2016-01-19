@@ -10,7 +10,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
     public class SiteWinLossServiceUnitTests
     {
         [Test]
-        [Category("ServiceUnitTests")]
         public void Query_ReturnRightSiteWinLoss()
         {
             // Arrange   

@@ -11,7 +11,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
     public class ProductWinLossServiceUnitTests
     {
         [Test]
-        [Category("ServiceUnitTests")]
         public void CalculateSportsbookDetail_ReturnRightSportsbookDetail()
         {
             // Arrange   
@@ -47,7 +46,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("ServiceUnitTests")]
         public void CalculateMainWinLoss_ReturnRightMainWinLoss()
         {
             // Arrange   

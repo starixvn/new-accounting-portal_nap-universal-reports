@@ -11,7 +11,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
     public class NumberGameBetTypeWinLossSummaryServiceUnitTests
     {
         [Test]
-        [Category("ServiceUnitTests")]
         public void Query_ReturnRightNumberGameBetTypeWinLossSummary()
         {
             // Arrange   

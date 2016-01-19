@@ -15,7 +15,6 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("IntegrationDataService")]
         public void Query_DateRangeForThreeSources()
         {
             // Arrange

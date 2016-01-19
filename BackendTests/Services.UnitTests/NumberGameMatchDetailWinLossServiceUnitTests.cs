@@ -10,7 +10,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
     public class NumberGameMatchDetailWinLossServiceUnitTests
     {
         [Test]
-        [Category("ServiceUnitTests")]
         public void Query_ReturnRightNumberGameMatchDetailWinLoss()
         {
             // Arrange   

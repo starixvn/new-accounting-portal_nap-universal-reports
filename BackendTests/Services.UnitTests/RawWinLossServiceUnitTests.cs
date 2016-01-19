@@ -12,7 +12,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
     public class RawWinLossServiceUnitTests
     {
         [Test]
-        [Category("ServiceUnitTests")]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
         {
             // Arrange
@@ -53,7 +52,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("ServiceUnitTests")]
         public void Query_TwoSources_CallCalculationServiceWithTwoDimensionArray()
         {
             // Arrange

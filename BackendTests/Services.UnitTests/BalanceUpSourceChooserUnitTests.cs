@@ -11,7 +11,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         private static BalanceUpRange _balanceUpRange = new BalanceUpRange { BalanceUpDate = new DateTime(2015, 06, 01), MoveBetsDate = new DateTime(2015, 09, 01) };
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateAfterMoveBetsDate_ReturnsOneSource()
         {
             // Arrange
@@ -29,7 +28,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateBetweenBalanceUpRange_EndDateAfterMoveBetsDate_ReturnsTwoSources()
         {
             // Arrange
@@ -48,7 +46,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateBetweenBalanceUpRange_EndDateBeforeMoveBetsDate_ReturnsOneSource()
         {
             // Arrange
@@ -67,7 +64,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateBeforeBalanceUpDate_EndDateAfterMoveBetsDate_ReturnThreeSources()
         {
             // Arrange
@@ -86,7 +82,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateBeforeBalanceUpDate_EndDateBetweenBalanceUpDRange_ReturnTwoSources()
         {
             // Arrange
@@ -105,7 +100,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("BalanceUpSourceChooserUnitTests")]
         public void Determine_StartDateAndEndDateBeforeBalanceUpDate_ReturnOneSource()
         {
             // Arrange

@@ -9,10 +9,9 @@ using System;
 namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
 {
     [TestFixture]
-    public class MainControllerUnitTests
+    public class ProductControllerUnitTests
     {
         [Test]
-        [Category("MainControllerUnitTests")]
         public void Values_InvalidDateRange_ReturnsNull()
         {
             // Arrange
@@ -34,8 +33,6 @@ namespace NAP.Reports.CompanyWinLoss.Controllers.UnitTests
         }
 
         [Test]
-        [Category("MainControllerUnitTests")]
-
         public void Values_ValidDateRange_ReturnsDataFromService()
         {
             // Arrange

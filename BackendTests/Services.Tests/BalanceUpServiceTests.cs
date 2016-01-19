@@ -17,7 +17,6 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("IntegrationDataService")]
         public void QueryBalanceUp_Successful()
         {
             // Arrange
@@ -29,7 +28,6 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("IntegrationDataService")]
         public void QueryBalanceUp_Twice_CallDynamicRepository_One_BecauseOfCaching()
         {
             // Arrange
@@ -49,7 +47,6 @@ namespace NAP.Reports.Services.Tests
         }
 
         [Test]
-        [Category("IntegrationDataService")]
         public void QueryBalanceUp_Twice_ReturnValidValue()
         {
             // Arrange

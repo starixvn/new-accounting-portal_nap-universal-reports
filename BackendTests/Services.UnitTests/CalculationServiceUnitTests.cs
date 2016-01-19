@@ -11,7 +11,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         private const string NumberGame = "Number Game";
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -27,7 +26,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -42,7 +40,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void FromRawWinLoss_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
@@ -59,7 +56,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -91,7 +87,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             // Arrange
@@ -122,7 +117,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -142,7 +136,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("CalculationServiceUnitTests")]
         public void CalculateTotal_ReturnsRightTotalValue()
         {
             // Arrange
@@ -162,7 +155,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("ServiceUnitTests")]
         public void CalculateGrandTotal_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
@@ -208,7 +200,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("ServiceUnitTests")]
         public void CalculateSiteWinLoss_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
         {
             // Arrange   
@@ -237,7 +228,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         }
 
         [Test]
-        [Category("ServiceUnitTests")]
         public void CalculateGroupWinLoss_TwoGroups_ReturnRightGroups()
         {
             // Arrange   

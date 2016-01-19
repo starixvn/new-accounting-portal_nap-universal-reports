@@ -4,8 +4,7 @@
     angular
         .module('companyWinlossApp')
         .constant('config', (function () {
-            //var today = moment.utc(napConfig.today, 'MM/DD/YYYY');
-            var today = moment.utc(new Date());
+            var today = moment().utcOffset(-4);
             var yesterday = moment(today).subtract(1, 'days');
             return {
                 today: today,
