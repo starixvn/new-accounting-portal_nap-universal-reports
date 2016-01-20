@@ -10,8 +10,8 @@
             restrict: 'EA',
             templateUrl: '/app/components/month-picker.directive.html',
             scope: {
-                fromDate: '=',
-                toDate: '='
+                startDate: '=',
+                endDate: '='
             },
             replace: true,
             controller: controller,
@@ -31,10 +31,10 @@
             var monthOfMaxDate = maxDate.month();
             var yearOfMaxDate = maxDate.year();
             var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');
-            var fromDate = moment.utc(vm.fromDate);
-            var toDate = moment.utc(vm.toDate);
-            if (fromDate.year() !== toDate.year() || fromDate.month() !== toDate.month()) {
-                $log.error('fromDate and toDate are not same month and year');
+            var startDate = moment.utc(vm.startDate);
+            var endDate = moment.utc(vm.endDate);
+            if (startDate.year() !== endDate.year() || startDate.month() !== endDate.month()) {
+                $log.error('startDate and endDate are not same month and year');
                 return;
             }
 
@@ -61,10 +61,10 @@
             vm.selectFromDay = function ($event, day) {
                 $event.preventDefault();
                 vm.fromDay = day;
-                fromDate.date(vm.fromDay);
+                startDate.date(vm.fromDay);
                 if (vm.toDay < vm.fromDay) {
                     vm.toDay = vm.fromDay;
-                    toDate.date(vm.toDay);
+                    endDate.date(vm.toDay);
                 }
                 updateModel();
             };
@@ -72,10 +72,10 @@
             vm.selectToDay = function ($event, day) {
                 $event.preventDefault();
                 vm.toDay = day;
-                toDate.date(vm.toDay);
+                endDate.date(vm.toDay);
                 if (vm.toDay < vm.fromDay) {
                     vm.fromDay = vm.toDay;
-                    fromDate.date(vm.fromDay);
+                    startDate.date(vm.fromDay);
                 }
                 updateModel();
             };
@@ -89,22 +89,22 @@
 
             vm.selectMonth = function (year, month) {
                 var fromDay = year === yearOfMinDate && month === monthOfMinDate ? minDate.date() : 1;
-                fromDate = moment.utc([year, month, fromDay]);
-                var toDay = year === yearOfMaxDate && month === monthOfMaxDate ? maxDate.date() : fromDate.daysInMonth();
-                toDate = moment.utc([year, month, toDay]);
+                startDate = moment.utc([year, month, fromDay]);
+                var toDay = year === yearOfMaxDate && month === monthOfMaxDate ? maxDate.date() : startDate.daysInMonth();
+                endDate = moment.utc([year, month, toDay]);
                 generateViewModel();
                 updateModel();
             };
 
             function generateViewModel() {
-                var previousMonth = moment(fromDate).subtract(1, 'months').startOf('month');
-                var nextMonth = moment(fromDate).add(1, 'months').endOf('month');
-                vm.year = fromDate.year();
-                vm.month = fromDate.month();
-                vm.text = fromDate.format('MMM YYYY');
+                var previousMonth = moment(startDate).subtract(1, 'months').startOf('month');
+                var nextMonth = moment(startDate).add(1, 'months').endOf('month');
+                vm.year = startDate.year();
+                vm.month = startDate.month();
+                vm.text = startDate.format('MMM YYYY');
                 vm.years = generateYears();
-                vm.fromDay = fromDate.date();
-                vm.toDay = toDate.date();
+                vm.fromDay = startDate.date();
+                vm.toDay = endDate.date();
                 vm.daysOfMonth = generateDaysOfMonth();
 
                 vm.previousDisabled = previousMonth.isBefore(startOfMonthOfMinDate);
@@ -152,8 +152,8 @@
             }
 
             function updateModel() {
-                vm.fromDate = moment.utc(fromDate);
-                vm.toDate = moment.utc(toDate);
+                vm.startDate = moment.utc(startDate);
+                vm.endDate = moment.utc(endDate);
             }
         }
     }

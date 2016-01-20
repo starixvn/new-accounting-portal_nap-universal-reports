@@ -79,7 +79,7 @@
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
             </div>
             <div class="form-group" data-ng-switch-when="false">
-                <nap-month-picker data-from-date="vm.fromDate" data-to-date="vm.toDate"></nap-month-picker>
+                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate"></nap-month-picker>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
             </div>

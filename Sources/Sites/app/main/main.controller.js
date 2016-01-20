@@ -28,8 +28,8 @@
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
-        vm.fromDate = moment.utc(config.today).startOf('month').toDate();
-        vm.toDate = config.today;
+        vm.startDate = moment.utc(config.today).startOf('month');
+        vm.endDate = config.today;
 
 
         vm.generate = function () {
@@ -57,7 +57,7 @@
         };
 
         function getData() {
-            var promise = vm.normalMode ? dataService.getDataNormal() : dataService.getDataHistory();
+            var promise = vm.normalMode ? dataService.getDataNormal(vm.date) : dataService.getDataHistory(vm.startDate, vm.endDate);
             return promise.then(function (data) {
                 vm.data = data;
                 vm.data = reportData;
