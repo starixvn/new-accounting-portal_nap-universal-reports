@@ -156,6 +156,7 @@
     <None Include="images\.keep" />
     <None Include="packages.config" />
     <Content Include="app\app.constants.js" />
+    <Content Include="app\common\fanexGridHelper.js" />
     <Content Include="app\common\logger.js" />
     <Content Include="app\components\alert.directive.html" />
     <Content Include="app\components\alert.directive.js" />

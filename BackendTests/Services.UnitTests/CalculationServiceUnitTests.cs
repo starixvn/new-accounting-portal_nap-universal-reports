@@ -103,7 +103,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
 
             // Act 
             var service = new CalculationServiceImp();
-            var result = service.CalculateGrandTotal("GRAND TOTAL", fakeData);
+            var result = service.CalculateGrandTotal("Grand Total", fakeData);
 
             // Assert
             var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGrandTotal, result);
@@ -116,7 +116,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             {
                 Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 5m / 9, 0.6m),
                 Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 5m / 9, 0.6m),
-                Total = WinLossFactory.CreateWinLoss(1, "GRAND TOTAL", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m),
+                Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m),
             };
         }
 

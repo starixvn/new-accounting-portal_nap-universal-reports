@@ -130,7 +130,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             {
                 Credit = WinLossFactory.CreateWinLoss(0, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 5m / 9, 0.6m),
                 Deposit = WinLossFactory.CreateWinLoss(0, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 5m / 9, 0.6m),
-                Total = WinLossFactory.CreateWinLoss(0, "GRAND TOTAL", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m),
+                Total = WinLossFactory.CreateWinLoss(0, "Grand Total", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m),
             };
         }
     }

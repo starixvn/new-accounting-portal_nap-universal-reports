@@ -40,7 +40,7 @@ namespace NAP.Reports.CompanyWinLoss.Services
 
         public async Task<List<RawWinLoss>> QueryBySourceAsync(BalanceUpSource source, WinLossCriteria criteria)
         {
-            return await Task.Run(() => QueryBySource(source, criteria));
+            return await Task.Run(() => QueryBySource(source, criteria)).ConfigureAwait(false);
         }
     }
 }

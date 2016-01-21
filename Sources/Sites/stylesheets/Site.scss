@@ -255,3 +255,17 @@
         font-weight: bold;
     }
 }
+
+.freegrid {
+    font-size: 0.85em;
+
+    .grid-container {
+        .highlight-product {
+
+            & > td {
+                font-weight: bold;
+                background-color: #f4f4be;
+            }
+        }
+    }
+}
