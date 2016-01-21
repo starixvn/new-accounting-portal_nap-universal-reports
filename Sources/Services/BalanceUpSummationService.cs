@@ -1,11 +1,10 @@
 ﻿using NAP.Reports.CompanyWinLoss.Services.Models;
-using System;
 using System.Collections.Generic;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public interface IBalanceUpSourceChooser
+    public interface BalanceUpSummationService
     {
-        IEnumerable<BalanceUpSource> Determine(DateTime startDate, DateTime endDate);
+        IEnumerable<RawWinLoss> CalculateSum(IEnumerable<IEnumerable<RawWinLoss>> sources);
     }
 }

@@ -16,6 +16,5 @@ namespace NAP.Reports.CompanyWinLoss.Services.Criteria
         {
             return $"CompanyWinLoss-Products-{Source}";
         }
-
     }
 }

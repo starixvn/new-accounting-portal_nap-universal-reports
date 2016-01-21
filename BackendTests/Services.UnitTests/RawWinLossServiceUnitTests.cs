@@ -17,13 +17,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var calculationService = Substitute.For<ICalculationService>();
+            var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
             var twoSources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<IBalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
 
-            var service = new RawWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
+            var service = new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
@@ -57,13 +57,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var calculationService = Substitute.For<ICalculationService>();
+            var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
             var sources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<IBalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
 
-            var service = Substitute.ForPartsOf<RawWinLossService>(dynamicRepository, calculationService, balanceUpSourceChooser);
+            var service = Substitute.ForPartsOf<RawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
             service.QueryBySource(Arg.Any<BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
@@ -72,7 +72,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var result = service.Query(criteria);
 
             // Assert
-            calculationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<RawWinLoss>>>(x => x.Count() == 2));
+            balanceUpSummationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<RawWinLoss>>>(x => x.Count() == 2));
         }
 
         private List<RawWinLoss> CreateFakeRawWinLosses()

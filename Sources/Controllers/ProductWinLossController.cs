@@ -8,9 +8,9 @@ namespace NAP.Reports.CompanyWinLoss.Controllers
 {
     public class ProductWinLossController : ApiController
     {
-        private IProductWinLossService _service;
+        private ProductWinLossService _service;
 
-        public ProductWinLossController(IProductWinLossService service)
+        public ProductWinLossController(ProductWinLossService service)
         {
             _service = service;
         }

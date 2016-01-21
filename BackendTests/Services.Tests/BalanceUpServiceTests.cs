@@ -21,7 +21,7 @@ namespace NAP.Reports.Services.Tests
         {
             // Arrange
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new BalanceUpService(dynamicRepository);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
 
             // Act
             balanceUpService.Query();
@@ -35,7 +35,7 @@ namespace NAP.Reports.Services.Tests
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>()).Returns(emptyBalanceUpRange);
 
-            var balanceUpService = new BalanceUpService(dynamicRepository);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
             balanceUpService.ClearCache();
 
             // Act
@@ -54,7 +54,7 @@ namespace NAP.Reports.Services.Tests
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>()).Returns(emptyBalanceUpRange);
 
-            var balanceUpService = new BalanceUpService(dynamicRepository);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
             balanceUpService.ClearCache();
 
             // Act

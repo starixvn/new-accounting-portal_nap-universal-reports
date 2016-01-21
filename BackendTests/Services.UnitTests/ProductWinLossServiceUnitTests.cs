@@ -15,12 +15,12 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange   
             var expectedProducts = CreateExpectedSportsbookDetail();
-            var calculationService = new CalculationService();
-            var rawWinLossService = Substitute.For<IRawWinLossService>();
+            var calculationService = new CalculationServiceImp();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeSportsbookDetail();
 
             // Act 
-            var service = new ProductWinLossService(rawWinLossService, calculationService);
+            var service = new ProductWinLossServiceImp(rawWinLossService, calculationService);
             var result = service.CalculateSportsbookDetail(fakeData);
 
             // Assert
@@ -50,13 +50,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange   
             var expectedMainWinLoss = CreateExpectedMainWinLoss();
-            var calculationService = new CalculationService();
-            var rawWinLossService = Substitute.For<IRawWinLossService>();
+            var calculationService = new CalculationServiceImp();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ProductWinLossService(rawWinLossService, calculationService);
+            var service = new ProductWinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

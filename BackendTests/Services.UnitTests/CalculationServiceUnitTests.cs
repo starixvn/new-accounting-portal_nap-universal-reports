@@ -16,7 +16,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Arrange
             var zero = 0;
             var anyIncome = 12312;
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
 
             // Act
             var result = calculationService.CalculateMargin(zero, anyIncome);
@@ -30,7 +30,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange
             var expectedDevidend = 0.1m;
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
 
             // Act
             var result = calculationService.CalculateMargin(10m, 1m);
@@ -45,7 +45,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Arrange
             var rawWinLoss = WinLossFactory.CreateRawWinLoss(1, "Sportsbook", "Sportsbook Live", 100, 110, 10, 500, 600, 900, 1000);
             var expectedWinLoss = WinLossFactory.CreateWinLoss(1, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 900, 1000, 5m / 9, 0.6m);
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
 
             // Act
             var result = calculationService.FromRawWinLoss(rawWinLoss);
@@ -53,67 +53,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Assert
             var equal = WinLossComparision.AreTwoWinLossEqual(expectedWinLoss, result);
             Assert.True(equal);
-        }
-
-        [Test]
-        public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
-        {
-            // Arrange
-            var expectedSum = new List<RawWinLoss>
-            {
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 1890, 2100),
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 210, 230, 21, 1050, 1260, 1890, 2100),
-            };
-
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
-            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var credit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 110, 120, 11, 550, 660, 990, 1100);
-
-            var group1 = new RawWinLoss[] { deposit1, credit1 };
-            var group2 = new RawWinLoss[] { deposit2, credit2 };
-            var winlosses = new[] { group1, group2 };
-
-            // Act
-            var calculationService = new CalculationService();
-            var result = calculationService.CalculateSum(winlosses).ToList();
-
-            // Assert
-            var areEqual1 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[1], result[1]);
-
-            Assert.True(areEqual1);
-            Assert.True(areEqual2);
-        }
-
-        [Test]
-        public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
-        {
-            // Arrange
-            var expectedSum = new List<RawWinLoss>
-            {
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 1890, 2100),
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit",  100, 110, 10, 500, 600, 900, 1000)
-            };
-
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
-            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 900, 1000);
-
-            var group1 = new RawWinLoss[] { deposit1, credit1 };
-            var group2 = new RawWinLoss[] { deposit2 };
-            var winlosses = new[] { group1, group2 };
-
-            // Act
-            var calculationService = new CalculationService();
-            var result = calculationService.CalculateSum(winlosses).ToList();
-
-            // Assert
-            var areEqual1 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[1], result[1]);
-
-            Assert.True(areEqual1);
-            Assert.True(areEqual2);
         }
 
         [Test]
@@ -127,7 +66,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var winlosses = new RawWinLoss[] { deposit1, deposit2 };
 
             // Act
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
             var result = calculationService.CalculateSum(winlosses);
 
             // Assert
@@ -140,7 +79,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange
             var expectedTotal = WinLossFactory.CreateWinLoss(1, "Group 1", 210, 410, 30, 610, 810, -200, 2100, 2500, 610m / 2100, 810m / 2500);
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
 
             // Act
             var deposit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 100, 200, 10, 300, 400, 1000, 1200);
@@ -159,11 +98,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange   
             var expectedGrandTotal = CreateExpectedGrandTotal();
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
             var fakeData = CreateFakeRawWinLoss();
 
             // Act 
-            var service = new CalculationService();
+            var service = new CalculationServiceImp();
             var result = service.CalculateGrandTotal("GRAND TOTAL", fakeData);
 
             // Assert
@@ -204,11 +143,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange   
             var expectedGroup = CreateEmptySiteWinLoss();
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
             var fakeData = new List<RawWinLoss>();
 
             // Act 
-            var service = new CalculationService();
+            var service = new CalculationServiceImp();
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", fakeData);
 
             // Assert
@@ -232,11 +171,11 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
         {
             // Arrange   
             var expectedGroups = CreateExpectedGroups();
-            var calculationService = new CalculationService();
+            var calculationService = new CalculationServiceImp();
             var fakeData = CreateFakeRawWinLoss();
 
             // Act 
-            var service = new CalculationService();
+            var service = new CalculationServiceImp();
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
             // Assert

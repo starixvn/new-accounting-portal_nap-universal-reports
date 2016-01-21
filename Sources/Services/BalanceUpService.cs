@@ -1,44 +1,11 @@
-﻿using Fanex.Caching;
-using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.Models;
-using NAP.Reports.CompanyWinLoss.Services.Criteria;
+﻿using NAP.Reports.CompanyWinLoss.Models;
 
 namespace NAP.Reports.CompanyWinLoss.Services
 {
-    public class BalanceUpService : IBalanceUpService
+    public interface BalanceUpService
     {
-        private const string BalanceUpRangeCacheKey = "BalanceUpRangeCacheKey";
+        void ClearCache();
 
-        private IDynamicRepository _repository;
-
-        private ICache _cacheService = CacheService.CreateInstance(CacheType.MemoryCache);
-
-        public BalanceUpService(IDynamicRepository repository)
-        {
-            _repository = repository;
-        }
-
-        public void ClearCache()
-        {
-            _cacheService.Remove(BalanceUpRangeCacheKey);
-        }
-
-        public BalanceUpRange Query()
-        {
-            var balanceUpRange = _cacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
-            if (balanceUpRange == null)
-            {
-                balanceUpRange = QueryFromSource();
-                _cacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
-            }
-
-            return balanceUpRange;
-        }
-
-        private BalanceUpRange QueryFromSource()
-        {
-            var criteria = new BalanceUpCriteria();
-            return _repository.Get<BalanceUpRange>(criteria);
-        }
+        BalanceUpRange Query();
     }
 }

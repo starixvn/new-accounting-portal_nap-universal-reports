@@ -14,13 +14,13 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
         {
             // Arrange   
             var expectedSiteWinLoss = CreateExpectedSiteWinLoss();
-            var calculationService = new CalculationService();
-            var rawWinLossService = Substitute.For<IRawWinLossService>();
+            var calculationService = new CalculationServiceImp();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new SiteWinLossService(rawWinLossService, calculationService);
+            var service = new SiteWinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

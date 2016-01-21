@@ -6,20 +6,20 @@ namespace NAP.Reports.Services.Tests
 {
     public class BaseWinLossServiceTests
     {
-        protected IRawWinLossService CreateRawWinLossService()
+        protected RawWinLossService CreateRawWinLossService()
         {
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new BalanceUpService(dynamicRepository);
-            var balanceUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
+            var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
-            var calculationService = new CalculationService();
-            return new RawWinLossService(dynamicRepository, calculationService, balanceUpSourceChooser);
+            var balanceUpSummationService = new BalanceUpSummationServiceImp();
+            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
 
         protected BalanceUpRange GetBalanceUpRange()
         {
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new BalanceUpService(dynamicRepository);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
             return balanceUpService.Query();
         }
     }

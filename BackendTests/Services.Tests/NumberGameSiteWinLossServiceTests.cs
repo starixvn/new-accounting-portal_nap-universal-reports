@@ -25,11 +25,11 @@ namespace NAP.Reports.Services.Tests
             service.Query(criteria);
         }
 
-        private SiteWinLossService CreateService()
+        private SiteWinLossServiceImp CreateService()
         {
             var rawWinLossService = CreateRawWinLossService();
-            var calculationService = new CalculationService();
-            return new SiteWinLossService(rawWinLossService, calculationService);
+            var calculationService = new CalculationServiceImp();
+            return new SiteWinLossServiceImp(rawWinLossService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()

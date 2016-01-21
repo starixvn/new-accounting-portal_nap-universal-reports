@@ -15,14 +15,15 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
-            container.Register<IBalanceUpService, BalanceUpService>(Lifestyle.Transient);
-            container.Register<IBalanceUpSourceChooser, BalanceUpSourceChooser>(Lifestyle.Transient);
-            container.Register<ICalculationService, CalculationService>(Lifestyle.Transient);
-            container.Register<IRawWinLossService, RawWinLossService>(Lifestyle.Transient);
-            container.Register<IProductWinLossService, ProductWinLossService>(Lifestyle.Transient);
-            container.Register<INumberGameBetTypeSummaryWinLossService, NumberGameBetTypeSummaryWinLossService>(Lifestyle.Transient);
-            container.Register<INumberGameMatchDetailWinLossService, NumberGameMatchDetailWinLossService>(Lifestyle.Transient);
-            container.Register<ISiteWinLossService, SiteWinLossService>(Lifestyle.Transient);
+            container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
+            container.Register<CalculationService, CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<RawWinLossService, RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<ProductWinLossService, ProductWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<NumberGameBetTypeSummaryWinLossService, NumberGameBetTypeSummaryWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<NumberGameMatchDetailWinLossService, NumberGameMatchDetailWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLossService, SiteWinLossServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

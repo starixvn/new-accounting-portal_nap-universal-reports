@@ -16,9 +16,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             // Arrange
             var startDate = new DateTime(2015, 10, 01);
             var endDate = new DateTime(2015, 11, 01);
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);
@@ -34,9 +34,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var startDate = new DateTime(2015, 07, 01);
             var endDate = new DateTime(2015, 11, 01);
 
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);
@@ -52,9 +52,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var startDate = new DateTime(2015, 07, 01);
             var endDate = new DateTime(2015, 08, 01);
 
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);
@@ -70,9 +70,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var startDate = new DateTime(2015, 03, 01);
             var endDate = new DateTime(2015, 11, 01);
 
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);
@@ -88,9 +88,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var startDate = new DateTime(2015, 03, 01);
             var endDate = new DateTime(2015, 08, 01);
 
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);
@@ -106,9 +106,9 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
             var startDate = new DateTime(2015, 03, 01);
             var endDate = new DateTime(2015, 04, 01);
 
-            var balanceUpService = Substitute.For<IBalanceUpService>();
+            var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(_balanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooser(balanceUpService);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
             var result = balancerUpSourceChooser.Determine(startDate, endDate);

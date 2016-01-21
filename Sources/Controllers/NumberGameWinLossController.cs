@@ -8,16 +8,16 @@ namespace NAP.Reports.CompanyWinLoss.Controllers
 {
     public class NumberGameWinLossController : ApiController
     {
-        private INumberGameBetTypeSummaryWinLossService _summaryService;
+        private NumberGameBetTypeSummaryWinLossService _summaryService;
 
-        private INumberGameMatchDetailWinLossService _detailService;
+        private NumberGameMatchDetailWinLossService _detailService;
 
-        private ISiteWinLossService _siteService;
+        private SiteWinLossService _siteService;
 
         public NumberGameWinLossController(
-            INumberGameBetTypeSummaryWinLossService summaryService,
-            INumberGameMatchDetailWinLossService detailService,
-            ISiteWinLossService siteWinLossService)
+            NumberGameBetTypeSummaryWinLossService summaryService,
+            NumberGameMatchDetailWinLossService detailService,
+            SiteWinLossService siteWinLossService)
         {
             _summaryService = summaryService;
             _detailService = detailService;
