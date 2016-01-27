@@ -17,7 +17,7 @@
         };
         return directive;
 
-        controller.$inject = [$scope];
+        controller.$inject = ['$scope'];
         function controller($scope) {
             var vm = this;
             vm.isLoading = false;

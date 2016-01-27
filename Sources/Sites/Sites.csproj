@@ -158,10 +158,15 @@
     <Content Include="app\app.constants.js" />
     <Content Include="app\common\fanexGridHelper.js" />
     <Content Include="app\common\logger.js" />
+    <Content Include="app\company-winloss\company-winloss.controller.js" />
+    <Content Include="app\company-winloss\filter\filter.controller.js" />
+    <Content Include="app\company-winloss\filter\filter.html" />
+    <Content Include="app\company-winloss\main\main.controller.js" />
+    <Content Include="app\company-winloss\main\main.html" />
     <Content Include="app\components\alert.directive.html" />
     <Content Include="app\components\alert.directive.js" />
     <Content Include="app\components\loading.directive.js" />
-    <Content Include="app\main\main.service.js" />
+    <Content Include="app\company-winloss\main\main.service.js" />
     <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -381,8 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\main\main.controller.js" />
-    <Content Include="app\main\main.html" />
+    <Content Include="app\company-winloss\company-winloss.html" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
@@ -1192,6 +1196,7 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

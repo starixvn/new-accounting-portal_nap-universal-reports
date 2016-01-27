@@ -8,18 +8,9 @@
     dataService.$inject = ['$http', 'logger'];
     function dataService($http, logger) {
         var service = {
-            getDataNormal: getDataNormal,
-            getDataHistory: getDataHistory
+            getData: getData
         };
         return service;
-
-        function getDataNormal(date) {
-            return getData(date, date);
-        }
-
-        function getDataHistory(startDate, endDate) {
-            return getData(startDate, endDate);
-        }
 
         function getData(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };

@@ -13,9 +13,9 @@
         function configRouting() {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'app/main/main.html',
-                    controller: 'MainController',
-                    controllerAs: 'vm'
+                    templateUrl: 'app/company-winloss/company-winloss.html',
+                    controller: 'CompanyWinlossController',
+                    controllerAs: 'ctrl'
                 })
                 .when('/about', {
                     templateUrl: 'app/about/about.html',

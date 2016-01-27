@@ -1,74 +1,38 @@
-/**
- * @ngdoc function
- * @name companyWinlossApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the companyWinlossApp
- */
-(function () {
+﻿(function () {
     'use strict';
 
     angular
         .module('companyWinlossApp')
         .controller('MainController', MainController);
 
-    MainController.$inject = ['$compile', '$scope', 'config', 'formatStrings', 'dataService', 'fanexGridHelper'];
-
-    function MainController($compile, $scope, config, formatStrings, dataService, fanexGridHelper) {
+    MainController.$inject = ['$compile', '$element', '$scope', 'config', 'formatStrings', 'dataService', 'fanexGridHelper'];
+    function MainController($compile, $element, $scope, config, formatStrings, dataService, fanexGridHelper) {
+        var gridElement = $element.find('.freegrid');
         /*jshint validthis: true */
         var vm = this;
-        vm.normalMode = true;
-        vm.today = config.today;
-        vm.yesterday = config.yesterday;
-        vm.date = config.today;
-        vm.startDate = moment.utc(config.today).startOf('month');
-        vm.endDate = config.today;
-        vm.generate = function () {
-            generate();
+        vm.isShown = false;
+        vm.hide = function () {
+            vm.isShown = false;
         };
 
-        vm.todayClicked = function () {
-            vm.date = vm.today;
-            vm.generate();
-        };
+        $scope.$on('main', function (event, data) {
+            generate(data.startDate, data.endDate);
+        });
 
-        vm.yesterdayClicked = function () {
-            vm.date = vm.yesterday;
-            vm.generate();
-        };
-
-        vm.viewHistoryMode = function () {
-            vm.normalMode = false;
-        };
-
-        vm.viewNormalMode = function () {
-            vm.normalMode = true;
-        };
-
-        vm.drilldown = function (productName) {
-            console.log('drilldown ' + productName);
-        };
-
-        function generate() {
-            vm.data = undefined;
-            var promise = vm.normalMode ? dataService.getDataNormal(vm.date) : dataService.getDataHistory(vm.startDate, vm.endDate);
-            promise.then(function (data) {
-                vm.data = data;
+        function generate(startDate, endDate) {
+            dataService.getData(startDate, endDate).then(function (data) {
                 renderGrid(data);
             });
         }
 
-        function exportExcel() {
-            console.log('exportExcel');
-        }
-
         function renderGrid(data) {
             var gridOptions = createGridOptions(data);
-            angular.element('.freegrid').fanexGrid(gridOptions);
-            var elements = angular.element('.product-drilldown');
+            gridElement.fanexGrid(gridOptions);
+            var elements = gridElement.find('.product-drilldown');
             angular.forEach(elements, function (element) {
                 $compile(angular.element(element))($scope);
             });
+            vm.isShown = true;
         }
 
         function createGridOptions(data) {
@@ -193,5 +157,10 @@
 
             return footerRow;
         }
+
+        function exportExcel() {
+
+        }
     }
 })();
+
