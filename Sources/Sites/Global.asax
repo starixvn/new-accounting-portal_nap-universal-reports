@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="NAP.Reports.CompanyWinLoss.Sites.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UniversalReports.Sites.WebApiApplication" Language="C#" %>

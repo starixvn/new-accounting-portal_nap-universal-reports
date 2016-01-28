@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace NAP.Reports.MVC.Validation
+namespace UniversalReports.MVC.Validation
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class DateTimeGreaterThanAttribute : ValidationAttribute
     {
-        private string _dateFromFieldName;
+        private readonly string _dateFromFieldName;
 
         public DateTimeGreaterThanAttribute(string dateFromFieldName)
             : base(string.Empty)

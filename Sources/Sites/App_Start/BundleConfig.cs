@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace NAP.Reports.CompanyWinLoss.Sites
+namespace UniversalReports.Sites
 {
     public class BundleConfig
     {

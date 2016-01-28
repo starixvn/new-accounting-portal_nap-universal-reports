@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace NAP.Reports.CompanyWinLoss.Sites
+namespace UniversalReports.Sites
 {
     public static class WebApiConfig
     {

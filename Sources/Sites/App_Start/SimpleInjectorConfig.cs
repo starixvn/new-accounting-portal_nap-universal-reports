@@ -1,10 +1,10 @@
 ﻿using Fanex.Data.Repository;
-using NAP.Reports.CompanyWinLoss.Services;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace NAP.Reports.CompanyWinLoss.Sites
+namespace UniversalReports.Sites
 {
     public class SimpleInjectorConfig
     {
@@ -20,11 +20,12 @@ namespace NAP.Reports.CompanyWinLoss.Sites
             container.Register<CalculationService, CalculationServiceImp>(Lifestyle.Transient);
             container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<RawWinLossService, RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<ProductWinLossService, ProductWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<NumberGameBetTypeSummaryWinLossService, NumberGameBetTypeSummaryWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<NumberGameMatchDetailWinLossService, NumberGameMatchDetailWinLossServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLossService, SiteWinLossServiceImp>(Lifestyle.Transient);
-
+            container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.NumberGame.MatchDetail.Service, CompanyWinLoss.NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.NumberGame.Summary.Service, CompanyWinLoss.NumberGame.Summary.ServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.VirtualSports.Summary.Service, CompanyWinLoss.VirtualSports.Summary.ServiceImp>(Lifestyle.Transient);
+            
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

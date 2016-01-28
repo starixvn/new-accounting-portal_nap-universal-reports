@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NAP.Reports.CompanyWinLoss.Sites</RootNamespace>
-    <AssemblyName>NAP.Reports.CompanyWinLoss.Sites</AssemblyName>
+    <RootNamespace>UniversalReports.Sites</RootNamespace>
+    <AssemblyName>UniversalReports.Sites</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -1175,25 +1175,13 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controllers\Controllers.csproj">
-      <Project>{4af4c911-e9de-40ac-9120-2dfdaa346c5c}</Project>
-      <Name>Controllers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{938db0a4-0956-4a88-be1f-e9e6c627b603}</Project>
-      <Name>Models</Name>
+    <ProjectReference Include="..\CompanyWinLoss\CompanyWinLoss.csproj">
+      <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
+      <Name>CompanyWinLoss</Name>
     </ProjectReference>
     <ProjectReference Include="..\MVC\MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>MVC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QueryModels\QueryModels.csproj">
-      <Project>{f0bf60c1-ce75-4a1c-ab9b-f1a8a7c0258f}</Project>
-      <Name>QueryModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{133cc1fd-14d4-48a5-a6bf-ed18aa702fc5}</Project>
-      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
