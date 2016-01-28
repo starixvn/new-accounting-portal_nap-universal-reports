@@ -92,6 +92,7 @@
     <Compile Include="RawWinLossServiceUnitTests.cs" />
     <Compile Include="NumberGameBetTypeSummaryWinLossServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualSportsSportTypeSummaryWinLossServiceUnitTest.cs" />
     <Compile Include="WinLossComparision.cs" />
     <Compile Include="WinLossFactory.cs" />
   </ItemGroup>

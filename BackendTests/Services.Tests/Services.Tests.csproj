@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseWinLossServiceTests.cs" />
+    <Compile Include="VirtualSportsSportTypeSummaryWinLossServiceTests.cs" />
     <Compile Include="NumberGameSiteWinLossServiceTests.cs" />
     <Compile Include="NumberGameMatchDetailWinLossServiceTests.cs" />
     <Compile Include="NumberGameBetTypeSummaryWinLossServiceTests.cs" />
@@ -113,6 +114,7 @@
     </Content>
     <Content Include="App_Data\Local\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

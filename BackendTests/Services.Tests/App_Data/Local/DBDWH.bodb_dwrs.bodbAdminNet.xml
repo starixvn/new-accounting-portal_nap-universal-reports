@@ -9,5 +9,7 @@
     <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>   
   </Function>
-  
+  <Function Name="VirtualSports">
+    <Setting Key="CompanyWinLoss-VirtualSports-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

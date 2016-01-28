@@ -84,42 +84,6 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests
                 && AreTwoSiteWinLossSummaryListEqual(first.Products, second.Products);
         }
 
-        internal static bool AreTwoGroupSiteWinLossEqual(NumberGameBetTypeWinLossSummary first, NumberGameBetTypeWinLossSummary second)
-        {
-            return AreTwoSiteWinLossSummaryEqual(first.LiveGrandTotal, second.LiveGrandTotal)
-                && AreTwoSiteWinLossSummaryEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
-                && AreTwoSiteWinLossSummaryListEqual(first.Live, second.Live)
-                && AreTwoSiteWinLossSummaryListEqual(first.NonLive, second.NonLive);
-        }
-
-        internal static bool AreTwoNumberGameMatchDetailWinLossEqual(NumberGameMatchDetailWinLoss first, NumberGameMatchDetailWinLoss second)
-        {
-            if (first.Leagues.Count != second.Leagues.Count)
-            {
-                return false;
-            }
-
-            if (!AreTwoWinLossEqual(first.Total, second.Total))
-            {
-                return false;
-            }
-
-            for (var i = 0; i < first.Leagues.Count; i++)
-            {
-                if (!AreTwoNumberGameLeagueWinLossEqual(first.Leagues[i], second.Leagues[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        internal static bool AreTwoNumberGameLeagueWinLossEqual(NumberGameLeagueWinLoss first, NumberGameLeagueWinLoss second)
-        {
-            return first.LeagueName == second.LeagueName
-                && AreTwoWinLossListEqual(first.Matches, second.Matches);
-        }
 
         internal static bool AreTwoSiteWinLossEqual(SiteWinLoss first, SiteWinLoss second)
         {

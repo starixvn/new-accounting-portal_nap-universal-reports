@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VirtualSportsQuery.cs" />
     <Compile Include="NumberGameSiteQuery.cs" />
     <Compile Include="NumberGameMatchDetailQuery.cs" />
     <Compile Include="NumberGameQuery.cs" />

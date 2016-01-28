@@ -15,4 +15,8 @@
     <Setting Key="CompanyWinLoss-NumberGame-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-NumberGame-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="VirtualSports">
+    <Setting Key="CompanyWinLoss-VirtualSports-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

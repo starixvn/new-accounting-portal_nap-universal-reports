@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VirtualSportsWinLossController.cs" />
     <Compile Include="ProductWinLossController.cs" />
     <Compile Include="NumberGameWinLossController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

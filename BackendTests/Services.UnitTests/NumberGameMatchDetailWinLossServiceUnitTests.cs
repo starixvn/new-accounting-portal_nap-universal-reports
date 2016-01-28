@@ -24,7 +24,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = WinLossComparision.AreTwoNumberGameMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
+            var equal = AreTwoNumberGameMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
             Assert.True(equal);
         }
 
@@ -77,6 +77,36 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
         private WinLoss CreateExpectedGrandTotal()
         {
             return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m);
+        }
+
+
+        private bool AreTwoNumberGameMatchDetailWinLossEqual(NumberGameMatchDetailWinLoss first, NumberGameMatchDetailWinLoss second)
+        {
+            if (first.Leagues.Count != second.Leagues.Count)
+            {
+                return false;
+            }
+
+            if (!WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total))
+            {
+                return false;
+            }
+
+            for (var i = 0; i < first.Leagues.Count; i++)
+            {
+                if (!AreTwoNumberGameLeagueWinLossEqual(first.Leagues[i], second.Leagues[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool AreTwoNumberGameLeagueWinLossEqual(NumberGameLeagueWinLoss first, NumberGameLeagueWinLoss second)
+        {
+            return first.LeagueName == second.LeagueName
+                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
         }
     }
 }

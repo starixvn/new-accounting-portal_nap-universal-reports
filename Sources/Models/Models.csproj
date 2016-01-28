@@ -52,6 +52,7 @@
     <Compile Include="ProductWinLoss.cs" />
     <Compile Include="SiteWinLossSummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualSportsSportTypeWinLossSummary.cs" />
     <Compile Include="WinLoss.cs" />
   </ItemGroup>
   <ItemGroup>

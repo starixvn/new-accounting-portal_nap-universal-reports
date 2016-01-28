@@ -93,6 +93,7 @@
     <Compile Include="BalanceUpSourceChooserImp.cs" />
     <Compile Include="BalanceUpSummationServiceImp.cs" />
     <Compile Include="Criteria\BalanceUpCriteria.cs" />
+    <Compile Include="Criteria\VirtualSportsSportTypeSummaryWinLossCriteria.cs" />
     <Compile Include="Criteria\NumberGameMatchDetailWinLossCriteria.cs" />
     <Compile Include="Criteria\NumberGameSiteWinLossCriteria.cs" />
     <Compile Include="Criteria\NumberGameBetTypeSummaryWinLossCriteria.cs" />
@@ -118,6 +119,8 @@
     <Compile Include="Models\BalanceUpSource.cs" />
     <Compile Include="Models\RawWinLoss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualSportsSportTypeSummaryWinLossService.cs" />
+    <Compile Include="VirtualSportsSportTypeSummaryWinLossServiceImp.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">

@@ -25,7 +25,7 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = WinLossComparision.AreTwoGroupSiteWinLossEqual(expectedNumberGameBetTypeWinLossSummary, result);
+            var equal = AreTwoNumberGameBetTypeWinLossSummaryEqual(expectedNumberGameBetTypeWinLossSummary, result);
             Assert.True(equal);
         }
 
@@ -87,6 +87,14 @@ namespace NAP.Reports.CompanyWinLoss.Services.UnitTests.Main
                 Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 5m / 9, 0.6m),
                 Total = WinLossFactory.CreateWinLoss(1, "All Total", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m)
             };
+        }
+
+        private bool AreTwoNumberGameBetTypeWinLossSummaryEqual(NumberGameBetTypeWinLossSummary first, NumberGameBetTypeWinLossSummary second)
+        {
+            return WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.LiveGrandTotal, second.LiveGrandTotal)
+                && WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
+                && WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.Live, second.Live)
+                && WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.NonLive, second.NonLive);
         }
     }
 }
