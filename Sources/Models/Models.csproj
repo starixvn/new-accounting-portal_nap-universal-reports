@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalanceUpRange.cs" />
+    <Compile Include="LiveCasinoProductSummaryWinLoss.cs" />
     <Compile Include="NumberGameBetTypeWinLossSummary.cs" />
     <Compile Include="NumberGameLeagueWinLoss.cs" />
     <Compile Include="NumberGameMatchDetailWinLoss.cs" />

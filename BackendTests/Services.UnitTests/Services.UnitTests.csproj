@@ -85,6 +85,7 @@
     <Compile Include="BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="CalculationServiceUnitTests.cs" />
     <Compile Include="Fake\FakeWinLossCriteria.cs" />
+    <Compile Include="LiveCasinoProductSummaryWinLossServiceUnitTests.cs" />
     <Compile Include="SiteWinLossServiceUnitTests.cs" />
     <Compile Include="NumberGameMatchDetailWinLossServiceUnitTests.cs" />
     <Compile Include="ProductWinLossServiceUnitTests.cs" />

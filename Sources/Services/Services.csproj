@@ -98,6 +98,8 @@
     <Compile Include="Criteria\NumberGameBetTypeSummaryWinLossCriteria.cs" />
     <Compile Include="Criteria\ProductWinLossCriteria.cs" />
     <Compile Include="BalanceUpSummationService.cs" />
+    <Compile Include="LiveCasinoProductSummaryWinLossService.cs" />
+    <Compile Include="LiveCasinoProductSummaryWinLossServiceImp.cs" />
     <Compile Include="NumberGameMatchDetailWinLossService.cs" />
     <Compile Include="SiteWinLossService.cs" />
     <Compile Include="SiteWinLossServiceImp.cs" />
