@@ -18,14 +18,14 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino
         {
             // Arrange
             var expectedLiveCasinoProductSummaryWinLoss = CreateExpectedProductSummaryWinLoss();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var rawService = Substitute.For<RawService>();
             var calculationService = Substitute.For<CalculationService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
 
             //Act
-            var service = new ProductSummaryWinLossServiceImp(rawWinLossService, calculationService);
+            var service = new ProductSummaryWinLossServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             //Assert

@@ -17,13 +17,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino
         {
             // Arrange
             var expectedGameTypeSummaryWinLossByProduct = CreateExpectedGameTypeSummaryWinLossByProduct();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var rawService = Substitute.For<RawService>();
             var calculationService = Substitute.For<CalculationService>();
             var fakeRawWinLoss = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeRawWinLoss);
+            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeRawWinLoss);
 
             // Act
-            var service = new GameTypeSummaryWinLossByProductService(rawWinLossService, calculationService);
+            var service = new GameTypeSummaryWinLossByProductService(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
@@ -93,11 +93,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino
     internal class GameTypeSummaryWinLossByProductService
     {
         private CalculationService calculationService;
-        private RawWinLossService rawWinLossService;
+        private RawService rawService;
 
-        public GameTypeSummaryWinLossByProductService(RawWinLossService rawWinLossService, CalculationService calculationService)
+        public GameTypeSummaryWinLossByProductService(RawService rawService, CalculationService calculationService)
         {
-            this.rawWinLossService = rawWinLossService;
+            this.rawService = rawService;
             this.calculationService = calculationService;
         }
 

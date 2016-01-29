@@ -36,3 +36,4 @@ Fanex.Oneyed.WebService/*.xml
 .vs/
 _Chutzpah*
 /Sources/Sites/node_modules
+*.orig
