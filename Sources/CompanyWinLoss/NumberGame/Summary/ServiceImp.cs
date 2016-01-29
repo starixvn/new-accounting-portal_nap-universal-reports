@@ -6,15 +6,15 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
 {
     public class ServiceImp : Service
     {
-        private readonly RawWinLossService _rawWinLossService;
+        private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
         public ServiceImp(
-            RawWinLossService rawWinLossService,
+            RawService rawService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawWinLossService;
+            _rawWinLossService = rawService;
             _calculationService = calculationService;
         }
 
@@ -27,8 +27,8 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
 
             var live = _calculationService.CalculateSiteWinLossSummary(liveGroupWinLoss);
             var nonLive = _calculationService.CalculateSiteWinLossSummary(nonLiveGroupWinLoss);
-            var liveGrandTotal = _calculationService.CalculateGrandTotal("All Total", liveGroupWinLoss);
-            var noneLiveGrandTotal = _calculationService.CalculateGrandTotal("All Total", nonLiveGroupWinLoss);
+            var liveGrandTotal = _calculationService.CalculateSumWinLossSummary("All Total", liveGroupWinLoss);
+            var noneLiveGrandTotal = _calculationService.CalculateSumWinLossSummary("All Total", nonLiveGroupWinLoss);
 
             return new WinLossModel
             {

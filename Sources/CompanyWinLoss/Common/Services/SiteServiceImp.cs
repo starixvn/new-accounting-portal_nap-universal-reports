@@ -4,17 +4,17 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Common.Services
 {
-    public class SiteWinLossServiceImp : SiteWinLossService
+    public class SiteServiceImp : SiteService
     {
-        private readonly RawWinLossService _rawWinLossService;
+        private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
-        public SiteWinLossServiceImp(
-            RawWinLossService rawWinLossService,
+        public SiteServiceImp(
+            RawService rawService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawWinLossService;
+            _rawWinLossService = rawService;
             _calculationService = calculationService;
         }
 
@@ -23,9 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
             var siteWinLosses = rawWinLosses.Select(r => _calculationService.FromRawWinLoss(r));
-            var rawGrandTotal = _calculationService.CalculateSum(rawWinLosses);
-            var grandTotal = _calculationService.FromRawWinLoss(rawGrandTotal);
-            grandTotal.GroupName = "Total";
+            var grandTotal = _calculationService.CalculateSumWinLoss("Total", rawWinLosses);
 
             return new SiteWinLoss
             {

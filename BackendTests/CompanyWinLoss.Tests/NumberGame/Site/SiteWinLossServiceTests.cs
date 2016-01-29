@@ -27,11 +27,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Site
             service.Query(criteria);
         }
 
-        private SiteWinLossServiceImp CreateService()
+        private SiteServiceImp CreateService()
         {
-            var rawWinLossService = CreateRawWinLossService();
+            var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new SiteWinLossServiceImp(rawWinLossService, calculationService);
+            return new SiteServiceImp(rawService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()

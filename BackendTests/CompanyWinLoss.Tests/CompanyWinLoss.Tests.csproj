@@ -88,6 +88,10 @@
     <Compile Include="NumberGame\Site\SiteWinLossServiceTests.cs" />
     <Compile Include="Products\ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
+    <Compile Include="VirtualSports\RacingMatchDetail\ServiceTests.cs" />
+    <Compile Include="VirtualSports\Site\ServiceTests.cs" />
+    <Compile Include="VirtualSports\BetType\ServiceTests.cs" />
     <Compile Include="VirtualSports\Summary\ServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

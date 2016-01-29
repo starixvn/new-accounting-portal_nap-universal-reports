@@ -3,7 +3,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Common.Services
 {
-    public interface SiteWinLossService
+    public interface SiteService
     {
         SiteWinLoss Query(WinLossCriteria criteria);
     }

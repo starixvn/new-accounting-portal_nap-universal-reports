@@ -8,15 +8,15 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class ServiceImp : Service
     {
-        private readonly RawWinLossService _rawWinLossService;
+        private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
         public ServiceImp(
-            RawWinLossService rawWinLossService,
+            RawService rawService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawWinLossService;
+            _rawWinLossService = rawService;
             _calculationService = calculationService;
         }
 
@@ -30,7 +30,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var sportsbookDetail = CalculateSportsbookDetail(rawSportsbookDetail);
             var productWinLoss = _calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
 
-            var grandTotal = _calculationService.CalculateGrandTotal("GRAND TOTAL", rawProductWinLoss);
+            var grandTotal = _calculationService.CalculateSumWinLossSummary("GRAND TOTAL", rawProductWinLoss);
 
             return new ProductWinLoss
             {

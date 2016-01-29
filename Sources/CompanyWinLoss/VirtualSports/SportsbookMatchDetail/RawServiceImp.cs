@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail
 {
-    public class RawWinLossServiceImp : RawWinLossService
+    public class RawServiceImp : RawService
     {
         private readonly IDynamicRepository _repository;
 
@@ -15,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         private readonly BalanceUpSourceChooser _balanceUpSourceChooser;
 
-        public RawWinLossServiceImp(IDynamicRepository repository, BalanceUpSummationService balanceUpSummationService, BalanceUpSourceChooser balanceUpSourceChooser)
+        public RawServiceImp(IDynamicRepository repository, BalanceUpSummationService balanceUpSummationService, BalanceUpSourceChooser balanceUpSourceChooser)
         {
             _repository = repository;
             _balanceUpSummationService = balanceUpSummationService;

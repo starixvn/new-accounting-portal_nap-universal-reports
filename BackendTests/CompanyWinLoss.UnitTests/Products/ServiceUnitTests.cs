@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
@@ -10,7 +10,7 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 {
-    public class ServiceTests
+    public class ServiceUnitTests
     {
         [Test]
         public void CalculateSportsbookDetail_ReturnRightSportsbookDetail()
@@ -18,11 +18,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             // Arrange   
             var expectedProducts = CreateExpectedSportsbookDetail();
             var calculationService = new CalculationServiceImp();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var rawService = Substitute.For<RawService>();
             var fakeData = CreateFakeSportsbookDetail();
 
             // Act 
-            var service = new ServiceImp(rawWinLossService, calculationService);
+            var service = new ServiceImp(rawService, calculationService);
             var result = service.CalculateSportsbookDetail(fakeData);
 
             // Assert
@@ -39,26 +39,26 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
         private List<WinLoss> CreateExpectedSportsbookDetail()
         {
-            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 900, 1000, 5m / 9, 0.6m);
-            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 990, 1100, 5m / 9, 0.6m);
-            var parlayWinLoss = WinLossFactory.CreateWinLoss(0, "Parlay", 120, 130, 12, 600, 720, -120, 1080, 1200, 5m / 9, 0.6m);
-            var outrightWinLoss = WinLossFactory.CreateWinLoss(0, "Outright", 130, 140, 13, 650, 780, -130, 1170, 1300, 5m / 9, 0.6m);
+            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 900, 1000, 500m / 900, 600m / 1000);
+            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 990, 1100, 550m / 990, 660m / 1100);
+            var parlayWinLoss = WinLossFactory.CreateWinLoss(0, "Parlay", 120, 130, 12, 600, 720, -120, 1080, 1200, 600m / 1080, 720m / 1200);
+            var outrightWinLoss = WinLossFactory.CreateWinLoss(0, "Outright", 130, 140, 13, 650, 780, -130, 1170, 1300, 650m / 1170, 780m / 1300);
 
             return new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
 
         [Test]
-        public void CalculateMainWinLoss_ReturnRightMainWinLoss()
+        public void Query_ReturnRightMainWinLoss()
         {
             // Arrange   
             var expectedMainWinLoss = CreateExpectedMainWinLoss();
             var calculationService = new CalculationServiceImp();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var rawService = Substitute.For<RawService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ServiceImp(rawWinLossService, calculationService);
+            var service = new ServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
@@ -90,9 +90,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
         private SiteWinLossSummary CreateExpectedProduct(int productId, string productName)
         {
-            var creditWinLoss = WinLossFactory.CreateWinLoss(productId, "Credit", 100, 110, 10, 500, 600, -100, 900, 1000, 5m / 9, 0.6m);
-            var depositWinLoss = WinLossFactory.CreateWinLoss(productId, "Deposit", 110, 120, 11, 550, 660, -110, 990, 1100, 5m / 9, 0.6m);
-            var totalWinLoss = WinLossFactory.CreateWinLoss(productId, productName, 210, 230, 21, 1050, 1260, -210, 1890, 2100, 5m / 9, 0.6m);
+            var creditWinLoss = WinLossFactory.CreateWinLoss(productId, "Credit", 100, 110, 10, 500, 600, -100, 900, 1000, 500m / 900, 600m / 1000);
+            var depositWinLoss = WinLossFactory.CreateWinLoss(productId, "Deposit", 110, 120, 11, 550, 660, -110, 990, 1100, 550m / 990, 660m / 1100);
+            var totalWinLoss = WinLossFactory.CreateWinLoss(productId, productName, 210, 230, 21, 1050, 1260, -210, 1890, 2100, 1050m / 1890, 1260m / 2100);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
         }
@@ -130,9 +130,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         {
             return new SiteWinLossSummary
             {
-                Credit = WinLossFactory.CreateWinLoss(0, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 5m / 9, 0.6m),
-                Deposit = WinLossFactory.CreateWinLoss(0, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 5m / 9, 0.6m),
-                Total = WinLossFactory.CreateWinLoss(0, "Grand Total", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m)
+                Credit = WinLossFactory.CreateWinLoss(0, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 1000m / 1800, 1200m / 2000),
+                Deposit = WinLossFactory.CreateWinLoss(0, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 1100m / 1980, 1320m / 2200),
+                Total = WinLossFactory.CreateWinLoss(0, "GRAND TOTAL", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200)
             };
         }
     }

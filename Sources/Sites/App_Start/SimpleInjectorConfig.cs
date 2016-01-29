@@ -19,8 +19,8 @@ namespace UniversalReports.Sites
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
             container.Register<CalculationService, CalculationServiceImp>(Lifestyle.Transient);
             container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            container.Register<RawWinLossService, RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<SiteWinLossService, SiteWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<RawService, RawServiceImp>(Lifestyle.Transient);
+            container.Register<SiteService, SiteServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.NumberGame.MatchDetail.Service, CompanyWinLoss.NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.NumberGame.Summary.Service, CompanyWinLoss.NumberGame.Summary.ServiceImp>(Lifestyle.Transient);

@@ -1,32 +1,28 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using Criteria = UniversalReports.CompanyWinLoss.NumberGame.Site.Criteria;
-using QueryModel = UniversalReports.CompanyWinLoss.NumberGame.Site.QueryModel;
-using Service = UniversalReports.CompanyWinLoss.NumberGame.Summary.Service;
-using WinLossModel = UniversalReports.CompanyWinLoss.NumberGame.Summary.WinLossModel;
 
 namespace UniversalReports.CompanyWinLoss.NumberGame
 {
     public class NumberGameController : ApiController
     {
-        private readonly Service _summaryService;
+        private readonly Summary.Service _summaryService;
 
         private readonly MatchDetail.Service _detailService;
 
-        private readonly SiteWinLossService _siteService;
+        private readonly SiteService _siteService;
 
         public NumberGameController(
-            Service summaryService,
+            Summary.Service summaryService,
             MatchDetail.Service detailService,
-            SiteWinLossService siteWinLossService)
+            SiteService siteService)
         {
             _summaryService = summaryService;
             _detailService = detailService;
-            _siteService = siteWinLossService;
+            _siteService = siteService;
         }
 
-        public WinLossModel Summary(Summary.QueryModel queryModel)
+        public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
         {
             var criteria = new Summary.Criteria
             {
@@ -55,9 +51,9 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
                 : null;
         }
 
-        public SiteWinLoss SiteWinLoss(QueryModel queryModel)
+        public SiteWinLoss Site(Site.QueryModel queryModel)
         {
-            var criteria = new Criteria
+            var criteria = new Site.Criteria
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate,

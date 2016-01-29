@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
@@ -13,25 +13,25 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
     public class ServiceUnitTests
     {
         [Test]
-        public void Query_ReturnRightNumberGameMatchDetailWinLoss()
+        public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   
-            var expectedMatchDetailWinLoss = CreateExpectedNumberGameMatchDetailWinLoss();
+            var expectedMatchDetailWinLoss = CreateExpectedMatchDetailWinLoss();
             var calculationService = new CalculationServiceImp();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var rawService = Substitute.For<RawService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ServiceImp(rawWinLossService, calculationService);
+            var service = new ServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreTwoNumberGameMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
+            var equal = AreTwoMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
             Assert.True(equal);
         }
 
-        private WinLossModel CreateExpectedNumberGameMatchDetailWinLoss()
+        private WinLossModel CreateExpectedMatchDetailWinLoss()
         {
             var expectedLeagues = CreateExpectedLeagues();
             var expectedGrandTotal = CreateExpectedGrandTotal();
@@ -66,8 +66,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
         {
             var expectedMatches = new List<WinLoss>
             {
-                WinLossFactory.CreateWinLoss(0, "MatchCode 1", 100, 110, 10, 500, 600, -100, 900, 1000, 5m / 9, 0.6m),
-                WinLossFactory.CreateWinLoss(0, "MatchCode 2", 110, 120, 11, 550, 660, -110, 990, 1100, 5m / 9, 0.6m)
+                WinLossFactory.CreateWinLoss(0, "MatchCode 1", 100, 110, 10, 500, 600, -100, 900, 1000, 500m / 900, 600m / 1000),
+                WinLossFactory.CreateWinLoss(0, "MatchCode 2", 110, 120, 11, 550, 660, -110, 990, 1100, 550m / 990, 660m / 1100)
             };
 
             return new LeagueWinLoss
@@ -79,11 +79,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
 
         private WinLoss CreateExpectedGrandTotal()
         {
-            return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 3780, 4200, 5m / 9, 0.6m);
+            return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200);
         }
 
-
-        private bool AreTwoNumberGameMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
+        private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
         {
             if (first.Leagues.Count != second.Leagues.Count)
             {
@@ -95,10 +94,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
                 return false;
             }
 
-            return !first.Leagues.Where((t, i) => !AreTwoNumberGameLeagueWinLossEqual(t, second.Leagues[i])).Any();
+            return !first.Leagues.Where((t, i) => !AreTwoLeagueWinLossEqual(t, second.Leagues[i])).Any();
         }
 
-        private bool AreTwoNumberGameLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
+        private bool AreTwoLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
         {
             return first.LeagueName == second.LeagueName
                 && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);

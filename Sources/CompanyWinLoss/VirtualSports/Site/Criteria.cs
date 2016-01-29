@@ -1,0 +1,30 @@
+﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.Models;
+
+namespace UniversalReports.CompanyWinLoss.VirtualSports.Site
+{
+    public class Criteria : WinLossCriteria
+    {
+        public int SportType { get; set; }
+
+        public int BetType { get; set; }
+
+        public int Site { get; set; }
+
+        public override WinLossCriteria Clone(BalanceUpSource source)
+        {
+            var newCriteria = new Criteria();
+            newCriteria.Update(source);
+            newCriteria.SportType = SportType;
+            newCriteria.BetType = BetType;
+            newCriteria.Site = Site;
+
+            return newCriteria;
+        }
+
+        public override string GetSettingKey()
+        {
+            return $"CompanyWinLoss-VirtualSports-BetType-Site-{Source}";
+        }
+    }
+}

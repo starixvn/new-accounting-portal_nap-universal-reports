@@ -52,8 +52,8 @@
     <Compile Include="Common\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\CalculationServiceUnitTests.cs" />
-    <Compile Include="Common\RawWinLossServiceUnitTests.cs" />
-    <Compile Include="Common\SiteWinLossServiceUnitTests.cs" />
+    <Compile Include="Common\RawServiceUnitTests.cs" />
+    <Compile Include="Common\SiteServiceUnitTests.cs" />
     <Compile Include="NumberGame\Summary\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="Products\ProductControllerUnitTests.cs" />
@@ -62,6 +62,14 @@
     <Compile Include="Utility\FakeWinLossCriteria.cs" />
     <Compile Include="Utility\WinLossComparision.cs" />
     <Compile Include="Utility\WinLossFactory.cs" />
+    <Compile Include="VirtualSports\BetType\ServiceUnitTest.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\RawServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\RacingMatchDetail\ServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossComparision.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossFactory.cs" />
     <Compile Include="VirtualSports\Summary\ServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +85,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

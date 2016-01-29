@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail;
+using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
+using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatchDetail
 {
-    public class RawWinLossServiceUnitTests
+    public class RawServiceUnitTests
     {
         [Test]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
@@ -21,10 +22,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
             var twoSources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<CommonServices.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
 
-            var service = new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = new RawServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
@@ -34,18 +35,18 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             dynamicRepository.Received(2).Fetch<RawWinLoss>(Arg.Any<WinLossCriteria>());
         }
 
-        private IEnumerable<BalanceUpSource> CreateBalanceUpSources()
+        private IEnumerable<CommonModels.BalanceUpSource> CreateBalanceUpSources()
         {
-            return new List<BalanceUpSource>
+            return new List<CommonModels.BalanceUpSource>
             {
                 CreateBalanceUpSource(1, 5, "BetTrans14"),
                 CreateBalanceUpSource(6, 8, "BetTrans")
             };
         }
 
-        private BalanceUpSource CreateBalanceUpSource(int dayStart, int dayEnd, string source)
+        private CommonModels.BalanceUpSource CreateBalanceUpSource(int dayStart, int dayEnd, string source)
         {
-            return new BalanceUpSource
+            return new CommonModels.BalanceUpSource
             {
                 StartDate = new DateTime(2015, 01, dayStart),
                 EndDate = new DateTime(2015, 01, dayEnd),
@@ -61,12 +62,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
             var sources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<CommonServices.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
 
-            var service = Substitute.ForPartsOf<RawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = Substitute.ForPartsOf<RawServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
-            service.QueryBySource(Arg.Any<BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
+            service.QueryBySource(Arg.Any<CompanyWinLoss.Common.Models.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
@@ -78,10 +79,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
         private List<RawWinLoss> CreateFakeRawWinLosses()
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
+            var match1 = WinLossFactory.CreateRawWinLoss("MatchCode 1", 1, 1, 100, 110, 10, 500, 900);
+            var match2 = WinLossFactory.CreateRawWinLoss("MatchCode 2", 2, 2, 110, 120, 11, 550, 990);
 
-            return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
+            return new List<RawWinLoss> { match1, match2 };
         }
     }
 }

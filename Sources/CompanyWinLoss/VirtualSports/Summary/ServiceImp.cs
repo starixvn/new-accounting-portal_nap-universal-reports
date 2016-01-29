@@ -6,15 +6,15 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.Summary
 {
     public class ServiceImp : Service
     {
-        private readonly RawWinLossService _rawWinLossService;
+        private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
         public ServiceImp(
-            RawWinLossService rawWinLossService,
+            RawService rawService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawWinLossService;
+            _rawWinLossService = rawService;
             _calculationService = calculationService;
         }
 
@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.Summary
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
             var sports = _calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var grandTotal = _calculationService.CalculateGrandTotal("All Total", rawWinLosses);
+            var grandTotal = _calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
 
             return new WinLossModel
             {

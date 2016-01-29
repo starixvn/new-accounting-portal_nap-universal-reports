@@ -8,15 +8,15 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
 {
     public class ServiceImp : Service
     {
-        private readonly RawWinLossService _rawWinLossService;
+        private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
         public ServiceImp(
-            RawWinLossService rawWinLossService,
+            RawService rawService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawWinLossService;
+            _rawWinLossService = rawService;
             _calculationService = calculationService;
         }
 
@@ -26,9 +26,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
 
             var leagues = rawWinLosses.Select(l => l.GroupName).Distinct();
             var leagueWinLosses = leagues.Select(l => CalculateLeagueWinLoss(l, rawWinLosses));
-            var rawGrandTotal = _calculationService.CalculateSum(rawWinLosses);
-            var grandTotal = _calculationService.FromRawWinLoss(rawGrandTotal);
-            grandTotal.GroupName = string.Empty;
+            var grandTotal = _calculationService.CalculateSumWinLoss(string.Empty, rawWinLosses);
 
             return new WinLossModel
             {

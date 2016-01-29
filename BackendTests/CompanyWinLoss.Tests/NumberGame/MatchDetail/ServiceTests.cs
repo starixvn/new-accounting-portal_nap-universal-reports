@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.MatchDetail
 {
-    public class NumberGameMatchDetailWinLossServiceTests : BaseServiceTests
+    public class ServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
         public void SetUp()
@@ -29,9 +29,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.MatchDetail
 
         private ServiceImp CreateService()
         {
-            var rawWinLossService = CreateRawWinLossService();
+            var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ServiceImp(rawWinLossService, calculationService);
+            return new ServiceImp(rawService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()
