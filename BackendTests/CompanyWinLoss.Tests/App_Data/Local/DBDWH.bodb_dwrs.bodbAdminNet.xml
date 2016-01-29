@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Functions>
+  <Function Name="CompanyWinLoss-Products">
+    <Setting Key="CompanyWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+
+  <Function Name="CompanyWinLoss-NumberGame">
+    <Setting Key="CompanyWinLoss-NumberGame-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>   
+  </Function>
+  <Function Name="VirtualSports">
+    <Setting Key="CompanyWinLoss-VirtualSports-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-BetType-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+</Functions>
