@@ -44,6 +44,7 @@
       <HintPath>..\..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -59,6 +60,8 @@
     <Compile Include="NumberGame\BetType\CalculationServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\RawServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
+    <Compile Include="LiveCasino\GameTypeSummaryWinLossByProductServiceUnitTests.cs" />
+    <Compile Include="LiveCasino\ProductSummaryWinLossServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\NumberGameWinLossFactory.cs" />
     <Compile Include="Products\ProductControllerUnitTests.cs" />

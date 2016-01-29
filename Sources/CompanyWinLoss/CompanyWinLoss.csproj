@@ -114,6 +114,8 @@
     <Compile Include="Common\Services\SiteServiceImp.cs" />
     <Compile Include="Keno\BetType\BetTypeController.cs" />
     <Compile Include="Keno\Site\SiteController.cs" />
+    <Compile Include="LiveCasino\ProductSummaryWinLossService.cs" />
+    <Compile Include="LiveCasino\ProductSummaryWinLossServiceImp.cs" />
     <Compile Include="NumberGame\MatchDetail\LeagueWinLoss.cs" />
     <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\WinLossModel.cs" />
