@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Site
 
         private SiteServiceImp CreateService()
         {
-            var rawService = CreateRawWinLossService();
+            var rawService = CreateRawService();
             var calculationService = new CalculationServiceImp();
             return new SiteServiceImp(rawService, calculationService);
         }

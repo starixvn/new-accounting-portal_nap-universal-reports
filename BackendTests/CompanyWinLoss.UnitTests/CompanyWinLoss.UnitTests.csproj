@@ -54,8 +54,12 @@
     <Compile Include="Common\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\RawServiceUnitTests.cs" />
     <Compile Include="Common\SiteServiceUnitTests.cs" />
+    <Compile Include="NumberGame\Summary\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="NumberGame\Summary\CalculationServiceUnitTests.cs" />
+    <Compile Include="NumberGame\Summary\RawServiceUnitTests.cs" />
     <Compile Include="NumberGame\Summary\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
+    <Compile Include="NumberGame\Summary\NumberGameWinLossFactory.cs" />
     <Compile Include="Products\ProductControllerUnitTests.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

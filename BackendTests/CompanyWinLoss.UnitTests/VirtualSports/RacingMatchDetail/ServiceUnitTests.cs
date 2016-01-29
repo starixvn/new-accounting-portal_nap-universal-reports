@@ -46,8 +46,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingMatchDet
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 1", false, 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 2", false, 110, 120, 11, 550, 660, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 1", 100, 110, 10, 500, 600, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 2", 110, 120, 11, 550, 660, 990, 1100),
             };
         }
 

@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.BetType
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawWinLossService();
+            var rawService = CreateRawService();
             var calculationService = new CalculationServiceImp();
             return new ServiceImp(rawService, calculationService);
         }

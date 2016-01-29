@@ -108,10 +108,10 @@
 
         function createWinLossDataRow(winLoss, hasDrilldown) {
             var productColumn = !hasDrilldown
-                ? { Name: "Product", Value: winLoss.GroupName }
+                ? { Name: "Product", Value: winLoss.Name }
                 : {
-                    Name: "Product", Value: winLoss.GroupName, CustomCellRender: function (cellValue) {
-                        return '<a class="product-drilldown" data-ng-click="vm.drilldown(\'' + winLoss.GroupName + '\')">' + winLoss.GroupName + '</a>';
+                    Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
+                        return '<a class="product-drilldown" data-ng-click="vm.drilldown(\'' + winLoss.Name + '\')">' + winLoss.GroupName + '</a>';
                     }
                 };
             var winLossDataRow = [

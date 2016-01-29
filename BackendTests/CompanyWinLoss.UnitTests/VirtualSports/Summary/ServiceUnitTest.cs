@@ -45,17 +45,17 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.Summary
 
         private List<RawWinLoss> CreateFakeRawWinLoss()
         {
-            var site1Live = CreateFakeRawSportTypeWinLoss(1, "SportType 1", true);
-            var site2Live = CreateFakeRawSportTypeWinLoss(2, "SportType 2", true);
+            var site1Live = CreateFakeRawSportTypeWinLoss(1, "SportType 1");
+            var site2Live = CreateFakeRawSportTypeWinLoss(2, "SportType 2");
             return (new List<List<RawWinLoss>> { site1Live, site2Live })
                     .SelectMany(l => l)
                     .ToList();
         }
 
-        private List<RawWinLoss> CreateFakeRawSportTypeWinLoss(int groupId, string groupName, bool isLive)
+        private List<RawWinLoss> CreateFakeRawSportTypeWinLoss(int groupId, string groupName)
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", isLive, 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", isLive, 110, 120, 11, 550, 660, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

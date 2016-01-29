@@ -1,9 +1,10 @@
 ﻿using Fanex.Data.Configuration;
+using Fanex.Data.Repository;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.NumberGame.Summary;
 using UniversalReports.CompanyWinLoss.Tests.Common;
+using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Summary
 {
@@ -29,8 +30,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Summary
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawWinLossService();
-            var calculationService = new CalculationServiceImp();
+            var rawService = CreateNumberGameRawService();
+            var commonCalculationService = new CommonServices.CalculationServiceImp();
+            var calculationService = new CalculationServiceImp(commonCalculationService);
             return new ServiceImp(rawService, calculationService);
         }
 
@@ -43,6 +45,16 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Summary
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2)
             };
+        }
+
+        protected virtual RawService CreateNumberGameRawService()
+        {
+            var dynamicRepository = new DynamicRepository();
+            var balanceUpService = new CommonServices.BalanceUpServiceImp(dynamicRepository);
+            var balanceUpSourceChooser = new CommonServices.BalanceUpSourceChooserImp(balanceUpService);
+
+            var balanceUpSummationService = new BalanceUpSummationServiceImp();
+            return new RawServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }

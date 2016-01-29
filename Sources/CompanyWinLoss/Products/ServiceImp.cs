@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         public virtual List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses)
         {
-            return rawWinLosses.Select(r => _calculationService.FromRawWinLoss(r)).ToList();
+            return rawWinLosses.Select(r => _calculationService.FromRawWinLossByRowName(r)).ToList();
         }
     }
 }

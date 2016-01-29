@@ -52,10 +52,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 1", false, 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 2", false, 110, 120, 11, 550, 660, 990, 1100),
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 3", false, 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 4", false, 110, 120, 11, 550, 660, 990, 1100)
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 1", 100, 110, 10, 500, 600, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 2", 110, 120, 11, 550, 660, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 3", 100, 110, 10, 500, 600, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "Site 4", 110, 120, 11, 550, 660, 990, 1100)
             };
         }
     }

@@ -6,11 +6,25 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class CalculationServiceImp : CalculationService
     {
-        public WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
+        public WinLoss FromRawWinLossByRowName(RawWinLoss rawWinLoss)
+        {
+            var winloss = FromRawWinLoss(rawWinLoss);
+            winloss.Name = rawWinLoss.RowName;
+            return winloss;
+        }
+
+        public WinLoss FromRawWinLossByGroupName(RawWinLoss rawWinLoss)
+        {
+            var winloss = FromRawWinLoss(rawWinLoss);
+            winloss.Name = rawWinLoss.GroupName;
+            return winloss;
+        }
+
+        private WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
         {
             return new WinLoss
             {
-                GroupName = rawWinLoss.RowName,
+                Id = rawWinLoss.GroupId,
                 Commission = rawWinLoss.Commission,
                 MemberWinLoss = rawWinLoss.MemberWinLoss,
                 RealIncome = rawWinLoss.RealIncome,
@@ -23,7 +37,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 VirtualMargin = CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };
         }
-
         public decimal CalculateMargin(decimal turnover, decimal income)
         {
             return turnover > 0 ? income / turnover : 0;
@@ -40,7 +53,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             {
                 RowName = winlosses.First().RowName,
                 GroupName = winlosses.First().GroupName,
-                IsLive = winlosses.First().IsLive,
                 Commission = winlosses.Sum(r => r.Commission),
                 MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
                 RealIncome = winlosses.Sum(r => r.RealIncome),
@@ -54,8 +66,8 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         public WinLoss CalculateSumWinLoss(string totalTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var totalRawWinLoss = CalculateSum(rawWinLosses);
-            var totalWinLoss = FromRawWinLoss(totalRawWinLoss);
-            totalWinLoss.GroupName = totalTitle;
+            var totalWinLoss = FromRawWinLossByGroupName(totalRawWinLoss);
+            totalWinLoss.Name = totalTitle;
 
             return totalWinLoss;
         }
@@ -77,7 +89,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var creditData = rawWinLosses.Where(r => r.RowName == "Credit");
             var sumData = CalculateSum(creditData);
 
-            return FromRawWinLoss(sumData);
+            return FromRawWinLossByRowName(sumData);
         }
 
         private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
@@ -85,7 +97,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var depositData = rawWinLosses.Where(r => r.RowName == "Deposit");
             var sumData = CalculateSum(depositData);
 
-            return FromRawWinLoss(sumData);
+            return FromRawWinLossByRowName(sumData);
         }
 
         public virtual IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses)
@@ -101,8 +113,8 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var rawCreditWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Credit");
             var rawDepositWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Deposit");
 
-            var creditWinLoss = rawCreditWinLoss == null ? CreateEmptyWinLoss(groupId, "Credit") : FromRawWinLoss(rawCreditWinLoss);
-            var depositWinLoss = rawDepositWinLoss == null ? CreateEmptyWinLoss(groupId, "Deposit") : FromRawWinLoss(rawDepositWinLoss);
+            var creditWinLoss = rawCreditWinLoss == null ? CreateEmptyWinLoss(groupId, "Credit") : FromRawWinLossByRowName(rawCreditWinLoss);
+            var depositWinLoss = rawDepositWinLoss == null ? CreateEmptyWinLoss(groupId, "Deposit") : FromRawWinLossByRowName(rawDepositWinLoss);
             var totalWinLoss = rawWinLosses.Any() ? CalculateSumWinLoss(groupName, rawWinLosses) : CreateEmptyWinLoss(groupId, groupName);
 
             return new SiteWinLossSummary
@@ -113,12 +125,12 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             };
         }
 
-        private WinLoss CreateEmptyWinLoss(int id, string name)
+        public WinLoss CreateEmptyWinLoss(int id, string name)
         {
             return new WinLoss
             {
-                GroupId = id,
-                GroupName = name
+                Id = id,
+                Name = name
             };
         }
     }

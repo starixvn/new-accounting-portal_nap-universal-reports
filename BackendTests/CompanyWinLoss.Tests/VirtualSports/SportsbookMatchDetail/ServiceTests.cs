@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDet
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawService = CreateVirtualSportsRawService();
             var remotingRefService = Substitute.For<CommonService.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>()).Returns("Any team name");
             var calculationService = new CalculationServiceImp(remotingRefService);
@@ -51,7 +51,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDet
             };
         }
 
-        private RawService CreateRawService()
+        private RawService CreateVirtualSportsRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new CommonService.BalanceUpServiceImp(dynamicRepository);

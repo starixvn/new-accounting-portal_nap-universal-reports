@@ -6,7 +6,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
     public class BaseServiceTests
     {
-        protected virtual RawService CreateRawWinLossService()
+        protected virtual RawService CreateRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository);

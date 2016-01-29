@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A002EC53-5A73-4075-9680-0E152ADA1FC1}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,13 +20,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{DE05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss", "Sources\CompanyWinLoss\CompanyWinLoss.csproj", "{D25667AF-2C4D-4DB0-A018-808E48D0AD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss.Tests", "BackendTests\CompanyWinLoss.Tests\CompanyWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss.UnitTests", "BackendTests\CompanyWinLoss.UnitTests\CompanyWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sites", "Sources\Sites\Sites.csproj", "{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss.UITests", "UITests\CompanyWinLoss.UITests\CompanyWinLoss.UITests.csproj", "{5A2BA395-E012-410D-ACD7-1CF9C48AA042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss.Tests", "BackendTests\CompanyWinLoss.Tests\CompanyWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyWinLoss.UnitTests", "BackendTests\CompanyWinLoss.UnitTests\CompanyWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +42,6 @@ Global
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +50,14 @@ Global
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,10 +65,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{21081CDE-E5A1-4A31-9EF0-E0AC65547881} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {C074583A-B1D9-412C-8649-DD98B9234224}
-		{399BC912-0469-423D-A587-E7F56E174EBC} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042} = {B32162A7-27BA-4D13-A4FB-CB4138D4F44E}
+		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{399BC912-0469-423D-A587-E7F56E174EBC} = {C074583A-B1D9-412C-8649-DD98B9234224}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35

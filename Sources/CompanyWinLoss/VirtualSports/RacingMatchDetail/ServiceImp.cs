@@ -22,7 +22,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingMatchDetail
         {
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
-            var matchWinLosses = rawWinLosses.Select(l => _calculationService.FromRawWinLoss(l));
+            var matchWinLosses = rawWinLosses.Select(l => _calculationService.FromRawWinLossByRowName(l));
             var grandTotalWinLoss = _calculationService.CalculateSumWinLoss("Total", rawWinLosses);
 
             return new WinLossModel

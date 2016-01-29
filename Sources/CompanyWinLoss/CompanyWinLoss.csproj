@@ -92,7 +92,14 @@
     <Compile Include="NumberGame\NumberGameController.cs" />
     <Compile Include="NumberGame\Site\QueryModel.cs" />
     <Compile Include="NumberGame\Site\Criteria.cs" />
+    <Compile Include="NumberGame\Summary\BalanceUpSummationService.cs" />
+    <Compile Include="NumberGame\Summary\BalanceUpSummationServiceImp.cs" />
+    <Compile Include="NumberGame\Summary\CalculationService.cs" />
+    <Compile Include="NumberGame\Summary\CalculationServiceImp.cs" />
     <Compile Include="NumberGame\Summary\Criteria.cs" />
+    <Compile Include="NumberGame\Summary\RawService.cs" />
+    <Compile Include="NumberGame\Summary\RawServiceImp.cs" />
+    <Compile Include="NumberGame\Summary\RawWinLoss.cs" />
     <Compile Include="NumberGame\Summary\Service.cs" />
     <Compile Include="NumberGame\Summary\ServiceImp.cs" />
     <Compile Include="NumberGame\Summary\WinLossModel.cs" />

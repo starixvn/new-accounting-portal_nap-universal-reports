@@ -5,6 +5,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface CalculationService
     {
+        WinLoss FromRawWinLossByRowName(RawWinLoss rawWinLoss);
+
+        WinLoss FromRawWinLossByGroupName(RawWinLoss rawWinLoss);
+
         SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
 
         WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
@@ -13,8 +17,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         decimal CalculateMargin(decimal turnover, decimal income);
 
-        RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses);
-
-        WinLoss FromRawWinLoss(RawWinLoss rawWinLoss);
+        WinLoss CreateEmptyWinLoss(int id, string name);
     }
 }

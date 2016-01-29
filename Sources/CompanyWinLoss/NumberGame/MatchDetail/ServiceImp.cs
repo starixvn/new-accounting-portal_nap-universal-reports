@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
         private LeagueWinLoss CalculateLeagueWinLoss(string league, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var rawLeagueWinLosses = rawWinLosses.Where(r => r.GroupName == league);
-            var matchWinLosses = rawLeagueWinLosses.Select(m => _calculationService.FromRawWinLoss(m));
+            var matchWinLosses = rawLeagueWinLosses.Select(m => _calculationService.FromRawWinLossByRowName(m));
             return new LeagueWinLoss
             {
                 LeagueName = league,

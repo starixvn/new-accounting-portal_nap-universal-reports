@@ -2,9 +2,9 @@
 {
     public class WinLoss
     {
-        public string GroupName { get; set; }
+        public string Name { get; set; }
 
-        public int GroupId { get; set; }
+        public int Id { get; set; }
 
         public decimal MemberWinLoss { get; set; }
 

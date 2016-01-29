@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        public void FromRawWinLoss_ReturnsCorrectVarianceAndMargin()
+        public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
             var rawWinLoss = WinLossFactory.CreateRawWinLoss(1, "Sportsbook", "Sportsbook Live", 100, 110, 10, 500, 600, 900, 1000);
@@ -47,7 +47,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var calculationService = new CalculationServiceImp();
 
             // Act
-            var result = calculationService.FromRawWinLoss(rawWinLoss);
+            var result = calculationService.FromRawWinLossByRowName(rawWinLoss);
 
             // Assert
             var equal = WinLossComparision.AreTwoWinLossEqual(expectedWinLoss, result);
@@ -137,7 +137,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        public void CalculateSiteWinLoss_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
+        public void CalculateSiteWinLossSummary_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
         {
             // Arrange   
             var expectedGroup = CreateEmptySiteWinLoss();
@@ -164,7 +164,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        public void CalculateGroupWinLoss_TwoGroups_ReturnRightGroups()
+        public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange   
             var expectedGroups = CreateExpectedGroups();
