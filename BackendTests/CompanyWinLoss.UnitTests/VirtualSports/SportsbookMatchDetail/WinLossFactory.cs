@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatchDetail
 {
-    internal class WinLossFactory
+    internal static class WinLossFactory
     {
         internal static RawWinLoss CreateRawWinLoss(
            string matchCode,

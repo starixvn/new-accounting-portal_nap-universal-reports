@@ -37,6 +37,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 VirtualMargin = CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };
         }
+
         public decimal CalculateMargin(decimal turnover, decimal income)
         {
             return turnover > 0 ? income / turnover : 0;
@@ -51,6 +52,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
             return new RawWinLoss
             {
+                GroupId = winlosses.First().GroupId,
                 RowName = winlosses.First().RowName,
                 GroupName = winlosses.First().GroupName,
                 Commission = winlosses.Sum(r => r.Commission),
@@ -63,22 +65,22 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             };
         }
 
-        public WinLoss CalculateSumWinLoss(string totalTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        public WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var totalRawWinLoss = CalculateSum(rawWinLosses);
             var totalWinLoss = FromRawWinLossByGroupName(totalRawWinLoss);
-            totalWinLoss.Name = totalTitle;
+            totalWinLoss.Name = sumTitle;
 
             return totalWinLoss;
         }
 
-        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string totalTile, IEnumerable<RawWinLoss> rawWinLosses)
+        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var grandTotal = new SiteWinLossSummary
             {
                 Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
                 Deposit = SumDepositGrandTotalWinLoss(rawWinLosses),
-                Total = CalculateSumWinLoss(totalTile, rawWinLosses)
+                Total = CalculateSumWinLoss(sumTitle, rawWinLosses)
             };
 
             return grandTotal;

@@ -1,6 +1,5 @@
 ﻿using Fanex.Data.Configuration;
 using System.Web.Http;
-using System.Web.Optimization;
 
 namespace UniversalReports.Sites
 {
@@ -10,7 +9,6 @@ namespace UniversalReports.Sites
         {
             DbSettingProviderManager.Current.Start();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
             SimpleInjectorConfig.Register();
         }
     }

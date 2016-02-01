@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace UniversalReports.MVC.Validation
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class DateTimeGreaterThanAttribute : ValidationAttribute
+    public sealed class DateTimeGreaterThanAttribute : ValidationAttribute
     {
         private readonly string _dateFromFieldName;
 
@@ -12,6 +12,14 @@ namespace UniversalReports.MVC.Validation
             : base(string.Empty)
         {
             _dateFromFieldName = dateFromFieldName;
+        }
+
+        public string DateFromFieldName
+        {
+            get
+            {
+                return _dateFromFieldName;
+            }
         }
 
         public override string FormatErrorMessage(string name)

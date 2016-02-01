@@ -29,10 +29,10 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
 
             var creditWinLoss = rawCreditWinLoss == null
                 ? _caculationService.CreateEmptyWinLoss(groupId, "Credit")
-                : FromRawWinLossByRowName(rawCreditWinLoss);
+                : FromRawWinLoss(rawCreditWinLoss);
             var depositWinLoss = rawDepositWinLoss == null
                 ? _caculationService.CreateEmptyWinLoss(groupId, "Deposit")
-                : FromRawWinLossByRowName(rawDepositWinLoss);
+                : FromRawWinLoss(rawDepositWinLoss);
             var totalWinLoss = rawWinLosses.Any()
                 ? CalculateSumWinLoss(groupName, rawWinLosses)
                 : _caculationService.CreateEmptyWinLoss(groupId, groupName);
@@ -63,6 +63,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
 
             return new RawWinLoss
             {
+                GroupId = winlosses.First().GroupId,
                 RowName = winlosses.First().RowName,
                 GroupName = winlosses.First().GroupName,
                 Commission = winlosses.Sum(r => r.Commission),
@@ -92,7 +93,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
             var creditData = rawWinLosses.Where(r => r.RowName == "Credit");
             var sumData = CalculateSum(creditData);
 
-            return FromRawWinLossByRowName(sumData);
+            return FromRawWinLoss(sumData);
         }
 
         private CommonModels.WinLoss SumDepositGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
@@ -100,21 +101,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
             var depositData = rawWinLosses.Where(r => r.RowName == "Deposit");
             var sumData = CalculateSum(depositData);
 
-            return FromRawWinLossByRowName(sumData);
-        }
-
-        private CommonModels.WinLoss FromRawWinLossByRowName(RawWinLoss rawWinLoss)
-        {
-            var winloss = FromRawWinLoss(rawWinLoss);
-            winloss.Name = rawWinLoss.RowName;
-            return winloss;
-        }
-
-        private CommonModels.WinLoss FromRawWinLossByGroupName(RawWinLoss rawWinLoss)
-        {
-            var winloss = FromRawWinLoss(rawWinLoss);
-            winloss.Name = rawWinLoss.GroupName;
-            return winloss;
+            return FromRawWinLoss(sumData);
         }
 
         private CommonModels.WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
@@ -122,6 +109,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
             return new CommonModels.WinLoss
             {
                 Id = rawWinLoss.GroupId,
+                Name = rawWinLoss.RowName,
                 Commission = rawWinLoss.Commission,
                 MemberWinLoss = rawWinLoss.MemberWinLoss,
                 RealIncome = rawWinLoss.RealIncome,

@@ -15,7 +15,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Utility
 
         internal static bool AreTwoWinLossEqual(WinLoss first, WinLoss second)
         {
-            return first.Name == second.Name &&
+            return first.Id == second.Id &&
+                    first.Name == second.Name &&
                     first.MemberWinLoss == second.MemberWinLoss &&
                     first.SMAWinLoss == second.SMAWinLoss &&
                     first.Commission == second.Commission &&
@@ -30,7 +31,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Utility
 
         internal static bool AreTwoRawWinLossEqual(RawWinLoss first, RawWinLoss second)
         {
-            return first.GroupName == second.GroupName &&
+            return first.GroupId == second.GroupId &&
+                first.GroupName == second.GroupName &&
                 first.RowName == second.RowName &&
                     first.MemberWinLoss == second.MemberWinLoss &&
                     first.SMAWinLoss == second.SMAWinLoss &&

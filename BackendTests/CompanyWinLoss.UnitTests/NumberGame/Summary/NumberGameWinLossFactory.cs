@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
 {
-    internal class NumberGameWinLossFactory
+    internal static class NumberGameWinLossFactory
     {
         internal static RawWinLoss CreateRawWinLoss(
             int groupId,

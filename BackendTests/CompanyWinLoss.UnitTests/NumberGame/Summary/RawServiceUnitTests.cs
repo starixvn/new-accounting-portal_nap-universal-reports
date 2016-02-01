@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.CompanyWinLoss.NumberGame.Summary;
-using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
-using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.NumberGame.Summary;
+using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
+using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
 {

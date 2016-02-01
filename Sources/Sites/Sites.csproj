@@ -42,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -142,12 +143,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\company-winloss\company-winloss.constant.js" />
     <Content Include="app\company-winloss\company-winloss.service.js" />
     <Content Include="app\company-winloss\filter\filter.directive.js" />
+    <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
+      <Link>FxCopDictionary.xml</Link>
+    </CodeAnalysisDictionary>
     <Content Include="app\company-winloss\product\live-casino\live-casino.controller.js" />
     <Content Include="app\company-winloss\product\live-casino\live-casino.html" />
     <Content Include="app\company-winloss\product\number-game\number-game.service.js" />
