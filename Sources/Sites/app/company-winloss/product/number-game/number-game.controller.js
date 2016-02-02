@@ -3,21 +3,14 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('MainController', MainController);
+        .controller('NumberGameController', NumberGameController);
 
-    MainController.$inject = ['$compile', '$element', '$scope', 'config', 'formatStrings', 'dataService', 'fanexGridHelper'];
-    function MainController($compile, $element, $scope, config, formatStrings, dataService, fanexGridHelper) {
-        var gridElement = $element.find('.freegrid');
-        /*jshint validthis: true */
-        var vm = this;
-        vm.isShown = false;
-        vm.hide = function () {
-            vm.isShown = false;
+    NumberGameController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'dataService', 'fanexGridHelper', 'levels', 'companyWinlossService'];
+    function NumberGameController($compile, $scope, $element, formatStrings, dataService, fanexGridHelper, levels, companyWinlossService) {
+        $scope.generate = generate;
+        $scope.drillUpMain = function () {
+            companyWinlossService.generateMain();
         };
-
-        $scope.$on('main', function (event, data) {
-            generate(data.startDate, data.endDate);
-        });
 
         function generate(startDate, endDate) {
             dataService.getData(startDate, endDate).then(function (data) {
@@ -26,13 +19,14 @@
         }
 
         function renderGrid(data) {
+            var gridElement = $element.find('.freegrid');
             var gridOptions = createGridOptions(data);
             gridElement.fanexGrid(gridOptions);
             var elements = gridElement.find('.product-drilldown');
-            angular.forEach(elements, function (element) {
-                $compile(angular.element(element))($scope);
-            });
-            vm.isShown = true;
+            $compile(elements)($scope);
+
+            var breadcrumbElement = $element.find('.breadcrumb');
+            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -73,7 +67,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: "PRODUCT WIN/LOSS REPORT",
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="drillUpMain()">MAIN</a></li><li class="active">NUMBER GAME "NON - LIVE" PRODUCT WIN/LOSS REPORT</li></ol>',
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -108,10 +102,10 @@
 
         function createWinLossDataRow(winLoss, hasDrilldown) {
             var productColumn = !hasDrilldown
-                ? { Name: "Product", Value: winLoss.Name }
+                ? { Name: "Product", Value: winLoss.GroupName }
                 : {
-                    Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="product-drilldown" data-ng-click="vm.drilldown(\'' + winLoss.Name + '\')">' + winLoss.GroupName + '</a>';
+                    Name: "Product", Value: winLoss.GroupName, CustomCellRender: function (cellValue) {
+                        return '<a class="product-drilldown" href data-ng-click="drillDownProduct(\'' + winLoss.GroupName + '\')">' + winLoss.GroupName + '</a>';
                     }
                 };
             var winLossDataRow = [
@@ -163,4 +157,3 @@
         }
     }
 })();
-

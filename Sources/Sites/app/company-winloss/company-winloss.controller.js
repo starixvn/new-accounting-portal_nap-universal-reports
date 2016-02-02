@@ -5,16 +5,17 @@
         .module('companyWinlossApp')
         .controller('CompanyWinlossController', CompanyWinlossController);
 
-    CompanyWinlossController.$inject = ['$scope'];
-    function CompanyWinlossController($scope) {
+    CompanyWinlossController.$inject = ['$scope', 'levels', 'companyWinlossService'];
+    function CompanyWinlossController($scope, levels, companyWinlossService) {
+        companyWinlossService.scope = $scope;
+        companyWinlossService.gridModel = this;
         var vm = this;
+        vm.level = levels.MAIN;
+        vm.levels = levels;
         vm.generate = generate;
 
-        function generate(startDate, endDate) {
-            $scope.$broadcast('main', {
-                startDate: startDate,
-                endDate: endDate
-            });
+        function generate() {
+            companyWinlossService.generate({});
         }
     }
 })();

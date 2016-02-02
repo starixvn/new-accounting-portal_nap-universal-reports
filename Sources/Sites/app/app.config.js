@@ -15,7 +15,7 @@
                 .when('/', {
                     templateUrl: 'app/company-winloss/company-winloss.html',
                     controller: 'CompanyWinlossController',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'vm'
                 })
                 .when('/about', {
                     templateUrl: 'app/about/about.html',

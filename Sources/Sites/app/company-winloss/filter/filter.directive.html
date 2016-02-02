@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="FilterController as filterCtrl">
+﻿<div>
     <div class="well well-sm">
         <div class="legend-information">
             <span class="information-button" data-toggle="modal" data-target="#legend-information-modal">
@@ -69,19 +69,19 @@
                 </div>
             </div>
         </div>
-        <form class="form-inline" data-ng-switch data-on="filterCtrl.normalMode">
+        <form class="form-inline" data-ng-switch data-on="vm.normalMode">
             <div class="form-group" data-ng-switch-when="true">
                 <label>Date</label>
-                <nap-date-picker data-ng-model="filterCtrl.date"></nap-date-picker>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="ctrl.generate(filterCtrl.date, filterCtrl.date)">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="filterCtrl.todayClicked()">{{filterCtrl.today | amDateFormat:'MMM DD, YYYY'}}</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="filterCtrl.yesterdayClicked()">{{filterCtrl.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="filterCtrl.viewHistoryMode()">History Report</button>
+                <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.todayClicked()">{{vm.today | amDateFormat:'MMM DD, YYYY'}}</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
             </div>
             <div class="form-group" data-ng-switch-when="false">
-                <nap-month-picker data-start-date="filterCtrl.startDate" data-end-date="filterCtrl.endDate"></nap-month-picker>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="ctrl.generate(filterCtrl.startDate, filterCtrl.endDate)">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="filterCtrl.viewNormalMode()">Back</button>
+                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate"></nap-month-picker>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
             </div>
         </form>
     </div>
