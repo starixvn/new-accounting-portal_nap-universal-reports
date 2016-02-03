@@ -3,10 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .directive('napProduct', napProduct);
+        .directive('napBetType', napBetType);
 
-    napProduct.$inject = ['$controller'];
-    function napProduct($controller) {
+    napBetType.$inject = ['$controller'];
+    function napBetType($controller) {
         var directive = {
             restrict: 'EA',
             scope: {},
@@ -23,40 +23,35 @@
             var vm = this;
 
             var productConfig = {
-                'Live Casino': {
-                    templateUrl: 'app/company-winloss/product/live-casino/live-casino.html',
-                    controller: 'LiveCasinoController'
-                },
                 'Number Game': {
-                    templateUrl: 'app/company-winloss/product/number-game/number-game.html',
-                    controller: 'NumberGameController'
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'NumberGameBetTypeController'
                 }
             };
 
             $scope.$on('generate', function (event, data) {
-                if (data.level === levels.PRODUCT) {
+                if (data.level === levels.BET_TYPE) {
                     $timeout(function () {
-                        generate(data.product);
+                        generate(data);
                     });
                 }
             });
 
             $scope.$on('show', function (event, data) {
-                if (data.level === levels.PRODUCT) {
+                if (data.level === levels.BET_TYPE) {
                     companyWinlossService.filterModel.updateDateRange(dateRange);
                 }
             });
 
-            function generate(product) {
-                var productSetting = productConfig[product];
+            function generate(data) {
+                var productSetting = productConfig[data.product];
                 $templateRequest(productSetting.templateUrl, true).then(function (response) {
                     var templateScope = $scope.$new();
                     var templateElement = $element.children().html(response);
                     var templateCtrl = $controller(productSetting.controller, { $scope: templateScope, $element: templateElement });
                     templateElement.data('$ngControllerController', templateCtrl);
                     $compile(templateElement.contents())(templateScope, function (clonedElement, scope) {
-                        dateRange = companyWinlossService.filterModel.getDateRange();
-                        scope.generate(dateRange.startDate, dateRange.endDate);
+                        scope.generate();
                     });
                 });
             }

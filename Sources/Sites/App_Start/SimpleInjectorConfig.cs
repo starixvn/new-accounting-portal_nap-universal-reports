@@ -3,6 +3,7 @@ using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
+using NumberGameMatchDetail = UniversalReports.CompanyWinLoss.NumberGame.MatchDetail;
 using NumberGameSummary = UniversalReports.CompanyWinLoss.NumberGame.Summary;
 using RacingMatchDetail = UniversalReports.CompanyWinLoss.VirtualSports.RacingMatchDetail;
 using SportsbookMatchDetail = UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail;
@@ -37,6 +38,7 @@ namespace UniversalReports.Sites
             container.Register<NumberGameSummary.CalculationService, NumberGameSummary.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<NumberGameSummary.RawService, NumberGameSummary.RawServiceImp>(Lifestyle.Transient);
             container.Register<NumberGameSummary.Service, NumberGameSummary.ServiceImp>(Lifestyle.Transient);
+            container.Register<NumberGameMatchDetail.Service, NumberGameMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.BetType.Service, VirtualSports.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.Summary.Service, VirtualSports.Summary.ServiceImp>(Lifestyle.Transient);

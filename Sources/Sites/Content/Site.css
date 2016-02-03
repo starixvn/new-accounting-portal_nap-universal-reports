@@ -9050,21 +9050,25 @@ button.close {
   font-weight: bold;
 }
 
-/* line 259, ../stylesheets/Site.scss */
-.freegrid {
+/* line 262, ../stylesheets/Site.scss */
+.grid-boundary .freegrid {
   font-size: 0.85em;
 }
-/* line 265, ../stylesheets/Site.scss */
-.freegrid .grid-container .highlight-product > td {
+/* line 267, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grid-container .highlight-product > td {
   font-weight: bold;
   background-color: #f4f4be;
 }
-
-/* line 274, ../stylesheets/Site.scss */
+/* line 273, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grid-container .league-header {
+  text-align: left;
+  font-weight: bold;
+}
+/* line 280, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label {
   font-size: 0.85em;
 }
-/* line 276, ../stylesheets/Site.scss */
+/* line 283, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
 }

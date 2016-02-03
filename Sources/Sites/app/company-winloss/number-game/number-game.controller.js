@@ -5,38 +5,51 @@
         .module('companyWinlossApp')
         .controller('NumberGameController', NumberGameController);
 
-    NumberGameController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'companyWinlossService', 'numberGameService'];
-    function NumberGameController($compile, $scope, $element, formatStrings, fanexGridHelper, companyWinlossService, numberGameService) {
+    NumberGameController.$inject = ['$compile', '$scope', '$element', 'levels', 'formatStrings', 'fanexGridHelper', 'companyWinlossService', 'numberGameService'];
+    function NumberGameController($compile, $scope, $element, levels, formatStrings, fanexGridHelper, companyWinlossService, numberGameService) {
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
-        $scope.drillDownBetType = function () {
-            console.log('drillDownBetType');
+        $scope.show = show;
+        $scope.generateBetType = function (betType, betTypeName, isLive) {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE,
+                betType: betType,
+                betTypeName: betTypeName,
+                isLive: isLive
+            });
         };
-        $scope.drillDownSite = function () {
-            console.log('drillDownSite');
+        $scope.generateSite = function () {
+            console.log('generateSite');
         };
-        $scope.drillUpMain = function () {
+        $scope.generateMain = function () {
             companyWinlossService.generateMain();
         };
 
         function generate(startDate, endDate) {
-            numberGameService.getData(startDate, endDate).then(function (data) {
+            numberGameService.getSummary(startDate, endDate).then(function (data) {
                 var nonLiveData = {
                     Title: 'NUMBER GAME "NON-LIVE" PRODUCT WIN/LOSS REPORT',
+                    IsLive: false,
                     GrandTotal: data.NonLiveGrandTotal,
                     BetTypes: data.NonLive
                 };
                 renderGrid(nonliveGridElement, nonLiveData);
                 var liveData = {
                     Title: 'NUMBER GAME "LIVE" PRODUCT WIN/LOSS REPORT',
+                    IsLive: true,
                     GrandTotal: data.LiveGrandTotal,
                     BetTypes: data.Live
                 };
                 renderGrid(liveGridElement, liveData);
                 compileLinks();
             });
+        }
+
+        function show() {
+            nonliveGridElement.fanexGrid('resizeGrid');
+            liveGridElement.fanexGrid('resizeGrid');
         }
 
         function renderGrid(gridElement, data) {
@@ -71,7 +84,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="drillUpMain()">MAIN</a></li><li class="active">' + data.Title + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li class="active">' + data.Title + '</li></ol>',
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -89,18 +102,34 @@
             var betTypes = data.BetTypes;
             for (var i = 0; i < betTypes.length; i++) {
                 var betTypeItem = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeItem));
+                bodyData.push(createBetTypeWinLossDataRow(betTypeItem, data.IsLive));
             }
 
             return bodyData;
         }
 
-        function createWinLossDataRow(winLoss, drillDown) {
-            var productColumn = !drillDown
+        function createBetTypeWinLossDataRow(betTypeWinLossItem, isLive) {
+            var betTypeDataRow = {
+                Columns: createWinLossDataRow(betTypeWinLossItem.Total, 'generateBetType', isLive),
+                SubRows: []
+            };
+
+            betTypeDataRow.SubRows.push({
+                Columns: createWinLossDataRow(betTypeWinLossItem.Credit, 'generateSite'), CssClass: 'align-right'
+            });
+            betTypeDataRow.SubRows.push({
+                Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, 'generateSite'), CssClass: 'align-right'
+            });
+
+            return betTypeDataRow;
+        }
+
+        function createWinLossDataRow(winLoss, generateFunc, isLive) {
+            var productColumn = !generateFunc
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drillDown" href data-ng-click="' + drillDown + '(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drillDown" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + winLoss.Name + '\',' + isLive + ')">' + winLoss.Name + '</a>';
                     }
                 };
             var winLossDataRow = [
@@ -114,22 +143,6 @@
             ];
 
             return winLossDataRow;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
-            var betTypeDataRow = {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, 'drillDownBetType'),
-                SubRows: []
-            };
-
-            betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Credit, 'drillDownSite'), CssClass: 'align-right'
-            });
-            betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, 'drillDownSite'), CssClass: 'align-right'
-            });
-
-            return betTypeDataRow;
         }
 
         function createFooterData(data) {

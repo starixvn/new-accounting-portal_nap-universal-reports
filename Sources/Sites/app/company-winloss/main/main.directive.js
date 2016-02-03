@@ -9,7 +9,7 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: '/app/company-winloss/main/main.directive.html',
+            templateUrl: '/app/company-winloss/shared/fanex-grid-with-title.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -132,6 +132,23 @@
                 return bodyData;
             }
 
+            function createProductWinLossDataRow(productWinLossItem, isHighlight) {
+                var productDataRow = {
+                    Columns: createWinLossDataRow(productWinLossItem.Total, !isHighlight),
+                    SubRows: [],
+                    CssClass: isHighlight ? 'highlight-product' : ''
+                };
+
+                productDataRow.SubRows.push({
+                    Columns: createWinLossDataRow(productWinLossItem.Credit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
+                });
+                productDataRow.SubRows.push({
+                    Columns: createWinLossDataRow(productWinLossItem.Deposit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
+                });
+
+                return productDataRow;
+            }
+
             function createWinLossDataRow(winLoss, hasDrilldown) {
                 var productColumn = !hasDrilldown
                     ? { Name: "Product", Value: winLoss.Name }
@@ -155,23 +172,6 @@
                 ];
 
                 return winLossDataRow;
-            }
-
-            function createProductWinLossDataRow(productWinLossItem, isHighlight) {
-                var productDataRow = {
-                    Columns: createWinLossDataRow(productWinLossItem.Total, !isHighlight),
-                    SubRows: [],
-                    CssClass: isHighlight ? 'highlight-product' : ''
-                };
-
-                productDataRow.SubRows.push({
-                    Columns: createWinLossDataRow(productWinLossItem.Credit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
-                });
-                productDataRow.SubRows.push({
-                    Columns: createWinLossDataRow(productWinLossItem.Deposit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
-                });
-
-                return productDataRow;
             }
 
             function createFooterData(data) {

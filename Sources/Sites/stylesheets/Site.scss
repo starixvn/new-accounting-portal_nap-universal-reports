@@ -256,24 +256,31 @@
     }
 }
 
-.freegrid {
-    font-size: 0.85em;
 
-    .grid-container {
-        .highlight-product {
 
-            & > td {
+.grid-boundary {
+    .freegrid {
+        font-size: 0.85em;
+
+        .grid-container {
+            .highlight-product {
+                & > td {
+                    font-weight: bold;
+                    background-color: #f4f4be;
+                }
+            }
+
+            .league-header {
+                text-align: left;
                 font-weight: bold;
-                background-color: #f4f4be;
             }
         }
     }
-}
 
-.grid-boundary {
     .grid-title-label {
         font-size: 0.85em;
-        .breadcrumb{
+
+        .breadcrumb {
             margin-bottom: 0;
         }
     }

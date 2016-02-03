@@ -155,12 +155,14 @@
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="app\company-winloss\product\live-casino\live-casino.controller.js" />
-    <Content Include="app\company-winloss\product\live-casino\live-casino.html" />
-    <Content Include="app\company-winloss\product\number-game\number-game.service.js" />
-    <Content Include="app\company-winloss\product\number-game\number-game.html" />
-    <Content Include="app\company-winloss\product\number-game\number-game.controller.js" />
-    <Content Include="app\company-winloss\product\product.directive.js" />
+    <Content Include="app\company-winloss\live-casino\live-casino.controller.js" />
+    <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
+    <Content Include="app\company-winloss\number-game\number-game.service.js" />
+    <Content Include="app\company-winloss\number-game\number-game.html" />
+    <Content Include="app\company-winloss\number-game\number-game.controller.js" />
+    <Content Include="app\company-winloss\bet-type.directive.js" />
+    <Content Include="app\company-winloss\product.directive.js" />
+    <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="images\.keep" />
@@ -175,7 +177,6 @@
     <Content Include="app\company-winloss\company-winloss.controller.js" />
     <Content Include="app\company-winloss\filter\filter.directive.html" />
     <Content Include="app\company-winloss\main\main.directive.js" />
-    <Content Include="app\company-winloss\main\main.directive.html" />
     <Content Include="app\components\alert.directive.html" />
     <Content Include="app\components\alert.directive.js" />
     <Content Include="app\components\loading.directive.js" />
@@ -1196,9 +1197,7 @@
       <Name>MVC</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\company-winloss\product\common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
