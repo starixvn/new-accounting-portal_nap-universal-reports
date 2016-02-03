@@ -17,8 +17,8 @@
         };
         return directive;
 
-        controller.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'dataService', 'fanexGridHelper', 'levels', 'companyWinlossService'];
-        function controller($compile, $timeout, $element, $scope, formatStrings, dataService, fanexGridHelper, levels, companyWinlossService) {
+        controller.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'mainService', 'fanexGridHelper', 'levels', 'companyWinlossService'];
+        function controller($compile, $timeout, $element, $scope, formatStrings, mainService, fanexGridHelper, levels, companyWinlossService) {
             var gridElement = $element.find('.freegrid');
             var dateRange;
             /*jshint validthis: true */
@@ -49,7 +49,7 @@
             });
 
             function generate(startDate, endDate) {
-                dataService.getData(startDate, endDate).then(function (data) {
+                mainService.getData(startDate, endDate).then(function (data) {
                     renderGrid(data);
                 });
             }

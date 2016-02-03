@@ -9,7 +9,7 @@ namespace UniversalReports.Sites
         protected void Application_Start()
         {
             DbSettingProviderManager.Current.Start();
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             SimpleInjectorConfig.Register();
         }

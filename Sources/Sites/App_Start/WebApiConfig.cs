@@ -7,6 +7,7 @@ namespace UniversalReports.Sites
     {
         public static void Register(HttpConfiguration configuration)
         {
+            configuration.MapHttpAttributeRoutes();
             var defaultOption = new
             {
                 id = RouteParameter.Optional

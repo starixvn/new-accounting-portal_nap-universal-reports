@@ -22,6 +22,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
             _siteService = siteService;
         }
 
+        [Route("api/number-game/summary")]
         public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
         {
             var criteria = new Summary.Criteria
@@ -35,6 +36,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
                 : null;
         }
 
+        [Route("api/number-game/match-detail")]
         public MatchDetail.WinLossModel MatchDetail(MatchDetail.QueryModel queryModel)
         {
             var criteria = new MatchDetail.Criteria
@@ -51,6 +53,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
                 : null;
         }
 
+        [Route("api/number-game/site")]
         public SiteWinLoss Site(Site.QueryModel queryModel)
         {
             var criteria = new Site.Criteria

@@ -150,6 +150,7 @@
     <Content Include="app\company-winloss\filter\filter.directive.js" />
     <Content Include="app\company-winloss\product\live-casino\live-casino.controller.js" />
     <Content Include="app\company-winloss\product\live-casino\live-casino.html" />
+    <Content Include="app\company-winloss\product\number-game\number-game.service.js" />
     <Content Include="app\company-winloss\product\number-game\number-game.html" />
     <Content Include="app\company-winloss\product\number-game\number-game.controller.js" />
     <Content Include="app\company-winloss\product\product.directive.js" />
