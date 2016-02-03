@@ -26,4 +26,8 @@
     <Setting Key="CompanyWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>    
   </Function>
+  <Function Name="Live Casino">
+    <Setting Key="CompanyWinLoss-LiveCasino-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+     <Setting Key="CompanyWinLoss-LiveCasino-ProductDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ProductDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

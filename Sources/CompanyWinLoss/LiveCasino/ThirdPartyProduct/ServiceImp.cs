@@ -2,26 +2,26 @@
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino
+namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
 {
-    public class ProductSummaryWinLossServiceImp : ProductSummaryWinLossService
+    public class ServiceImp : Service
     {
-        private CalculationService _calculationService;
         private RawService _rawService;
+        private CalculationService _calculationService;
 
-        public ProductSummaryWinLossServiceImp(RawService rawService, CalculationService calculationService)
+        public ServiceImp(RawService rawService, CalculationService calculationService)
         {
             _rawService = rawService;
             _calculationService = calculationService;
         }
 
-        public ProductSummaryWinLoss Query(WinLossCriteria criteria)
+        public WinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLoss = _rawService.Query(criteria);
             var products = _calculationService.CalculateSiteWinLossSummary(rawWinLoss).ToList();
-            var grandTotal = _calculationService.CalculateSumWinLossSummary("All Total", rawWinLoss);
+            var grandTotal = _calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLoss);
 
-            return new ProductSummaryWinLoss
+            return new WinLossModel
             {
                 Products = products,
                 GrandTotal = grandTotal

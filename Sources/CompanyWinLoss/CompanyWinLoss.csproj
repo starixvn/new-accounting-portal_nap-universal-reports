@@ -114,8 +114,19 @@
     <Compile Include="Common\Services\SiteServiceImp.cs" />
     <Compile Include="Keno\BetType\BetTypeController.cs" />
     <Compile Include="Keno\Site\SiteController.cs" />
-    <Compile Include="LiveCasino\ProductSummaryWinLossService.cs" />
-    <Compile Include="LiveCasino\ProductSummaryWinLossServiceImp.cs" />
+    <Compile Include="LiveCasino\LiveCasinoController.cs" />
+    <Compile Include="LiveCasino\GameType\Criteria.cs" />
+    <Compile Include="LiveCasino\GameType\QueryModel.cs" />
+    <Compile Include="LiveCasino\GameType\Service.cs" />
+    <Compile Include="LiveCasino\GameType\ServiceImp.cs" />
+    <Compile Include="LiveCasino\GameType\WinLossModel.cs" />
+    <Compile Include="LiveCasino\Site\Criteria.cs" />
+    <Compile Include="LiveCasino\Site\QueryModel.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\Criteria.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\QueryModel.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\Service.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\ServiceImp.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\WinLossModel.cs" />
     <Compile Include="NumberGame\MatchDetail\LeagueWinLoss.cs" />
     <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\WinLossModel.cs" />
@@ -204,6 +215,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

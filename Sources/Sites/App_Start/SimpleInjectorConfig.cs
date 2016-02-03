@@ -4,6 +4,7 @@ using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
+using LiveCasino = UniversalReports.CompanyWinLoss.LiveCasino;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
@@ -47,6 +48,8 @@ namespace UniversalReports.Sites
             container.Register<VirtualSports.SportsbookMatchDetail.RawWinLossService, VirtualSports.SportsbookMatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookMatchDetail.Service, VirtualSports.SportsbookMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
+            container.Register<LiveCasino.ThirdPartyProduct.Service, LiveCasino.ThirdPartyProduct.ServiceImp>(Lifestyle.Transient);
+            container.Register<LiveCasino.GameType.Service, LiveCasino.GameType.ServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

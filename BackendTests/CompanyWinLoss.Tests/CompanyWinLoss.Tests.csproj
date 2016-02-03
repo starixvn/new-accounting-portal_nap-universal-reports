@@ -86,6 +86,8 @@
     <Compile Include="Common\BaseServiceTests.cs" />
     <Compile Include="Keno\BetType\BetTypeServiceTests.cs" />
     <Compile Include="Keno\Site\SiteServiceTests.cs" />
+    <Compile Include="LiveCasino\GameType\ServiceTests.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\ServiceTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceTests.cs" />
     <Compile Include="NumberGame\Site\SiteWinLossServiceTests.cs" />
