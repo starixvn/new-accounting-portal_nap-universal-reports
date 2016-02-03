@@ -8,6 +8,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             var expectedSum = new List<RawWinLoss>
@@ -38,6 +39,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             var expectedSum = new List<RawWinLoss>

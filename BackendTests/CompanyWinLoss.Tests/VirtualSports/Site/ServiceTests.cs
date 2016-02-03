@@ -16,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Site
         }
 
         [Test]
-        [Category("ServiceIntegrationTests")]
+        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

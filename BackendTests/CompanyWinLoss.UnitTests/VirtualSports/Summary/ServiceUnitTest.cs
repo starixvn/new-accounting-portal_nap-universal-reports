@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.Summary
     public class ServiceUnitTest
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightSportTypeWinLossSummary()
         {
             // Arrange   

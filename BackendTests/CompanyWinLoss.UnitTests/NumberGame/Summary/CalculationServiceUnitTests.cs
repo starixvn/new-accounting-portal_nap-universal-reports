@@ -19,6 +19,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
@@ -63,6 +64,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
         {
             // Arrange   
@@ -90,6 +92,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange   

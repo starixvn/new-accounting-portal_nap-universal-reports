@@ -8,6 +8,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -39,6 +40,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             // Arrange

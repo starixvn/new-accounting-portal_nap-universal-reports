@@ -12,6 +12,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingMatchDet
     public class ServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   

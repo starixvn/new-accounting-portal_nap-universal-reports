@@ -17,6 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void QueryBalanceUp_Successful()
         {
             // Arrange
@@ -28,6 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void QueryBalanceUp_Twice_CallDynamicRepository_One_BecauseOfCaching()
         {
             // Arrange
@@ -47,6 +49,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void QueryBalanceUp_Twice_ReturnValidValue()
         {
             // Arrange

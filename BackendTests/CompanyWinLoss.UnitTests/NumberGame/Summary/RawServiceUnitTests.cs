@@ -15,6 +15,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
     public class RawServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
         {
             // Arrange
@@ -55,6 +56,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_TwoSources_CallCalculationServiceWithTwoDimensionArray()
         {
             // Arrange

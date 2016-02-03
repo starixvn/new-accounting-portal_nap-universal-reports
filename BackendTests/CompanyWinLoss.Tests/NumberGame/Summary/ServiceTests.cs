@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Summary
         }
 
         [Test]
-        [Category("ServiceIntegrationTests")]
+        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

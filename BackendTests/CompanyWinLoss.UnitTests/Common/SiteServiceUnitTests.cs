@@ -11,6 +11,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
     public class SiteServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightSiteWinLoss()
         {
             // Arrange   

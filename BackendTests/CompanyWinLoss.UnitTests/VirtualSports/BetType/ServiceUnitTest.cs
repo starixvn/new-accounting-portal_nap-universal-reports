@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.BetType
     public class ServiceUnitTest
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightBetTypeWinLossSummary()
         {
             // Arrange   

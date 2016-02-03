@@ -10,6 +10,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
     public class CalculationServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -25,6 +26,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -39,6 +41,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
@@ -55,6 +58,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -74,6 +78,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLoss_ReturnsRightTotalValue()
         {
             // Arrange
@@ -93,6 +98,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
@@ -137,6 +143,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
         {
             // Arrange   
@@ -164,6 +171,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange   

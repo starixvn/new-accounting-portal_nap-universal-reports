@@ -16,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Products
         }
 
         [Test]
-        [Category("ServiceIntegrationTests")]
+        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

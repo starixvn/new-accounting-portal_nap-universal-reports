@@ -10,6 +10,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -41,6 +42,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             // Arrange

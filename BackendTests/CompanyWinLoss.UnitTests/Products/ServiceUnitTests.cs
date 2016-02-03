@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
     public class ServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSportsbookDetail_ReturnRightSportsbookDetail()
         {
             // Arrange   
@@ -48,6 +49,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMainWinLoss()
         {
             // Arrange   
@@ -130,9 +132,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         {
             return new SiteWinLossSummary
             {
-                Credit = WinLossFactory.CreateWinLoss(0, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 1000m / 1800, 1200m / 2000),
-                Deposit = WinLossFactory.CreateWinLoss(0, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 1100m / 1980, 1320m / 2200),
-                Total = WinLossFactory.CreateWinLoss(0, "GRAND TOTAL", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200)
+                Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 1800, 2000, 1000m / 1800, 1200m / 2000),
+                Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 1980, 2200, 1100m / 1980, 1320m / 2200),
+                Total = WinLossFactory.CreateWinLoss(1, "GRAND TOTAL", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200)
             };
         }
     }

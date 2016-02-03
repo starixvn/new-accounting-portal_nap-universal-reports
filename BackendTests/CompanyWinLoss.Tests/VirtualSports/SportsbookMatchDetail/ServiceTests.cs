@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDet
         }
 
         [Test]
-        [Category("ServiceIntegrationTests")]
+        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

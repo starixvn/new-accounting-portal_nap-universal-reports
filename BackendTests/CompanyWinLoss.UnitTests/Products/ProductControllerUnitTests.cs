@@ -11,6 +11,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
     public class ProductControllerUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Values_InvalidDateRange_ReturnsNull()
         {
             // Arrange
@@ -34,6 +35,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Values_ValidDateRange_ReturnsDataFromService()
         {
             // Arrange

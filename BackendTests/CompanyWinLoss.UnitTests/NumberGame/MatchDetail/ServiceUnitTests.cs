@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
     public class ServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   

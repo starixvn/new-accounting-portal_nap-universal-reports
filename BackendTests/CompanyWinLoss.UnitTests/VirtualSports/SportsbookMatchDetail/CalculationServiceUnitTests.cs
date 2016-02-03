@@ -8,6 +8,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
     public class CalculationServiceUnitTests
     {
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -24,6 +25,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -39,6 +41,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void FromRawWinLoss_ReturnsCorrectTeamNameAndMargin()
         {
             // Arrange
@@ -57,6 +60,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         }
 
         [Test]
+        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
