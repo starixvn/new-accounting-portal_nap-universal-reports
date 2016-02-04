@@ -8,5 +8,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
         public string LeagueName { get; set; }
 
         public List<WinLoss> Matches { get; set; }
+
+        public WinLoss Total { get; set; }
     }
 }

@@ -71,10 +71,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
                 WinLossFactory.CreateWinLoss(0, "MatchCode 2", 110, 120, 11, 550, 660, -110, 990, 1100, 550m / 990, 660m / 1100)
             };
 
+            var expectedTotal = WinLossFactory.CreateWinLoss(0, "Total", 210, 230, 21, 1050, 1260, -210, 1980, 2100, 1050m / 1980, 1260m / 2100);
+
             return new LeagueWinLoss
             {
                 LeagueName = leagueName,
-                Matches = expectedMatches
+                Matches = expectedMatches,
+                Total = expectedTotal
             };
         }
 

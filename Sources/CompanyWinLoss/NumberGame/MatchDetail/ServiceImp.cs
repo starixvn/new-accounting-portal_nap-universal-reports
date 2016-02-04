@@ -39,10 +39,12 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
         {
             var rawLeagueWinLosses = rawWinLosses.Where(r => r.GroupName == league);
             var matchWinLosses = rawLeagueWinLosses.Select(m => _calculationService.FromRawWinLossByRowName(m));
+            var total = _calculationService.CalculateSumWinLoss("Total", rawLeagueWinLosses);
             return new LeagueWinLoss
             {
                 LeagueName = league,
-                Matches = matchWinLosses.ToList()
+                Matches = matchWinLosses.ToList(),
+                Total = total
             };
         }
     }
