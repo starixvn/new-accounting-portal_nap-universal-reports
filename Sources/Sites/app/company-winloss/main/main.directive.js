@@ -23,15 +23,15 @@
             var dateRange;
             /*jshint validthis: true */
             var vm = this;
-            vm.drillDown = function (productName) {
+            vm.generateProduct = function (productName) {
                 companyWinlossService.generate({
                     level: levels.PRODUCT,
-                    product: productName
+                    productName: productName
                 });
             };
 
-            $scope.$on('generate', function (event, data) {
-                if (data.level === levels.MAIN) {
+            $scope.$on('generate', function (event, level) {
+                if (level === levels.MAIN) {
                     $timeout(function () {
                         dateRange = companyWinlossService.filterModel.getDateRange();
                         generate(dateRange.startDate, dateRange.endDate);
@@ -39,8 +39,8 @@
                 }
             });
 
-            $scope.$on('show', function (event, data) {
-                if (data.level === levels.MAIN) {
+            $scope.$on('show', function (event, level) {
+                if (level === levels.MAIN) {
                     $timeout(function () {
                         companyWinlossService.filterModel.updateDateRange(dateRange);
                         gridElement.fanexGrid('resizeGrid');
@@ -154,7 +154,7 @@
                     ? { Name: "Product", Value: winLoss.Name }
                     : {
                         Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                            return '<a class="product-drilldown" href data-ng-click="vm.drillDown(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                            return '<a class="product-drilldown" href data-ng-click="vm.generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                         }
                     };
                 var winLossDataRow = [

@@ -5,15 +5,19 @@
         .module('companyWinlossApp')
         .controller('NumberGameBetTypeController', NumberGameBetTypeController);
 
-    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'companyWinlossService', 'numberGameService'];
-    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, companyWinlossService, numberGameService) {
+    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
+    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateMain = function () {
-            companyWinlossService.generateMain();
+            companyWinlossService.generate({
+                level: levels.MAIN
+            });
         };
         $scope.generateProduct = function () {
-            companyWinlossService.generateProduct();
+            companyWinlossService.generate({
+                level: levels.PRODUCT
+            });
         };
 
         function generate(startDate, endDate) {
@@ -57,7 +61,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li><a href data-ng-click="generateProduct()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li><a href data-ng-click="generateProduct()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" ' + '</li></ol>',
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -95,10 +99,10 @@
             };
         }
 
-        function createWinLossDataRow(winLoss) {
+        function createWinLossDataRow(winLoss, isFooter) {
             return {
                 Columns: [
-                    { Name: "Code", Value: winLoss.Name },
+                    { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
                     { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                     { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                     { Name: "Commission", Value: winLoss.Commission },
@@ -110,9 +114,11 @@
         }
 
         function createFooterData(data) {
+            var gridModel = companyWinlossService.gridModel;
             var footerRow = [];
             var total = data.Total;
-            footerRow.push({ Columns: createWinLossDataRow(total) });
+            total.Name = gridModel.betTypeName + ' Total';
+            footerRow.push(createWinLossDataRow(total, true));
 
             return footerRow;
         }

@@ -149,6 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\site.directive.js" />
     <Content Include="app\company-winloss\company-winloss.constant.js" />
     <Content Include="app\company-winloss\company-winloss.service.js" />
     <Content Include="app\company-winloss\filter\filter.directive.js" />
@@ -156,6 +157,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
     <Content Include="app\company-winloss\live-casino\live-casino.controller.js" />
+    <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game.service.js" />
     <Content Include="app\company-winloss\number-game\number-game.html" />

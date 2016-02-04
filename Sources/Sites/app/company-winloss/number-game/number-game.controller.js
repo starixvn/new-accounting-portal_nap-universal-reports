@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('NumberGameController', NumberGameController);
 
-    NumberGameController.$inject = ['$compile', '$scope', '$element', 'levels', 'formatStrings', 'fanexGridHelper', 'companyWinlossService', 'numberGameService'];
-    function NumberGameController($compile, $scope, $element, levels, formatStrings, fanexGridHelper, companyWinlossService, numberGameService) {
+    NumberGameController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'numberGameService'];
+    function NumberGameController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, numberGameService) {
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
@@ -20,11 +20,26 @@
                 isLive: isLive
             });
         };
-        $scope.generateSite = function () {
-            console.log('generateSite');
+        $scope.generateCreditSite = function (betType, betTypeName, isLive) {
+            generateSite(betType, betTypeName, isLive, sites.CREDIT);
+        };
+        $scope.generateDepositSite = function (betType, betTypeName, isLive) {
+            generateSite(betType, betTypeName, isLive, sites.DEPOSIT);
         };
         $scope.generateMain = function () {
-            companyWinlossService.generateMain();
+            companyWinlossService.generate({
+                level: levels.MAIN
+            });
+        };
+
+        function generateSite(betType, betTypeName, isLive, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                betTypeName: betTypeName,
+                isLive: isLive,
+                site: site
+            });
         };
 
         function generate(startDate, endDate) {
@@ -109,27 +124,28 @@
         }
 
         function createBetTypeWinLossDataRow(betTypeWinLossItem, isLive) {
+            var betTypeName = betTypeWinLossItem.Total.Name;
             var betTypeDataRow = {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, 'generateBetType', isLive),
+                Columns: createWinLossDataRow(betTypeWinLossItem.Total, 'generateBetType', betTypeName, isLive),
                 SubRows: []
             };
 
             betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Credit, 'generateSite'), CssClass: 'align-right'
+                Columns: createWinLossDataRow(betTypeWinLossItem.Credit, 'generateCreditSite', betTypeName, isLive), CssClass: 'align-right'
             });
             betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, 'generateSite'), CssClass: 'align-right'
+                Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, 'generateDepositSite', betTypeName, isLive), CssClass: 'align-right'
             });
 
             return betTypeDataRow;
         }
 
-        function createWinLossDataRow(winLoss, generateFunc, isLive) {
+        function createWinLossDataRow(winLoss, generateFunc, betTypeName, isLive) {
             var productColumn = !generateFunc
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drillDown" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + winLoss.Name + '\',' + isLive + ')">' + winLoss.Name + '</a>';
+                        return '<a class="drillDown" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ')">' + winLoss.Name + '</a>';
                     }
                 };
             var winLossDataRow = [

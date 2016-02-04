@@ -12,10 +12,5 @@
         var vm = this;
         vm.level = levels.MAIN;
         vm.levels = levels;
-        vm.generate = generate;
-
-        function generate() {
-            companyWinlossService.generate({});
-        }
     }
 })();

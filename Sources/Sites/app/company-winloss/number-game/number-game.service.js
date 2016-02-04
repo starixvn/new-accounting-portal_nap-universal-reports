@@ -43,7 +43,7 @@
                 betType: betType,
                 site: site
             };
-            return $http.post('/api/number-game/match-detail', data)
+            return $http.post('/api/number-game/site', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

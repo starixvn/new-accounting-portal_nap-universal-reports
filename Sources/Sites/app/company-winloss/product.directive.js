@@ -34,16 +34,16 @@
                 }
             };
 
-            $scope.$on('generate', function (event, data) {
-                if (data.level === levels.PRODUCT) {
+            $scope.$on('generate', function (event, level) {
+                if (level === levels.PRODUCT) {
                     $timeout(function () {
-                        generate(data.product);
+                        generate();
                     });
                 }
             });
 
-            $scope.$on('show', function (event, data) {
-                if (data.level === levels.PRODUCT) {
+            $scope.$on('show', function (event, level) {
+                if (level === levels.PRODUCT) {
                     $timeout(function () {
                         companyWinlossService.filterModel.updateDateRange(dateRange);
                         currentScope.show();
@@ -51,8 +51,9 @@
                 }
             });
 
-            function generate(product) {
-                var productSetting = productConfig[product];
+            function generate() {
+                var gridModel = companyWinlossService.gridModel;
+                var productSetting = productConfig[gridModel.productName];
                 $templateRequest(productSetting.templateUrl, true).then(function (response) {
                     var templateScope = $scope.$new();
                     var templateElement = $element.children().html(response);

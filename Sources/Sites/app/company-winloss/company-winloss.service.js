@@ -12,10 +12,7 @@
             gridModel: undefined,
             filterModel: undefined,
             updateGridModel: updateGridModel,
-            generate: generate,
-            generateMain: generateMain,
-            generateProduct: generateProduct,
-            generateBetType: generateBetType
+            generate: generate
         };
         return service;
 
@@ -23,41 +20,22 @@
             var hasGenerate = data.level === undefined || this.gridModel.level < data.level;
             this.updateGridModel(data);
             if (hasGenerate) {
-                this.scope.$broadcast('generate', this.gridModel);
+                this.scope.$broadcast('generate', this.gridModel.level);
             } else {
-                this.scope.$broadcast('show', this.gridModel);
+                this.scope.$broadcast('show', this.gridModel.level);
             }
         }
 
         function updateGridModel(data) {
-            this.gridModel.level = data.level || this.gridModel.level;
-            this.gridModel.product = data.product || this.gridModel.product;
-            this.gridModel.subProduct = data.subProduct || this.gridModel.subProduct;
-            this.gridModel.sportType = data.sportType || this.gridModel.sportType;
-            this.gridModel.sportTypeName = data.sportTypeName || this.gridModel.sportTypeName;
-            this.gridModel.isLive = data.isLive || this.gridModel.isLive;
-            this.gridModel.betType = data.betType || this.gridModel.betType;
-            this.gridModel.betTypeName = data.betTypeName || this.gridModel.betTypeName;
-        }
-
-        function generateMain() {
-            this.generate({
-                level: levels.MAIN
-            });
-        }
-
-        function generateProduct() {
-            this.generate({
-                level: levels.PRODUCT
-            });
-        }
-
-        function generateBetType(betType, isLive) {
-            this.generate({
-                level: levels.BET_TYPE,
-                betType: betType,
-                isLive: isLive
-            });
+            this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
+            this.gridModel.productName = angular.isDefined(data.productName) ? data.productName : this.gridModel.productName;
+            this.gridModel.subProductName = angular.isDefined(data.subProductName) ? data.subProductName : this.gridModel.subProductName;
+            this.gridModel.sportType = angular.isDefined(data.sportType) ? data.sportType : this.gridModel.sportType;
+            this.gridModel.sportTypeName = angular.isDefined(data.sportTypeName) ? data.sportTypeName : this.gridModel.sportTypeName;
+            this.gridModel.isLive = angular.isDefined(data.isLive) ? data.isLive : this.gridModel.isLive;
+            this.gridModel.betType = angular.isDefined(data.betType) ? data.betType : this.gridModel.betType;
+            this.gridModel.betTypeName = angular.isDefined(data.betTypeName) ? data.betTypeName : this.gridModel.betTypeName;
+            this.gridModel.site = angular.isDefined(data.site) ? data.site : this.gridModel.site;
         }
     }
 })();

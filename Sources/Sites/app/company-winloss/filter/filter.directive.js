@@ -8,9 +8,7 @@
     function napFilter() {
         var directive = {
             restrict: 'EA',
-            scope: {
-                onGenerate: '&'
-            },
+            scope: {},
             templateUrl: '/app/company-winloss/filter/filter.directive.html',
             replace: true,
             controller: controller,
@@ -35,7 +33,7 @@
             vm.updateDateRange = updateDateRange;
 
             vm.generate = function () {
-                vm.onGenerate();
+                companyWinlossService.generate({});
             };
 
             vm.todayClicked = function () {

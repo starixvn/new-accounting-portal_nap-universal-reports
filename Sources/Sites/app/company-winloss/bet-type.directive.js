@@ -29,22 +29,24 @@
                 }
             };
 
-            $scope.$on('generate', function (event, data) {
-                if (data.level === levels.BET_TYPE) {
+            $scope.$on('generate', function (event, level) {
+                if (level === levels.BET_TYPE) {
                     $timeout(function () {
-                        generate(data);
+                        generate();
                     });
                 }
             });
 
-            $scope.$on('show', function (event, data) {
-                if (data.level === levels.BET_TYPE) {
+            $scope.$on('show', function (event, level) {
+                if (level === levels.BET_TYPE) {
                     companyWinlossService.filterModel.updateDateRange(dateRange);
+                    currentScope.show();
                 }
             });
 
-            function generate(data) {
-                var productSetting = productConfig[data.product];
+            function generate() {
+                var gridModel = companyWinlossService.gridModel;
+                var productSetting = productConfig[gridModel.productName];
                 $templateRequest(productSetting.templateUrl, true).then(function (response) {
                     var templateScope = $scope.$new();
                     var templateElement = $element.children().html(response);

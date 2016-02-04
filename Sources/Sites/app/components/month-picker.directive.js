@@ -20,8 +20,8 @@
         };
         return directive;
 
-        controller.$inject = ['$log', 'moment', 'config'];
-        function controller($log, moment, config) {
+        controller.$inject = ['$log', '$scope', 'moment', 'config'];
+        function controller($log, $scope, moment, config) {
             var vm = this;
             var minDate = moment.utc(config.today).subtract(2, 'years');
             var monthOfMinDate = minDate.month();
@@ -96,6 +96,15 @@
                 updateModel();
             };
 
+            $scope.$watch('vm.startDate', function () {
+                startDate = moment.utc(vm.startDate);
+                generateViewModel();
+            });
+            $scope.$watch('vm.endDate', function () {
+                endDate = moment.utc(vm.endDate);
+                generateViewModel();
+            });
+
             function generateViewModel() {
                 var previousMonth = moment(startDate).subtract(1, 'months').startOf('month');
                 var nextMonth = moment(startDate).add(1, 'months').endOf('month');
@@ -143,7 +152,9 @@
 
                 function generateDaysOfMonth() {
                     var daysOfMonth = [];
-                    for (var dayNumber = vm.fromDay; dayNumber <= vm.toDay; dayNumber++) {
+                    var startDay = startDate.month() === minDate.month() && startDate.year() === minDate.year() ? minDate.date() : 1;
+                    var endDay = endDate.month() === maxDate.month() && endDate.year() === maxDate.year() ? maxDate.date() : moment(endDate).endOf('month').date();
+                    for (var dayNumber = startDay; dayNumber <= endDay; dayNumber++) {
                         daysOfMonth.push(dayNumber);
                     }
 

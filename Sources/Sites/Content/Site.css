@@ -9071,4 +9071,5 @@ button.close {
 /* line 283, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
+  text-transform: uppercase;
 }
