@@ -25,7 +25,7 @@
         }
 
         function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.')
+            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
         }
     }
 })();

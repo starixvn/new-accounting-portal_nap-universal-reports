@@ -48,7 +48,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingMatchDet
             return new List<RawWinLoss>
             {
                 WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 1", 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 2", 110, 120, 11, 550, 660, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, string.Empty, "MatchCode 2", 110, 120, 11, 550, 660, 990, 1100)
             };
         }
 
@@ -68,12 +68,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingMatchDet
 
         private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
         {
-            if (!WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total))
-            {
-                return false;
-            }
-
-            return WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
+            return WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total) 
+                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
         }
     }
 }

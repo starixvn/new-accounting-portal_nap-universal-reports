@@ -6,7 +6,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail
 {
     public class CalculationServiceImp : CalculationService
     {
-        private RemotingRefService _refService;
+        private readonly RemotingRefService _refService;
 
         public CalculationServiceImp(RemotingRefService refService)
         {

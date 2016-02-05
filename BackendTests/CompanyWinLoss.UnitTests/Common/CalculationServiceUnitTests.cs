@@ -14,15 +14,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
-            const int ZERO = 0;
-            const int ANY_INCOME = 12312;
+            const int Zero = 0;
+            const int AnyIncome = 12312;
             var calculationService = new CalculationServiceImp();
 
             // Act
-            var result = calculationService.CalculateMargin(ZERO, ANY_INCOME);
+            var result = calculationService.CalculateMargin(Zero, AnyIncome);
 
             // Assert
-            Assert.AreEqual(ZERO, result);
+            Assert.AreEqual(Zero, result);
         }
 
         [Test]
@@ -30,14 +30,14 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
-            const decimal EXPECTED_DIVIDEND = 0.1m;
+            const decimal ExpectedDividend = 0.1m;
             var calculationService = new CalculationServiceImp();
 
             // Act
             var result = calculationService.CalculateMargin(10m, 1m);
 
             // Assert
-            Assert.AreEqual(EXPECTED_DIVIDEND, result);
+            Assert.AreEqual(ExpectedDividend, result);
         }
 
         [Test]
@@ -148,11 +148,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         {
             // Arrange   
             var expectedGroup = CreateEmptySiteWinLoss();
-            var fakeData = new List<RawWinLoss>();
 
             // Act 
             var service = new CalculationServiceImp();
-            var result = service.CalculateSiteWinLossSummary(1, "Group 1", fakeData);
+            var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
             var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGroup, result);

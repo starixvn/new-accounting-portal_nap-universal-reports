@@ -68,12 +68,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
 
         private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
         {
-            if (!WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total))
-            {
-                return false;
-            }
-
-            return WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
+            return WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total) 
+                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
         }
     }
 }

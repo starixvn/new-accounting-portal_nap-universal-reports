@@ -49,7 +49,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate,
-                SportType = queryModel.SportType,
+                SportType = queryModel.SportType
             };
 
             return ModelState.IsValid

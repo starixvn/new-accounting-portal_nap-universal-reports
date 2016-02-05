@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Summary
 {
     public class CalculationServiceImp : CalculationService
     {
-        private CommonServices.CalculationService _caculationService;
+        private readonly CommonServices.CalculationService _caculationService;
 
         public CalculationServiceImp(CommonServices.CalculationService caculationService)
         {

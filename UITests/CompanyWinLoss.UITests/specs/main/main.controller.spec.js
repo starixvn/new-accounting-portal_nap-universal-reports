@@ -120,7 +120,7 @@ describe('Controller: MainController', function () {
         });
     });
 
-    afterEach(function () {
+    afterEach(function() {
         httpBackend.verifyNoOutstandingExpectation();
-    })
+    });
 });

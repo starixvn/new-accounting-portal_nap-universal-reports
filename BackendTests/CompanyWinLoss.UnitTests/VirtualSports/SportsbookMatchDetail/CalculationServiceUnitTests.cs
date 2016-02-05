@@ -12,16 +12,16 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
-            const int ZERO = 0;
-            const int ANY_INCOME = 12312;
+            const int Zero = 0;
+            const int AnyIncome = 12312;
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateMargin(ZERO, ANY_INCOME);
+            var result = calculationService.CalculateMargin(Zero, AnyIncome);
 
             // Assert
-            Assert.AreEqual(ZERO, result);
+            Assert.AreEqual(Zero, result);
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
-            const decimal EXPECTED_DIVIDEND = 0.1m;
+            const decimal ExpectedDividend = 0.1m;
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -37,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
             var result = calculationService.CalculateMargin(10m, 1m);
 
             // Assert
-            Assert.AreEqual(EXPECTED_DIVIDEND, result);
+            Assert.AreEqual(ExpectedDividend, result);
         }
 
         [Test]

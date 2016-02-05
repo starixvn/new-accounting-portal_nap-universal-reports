@@ -48,7 +48,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
                 Commission = commission,
                 RealIncome = realIncome,
                 RealTurnover = realTurnover,
-                Margin = margin,
+                Margin = margin
             };
         }
     }

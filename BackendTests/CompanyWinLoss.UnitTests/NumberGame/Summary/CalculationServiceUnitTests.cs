@@ -69,11 +69,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.Summary
         {
             // Arrange   
             var expectedGroup = CreateEmptySiteWinLoss();
-            var fakeData = new List<RawWinLoss>();
 
             // Act 
             var service = new CalculationServiceImp(_commonCalculationService);
-            var result = service.CalculateSiteWinLossSummary(1, "Group 1", fakeData);
+            var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
             var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGroup, result);
