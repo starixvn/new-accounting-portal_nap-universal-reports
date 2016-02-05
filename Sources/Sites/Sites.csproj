@@ -149,6 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\sport-type.directive.js" />
     <Content Include="app\company-winloss\site.directive.js" />
     <Content Include="app\company-winloss\company-winloss.constant.js" />
     <Content Include="app\company-winloss\company-winloss.service.js" />
@@ -165,6 +166,7 @@
     <Content Include="app\company-winloss\bet-type.directive.js" />
     <Content Include="app\company-winloss\product.directive.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports.service.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />

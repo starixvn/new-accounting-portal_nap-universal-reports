@@ -9,7 +9,7 @@
     function virtualSportsService($http, logger) {
         var service = {
             getSummary: getSummary,
-            getMatchDetail: getMatchDetail,
+            getBetType: getBetType,
             getSite: getSite
         };
         return service;
@@ -21,15 +21,13 @@
                 .catch(getDataFailed);
         }
 
-        function getMatchDetail(startDate, endDate, isLive, betType) {
+        function getBetType(startDate, endDate, sportType) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType
+                sportType: sportType
             };
-            return $http.post('/api/company-win-loss/virtual-sports/match-detail', data)
+            return $http.post('/api/company-win-loss/virtual-sports/bet-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
