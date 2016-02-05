@@ -4,6 +4,7 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports
 {
+    [RoutePrefix("api/company-win-loss/virtual-sports")]
     public class VirtualSportsController : ApiController
     {
         private readonly Summary.Service _summaryService;
@@ -30,6 +31,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             _siteService = siteService;
         }
 
+        [Route("summary")]
         public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
         {
             var criteria = new Summary.Criteria
@@ -43,6 +45,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
                 : null;
         }
 
+        [Route("bet-type")]
         public BetType.WinLossModel BetType(BetType.QueryModel queryModel)
         {
             var criteria = new BetType.Criteria
@@ -57,6 +60,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
                 : null;
         }
 
+        [Route("site")]
         public SiteWinLoss Site(Site.QueryModel queryModel)
         {
             var criteria = new Site.Criteria
@@ -73,6 +77,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
                 : null;
         }
 
+        [Route("racing-match-detail")]
         public RacingMatchDetail.WinLossModel RacingMatchDetail(RacingMatchDetail.QueryModel queryModel)
         {
             var criteria = new RacingMatchDetail.Criteria
@@ -88,6 +93,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
                 : null;
         }
 
+        [Route("sports-book-match-detail")]
         public SportsbookMatchDetail.WinLossModel SportsbookMatchDetail(SportsbookMatchDetail.QueryModel queryModel)
         {
             var criteria = new SportsbookMatchDetail.Criteria

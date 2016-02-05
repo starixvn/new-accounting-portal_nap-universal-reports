@@ -165,6 +165,8 @@
     <Content Include="app\company-winloss\bet-type.directive.js" />
     <Content Include="app\company-winloss\product.directive.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports.controller.js" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports.service.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="images\.keep" />

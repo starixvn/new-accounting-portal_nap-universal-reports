@@ -10,28 +10,19 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            template: '<div></div>',
-            controller: controller,
-            controllerAs: 'vm',
-            bindToController: true
+            controller: controller
         };
         return directive;
 
-        controller.$inject = ['$compile', '$timeout', '$element', '$scope', 'config', 'levels', '$templateRequest', 'companyWinlossService'];
-        function controller($compile, $timeout, $element, $scope, config, levels, $templateRequest, companyWinlossService) {
-            var dateRange;
-            var vm = this;
-
-            var productConfig = {
-                'Number Game': {
-                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                    controller: 'NumberGameBetTypeController'
-                }
-            };
+        controller.$inject = ['$compile', '$timeout', '$element', '$scope', '$templateRequest', 'config', 'levels', 'levelSettings', 'companyWinlossService'];
+        function controller($compile, $timeout, $element, $scope, $templateRequest, config, levels, levelSettings, companyWinlossService) {
+            var dateRange,
+                currentScope;
 
             $scope.$on('generate', function (event, level) {
                 if (level === levels.BET_TYPE) {
                     $timeout(function () {
+                        dateRange = companyWinlossService.filterModel.getDateRange();
                         generate();
                     });
                 }
@@ -46,14 +37,20 @@
 
             function generate() {
                 var gridModel = companyWinlossService.gridModel;
-                var productSetting = productConfig[gridModel.productName];
-                $templateRequest(productSetting.templateUrl, true).then(function (response) {
+                var betTypeSetting = levelSettings[gridModel.productName].betType;
+                $templateRequest(betTypeSetting.templateUrl, true).then(function (response) {
                     var templateScope = $scope.$new();
-                    var templateElement = $element.children().html(response);
-                    var templateCtrl = $controller(productSetting.controller, { $scope: templateScope, $element: templateElement });
+                    var templateElement = $element.html(response);
+                    var templateCtrl = $controller(betTypeSetting.controller, { $scope: templateScope, $element: templateElement });
                     templateElement.data('$ngControllerController', templateCtrl);
                     $compile(templateElement.contents())(templateScope, function (clonedElement, scope) {
-                        scope.generate();
+                        if (currentScope) {
+                            currentScope.$destroy();
+                            currentScope = null;
+                        }
+
+                        currentScope = scope;
+                        currentScope.generate();
                     });
                 });
             }

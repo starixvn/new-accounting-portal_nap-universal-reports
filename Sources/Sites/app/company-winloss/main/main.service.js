@@ -14,7 +14,7 @@
 
         function getData(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/product/values', data)
+            return $http.post('/api/company-win-loss/values', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

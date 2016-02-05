@@ -20,7 +20,7 @@
             });
         };
 
-        function generate(startDate, endDate) {
+        function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
             var gridModel = companyWinlossService.gridModel;
             numberGameService.getSite(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType, gridModel.site).then(function (data) {
@@ -92,33 +92,30 @@
             var sites = data.Sites;
             for (var i = 0; i < sites.length; i++) {
                 var siteData = sites[i];
-                bodyData.push(createWinLossDataRow(siteData));
+                bodyData.push({ Columns: createWinLossDataRow(siteData) });
             }
 
             return bodyData;
         }
 
         function createWinLossDataRow(winLoss, isFooter) {
-            return {
-                Columns: [
-                    { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                    { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                    { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                    { Name: "Commission", Value: winLoss.Commission },
-                    { Name: "RealIncome", Value: winLoss.RealIncome },
-                    { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                    { Name: "RealMargin", Value: winLoss.RealMargin }
-                ]
-            };
+            return [
+                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
+                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
+                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
+                { Name: "Commission", Value: winLoss.Commission },
+                { Name: "RealIncome", Value: winLoss.RealIncome },
+                { Name: "RealTurnover", Value: winLoss.RealTurnover },
+                { Name: "RealMargin", Value: winLoss.RealMargin }
+            ];
         }
 
         function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var footerRow = [];
             var total = data.Total;
             total.Name = 'Total';
-            footerRow.push(createWinLossDataRow(total, true));
-            return footerRow;
+            return [
+                { Columns: createWinLossDataRow(total, true) }
+            ];
         }
 
         function exportExcel() {

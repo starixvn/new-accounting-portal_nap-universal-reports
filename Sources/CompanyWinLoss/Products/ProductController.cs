@@ -12,6 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             _service = service;
         }
 
+        [Route("api/company-win-loss/values")]
         public ProductWinLoss Values(ProductWinLossQuery query)
         {
             var criteria = new Criteria

@@ -4,6 +4,7 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.NumberGame
 {
+    [RoutePrefix("api/company-win-loss/number-game")]
     public class NumberGameController : ApiController
     {
         private readonly Summary.Service _summaryService;
@@ -22,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
             _siteService = siteService;
         }
 
-        [Route("api/number-game/summary")]
+        [Route("summary")]
         public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
         {
             var criteria = new Summary.Criteria
@@ -36,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
                 : null;
         }
 
-        [Route("api/number-game/match-detail")]
+        [Route("match-detail")]
         public MatchDetail.WinLossModel MatchDetail(MatchDetail.QueryModel queryModel)
         {
             var criteria = new MatchDetail.Criteria
@@ -53,7 +54,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
                 : null;
         }
 
-        [Route("api/number-game/site")]
+        [Route("site")]
         public SiteWinLoss Site(Site.QueryModel queryModel)
         {
             var criteria = new Site.Criteria

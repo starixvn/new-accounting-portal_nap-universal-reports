@@ -79,11 +79,11 @@
             for (var i = 0; i < leagues.length; i++) {
                 var leagueData = leagues[i];
                 var leagueName = leagueData.LeagueName;
-                bodyData.push(createLeagueNameDataRow(leagueName));
+                bodyData.push({ Columns: createLeagueNameDataRow(leagueName) });
                 var matches = leagueData.Matches;
                 for (var j = 0; j < matches.length; j++) {
                     var matchData = matches[j];
-                    bodyData.push(createWinLossDataRow(matchData));
+                    bodyData.push({ Columns: createWinLossDataRow(matchData) });
                 }
             }
 
@@ -91,36 +91,31 @@
         }
 
         function createLeagueNameDataRow(leagueName) {
-            return {
-                Columns: [
-                    { Name: "Code", Value: "" },
-                    { Name: "MemberWinLoss", Value: leagueName, MergeColNumber: 6, CssClass: 'league-header' }
-                ]
-            };
+            return [
+                { Name: "Code", Value: "" },
+                { Name: "MemberWinLoss", Value: leagueName, MergeColNumber: 6, CssClass: 'league-header' }
+            ];
         }
 
         function createWinLossDataRow(winLoss, isFooter) {
-            return {
-                Columns: [
-                    { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                    { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                    { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                    { Name: "Commission", Value: winLoss.Commission },
-                    { Name: "RealIncome", Value: winLoss.RealIncome },
-                    { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                    { Name: "RealMargin", Value: winLoss.RealMargin }
-                ]
-            };
+            return [
+                { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
+                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
+                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
+                { Name: "Commission", Value: winLoss.Commission },
+                { Name: "RealIncome", Value: winLoss.RealIncome },
+                { Name: "RealTurnover", Value: winLoss.RealTurnover },
+                { Name: "RealMargin", Value: winLoss.RealMargin }
+            ];
         }
 
         function createFooterData(data) {
             var gridModel = companyWinlossService.gridModel;
-            var footerRow = [];
             var total = data.Total;
             total.Name = gridModel.betTypeName + ' Total';
-            footerRow.push(createWinLossDataRow(total, true));
-
-            return footerRow;
+            return [
+                { Columns: createWinLossDataRow(total, true) }
+            ];
         }
 
         function exportExcel() {

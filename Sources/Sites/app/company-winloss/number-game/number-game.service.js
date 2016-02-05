@@ -16,7 +16,7 @@
 
         function getSummary(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/number-game/summary', data)
+            return $http.post('/api/company-win-loss/number-game/summary', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
@@ -29,7 +29,7 @@
                 isLive: isLive,
                 betType: betType
             };
-            return $http.post('/api/number-game/match-detail', data)
+            return $http.post('/api/company-win-loss/number-game/match-detail', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
@@ -43,7 +43,7 @@
                 betType: betType,
                 site: site
             };
-            return $http.post('/api/number-game/site', data)
+            return $http.post('/api/company-win-loss/number-game/site', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

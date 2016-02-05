@@ -10,10 +10,7 @@
             restrict: 'EA',
             scope: {},
             templateUrl: '/app/company-winloss/shared/fanex-grid-with-title.html',
-            replace: true,
-            controller: controller,
-            controllerAs: 'vm',
-            bindToController: true
+            controller: controller
         };
         return directive;
 
@@ -21,9 +18,8 @@
         function controller($compile, $timeout, $element, $scope, formatStrings, mainService, fanexGridHelper, levels, companyWinlossService) {
             var gridElement = $element.find('.freegrid');
             var dateRange;
-            /*jshint validthis: true */
-            var vm = this;
-            vm.generateProduct = function (productName) {
+
+            $scope.generateProduct = function (productName) {
                 companyWinlossService.generate({
                     level: levels.PRODUCT,
                     productName: productName
@@ -57,7 +53,7 @@
             function renderGrid(data) {
                 var gridOptions = createGridOptions(data);
                 gridElement.fanexGrid(gridOptions);
-                var elements = gridElement.find('.product-drilldown');
+                var elements = gridElement.find('.drill-down');
                 $compile(elements)($scope);
             }
 
@@ -125,39 +121,37 @@
                 var products = data.Products;
                 for (var i = 0; i < products.length; i++) {
                     var productItem = products[i];
-                    var isHighlight = i === 0;
-                    bodyData.push(createProductWinLossDataRow(productItem, isHighlight));
+                    var isSportsBook = i === 0;
+                    bodyData.push(createProductWinLossDataRow(productItem, isSportsBook));
                 }
 
                 return bodyData;
             }
 
-            function createProductWinLossDataRow(productWinLossItem, isHighlight) {
-                var productDataRow = {
-                    Columns: createWinLossDataRow(productWinLossItem.Total, !isHighlight),
-                    SubRows: [],
-                    CssClass: isHighlight ? 'highlight-product' : ''
+            function createProductWinLossDataRow(productWinLossItem, isSportsBook) {
+                var rowCssClass = isSportsBook ? 'sports-book-row' : '';
+                return {
+                    Columns: createWinLossDataRow(productWinLossItem.Total, !isSportsBook),
+                    SubRows: [
+                        { Columns: createWinLossDataRow(productWinLossItem.Credit, false, true), CssClass: rowCssClass },
+                        { Columns: createWinLossDataRow(productWinLossItem.Deposit, false, true), CssClass: rowCssClass }
+                    ],
+                    CssClass: rowCssClass
                 };
-
-                productDataRow.SubRows.push({
-                    Columns: createWinLossDataRow(productWinLossItem.Credit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
-                });
-                productDataRow.SubRows.push({
-                    Columns: createWinLossDataRow(productWinLossItem.Deposit), CssClass: isHighlight ? 'highlight-product' : 'align-right'
-                });
-
-                return productDataRow;
             }
 
-            function createWinLossDataRow(winLoss, hasDrilldown) {
-                var productColumn = !hasDrilldown
+            function createWinLossDataRow(winLoss, hasProductDrillDown, isTextRight) {
+                var productColumn = !hasProductDrillDown
                     ? { Name: "Product", Value: winLoss.Name }
                     : {
                         Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                            return '<a class="product-drilldown" href data-ng-click="vm.generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                            return '<a class="drill-down" href data-ng-click="generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                         }
                     };
-                var winLossDataRow = [
+                if (isTextRight) {
+                    productColumn.CellAlign = 'right';
+                }
+                return [
                     productColumn,
                     { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                     { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
@@ -170,18 +164,15 @@
                     { Name: "RealMargin", Value: winLoss.RealMargin },
                     { Name: "VirtualMargin", Value: winLoss.VirtualMargin }
                 ];
-
-                return winLossDataRow;
             }
 
             function createFooterData(data) {
-                var footerRow = [];
                 var grandTotal = data.GrandTotal;
-                footerRow.push({ Columns: createWinLossDataRow(grandTotal.Total) });
-                footerRow.push({ Columns: createWinLossDataRow(grandTotal.Credit) });
-                footerRow.push({ Columns: createWinLossDataRow(grandTotal.Deposit) });
-
-                return footerRow;
+                return [
+                    { Columns: createWinLossDataRow(grandTotal.Total, false, true) },
+                    { Columns: createWinLossDataRow(grandTotal.Credit, false, true) },
+                    { Columns: createWinLossDataRow(grandTotal.Deposit, false, true) }
+                ];
             }
 
             function exportExcel() {

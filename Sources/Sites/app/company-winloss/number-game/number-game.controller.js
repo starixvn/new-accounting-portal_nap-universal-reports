@@ -42,17 +42,16 @@
             });
         };
 
-        function generate(startDate, endDate) {
-            numberGameService.getSummary(startDate, endDate).then(function (data) {
+        function generate() {
+            var dateRange = companyWinlossService.filterModel.getDateRange();
+            numberGameService.getSummary(dateRange.startDate, dateRange.endDate).then(function (data) {
                 var nonLiveData = {
-                    Title: 'NUMBER GAME "NON-LIVE" PRODUCT WIN/LOSS REPORT',
                     IsLive: false,
                     GrandTotal: data.NonLiveGrandTotal,
                     BetTypes: data.NonLive
                 };
                 renderGrid(nonliveGridElement, nonLiveData);
                 var liveData = {
-                    Title: 'NUMBER GAME "LIVE" PRODUCT WIN/LOSS REPORT',
                     IsLive: true,
                     GrandTotal: data.LiveGrandTotal,
                     BetTypes: data.Live
@@ -81,6 +80,8 @@
         }
 
         function createGridOptions(data) {
+            var gridModel = companyWinlossService.gridModel;
+            var title = gridModel.productName + ' "' + (data.IsLive ? 'Live' : 'Non-Live') + '" ' + 'PRODUCT WIN/LOSS REPORT';
             var columns = [
                  { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -99,7 +100,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li class="active">' + data.Title + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li class="active">' + title + '</li></ol>',
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -125,31 +126,28 @@
 
         function createBetTypeWinLossDataRow(betTypeWinLossItem, isLive) {
             var betTypeName = betTypeWinLossItem.Total.Name;
-            var betTypeDataRow = {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, 'generateBetType', betTypeName, isLive),
-                SubRows: []
+            return {
+                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateBetType', betTypeName, isLive),
+                SubRows: [
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateCreditSite', betTypeName, isLive) },
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateDepositSite', betTypeName, isLive) }
+                ]
             };
-
-            betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Credit, 'generateCreditSite', betTypeName, isLive), CssClass: 'align-right'
-            });
-            betTypeDataRow.SubRows.push({
-                Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, 'generateDepositSite', betTypeName, isLive), CssClass: 'align-right'
-            });
-
-            return betTypeDataRow;
         }
 
-        function createWinLossDataRow(winLoss, generateFunc, betTypeName, isLive) {
-            var productColumn = !generateFunc
+        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName, isLive) {
+            var betTypeColumn = !generateFunc
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
                         return '<a class="drillDown" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ')">' + winLoss.Name + '</a>';
                     }
                 };
-            var winLossDataRow = [
-                productColumn,
+            if (isTextRight) {
+                betTypeColumn.CellAlign = 'right';
+            }
+            return [
+                betTypeColumn,
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
@@ -157,18 +155,15 @@
                 { Name: "RealTurnover", Value: winLoss.RealTurnover },
                 { Name: "RealMargin", Value: winLoss.RealMargin }
             ];
-
-            return winLossDataRow;
         }
 
         function createFooterData(data) {
-            var footerRow = [];
             var grandTotal = data.GrandTotal;
-            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Total) });
-            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Credit) });
-            footerRow.push({ Columns: createWinLossDataRow(grandTotal.Deposit) });
-
-            return footerRow;
+            return [
+                { Columns: createWinLossDataRow(grandTotal.Total, true) },
+                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
+                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
+            ];
         }
 
         function exportExcel() {
