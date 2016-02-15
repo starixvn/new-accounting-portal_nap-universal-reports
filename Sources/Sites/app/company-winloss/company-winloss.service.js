@@ -8,16 +8,16 @@
     companyWinlossService.$inject = ['$timeout', 'levels'];
     function companyWinlossService($timeout, levels) {
         var service = {
-            scope: undefined,
-            gridModel: undefined,
-            filterModel: undefined,
+            scope: {},
+            gridModel: {},
+            filterModel: {},
             updateGridModel: updateGridModel,
             generate: generate
         };
         return service;
 
         function generate(data) {
-            var hasGenerate = data.level === undefined || this.gridModel.level < data.level;
+            var hasGenerate = data.level === undefined || this.gridModel.level <= data.level;
             this.updateGridModel(data);
             if (hasGenerate) {
                 this.scope.$broadcast('generate', this.gridModel.level);
