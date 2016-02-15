@@ -27,4 +27,10 @@
     <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Keno">
+    <Setting Key="CompanyWinLoss-Keno-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

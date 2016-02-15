@@ -114,6 +114,12 @@
     <Compile Include="Products\Service.cs" />
     <Compile Include="Products\ServiceImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Keno\BetType\Criteria.cs" />
+    <Compile Include="Keno\BetType\QueryModel.cs" />
+    <Compile Include="Keno\Site\Criteria.cs" />
+    <Compile Include="Keno\Site\QueryModel.cs" />
+    <Compile Include="Keno\SportType\Criteria.cs" />
+    <Compile Include="Keno\SportType\QueryModel.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\BalanceUpSummationService.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\BalanceUpSummationServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationService.cs" />

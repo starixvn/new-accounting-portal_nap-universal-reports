@@ -16,4 +16,8 @@
     <Setting Key="CompanyWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Keno">
+    <Setting Key="CompanyWinLoss-Keno-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>
