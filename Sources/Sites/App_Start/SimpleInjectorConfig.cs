@@ -4,7 +4,7 @@ using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using NumberGameMatchDetail = UniversalReports.CompanyWinLoss.NumberGame.MatchDetail;
-using NumberGameSummary = UniversalReports.CompanyWinLoss.NumberGame.Summary;
+using NumberGameSummary = UniversalReports.CompanyWinLoss.NumberGame.BetType;
 using RacingMatchDetail = UniversalReports.CompanyWinLoss.VirtualSports.RacingMatchDetail;
 using SportsbookMatchDetail = UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail;
 

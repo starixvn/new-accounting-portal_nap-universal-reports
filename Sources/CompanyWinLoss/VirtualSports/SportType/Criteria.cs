@@ -15,7 +15,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-VirtualSports-{Source}";
+            return $"CompanyWinLoss-VirtualSports-SportType-{Source}";
         }
     }
 }

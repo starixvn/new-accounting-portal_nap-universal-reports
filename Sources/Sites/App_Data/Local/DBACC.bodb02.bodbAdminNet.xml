@@ -6,8 +6,8 @@
   </Function>
 
   <Function Name="NumberGame">
-    <Setting Key="CompanyWinLoss-NumberGame-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-NumberGame-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
 
     <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
@@ -16,8 +16,8 @@
     <Setting Key="CompanyWinLoss-NumberGame-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="VirtualSports">
-    <Setting Key="CompanyWinLoss-VirtualSports-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-VirtualSports-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-BetType-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
@@ -26,5 +26,21 @@
     <Setting Key="CompanyWinLoss-VirtualSports-Racing-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Keno">
+    <Setting Key="CompanyWinLoss-Keno-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-BetType-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Racing">
+    <Setting Key="CompanyWinLoss-Racing-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-BetType-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-BetType-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
 </Functions>

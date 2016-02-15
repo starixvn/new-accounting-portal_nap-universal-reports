@@ -7,33 +7,33 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
     [RoutePrefix("api/company-win-loss/number-game")]
     public class NumberGameController : ApiController
     {
-        private readonly Summary.Service _summaryService;
+        private readonly BetType.Service _betTypeService;
 
         private readonly MatchDetail.Service _detailService;
 
         private readonly SiteService _siteService;
 
         public NumberGameController(
-            Summary.Service summaryService,
+            BetType.Service betTypeService,
             MatchDetail.Service detailService,
             SiteService siteService)
         {
-            _summaryService = summaryService;
+            _betTypeService = betTypeService;
             _detailService = detailService;
             _siteService = siteService;
         }
 
-        [Route("summary")]
-        public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
+        [Route("bet-type")]
+        public BetType.WinLossModel Summary(BetType.QueryModel queryModel)
         {
-            var criteria = new Summary.Criteria
+            var criteria = new BetType.Criteria
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate
             };
 
             return ModelState.IsValid
-                ? _summaryService.Query(criteria)
+                ? _betTypeService.Query(criteria)
                 : null;
         }
 

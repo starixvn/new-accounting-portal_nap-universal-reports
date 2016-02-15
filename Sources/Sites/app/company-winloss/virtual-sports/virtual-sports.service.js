@@ -8,13 +8,13 @@
     virtualSportsService.$inject = ['$http', 'logger'];
     function virtualSportsService($http, logger) {
         var service = {
-            getSummary: getSummary,
+            getSportType: getSportType,
             getBetType: getBetType,
             getSite: getSite
         };
         return service;
 
-        function getSummary(startDate, endDate) {
+        function getSportType(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
             return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
                 .then(getDataComplete)

@@ -44,7 +44,7 @@
 
         function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
-            numberGameService.getSummary(dateRange.startDate, dateRange.endDate).then(function (data) {
+            numberGameService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
                 var nonLiveData = {
                     IsLive: false,
                     GrandTotal: data.NonLiveGrandTotal,

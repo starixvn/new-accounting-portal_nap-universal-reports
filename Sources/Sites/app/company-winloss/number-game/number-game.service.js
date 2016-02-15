@@ -8,15 +8,15 @@
     numberGameService.$inject = ['$http', 'logger'];
     function numberGameService($http, logger) {
         var service = {
-            getSummary: getSummary,
+            getBetType: getBetType,
             getMatchDetail: getMatchDetail,
             getSite: getSite
         };
         return service;
 
-        function getSummary(startDate, endDate) {
+        function getBetType(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/number-game/summary', data)
+            return $http.post('/api/company-win-loss/number-game/bet-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

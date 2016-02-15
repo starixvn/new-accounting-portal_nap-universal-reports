@@ -84,14 +84,20 @@
   <ItemGroup>
     <Compile Include="Common\BalanceUpServiceTests.cs" />
     <Compile Include="Common\BaseServiceTests.cs" />
-    <Compile Include="NumberGame\Summary\ServiceTests.cs" />
+    <Compile Include="Keno\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="Keno\Site\SiteServiceTests.cs" />
+    <Compile Include="NumberGame\BetType\ServiceTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceTests.cs" />
     <Compile Include="NumberGame\Site\SiteWinLossServiceTests.cs" />
     <Compile Include="Products\ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Racing\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="Racing\MatchDetail\ServiceTests.cs" />
+    <Compile Include="Racing\Site\SiteServiceTests.cs" />
+    <Compile Include="Racing\SportType\SportTypeServiceTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\RacingMatchDetail\ServiceTests.cs" />
-    <Compile Include="VirtualSports\Site\ServiceTests.cs" />
+    <Compile Include="VirtualSports\Site\SiteServiceTests.cs" />
     <Compile Include="VirtualSports\BetType\BetTypeServiceTests.cs" />
     <Compile Include="VirtualSports\SportType\SportTypeServiceTests.cs" />
   </ItemGroup>

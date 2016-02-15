@@ -25,7 +25,7 @@
 
         function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
-            virtualSportsService.getSummary(dateRange.startDate, dateRange.endDate).then(function (data) {
+            virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
                 renderGrid(gridElement, data);
                 compileLinks();
             });
