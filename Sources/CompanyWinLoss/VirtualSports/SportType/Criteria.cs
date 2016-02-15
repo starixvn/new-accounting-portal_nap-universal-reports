@@ -1,7 +1,7 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.VirtualSports.Summary
+namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
 {
     public class Criteria : WinLossCriteria
     {

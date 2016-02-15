@@ -7,9 +7,9 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
     [RoutePrefix("api/company-win-loss/virtual-sports")]
     public class VirtualSportsController : ApiController
     {
-        private readonly Summary.Service _summaryService;
+        private readonly SportTypeService _sportTypeService;
 
-        private readonly BetType.Service _betTypeService;
+        private readonly BetTypeService _betTypeService;
 
         private readonly RacingMatchDetail.Service _racingService;
 
@@ -18,35 +18,35 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
         private readonly SiteService _siteService;
 
         public VirtualSportsController(
-            Summary.Service summaryService,
-            BetType.Service betTypeService,
+            SportTypeService sportTypeService,
+            BetTypeService betTypeService,
             RacingMatchDetail.Service racingService,
             SportsbookMatchDetail.Service sportsbookService,
             SiteService siteService)
         {
-            _summaryService = summaryService;
+            _sportTypeService = sportTypeService;
             _betTypeService = betTypeService;
             _racingService = racingService;
             _sportsbookService = sportsbookService;
             _siteService = siteService;
         }
 
-        [Route("summary")]
-        public Summary.WinLossModel Summary(Summary.QueryModel queryModel)
+        [Route("sport-type")]
+        public SportTypeWinLossModel SportType(SportType.QueryModel queryModel)
         {
-            var criteria = new Summary.Criteria
+            var criteria = new SportType.Criteria
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate
             };
 
             return ModelState.IsValid
-                ? _summaryService.Query(criteria)
+                ? _sportTypeService.Query(criteria)
                 : null;
         }
 
         [Route("bet-type")]
-        public BetType.WinLossModel BetType(BetType.QueryModel queryModel)
+        public BetTypeWinLossModel BetType(BetType.QueryModel queryModel)
         {
             var criteria = new BetType.Criteria
             {

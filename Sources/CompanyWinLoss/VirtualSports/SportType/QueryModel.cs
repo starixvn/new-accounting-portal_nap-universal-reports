@@ -1,7 +1,7 @@
 ﻿using System;
 using UniversalReports.MVC.Validation;
 
-namespace UniversalReports.CompanyWinLoss.VirtualSports.Summary
+namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
 {
     public class QueryModel
     {

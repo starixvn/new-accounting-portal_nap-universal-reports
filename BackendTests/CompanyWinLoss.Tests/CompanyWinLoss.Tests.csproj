@@ -92,8 +92,8 @@
     <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\RacingMatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\Site\ServiceTests.cs" />
-    <Compile Include="VirtualSports\BetType\ServiceTests.cs" />
-    <Compile Include="VirtualSports\Summary\ServiceTests.cs" />
+    <Compile Include="VirtualSports\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="VirtualSports\SportType\SportTypeServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">

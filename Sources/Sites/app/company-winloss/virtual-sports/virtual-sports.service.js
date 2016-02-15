@@ -16,7 +16,7 @@
 
         function getSummary(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/virtual-sports/summary', data)
+            return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

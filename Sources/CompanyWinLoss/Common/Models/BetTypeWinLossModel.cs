@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
+namespace UniversalReports.CompanyWinLoss.Common.Models
 {
-    public class WinLossModel
+    public class BetTypeWinLossModel
     {
         public List<SiteWinLossSummary> BetTypes { get; set; }
 

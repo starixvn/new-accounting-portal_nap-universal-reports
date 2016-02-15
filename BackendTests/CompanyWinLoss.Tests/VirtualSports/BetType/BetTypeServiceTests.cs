@@ -3,11 +3,11 @@ using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Tests.Common;
-using UniversalReports.CompanyWinLoss.VirtualSports.Summary;
+using UniversalReports.CompanyWinLoss.VirtualSports.BetType;
 
-namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Summary
+namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.BetType
 {
-    public class ServiceTests : BaseServiceTests
+    public class BetTypeServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
         public void SetUp()
@@ -27,11 +27,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Summary
             service.Query(criteria);
         }
 
-        private ServiceImp CreateService()
+        private BetTypeServiceImp CreateService()
         {
             var rawService = CreateRawService();
             var calculationService = new CalculationServiceImp();
-            return new ServiceImp(rawService, calculationService);
+            return new BetTypeServiceImp(rawService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()
@@ -41,7 +41,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Summary
             return new Criteria
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(2)
+                EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
+                SportType = 180
             };
         }
     }

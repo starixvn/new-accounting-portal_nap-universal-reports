@@ -67,7 +67,7 @@
     <Compile Include="Utility\FakeWinLossCriteria.cs" />
     <Compile Include="Utility\WinLossComparision.cs" />
     <Compile Include="Utility\WinLossFactory.cs" />
-    <Compile Include="VirtualSports\BetType\ServiceUnitTest.cs" />
+    <Compile Include="Common\BetTypeServiceUnitTest.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\RawServiceUnitTests.cs" />
@@ -75,7 +75,7 @@
     <Compile Include="VirtualSports\RacingMatchDetail\ServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossComparision.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossFactory.cs" />
-    <Compile Include="VirtualSports\Summary\ServiceUnitTest.cs" />
+    <Compile Include="Common\SportTypeServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

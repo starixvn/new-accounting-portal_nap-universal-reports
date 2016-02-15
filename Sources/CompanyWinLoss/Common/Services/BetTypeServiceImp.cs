@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
+namespace UniversalReports.CompanyWinLoss.Common.Services
 {
-    public class ServiceImp : Service
+    public class BetTypeServiceImp : BetTypeService
     {
         private readonly RawService _rawWinLossService;
 
         private readonly CalculationService _calculationService;
 
-        public ServiceImp(
+        public BetTypeServiceImp(
             RawService rawService,
             CalculationService calculationService)
         {
@@ -18,14 +18,14 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             _calculationService = calculationService;
         }
 
-        public WinLossModel Query(WinLossCriteria criteria)
+        public BetTypeWinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = _rawWinLossService.Query(criteria);
 
             var betTypeWinLosses = _calculationService.CalculateSiteWinLossSummary(rawWinLosses);
             var grandTotal = _calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
 
-            return new WinLossModel
+            return new BetTypeWinLossModel
             {
                 BetTypes = betTypeWinLosses.ToList(),
                 GrandTotal = grandTotal
