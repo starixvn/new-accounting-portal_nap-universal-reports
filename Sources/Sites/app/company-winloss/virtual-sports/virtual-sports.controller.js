@@ -41,7 +41,7 @@
         }
 
         function compileLinks() {
-            var elements = $element.find('.drillDown');
+            var elements = $element.find('.drill-down');
             $compile(elements)($scope);
 
             var breadcrumbElement = $element.find('.breadcrumb');
@@ -107,7 +107,7 @@
                 ? { Name: "SportType", Value: winLoss.Name }
                 : {
                     Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drillDown" href data-ng-click="generateSportType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-ng-click="generateSportType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };
             if (isTextRight) {

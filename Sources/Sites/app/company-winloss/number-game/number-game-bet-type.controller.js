@@ -35,7 +35,7 @@
         }
 
         function compileLinks() {
-            var elements = $element.find('.drillDown');
+            var elements = $element.find('.drill-down');
             $compile(elements)($scope);
 
             var breadcrumbElement = $element.find('.breadcrumb');
