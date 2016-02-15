@@ -2,8 +2,8 @@
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 using UniversalReports.CompanyWinLoss.Racing.SportType;
+using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Racing.SportType
 {

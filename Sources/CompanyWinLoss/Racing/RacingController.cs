@@ -19,8 +19,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             BetTypeService betTypeService,
             SiteService siteService,
             SportTypeService sportTypeService,
-            MatchDetail.Service matchDetailService
-            )
+            MatchDetail.Service matchDetailService)
         {
             _betTypeService = betTypeService;
             _siteService = siteService;
