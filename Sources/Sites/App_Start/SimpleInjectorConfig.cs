@@ -30,21 +30,21 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.BalanceUpSourceChooser, CommonServices.BalanceUpSourceChooserImp>(Lifestyle.Transient);
             container.Register<CommonServices.BalanceUpSummationService, CommonServices.BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.RawService, CommonServices.RawServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeService, CommonServices.BetTypeServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeService, CommonServices.SportTypeServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.BalanceUpSummationService, NumberGame.BetType.BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.CalculationService, NumberGame.BetType.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<NumberGame.BetType.RawService, NumberGame.BetType.RawServiceImp>(Lifestyle.Transient);
+            container.Register<NumberGame.BetType.RawWinLossService, NumberGame.BetType.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.Service, NumberGame.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.MatchDetail.Service, NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.RacingMatchDetail.Service, VirtualSports.RacingMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookMatchDetail.BalanceUpSummationService, VirtualSports.SportsbookMatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookMatchDetail.CalculationService, VirtualSports.SportsbookMatchDetail.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookMatchDetail.RawService, VirtualSports.SportsbookMatchDetail.RawServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.SportsbookMatchDetail.RawWinLossService, VirtualSports.SportsbookMatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookMatchDetail.Service, VirtualSports.SportsbookMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
 

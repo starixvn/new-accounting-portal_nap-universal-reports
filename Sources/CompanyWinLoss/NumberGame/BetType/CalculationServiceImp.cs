@@ -7,11 +7,11 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
 {
     public class CalculationServiceImp : CalculationService
     {
-        private readonly CommonServices.CalculationService _caculationService;
+        private readonly CommonServices.CalculationService caculationService;
 
         public CalculationServiceImp(CommonServices.CalculationService caculationService)
         {
-            _caculationService = caculationService;
+            this.caculationService = caculationService;
         }
 
         public virtual IEnumerable<CommonModels.SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses)
@@ -28,14 +28,14 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             var rawDepositWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Deposit");
 
             var creditWinLoss = rawCreditWinLoss == null
-                ? _caculationService.CreateEmptyWinLoss(groupId, "Credit")
+                ? caculationService.CreateEmptyWinLoss(groupId, "Credit")
                 : FromRawWinLoss(rawCreditWinLoss);
             var depositWinLoss = rawDepositWinLoss == null
-                ? _caculationService.CreateEmptyWinLoss(groupId, "Deposit")
+                ? caculationService.CreateEmptyWinLoss(groupId, "Deposit")
                 : FromRawWinLoss(rawDepositWinLoss);
             var totalWinLoss = rawWinLosses.Any()
                 ? CalculateSumWinLoss(groupName, rawWinLosses)
-                : _caculationService.CreateEmptyWinLoss(groupId, groupName);
+                : caculationService.CreateEmptyWinLoss(groupId, groupName);
 
             return new CommonModels.SiteWinLossSummary
             {
@@ -118,8 +118,8 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                 VirtualIncome = rawWinLoss.VirtualIncome,
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
                 VarianceIncome = rawWinLoss.RealIncome - rawWinLoss.VirtualIncome,
-                RealMargin = _caculationService.CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
-                VirtualMargin = _caculationService.CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
+                RealMargin = caculationService.CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
+                VirtualMargin = caculationService.CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };
         }
     }

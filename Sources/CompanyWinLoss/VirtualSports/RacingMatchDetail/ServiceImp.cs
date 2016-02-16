@@ -6,24 +6,24 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingMatchDetail
 {
     public class ServiceImp : Service
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public ServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public WinLossModel Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var matchWinLosses = rawWinLosses.Select(l => _calculationService.FromRawWinLossByRowName(l));
-            var grandTotalWinLoss = _calculationService.CalculateSumWinLoss("Total", rawWinLosses);
+            var matchWinLosses = rawWinLosses.Select(l => calculationService.FromRawWinLossByRowName(l));
+            var grandTotalWinLoss = calculationService.CalculateSumWinLoss("Total", rawWinLosses);
 
             return new WinLossModel
             {

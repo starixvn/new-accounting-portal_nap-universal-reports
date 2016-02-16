@@ -6,24 +6,24 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class BetTypeServiceImp : BetTypeService
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public BetTypeServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public BetTypeWinLossModel Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var betTypeWinLosses = _calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var grandTotal = _calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
+            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
 
             return new BetTypeWinLossModel
             {

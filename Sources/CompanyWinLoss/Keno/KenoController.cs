@@ -7,16 +7,16 @@ namespace UniversalReports.CompanyWinLoss.Keno
     [RoutePrefix("api/company-win-loss/keno")]
     public class KenoController : ApiController
     {
-        private readonly BetTypeService _betTypeService;
+        private readonly BetTypeService betTypeService;
 
-        private readonly SiteService _siteService;
+        private readonly SiteService siteService;
 
         public KenoController(
             BetTypeService betTypeService,
             SiteService siteService)
         {
-            _betTypeService = betTypeService;
-            _siteService = siteService;
+            this.betTypeService = betTypeService;
+            this.siteService = siteService;
         }
 
         [Route("bet-type")]
@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Keno
             };
 
             return ModelState.IsValid
-                ? _betTypeService.Query(criteria)
+                ? betTypeService.Query(criteria)
                 : null;
         }
 
@@ -45,7 +45,7 @@ namespace UniversalReports.CompanyWinLoss.Keno
             };
 
             return ModelState.IsValid
-                ? _siteService.Query(criteria)
+                ? siteService.Query(criteria)
                 : null;
         }
     }

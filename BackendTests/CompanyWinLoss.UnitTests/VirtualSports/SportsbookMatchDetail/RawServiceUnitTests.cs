@@ -26,7 +26,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
             var balanceUpSourceChooser = Substitute.For<CommonServices.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
 
-            var service = new RawServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
@@ -67,7 +67,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
             var balanceUpSourceChooser = Substitute.For<CommonServices.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
 
-            var service = Substitute.ForPartsOf<RawServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = Substitute.ForPartsOf<RawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
             service.QueryBySource(Arg.Any<CompanyWinLoss.Common.Models.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 

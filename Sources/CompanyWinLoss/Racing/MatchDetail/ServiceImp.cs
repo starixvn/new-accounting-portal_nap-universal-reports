@@ -8,25 +8,25 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 {
     public class ServiceImp : Service
     {
-        private readonly RawService _rawService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public ServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public WinLossModel Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
             var leagues = rawWinLosses.Select(l => l.GroupName).Distinct();
             var leagueWinLosses = leagues.Select(l => CalculateLeagueWinLoss(l, rawWinLosses));
-            var grandTotal = _calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new WinLossModel
             {
@@ -38,8 +38,8 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
         private LeagueWinLoss CalculateLeagueWinLoss(string league, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var rawLeagueWinLosses = rawWinLosses.Where(r => r.GroupName == league);
-            var raceWinLosses = rawLeagueWinLosses.Select(m => _calculationService.FromRawWinLossByRowName(m));
-            var total = _calculationService.CalculateSumWinLoss("Total", rawLeagueWinLosses);
+            var raceWinLosses = rawLeagueWinLosses.Select(m => calculationService.FromRawWinLossByRowName(m));
+            var total = calculationService.CalculateSumWinLoss("Total", rawLeagueWinLosses);
             return new LeagueWinLoss
             {
                 LeagueName = league,

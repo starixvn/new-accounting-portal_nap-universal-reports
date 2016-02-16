@@ -80,8 +80,8 @@
     <Compile Include="Common\Services\BetTypeService.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
     <Compile Include="Common\Services\CalculationServiceImp.cs" />
-    <Compile Include="Common\Services\RawService.cs" />
-    <Compile Include="Common\Services\RawServiceImp.cs" />
+    <Compile Include="Common\Services\RawWinLossService.cs" />
+    <Compile Include="Common\Services\RawWinLossServiceImp.cs" />
     <Compile Include="Common\Services\RemotingRefService.cs" />
     <Compile Include="Common\Services\RemotingRefServiceImp.cs" />
     <Compile Include="Common\Services\BetTypeServiceImp.cs" />
@@ -102,8 +102,8 @@
     <Compile Include="NumberGame\BetType\CalculationService.cs" />
     <Compile Include="NumberGame\BetType\CalculationServiceImp.cs" />
     <Compile Include="NumberGame\BetType\Criteria.cs" />
-    <Compile Include="NumberGame\BetType\RawService.cs" />
-    <Compile Include="NumberGame\BetType\RawServiceImp.cs" />
+    <Compile Include="NumberGame\BetType\RawWinLossService.cs" />
+    <Compile Include="NumberGame\BetType\RawWinLossServiceImp.cs" />
     <Compile Include="NumberGame\BetType\RawWinLoss.cs" />
     <Compile Include="NumberGame\BetType\Service.cs" />
     <Compile Include="NumberGame\BetType\ServiceImp.cs" />
@@ -137,9 +137,9 @@
     <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationService.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\Criteria.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\RawService.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\RawWinLossService.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\QueryModel.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\RawServiceImp.cs" />
+    <Compile Include="VirtualSports\SportsbookMatchDetail\RawWinLossServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\Service.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\RawWinLoss.cs" />

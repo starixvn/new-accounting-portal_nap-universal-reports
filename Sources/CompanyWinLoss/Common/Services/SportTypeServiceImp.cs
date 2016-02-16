@@ -6,24 +6,24 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SportTypeServiceImp : SportTypeService
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public SportTypeServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public SportTypeWinLossModel Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var sports = _calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var grandTotal = _calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var sports = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
 
             return new SportTypeWinLossModel
             {

@@ -7,13 +7,13 @@ namespace UniversalReports.CompanyWinLoss.Racing
     [RoutePrefix("api/company-win-loss/racing")]
     public class RacingController : ApiController
     {
-        private readonly BetTypeService _betTypeService;
+        private readonly BetTypeService betTypeService;
 
-        private readonly SiteService _siteService;
+        private readonly SiteService siteService;
 
-        private readonly SportTypeService _sportTypeService;
+        private readonly SportTypeService sportTypeService;
 
-        private readonly MatchDetail.Service _matchDetailService;
+        private readonly MatchDetail.Service matchDetailService;
 
         public RacingController(
             BetTypeService betTypeService,
@@ -21,10 +21,10 @@ namespace UniversalReports.CompanyWinLoss.Racing
             SportTypeService sportTypeService,
             MatchDetail.Service matchDetailService)
         {
-            _betTypeService = betTypeService;
-            _siteService = siteService;
-            _sportTypeService = sportTypeService;
-            _matchDetailService = matchDetailService;
+            this.betTypeService = betTypeService;
+            this.siteService = siteService;
+            this.sportTypeService = sportTypeService;
+            this.matchDetailService = matchDetailService;
         }
 
         [Route("sport-type")]
@@ -37,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             };
 
             return ModelState.IsValid
-                ? _sportTypeService.Query(criteria)
+                ? sportTypeService.Query(criteria)
                 : null;
         }
 
@@ -51,7 +51,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             };
 
             return ModelState.IsValid
-                ? _betTypeService.Query(criteria)
+                ? betTypeService.Query(criteria)
                 : null;
         }
 
@@ -67,7 +67,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             };
 
             return ModelState.IsValid
-                ? _siteService.Query(criteria)
+                ? siteService.Query(criteria)
                 : null;
         }
 
@@ -83,7 +83,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             };
 
             return ModelState.IsValid
-                ? _matchDetailService.Query(criteria)
+                ? matchDetailService.Query(criteria)
                 : null;
         }
     }

@@ -20,12 +20,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             var expectedNumberGameBetTypeWinLossSummary = CreateExpectedNumberGameBetTypeWinLossSummary();
             var commonCalculationService = new CommonServices.CalculationServiceImp();
             var calculationService = new CalculationServiceImp(commonCalculationService);
-            var rawService = Substitute.For<RawService>();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ServiceImp(rawService, calculationService);
+            var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

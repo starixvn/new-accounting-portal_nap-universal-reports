@@ -5,29 +5,29 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
 {
     public class ServiceImp : Service
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public ServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public WinLossModel Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
             var liveGroupWinLoss = rawWinLosses.Where(r => r.IsLive);
             var nonLiveGroupWinLoss = rawWinLosses.Where(r => !r.IsLive);
 
-            var live = _calculationService.CalculateSiteWinLossSummary(liveGroupWinLoss);
-            var nonLive = _calculationService.CalculateSiteWinLossSummary(nonLiveGroupWinLoss);
-            var liveGrandTotal = _calculationService.CalculateSumWinLossSummary("Grand Total", liveGroupWinLoss);
-            var noneLiveGrandTotal = _calculationService.CalculateSumWinLossSummary("Grand Total", nonLiveGroupWinLoss);
+            var live = calculationService.CalculateSiteWinLossSummary(liveGroupWinLoss);
+            var nonLive = calculationService.CalculateSiteWinLossSummary(nonLiveGroupWinLoss);
+            var liveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveGroupWinLoss);
+            var noneLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", nonLiveGroupWinLoss);
 
             return new WinLossModel
             {

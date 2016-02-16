@@ -18,12 +18,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookMatc
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>()).Returns("AnyTeam");
             var calculationService = new CalculationServiceImp(remotingRefService);
-            var rawService = Substitute.For<RawService>();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ServiceImp(rawService, calculationService);
+            var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

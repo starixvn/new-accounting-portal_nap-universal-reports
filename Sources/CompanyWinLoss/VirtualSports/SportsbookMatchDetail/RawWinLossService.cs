@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail
 {
-    public interface RawService
+    public interface RawWinLossService
     {
         List<RawWinLoss> Query(WinLossCriteria criteria);
 

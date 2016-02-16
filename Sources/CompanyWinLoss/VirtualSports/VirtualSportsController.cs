@@ -7,15 +7,15 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
     [RoutePrefix("api/company-win-loss/virtual-sports")]
     public class VirtualSportsController : ApiController
     {
-        private readonly SportTypeService _sportTypeService;
+        private readonly SportTypeService sportTypeService;
 
-        private readonly BetTypeService _betTypeService;
+        private readonly BetTypeService betTypeService;
 
-        private readonly RacingMatchDetail.Service _racingService;
+        private readonly RacingMatchDetail.Service racingService;
 
-        private readonly SportsbookMatchDetail.Service _sportsbookService;
+        private readonly SportsbookMatchDetail.Service sportsbookService;
 
-        private readonly SiteService _siteService;
+        private readonly SiteService siteService;
 
         public VirtualSportsController(
             SportTypeService sportTypeService,
@@ -24,11 +24,11 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             SportsbookMatchDetail.Service sportsbookService,
             SiteService siteService)
         {
-            _sportTypeService = sportTypeService;
-            _betTypeService = betTypeService;
-            _racingService = racingService;
-            _sportsbookService = sportsbookService;
-            _siteService = siteService;
+            this.sportTypeService = sportTypeService;
+            this.betTypeService = betTypeService;
+            this.racingService = racingService;
+            this.sportsbookService = sportsbookService;
+            this.siteService = siteService;
         }
 
         [Route("sport-type")]
@@ -41,7 +41,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             };
 
             return ModelState.IsValid
-                ? _sportTypeService.Query(criteria)
+                ? sportTypeService.Query(criteria)
                 : null;
         }
 
@@ -56,7 +56,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             };
 
             return ModelState.IsValid
-                ? _betTypeService.Query(criteria)
+                ? betTypeService.Query(criteria)
                 : null;
         }
 
@@ -73,7 +73,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             };
 
             return ModelState.IsValid
-                ? _siteService.Query(criteria)
+                ? siteService.Query(criteria)
                 : null;
         }
 
@@ -89,7 +89,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             };
 
             return ModelState.IsValid
-                ? _racingService.Query(criteria)
+                ? racingService.Query(criteria)
                 : null;
         }
 
@@ -105,7 +105,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports
             };
 
             return ModelState.IsValid
-                ? _sportsbookService.Query(criteria)
+                ? sportsbookService.Query(criteria)
                 : null;
         }
     }

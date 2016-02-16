@@ -6,11 +6,11 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail
 {
     public class CalculationServiceImp : CalculationService
     {
-        private readonly RemotingRefService _refService;
+        private readonly RemotingRefService refService;
 
         public CalculationServiceImp(RemotingRefService refService)
         {
-            _refService = refService;
+            this.refService = refService;
         }
 
         public WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
@@ -18,8 +18,8 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail
             return new WinLoss
             {
                 MatchCode = rawWinLoss.MatchCode,
-                HomeName = _refService.GetTeamName(rawWinLoss.HomeId),
-                AwayName = _refService.GetTeamName(rawWinLoss.AwayId),
+                HomeName = refService.GetTeamName(rawWinLoss.HomeId),
+                AwayName = refService.GetTeamName(rawWinLoss.AwayId),
                 Commission = rawWinLoss.Commission,
                 MemberWinLoss = rawWinLoss.MemberWinLoss,
                 RealIncome = rawWinLoss.RealIncome,

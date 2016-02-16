@@ -29,9 +29,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportType
 
         private SportTypeServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new SportTypeServiceImp(rawService, calculationService);
+            return new SportTypeServiceImp(rawWinLossService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()

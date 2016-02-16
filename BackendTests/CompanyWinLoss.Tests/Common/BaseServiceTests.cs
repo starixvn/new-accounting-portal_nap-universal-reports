@@ -6,14 +6,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
     public class BaseServiceTests
     {
-        protected virtual RawService CreateRawService()
+        protected virtual RawWinLossService CreateRawWinLossService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
             var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new RawServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
 
         protected BalanceUpRange GetBalanceUpRange()

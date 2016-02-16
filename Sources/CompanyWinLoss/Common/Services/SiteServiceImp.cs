@@ -6,24 +6,24 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SiteServiceImp : SiteService
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public SiteServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public SiteWinLoss Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var siteWinLosses = rawWinLosses.Select(r => _calculationService.FromRawWinLossByRowName(r));
-            var grandTotal = _calculationService.CalculateSumWinLoss("Total", rawWinLosses);
+            var siteWinLosses = rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r));
+            var grandTotal = calculationService.CalculateSumWinLoss("Total", rawWinLosses);
 
             return new SiteWinLoss
             {

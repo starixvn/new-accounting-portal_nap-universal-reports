@@ -8,29 +8,29 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class ServiceImp : Service
     {
-        private readonly RawService _rawWinLossService;
+        private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService _calculationService;
+        private readonly CalculationService calculationService;
 
         public ServiceImp(
-            RawService rawService,
+            RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
-            _rawWinLossService = rawService;
-            _calculationService = calculationService;
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
         }
 
         public virtual ProductWinLoss Query(WinLossCriteria criteria)
         {
-            var rawWinLosses = _rawWinLossService.Query(criteria);
+            var rawWinLosses = rawWinLossService.Query(criteria);
 
             var rawSportsbookDetail = rawWinLosses.Where(r => r.GroupName == "Sportsbook Detail");
             var rawProductWinLoss = rawWinLosses.Where(r => r.GroupName != "Sportsbook Detail");
 
             var sportsbookDetail = CalculateSportsbookDetail(rawSportsbookDetail);
-            var productWinLoss = _calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
+            var productWinLoss = calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
 
-            var grandTotal = _calculationService.CalculateSumWinLossSummary("GRAND TOTAL", rawProductWinLoss);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("GRAND TOTAL", rawProductWinLoss);
 
             return new ProductWinLoss
             {
@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         public virtual List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses)
         {
-            return rawWinLosses.Select(r => _calculationService.FromRawWinLossByRowName(r)).ToList();
+            return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
         }
     }
 }

@@ -29,9 +29,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.MatchDetail
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ServiceImp(rawService, calculationService);
+            return new ServiceImp(rawWinLossService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()

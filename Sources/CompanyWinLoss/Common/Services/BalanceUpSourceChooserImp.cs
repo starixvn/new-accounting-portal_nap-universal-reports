@@ -6,16 +6,16 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class BalanceUpSourceChooserImp : BalanceUpSourceChooser
     {
-        private readonly BalanceUpService _balanceUpService;
+        private readonly BalanceUpService balanceUpService;
 
         public BalanceUpSourceChooserImp(BalanceUpService balanceUpService)
         {
-            _balanceUpService = balanceUpService;
+            this.balanceUpService = balanceUpService;
         }
 
         public IEnumerable<BalanceUpSource> Determine(DateTime startDate, DateTime endDate)
         {
-            var balanceUpRange = _balanceUpService.Query();
+            var balanceUpRange = balanceUpService.Query();
 
             if (startDate > balanceUpRange.MoveBetsDate)
             {

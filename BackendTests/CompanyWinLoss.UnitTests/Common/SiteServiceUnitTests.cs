@@ -17,12 +17,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             // Arrange   
             var expectedSiteWinLoss = CreateExpectedSiteWinLoss();
             var calculationService = new CalculationServiceImp();
-            var rawService = Substitute.For<RawService>();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
-            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new SiteServiceImp(rawService, calculationService);
+            var service = new SiteServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

@@ -5,11 +5,11 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class ProductController : ApiController
     {
-        private readonly Service _service;
+        private readonly Service service;
 
         public ProductController(Service service)
         {
-            _service = service;
+            this.service = service;
         }
 
         [Route("api/company-win-loss/values")]
@@ -22,7 +22,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             };
 
             return ModelState.IsValid
-                ? _service.Query(criteria)
+                ? service.Query(criteria)
                 : null;
         }
     }

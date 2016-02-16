@@ -31,11 +31,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDet
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateVirtualSportsRawService();
+            var rawWinLossService = CreateVirtualSportsRawService();
             var remotingRefService = Substitute.For<CommonService.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>()).Returns("Any team name");
             var calculationService = new CalculationServiceImp(remotingRefService);
-            return new ServiceImp(rawService, calculationService);
+            return new ServiceImp(rawWinLossService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()
@@ -51,14 +51,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDet
             };
         }
 
-        private RawService CreateVirtualSportsRawService()
+        private RawWinLossService CreateVirtualSportsRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new CommonService.BalanceUpServiceImp(dynamicRepository);
             var balanceUpSourceChooser = new CommonService.BalanceUpSourceChooserImp(balanceUpService);
 
             var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new RawServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }

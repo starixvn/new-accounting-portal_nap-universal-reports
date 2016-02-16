@@ -7,20 +7,20 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
     [RoutePrefix("api/company-win-loss/number-game")]
     public class NumberGameController : ApiController
     {
-        private readonly BetType.Service _betTypeService;
+        private readonly BetType.Service betTypeService;
 
-        private readonly MatchDetail.Service _detailService;
+        private readonly MatchDetail.Service detailService;
 
-        private readonly SiteService _siteService;
+        private readonly SiteService siteService;
 
         public NumberGameController(
             BetType.Service betTypeService,
             MatchDetail.Service detailService,
             SiteService siteService)
         {
-            _betTypeService = betTypeService;
-            _detailService = detailService;
-            _siteService = siteService;
+            this.betTypeService = betTypeService;
+            this.detailService = detailService;
+            this.siteService = siteService;
         }
 
         [Route("bet-type")]
@@ -33,7 +33,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
             };
 
             return ModelState.IsValid
-                ? _betTypeService.Query(criteria)
+                ? betTypeService.Query(criteria)
                 : null;
         }
 
@@ -50,7 +50,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
             };
 
             return ModelState.IsValid
-                ? _detailService.Query(criteria)
+                ? detailService.Query(criteria)
                 : null;
         }
 
@@ -68,7 +68,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame
             };
 
             return ModelState.IsValid
-                ? _siteService.Query(criteria)
+                ? siteService.Query(criteria)
                 : null;
         }
     }

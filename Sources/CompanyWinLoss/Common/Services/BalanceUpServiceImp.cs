@@ -9,30 +9,30 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
     {
         private const string BalanceUpRangeCacheKey = "BalanceUpRangeCacheKey";
 
-        private readonly IDynamicRepository _repository;
+        private readonly IDynamicRepository repository;
 
-        private readonly ICache _cacheService = CacheService.CreateInstance(CacheType.MemoryCache);
+        private readonly ICache cacheService = CacheService.CreateInstance(CacheType.MemoryCache);
 
         public BalanceUpServiceImp(IDynamicRepository repository)
         {
-            _repository = repository;
+            this.repository = repository;
         }
 
         public void ClearCache()
         {
-            _cacheService.Remove(BalanceUpRangeCacheKey);
+            cacheService.Remove(BalanceUpRangeCacheKey);
         }
 
         public BalanceUpRange Query()
         {
-            var balanceUpRange = _cacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
+            var balanceUpRange = cacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
             if (balanceUpRange != null)
             {
                 return balanceUpRange;
             }
 
             balanceUpRange = QueryFromSource();
-            _cacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
+            cacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
 
             return balanceUpRange;
         }
@@ -40,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         private BalanceUpRange QueryFromSource()
         {
             var criteria = new BalanceUpCriteria();
-            return _repository.Get<BalanceUpRange>(criteria);
+            return repository.Get<BalanceUpRange>(criteria);
         }
     }
 }

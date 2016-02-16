@@ -29,9 +29,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.Keno.BetType
 
         private BetTypeServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new BetTypeServiceImp(rawService, calculationService);
+            return new BetTypeServiceImp(rawWinLossService, calculationService);
         }
 
         private WinLossCriteria CreateCriteria()

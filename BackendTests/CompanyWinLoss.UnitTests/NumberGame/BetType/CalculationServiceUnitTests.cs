@@ -10,12 +10,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
     public class CalculationServiceUnitTests
     {
-        private CommonServices.CalculationService _commonCalculationService;
+        private CommonServices.CalculationService commonCalculationService;
 
         [OneTimeSetUp]
         public void SetUp()
         {
-            _commonCalculationService = new CommonServices.CalculationServiceImp();
+            commonCalculationService = new CommonServices.CalculationServiceImp();
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             var fakeData = CreateFakeRawWinLoss();
 
             // Act 
-            var service = new CalculationServiceImp(_commonCalculationService);
+            var service = new CalculationServiceImp(commonCalculationService);
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
@@ -71,7 +71,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             var expectedGroup = CreateEmptySiteWinLoss();
 
             // Act 
-            var service = new CalculationServiceImp(_commonCalculationService);
+            var service = new CalculationServiceImp(commonCalculationService);
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
@@ -99,7 +99,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             var fakeData = CreateFakeRawWinLoss();
 
             // Act 
-            var service = new CalculationServiceImp(_commonCalculationService);
+            var service = new CalculationServiceImp(commonCalculationService);
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
             // Assert
