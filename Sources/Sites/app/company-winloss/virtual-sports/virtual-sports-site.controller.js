@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSiteController', VirtualSportsSiteController);
 
-    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
+    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateProduct = function () {
@@ -79,7 +79,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + ' | Product WinLoss By ' + (gridModel.site === sites.CREDIT ? 'Credit' : 'Deposit') + ' Site' + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + ' | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },

@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSportTypeController', VirtualSportsSportTypeController);
 
-    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
+    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;

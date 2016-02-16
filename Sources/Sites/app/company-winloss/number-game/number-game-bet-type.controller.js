@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('NumberGameBetTypeController', NumberGameBetTypeController);
 
-    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, numberGameService) {
+    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
+    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
@@ -25,14 +25,7 @@
                 isLive: isLive
             });
         };
-        $scope.generateCreditSite = function (betType, betTypeName, isLive) {
-            generateSite(betType, betTypeName, isLive, sites.CREDIT);
-        };
-        $scope.generateDepositSite = function (betType, betTypeName, isLive) {
-            generateSite(betType, betTypeName, isLive, sites.DEPOSIT);
-        };
-
-        function generateSite(betType, betTypeName, isLive, site) {
+        $scope.generateSite = function (betType, betTypeName, isLive, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,
@@ -129,8 +122,8 @@
             return {
                 Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName, isLive),
                 SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateCreditSite', betTypeName, isLive) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateDepositSite', betTypeName, isLive) }
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateSite', betTypeName, isLive) },
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateSite', betTypeName, isLive) }
                 ]
             };
         }
@@ -140,7 +133,7 @@
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };
             if (isTextRight) {

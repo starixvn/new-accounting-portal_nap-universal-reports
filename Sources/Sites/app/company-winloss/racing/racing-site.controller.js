@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('RacingSiteController', RacingSiteController);
 
-    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, racingService) {
+    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
+    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -83,7 +83,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' +gridModel.betTypeName + ' "' +(gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' +(gridModel.site === sites.CREDIT ? 'Credit' : 'Deposit') + ' Site' + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
