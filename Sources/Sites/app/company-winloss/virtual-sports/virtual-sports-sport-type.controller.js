@@ -9,6 +9,7 @@
     function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
+        $scope.show = show;
         $scope.generateMain = function () {
             companyWinlossService.generate({
                 level: levels.MAIN
@@ -19,6 +20,17 @@
                 level: levels.PRODUCT
             });
         };
+        $scope.generateBetType = function (betType, betTypeName) {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE,
+                betType: betType,
+                betTypeName: betTypeName
+            });
+        };
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
 
         function generate(startDate, endDate) {
             var dateRange = companyWinlossService.filterModel.getDateRange();
@@ -101,7 +113,7 @@
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateSportType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };
             if (isTextRight) {

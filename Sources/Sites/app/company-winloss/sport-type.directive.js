@@ -30,8 +30,10 @@
 
             $scope.$on('show', function (event, level) {
                 if (level === levels.SPORT_TYPE) {
-                    companyWinlossService.filterModel.updateDateRange(dateRange);
-                    currentScope.show();
+                    $timeout(function () {
+                        companyWinlossService.filterModel.updateDateRange(dateRange);
+                        currentScope.show();
+                    });
                 }
             });
 

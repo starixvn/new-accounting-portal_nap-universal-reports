@@ -57,7 +57,6 @@
             var gridOptions = {
                 columns: columns,
                 bodyRows: createBodyData(data),
-                showTree: true,
                 showTitle: true,
                 titleInfo:
                 {
