@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.Site
 
         public int BetType { get; set; }
 
-        public int Site { get; set; }
+        public string Site { get; set; }
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.Site
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Racing-BetType-Site-{Source}";
+            return $"CompanyWinLoss-Racing-Site-{Source}";
         }
     }
 }

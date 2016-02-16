@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
 
         public bool IsLive { get; set; }
 
-        public int Site { get; set; }
+        public string Site { get; set; }
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {

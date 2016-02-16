@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.Site
     {
         public int BetType { get; set; }
 
-        public int Site { get; set; }
+        public string Site { get; set; }
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.Site
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Keno-BetType-Site-{Source}";
+            return $"CompanyWinLoss-Keno-Site-{Source}";
         }
     }
 }

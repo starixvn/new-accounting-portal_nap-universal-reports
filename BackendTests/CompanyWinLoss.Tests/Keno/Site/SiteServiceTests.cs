@@ -43,7 +43,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Keno.Site
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
                 BetType = 1501,
-                Site = 1
+                Site = "Credit"
             };
         }
     }

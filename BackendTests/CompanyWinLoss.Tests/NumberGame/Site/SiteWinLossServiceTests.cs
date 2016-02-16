@@ -45,7 +45,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Site
                 BetType = 81,
                 IsLive = true,
                 SportType = 161,
-                Site = 1
+                Site = "Credit"
             };
         }
     }

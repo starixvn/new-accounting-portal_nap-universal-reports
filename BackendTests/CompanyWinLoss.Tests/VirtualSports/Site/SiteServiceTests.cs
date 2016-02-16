@@ -44,7 +44,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Site
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
                 SportType = 180,
                 BetType = 1203,
-                Site = 1
+                Site = "Credit"
             };
         }
     }

@@ -49,6 +49,30 @@
                     templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                     controller: 'VirtualSportsSiteController'
                 }
+            },
+            'Racing': {
+                sportType: {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'RacingSportTypeController'
+                },
+                betType: {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'RacingBetTypeController'
+                },
+                site: {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'RacingSiteController'
+                }
+            },
+            'Keno': {
+                betType: {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'KenoBetTypeController'
+                },
+                site: {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'KenoSiteController'
+                }
             }
         });
 })();
