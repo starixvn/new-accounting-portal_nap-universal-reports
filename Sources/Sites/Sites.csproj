@@ -173,7 +173,8 @@
     <Content Include="app\company-winloss\racing\racing.service.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-site.controller.js" />
-    <Content Include="app\company-winloss\virtual-sports\virtual-sports-detail.controller.js" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.controller.js" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports-sportsbook-detail.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-bet-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports.service.js" />

@@ -69,6 +69,10 @@
                     return;
                 }
 
+                if (angular.isFunction(levelSetting)) {
+                    levelSetting = levelSetting(gridModel);
+                }
+
                 $templateRequest(levelSetting.templateUrl, true).then(function (response) {
                     var templateScope = $scope.$new();
                     var templateElement = $element.html(response);

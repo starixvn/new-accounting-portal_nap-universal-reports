@@ -3,10 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('VirtualSportsDetailController', VirtualSportsDetailController);
+        .controller('VirtualSportsRacingDetailController', VirtualSportsRacingDetailController);
 
-    VirtualSportsDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
+    function VirtualSportsRacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateProduct = function () {
@@ -28,7 +28,7 @@
         function generate(startDate, endDate) {
             var dateRange = companyWinlossService.filterModel.getDateRange();
             var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getGameDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
+            virtualSportsService.getRacingMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
@@ -49,10 +49,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "right", MergeHeaderColNumber: 3 },
-                 { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "left" },
+                 { HeaderText: "Bet Type", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -93,28 +90,25 @@
 
         function createWinLossDataRow(winLoss) {
             return [
-                { Name: "Code", Value: winLoss.MatchCode },
-                { Name: "HomeName", Value: winLoss.HomeName },
-                { Name: "vs", Value: '-vs-' },
-                { Name: "AwayName", Value: winLoss.AwayName },
+                { Name: "Code", Value: winLoss.Name },
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
                 { Name: "RealIncome", Value: winLoss.RealIncome },
                 { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
+                { Name: "RealMargin", Value: winLoss.RealMargin }
             ];
         }
 
         function createWinLossDataRowFooter(winLoss) {
             return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
+                { Name: "Code", Value: winLoss.Name, CssClass: 'text-right' },
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
                 { Name: "RealIncome", Value: winLoss.RealIncome },
                 { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
+                { Name: "RealMargin", Value: winLoss.RealMargin }
             ];
         }
 

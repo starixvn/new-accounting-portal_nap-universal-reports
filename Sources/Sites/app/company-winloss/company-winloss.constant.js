@@ -40,9 +40,18 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'VirtualSportsBetTypeController'
             },
-            detail: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsDetailController'
+            detail: function (gridModel) {
+                if (gridModel.sportType >= 181 && gridModel.sportType <= 185) {
+                    return {
+                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                        controller: 'VirtualSportsRacingDetailController'
+                    }
+                } else {
+                    return {
+                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                        controller: 'VirtualSportsSportsbookDetailController'
+                    }
+                }
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',

@@ -10,7 +10,8 @@
         var service = {
             getSportType: getSportType,
             getBetType: getBetType,
-            getGameDetail: getGameDetail,
+            getSportsBookMatchDetail: getSportsBookMatchDetail,
+            getRacingMatchDetail: getRacingMatchDetail,
             getSite: getSite
         };
         return service;
@@ -33,7 +34,7 @@
                 .catch(getDataFailed);
         }
 
-        function getGameDetail(startDate, endDate, sportType, betType) {
+        function getSportsBookMatchDetail(startDate, endDate, sportType, betType) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
@@ -41,6 +42,18 @@
                 betType: betType
             };
             return $http.post('/api/company-win-loss/virtual-sports/sports-book-match-detail', data)
+                .then(getDataComplete)
+                .catch(getDataFailed);
+        }
+
+        function getRacingMatchDetail(startDate, endDate, sportType, betType) {
+            var data = {
+                startDate: startDate,
+                endDate: endDate,
+                sportType: sportType,
+                betType: betType
+            };
+            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
