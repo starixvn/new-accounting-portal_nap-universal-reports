@@ -9,16 +9,27 @@
     function KenoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateMain = function () {
-            companyWinlossService.generate({
-                level: levels.MAIN
-            });
-        };
-        $scope.generateProduct = function () {
+        $scope.show = show;
+        $scope.generateProduct = generateProduct;
+        $scope.generateSite = generateSite;
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });
         };
+        
+        function generateSite(betType, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                site: site
+            });
+        };
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
 
         function generate(startDate, endDate) {
             var dateRange = companyWinlossService.filterModel.getDateRange();
@@ -44,7 +55,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
+                 { HeaderText: "Bet Type", Width: 150, Name: "Name", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -62,7 +73,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -88,22 +99,39 @@
 
         function createBetTypeWinLossDataRow(bettypeItem) {
             return {
-                Columns: createWinLossDataRow(bettypeItem.Total, false, true),
+                Columns: createWinLossDataRow(bettypeItem.Total, true),
                 SubRows: [
-                    { Columns: createWinLossDataRow(bettypeItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(bettypeItem.Deposit, true, false) }
+                    { Columns: createWinLossDataRow(bettypeItem.Credit, false) },
+                    { Columns: createWinLossDataRow(bettypeItem.Deposit, false) }
                 ]
             };
         }
-        
+
         function createWinLossDataRow(winLoss, isTotal) {
-            var betTypeColumn = isTotal ? createBetTypeTotalColumn() : createBetTypeSiteColumn(winLoss);
+            var betTypeColumn = isTotal ? createBetTypeTotalColumn(winLoss) : createBetTypeSiteColumn(winLoss);
             var remainColumn = createColumnWithoutBetType(winLoss);
-            return remainColumn.splice(0, 0, betTypeColumn);
+            return betTypeColumn.concat(remainColumn);
+        }
+        
+        function createBetTypeTotalColumn(winLoss) {
+            return [{
+                Name: "Name",
+                Value: winLoss.Name,
+            }];
         }
 
-        function createColumnWithoutBetType(winLoss)
-        {
+        function createBetTypeSiteColumn(winLoss) {
+            return [{
+                Name: "Name",
+                Value: winLoss.Name,
+                CellAlign: 'right',
+                CustomCellRender: function (cellValue) {
+                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                }
+            }];
+        }
+
+        function createColumnWithoutBetType(winLoss) {
             return [
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
@@ -112,24 +140,6 @@
                 { Name: "RealTurnover", Value: winLoss.RealTurnover },
                 { Name: "RealMargin", Value: winLoss.RealMargin }
             ];
-        }
-
-        function createBetTypeTotalColumn() {
-            return {
-                Name: "BetType",
-                Value: winLoss.Name,
-            };
-        }
-
-        function createBetTypeSiteColumn(winLoss) {
-            return {
-                Name: "BetType",
-                Value: winLoss.Name,
-                CellAlign: 'right',
-                CustomCellRender: function (cellValue) {
-                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                }
-            };
         }
 
         function createFooterData(data) {
@@ -141,14 +151,14 @@
             ];
         }
 
-        function createGrandTotalColumn(winloss) {
-            var betTypeColumn ={
-                Name: "BetType",
+        function createGrandTotalColumn(winLoss) {
+            var betTypeColumn = [{
+                Name: "Name",
                 Value: winLoss.Name,
                 CellAlign: 'right',
-            };
+            }];
             var remainColumn = createColumnWithoutBetType(winLoss);
-            return remainColumn.splice(0, 0, betTypeColumn);
+            return betTypeColumn.concat(remainColumn);
         }
 
         function exportExcel() {

@@ -47,7 +47,8 @@ namespace UniversalReports.CompanyWinLoss.Racing
             var criteria = new BetType.Criteria
             {
                 StartDate = queryModel.StartDate,
-                EndDate = queryModel.EndDate
+                EndDate = queryModel.EndDate,
+                SportType = queryModel.SportType,
             };
 
             return ModelState.IsValid

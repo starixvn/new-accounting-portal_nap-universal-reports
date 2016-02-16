@@ -122,6 +122,7 @@
     <Compile Include="Racing\BetType\Criteria.cs" />
     <Compile Include="Racing\BetType\QueryModel.cs" />
     <Compile Include="Racing\MatchDetail\LeagueWinLoss.cs" />
+    <Compile Include="Racing\RacingController.cs" />
     <Compile Include="Racing\Site\Criteria.cs" />
     <Compile Include="Racing\Site\QueryModel.cs" />
     <Compile Include="Racing\MatchDetail\Criteria.cs" />

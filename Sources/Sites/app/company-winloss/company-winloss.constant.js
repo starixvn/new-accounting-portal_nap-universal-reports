@@ -50,6 +50,7 @@
             }
         },
         'Racing': {
+            level: levels.SPORT_TYPE,
             sportType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'RacingSportTypeController'
@@ -58,12 +59,17 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'RacingBetTypeController'
             },
+            detail: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'RacingDetailController'
+            },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'RacingSiteController'
             }
         },
         'Keno': {
+            level: levels.BET_TYPE,
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'KenoBetTypeController'

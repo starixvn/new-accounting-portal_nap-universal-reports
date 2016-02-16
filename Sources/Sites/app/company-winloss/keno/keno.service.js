@@ -20,7 +20,7 @@
                 .catch(getDataFailed);
         }
       
-        function getSite(startDate, endDate, isLive, betType, site) {
+        function getSite(startDate, endDate, betType, site) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
