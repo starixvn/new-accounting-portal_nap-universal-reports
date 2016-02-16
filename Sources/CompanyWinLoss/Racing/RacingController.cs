@@ -63,6 +63,7 @@ namespace UniversalReports.CompanyWinLoss.Racing
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate,
+                SportType = queryModel.SportType,
                 BetType = queryModel.BetType,
                 Site = queryModel.Site
             };

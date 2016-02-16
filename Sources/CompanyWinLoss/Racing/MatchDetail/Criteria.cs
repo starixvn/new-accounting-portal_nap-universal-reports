@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-{Source}";
+            return $"CompanyWinLoss-Racing-MatchDetail-{Source}";
         }
     }
 }

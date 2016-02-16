@@ -13,7 +13,16 @@
         $scope.generateProduct = generateProduct;
         $scope.generateSportType = generateSportType;
         $scope.generateSite = generateSite;
-      
+        $scope.generateDetail = generateDetail;
+        
+        function generateDetail(betType, betTypeName) {
+            companyWinlossService.generate({
+                level: levels.DETAIL,
+                betType: betType,
+                betTypeName: betTypeName
+            });
+        };
+
         function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
@@ -87,7 +96,7 @@
                 },
                 showFooter: true,
                 footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(true)
+                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
             };
 
             return gridOptions;
@@ -116,9 +125,17 @@
 
         function createWinLossDataRow(winLoss, isTextRight, isTotal) {
             var sportTypeColumn = !isTotal
-                ? { Name: "BetType", Value: winLoss.Name }
+                ? {
+                    Name: "BetType",
+                    Value: winLoss.Name,
+                    CustomCellRender: function (cellValue) {
+                        return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                    }
+                }
                 : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
+                    Name: "BetType",
+                    Value: winLoss.Name,
+                    CustomCellRender: function (cellValue) {
                         return '<a class="drill-down" href data-ng-click="generateDetail(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };

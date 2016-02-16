@@ -127,5 +127,27 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             // Assert          
             Assert.AreEqual(1, result.Count());
         }
+
+        [Test]
+        [Category("CompanyWinLossUnitTests")]
+        public void Determine_StartDateAndEndDateBetweenBalanceUpDateAndMoveBetsDate_ReturnOneSource()
+        {
+            // Arrange
+            var startDate = new DateTime(2015, 07, 01);
+            var endDate = new DateTime(2015, 07, 01);
+
+            var balanceUpService = Substitute.For<BalanceUpService>();
+            balanceUpService.Query().Returns(BalanceUpRange);
+            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
+
+            // Act
+            var result = balancerUpSourceChooser.Determine(startDate, endDate)
+                                                .ToList();
+
+            // Assert          
+            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(startDate, result[0].StartDate);
+            Assert.AreEqual(endDate, result[0].EndDate);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                     yield return new BalanceUpSource { StartDate = balanceUpRange.MoveBetsDate.AddDays(1), EndDate = endDate, Source = "BetTrans" };
                 }
 
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = balanceUpRange.MoveBetsDate, Source = "BetTrans14" };
+                yield return new BalanceUpSource { StartDate = startDate, EndDate = endDate, Source = "BetTrans14" };
             }
             else
             {

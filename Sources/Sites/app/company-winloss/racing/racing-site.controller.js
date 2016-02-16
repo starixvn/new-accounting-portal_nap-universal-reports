@@ -32,7 +32,7 @@
         function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
             var gridModel = companyWinlossService.gridModel;
-            racingService.getSite(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType, gridModel.site).then(function (data) {
+            racingService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
@@ -89,7 +89,7 @@
                 },
                 showFooter: true,
                 footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(true)
+                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
             };
 
             return gridOptions;
