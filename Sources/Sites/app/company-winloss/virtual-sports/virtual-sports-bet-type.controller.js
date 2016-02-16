@@ -20,11 +20,11 @@
                 level: levels.SPORT_TYPE
             });
         };
-        $scope.generateSite = function (betType, site) {
+        $scope.generateDetail = function (betType, betTypeName) {
             companyWinlossService.generate({
-                level: levels.SITE,
+                level: levels.DETAIL,
                 betType: betType,
-                site: site
+                betTypeName: betTypeName
             });
         };
         $scope.generateCreditSite = function (betType, betTypeName) {
