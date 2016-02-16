@@ -1,7 +1,6 @@
 ﻿<div data-nap-filter></div>
-<div data-ng-show="vm.level===vm.levels.MAIN" data-nap-main></div>
-<div data-ng-show="vm.level===vm.levels.PRODUCT" data-nap-product></div>
-<div data-ng-show="vm.level===vm.levels.SUB_PRODUCT" data-nap-sub-product></div>
-<div data-ng-show="vm.level===vm.levels.SPORT_TYPE" data-nap-sport-type></div>
-<div data-ng-show="vm.level===vm.levels.BET_TYPE" data-nap-bet-type></div>
-<div data-ng-show="vm.level===vm.levels.SITE" data-nap-site></div>
+<div data-ng-show="vm.level===vm.levels.PRODUCT" data-nap-main></div>
+<div data-ng-show="vm.level===vm.levels.SPORT_TYPE" data-nap-level data-level="vm.levels.SPORT_TYPE"></div>
+<div data-ng-show="vm.level===vm.levels.BET_TYPE" data-nap-level data-level="vm.levels.BET_TYPE"></div>
+<div data-ng-show="vm.level===vm.levels.SITE" data-nap-level data-level="vm.levels.SITE"></div>
+<div data-ng-show="vm.level===vm.levels.DETAIL" data-nap-level data-level="vm.levels.DETAIL"></div>

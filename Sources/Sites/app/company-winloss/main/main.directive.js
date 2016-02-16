@@ -14,20 +14,21 @@
         };
         return directive;
 
-        controller.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'mainService', 'fanexGridHelper', 'levels', 'companyWinlossService'];
-        function controller($compile, $timeout, $element, $scope, formatStrings, mainService, fanexGridHelper, levels, companyWinlossService) {
+        controller.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'mainService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService'];
+        function controller($compile, $timeout, $element, $scope, formatStrings, mainService, fanexGridHelper, levels, levelSettings, companyWinlossService) {
             var gridElement = $element.find('.freegrid');
             var dateRange;
 
             $scope.generateProduct = function (productName) {
+                var level = levelSettings[productName].level;
                 companyWinlossService.generate({
-                    level: levels.PRODUCT,
+                    level: level,
                     productName: productName
                 });
             };
 
             $scope.$on('generate', function (event, level) {
-                if (level === levels.MAIN) {
+                if (level === levels.PRODUCT) {
                     $timeout(function () {
                         dateRange = companyWinlossService.filterModel.getDateRange();
                         generate(dateRange.startDate, dateRange.endDate);
@@ -36,7 +37,7 @@
             });
 
             $scope.$on('show', function (event, level) {
-                if (level === levels.MAIN) {
+                if (level === levels.PRODUCT) {
                     $timeout(function () {
                         companyWinlossService.filterModel.updateDateRange(dateRange);
                         gridElement.fanexGrid('resizeGrid');

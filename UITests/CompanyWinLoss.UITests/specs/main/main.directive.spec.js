@@ -42,7 +42,7 @@ describe('Directive: MainDirective', function () {
         companyWinlossService = _companyWinlossService_;
         companyWinlossService.scope = scope;
         companyWinlossService.gridModel = {
-            level: levels.MAIN
+            level: levels.PRODUCT
         };
         companyWinlossService.filterModel = {
             getDateRange: function () {
@@ -65,7 +65,7 @@ describe('Directive: MainDirective', function () {
         it('mainService is called', function () {
             sinon.spy(mainService, 'getData');
             companyWinlossService.generate({
-                level: levels.MAIN
+                level: levels.PRODUCT
             });
             $timeout.flush();
             expect(mainService.getData.calledOnce).toBe(true);

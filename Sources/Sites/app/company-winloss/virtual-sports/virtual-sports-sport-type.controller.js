@@ -5,14 +5,16 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSportTypeController', VirtualSportsSportTypeController);
 
-    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'virtualSportsService'];
+    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateMain = function () {
+        $scope.generateBetType = function (sportType, sportTypeName) {
             companyWinlossService.generate({
-                level: levels.MAIN
+                level: levels.BET_TYPE,
+                sportType: sportType,
+                sportTypeName: sportTypeName
             });
         };
         $scope.generateProduct = function () {
@@ -20,28 +22,20 @@
                 level: levels.PRODUCT
             });
         };
-        $scope.generateBetType = function (betType, betTypeName) {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE,
-                betType: betType,
-                betTypeName: betTypeName
+
+        function generate() {
+            var dateRange = companyWinlossService.filterModel.getDateRange();
+            virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
+                renderGrid(gridElement, data);
+                compileLinks();
             });
-        };
+        }
 
         function show() {
             gridElement.fanexGrid('resizeGrid');
         }
 
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.sportType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
+        function renderGrid(gridElement, data) {
             var gridOptions = createGridOptions(data);
             gridElement.fanexGrid(gridOptions);
         }
@@ -56,7 +50,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
+                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -74,7 +68,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li><a href data-ng-click="generateProduct()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -89,30 +83,30 @@
 
         function createBodyData(data) {
             var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeData = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeData));
+            var sports = data.Sports;
+            for (var i = 0; i < sports.length; i++) {
+                var sportTypeItem = sports[i];
+                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
             }
 
             return bodyData;
         }
 
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
+        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
             return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true),
+                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
                 SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false) }
+                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
+                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
                 ]
             };
         }
 
         function createWinLossDataRow(winLoss, isTextRight, isTotal) {
             var sportTypeColumn = !isTotal
-                ? { Name: "BetType", Value: winLoss.Name }
+                ? { Name: "SportType", Value: winLoss.Name }
                 : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
+                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
                         return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };

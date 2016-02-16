@@ -10,7 +10,7 @@
         companyWinlossService.scope = $scope;
         companyWinlossService.gridModel = this;
         var vm = this;
-        vm.level = levels.MAIN;
+        vm.level = levels.PRODUCT;
         vm.levels = levels;
     }
 })();

@@ -9,14 +9,14 @@
     function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, numberGameService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateMain = function () {
-            companyWinlossService.generate({
-                level: levels.MAIN
-            });
-        };
         $scope.generateProduct = function () {
             companyWinlossService.generate({
                 level: levels.PRODUCT
+            });
+        };
+        $scope.generateBetType = function () {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE
             });
         };
 
@@ -74,7 +74,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li><a href data-ng-click="generateProduct()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + (gridModel.site === sites.CREDIT ? 'Credit' : 'Deposit') + ' Site' + '</li></ol>',
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' +gridModel.betTypeName + ' "' +(gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' +(gridModel.site === sites.CREDIT ? 'Credit' : 'Deposit') + ' Site' + '</li></ol>',
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },

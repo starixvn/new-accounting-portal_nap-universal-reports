@@ -3,39 +3,33 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('VirtualSportsController', VirtualSportsController);
+        .controller('NumberGameDetailController', NumberGameDetailController);
 
-    VirtualSportsController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'sites', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsController($compile, $scope, $element, formatStrings, fanexGridHelper, sites, levels, companyWinlossService, virtualSportsService) {
+    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
+    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateSportType = function (sportType, sportTypeName) {
+        $scope.generateProduct = function () {
             companyWinlossService.generate({
-                level: levels.SPORT_TYPE,
-                sportType: sportType,
-                sportTypeName: sportTypeName
+                level: levels.PRODUCT
             });
         };
-        $scope.generateMain = function () {
+        $scope.generateBetType = function () {
             companyWinlossService.generate({
-                level: levels.MAIN
+                level: levels.BET_TYPE
             });
         };
 
-        function generate() {
+        function generate(startDate, endDate) {
             var dateRange = companyWinlossService.filterModel.getDateRange();
-            virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(gridElement, data);
+            var gridModel = companyWinlossService.gridModel;
+            numberGameService.getMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType).then(function (data) {
+                renderGrid(data);
                 compileLinks();
             });
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
+        function renderGrid(data) {
             var gridOptions = createGridOptions(data);
             gridElement.fanexGrid(gridOptions);
         }
@@ -50,7 +44,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
+                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -63,13 +57,10 @@
             var gridOptions = {
                 columns: columns,
                 bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
+                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" ' + '</li></ol>',
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -83,38 +74,31 @@
 
         function createBodyData(data) {
             var bodyData = [];
-            var sports = data.Sports;
-            for (var i = 0; i < sports.length; i++) {
-                var sportTypeItem = sports[i];
-                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
+            var leagues = data.Leagues;
+            for (var i = 0; i < leagues.length; i++) {
+                var leagueData = leagues[i];
+                var leagueName = leagueData.LeagueName;
+                bodyData.push({ Columns: createLeagueNameDataRow(leagueName) });
+                var matches = leagueData.Matches;
+                for (var j = 0; j < matches.length; j++) {
+                    var matchData = matches[j];
+                    bodyData.push({ Columns: createWinLossDataRow(matchData) });
+                }
             }
 
             return bodyData;
         }
 
-        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
+        function createLeagueNameDataRow(leagueName) {
+            return [
+                { Name: "Code", Value: "" },
+                { Name: "MemberWinLoss", Value: leagueName, MergeColNumber: 6, CssClass: 'league-header' }
+            ];
         }
 
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? { Name: "SportType", Value: winLoss.Name }
-                : {
-                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateSportType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
+        function createWinLossDataRow(winLoss, isFooter) {
             return [
-                sportTypeColumn,
+                { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
@@ -125,11 +109,11 @@
         }
 
         function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
+            var gridModel = companyWinlossService.gridModel;
+            var total = data.Total;
+            total.Name = gridModel.betTypeName + ' Total';
             return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
+                { Columns: createWinLossDataRow(total, true) }
             ];
         }
 

@@ -150,10 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\company-winloss\keno\keno-bet-type.controller.js" />
+    <Content Include="app\company-winloss\level.directive.js" />
     <Content Include="app\company-winloss\keno\keno-site.controller.js" />
     <Content Include="app\company-winloss\keno\keno.service.js" />
-    <Content Include="app\company-winloss\sport-type.directive.js" />
-    <Content Include="app\company-winloss\site.directive.js" />
     <Content Include="app\company-winloss\company-winloss.constant.js" />
     <Content Include="app\company-winloss\company-winloss.service.js" />
     <Content Include="app\company-winloss\filter\filter.directive.js" />
@@ -162,16 +161,14 @@
     </CodeAnalysisDictionary>
     <Content Include="app\company-winloss\live-casino\live-casino.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
-    <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
+    <Content Include="app\company-winloss\number-game\number-game-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game.service.js" />
     <Content Include="app\company-winloss\number-game\number-game.html" />
-    <Content Include="app\company-winloss\number-game\number-game.controller.js" />
-    <Content Include="app\company-winloss\bet-type.directive.js" />
-    <Content Include="app\company-winloss\product.directive.js" />
+    <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports-detail.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-bet-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.controller.js" />
-    <Content Include="app\company-winloss\virtual-sports\virtual-sports.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports.service.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
