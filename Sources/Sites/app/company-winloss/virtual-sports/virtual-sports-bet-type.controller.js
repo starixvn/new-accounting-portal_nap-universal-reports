@@ -96,7 +96,7 @@
                 },
                 showFooter: true,
                 footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(true)
+                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
             };
 
             return gridOptions;
