@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         public string GetTeamName(int teamId)
         {
             var teamIdString = teamId.ToString();
-            return RefData.GetTeamName(teamIdString, "en");
+            return RefData.GetTeamName(teamIdString, "en", string.Empty);
         }
     }
 }
