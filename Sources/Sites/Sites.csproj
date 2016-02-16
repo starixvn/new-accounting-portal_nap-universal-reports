@@ -149,6 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\common\breadcrumbHelper.js" />
     <Content Include="app\company-winloss\keno\keno-bet-type.controller.js" />
     <Content Include="app\company-winloss\level\level.directive.js" />
     <Content Include="app\company-winloss\keno\keno-site.controller.js" />
@@ -166,6 +167,7 @@
     <Content Include="app\company-winloss\number-game\number-game.html" />
     <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
+    <Content Include="app\company-winloss\virtual-sports\virtual-sports-site.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-detail.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-bet-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.controller.js" />

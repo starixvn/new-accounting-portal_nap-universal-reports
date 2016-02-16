@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsBetTypeController', VirtualSportsBetTypeController);
 
-    VirtualSportsBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'sites', 'companyWinlossService', 'virtualSportsService'];
+    function VirtualSportsBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, sites, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -27,14 +27,24 @@
                 betTypeName: betTypeName
             });
         };
+        $scope.generateCreditSite = function (betType, betTypeName) {
+            generateSite(betType, betTypeName, sites.CREDIT);
+        };
+        $scope.generateDepositSite = function (betType, betTypeName) {
+            generateSite(betType, betTypeName, sites.DEPOSIT);
+        };
+
+        function generateSite(betType, betTypeName, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site
+            });
+        };
 
         function show() {
-
             gridElement.fanexGrid('resizeGrid');
-            setTimeout(function () {
-                gridElement.fanexGrid('resizeGrid');
-                console.log('again');
-            }, 10000);
         }
 
         function generate(startDate, endDate) {
@@ -104,21 +114,22 @@
         }
 
         function createBetTypeWinLossDataRow(betTypeWinLossItem) {
+            var betTypeName = betTypeWinLossItem.Total.Name;
             return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true),
+                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName),
                 SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false) }
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateCreditSite', betTypeName) },
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateDepositSite', betTypeName) }
                 ]
             };
         }
 
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
+        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName) {
+            var sportTypeColumn = !generateFunc
                 ? { Name: "BetType", Value: winLoss.Name }
                 : {
                     Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateDetail(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\')">' + winLoss.Name + '</a>';
                     }
                 };
             if (isTextRight) {
