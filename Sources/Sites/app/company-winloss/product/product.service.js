@@ -3,10 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .factory('mainService', mainService);
+        .factory('productService', productService);
 
-    mainService.$inject = ['$http', 'logger'];
-    function mainService($http, logger) {
+    productService.$inject = ['$http', 'logger'];
+    function productService($http, logger) {
         var service = {
             getData: getData
         };

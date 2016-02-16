@@ -43,6 +43,10 @@
                 var gridModel = companyWinlossService.gridModel;
                 var levelSetting = undefined;
                 switch ($scope.level) {
+                    case levels.PRODUCT:
+                        levelSetting = levelSettings.product;
+                        break;
+
                     case levels.SPORT_TYPE:
                         levelSetting = levelSettings[gridModel.productName].sportType;
                         break;

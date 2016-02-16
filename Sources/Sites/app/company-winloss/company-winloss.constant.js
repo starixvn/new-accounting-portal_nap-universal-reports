@@ -11,6 +11,10 @@
     };
 
     var levelSettings = {
+        'product': {
+            templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+            controller: 'ProductController'
+        },
         'Number Game': {
             level: levels.BET_TYPE,
             betType: {

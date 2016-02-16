@@ -50,7 +50,7 @@
         function createGridOptions(data) {
             var columns = [
                  { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "HomeName", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "center" },
+                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "center", MergeHeaderColNumber: 3 },
                  { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -61,23 +61,8 @@
                  { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Code", Name: "Code" },
-                { HeaderText: "Event", Name: "HomeName", MergeColNumber: 3 },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss" },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss" },
-                { HeaderText: "Commission", Name: "Commission" },
-                { HeaderText: "Company Income", Name: "RealIncome" },
-                { HeaderText: "Company Turnover", Name: "RealTurnover" },
-                { HeaderText: "Margin", Name: "RealMargin" }
-            ];
-
             var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
                 columns: columns,
                 bodyRows: createBodyData(data),
                 showTitle: true,
@@ -106,12 +91,24 @@
             return bodyData;
         }
 
-        function createWinLossDataRow(winLoss, isFooter) {
+        function createWinLossDataRow(winLoss) {
             return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: isFooter ? 'text-right' : '' },
+                { Name: "Code", Value: winLoss.MatchCode },
                 { Name: "HomeName", Value: winLoss.HomeName },
                 { Name: "vs", Value: '-vs-' },
                 { Name: "AwayName", Value: winLoss.AwayName },
+                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
+                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
+                { Name: "Commission", Value: winLoss.Commission },
+                { Name: "RealIncome", Value: winLoss.RealIncome },
+                { Name: "RealTurnover", Value: winLoss.RealTurnover },
+                { Name: "RealMargin", Value: winLoss.Margin }
+            ];
+        }
+
+        function createWinLossDataRowFooter(winLoss) {
+            return [
+                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
@@ -126,7 +123,7 @@
             var total = data.Total;
             total.MatchCode = gridModel.betTypeName + ' Total';
             return [
-                { Columns: createWinLossDataRow(total, true) }
+                { Columns: createWinLossDataRowFooter(total) }
             ];
         }
 
