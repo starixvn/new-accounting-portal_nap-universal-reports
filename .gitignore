@@ -35,3 +35,4 @@ Fanex.Oneyed.WebService/*.xml
 .sass-cache
 .vs/
 _Chutzpah*
+/Sources/Sites/node_modules
