@@ -7,12 +7,13 @@
 
     VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService', 'breadcrumbHelper'];
     function VirtualSportsRacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
         function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             virtualSportsService.getRacingMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -95,7 +96,6 @@
         }
 
         function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
             var total = data.Total;
             total.MatchCode = gridModel.betTypeName + ' Total';
             return [

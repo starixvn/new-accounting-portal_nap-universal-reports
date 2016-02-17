@@ -7,12 +7,13 @@
 
     NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
     function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             numberGameService.getSite(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType, gridModel.site).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -32,7 +33,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
+                 { HeaderText: gridModel.site + " Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -51,7 +52,6 @@
                 { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [

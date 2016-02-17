@@ -5,24 +5,18 @@
         .module('companyWinlossApp')
         .controller('KenoBetTypeController', KenoBetTypeController);
 
-    KenoBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService'];
-    function KenoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
+    KenoBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService', 'breadcrumbHelper'];
+    function KenoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = generateProduct;
         $scope.generateSite = generateSite;
 
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        
-        function generateSite(betType, site) {
+        function generateSite(betType, betTypeName, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,
+                betTypeName: betTypeName,
                 site: site
             });
         };
@@ -46,11 +40,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -73,7 +65,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -98,21 +90,22 @@
         }
 
         function createBetTypeWinLossDataRow(bettypeItem) {
+            var betTypeName = bettypeItem.Total.Name;
             return {
                 Columns: createWinLossDataRow(bettypeItem.Total, true),
                 SubRows: [
-                    { Columns: createWinLossDataRow(bettypeItem.Credit, false) },
-                    { Columns: createWinLossDataRow(bettypeItem.Deposit, false) }
+                    { Columns: createWinLossDataRow(bettypeItem.Credit, false, betTypeName) },
+                    { Columns: createWinLossDataRow(bettypeItem.Deposit, false, betTypeName) }
                 ]
             };
         }
 
-        function createWinLossDataRow(winLoss, isTotal) {
-            var betTypeColumn = isTotal ? createBetTypeTotalColumn(winLoss) : createBetTypeSiteColumn(winLoss);
+        function createWinLossDataRow(winLoss, isTotal, betTypeName) {
+            var betTypeColumn = isTotal ? createBetTypeTotalColumn(winLoss) : createBetTypeSiteColumn(winLoss, betTypeName);
             var remainColumn = createColumnWithoutBetType(winLoss);
             return betTypeColumn.concat(remainColumn);
         }
-        
+
         function createBetTypeTotalColumn(winLoss) {
             return [{
                 Name: "Name",
@@ -120,13 +113,13 @@
             }];
         }
 
-        function createBetTypeSiteColumn(winLoss) {
+        function createBetTypeSiteColumn(winLoss, betTypeName) {
             return [{
                 Name: "Name",
                 Value: winLoss.Name,
                 CellAlign: 'right',
                 CustomCellRender: function (cellValue) {
-                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + betTypeName + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                 }
             }];
         }

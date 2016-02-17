@@ -5,19 +5,12 @@
         .module('companyWinlossApp')
         .controller('RacingSportTypeController', RacingSportTypeController);
 
-    RacingSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
+    RacingSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService', 'breadcrumbHelper'];
+    function RacingSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;       
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
+        $scope.generateBetType = generateBetType;
 
         function generateBetType(sportType, sportTypeName) {
             companyWinlossService.generate({
@@ -45,11 +38,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -72,7 +63,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel

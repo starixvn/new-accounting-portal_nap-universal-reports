@@ -7,6 +7,8 @@
 
     VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService', 'breadcrumbHelper'];
     function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -21,7 +23,7 @@
         };
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
+            var dateRange = filterModel.getDateRange();
             virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
                 renderGrid(gridElement, data);
                 compileLinks();

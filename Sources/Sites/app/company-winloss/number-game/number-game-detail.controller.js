@@ -7,12 +7,13 @@
 
     NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
     function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
         function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             numberGameService.getMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -41,7 +42,6 @@
                  { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 columns: columns,
                 bodyRows: createBodyData(data),
@@ -97,7 +97,6 @@
         }
 
         function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
             var total = data.Total;
             total.Name = gridModel.betTypeName + ' Total';
             return [

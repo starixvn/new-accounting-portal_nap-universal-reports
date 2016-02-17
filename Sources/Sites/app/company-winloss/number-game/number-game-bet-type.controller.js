@@ -7,6 +7,8 @@
 
     NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
     function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
@@ -35,7 +37,7 @@
         };
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
+            var dateRange = filterModel.getDateRange();
             numberGameService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
                 var nonLiveData = {
                     IsLive: false,

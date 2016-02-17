@@ -5,16 +5,14 @@
         .module('companyWinlossApp')
         .controller('RacingBetTypeController', RacingBetTypeController);
 
-    RacingBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
+    RacingBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService', 'breadcrumbHelper'];
+    function RacingBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
         $scope.generateSite = generateSite;
         $scope.generateDetail = generateDetail;
-        
+
         function generateDetail(betType, betTypeName) {
             companyWinlossService.generate({
                 level: levels.DETAIL,
@@ -23,22 +21,11 @@
             });
         };
 
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateSite(betType, site) {
+        function generateSite(betType, betTypeName, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,
+                betTypeName: betTypeName,
                 site: site
             });
         };
@@ -62,11 +49,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -89,7 +74,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
@@ -114,22 +99,23 @@
         }
 
         function createBetTypeWinLossDataRow(betTypeWinLossItem) {
+            var betTypeName = betTypeWinLossItem.Total.Name;
             return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true),
+                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true, betTypeName),
                 SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false) }
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false, betTypeName) },
+                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false, betTypeName) }
                 ]
             };
         }
 
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
+        function createWinLossDataRow(winLoss, isTextRight, isTotal, betTypeName) {
             var sportTypeColumn = !isTotal
                 ? {
                     Name: "BetType",
                     Value: winLoss.Name,
                     CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + betTypeName + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 }
                 : {

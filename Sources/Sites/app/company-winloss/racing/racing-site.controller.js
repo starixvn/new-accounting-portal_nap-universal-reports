@@ -5,25 +5,11 @@
         .module('companyWinlossApp')
         .controller('RacingSiteController', RacingSiteController);
 
-    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
+    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService', 'breadcrumbHelper'];
+    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = generateProduct;        
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
 
         function show() {
             gridElement.fanexGrid('resizeGrid');
@@ -44,11 +30,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -83,7 +67,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
