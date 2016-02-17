@@ -43,12 +43,12 @@
             detail: function (gridModel) {
                 if (gridModel.sportType >= 181 && gridModel.sportType <= 185) {
                     return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-detail.html',
                         controller: 'VirtualSportsRacingDetailController'
                     }
                 } else {
                     return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-detail.html',
                         controller: 'VirtualSportsSportsbookDetailController'
                     }
                 }
