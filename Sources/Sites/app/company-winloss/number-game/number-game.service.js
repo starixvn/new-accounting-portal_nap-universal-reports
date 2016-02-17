@@ -12,6 +12,7 @@
             getMatchDetail: getMatchDetail,
             getSite: getSite
         };
+
         return service;
 
         function getBetType(startDate, endDate) {

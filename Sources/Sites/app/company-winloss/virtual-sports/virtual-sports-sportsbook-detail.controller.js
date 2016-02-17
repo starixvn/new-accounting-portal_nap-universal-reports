@@ -9,17 +9,23 @@
     function VirtualSportsSportsbookDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = function () {
+        $scope.generateProduct = generateProduct;
+        $scope.generateSportType = generateSportType;
+        $scope.generateBetType = generateBetType;
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });
         };
-        $scope.generateSportType = function () {
+
+        function generateSportType() {
             companyWinlossService.generate({
                 level: levels.SPORT_TYPE
             });
         };
-        $scope.generateBetType = function () {
+
+        function generateBetType() {
             companyWinlossService.generate({
                 level: levels.BET_TYPE
             });

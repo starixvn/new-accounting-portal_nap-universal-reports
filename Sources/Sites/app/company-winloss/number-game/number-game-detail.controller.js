@@ -9,12 +9,16 @@
     function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = function () {
+        $scope.generateProduct = generateProduct;       
+        $scope.generateBetType = generateBetType;
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });
         };
-        $scope.generateBetType = function () {
+
+        function generateBetType() {
             companyWinlossService.generate({
                 level: levels.BET_TYPE
             });

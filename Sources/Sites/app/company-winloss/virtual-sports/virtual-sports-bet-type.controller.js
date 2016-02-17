@@ -10,24 +10,32 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = function () {
+        $scope.generateProduct = generateProduct;
+        $scope.generateSportType = generateSportType;
+        $scope.generateDetail = generateDetail;
+        $scope.generateSite = generateSite;
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });
         };
-        $scope.generateSportType = function () {
+
+        function generateSportType() {
             companyWinlossService.generate({
                 level: levels.SPORT_TYPE
             });
         };
-        $scope.generateDetail = function (betType, betTypeName) {
+
+        function generateDetail(betType, betTypeName) {
             companyWinlossService.generate({
                 level: levels.DETAIL,
                 betType: betType,
                 betTypeName: betTypeName
             });
         };
-        $scope.generateSite = function (betType, betTypeName, site) {
+
+        function generateSite(betType, betTypeName, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,

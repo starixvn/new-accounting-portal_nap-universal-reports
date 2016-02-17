@@ -10,14 +10,18 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateBetType = function (sportType, sportTypeName) {
+        $scope.generateBetType = generateBetType;
+        $scope.generateProduct = generateProduct;
+
+        function generateBetType(sportType, sportTypeName) {
             companyWinlossService.generate({
                 level: levels.BET_TYPE,
                 sportType: sportType,
                 sportTypeName: sportTypeName
             });
         };
-        $scope.generateProduct = function () {
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });

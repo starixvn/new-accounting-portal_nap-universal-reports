@@ -12,12 +12,17 @@
         var liveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = function () {
+        $scope.generateProduct = generateProduct;       
+        $scope.generateDetail = generateDetail;        
+        $scope.generateSite = generateSite;
+
+        function generateProduct() {
             companyWinlossService.generate({
                 level: levels.PRODUCT
             });
         };
-        $scope.generateDetail = function (betType, betTypeName, isLive) {
+
+        function generateDetail(betType, betTypeName, isLive) {
             companyWinlossService.generate({
                 level: levels.DETAIL,
                 betType: betType,
@@ -25,7 +30,8 @@
                 isLive: isLive
             });
         };
-        $scope.generateSite = function (betType, betTypeName, isLive, site) {
+
+        function generateSite(betType, betTypeName, isLive, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,

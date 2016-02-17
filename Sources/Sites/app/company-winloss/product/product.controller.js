@@ -10,7 +10,9 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = function (productName) {
+        $scope.generateProduct = generateProduct;
+
+        function generateProduct(productName) {
             var level = levelSettings[productName].level;
             companyWinlossService.generate({
                 level: level,
