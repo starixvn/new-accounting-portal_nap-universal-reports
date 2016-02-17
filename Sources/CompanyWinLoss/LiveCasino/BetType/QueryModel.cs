@@ -1,7 +1,7 @@
 ﻿using System;
 using UniversalReports.MVC.Validation;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
     public class QueryModel
     {

@@ -160,7 +160,10 @@
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="app\company-winloss\live-casino\live-casino.controller.js" />
+    <Content Include="app\company-winloss\live-casino\live-casino-bet-type.controller.js" />
+    <Content Include="app\company-winloss\live-casino\live-casino-site.controller.js" />
+    <Content Include="app\company-winloss\live-casino\live-casino-third-party-product.controller.js" />
+    <Content Include="app\company-winloss\live-casino\live-casino.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game.service.js" />

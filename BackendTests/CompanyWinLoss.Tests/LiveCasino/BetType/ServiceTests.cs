@@ -1,10 +1,10 @@
 ﻿using Fanex.Data.Configuration;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.LiveCasino.GameType;
+using UniversalReports.CompanyWinLoss.LiveCasino.BetType;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
-namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.BetType
 {
     [TestFixture]
     [Category("LiveCasinoIntegrationTests")]
@@ -41,7 +41,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.GameType
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
             return new ServiceImp(rawService, calculationService);
         }

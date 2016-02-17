@@ -15,7 +15,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-LiveCasino-{Source}";
+            return $"CompanyWinLoss-LiveCasino-ThirdPartyProduct-{Source}";
         }
     }
 }

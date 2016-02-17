@@ -44,9 +44,11 @@
     <Setting Key="CompanyWinLoss-Racing-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Live Casino">
-    <Setting Key="CompanyWinLoss-LiveCasino-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-LiveCasino-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-LiveCasino-ProductDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ProductDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-LiveCasino-ProductDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ProductDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-ThirdPartyProduct-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-ThirdPartyProduct-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
 </Functions>

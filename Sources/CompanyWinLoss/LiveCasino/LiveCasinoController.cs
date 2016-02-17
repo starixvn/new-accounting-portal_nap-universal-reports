@@ -1,27 +1,29 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using gameType = UniversalReports.CompanyWinLoss.LiveCasino.GameType;
+using betType = UniversalReports.CompanyWinLoss.LiveCasino.BetType;
 using thirdPartyProduct = UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct;
 
 namespace UniversalReports.CompanyWinLoss.LiveCasino
 {
+    [RoutePrefix("api/company-win-loss/live-casino")]
     public class LiveCasinoController : ApiController
     {
-        private thirdPartyProduct.Service _sumamaryService;
-        private gameType.Service _productDetailService;
+        private thirdPartyProduct.Service _thirdPartyProductService;
+        private betType.Service _betTypeService;
         private readonly SiteService _siteService;
 
         public LiveCasinoController(
-            thirdPartyProduct.Service summaryService,
-            gameType.Service productDetailService,
+            thirdPartyProduct.Service thirdPartyProductService,
+            betType.Service betTypeService,
             SiteService siteService)
         {
-            _sumamaryService = summaryService;
-            _productDetailService = productDetailService;
+            _thirdPartyProductService = thirdPartyProductService;
+            _betTypeService = betTypeService;
             _siteService = siteService;
         }
 
+        [Route("third-party-product")]
         public thirdPartyProduct.WinLossModel ThirdPartyProduct(thirdPartyProduct.QueryModel queryModel)
         {
             var criteria = new thirdPartyProduct.Criteria
@@ -31,13 +33,14 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino
             };
 
             return ModelState.IsValid 
-                ? _sumamaryService.Query(criteria) 
+                ? _thirdPartyProductService.Query(criteria) 
                 : null;
         }
 
-        public gameType.WinLossModel GameType(gameType.QueryModel queryModel)
+        [Route("bet-type")]
+        public betType.WinLossModel BetType(betType.QueryModel queryModel)
         {
-            var criteria = new gameType.Criteria
+            var criteria = new betType.Criteria
             {
                 StartDate = queryModel.StartDate,
                 EndDate = queryModel.EndDate,
@@ -45,7 +48,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino
             };
 
             return ModelState.IsValid
-                ? _productDetailService.Query(criteria)
+                ? _betTypeService.Query(criteria)
                 : null;
         }
 

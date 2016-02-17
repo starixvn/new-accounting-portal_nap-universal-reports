@@ -1,7 +1,7 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
     public class Criteria : WinLossCriteria
     {
@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.GameType
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-LiveCasino-ProductDetail-{Source}";
+            return $"CompanyWinLoss-LiveCasino-BetType-{Source}";
         }
     }
 }

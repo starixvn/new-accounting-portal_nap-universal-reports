@@ -34,6 +34,7 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.SiteGridOptionService, CommonServices.SiteGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeService, CommonServices.BetTypeServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeService, CommonServices.SportTypeServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.BalanceUpSummationService, NumberGame.BetType.BalanceUpSummationServiceImp>(Lifestyle.Transient);
@@ -49,7 +50,7 @@ namespace UniversalReports.Sites
             container.Register<VirtualSports.SportsbookMatchDetail.Service, VirtualSports.SportsbookMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<LiveCasino.ThirdPartyProduct.Service, LiveCasino.ThirdPartyProduct.ServiceImp>(Lifestyle.Transient);
-            container.Register<LiveCasino.GameType.Service, LiveCasino.GameType.ServiceImp>(Lifestyle.Transient);
+            container.Register<LiveCasino.BetType.Service, LiveCasino.BetType.ServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

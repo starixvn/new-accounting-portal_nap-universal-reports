@@ -6,10 +6,10 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
 {
     public class ServiceImp : Service
     {
-        private RawService _rawService;
+        private RawWinLossService _rawService;
         private CalculationService _calculationService;
 
-        public ServiceImp(RawService rawService, CalculationService calculationService)
+        public ServiceImp(RawWinLossService rawService, CalculationService calculationService)
         {
             _rawService = rawService;
             _calculationService = calculationService;

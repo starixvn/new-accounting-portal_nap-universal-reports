@@ -29,7 +29,8 @@
         function updateGridModel(data) {
             this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
             this.gridModel.productName = angular.isDefined(data.productName) ? data.productName : this.gridModel.productName;
-            this.gridModel.subProductName = angular.isDefined(data.subProductName) ? data.subProductName : this.gridModel.subProductName;
+            this.gridModel.thirdPartyProductId = angular.isDefined(data.thirdPartyProductId) ? data.thirdPartyProductId : this.gridModel.thirdPartyProductId;
+            this.gridModel.thirdPartyProductName = angular.isDefined(data.thirdPartyProductName) ? data.thirdPartyProductName : this.gridModel.thirdPartyProductName;
             this.gridModel.sportType = angular.isDefined(data.sportType) ? data.sportType : this.gridModel.sportType;
             this.gridModel.sportTypeName = angular.isDefined(data.sportTypeName) ? data.sportTypeName : this.gridModel.sportTypeName;
             this.gridModel.isLive = angular.isDefined(data.isLive) ? data.isLive : this.gridModel.isLive;

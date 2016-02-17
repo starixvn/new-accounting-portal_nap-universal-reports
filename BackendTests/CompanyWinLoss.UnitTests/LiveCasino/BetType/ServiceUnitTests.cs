@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.LiveCasino.GameType;
+using UniversalReports.CompanyWinLoss.LiveCasino.BetType;
 using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.BetType
 {
     [TestFixture]
     [Category("Live Casino")]
     public class ServiceUnitTests
     {
         [Test]
-        public void Query_Should_Return_Right_GameTypeWinLoss()
+        public void Query_Should_Return_Right_BetTypeWinLoss()
         {
             // Arrange
-            var expectedProductDetailWinLoss = CreateExpectedGameTypeWinLoss();
-            var rawService = Substitute.For<RawService>();
+            var expectedProductDetailWinLoss = CreateExpectedBetTypeWinLoss();
+            var rawService = Substitute.For<RawWinLossService>();
             var calculationService = new CalculationServiceImp();
             var fakeRawWinLoss = CreateFakeRawWinLoss();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeRawWinLoss);
@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.GameType
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal1 = WinLossComparision.AreTwoSiteWinLossSummaryListEqual(result.GameTypes, expectedProductDetailWinLoss.GameTypes);
+            var equal1 = WinLossComparision.AreTwoSiteWinLossSummaryListEqual(result.BetTypes, expectedProductDetailWinLoss.BetTypes);
             var equal2 = WinLossComparision.AreTwoSiteWinLossSummaryEqual(result.GrandTotal, expectedProductDetailWinLoss.GrandTotal);
             Assert.IsTrue(equal1);
             Assert.IsTrue(equal2);
@@ -54,29 +54,29 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.GameType
                 sliLiveBaccaratDepositWinLoss };
         }
 
-        private WinLossModel CreateExpectedGameTypeWinLoss()
+        private WinLossModel CreateExpectedBetTypeWinLoss()
         {
             return new WinLossModel
             {
-                GameTypes = CreateExpectGameType(),
+                BetTypes = CreateExpectBetType(),
                 GrandTotal = CreateExpectedGrandTotal()
             };
         }
 
-        private List<SiteWinLossSummary> CreateExpectGameType()
+        private List<SiteWinLossSummary> CreateExpectBetType()
         {
-            var partyBaccarat = CreateExpectedGameType(1101, "Party Baccarat");
-            var partyRoulette = CreateExpectedGameType(1102, "Party Roulette");
-            var liveBaccarat = CreateExpectedGameType(1103, "Live Baccarat");
+            var partyBaccarat = CreateExpectBetType(1101, "Party Baccarat");
+            var partyRoulette = CreateExpectBetType(1102, "Party Roulette");
+            var liveBaccarat = CreateExpectBetType(1103, "Live Baccarat");
 
             return new List<SiteWinLossSummary> { partyBaccarat, partyRoulette, liveBaccarat };
         }
 
-        private SiteWinLossSummary CreateExpectedGameType(int gameTypeId, string gameTypeName)
+        private SiteWinLossSummary CreateExpectBetType(int betType, string betTypeName)
         {
-            var creditWinLoss = WinLossFactory.CreateWinLoss(gameTypeId, "Credit", 100, 110, 10, 300, 600, -300, 600, 1000, 0.5m, 0.6m);
-            var depositWinLoss = WinLossFactory.CreateWinLoss(gameTypeId, "Deposit", 110, 120, 11, 100, 300, -200, 400, 500, 0.25m, 0.6m);
-            var totalWinLoss = WinLossFactory.CreateWinLoss(gameTypeId, gameTypeName, 210, 230, 21, 400, 900, -500, 1000, 1500, 0.4m, 0.6m);
+            var creditWinLoss = WinLossFactory.CreateWinLoss(betType, "Credit", 100, 110, 10, 300, 600, -300, 600, 1000, 0.5m, 0.6m);
+            var depositWinLoss = WinLossFactory.CreateWinLoss(betType, "Deposit", 110, 120, 11, 100, 300, -200, 400, 500, 0.25m, 0.6m);
+            var totalWinLoss = WinLossFactory.CreateWinLoss(betType, betTypeName, 210, 230, 21, 400, 900, -500, 1000, 1500, 0.4m, 0.6m);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
         }

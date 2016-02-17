@@ -47,6 +47,10 @@
                         levelSetting = levelSettings.product;
                         break;
 
+                    case levels.THIRD_PARTY_PRODUCT:
+                        levelSetting = levelSettings[gridModel.productName].thirdPartyProduct;
+                        break;
+
                     case levels.SPORT_TYPE:
                         levelSetting = levelSettings[gridModel.productName].sportType;
                         break;

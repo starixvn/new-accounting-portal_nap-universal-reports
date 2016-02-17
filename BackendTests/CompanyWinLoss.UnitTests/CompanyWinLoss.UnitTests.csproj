@@ -58,7 +58,7 @@
     <Compile Include="Common\SiteServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\CalculationServiceUnitTests.cs" />
-    <Compile Include="LiveCasino\GameType\ServiceUnitTests.cs" />
+    <Compile Include="LiveCasino\BetType\ServiceUnitTests.cs" />
     <Compile Include="LiveCasino\ThirdPartyProduct\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\RawServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />

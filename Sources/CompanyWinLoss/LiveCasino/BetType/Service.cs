@@ -1,6 +1,6 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
     public interface Service
     {

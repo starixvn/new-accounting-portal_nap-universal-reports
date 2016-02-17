@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.ThirdPartyProduct
         {
             // Arrange
             var expectedProductSummaryWinLoss = CreateExpectedThirdPartyProductWinLoss();
-            var rawService = Substitute.For<RawService>();
+            var rawService = Substitute.For<RawWinLossService>();
             var calculationService = new CalculationServiceImp();
             var fakeData = CreateFakeRawWinLoss();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);

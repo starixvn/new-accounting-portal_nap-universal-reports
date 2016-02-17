@@ -3,7 +3,7 @@
 
     var levels = {
         PRODUCT: 1,
-        SUB_PRODUCT: 2,
+        THIRD_PARTY_PRODUCT: 2,
         SPORT_TYPE: 3,
         BET_TYPE: 4,
         SITE: 5,
@@ -86,6 +86,21 @@
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'KenoSiteController'
+            }
+        },
+        'Live Casino': {
+            level: levels.THIRD_PARTY_PRODUCT,
+            thirdPartyProduct: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'LiveCasinoThirdPartyProductController'
+            },
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'LiveCasinoBetTypeController'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'LiveCasinoSiteController'
             }
         }
     };

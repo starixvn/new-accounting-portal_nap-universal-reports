@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino.GameType
+namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
     public class WinLossModel
     {
-        public List<SiteWinLossSummary> GameTypes { get; set; }
+        public List<SiteWinLossSummary> BetTypes { get; set; }
 
         public SiteWinLossSummary GrandTotal { get; set; }
     }

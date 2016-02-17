@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
     {
         public int BetType { get; set; }
 
-        public int Site { get; set; }
+        public string Site { get; set; }
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-LiveCasino-GameType-Site-{Source}";
+            return $"CompanyWinLoss-LiveCasino-Site-{Source}";
         }
     }
 }

@@ -40,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.ThirdPartyProduct
 
         private ServiceImp CreateService()
         {
-            var rawService = CreateRawService();
+            var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
             return new ServiceImp(rawService, calculationService);
         }
