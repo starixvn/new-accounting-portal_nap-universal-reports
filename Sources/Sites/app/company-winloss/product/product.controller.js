@@ -5,17 +5,18 @@
         .module('companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'productService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService'];
-    function ProductController($compile, $timeout, $element, $scope, formatStrings, productService, fanexGridHelper, levels, levelSettings, companyWinlossService) {
+    ProductController.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'productService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService', 'breadcrumbHelper'];
+    function ProductController($compile, $timeout, $element, $scope, formatStrings, productService, fanexGridHelper, levels, levelSettings, companyWinlossService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
         $scope.generateProduct = generateProduct;
 
         function generateProduct(productName) {
-            var level = levelSettings[productName].level;
+            var templates = levelSettings[productName].templates;
+            var firstTemplate = templates[0];
             companyWinlossService.generate({
-                level: level,
+                level: firstTemplate.level,
                 productName: productName
             });
         };
@@ -76,7 +77,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li class="active">PRODUCT WIN/LOSS REPORT</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope, false),
                     showCollapseExpandButton: true,
                     showExcelButton: true,
                     exportExcelFunction: exportExcel

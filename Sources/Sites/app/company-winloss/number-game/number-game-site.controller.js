@@ -5,24 +5,10 @@
         .module('companyWinlossApp')
         .controller('NumberGameSiteController', NumberGameSiteController);
 
-    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
+    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
+    function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
 
         function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
@@ -39,11 +25,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -78,7 +62,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope, gridModel.isLive),
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -122,7 +106,6 @@
         }
 
         function exportExcel() {
-
         }
     }
 })();

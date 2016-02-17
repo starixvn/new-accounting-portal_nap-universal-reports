@@ -5,31 +5,10 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSportsbookDetailController', VirtualSportsSportsbookDetailController);
 
-    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportsbookDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService', 'breadcrumbHelper'];
+    function VirtualSportsSportsbookDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
 
         function generate(startDate, endDate) {
             var dateRange = companyWinlossService.filterModel.getDateRange();
@@ -46,11 +25,9 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
@@ -67,14 +44,13 @@
                  { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 columns: columns,
                 bodyRows: createBodyData(data),
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -134,7 +110,6 @@
         }
 
         function exportExcel() {
-
         }
     }
 })();

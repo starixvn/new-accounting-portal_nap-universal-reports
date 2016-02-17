@@ -151,6 +151,7 @@
   <ItemGroup>
     <Content Include="app\company-winloss\common\breadcrumbHelper.js" />
     <Content Include="app\company-winloss\keno\keno-bet-type.controller.js" />
+    <Content Include="app\company-winloss\level\level.service.js" />
     <Content Include="app\company-winloss\level\level.directive.js" />
     <Content Include="app\company-winloss\keno\keno-site.controller.js" />
     <Content Include="app\company-winloss\keno\keno.service.js" />

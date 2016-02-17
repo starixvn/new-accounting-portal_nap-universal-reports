@@ -5,31 +5,10 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSiteController', VirtualSportsSiteController);
 
-    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService', 'breadcrumbHelper'];
+    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct =generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
 
         function generate() {
             var dateRange = companyWinlossService.filterModel.getDateRange();
@@ -74,7 +53,6 @@
                 { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [
@@ -85,7 +63,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + ' | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -129,7 +107,6 @@
         }
 
         function exportExcel() {
-
         }
     }
 })();

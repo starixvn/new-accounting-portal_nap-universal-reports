@@ -16,8 +16,8 @@
         };
         return directive;
 
-        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'config', 'levels', 'levelSettings', '$templateRequest', 'companyWinlossService'];
-        function controller($log, $compile, $timeout, $element, $scope, config, levels, levelSettings, $templateRequest, companyWinlossService) {
+        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService'];
+        function controller($log, $compile, $timeout, $element, $scope, levelService, $templateRequest, companyWinlossService) {
             var dateRange,
                 currentScope;
 
@@ -41,40 +41,10 @@
 
             function generate() {
                 var gridModel = companyWinlossService.gridModel;
-                var levelSetting = undefined;
-                switch ($scope.level) {
-                    case levels.PRODUCT:
-                        levelSetting = levelSettings.product;
-                        break;
-
-                    case levels.THIRD_PARTY_PRODUCT:
-                        levelSetting = levelSettings[gridModel.productName].thirdPartyProduct;
-                        break;
-
-                    case levels.SPORT_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].sportType;
-                        break;
-
-                    case levels.BET_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].betType;
-                        break;
-
-                    case levels.SITE:
-                        levelSetting = levelSettings[gridModel.productName].site;
-                        break;
-
-                    case levels.DETAIL:
-                        levelSetting = levelSettings[gridModel.productName].detail;
-                        break;
-                }
-
+                var levelSetting = levelService.getSetting();
                 if (angular.isUndefined(levelSetting)) {
                     $log.error('Product level setting is undefined');
                     return;
-                }
-
-                if (angular.isFunction(levelSetting)) {
-                    levelSetting = levelSetting(gridModel);
                 }
 
                 $templateRequest(levelSetting.templateUrl, true).then(function (response) {
