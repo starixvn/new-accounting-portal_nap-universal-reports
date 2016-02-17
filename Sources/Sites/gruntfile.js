@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                 // select the files to concatenate
                 src: ['app/company-winloss/*.js', 'app/company-winloss/**/*.js'],
                 // the resulting JS file
-                dest: 'app/company-winloss/company-win-loss-concat.js'
+                dest: 'app/company-win-loss-concat.js'
             },
             app: {
                 options: {
