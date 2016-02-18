@@ -31,4 +31,8 @@
     <Setting Key="CompanyWinLoss-LiveCasino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-LiveCasino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Bettrade">
+    <Setting Key="CompanyWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

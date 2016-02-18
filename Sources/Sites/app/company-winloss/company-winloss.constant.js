@@ -105,7 +105,19 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'LiveCasinoSiteController'
             }]
-        }
+        },
+        'Bettrade': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BettradeBetTypeController'
+            },
+                {
+                    level: levels.SITE,
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'BettradeSiteController'
+                }]
+        },
     };
 
     angular
