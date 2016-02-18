@@ -88,6 +88,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bettrade\BettradeController.cs" />
+    <Compile Include="Bettrade\BetType\Criteria.cs" />
+    <Compile Include="Bettrade\BetType\QueryModel.cs" />
+    <Compile Include="Bettrade\Site\Criteria.cs" />
+    <Compile Include="Bettrade\Site\QueryModel.cs" />
     <Compile Include="Common\Criteria\BalanceUpCriteria.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\Models\BalanceUpRange.cs" />
