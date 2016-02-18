@@ -12,6 +12,7 @@
         var service = {
             generateHtml: generateHtml,
             generateList: generateList,
+            generateText: generateText,
             compile: compile
         };
         return service;
@@ -20,12 +21,12 @@
             var breadcrumbItems = [];
             if (gridModel.level === levels.PRODUCT) {
                 breadcrumbItems.push({
-                    text: 'PRODUCT WIN/LOSS REPORT',
+                    text: 'Product Win/Loss Report',
                     level: levels.PRODUCT
                 });
             } else {
                 breadcrumbItems.push({
-                    text: 'MAIN',
+                    text: 'Main',
                     level: levels.PRODUCT
                 });
                 var level = levels.PRODUCT;
@@ -80,7 +81,7 @@
 
         function getLiveText(isLive) {
             return angular.isDefined(isLive)
-                ? isLive ? ' "LIVE"' : ' "NON-LIVE"'
+                ? isLive ? ' "Live"' : ' "Non-Live"'
                 : '';
         }
 
@@ -93,14 +94,14 @@
                 case levels.SPORT_TYPE:
                 case levels.BET_TYPE:
                     return isLast
-                        ? breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' PRODUCT WIN/LOSS REPORT'
+                        ? breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' Product Win/Loss Report'
                         : breadcrumbItem.text;
 
                 case levels.DETAIL:
                     return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive);
 
                 case levels.SITE:
-                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' | PRODUCT WIN LOSS REPORT BY ' + gridModel.site + ' SITE</li>'
+                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' | Product Win Loss By ' + gridModel.site + ' Site'
             }
         }
 
@@ -115,6 +116,12 @@
             }
 
             return list;
+        }
+
+        function generateText(isLive) {
+            var list = this.generateList(isLive);
+            return list.join(' > ');
+
         }
 
         function generateHtml(scope, isLive) {
