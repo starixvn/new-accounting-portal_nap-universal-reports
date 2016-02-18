@@ -16,6 +16,7 @@
         function generate() {
             var dateRange = filterModel.getDateRange();
             liveCasinoService.getSite(dateRange.startDate, dateRange.endDate, gridModel.betType, gridModel.site).then(function (data) {
+                console.log(data);
                 renderGrid(data);
                 compileLinks();
             });
@@ -26,8 +27,8 @@
         }
 
         function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
+            //var gridOptions = createGridOptions(data);
+            gridElement.fanexGrid(data);
         }
 
         function compileLinks() {

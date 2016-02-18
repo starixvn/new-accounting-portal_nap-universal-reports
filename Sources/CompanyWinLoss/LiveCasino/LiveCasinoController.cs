@@ -1,8 +1,10 @@
-﻿using System.Web.Http;
+﻿using Fanex.Excel.Models;
+using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using betType = UniversalReports.CompanyWinLoss.LiveCasino.BetType;
 using thirdPartyProduct = UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct;
+using Fanex.Excel.Extensions;
 
 namespace UniversalReports.CompanyWinLoss.LiveCasino
 {
@@ -12,15 +14,18 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino
         private thirdPartyProduct.Service _thirdPartyProductService;
         private betType.Service _betTypeService;
         private readonly SiteService _siteService;
+        private readonly SiteGridOptionService _siteGridOptionService;
 
         public LiveCasinoController(
             thirdPartyProduct.Service thirdPartyProductService,
             betType.Service betTypeService,
-            SiteService siteService)
+            SiteService siteService,
+            SiteGridOptionService siteGridOptionService)
         {
             _thirdPartyProductService = thirdPartyProductService;
             _betTypeService = betTypeService;
             _siteService = siteService;
+            _siteGridOptionService = siteGridOptionService;
         }
 
         [Route("third-party-product")]
@@ -53,19 +58,25 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino
         }
 
         [Route("site")]
-        public SiteWinLoss Site(Site.QueryModel queryModel)
+        public IHttpActionResult Site(Site.QueryModel queryModel)
         {
-            var criteria = new Site.Criteria
+            if(ModelState.IsValid)
             {
-                StartDate = queryModel.StartDate,
-                EndDate = queryModel.EndDate,
-                BetType = queryModel.BetType,
-                Site = queryModel.Site
-            };
+                var criteria = new Site.Criteria
+                {
+                    StartDate = queryModel.StartDate,
+                    EndDate = queryModel.EndDate,
+                    BetType = queryModel.BetType,
+                    Site = queryModel.Site
+                };
 
-            return ModelState.IsValid
-                ? _siteService.Query(criteria)
-                : null;
+                var siteWinLoss = _siteService.Query(criteria);
+                var gridOptions = _siteGridOptionService.FromSiteWinLoss(siteWinLoss, queryModel.Site);
+
+                return Json(gridOptions);
+            }
+
+            return null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Formatting;
+﻿using Newtonsoft.Json.Serialization;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace UniversalReports.Sites
