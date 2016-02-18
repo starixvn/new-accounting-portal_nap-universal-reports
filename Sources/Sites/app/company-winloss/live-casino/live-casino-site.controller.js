@@ -38,7 +38,7 @@
 
         function createGridOptions(data) {
             var columns = [
-                 { HeaderText: gridModel.site, Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
+                 { HeaderText: gridModel.site + ' Site', Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },

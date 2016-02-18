@@ -121,7 +121,6 @@
         function generateText(isLive) {
             var list = this.generateList(isLive);
             return list.join(' > ');
-
         }
 
         function generateHtml(scope, isLive) {

@@ -148,6 +148,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\bettrade\bettrade-bet-type.controller.js" />
+    <Content Include="app\company-winloss\bettrade\bettrade-site.controller.js" />
+    <Content Include="app\company-winloss\bettrade\bettrade.service.js" />
     <Content Include="app\company-winloss\common\breadcrumbHelper.js" />
     <Content Include="app\company-winloss\keno\keno-bet-type.controller.js" />
     <Content Include="app\company-winloss\level\level.service.js" />

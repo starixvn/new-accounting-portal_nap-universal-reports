@@ -73,7 +73,6 @@
             return bodyData;
         }
 
-
         function appendLeagueHeaderRow(bodyData, leagueData) {
             var leagueRowHeader = {
                 Columns: [{
@@ -84,7 +83,6 @@
         }
 
         function appendRaceWinLossDataRow(bodyData, leagueData) {
-
             var races = leagueData.Races;
             for (var i = 0; i < races.length; i++) {
                 appendRaceDataRow(bodyData, races[i], "center");
@@ -121,7 +119,6 @@
         }
 
         function exportExcel() {
-
         }
     }
 })();

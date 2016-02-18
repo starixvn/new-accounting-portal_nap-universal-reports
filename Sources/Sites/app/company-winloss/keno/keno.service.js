@@ -19,7 +19,7 @@
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
-      
+
         function getSite(startDate, endDate, betType, site) {
             var data = {
                 startDate: startDate,
