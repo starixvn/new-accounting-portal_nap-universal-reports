@@ -119,7 +119,7 @@
                 Value: winLoss.Name,
                 CellAlign: 'right',
                 CustomCellRender: function (cellValue) {
-                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + betTypeName + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + "Bettrade" + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                 }
             }];
         }
