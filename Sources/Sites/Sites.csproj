@@ -31,7 +31,6 @@
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
-    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,8 +53,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
@@ -86,8 +85,8 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
@@ -131,8 +130,8 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -213,12 +212,6 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="images\loading\loading.gif" />
-    <None Include="Scripts\angular-animate.min.js.map" />
-    <None Include="Scripts\angular-aria.min.js.map" />
-    <None Include="Scripts\angular-cookies.min.js.map" />
-    <None Include="Scripts\angular-loader.min.js.map" />
-    <None Include="Scripts\angular-message-format.min.js.map" />
-    <None Include="Scripts\angular-messages.min.js.map" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
     <Content Include="javascripts\bootstrap.min.js" />
@@ -234,209 +227,6 @@
     <Content Include="javascripts\bootstrap\tab.js" />
     <Content Include="javascripts\bootstrap\tooltip.js" />
     <Content Include="javascripts\bootstrap\transition.js" />
-    <Content Include="Scripts\angular-moment.js" />
-    <Content Include="Scripts\angular-moment.min.js" />
-    <Content Include="Scripts\angular-moment.min.js.map" />
-    <None Include="Scripts\angular-resource.min.js.map" />
-    <None Include="Scripts\angular-route.min.js.map" />
-    <None Include="Scripts\angular-sanitize.min.js.map" />
-    <None Include="Scripts\angular-touch.min.js.map" />
-    <None Include="Scripts\angular.min.js.map" />
-    <None Include="Scripts\errors.json" />
-    <Content Include="app\app.config.js" />
-    <Content Include="app\components\date-picker.directive.html" />
-    <Content Include="app\components\date-picker.directive.js" />
-    <Content Include="app\components\month-picker.directive.html" />
-    <Content Include="app\components\month-picker.directive.js" />
-    <Content Include="images\filter\legend-information-hover.png" />
-    <Content Include="images\filter\legend-information.png" />
-    <Content Include="images\filter\note-collapse.png" />
-    <Content Include="images\filter\note-expand.png" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
-    <Content Include="Scripts\Fanex.Grid.css" />
-    <Content Include="Scripts\Fanex.Grid.js" />
-    <Content Include="Scripts\Fanex.Pagination.css" />
-    <Content Include="Scripts\Fanex.Pagination.js" />
-    <Content Include="Scripts\images\back-icon.png" />
-    <Content Include="Scripts\images\check-box.png" />
-    <Content Include="Scripts\images\collapse-icon.png" />
-    <Content Include="Scripts\images\collapse-small.png" />
-    <Content Include="Scripts\images\excel-icon.png" />
-    <Content Include="Scripts\images\expand-icon.png" />
-    <Content Include="Scripts\images\expand-small.png" />
-    <Content Include="Scripts\images\go-hover-icon.png" />
-    <Content Include="Scripts\images\send-mail.png" />
-    <Content Include="Scripts\images\seperations.png" />
-    <Content Include="Scripts\images\sort-icon-new.png" />
-    <Content Include="Scripts\images\sort-icon-new3.png" />
-    <Content Include="Scripts\images\sort-icon.png" />
-    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.0.js" />
-    <Content Include="Scripts\jquery-2.2.0.min.js" />
-    <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <None Include="Scripts\version.json" />
-    <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
-    <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_center-block.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_buttons.scss" />
-    <None Include="stylesheets\bootstrap\mixins\_gradients.scss" />
-    <Content Include="stylesheets\bootstrap\_utilities.scss" />
-    <Content Include="stylesheets\bootstrap\_type.scss" />
-    <Content Include="stylesheets\bootstrap\_tooltip.scss" />
-    <Content Include="stylesheets\bootstrap\_thumbnails.scss" />
-    <Content Include="stylesheets\bootstrap\_theme.scss" />
-    <Content Include="stylesheets\bootstrap\_tables.scss" />
-    <Content Include="stylesheets\bootstrap\_scaffolding.scss" />
-    <Content Include="stylesheets\bootstrap\_responsive-utilities.scss" />
-    <Content Include="stylesheets\bootstrap\_responsive-embed.scss" />
-    <Content Include="stylesheets\bootstrap\_progress-bars.scss" />
-    <Content Include="stylesheets\bootstrap\_print.scss" />
-    <Content Include="stylesheets\bootstrap\_popovers.scss" />
-    <Content Include="stylesheets\bootstrap\_panels.scss" />
-    <Content Include="stylesheets\bootstrap\_pagination.scss" />
-    <Content Include="stylesheets\bootstrap\_pager.scss" />
-    <Content Include="stylesheets\bootstrap\_normalize.scss" />
-    <Content Include="stylesheets\bootstrap\_navs.scss" />
-    <Content Include="stylesheets\bootstrap\_navbar.scss" />
-    <Content Include="stylesheets\bootstrap\_modals.scss" />
-    <Content Include="stylesheets\bootstrap\_mixins.scss" />
-    <Content Include="stylesheets\bootstrap\_media.scss" />
-    <Content Include="stylesheets\bootstrap\_list-group.scss" />
-    <Content Include="stylesheets\bootstrap\_labels.scss" />
-    <Content Include="stylesheets\bootstrap\_jumbotron.scss" />
-    <Content Include="stylesheets\bootstrap\_input-groups.scss" />
-    <Content Include="stylesheets\bootstrap\_grid.scss" />
-    <Content Include="stylesheets\bootstrap\_glyphicons.scss" />
-    <Content Include="stylesheets\bootstrap\_forms.scss" />
-    <Content Include="stylesheets\bootstrap\_dropdowns.scss" />
-    <Content Include="stylesheets\bootstrap\_component-animations.scss" />
-    <Content Include="stylesheets\bootstrap\_code.scss" />
-    <Content Include="stylesheets\bootstrap\_close.scss" />
-    <Content Include="stylesheets\bootstrap\_carousel.scss" />
-    <Content Include="stylesheets\bootstrap\_buttons.scss" />
-    <Content Include="stylesheets\bootstrap\_button-groups.scss" />
-    <Content Include="stylesheets\bootstrap\_breadcrumbs.scss" />
-    <Content Include="stylesheets\bootstrap\_badges.scss" />
-    <Content Include="stylesheets\bootstrap\_alerts.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_text-overflow.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_text-emphasis.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_table-row.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_tab-focus.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_size.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_resize.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_reset-text.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_reset-filter.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_progress-bar.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_panels.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_pagination.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_opacity.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_nav-divider.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_list-group.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_labels.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_image.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_hide-text.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_grid.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
-    <None Include="stylesheets\bootstrap\_variables.scss" />
-    <None Include="stylesheets\bootstrap\_wells.scss" />
-    <None Include="stylesheets\Site.scss" />
-    <Content Include="index.html" />
-    <Content Include="Scripts\jquery.nexDatePicker.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.en-US.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.ja-JP.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.ko-KR.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.th-TH.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.vi-VN.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-CN.js" />
-    <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-TW.js" />
-    <Content Include="images\date-picker\calendar.png" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\numeral\languages.js" />
-    <Content Include="Scripts\numeral\languages.min.js" />
-    <Content Include="Scripts\numeral\languages\be-nl.js" />
-    <Content Include="Scripts\numeral\languages\be-nl.min.js" />
-    <Content Include="Scripts\numeral\languages\chs.js" />
-    <Content Include="Scripts\numeral\languages\chs.min.js" />
-    <Content Include="Scripts\numeral\languages\cs.js" />
-    <Content Include="Scripts\numeral\languages\cs.min.js" />
-    <Content Include="Scripts\numeral\languages\da-dk.js" />
-    <Content Include="Scripts\numeral\languages\da-dk.min.js" />
-    <Content Include="Scripts\numeral\languages\de-ch.js" />
-    <Content Include="Scripts\numeral\languages\de-ch.min.js" />
-    <Content Include="Scripts\numeral\languages\de.js" />
-    <Content Include="Scripts\numeral\languages\de.min.js" />
-    <Content Include="Scripts\numeral\languages\en-gb.js" />
-    <Content Include="Scripts\numeral\languages\en-gb.min.js" />
-    <Content Include="Scripts\numeral\languages\es-ES.js" />
-    <Content Include="Scripts\numeral\languages\es-ES.min.js" />
-    <Content Include="Scripts\numeral\languages\es.js" />
-    <Content Include="Scripts\numeral\languages\es.min.js" />
-    <Content Include="Scripts\numeral\languages\et.js" />
-    <Content Include="Scripts\numeral\languages\et.min.js" />
-    <Content Include="Scripts\numeral\languages\fi.js" />
-    <Content Include="Scripts\numeral\languages\fi.min.js" />
-    <Content Include="Scripts\numeral\languages\fr-CA.js" />
-    <Content Include="Scripts\numeral\languages\fr-CA.min.js" />
-    <Content Include="Scripts\numeral\languages\fr-ch.js" />
-    <Content Include="Scripts\numeral\languages\fr-ch.min.js" />
-    <Content Include="Scripts\numeral\languages\fr.js" />
-    <Content Include="Scripts\numeral\languages\fr.min.js" />
-    <Content Include="Scripts\numeral\languages\hu.js" />
-    <Content Include="Scripts\numeral\languages\hu.min.js" />
-    <Content Include="Scripts\numeral\languages\it.js" />
-    <Content Include="Scripts\numeral\languages\it.min.js" />
-    <Content Include="Scripts\numeral\languages\ja.js" />
-    <Content Include="Scripts\numeral\languages\ja.min.js" />
-    <Content Include="Scripts\numeral\languages\nl-nl.js" />
-    <Content Include="Scripts\numeral\languages\nl-nl.min.js" />
-    <Content Include="Scripts\numeral\languages\pl.js" />
-    <Content Include="Scripts\numeral\languages\pl.min.js" />
-    <Content Include="Scripts\numeral\languages\pt-br.js" />
-    <Content Include="Scripts\numeral\languages\pt-br.min.js" />
-    <Content Include="Scripts\numeral\languages\pt-pt.js" />
-    <Content Include="Scripts\numeral\languages\pt-pt.min.js" />
-    <Content Include="Scripts\numeral\languages\ru-UA.js" />
-    <Content Include="Scripts\numeral\languages\ru-UA.min.js" />
-    <Content Include="Scripts\numeral\languages\ru.js" />
-    <Content Include="Scripts\numeral\languages\ru.min.js" />
-    <Content Include="Scripts\numeral\languages\sk.js" />
-    <Content Include="Scripts\numeral\languages\sk.min.js" />
-    <Content Include="Scripts\numeral\languages\th.js" />
-    <Content Include="Scripts\numeral\languages\th.min.js" />
-    <Content Include="Scripts\numeral\languages\tr.js" />
-    <Content Include="Scripts\numeral\languages\tr.min.js" />
-    <Content Include="Scripts\numeral\languages\uk-UA.js" />
-    <Content Include="Scripts\numeral\languages\uk-UA.min.js" />
-    <Content Include="Scripts\numeral\numeral.js" />
-    <Content Include="Scripts\numeral\numeral.min.js" />
-    <Content Include="Web.config" />
-    <Content Include="stylesheets\_bootstrap.scss" />
-    <Content Include="stylesheets\_bootstrap-sprockets.scss" />
-    <Content Include="stylesheets\_bootstrap-mincer.scss" />
-    <Content Include="stylesheets\_bootstrap-compass.scss" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="app\company-winloss\company-winloss.html" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -451,6 +241,18 @@
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-moment.js" />
+    <Content Include="Scripts\angular-moment.min.js" />
+    <Content Include="Scripts\angular-moment.min.js.map" />
+    <Content Include="app\app.config.js" />
+    <Content Include="app\components\date-picker.directive.html" />
+    <Content Include="app\components\date-picker.directive.js" />
+    <Content Include="app\components\month-picker.directive.html" />
+    <Content Include="app\components\month-picker.directive.js" />
+    <Content Include="images\filter\legend-information-hover.png" />
+    <Content Include="images\filter\legend-information.png" />
+    <Content Include="images\filter\note-collapse.png" />
+    <Content Include="images\filter\note-expand.png" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -460,8 +262,16 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Fanex.Grid.css" />
+    <Content Include="Scripts\Fanex.Grid.js" />
+    <Content Include="Scripts\Fanex.Pagination.css" />
+    <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -1206,6 +1016,195 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\images\back-icon.png" />
+    <Content Include="Scripts\images\check-box.png" />
+    <Content Include="Scripts\images\collapse-icon.png" />
+    <Content Include="Scripts\images\collapse-small.png" />
+    <Content Include="Scripts\images\excel-icon.png" />
+    <Content Include="Scripts\images\expand-icon.png" />
+    <Content Include="Scripts\images\expand-small.png" />
+    <Content Include="Scripts\images\go-hover-icon.png" />
+    <Content Include="Scripts\images\send-mail.png" />
+    <Content Include="Scripts\images\seperations.png" />
+    <Content Include="Scripts\images\sort-icon-new.png" />
+    <Content Include="Scripts\images\sort-icon-new3.png" />
+    <Content Include="Scripts\images\sort-icon.png" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="Scripts\version.json" />
+    <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_buttons.scss" />
+    <None Include="stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="stylesheets\bootstrap\_type.scss" />
+    <Content Include="stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="stylesheets\bootstrap\_theme.scss" />
+    <Content Include="stylesheets\bootstrap\_tables.scss" />
+    <Content Include="stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="stylesheets\bootstrap\_print.scss" />
+    <Content Include="stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="stylesheets\bootstrap\_panels.scss" />
+    <Content Include="stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="stylesheets\bootstrap\_pager.scss" />
+    <Content Include="stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="stylesheets\bootstrap\_navs.scss" />
+    <Content Include="stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="stylesheets\bootstrap\_modals.scss" />
+    <Content Include="stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="stylesheets\bootstrap\_media.scss" />
+    <Content Include="stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="stylesheets\bootstrap\_labels.scss" />
+    <Content Include="stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="stylesheets\bootstrap\_grid.scss" />
+    <Content Include="stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="stylesheets\bootstrap\_forms.scss" />
+    <Content Include="stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="stylesheets\bootstrap\_code.scss" />
+    <Content Include="stylesheets\bootstrap\_close.scss" />
+    <Content Include="stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="stylesheets\bootstrap\_badges.scss" />
+    <Content Include="stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <None Include="stylesheets\bootstrap\_variables.scss" />
+    <None Include="stylesheets\bootstrap\_wells.scss" />
+    <None Include="stylesheets\Site.scss" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\jquery.nexDatePicker.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.en-US.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.ja-JP.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.ko-KR.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.th-TH.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.vi-VN.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-CN.js" />
+    <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-TW.js" />
+    <Content Include="images\date-picker\calendar.png" />
+    <Content Include="Scripts\numeral\languages.js" />
+    <Content Include="Scripts\numeral\languages.min.js" />
+    <Content Include="Scripts\numeral\languages\be-nl.js" />
+    <Content Include="Scripts\numeral\languages\be-nl.min.js" />
+    <Content Include="Scripts\numeral\languages\chs.js" />
+    <Content Include="Scripts\numeral\languages\chs.min.js" />
+    <Content Include="Scripts\numeral\languages\cs.js" />
+    <Content Include="Scripts\numeral\languages\cs.min.js" />
+    <Content Include="Scripts\numeral\languages\da-dk.js" />
+    <Content Include="Scripts\numeral\languages\da-dk.min.js" />
+    <Content Include="Scripts\numeral\languages\de-ch.js" />
+    <Content Include="Scripts\numeral\languages\de-ch.min.js" />
+    <Content Include="Scripts\numeral\languages\de.js" />
+    <Content Include="Scripts\numeral\languages\de.min.js" />
+    <Content Include="Scripts\numeral\languages\en-gb.js" />
+    <Content Include="Scripts\numeral\languages\en-gb.min.js" />
+    <Content Include="Scripts\numeral\languages\es-ES.js" />
+    <Content Include="Scripts\numeral\languages\es-ES.min.js" />
+    <Content Include="Scripts\numeral\languages\es.js" />
+    <Content Include="Scripts\numeral\languages\es.min.js" />
+    <Content Include="Scripts\numeral\languages\et.js" />
+    <Content Include="Scripts\numeral\languages\et.min.js" />
+    <Content Include="Scripts\numeral\languages\fi.js" />
+    <Content Include="Scripts\numeral\languages\fi.min.js" />
+    <Content Include="Scripts\numeral\languages\fr-CA.js" />
+    <Content Include="Scripts\numeral\languages\fr-CA.min.js" />
+    <Content Include="Scripts\numeral\languages\fr-ch.js" />
+    <Content Include="Scripts\numeral\languages\fr-ch.min.js" />
+    <Content Include="Scripts\numeral\languages\fr.js" />
+    <Content Include="Scripts\numeral\languages\fr.min.js" />
+    <Content Include="Scripts\numeral\languages\hu.js" />
+    <Content Include="Scripts\numeral\languages\hu.min.js" />
+    <Content Include="Scripts\numeral\languages\it.js" />
+    <Content Include="Scripts\numeral\languages\it.min.js" />
+    <Content Include="Scripts\numeral\languages\ja.js" />
+    <Content Include="Scripts\numeral\languages\ja.min.js" />
+    <Content Include="Scripts\numeral\languages\nl-nl.js" />
+    <Content Include="Scripts\numeral\languages\nl-nl.min.js" />
+    <Content Include="Scripts\numeral\languages\pl.js" />
+    <Content Include="Scripts\numeral\languages\pl.min.js" />
+    <Content Include="Scripts\numeral\languages\pt-br.js" />
+    <Content Include="Scripts\numeral\languages\pt-br.min.js" />
+    <Content Include="Scripts\numeral\languages\pt-pt.js" />
+    <Content Include="Scripts\numeral\languages\pt-pt.min.js" />
+    <Content Include="Scripts\numeral\languages\ru-UA.js" />
+    <Content Include="Scripts\numeral\languages\ru-UA.min.js" />
+    <Content Include="Scripts\numeral\languages\ru.js" />
+    <Content Include="Scripts\numeral\languages\ru.min.js" />
+    <Content Include="Scripts\numeral\languages\sk.js" />
+    <Content Include="Scripts\numeral\languages\sk.min.js" />
+    <Content Include="Scripts\numeral\languages\th.js" />
+    <Content Include="Scripts\numeral\languages\th.min.js" />
+    <Content Include="Scripts\numeral\languages\tr.js" />
+    <Content Include="Scripts\numeral\languages\tr.min.js" />
+    <Content Include="Scripts\numeral\languages\uk-UA.js" />
+    <Content Include="Scripts\numeral\languages\uk-UA.min.js" />
+    <Content Include="Scripts\numeral\numeral.js" />
+    <Content Include="Scripts\numeral\numeral.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="stylesheets\_bootstrap.scss" />
+    <Content Include="stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="stylesheets\_bootstrap-compass.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\company-winloss\company-winloss.html" />
+    <Content Include="Content\Site.css" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CompanyWinLoss\CompanyWinLoss.csproj">
