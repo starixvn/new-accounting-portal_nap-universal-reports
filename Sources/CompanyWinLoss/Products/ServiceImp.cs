@@ -30,7 +30,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var sportsbookDetail = CalculateSportsbookDetail(rawSportsbookDetail);
             var productWinLoss = calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
 
-            var grandTotal = calculationService.CalculateSumWinLossSummary("GRAND TOTAL", rawProductWinLoss);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawProductWinLoss);
 
             return new ProductWinLoss
             {

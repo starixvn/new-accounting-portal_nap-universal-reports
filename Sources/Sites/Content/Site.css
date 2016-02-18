@@ -1720,7 +1720,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1.42857;
-  color: #333333;
+  color: black;
   background-color: #fff;
 }
 
@@ -3811,7 +3811,7 @@ output {
   padding-top: 7px;
   font-size: 13px;
   line-height: 1.42857;
-  color: #555555;
+  color: black;
 }
 
 /* line 114, ../stylesheets/bootstrap/_forms.scss */
@@ -3822,7 +3822,7 @@ output {
   padding: 6px 12px;
   font-size: 13px;
   line-height: 1.42857;
-  color: #555555;
+  color: black;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -4295,7 +4295,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: #404040;
 }
 
 @media (min-width: 768px) {
@@ -5323,7 +5323,7 @@ tbody.collapse.in {
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: black;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
@@ -6650,7 +6650,7 @@ a.badge:hover, a.badge:focus {
 /* line 27, ../stylesheets/bootstrap/_thumbnails.scss */
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: black;
 }
 
 /* line 34, ../stylesheets/bootstrap/_thumbnails.scss */
@@ -9055,21 +9055,42 @@ button.close {
   font-size: 0.85em;
 }
 /* line 267, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grid-container .parent-row td {
+  color: black;
+  font-weight: normal;
+}
+/* line 272, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grid-container .parent-row .drill-down {
+  font-weight: bold;
+}
+/* line 278, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grid-container .sports-book-row > td {
   font-weight: bold;
   background-color: #f4f4be;
 }
-/* line 273, ../stylesheets/Site.scss */
+/* line 284, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grid-container .league-header {
   text-align: left;
   font-weight: bold;
 }
-/* line 280, ../stylesheets/Site.scss */
+/* line 290, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grand-total-note {
+  background: white !important;
+}
+/* line 295, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label {
   font-size: 0.85em;
 }
-/* line 283, ../stylesheets/Site.scss */
+/* line 298, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
   text-transform: uppercase;
+}
+/* line 302, ../stylesheets/Site.scss */
+.grid-boundary .grid-title-label .breadcrumb > li.active {
+  color: #4a4b4f;
+}
+/* line 308, ../stylesheets/Site.scss */
+.grid-boundary a {
+  color: blue;
 }

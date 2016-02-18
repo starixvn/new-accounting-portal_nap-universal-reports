@@ -263,6 +263,17 @@
         font-size: 0.85em;
 
         .grid-container {
+            .parent-row {
+                td {
+                    color: black;
+                    font-weight: normal;
+                }
+
+                .drill-down {
+                    font-weight: bold;
+                }
+            }
+
             .sports-book-row {
                 & > td {
                     font-weight: bold;
@@ -275,6 +286,10 @@
                 font-weight: bold;
             }
         }
+
+        .grand-total-note {
+            background: white !important;
+        }
     }
 
     .grid-title-label {
@@ -283,6 +298,14 @@
         .breadcrumb {
             margin-bottom: 0;
             text-transform: uppercase;
+
+            & > li.active {
+                color: #4a4b4f;
+            }
         }
+    }
+
+    a {
+        color: blue;
     }
 }

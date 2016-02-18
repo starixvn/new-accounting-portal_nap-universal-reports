@@ -47,7 +47,7 @@
                  { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
+                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
                  { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER },
@@ -83,9 +83,8 @@
                     exportExcelFunction: exportExcel
                 },
                 showFooter: true,
-                footerRows: createFooterData(data),
-                showDistinctRow: false,
                 showHighlightRow: false,
+                footerRows: createFooterData(data),
                 gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
             };
 
@@ -152,10 +151,21 @@
 
         function createFooterData(data) {
             var grandTotal = data.GrandTotal;
+            var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
+                             "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
             return [
                 { Columns: createWinLossDataRow(grandTotal.Total, false, true) },
                 { Columns: createWinLossDataRow(grandTotal.Credit, false, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, false, true) }
+                { Columns: createWinLossDataRow(grandTotal.Deposit, false, true) },
+                {
+                    Columns: [{
+                        Name: "Product",
+                        Value: reportNote,
+                        MergeColNumber: 11,
+                        CellAlign: "left",
+                        TdClass: "grand-total-note"
+                    }]
+                }
             ];
         }
 
