@@ -11,60 +11,71 @@
         var currentScope;
         var service = {
             generateHtml: generateHtml,
+            generateList: generateList,
             compile: compile
         };
         return service;
 
-        function generateHtml(scope, liveIndicator) {
-            currentScope = scope;
-            var html = '<ol class="breadcrumb">';
-            var breadcrumbLevels = [];
+        function generateBreadcrumbItems(isLive) {
+            var breadcrumbItems = [];
             if (gridModel.level === levels.PRODUCT) {
-                html += generateProductHtml(true);
+                breadcrumbItems.push({
+                    text: 'PRODUCT WIN/LOSS REPORT',
+                    level: levels.PRODUCT
+                });
             } else {
-                scope.breadcrumbClicked = breadcrumbClicked;
-                html += generateProductHtml(false);
+                breadcrumbItems.push({
+                    text: 'MAIN',
+                    level: levels.PRODUCT
+                });
+                var level = levels.PRODUCT;
+                var text = gridModel.productName;
                 var productSetting = levelSettings[gridModel.productName];
-                var previousLevel = levels.PRODUCT;
                 for (var i = 0; i < productSetting.templates.length; i++) {
                     var productSettingTemplate = productSetting.templates[i];
-                    if (productSettingTemplate.level > gridModel.level) break;
+                    var maxLevel = Math.min(levels.BET_TYPE, gridModel.level);
+                    if (productSettingTemplate.level > maxLevel) break;
 
                     var isActive = productSettingTemplate.level === gridModel.level;
-                    if (productSettingTemplate.level === levels.SPORT_TYPE) {
-                        html += generateSportTypeHtml(previousLevel, isActive, liveIndicator);
-                    } else if (productSettingTemplate.level === levels.BET_TYPE) {
-                        html += generateBetTypeHtml(previousLevel, isActive, liveIndicator);
+                    var nextText = undefined;
+                    var isAdded = true;
+                    switch (productSettingTemplate.level) {
+                        case levels.THIRD_PARTY_PRODUCT:
+                            nextText = gridModel.thirdPartyProductName;
+                            break;
+
+                        case levels.SPORT_TYPE:
+                            nextText = gridModel.sportTypeName;
+                            break;
+
+                        case levels.BET_TYPE:
+                            nextText = gridModel.betTypeName;
+                            break;
+
+                        case levels.DETAIL:
+                        case levels.SITE:
+                            isAdded = isActive;
+                            break;
                     }
 
-                    previousLevel = productSettingTemplate.level;
+                    breadcrumbItems.push({
+                        text: text,
+                        level: productSettingTemplate.level,
+                        isLive: isLive
+                    });
+                    text = nextText;
                 }
 
-                if (gridModel.level === levels.DETAIL) {
-                    html += generateDetailHtml(previousLevel, liveIndicator);
-                } else if (gridModel.level === levels.SITE) {
-                    html += generateSiteHtml(previousLevel, liveIndicator);
+                if (gridModel.level === levels.DETAIL || gridModel.level === levels.SITE) {
+                    breadcrumbItems.push({
+                        text: text,
+                        level: gridModel.level,
+                        isLive: isLive
+                    });
                 }
             }
 
-            html += '</ol>';
-            return html;
-        }
-
-        function generateProductHtml(isActive) {
-            if (isActive) {
-                return '<li class="active">PRODUCT WIN/LOSS REPORT</li>';
-            } else {
-                return '<li><a href data-ng-click="breadcrumbClicked(' + levels.PRODUCT + ')">MAIN</a></li>';
-            }
-        }
-
-        function generateSportTypeHtml(previousLevel, isActive, isLive) {
-            if (isActive) {
-                return '<li class="active">' + gridModel.productName + getLiveText(isLive) + ' PRODUCT WIN/LOSS REPORT' + '</li>';
-            } else {
-                return '<li><a href data-ng-click="breadcrumbClicked(' + levels.SPORT_TYPE + ')">' + gridModel.productName + '</a></li>';
-            }
+            return breadcrumbItems;
         }
 
         function getLiveText(isLive) {
@@ -73,21 +84,58 @@
                 : '';
         }
 
-        function generateBetTypeHtml(previousLevel, isActive, isLive) {
-            var displayText = previousLevel === levels.PRODUCT ? gridModel.productName : gridModel.sportTypeName;
-            if (isActive) {
-                return '<li class="active">' + displayText + getLiveText(isLive) + ' PRODUCT WIN/LOSS REPORT' + '</li>';
-            } else {
-                return '<li><a href data-ng-click="breadcrumbClicked(' + levels.BET_TYPE + ')">' + displayText + '</a></li>';
+        function generateBreadcrumbText(breadcrumbItem, isLast) {
+            switch (breadcrumbItem.level) {
+                case levels.PRODUCT:
+                    return breadcrumbItem.text;
+
+                case levels.THIRD_PARTY_PRODUCT:
+                case levels.SPORT_TYPE:
+                case levels.BET_TYPE:
+                    return isLast
+                        ? breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' PRODUCT WIN/LOSS REPORT'
+                        : breadcrumbItem.text;
+
+                case levels.DETAIL:
+                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive);
+
+                case levels.SITE:
+                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' | PRODUCT WIN LOSS REPORT BY ' + gridModel.site + ' SITE</li>'
             }
         }
 
-        function generateDetailHtml(previousLevel, isLive) {
-            return '<li class="active">' + gridModel.betTypeName + getLiveText(isLive) + '</li>';
+        function generateList(isLive) {
+            var breadcrumbItems = generateBreadcrumbItems(isLive);
+            var list = [];
+            for (var i = 0; i < breadcrumbItems.length; i++) {
+                var breadcrumbItem = breadcrumbItems[i];
+                var isLast = i === breadcrumbItems.length - 1;
+                var breadcrumbText = generateBreadcrumbText(breadcrumbItem, isLast);
+                list.push(breadcrumbText);
+            }
+
+            return list;
         }
 
-        function generateSiteHtml(previousLevel, isLive) {
-            return '<li class="active">' + gridModel.betTypeName + getLiveText(isLive) + ' | PRODUCT WIN LOSS REPORT BY ' + gridModel.site + ' SITE</li>';
+        function generateHtml(scope, isLive) {
+            currentScope = scope;
+            currentScope.breadcrumbClicked = breadcrumbClicked;
+            var html = '<ol class="breadcrumb">';
+            var breadcrumbItems = generateBreadcrumbItems(isLive);
+            var list = [];
+            for (var i = 0; i < breadcrumbItems.length; i++) {
+                var breadcrumbItem = breadcrumbItems[i];
+                var isLast = i === breadcrumbItems.length - 1;
+                var breadcrumbText = generateBreadcrumbText(breadcrumbItem, isLast);
+                if (isLast) {
+                    html += '<li class="active">' + breadcrumbText + '</li>';
+                } else {
+                    html += '<li><a href data-ng-click="breadcrumbClicked(' + breadcrumbItem.level + ')">' + breadcrumbText + '</a></li>';
+                }
+            }
+
+            html += '</ol>';
+            return html;
         }
 
         function breadcrumbClicked(level) {

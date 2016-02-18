@@ -7,6 +7,8 @@
 
     RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService', 'breadcrumbHelper'];
     function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -16,8 +18,7 @@
         }
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             racingService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -56,7 +57,6 @@
                 { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [

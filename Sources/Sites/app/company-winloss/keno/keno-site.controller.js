@@ -7,6 +7,8 @@
 
     KenoSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService', 'breadcrumbHelper'];
     function KenoSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -16,8 +18,7 @@
         }
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             kenoService.getSite(dateRange.startDate, dateRange.endDate, gridModel.betType, gridModel.site).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -56,7 +57,6 @@
                 { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [

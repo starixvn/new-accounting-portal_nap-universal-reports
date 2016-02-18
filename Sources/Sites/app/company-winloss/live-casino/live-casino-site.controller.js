@@ -5,30 +5,16 @@
         .module('companyWinlossApp')
         .controller('LiveCasinoSiteController', LiveCasinoSiteController);
 
-    LiveCasinoSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'liveCasinoService'];
-    function LiveCasinoSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, liveCasinoService) {
+    LiveCasinoSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'liveCasinoService', 'breadcrumbHelper'];
+    function LiveCasinoSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, liveCasinoService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateMain = function () {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        $scope.generateThirdPartyProduct = function () {
-            companyWinlossService.generate({
-                level: levels.THIRD_PARTY_PRODUCT
-            });
-        };
-        $scope.generateBetType = function () {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        }
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
+            var dateRange = filterModel.getDateRange();
             liveCasinoService.getSite(dateRange.startDate, dateRange.endDate, gridModel.betType, gridModel.site).then(function (data) {
                 renderGrid(data);
                 compileLinks();
@@ -45,15 +31,12 @@
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
         }
 
         function createGridOptions(data) {
-            var gridModel = companyWinlossService.gridModel;
             var columns = [
                  { HeaderText: gridModel.site, Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
                  { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
@@ -73,7 +56,7 @@
                 { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
                 { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
             ];
-    
+
             var gridOptions = {
                 customizeHeader: true,
                 groupHeaderRows: [
@@ -84,7 +67,7 @@
                 showTitle: true,
                 titleInfo:
                 {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateMain()">MAIN</a></li><li><a href data-ng-click="generateThirdPartyProduct()">LIVE CASINO</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.thirdPartyProductName + '</a></li><li class="active">' + gridModel.betTypeName + ' Product Win/Loss BY ' + gridModel.site + ' SITE</li></ol>',
+                    text: breadcrumbHelper.generateHtml($scope),
                     showExcelButton: true,
                     exportExcelFunction: exportExcel
                 },
@@ -128,7 +111,6 @@
         }
 
         function exportExcel() {
-
         }
     }
 })();

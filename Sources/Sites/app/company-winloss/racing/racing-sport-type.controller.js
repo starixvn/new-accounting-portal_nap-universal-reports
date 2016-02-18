@@ -54,7 +54,6 @@
                  { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
             ];
 
-            var gridModel = companyWinlossService.gridModel;
             var gridOptions = {
                 columns: columns,
                 bodyRows: createBodyData(data),
