@@ -29,36 +29,39 @@
             vm.date = config.today;
             vm.startDate = moment.utc(config.today).startOf('month');
             vm.endDate = config.today;
+            vm.generate = generate;
+            vm.todayClicked = todayClicked;
+            vm.yesterdayClicked = yesterdayClicked;
+            vm.viewNormalMode = viewNormalMode;
+            vm.viewHistoryMode = viewHistoryMode;
+            vm.dateRange = createDateRange();
             vm.getDateRange = getDateRange;
-            vm.updateDateRange = updateDateRange;
+            vm.reloadDateRange = reloadDateRange;
 
-            vm.generate = function () {
+            function generate() {
+                vm.dateRange = createDateRange();
                 companyWinlossService.generate({});
-            };
+            }
 
-            vm.todayClicked = function () {
+            function todayClicked() {
                 vm.date = vm.today;
                 vm.generate();
-            };
+            }
 
-            vm.yesterdayClicked = function () {
+            function yesterdayClicked() {
                 vm.date = vm.yesterday;
                 vm.generate();
-            };
+            }
 
-            vm.viewHistoryMode = function () {
-                vm.normalMode = false;
-            };
-
-            vm.viewNormalMode = function () {
+            function viewNormalMode() {
                 vm.normalMode = true;
-            };
+            }
 
-            vm.getEndOfDay = function (date) {
-                return moment.utc(date).endOf('day');
-            };
+            function viewHistoryMode() {
+                vm.normalMode = false;
+            }
 
-            function getDateRange() {
+            function createDateRange() {
                 if (vm.normalMode) {
                     return {
                         startDate: vm.date,
@@ -72,10 +75,14 @@
                 }
             }
 
-            function updateDateRange(dateRange) {
-                vm.date = dateRange.startDate;
-                vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;
+            function getDateRange() {
+                return vm.dateRange;
+            }
+
+            function reloadDateRange() {
+                vm.date = vm.dateRange.startDate;
+                vm.startDate = vm.dateRange.startDate;
+                vm.endDate = vm.dateRange.endDate;
             }
         }
     }

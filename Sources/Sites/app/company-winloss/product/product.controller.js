@@ -112,7 +112,7 @@
         }
 
         function createProductWinLossDataRow(productWinLossItem, isSportsBook) {
-            var rowCssClass = isSportsBook ? 'sports-book-row' : '';
+            var rowCssClass = isSportsBook ? 'highlight-product' : '';
             return {
                 Columns: createWinLossDataRow(productWinLossItem.Total, !isSportsBook),
                 SubRows: [

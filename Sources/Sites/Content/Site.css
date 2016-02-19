@@ -9050,47 +9050,51 @@ button.close {
   font-weight: bold;
 }
 
-/* line 262, ../stylesheets/Site.scss */
+/* line 260, ../stylesheets/Site.scss */
 .grid-boundary .freegrid {
   font-size: 0.85em;
 }
-/* line 267, ../stylesheets/Site.scss */
+/* line 265, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grid-container .parent-row td {
   color: black;
   font-weight: normal;
 }
-/* line 272, ../stylesheets/Site.scss */
+/* line 270, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grid-container .parent-row td:first-child {
   font-weight: bold;
 }
-/* line 278, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .grid-container .sports-book-row > td {
+/* line 276, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .grid-container .highlight-product > td {
   font-weight: bold;
   background-color: #f4f4be;
 }
-/* line 284, ../stylesheets/Site.scss */
+/* line 282, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grid-container .league-header {
   text-align: left;
   font-weight: bold;
 }
-/* line 290, ../stylesheets/Site.scss */
+/* line 289, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .footer-container .highlight-column {
+  background: #b5c4d0 !important;
+}
+/* line 294, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grand-total-note {
   background: white !important;
 }
-/* line 295, ../stylesheets/Site.scss */
+/* line 299, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label {
   font-size: 0.85em;
 }
-/* line 298, ../stylesheets/Site.scss */
+/* line 302, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
   text-transform: uppercase;
 }
-/* line 302, ../stylesheets/Site.scss */
+/* line 306, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb > li.active {
   color: #4a4b4f;
 }
-/* line 308, ../stylesheets/Site.scss */
+/* line 312, ../stylesheets/Site.scss */
 .grid-boundary a {
   color: blue;
 }

@@ -256,8 +256,6 @@
     }
 }
 
-
-
 .grid-boundary {
     .freegrid {
         font-size: 0.85em;
@@ -274,7 +272,7 @@
                 }
             }
 
-            .sports-book-row {
+            .highlight-product {
                 & > td {
                     font-weight: bold;
                     background-color: #f4f4be;
@@ -284,6 +282,12 @@
             .league-header {
                 text-align: left;
                 font-weight: bold;
+            }
+        }
+
+        .footer-container {
+            .highlight-column {
+                background: #b5c4d0 !important;
             }
         }
 

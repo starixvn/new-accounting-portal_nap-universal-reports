@@ -93,7 +93,7 @@
                 { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
                 { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
                 { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
+                { Name: "RealIncome", Value: winLoss.RealIncome, TdClass: isFooter ? 'highlight-column' : '' },
                 { Name: "RealTurnover", Value: winLoss.RealTurnover },
                 { Name: "RealMargin", Value: winLoss.RealMargin }
             ];
