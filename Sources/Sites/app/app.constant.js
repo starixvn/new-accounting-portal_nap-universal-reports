@@ -5,7 +5,7 @@
         .module('companyWinlossApp')
         .constant('moment', moment)
         .constant('config', (function () {
-            var today = moment().utcOffset(-4);
+            var today = moment.utc().startOf('day');
             var yesterday = moment(today).subtract(1, 'days');
 
             return {

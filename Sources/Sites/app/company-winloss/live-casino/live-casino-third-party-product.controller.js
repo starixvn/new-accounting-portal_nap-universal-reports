@@ -39,7 +39,7 @@
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var customAttr = data.bodyRows[i].Columns[0].CustomAttr;
                 var customAttrData = customAttr.split('\,');
-                data.bodyRows[i].Columns[0].Value = '<a class="drill-down" href data-ng-click="generateBetType(' + parseInt(customAttrData[0]) + ',\'' + customAttrData[1] + '\')">' + customAttrData[1] + '</a>';
+                data.bodyRows[i].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + parseInt(customAttrData[0]) + ',\'' + customAttrData[1] + '\')">' + customAttrData[1] + '</a>';
             }
         }
 
