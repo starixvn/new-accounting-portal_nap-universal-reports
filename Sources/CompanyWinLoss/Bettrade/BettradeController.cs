@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Bettrade
 {
@@ -11,8 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade
 
         private readonly SiteService siteService;
 
-        public BettradeController(BetTypeService betTypeService,
-            SiteService siteService)
+        public BettradeController(BetTypeService betTypeService, SiteService siteService)
         {
             this.betTypeService = betTypeService;
             this.siteService = siteService;

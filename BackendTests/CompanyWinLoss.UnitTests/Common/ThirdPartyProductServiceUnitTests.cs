@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
@@ -22,11 +23,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var fakeData = CreateFakeRawWinLoss();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
-            //Act
+            // Act
             var service = new ThirdPartyProductServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
-            //Assert
+            // Assert
             var equal1 = WinLossComparision.AreTwoSiteWinLossSummaryListEqual(result.Products, expectedProductSummaryWinLoss.Products);
             var equal2 = WinLossComparision.AreTwoSiteWinLossSummaryEqual(result.GrandTotal, expectedProductSummaryWinLoss.GrandTotal);
 
@@ -34,18 +35,21 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             Assert.True(equal2);
         }
 
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2100:CodeLineMustNotBeLongerThan",
+          Justification = "Reviewed. Suppression is OK here.")]
         private List<RawWinLoss> CreateFakeRawWinLoss()
         {
-            var sliCreditWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var sliDepositWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var firstProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Credit", 100, 110, 10, 300, 600, 600, 1000);
+            var firstProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Deposit", 110, 120, 11, 100, 300, 400, 500);
 
-            var agCasinoCreditWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var agCasinoDepositWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var secondProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Credit", 100, 110, 10, 300, 600, 600, 1000);
+            var secondProductCasinoDepositWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Deposit", 110, 120, 11, 100, 300, 400, 500);
 
-            var goldDeluxeCreditWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var goldDeluxeDepositWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var thirdProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Credit", 100, 110, 10, 300, 600, 600, 1000);
+            var thirdProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Deposit", 110, 120, 11, 100, 300, 400, 500);
 
-            return new List<RawWinLoss> { sliCreditWinLoss, sliDepositWinLoss, agCasinoCreditWinLoss, agCasinoDepositWinLoss, goldDeluxeCreditWinLoss, goldDeluxeDepositWinLoss };
+            return new List<RawWinLoss> { firstProductCreditWinLoss, firstProductDepositWinLoss, secondProductCreditWinLoss, secondProductCasinoDepositWinLoss, thirdProductCreditWinLoss, thirdProductDepositWinLoss };
         }
 
         private ThirdPartyProductWinLossModel CreateExpectedThirdPartyProductWinLoss()
@@ -59,11 +63,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
         private List<SiteWinLossSummary> CreateExpectedThirdPartyProduct()
         {
-            var sli = CreateExpectedThirdPartyProduct(4, "SLI");
-            var agCasino = CreateExpectedThirdPartyProduct(11, "AG Casino");
-            var goldDeluxe = CreateExpectedThirdPartyProduct(12, "Gold Deluxe");
+            var firstProduct = CreateExpectedThirdPartyProduct(4, "SLI");
+            var secondProduct = CreateExpectedThirdPartyProduct(11, "AG Casino");
+            var thirdProduct = CreateExpectedThirdPartyProduct(12, "Gold Deluxe");
 
-            return new List<SiteWinLossSummary> { sli, agCasino, goldDeluxe };
+            return new List<SiteWinLossSummary> { firstProduct, secondProduct, thirdProduct };
         }
 
         private SiteWinLossSummary CreateExpectedThirdPartyProduct(int productId, string productName)

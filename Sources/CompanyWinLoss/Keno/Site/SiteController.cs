@@ -7,7 +7,6 @@ namespace UniversalReports.CompanyWinLoss.Keno
     [RoutePrefix("api/company-win-loss/keno")]
     public class SiteController : ApiController
     {
-
         private readonly SiteService siteService;
 
         private readonly SiteGridOptionService siteGridOptionService;
