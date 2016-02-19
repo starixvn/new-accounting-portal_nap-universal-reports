@@ -24,6 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 ShowDistinctRow = false
             };
         }
+
         private List<HeaderColumns> BuildHeader()
         {
             var header = new List<HeaderColumns>();
