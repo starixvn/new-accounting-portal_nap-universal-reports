@@ -137,6 +137,9 @@
 
         function createFooterData(data) {
             var grandTotal = data.GrandTotal;
+            if (grandTotal.Credit.Name == null) {
+                grandTotal.Credit.Name = "Credit";
+            }
             return [
                 { Columns: createGrandTotalColumn(grandTotal.Total) },
                 { Columns: createGrandTotalColumn(grandTotal.Credit) },

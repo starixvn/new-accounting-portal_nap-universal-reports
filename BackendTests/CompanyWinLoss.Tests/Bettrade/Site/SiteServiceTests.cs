@@ -42,8 +42,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.Site
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
-                BetType = 1501,
-                Site = "Credit"
+                BetType = 903,
+                Site = "Deposit"
             };
         }
     }
