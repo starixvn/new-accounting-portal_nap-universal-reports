@@ -100,7 +100,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                     new Columns(columnIndex++, "Commission", item.Commission),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.RealMargin)
+                    new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
                });
 
             return columns;
