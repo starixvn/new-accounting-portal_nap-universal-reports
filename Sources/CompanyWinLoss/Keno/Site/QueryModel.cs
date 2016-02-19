@@ -10,10 +10,10 @@ namespace UniversalReports.CompanyWinLoss.Keno.Site
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
-        public int SportType { get; set; }
-
         public int BetType { get; set; }
 
         public string Site { get; set; }
+
+        public string BreadCrumb { get; set; }
     }
 }

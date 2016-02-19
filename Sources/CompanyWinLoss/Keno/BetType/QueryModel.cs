@@ -9,5 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
 
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
+
+        public string BreadCrumb { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             Assert.True(equal);
         }
 
-        private SiteWinLoss CreateExpectedSiteWinLoss()
+        private SiteWinLossModel CreateExpectedSiteWinLoss()
         {
             var siteWinLosses = new List<WinLoss>
             {
@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
             var total = WinLossFactory.CreateWinLoss(0, "Total", 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200);
 
-            return new SiteWinLoss
+            return new SiteWinLossModel
             {
                 Sites = siteWinLosses,
                 Total = total

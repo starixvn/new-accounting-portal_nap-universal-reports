@@ -6,21 +6,21 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
     [RoutePrefix("api/company-win-loss/live-casino")]
     public class LiveCasinoSiteController : ApiController
     {
-        private readonly SiteService siteService;
-        private readonly SiteGridOptionService siteGridOptionService;
+        private readonly SiteService winlossService;
+        private readonly SiteGridOptionService gridOptionService;
 
-        public LiveCasinoSiteController(SiteService siteService, SiteGridOptionService siteGridOptionService)
+        public LiveCasinoSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
         {
-            this.siteService = siteService;
-            this.siteGridOptionService = siteGridOptionService;
+            this.winlossService = siteService;
+            this.gridOptionService = gridOptionService;
         }
 
         [Route("site")]
-        public IHttpActionResult Site(Site.QueryModel queryModel)
+        public IHttpActionResult Site(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Site.Criteria
+                var criteria = new Criteria
                 {
                     StartDate = queryModel.StartDate,
                     EndDate = queryModel.EndDate,
@@ -28,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
                     Site = queryModel.Site
                 };
 
-                var siteWinLoss = this.siteService.Query(criteria);
-                var gridOptions = this.siteGridOptionService.FromSiteWinLoss(siteWinLoss, queryModel.Site, queryModel.BreadCrumb);
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.BreadCrumb);
 
                 return Json(gridOptions);
             }

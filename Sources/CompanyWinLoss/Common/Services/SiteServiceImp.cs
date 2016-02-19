@@ -18,14 +18,14 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             this.calculationService = calculationService;
         }
 
-        public SiteWinLoss Query(WinLossCriteria criteria)
+        public SiteWinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
             var siteWinLosses = rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r));
             var grandTotal = calculationService.CalculateSumWinLoss("Total", rawWinLosses);
 
-            return new SiteWinLoss
+            return new SiteWinLossModel
             {
                 Sites = siteWinLosses.ToList(),
                 Total = grandTotal

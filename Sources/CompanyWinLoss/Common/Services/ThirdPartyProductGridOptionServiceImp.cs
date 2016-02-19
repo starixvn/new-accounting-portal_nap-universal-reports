@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class ThirdPartyProductGridOptionServiceImp : ThirdPartyProductGridOptionService
     {
-        public GridOptions FromProductWinLoss(ThirdPartyProductWinLossModel winLoss, string breadCrumb)
+        public GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss, string breadCrumb)
         {
             return new GridOptions
             {

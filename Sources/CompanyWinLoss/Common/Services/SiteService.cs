@@ -5,6 +5,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface SiteService
     {
-        SiteWinLoss Query(WinLossCriteria criteria);
+        SiteWinLossModel Query(WinLossCriteria criteria);
     }
 }

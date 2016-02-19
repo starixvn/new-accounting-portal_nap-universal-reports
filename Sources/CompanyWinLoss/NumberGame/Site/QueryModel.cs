@@ -17,5 +17,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
         public bool IsLive { get; set; }
 
         public string Site { get; set; }
+
+        public string BreadCrumb { get; set; }
     }
 }

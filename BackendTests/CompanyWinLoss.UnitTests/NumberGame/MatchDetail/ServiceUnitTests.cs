@@ -75,7 +75,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
 
             return new LeagueWinLoss
             {
-                LeagueName = leagueName,
+                Name = leagueName,
                 Matches = expectedMatches,
                 Total = expectedTotal
             };
@@ -103,7 +103,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
 
         private bool AreTwoLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
         {
-            return first.LeagueName == second.LeagueName
+            return first.Name == second.Name
                 && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
         }
     }

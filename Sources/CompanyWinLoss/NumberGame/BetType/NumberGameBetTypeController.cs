@@ -1,0 +1,52 @@
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.Services;
+
+namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
+{
+    [RoutePrefix("api/company-win-loss/number-game")]
+    public class NumberGameBetTypeController : ApiController
+    {
+        private readonly Service winlossService;
+        private readonly BetTypeGridOptionService gridOptionService;
+
+        public NumberGameBetTypeController(Service betTypeService, BetTypeGridOptionService gridOptionService)
+        {
+            this.winlossService = betTypeService;
+            this.gridOptionService = gridOptionService;
+        }
+
+        [Route("bet-type")]
+        public IHttpActionResult BetType(QueryModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = new Criteria
+                {
+                    StartDate = queryModel.StartDate,
+                    EndDate = queryModel.EndDate
+                };
+
+                var winlosses = winlossService.Query(criteria);
+                var liveBetTypeWinLoss = new BetTypeWinLossModel
+                {
+                    BetTypes = winlosses.Live,
+                    GrandTotal = winlosses.LiveGrandTotal
+                };
+                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.BreadCrumb);
+
+                var nonLiveBetTypeWinLoss = new BetTypeWinLossModel
+                {
+                    BetTypes = winlosses.NonLive,
+                    GrandTotal = winlosses.NonLiveGrandTotal
+                };
+
+                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, queryModel.BreadCrumb);
+
+                return Json(new { Live = liveGridOptions, NoneLive = nonLiveGridOptions });
+            }
+
+            return null;
+        }
+    }
+}

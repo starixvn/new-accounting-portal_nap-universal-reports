@@ -6,15 +6,15 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
     [RoutePrefix("api/company-win-loss/live-casino")]
     public class LiveCasinoThirdPartyProductController : ApiController
     {
-        private readonly ThirdPartyProductService thirdPartyProductService;
-        private readonly ThirdPartyProductGridOptionService thirdPartyProductGridOptionService;
+        private readonly ThirdPartyProductService winlossService;
+        private readonly ThirdPartyProductGridOptionService gridOptionService;
 
         public LiveCasinoThirdPartyProductController(
             ThirdPartyProductService thirdPartyProductService,
             ThirdPartyProductGridOptionService thirdPartyProductGridOptionService)
         {
-            this.thirdPartyProductService = thirdPartyProductService;
-            this.thirdPartyProductGridOptionService = thirdPartyProductGridOptionService;
+            this.winlossService = thirdPartyProductService;
+            this.gridOptionService = thirdPartyProductGridOptionService;
         }
 
         [Route("third-party-product")]
@@ -28,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
                     EndDate = queryModel.EndDate
                 };
 
-                var products = this.thirdPartyProductService.Query(criteria);
-                var gridOptions = this.thirdPartyProductGridOptionService.FromProductWinLoss(products, queryModel.BreadCrumb);
+                var winlosses = this.winlossService.Query(criteria);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.BreadCrumb);
 
                 return Json(gridOptions);
             }

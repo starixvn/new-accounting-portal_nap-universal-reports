@@ -4,7 +4,6 @@ using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
-using LiveCasino = UniversalReports.CompanyWinLoss.LiveCasino;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
@@ -47,11 +46,11 @@ namespace UniversalReports.Sites
             container.Register<NumberGame.BetType.Service, NumberGame.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.MatchDetail.Service, NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.RacingMatchDetail.Service, VirtualSports.RacingMatchDetail.ServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookMatchDetail.BalanceUpSummationService, VirtualSports.SportsbookMatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookMatchDetail.CalculationService, VirtualSports.SportsbookMatchDetail.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookMatchDetail.RawWinLossService, VirtualSports.SportsbookMatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookMatchDetail.Service, VirtualSports.SportsbookMatchDetail.ServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.RacingDetail.Service, VirtualSports.RacingDetail.ServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.SportsbookDetail.BalanceUpSummationService, VirtualSports.SportsbookDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.SportsbookDetail.CalculationService, VirtualSports.SportsbookDetail.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.SportsbookDetail.RawWinLossService, VirtualSports.SportsbookDetail.RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<VirtualSports.SportsbookDetail.Service, VirtualSports.SportsbookDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.

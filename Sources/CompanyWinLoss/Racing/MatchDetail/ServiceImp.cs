@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
             var total = calculationService.CalculateSumWinLoss("Total", rawLeagueWinLosses);
             return new LeagueWinLoss
             {
-                LeagueName = league,
+                Name = league,
                 Races = raceWinLosses.ToList(),
                 Total = total
             };

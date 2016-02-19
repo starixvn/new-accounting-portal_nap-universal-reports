@@ -15,5 +15,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.Site
         public int BetType { get; set; }
 
         public string Site { get; set; }
+
+        public string BreadCrumb { get; set; }
     }
 }

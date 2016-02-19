@@ -5,6 +5,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface SiteGridOptionService
     {
-        GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site, string breadCrumb);
+        GridOptions FromWinLossModel(SiteWinLossModel winLoss, string site, string breadCrumb);
     }
 }

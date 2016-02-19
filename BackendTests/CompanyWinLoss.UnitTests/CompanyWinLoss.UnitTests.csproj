@@ -71,13 +71,13 @@
     <Compile Include="Utility\WinLossComparision.cs" />
     <Compile Include="Utility\WinLossFactory.cs" />
     <Compile Include="Common\BetTypeServiceUnitTest.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\CalculationServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\RawServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\RacingMatchDetail\ServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossComparision.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\WinLossFactory.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\CalculationServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\RawServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\ServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\RacingDetail\ServiceUnitTests.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\WinLossComparision.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\WinLossFactory.cs" />
     <Compile Include="Common\SportTypeServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>

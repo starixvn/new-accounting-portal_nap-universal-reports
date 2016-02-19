@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade
         }
 
         [Route("site")]
-        public SiteWinLoss Site(Site.QueryModel queryModel)
+        public SiteWinLossModel Site(Site.QueryModel queryModel)
         {
             var criteria = new Site.Criteria
             {

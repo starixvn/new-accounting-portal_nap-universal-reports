@@ -4,10 +4,10 @@ using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Tests.Common;
-using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookMatchDetail;
+using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 using CommonService = UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookMatchDetail
+namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
 {
     public class ServiceTests : BaseServiceTests
     {

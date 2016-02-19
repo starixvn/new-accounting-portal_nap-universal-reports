@@ -5,7 +5,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 {
     public class LeagueWinLoss
     {
-        public string LeagueName { get; set; }
+        public string Name { get; set; }
 
         public List<WinLoss> Races { get; set; }
 

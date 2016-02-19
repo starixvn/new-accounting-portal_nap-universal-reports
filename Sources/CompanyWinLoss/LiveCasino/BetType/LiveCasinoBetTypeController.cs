@@ -6,13 +6,13 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
     [RoutePrefix("api/company-win-loss/live-casino")]
     public class LiveCasinoBetTypeController : ApiController
     {
-        private readonly BetTypeService betTypeService;
-        private readonly BetTypeGridOptionService betTypeGridOptionService;
+        private readonly BetTypeService winlossService;
+        private readonly BetTypeGridOptionService gridOptionService;
 
-        public LiveCasinoBetTypeController(BetTypeService betTypeService, BetTypeGridOptionService betTypeGridOptionService)
+        public LiveCasinoBetTypeController(BetTypeService betTypeService, BetTypeGridOptionService gridOptionService)
         {
-            this.betTypeService = betTypeService;
-            this.betTypeGridOptionService = betTypeGridOptionService;
+            this.winlossService = betTypeService;
+            this.gridOptionService = gridOptionService;
         }
 
         [Route("bet-type")]
@@ -27,8 +27,8 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
                     ProductId = queryModel.ProductId
                 };
 
-                var bettypes = this.betTypeService.Query(criteria);
-                var gridOptions = this.betTypeGridOptionService.FromBetTypeWinLoss(bettypes, queryModel.BreadCrumb);
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.BreadCrumb);
 
                 return Json(gridOptions);
             }

@@ -13,19 +13,20 @@
         };
         return service;
 
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
+        function getBetType(startDate, endDate, breadCrumb) {
+            var data = { startDate: startDate, endDate: endDate, breadCrumb: breadCrumb };
             return $http.post('/api/company-win-loss/keno/bet-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
-        function getSite(startDate, endDate, betType, site) {
+        function getSite(startDate, endDate, betType, site, breadCrumb) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
                 betType: betType,
-                site: site
+                site: site,
+                breadCrumb: breadCrumb
             };
             return $http.post('/api/company-win-loss/keno/site', data)
                 .then(getDataComplete)

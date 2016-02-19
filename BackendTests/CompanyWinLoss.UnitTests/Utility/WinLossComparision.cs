@@ -70,7 +70,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Utility
                 && AreTwoSiteWinLossSummaryListEqual(first.Products, second.Products);
         }
 
-        internal static bool AreTwoSiteWinLossEqual(SiteWinLoss first, SiteWinLoss second)
+        internal static bool AreTwoSiteWinLossEqual(SiteWinLossModel first, SiteWinLossModel second)
         {
             return AreTwoWinLossListEqual(first.Sites, second.Sites)
                 && AreTwoWinLossEqual(first.Total, second.Total);

@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SiteGridOptionServiceImp : SiteGridOptionService
     {
-        public GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site, string breadCrumb)
+        public GridOptions FromWinLossModel(SiteWinLossModel winLoss, string site, string breadCrumb)
         {
             return new GridOptions
             {
