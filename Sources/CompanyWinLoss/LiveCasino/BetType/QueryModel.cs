@@ -12,6 +12,6 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 
         public int ProductId { get; set; }
 
-        public string BreadCumb { get; set; }
+        public string BreadCrumb { get; set; }
     }
 }

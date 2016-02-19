@@ -37,7 +37,7 @@
             this.gridModel.betType = angular.isDefined(data.betType) ? data.betType : this.gridModel.betType;
             this.gridModel.betTypeName = angular.isDefined(data.betTypeName) ? data.betTypeName : this.gridModel.betTypeName;
             this.gridModel.site = angular.isDefined(data.site) ? data.site : this.gridModel.site
-            this.gridModel.breadCumb = angular.isDefined(data.breadCumb) ? data.breadCumb : this.gridModel.breadCumb;
+            this.gridModel.breadCrumb = angular.isDefined(data.breadCrumb) ? data.breadCrumb : this.gridModel.breadCrumb;
         }
     }
 })();

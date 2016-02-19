@@ -14,6 +14,6 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
 
         public string Site { get; set; }
 
-        public string BreadCumb { get; set; }
+        public string BreadCrumb { get; set; }
     }
 }

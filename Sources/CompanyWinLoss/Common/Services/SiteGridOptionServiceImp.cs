@@ -7,13 +7,13 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SiteGridOptionServiceImp : SiteGridOptionService
     {
-        public GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site, string breadCumb)
+        public GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site, string breadCrumb)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
-                TitleInfoText = breadCumb,
+                TitleInfoText = breadCrumb,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(site),
                 GroupHeaderRows = BuildGroupHeaderRows(),

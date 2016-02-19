@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
                 };
 
                 var bettypes = _betTypeService.Query(criteria);
-                var gridOptions = _betTypeGridOptionService.FromBetTypeWinLoss(bettypes, queryModel.BreadCumb);
+                var gridOptions = _betTypeGridOptionService.FromBetTypeWinLoss(bettypes, queryModel.BreadCrumb);
 
                 return Json(gridOptions);
             }
