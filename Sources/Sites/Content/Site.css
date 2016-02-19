@@ -5496,7 +5496,7 @@ tbody.collapse.in {
 }
 /* line 96, ../stylesheets/bootstrap/_navs.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: #3361A2;
   background-color: #CDDEF2;
   border: 1px solid #3361A2;
   border-bottom-color: transparent;
@@ -9097,4 +9097,24 @@ button.close {
 /* line 312, ../stylesheets/Site.scss */
 .grid-boundary a {
   color: blue;
+}
+
+/* line 317, ../stylesheets/Site.scss */
+.modal-content {
+  padding: 5px;
+}
+/* line 320, ../stylesheets/Site.scss */
+.modal-content .modal-header {
+  border-bottom: 0;
+  background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
+  color: white;
+  padding: 6px 10px;
+  border: 1px solid #3d5c9e;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+/* line 329, ../stylesheets/Site.scss */
+.modal-content .modal-body {
+  padding: 10px 5px;
 }

@@ -313,3 +313,20 @@
         color: blue;
     }
 }
+
+.modal-content {
+    padding: 5px;
+
+    .modal-header {
+        border-bottom: 0;
+        background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
+        color: white;
+        padding: 6px 10px;
+        border: 1px solid #3d5c9e;
+        @include border-radius(6px);
+    }
+
+    .modal-body{
+        padding: 10px 5px;
+    }
+}
