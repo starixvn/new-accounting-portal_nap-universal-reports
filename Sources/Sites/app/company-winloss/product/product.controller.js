@@ -128,7 +128,7 @@
                 ? { Name: "Product", Value: winLoss.Name }
                 : {
                     Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+                        return '<a class="drill-down" href data-nap-click="generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
                     }
                 };
             if (isTextRight) {

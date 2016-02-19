@@ -185,6 +185,7 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-bet-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports.service.js" />
+    <Content Include="app\components\click\click.directive.js" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="images\.keep" />
@@ -199,9 +200,9 @@
     <Content Include="app\company-winloss\company-winloss.controller.js" />
     <Content Include="app\company-winloss\filter\filter.directive.html" />
     <Content Include="app\company-winloss\product\product.controller.js" />
-    <Content Include="app\components\alert.directive.html" />
-    <Content Include="app\components\alert.directive.js" />
-    <Content Include="app\components\loading.directive.js" />
+    <Content Include="app\components\alert\alert.directive.html" />
+    <Content Include="app\components\alert\alert.directive.js" />
+    <Content Include="app\components\loading\loading.directive.js" />
     <Content Include="app\company-winloss\product\product.service.js" />
     <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -248,10 +249,10 @@
     <Content Include="Scripts\angular-moment.min.js" />
     <Content Include="Scripts\angular-moment.min.js.map" />
     <Content Include="app\app.config.js" />
-    <Content Include="app\components\date-picker.directive.html" />
-    <Content Include="app\components\date-picker.directive.js" />
-    <Content Include="app\components\month-picker.directive.html" />
-    <Content Include="app\components\month-picker.directive.js" />
+    <Content Include="app\components\date-picker\date-picker.directive.html" />
+    <Content Include="app\components\date-picker\date-picker.directive.js" />
+    <Content Include="app\components\month-picker\month-picker.directive.html" />
+    <Content Include="app\components\month-picker\month-picker.directive.js" />
     <Content Include="images\filter\legend-information-hover.png" />
     <Content Include="images\filter\legend-information.png" />
     <Content Include="images\filter\note-collapse.png" />
