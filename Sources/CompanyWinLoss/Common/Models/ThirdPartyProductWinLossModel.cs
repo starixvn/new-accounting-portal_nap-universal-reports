@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
+namespace UniversalReports.CompanyWinLoss.Common.Models
 {
-    public class WinLossModel
+    public class ThirdPartyProductWinLossModel
     {
         public List<SiteWinLossSummary> Products { get; set; }
 

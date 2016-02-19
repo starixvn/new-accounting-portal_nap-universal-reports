@@ -7,18 +7,20 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SiteGridOptionServiceImp : SiteGridOptionService
     {
-        private GridOptions gridOptions;
-
-        public GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site)
+        public GridOptions FromSiteWinLoss(SiteWinLoss winLoss, string site, string breadCumb)
         {
-            gridOptions = new GridOptions();
-            gridOptions.CustomizeHeader = true;
-            gridOptions.Columns = BuildHeader(site);
-            gridOptions.GroupHeaderRows = BuildGroupHeaderRows();
-            gridOptions.BodyRows = BuildBodyRows(winLoss.Sites);
-            gridOptions.FooterRows = BuildFooter(winLoss.Total);
-            gridOptions.ShowFooter = true;
-            return gridOptions;
+            return new GridOptions
+            {
+                CustomizeHeader = true,
+                ShowTitle = true,
+                TitleInfoText = breadCumb,
+                TitleType = TitleType.TwoLineBlue,
+                Columns = BuildHeader(site),
+                GroupHeaderRows = BuildGroupHeaderRows(),
+                BodyRows = BuildBodyRows(winLoss.Sites),
+                FooterRows = BuildFooter(winLoss.Total),
+                ShowFooter = true
+            };
         }
 
         private List<HeaderColumns> BuildHeader(string site)
@@ -63,12 +65,12 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
-            foreach(var item in winLoss)
+            foreach (var item in winLoss)
             {
                 var row = BuildDataRow(item, HAlignment.Center);
                 bodyRows.Add(row);
             }
-            
+
             return bodyRows;
         }
 

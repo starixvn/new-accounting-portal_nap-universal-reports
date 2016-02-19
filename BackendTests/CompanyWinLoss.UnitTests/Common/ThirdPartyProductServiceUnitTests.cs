@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct;
 using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.ThirdPartyProduct
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
     [TestFixture]
-    [Category("Live Casino")]
-    public class ServiceUnitTests
+    [Category("Third Party Product")]
+    public class ThirdPartyProductServiceUnitTests
     {
         [Test]
         public void Query_Should_Return_Right_ThirdPartyProductWinLoss()
@@ -24,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.ThirdPartyProduct
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             //Act
-            var service = new ServiceImp(rawService, calculationService);
+            var service = new ThirdPartyProductServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             //Assert
@@ -49,9 +48,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.LiveCasino.ThirdPartyProduct
             return new List<RawWinLoss> { sliCreditWinLoss, sliDepositWinLoss, agCasinoCreditWinLoss, agCasinoDepositWinLoss, goldDeluxeCreditWinLoss, goldDeluxeDepositWinLoss };
         }
 
-        private WinLossModel CreateExpectedThirdPartyProductWinLoss()
+        private ThirdPartyProductWinLossModel CreateExpectedThirdPartyProductWinLoss()
         {
-            return new WinLossModel
+            return new ThirdPartyProductWinLossModel
             {
                 Products = CreateExpectedThirdPartyProduct(),
                 GrandTotal = CreateExpectedGrandTotal()

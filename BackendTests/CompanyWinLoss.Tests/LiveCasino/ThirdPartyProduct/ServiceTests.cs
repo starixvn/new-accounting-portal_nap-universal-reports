@@ -38,11 +38,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.ThirdPartyProduct
             };
         }
 
-        private ServiceImp CreateService()
+        private ThirdPartyProductServiceImp CreateService()
         {
             var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ServiceImp(rawService, calculationService);
+            return new ThirdPartyProductServiceImp(rawService, calculationService);
         }
     }
 }

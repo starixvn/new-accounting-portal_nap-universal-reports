@@ -36,7 +36,11 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteGridOptionService, CommonServices.SiteGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeService, CommonServices.BetTypeServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.BetTypeGridOptionService, CommonServices.BetTypeGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeService, CommonServices.SportTypeServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.SportTypeGridOptionService, CommonServices.SportTypeGridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.ThirdPartyProductService, CommonServices.ThirdPartyProductServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.ThirdPartyProductGridOptionService, CommonServices.ThirdPartyProductGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.BalanceUpSummationService, NumberGame.BetType.BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.CalculationService, NumberGame.BetType.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.RawWinLossService, NumberGame.BetType.RawWinLossServiceImp>(Lifestyle.Transient);
@@ -49,8 +53,6 @@ namespace UniversalReports.Sites
             container.Register<VirtualSports.SportsbookMatchDetail.RawWinLossService, VirtualSports.SportsbookMatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookMatchDetail.Service, VirtualSports.SportsbookMatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
-            container.Register<LiveCasino.ThirdPartyProduct.Service, LiveCasino.ThirdPartyProduct.ServiceImp>(Lifestyle.Transient);
-            container.Register<LiveCasino.BetType.Service, LiveCasino.BetType.ServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

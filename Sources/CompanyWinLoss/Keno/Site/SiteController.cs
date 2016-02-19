@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.Keno
                     Site = queryModel.Site
                 };
                 var winLoss = siteService.Query(criteria);
-                return siteGridOptionService.FromSiteWinLoss(winLoss, queryModel.Site);
+                return siteGridOptionService.FromSiteWinLoss(winLoss, queryModel.Site, "breadcumb");
             }
 
             return null;

@@ -39,11 +39,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.BetType
             };
         }
 
-        private ServiceImp CreateService()
+        private BetTypeServiceImp CreateService()
         {
             var rawService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ServiceImp(rawService, calculationService);
+            return new BetTypeServiceImp(rawService, calculationService);
         }
     }
 }
