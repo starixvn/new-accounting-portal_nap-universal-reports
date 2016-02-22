@@ -82,11 +82,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bettrade\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="Bettrade\Site\SiteServiceTests.cs" />
+    <Compile Include="Bingo\BetType\ServiceTests.cs" />
+    <Compile Include="Bingo\Site\ServiceTests.cs" />
+    <Compile Include="Casino\BetType\ServiceTests.cs" />
+    <Compile Include="Casino\Site\ServiceTests.cs" />
+    <Compile Include="Casino\ThirdPartyProduct\ServiceTests.cs" />
+    <Compile Include="ColossusBets\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="ColossusBets\Site\SiteServiceTests.cs" />
     <Compile Include="Common\BalanceUpServiceTests.cs" />
     <Compile Include="Common\BaseServiceTests.cs" />
     <Compile Include="Keno\BetType\BetTypeServiceTests.cs" />
     <Compile Include="Keno\Site\SiteServiceTests.cs" />
     <Compile Include="LiveCasino\BetType\ServiceTests.cs" />
+    <Compile Include="LiveCasino\Site\ServiceTests.cs" />
     <Compile Include="LiveCasino\ThirdPartyProduct\ServiceTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceTests.cs" />

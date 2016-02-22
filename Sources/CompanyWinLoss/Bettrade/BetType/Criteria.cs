@@ -5,9 +5,15 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
 {
     public class Criteria : WinLossCriteria
     {
+        public int ProductId { get; set; }
+
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
-            var newCriteria = new Criteria();
+            var newCriteria = new Criteria
+            {
+                ProductId = ProductId
+            };
+
             newCriteria.Update(source);
 
             return newCriteria;

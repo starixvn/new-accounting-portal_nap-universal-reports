@@ -9,5 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
 
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
+
+        public int ProductId { get; set; }
     }
 }

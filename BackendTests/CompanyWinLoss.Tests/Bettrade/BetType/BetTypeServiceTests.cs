@@ -1,8 +1,8 @@
 ﻿using Fanex.Data.Configuration;
 using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Bettrade.BetType;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.Bettrade.BetType;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType

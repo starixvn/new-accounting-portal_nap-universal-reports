@@ -88,11 +88,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bettrade\BettradeController.cs" />
+    <Compile Include="Bettrade\BetType\BettradeBetTypeController.cs" />
     <Compile Include="Bettrade\BetType\Criteria.cs" />
     <Compile Include="Bettrade\BetType\QueryModel.cs" />
+    <Compile Include="Bettrade\Site\BettradeSiteController.cs" />
     <Compile Include="Bettrade\Site\Criteria.cs" />
     <Compile Include="Bettrade\Site\QueryModel.cs" />
+    <Compile Include="Bingo\BetType\BingoBetTypeController.cs" />
+    <Compile Include="Bingo\BetType\Criteria.cs" />
+    <Compile Include="Bingo\BetType\QueryModel.cs" />
+    <Compile Include="Bingo\Site\BingoSiteController.cs" />
+    <Compile Include="Bingo\Site\Criteria.cs" />
+    <Compile Include="Bingo\Site\QueryModel.cs" />
     <Compile Include="Casino\BetType\Criteria.cs" />
     <Compile Include="Casino\BetType\CasinoBetTypeController.cs" />
     <Compile Include="Casino\BetType\QueryModel.cs" />
@@ -102,6 +109,12 @@
     <Compile Include="Casino\ThirdPartyProduct\Criteria.cs" />
     <Compile Include="Casino\ThirdPartyProduct\CasinoThirdPartyProductController.cs" />
     <Compile Include="Casino\ThirdPartyProduct\QueryModel.cs" />
+    <Compile Include="ColossusBets\BetType\ColossusBetsBetTypeController.cs" />
+    <Compile Include="ColossusBets\BetType\Criteria.cs" />
+    <Compile Include="ColossusBets\BetType\QueryModel.cs" />
+    <Compile Include="ColossusBets\Site\ColossusBetsSiteController.cs" />
+    <Compile Include="ColossusBets\Site\Criteria.cs" />
+    <Compile Include="ColossusBets\Site\QueryModel.cs" />
     <Compile Include="Common\Criteria\BalanceUpCriteria.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\Models\BalanceUpRange.cs" />

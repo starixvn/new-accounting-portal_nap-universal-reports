@@ -118,6 +118,22 @@
                     controller: 'BettradeSiteController'
                 }]
         },
+        'Casino': {
+            templates: [{
+                level: levels.THIRD_PARTY_PRODUCT,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CasinoThirdPartyProductController'
+            }, {
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CasinoBetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CasinoSiteController'
+            }]
+        }
     };
 
     angular

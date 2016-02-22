@@ -151,6 +151,10 @@
     <Content Include="app\company-winloss\bettrade\bettrade-bet-type.controller.js" />
     <Content Include="app\company-winloss\bettrade\bettrade-site.controller.js" />
     <Content Include="app\company-winloss\bettrade\bettrade.service.js" />
+    <Content Include="app\company-winloss\casino\casino-bet-type.controller.js" />
+    <Content Include="app\company-winloss\casino\casino-site.controller.js" />
+    <Content Include="app\company-winloss\casino\casino-third-party-product.controller.js" />
+    <Content Include="app\company-winloss\casino\casino.service.js" />
     <Content Include="app\company-winloss\common\breadcrumbHelper.js" />
     <Content Include="app\company-winloss\common\drillDownHelper.js" />
     <Content Include="app\company-winloss\keno\keno-bet-type.controller.js" />
