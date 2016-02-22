@@ -15,7 +15,7 @@
 
         function generate() {
             var dateRange = filterModel.getDateRange();
-            liveCasinoService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.thirdPartyProductId, breadcrumbHelper.generateText()).then(function (data) {
+            liveCasinoService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.thirdPartyProductId).then(function (data) {
                 drillDownHelper.build($scope, data);
                 renderGrid(data);
                 compileLinks();

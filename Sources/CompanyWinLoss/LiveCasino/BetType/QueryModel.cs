@@ -11,7 +11,5 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
         public DateTime EndDate { get; set; }
 
         public int ProductId { get; set; }
-
-        public string BreadCrumb { get; set; }
     }
 }

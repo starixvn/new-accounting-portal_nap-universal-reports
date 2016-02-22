@@ -8,12 +8,11 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class ThirdPartyProductGridOptionServiceImp : ThirdPartyProductGridOptionService
     {
-        public GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss, string breadCrumb)
+        public GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss)
         {
             return new GridOptions
             {
                 ShowTitle = true,
-                TitleInfoText = breadCrumb,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 BodyRows = BuildBodyRows(winLoss.Products),

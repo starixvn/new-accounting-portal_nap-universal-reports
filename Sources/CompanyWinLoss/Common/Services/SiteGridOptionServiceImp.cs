@@ -8,13 +8,12 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SiteGridOptionServiceImp : SiteGridOptionService
     {
-        public GridOptions FromWinLossModel(SiteWinLossModel winLoss, string site, string breadCrumb)
+        public GridOptions FromWinLossModel(SiteWinLossModel winLoss, string site)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
-                TitleInfoText = breadCrumb,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(site),
                 GroupHeaderRows = BuildGroupHeaderRows(),

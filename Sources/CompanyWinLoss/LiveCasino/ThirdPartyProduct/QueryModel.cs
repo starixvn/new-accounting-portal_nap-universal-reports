@@ -9,7 +9,5 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
 
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
-
-        public string BreadCrumb { get; set; }
     }
 }

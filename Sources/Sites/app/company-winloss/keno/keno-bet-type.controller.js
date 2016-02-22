@@ -25,7 +25,7 @@
 
         function generate() {
             var dateRange = filterModel.getDateRange();
-            kenoService.getBetType(dateRange.startDate, dateRange.endDate, breadcrumbHelper.generateText()).then(function (data) {
+            kenoService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
                 createLinks(data);
                 renderGrid(data);
                 compileLinks();

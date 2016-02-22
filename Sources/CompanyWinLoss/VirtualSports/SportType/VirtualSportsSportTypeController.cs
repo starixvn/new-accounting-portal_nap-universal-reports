@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
                 };
 
                 var winlosses = this.sportTypeService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.BreadCrumb);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses);
 
                 return Json(gridOptions);
             }

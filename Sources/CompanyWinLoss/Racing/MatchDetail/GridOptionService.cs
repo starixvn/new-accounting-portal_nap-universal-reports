@@ -4,6 +4,6 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 {
     public interface GridOptionService
     {
-        GridOptions FromWinLossModel(WinLossModel winLoss, string breadCrumb);
+        GridOptions FromWinLossModel(WinLossModel winLoss);
     }
 }

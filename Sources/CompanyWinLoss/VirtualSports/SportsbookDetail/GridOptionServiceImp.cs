@@ -7,13 +7,12 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
     public class GridOptionServiceImp : GridOptionService
     {
-        public GridOptions FromWinLossModel(WinLossModel winLoss, string breadCrumb)
+        public GridOptions FromWinLossModel(WinLossModel winLoss)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
-                TitleInfoText = breadCrumb,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),

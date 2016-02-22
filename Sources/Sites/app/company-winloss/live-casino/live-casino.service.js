@@ -14,32 +14,30 @@
         };
         return service;
 
-        function getThirdPartyProduct(startDate, endDate, breadCrumb) {
-            var data = { startDate: startDate, endDate: endDate, breadCrumb: breadCrumb };
+        function getThirdPartyProduct(startDate, endDate) {
+            var data = { startDate: startDate, endDate: endDate };
             return $http.post('/api/company-win-loss/live-casino/third-party-product', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
-        function getBetType(startDate, endDate, productId, breadCrumb) {
+        function getBetType(startDate, endDate, productId) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
-                productId: productId,
-                breadCrumb: breadCrumb
+                productId: productId
             };
             return $http.post('/api/company-win-loss/live-casino/bet-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
-        function getSite(startDate, endDate, betType, site, breadCrumb) {
+        function getSite(startDate, endDate, betType, site) {
             var data = {
                 startDate: startDate,
                 endDate: endDate,
                 betType: betType,
-                site: site,
-                breadCrumb: breadCrumb
+                site: site
             };
             return $http.post('/api/company-win-loss/live-casino/site', data)
                 .then(getDataComplete)

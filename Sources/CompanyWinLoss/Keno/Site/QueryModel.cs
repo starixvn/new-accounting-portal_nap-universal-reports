@@ -13,7 +13,5 @@ namespace UniversalReports.CompanyWinLoss.Keno.Site
         public int BetType { get; set; }
 
         public string Site { get; set; }
-
-        public string BreadCrumb { get; set; }
     }
 }

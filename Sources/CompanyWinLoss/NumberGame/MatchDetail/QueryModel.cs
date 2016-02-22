@@ -15,7 +15,5 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
         public int BetType { get; set; }
 
         public bool IsLive { get; set; }
-
-        public string BreadCrumb { get; set; }
     }
 }

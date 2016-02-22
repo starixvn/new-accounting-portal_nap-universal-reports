@@ -30,7 +30,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.BreadCrumb);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
 
                 return Json(gridOptions);
             }

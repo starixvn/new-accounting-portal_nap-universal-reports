@@ -24,7 +24,7 @@
 
         function generate() {
             var dateRange = filterModel.getDateRange();
-            liveCasinoService.getThirdPartyProduct(dateRange.startDate, dateRange.endDate, breadcrumbHelper.generateText()).then(function (data) {
+            liveCasinoService.getThirdPartyProduct(dateRange.startDate, dateRange.endDate).then(function (data) {
                 createLinks(data);
                 renderGrid(data);
                 compileLinks();

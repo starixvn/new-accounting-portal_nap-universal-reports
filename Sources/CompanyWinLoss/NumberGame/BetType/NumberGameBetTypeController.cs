@@ -33,7 +33,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     BetTypes = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
-                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.BreadCrumb);
+                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss);
 
                 var nonLiveBetTypeWinLoss = new BetTypeWinLossModel
                 {
@@ -41,7 +41,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     GrandTotal = winlosses.NonLiveGrandTotal
                 };
 
-                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, queryModel.BreadCrumb);
+                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss);
 
                 return Json(new { Live = liveGridOptions, NoneLive = nonLiveGridOptions });
             }

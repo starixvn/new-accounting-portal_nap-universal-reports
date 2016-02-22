@@ -8,12 +8,11 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SportTypeGridOptionServiceImp : SportTypeGridOptionService
     {
-        public GridOptions FromWinLossModel(SportTypeWinLossModel winLoss, string breadCrumb)
+        public GridOptions FromWinLossModel(SportTypeWinLossModel winLoss)
         {
             return new GridOptions
             {
                 ShowTitle = true,
-                TitleInfoText = breadCrumb,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 BodyRows = BuildBodyRows(winLoss.Sports),

@@ -11,7 +11,5 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
         public DateTime EndDate { get; set; }
 
         public int SportType { get; set; }
-
-        public string BreadCrumb { get; set; }
     }
 }

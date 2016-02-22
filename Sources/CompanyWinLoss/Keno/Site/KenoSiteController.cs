@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.Site
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.BreadCrumb);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site);
 
                 return Json(gridOptions);
             }
