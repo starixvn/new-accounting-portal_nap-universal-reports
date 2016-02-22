@@ -3,20 +3,25 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('CasinoBetTypeController', CasinoBetTypeController);
+        .controller('SiteController', SiteController);
 
-    CasinoBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'casinoService', 'breadcrumbHelper', 'drillDownHelper'];
-    function CasinoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, casinoService, breadcrumbHelper, drillDownHelper) {
-        var gridModel = companyWinlossService.gridModel;
-        var filterModel = companyWinlossService.filterModel;
+    SiteController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper'];
+    function SiteController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
+        var service = getService();
+
         $scope.generate = generate;
         $scope.show = show;
+       
+        function getService() {
+            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
+            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
+            var serviceName = camelProductName + 'SiteService';
+            return $injector.get(serviceName);
+        };
 
         function generate() {
-            var dateRange = filterModel.getDateRange();
-            casinoService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.thirdPartyProductId).then(function (data) {
-                drillDownHelper.build($scope, data);
+            service.getData().then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
@@ -40,9 +45,10 @@
 
         function compileLinks() {
             breadcrumbHelper.compile($element);
-            drillDownHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
         }
-
+      
         function exportExcel() {
         }
     }

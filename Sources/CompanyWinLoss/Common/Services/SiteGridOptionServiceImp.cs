@@ -28,41 +28,33 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
           Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildHeader(string site)
         {
-            var header = new List<HeaderColumns>();
-            header.AddRange(
-                new List<HeaderColumns>
-                {
-                    new HeaderColumns { HeaderText = site, Width = 150, Name = "Site", HeaderAlign = "center", CellAlignment = HAlignment.Center },
-                    new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
-                });
-
-            return header;
+            return new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = site, Width = 150, Name = "Site", HeaderAlign = "center", CellAlignment = HAlignment.Center },
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
+            };
         }
 
         private List<GroupHeaderRows> BuildGroupHeaderRows()
         {
-            List<GroupHeaderRows> groupHeaderRows = new List<GroupHeaderRows>();
+            var columns = new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Site", Name = "Site", Width = 150 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Margin", Name = "Margin", MergeRowNumber = 2, Width = 120 }
+            };
 
-            var groupHeader = new GroupHeaderRows();
-            groupHeader.Columns.AddRange(
-                new List<HeaderColumns>
-                {
-                    new HeaderColumns { HeaderText = "Site", Name = "Site", Width = 150 },
-                    new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Margin", Name = "Margin", MergeRowNumber = 2, Width = 120 }
-                });
-
-            groupHeaderRows.Add(groupHeader);
-            return groupHeaderRows;
+            var groupHeader = new GroupHeaderRows { Columns = columns };
+            return new List<GroupHeaderRows> { groupHeader };
         }
 
         private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
@@ -86,28 +78,19 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
-            var row = new GridDataRow();
-            row.Columns = BuildWinLossRow(item, alignment);
-            return row;
-        }
-
-        private List<Columns> BuildWinLossRow(WinLoss item, HAlignment alignment)
-        {
             int columnIndex = 0;
-            var columns = new List<Columns>();
-            columns.AddRange(
-               new List<Columns>
-               {
-                    new Columns(columnIndex++, "Site", item.Name, alignment),
-                    new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", item.Commission),
-                    new Columns(columnIndex++, "RealIncome", item.RealIncome),
-                    new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
-               });
+            var columns = new List<Columns>
+            {
+                new Columns(columnIndex++, "Site", item.Name, alignment),
+                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
+            };
 
-            return columns;
+            return new GridDataRow { Columns = columns };
         }
     }
 }

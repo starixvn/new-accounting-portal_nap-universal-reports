@@ -3,12 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .controller('CasinoThirdPartyProductController', CasinoThirdPartyProductController);
+        .controller('LiveCasinoThirdPartyProductController', LiveCasinoThirdPartyProductController);
 
-    CasinoThirdPartyProductController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'casinoService', 'breadcrumbHelper'];
-    function CasinoThirdPartyProductController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, casinoService, breadcrumbHelper) {
-        var gridModel = companyWinlossService.gridModel;
-        var filterModel = companyWinlossService.filterModel;
+    LiveCasinoThirdPartyProductController.$inject = ['$compile', '$scope', '$element', 'levels', 'companyWinlossService', 'casinoThirdPartyProductService', 'breadcrumbHelper'];
+    function LiveCasinoThirdPartyProductController($compile, $scope, $element, levels, companyWinlossService, casinoThirdPartyProductService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
@@ -23,8 +21,7 @@
         };
 
         function generate() {
-            var dateRange = filterModel.getDateRange();
-            casinoService.getThirdPartyProduct(dateRange.startDate, dateRange.endDate).then(function (data) {
+            casinoThirdPartyProductService.getData().then(function (data) {
                 createLinks(data);
                 renderGrid(data);
                 compileLinks();
@@ -37,9 +34,10 @@
 
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
-                var customAttr = data.bodyRows[i].Columns[0].CustomAttr;
-                var customAttrData = customAttr.split('\,');
-                data.bodyRows[i].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + parseInt(customAttrData[0]) + ',\'' + customAttrData[1] + '\')">' + customAttrData[1] + '</a>';
+                var productColumn = data.bodyRows[i].Columns[0];
+                var productId = productColumn.CustomAttr;
+                var productName = productColumn.Value;
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName + '\')">' + productName + '</a>';
             }
         }
 

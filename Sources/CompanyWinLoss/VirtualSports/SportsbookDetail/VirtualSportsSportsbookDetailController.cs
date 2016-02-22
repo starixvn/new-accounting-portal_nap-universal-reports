@@ -15,7 +15,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("sports-book-match-detail")]
+        [Route("sportsbook-match-detail")]
         public IHttpActionResult SportsbookDetail(QueryModel queryModel)
         {
             if (ModelState.IsValid)

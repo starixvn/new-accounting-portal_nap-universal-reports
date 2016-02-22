@@ -29,19 +29,19 @@
             {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameSiteController'
+                controller: 'SiteController'
             }]
         },
         'Virtual Sports': {
             templates: [{
                 level: levels.SPORT_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSportTypeController'
+                controller: 'SportTypeController'
             },
             {
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsBetTypeController'
+                controller: 'BetTypeController'
             },
             {
                 level: levels.DETAIL,
@@ -53,41 +53,7 @@
             {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSiteController'
-            }]
-        },
-        'Racing': {
-            templates: [{
-                level: levels.SPORT_TYPE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSportTypeController'
-            },
-            {
-                level: levels.BET_TYPE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingBetTypeController'
-            },
-            {
-                level: levels.DETAIL,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingDetailController'
-            },
-            {
-                level: levels.SITE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSiteController'
-            }]
-        },
-        'Keno': {
-            templates: [{
-                level: levels.BET_TYPE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoBetTypeController'
-            },
-            {
-                level: levels.SITE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoSiteController'
+                controller: 'SiteController'
             }]
         },
         'Live Casino': {
@@ -98,25 +64,13 @@
             }, {
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'LiveCasinoBetTypeController'
+                controller: 'BetTypeController'
             },
             {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'LiveCasinoSiteController'
+                controller: 'SiteController'
             }]
-        },
-        'Bettrade': {
-            templates: [{
-                level: levels.BET_TYPE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BettradeBetTypeController'
-            },
-                {
-                    level: levels.SITE,
-                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                    controller: 'BettradeSiteController'
-                }]
         },
         'Casino': {
             templates: [{
@@ -126,14 +80,84 @@
             }, {
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoBetTypeController'
+                controller: 'BetTypeController'
             },
             {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoSiteController'
+                controller: 'SiteController'
             }]
-        }
+        },
+        'Racing': {
+            templates: [{
+                level: levels.SPORT_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SportTypeController'
+            },
+            {
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.DETAIL,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'RacingDetailController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
+        'Keno': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },        
+        'Bettrade': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+                {
+                    level: levels.SITE,
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'SiteController'
+                }]
+        },
+        'Bingo': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
+        'Cock Fighting': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
     };
 
     angular

@@ -29,45 +29,37 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
           Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildHeader()
         {
-            var header = new List<HeaderColumns>();
-            header.AddRange(
-                new List<HeaderColumns>
-                {
-                    new HeaderColumns { HeaderText = "Code", Width = 150, Name = "Code", HeaderAlign = "center", CellAlignment = HAlignment.Center },
-                    new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "Variance", Width = 120, Name = "Variance", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
-                    new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
-                });
-
-            return header;
+            return new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Code", Width = 150, Name = "Code", HeaderAlign = "center", CellAlignment = HAlignment.Center },
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Variance", Width = 120, Name = "Variance", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
+            };
         }
 
         private List<GroupHeaderRows> BuildGroupHeaderRows()
         {
-            List<GroupHeaderRows> groupHeaderRows = new List<GroupHeaderRows>();
+            var columns = new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Code", Name = "Code", MergeRowNumber = 2, Width = 150 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 120 }
+            };
 
-            var groupHeader = new GroupHeaderRows();
-            groupHeader.Columns.AddRange(
-                new List<HeaderColumns>
-                {
-                    new HeaderColumns { HeaderText = "Code", Name = "Code", MergeRowNumber = 2, Width = 150 },
-                    new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 120 },
-                    new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 120 }
-                });
-
-            groupHeaderRows.Add(groupHeader);
-            return groupHeaderRows;
+            var groupHeader = new GroupHeaderRows { Columns = columns };
+            return new List<GroupHeaderRows> { groupHeader };
         }
 
         private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagues)
@@ -118,10 +110,10 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
             return new GridDataRow
             {
                 Columns = new List<Columns>
-               {
+                {
                     new Columns(0, "Code", string.Empty),
                     new Columns { ColumnIndex = 1, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 10 }
-               }
+                }
             };
         }
 

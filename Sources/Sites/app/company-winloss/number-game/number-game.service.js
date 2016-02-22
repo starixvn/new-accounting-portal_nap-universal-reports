@@ -5,46 +5,33 @@
         .module('companyWinlossApp')
         .factory('numberGameService', numberGameService);
 
-    numberGameService.$inject = ['$http', 'logger'];
-    function numberGameService($http, logger) {
+    numberGameService.$inject = ['$http', 'logger', 'companyWinlossService'];
+    function numberGameService($http, logger, companyWinlossService) {
         var service = {
             getBetType: getBetType,
-            getMatchDetail: getMatchDetail,
-            getSite: getSite
+            getMatchDetail: getMatchDetail
         };
 
         return service;
 
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
+        function getBetType() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate };
             return $http.post('/api/company-win-loss/number-game/bet-type', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }
 
-        function getMatchDetail(startDate, endDate, isLive, betType) {
+        function getMatchDetail() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
                 sportType: 161,
-                isLive: isLive,
-                betType: betType
+                isLive: gridModel.isLive,
+                betType: gridModel.betType
             };
             return $http.post('/api/company-win-loss/number-game/match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSite(startDate, endDate, isLive, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/number-game/site', data)
                 .then(getDataComplete)
                 .catch(getDataFailed);
         }

@@ -28,20 +28,16 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
           Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildHeader()
         {
-            var header = new List<HeaderColumns>();
-            header.AddRange(
-                new List<HeaderColumns>
-                {
-                    new HeaderColumns { HeaderText = string.Empty, Width = 150, Name = "Race", HeaderAlign = "center", CellAlignment = HAlignment.Center },
-                    new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                    new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                    new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "RealMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
-                });
-
-            return header;
+            return new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = string.Empty, Width = 150, Name = "Race", HeaderAlign = "center", CellAlignment = HAlignment.Center },
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "RealMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
+            };
         }
 
         private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagues)
@@ -91,17 +87,15 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
             return new GridDataRow
             {
                 Columns = new List<Columns>
-               {
-                    new Columns { ColumnIndex = 1, Name = "Race", Value = leagueName, MergeColNumber = 7 }
-               }
+                {
+                    new Columns { ColumnIndex = 1, Name = "Race", Value = leagueName, MergeColNumber = 7, CellAlignment = HAlignment.Left }
+                }
             };
         }
 
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
-            var footerRow = new List<GridDataRow>();
-            footerRow.Add(BuildDataRow(item, HAlignment.Right));
-            return footerRow;
+            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Right) };
         }
     }
 }

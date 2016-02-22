@@ -43,7 +43,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
 
                 var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss);
 
-                return Json(new { Live = liveGridOptions, NoneLive = nonLiveGridOptions });
+                return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
             }
 
             return null;
