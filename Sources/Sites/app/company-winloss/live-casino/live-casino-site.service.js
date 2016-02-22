@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('liveCasinoSiteService', liveCasinoSiteService);
 
-    liveCasinoSiteService.$inject = ['$http', 'logger', 'companyWinlossService'];
-    function liveCasinoSiteService($http, logger, companyWinlossService) {
+    liveCasinoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function liveCasinoSiteService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData
         };
@@ -21,17 +21,8 @@
                 site: gridModel.site
             };
             return $http.post('/api/company-win-loss/live-casino/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-
-            function getDataComplete(response) {
-                logger.hide();
-                return response.data;
-            }
-
-            function getDataFailed(error) {
-                logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-            }
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }       
     }
 })();

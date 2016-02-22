@@ -148,6 +148,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\colossus-bets\colossus-bets-bet-type.service.js" />
+    <Content Include="app\company-winloss\colossus-bets\colossus-bets-site.service.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fighting-bet-type.service.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fighting-site.service.js" />
     <Content Include="app\company-winloss\bettrade\bettrade-bet-type.service.js" />
@@ -158,15 +160,18 @@
     <Content Include="app\company-winloss\casino\casino-third-party-product.service.js" />
     <Content Include="app\company-winloss\bingo\bingo-bet-type.service.js" />
     <Content Include="app\company-winloss\bingo\bingo-site.service.js" />
+    <Content Include="app\company-winloss\common\breadcrumb.helper.js" />
+    <Content Include="app\common\http-response.service.js" />
+    <Content Include="app\company-winloss\common\keno-drilldown-style.helper.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-site.service.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-bet-type.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.service.js" />
+    <Content Include="app\company-winloss\number-game\number-game-bet-type.service.js" />
     <Content Include="app\company-winloss\racing\racing-bet-type.service.js" />
     <Content Include="app\company-winloss\racing\racing-site.service.js" />
     <Content Include="app\company-winloss\racing\racing-sport-type.service.js" />
-    <Content Include="app\company-winloss\sport-type.controller.js" />
-    <Content Include="app\company-winloss\common\breadcrumbHelper.js" />
-    <Content Include="app\company-winloss\bet-type.controller.js" />
+    <Content Include="app\company-winloss\common\sport-type.controller.js" />
+    <Content Include="app\company-winloss\common\bet-type.controller.js" />
     <Content Include="app\company-winloss\keno\keno-bet-type.service.js" />
     <Content Include="app\company-winloss\keno\keno-site.service.js" />
     <Content Include="app\company-winloss\level\level.service.js" />
@@ -180,14 +185,14 @@
     <Content Include="app\company-winloss\live-casino\live-casino-third-party-product.controller.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-third-party-product.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-detail.controller.js" />
-    <Content Include="app\company-winloss\number-game\number-game.service.js" />
+    <Content Include="app\company-winloss\number-game\number-game-detail.service.js" />
     <Content Include="app\company-winloss\number-game\number-game.html" />
     <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\racing\racing-detail.controller.js" />
     <Content Include="app\company-winloss\racing\racing-detail.service.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title-for-detail.html" />
-    <Content Include="app\company-winloss\site.controller.js" />
+    <Content Include="app\company-winloss\common\site.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.controller.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-bet-type.service.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sportsbook-detail.service.js" />

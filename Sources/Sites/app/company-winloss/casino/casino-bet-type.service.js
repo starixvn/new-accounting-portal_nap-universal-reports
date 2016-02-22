@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('casinoBetTypeService', casinoBetTypeService);
 
-    casinoBetTypeService.$inject = ['$http', 'logger', 'levels', 'companyWinlossService'];
-    function casinoBetTypeService($http, logger, levels, companyWinlossService) {
+    casinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
+    function casinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
         var service = {
             getData: getData,
             createLinks: createLinks,
@@ -18,17 +18,8 @@
             var gridModel = companyWinlossService.gridModel;
             var data = { startDate: gridModel.startDate, endDate: gridModel.endDate, productId: gridModel.thirdPartyProductId };
             return $http.post('/api/company-win-loss/casino/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-
-            function getDataComplete(response) {
-                logger.hide();
-                return response.data;
-            }
-
-            function getDataFailed(error) {
-                logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-            }
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
         function createLinks(data) {

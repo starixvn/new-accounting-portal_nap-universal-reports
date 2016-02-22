@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('racingSiteService', racingSiteService);
 
-    racingSiteService.$inject = ['$http', 'logger', 'levels', 'companyWinlossService'];
-    function racingSiteService($http, logger, levels, companyWinlossService) {
+    racingSiteService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
+    function racingSiteService($http, httpResponseService, levels, companyWinlossService) {
         var service = {
             getData: getData
         };
@@ -22,17 +22,8 @@
                 site: gridModel.site
             };
             return $http.post('/api/company-win-loss/racing/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-
-            function getDataComplete(response) {
-                logger.hide();
-                return response.data;
-            }
-
-            function getDataFailed(error) {
-                logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-            }
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();

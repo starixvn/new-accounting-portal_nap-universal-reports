@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
 
-    virtualSportsSportsbookDetailService.$inject = ['$http', 'logger', 'companyWinlossService'];
-    function virtualSportsSportsbookDetailService($http, logger, companyWinlossService) {
+    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function virtualSportsSportsbookDetailService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData
         };
@@ -21,16 +21,8 @@
                 betType: gridModel.betType
             };
             return $http.post('/api/company-win-loss/virtual-sports/sportsbook-match-detail', data)
-                 .then(getDataComplete)
-                 .catch(getDataFailed);
-            function getDataComplete(response) {
-                logger.hide();
-                return response.data;
-            }
-
-            function getDataFailed(error) {
-                logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-            }
+                 .then(httpResponseService.getDataComplete)
+                 .catch(httpResponseService.getDataFailed);
         }
     }
 })();

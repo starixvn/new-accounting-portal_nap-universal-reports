@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('productService', productService);
 
-    productService.$inject = ['$http', 'logger'];
-    function productService($http, logger) {
+    productService.$inject = ['$http', 'httpResponseService'];
+    function productService($http, httpResponseService) {
         var service = {
             getData: getData
         };
@@ -15,17 +15,8 @@
         function getData(startDate, endDate) {
             var data = { startDate: startDate, endDate: endDate };
             return $http.post('/api/company-win-loss/values', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
