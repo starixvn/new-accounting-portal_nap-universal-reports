@@ -40,4 +40,8 @@
     <Setting Key="CompanyWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Colossus Bets">
+    <Setting Key="CompanyWinLoss-ColossusBets-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-ColossusBets-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

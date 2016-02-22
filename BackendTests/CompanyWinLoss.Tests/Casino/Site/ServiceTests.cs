@@ -43,7 +43,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Casino.Site
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
-                BetType = 1101,
+                BetType = 2101,
                 Site = "Credit"
             };
         }

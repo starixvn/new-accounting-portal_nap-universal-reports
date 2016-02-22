@@ -9,7 +9,5 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
 
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
-
-        public int ProductId { get; set; }
     }
 }

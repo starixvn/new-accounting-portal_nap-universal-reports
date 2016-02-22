@@ -65,4 +65,10 @@
     <Setting Key="CompanyWinLoss-Casino-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Casino_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Casino-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Casino_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Colossus Bets">
+    <Setting Key="CompanyWinLoss-ColossusBets-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-ColossusBets-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-ColossusBets-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-ColossusBets-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

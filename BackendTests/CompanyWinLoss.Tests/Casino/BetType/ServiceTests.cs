@@ -35,7 +35,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Casino.BetType
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
-                ProductId = 4
+                ProductId = 6
             };
         }
 

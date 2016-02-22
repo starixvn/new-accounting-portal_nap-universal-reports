@@ -5,17 +5,10 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
 {
     public class Criteria : WinLossCriteria
     {
-        public int ProductId { get; set; }
-
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
-            var newCriteria = new Criteria
-            {
-                ProductId = ProductId
-            };
-
+            var newCriteria = new Criteria();
             newCriteria.Update(source);
-
             return newCriteria;
         }
 
