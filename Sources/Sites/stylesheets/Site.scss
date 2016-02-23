@@ -260,35 +260,37 @@
     .freegrid {
         font-size: 0.85em;
 
-        .grid-container {
-            .parent-row {
-                td {
-                    color: black;
-                    font-weight: normal;
-                }
-
-                td:first-child {
-                    font-weight: bold;
-                }
+        .parent-row {
+            td {
+                color: black;
+                font-weight: normal;
             }
 
-            .highlight-product {
-                & > td {
-                    font-weight: bold;
-                    background-color: #f4f4be;
-                }
-            }
-
-            .league-header {
-                text-align: left;
+            td:first-child {
                 font-weight: bold;
             }
         }
 
-        .footer-container {
-            .highlight-column {
-                background: #b5c4d0 !important;
+        .child-row {
+            .free-grid-td-0 {
+                font-weight: bold;
             }
+        }
+
+        .highlight-product {
+            & > td {
+                font-weight: bold;
+                background-color: #f4f4be;
+            }
+        }
+
+        .league-header {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .highlight-column {
+            background: #b5c4d0 !important;
         }
 
         .grand-total-note {
@@ -326,7 +328,7 @@
         @include border-radius(6px);
     }
 
-    .modal-body{
+    .modal-body {
         padding: 10px 5px;
     }
 }

@@ -9054,56 +9054,60 @@ button.close {
 .grid-boundary .freegrid {
   font-size: 0.85em;
 }
-/* line 265, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .grid-container .parent-row td {
+/* line 264, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .parent-row td {
   color: black;
   font-weight: normal;
 }
-/* line 270, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .grid-container .parent-row td:first-child {
+/* line 269, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .parent-row td:first-child {
   font-weight: bold;
 }
-/* line 276, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .grid-container .highlight-product > td {
+/* line 275, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .child-row .free-grid-td-0 {
+  font-weight: bold;
+}
+/* line 281, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .highlight-product > td {
   font-weight: bold;
   background-color: #f4f4be;
 }
-/* line 282, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .grid-container .league-header {
+/* line 287, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .league-header {
   text-align: left;
   font-weight: bold;
 }
-/* line 289, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .footer-container .highlight-column {
+/* line 292, ../stylesheets/Site.scss */
+.grid-boundary .freegrid .highlight-column {
   background: #b5c4d0 !important;
 }
-/* line 294, ../stylesheets/Site.scss */
+/* line 296, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grand-total-note {
   background: white !important;
 }
-/* line 299, ../stylesheets/Site.scss */
+/* line 301, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label {
   font-size: 0.85em;
 }
-/* line 302, ../stylesheets/Site.scss */
+/* line 304, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
   text-transform: uppercase;
 }
-/* line 306, ../stylesheets/Site.scss */
+/* line 308, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb > li.active {
   color: #4a4b4f;
 }
-/* line 312, ../stylesheets/Site.scss */
+/* line 314, ../stylesheets/Site.scss */
 .grid-boundary a {
   color: blue;
 }
 
-/* line 317, ../stylesheets/Site.scss */
+/* line 319, ../stylesheets/Site.scss */
 .modal-content {
   padding: 5px;
 }
-/* line 320, ../stylesheets/Site.scss */
+/* line 322, ../stylesheets/Site.scss */
 .modal-content .modal-header {
   border-bottom: 0;
   background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
@@ -9114,7 +9118,7 @@ button.close {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
 }
-/* line 329, ../stylesheets/Site.scss */
+/* line 331, ../stylesheets/Site.scss */
 .modal-content .modal-body {
   padding: 10px 5px;
 }
