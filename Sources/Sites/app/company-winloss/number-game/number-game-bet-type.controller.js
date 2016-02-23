@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('NumberGameBetTypeController', NumberGameBetTypeController);
 
-    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
-    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
+    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameBetTypeService', 'breadcrumbHelper'];
+    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameBetTypeService, breadcrumbHelper) {
         var gridModel = companyWinlossService.gridModel;
         var filterModel = companyWinlossService.filterModel;
         var gridElements = $element.find('.freegrid');
@@ -37,7 +37,7 @@
         };
 
         function generate() {
-            numberGameService.getBetType().then(function (data) {
+            numberGameBetTypeService.getData().then(function (data) {
                 createLinks(data.Live, true);
                 createLinks(data.NonLive, false);
                 renderGrid(nonliveGridElement, data.NonLive);
