@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		FXCop\FxCopDictionary.xml = FXCop\FxCopDictionary.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Sources\Application\Application.csproj", "{2592C02B-B254-4EDE-9A42-9A0094763EFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,8 +73,10 @@ Global
 		{5A2BA395-E012-410D-ACD7-1CF9C48AA042} = {B32162A7-27BA-4D13-A4FB-CB4138D4F44E}
 		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{399BC912-0469-423D-A587-E7F56E174EBC} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{2592C02B-B254-4EDE-9A42-9A0094763EFD} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

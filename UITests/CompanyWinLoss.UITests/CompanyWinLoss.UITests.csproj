@@ -54,6 +54,7 @@
     <Content Include="Scripts\jasmine-html.js" />
     <Content Include="Scripts\jasmine.js" />
     <Content Include="Scripts\sinon-1.9.1.js" />
+    <Content Include="specs\components\menu\menu.directive.spec.js" />
     <Content Include="specs\main\main.directive.spec.js" />
   </ItemGroup>
   <ItemGroup>
