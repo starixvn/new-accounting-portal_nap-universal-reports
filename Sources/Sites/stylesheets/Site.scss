@@ -7,7 +7,7 @@
     .date-picker-input {
         padding: 3px 8px;
         cursor: pointer;
-        background: url("/images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
+        background: url("./images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
     }
 
     .dropdown-menu {
@@ -131,13 +131,13 @@
         right: 0;
         z-index: 10;
         display: block;
-        background: url("/images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
+        background: url("./images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
         cursor: help;
         width: 16px;
         height: 16px;
 
         &:hover {
-            background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
+            background: url("./images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
         }
     }
 }
@@ -181,11 +181,11 @@
         padding: 0;
         font-weight: bold;
         padding-left: 18px;
-        background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
+        background: url("./images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
         cursor: pointer;
 
         &.collapsed {
-            background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
+            background: url("./images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
         }
     }
 
@@ -234,7 +234,7 @@
 
     & > .block-loading {
         z-index: $zindex-modal + 2;
-        background: url(/images/loading/loading.gif) no-repeat center center;
+        background: url(./images/loading/loading.gif) no-repeat center center;
         position: fixed;
         left: 0;
         right: 0;
@@ -295,6 +295,7 @@
 
         .grand-total-note {
             background: white !important;
+            font-weight: normal;
         }
     }
 

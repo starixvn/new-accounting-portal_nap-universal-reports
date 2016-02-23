@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var napConfig = new
+    {
+        Today = DateTime.UtcNow
+            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+            .TotalMilliseconds,
+        RootUrl = Request.Url
+    };
+}
+
+<!DOCTYPE html>
 <!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
@@ -27,9 +38,7 @@
         <nap-loading></nap-loading>
     </div>
     <script type="text/javascript">
-        var napConfig = {
-            today: '1/12/2016'
-        };
+        var napConfig = @Html.Raw(Json.Encode(napConfig));
     </script>
     <script src="Scripts/jquery-2.2.0.min.js"></script>
     <script src="Scripts/moment.min.js"></script>
@@ -76,7 +85,7 @@
     <script src="app/company-winloss/number-game/number-game-detail.controller.js"></script>
     <script src="app/company-winloss/number-game/number-game-detail.service.js"></script>
     <script src="app/company-winloss/number-game/number-game-site.service.js"></script>
-    
+
     <script src="app/company-winloss/virtual-sports/virtual-sports-sport-type.service.js"></script>
     <script src="app/company-winloss/virtual-sports/virtual-sports-bet-type.service.js"></script>
     <script src="app/company-winloss/virtual-sports/virtual-sports-site.service.js"></script>
@@ -85,7 +94,7 @@
     <script src="app/company-winloss/virtual-sports/virtual-sports-racing-detail.service.js"></script>
     <script src="app/company-winloss/virtual-sports/virtual-sports-sportsbook-detail.controller.js"></script>
     <script src="app/company-winloss/virtual-sports/virtual-sports-sportsbook-detail.service.js"></script>
-    
+
     <script src="app/company-winloss/live-casino/live-casino-third-party-product.controller.js"></script>
     <script src="app/company-winloss/live-casino/live-casino-third-party-product.service.js"></script>
     <script src="app/company-winloss/live-casino/live-casino-bet-type.service.js"></script>
@@ -95,7 +104,7 @@
     <script src="app/company-winloss/casino/casino-third-party-product.service.js"></script>
     <script src="app/company-winloss/casino/casino-bet-type.service.js"></script>
     <script src="app/company-winloss/casino/casino-site.service.js"></script>
-        
+
     <script src="app/company-winloss/racing/racing-sport-type.service.js"></script>
     <script src="app/company-winloss/racing/racing-bet-type.service.js"></script>
     <script src="app/company-winloss/racing/racing-site.service.js"></script>

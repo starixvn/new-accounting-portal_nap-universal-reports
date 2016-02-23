@@ -367,8 +367,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1452566583);
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1452566583#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff2?1452566583) format("woff2"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1452566583) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1452566583) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1452566583#glyphicons_halflingsregular) format("svg");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 /* line 24, ../stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -8799,7 +8799,7 @@ button.close {
 .date-picker .date-picker-input {
   padding: 3px 8px;
   cursor: pointer;
-  background: url("/images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
+  background: url("./images/date-picker/calendar.png") no-repeat scroll 96% 50% white;
 }
 /* line 13, ../stylesheets/Site.scss */
 .date-picker .dropdown-menu {
@@ -8909,14 +8909,14 @@ button.close {
   right: 0;
   z-index: 10;
   display: block;
-  background: url("/images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
+  background: url("./images/filter/legend-information.png") no-repeat scroll 0 0 transparent;
   cursor: help;
   width: 16px;
   height: 16px;
 }
 /* line 139, ../stylesheets/Site.scss */
 .legend-information .information-button:hover {
-  background: url("/images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
+  background: url("./images/filter/legend-information-hover.png") no-repeat scroll 0 0 transparent;
 }
 
 /* line 145, ../stylesheets/Site.scss */
@@ -8978,12 +8978,12 @@ button.close {
   padding: 0;
   font-weight: bold;
   padding-left: 18px;
-  background: url("/images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
+  background: url("./images/filter/note-collapse.png") no-repeat scroll 0 0 transparent;
   cursor: pointer;
 }
 /* line 187, ../stylesheets/Site.scss */
 .filter-note .note-button.collapsed {
-  background: url("/images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
+  background: url("./images/filter/note-expand.png") no-repeat scroll 0 0 transparent;
 }
 /* line 192, ../stylesheets/Site.scss */
 .filter-note .note-body {
@@ -9028,7 +9028,7 @@ button.close {
 /* line 235, ../stylesheets/Site.scss */
 .loading-container > .block-loading {
   z-index: 1052;
-  background: url(/images/loading/loading.gif) no-repeat center center;
+  background: url(./images/loading/loading.gif) no-repeat center center;
   position: fixed;
   left: 0;
   right: 0;
@@ -9084,30 +9084,31 @@ button.close {
 /* line 296, ../stylesheets/Site.scss */
 .grid-boundary .freegrid .grand-total-note {
   background: white !important;
+  font-weight: normal;
 }
-/* line 301, ../stylesheets/Site.scss */
+/* line 302, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label {
   font-size: 0.85em;
 }
-/* line 304, ../stylesheets/Site.scss */
+/* line 305, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb {
   margin-bottom: 0;
   text-transform: uppercase;
 }
-/* line 308, ../stylesheets/Site.scss */
+/* line 309, ../stylesheets/Site.scss */
 .grid-boundary .grid-title-label .breadcrumb > li.active {
   color: #4a4b4f;
 }
-/* line 314, ../stylesheets/Site.scss */
+/* line 315, ../stylesheets/Site.scss */
 .grid-boundary a {
   color: blue;
 }
 
-/* line 319, ../stylesheets/Site.scss */
+/* line 320, ../stylesheets/Site.scss */
 .modal-content {
   padding: 5px;
 }
-/* line 322, ../stylesheets/Site.scss */
+/* line 323, ../stylesheets/Site.scss */
 .modal-content .modal-header {
   border-bottom: 0;
   background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
@@ -9118,7 +9119,7 @@ button.close {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
 }
-/* line 331, ../stylesheets/Site.scss */
+/* line 332, ../stylesheets/Site.scss */
 .modal-content .modal-body {
   padding: 10px 5px;
 }

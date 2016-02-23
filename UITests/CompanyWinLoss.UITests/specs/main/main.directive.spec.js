@@ -31,7 +31,7 @@ describe('Directive: MainDirective', function () {
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($rootScope, $compile, _$timeout_, $templateCache, $httpBackend, _companyWinlossService_, _levels_, _mainService_) {
         $timeout = _$timeout_;
-        $templateCache.put('/app/company-winloss/shared/fanex-grid-with-title.html', '');
+        $templateCache.put('app/company-winloss/shared/fanex-grid-with-title.html', '');
         $httpBackend.expectPOST('/api/company-win-loss/values').respond({});
         scope = $rootScope.$new();
         element = '<div data-nap-main></div>';

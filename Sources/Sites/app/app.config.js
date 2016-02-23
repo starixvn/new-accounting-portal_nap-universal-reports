@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .config(config);
 
-    config.$injector = ['$routeProvider', '$httpProvider'];
-    function config($routeProvider, $httpProvider) {
+    config.$injector = ['$routeProvider', '$httpProvider', 'appConfig'];
+    function config($routeProvider, $httpProvider, config) {
         configRouting();
         configHttp();
 
@@ -28,6 +28,16 @@
         }
 
         function configHttp() {
+            $httpProvider.interceptors.push(templateInterceptor);
+            function templateInterceptor() {
+                return {
+                    request: function (c) {
+                        c.url = config.rootUrl + c.url;
+                        return c;
+                    }
+                }
+            }
+
             $httpProvider.interceptors.push(loadingInterceptor);
             loadingInterceptor.$injector = ['$q', '$rootScope'];
             function loadingInterceptor($q, $rootScope) {

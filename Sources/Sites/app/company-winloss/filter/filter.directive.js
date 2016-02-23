@@ -9,7 +9,7 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: '/app/company-winloss/filter/filter.directive.html',
+            templateUrl: 'app/company-winloss/filter/filter.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',

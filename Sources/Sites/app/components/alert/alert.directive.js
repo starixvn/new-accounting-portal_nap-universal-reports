@@ -9,7 +9,7 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: '/app/components/alert/alert.directive.html',
+            templateUrl: 'app/components/alert/alert.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
