@@ -35,7 +35,7 @@
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
                 var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName + '\')">' + sportTypeName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
             }
         }
     }

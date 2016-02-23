@@ -37,7 +37,7 @@
                 var productColumn = data.bodyRows[i].Columns[0];
                 var productId = productColumn.CustomAttr;
                 var productName = productColumn.Value;
-                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName + '\')">' + productName + '</a>';
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
             }
         }
 
