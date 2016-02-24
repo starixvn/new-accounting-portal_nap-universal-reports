@@ -23,8 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
                 var criteria = new Criteria
                 {
                     StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate,
-                    ProductId = queryModel.ProductId
+                    EndDate = queryModel.EndDate
                 };
 
                 var winlosses = winlossService.Query(criteria);

@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="Bettrade\BetType\BetTypeServiceTests.cs" />
     <Compile Include="Bettrade\Site\SiteServiceTests.cs" />
+    <Compile Include="Bingo\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="Bingo\Site\SiteServiceTests.cs" />
     <Compile Include="Casino\BetType\ServiceTests.cs" />
     <Compile Include="Casino\Site\ServiceTests.cs" />
     <Compile Include="Casino\ThirdPartyProduct\ServiceTests.cs" />

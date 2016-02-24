@@ -10,8 +10,6 @@ namespace UniversalReports.CompanyWinLoss.Bingo.Site
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
-        public int BetType { get; set; }
-
         public string Site { get; set; }
     }
 }

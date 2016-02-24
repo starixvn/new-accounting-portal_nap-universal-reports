@@ -70,7 +70,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             return row;
         }
 
-
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2100:CodeLineMustNotBeLongerThan",
           Justification = "Reviewed. Suppression is OK here.")]

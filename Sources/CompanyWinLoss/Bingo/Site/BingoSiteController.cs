@@ -24,7 +24,6 @@ namespace UniversalReports.CompanyWinLoss.Bingo.Site
                 {
                     StartDate = queryModel.StartDate,
                     EndDate = queryModel.EndDate,
-                    BetType = queryModel.BetType,
                     Site = queryModel.Site
                 };
 

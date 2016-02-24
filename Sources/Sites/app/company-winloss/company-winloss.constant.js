@@ -60,7 +60,7 @@
             templates: [{
                 level: levels.THIRD_PARTY_PRODUCT,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'LiveCasinoThirdPartyProductController'
+                controller: 'ThirdPartyProductController'
             }, {
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -76,7 +76,7 @@
             templates: [{
                 level: levels.THIRD_PARTY_PRODUCT,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoThirdPartyProductController'
+                controller: 'ThirdPartyProductController'
             }, {
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
