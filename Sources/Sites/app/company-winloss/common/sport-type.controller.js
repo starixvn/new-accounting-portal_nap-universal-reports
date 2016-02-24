@@ -5,13 +5,13 @@
         .module('companyWinlossApp')
         .controller('SportTypeController', SportTypeController);
 
-    SportTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper'];
-    function SportTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper) {
+    SportTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function SportTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         var service = getService();
 
         $scope.generate = generate;
-        $scope.generateBetType = service.generateBetType;        
+        $scope.generateBetType = service.generateBetType;
         $scope.show = show;
 
         function getService() {
@@ -36,12 +36,14 @@
         function renderGrid(data) {
             var titleInfo = {
                 text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
             };
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 

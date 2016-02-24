@@ -5,14 +5,14 @@
         .module('companyWinlossApp')
         .factory('kenoDrilldownStyleHelper', kenoDrilldownStyleHelper);
 
-    kenoDrilldownStyleHelper.$inject = [ 'companyWinlossService'];
-    function kenoDrilldownStyleHelper(companyWinlossService) {
+    kenoDrilldownStyleHelper.$inject = ['levels', 'companyWinlossService'];
+    function kenoDrilldownStyleHelper(levels, companyWinlossService) {
         var service = {
             createSiteLinks: createSiteLinks,
             generateSite: generateSite,
         };
         return service;
-       
+
         function createSiteLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];

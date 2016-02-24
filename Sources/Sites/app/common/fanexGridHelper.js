@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .factory('fanexGridHelper', fanexGridHelper);
 
-    fanexGridHelper.$inject = ['$window'];
-    function fanexGridHelper($window) {
+    fanexGridHelper.$inject = [];
+    function fanexGridHelper() {
         var service = {
             calculateExpandHeight: calculateExpandHeight
         };

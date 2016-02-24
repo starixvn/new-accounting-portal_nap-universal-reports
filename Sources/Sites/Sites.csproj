@@ -267,6 +267,7 @@
     <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\racing\racing-detail.controller.js" />
     <Content Include="app\company-winloss\racing\racing-detail.service.js" />
+    <Content Include="app\company-winloss\shared\fanex-grid-with-title-for-sport-type.html" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title-for-detail.html" />
     <Content Include="app\company-winloss\common\site.controller.js" />

@@ -91,7 +91,7 @@
         'Racing': {
             templates: [{
                 level: levels.SPORT_TYPE,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-sport-type.html',
                 controller: 'SportTypeController'
             },
             {

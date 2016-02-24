@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('VirtualSportsSportsbookDetailController', VirtualSportsSportsbookDetailController);
 
-    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'virtualSportsSportsbookDetailService', 'breadcrumbHelper'];
-    function VirtualSportsSportsbookDetailController($compile, $scope, $element, virtualSportsSportsbookDetailService, breadcrumbHelper) {
+    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'virtualSportsSportsbookDetailService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function VirtualSportsSportsbookDetailController($compile, $scope, $element, virtualSportsSportsbookDetailService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
@@ -25,7 +25,7 @@
             };
 
             data.titleInfo = titleInfo;
-            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
@@ -34,7 +34,6 @@
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
         }
-
 
         function exportExcel() {
         }

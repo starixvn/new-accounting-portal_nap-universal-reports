@@ -54,14 +54,14 @@
         function renderGrid(gridElement, data) {
             var titleInfo = {
                 text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
             };
 
             data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             data.defaultCollapseAllGroups = true;
-            gridElement.fanexGrid(data);
-
             gridElement.fanexGrid(data);
         }
 

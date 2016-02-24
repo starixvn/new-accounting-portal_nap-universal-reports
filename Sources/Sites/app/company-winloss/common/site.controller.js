@@ -5,14 +5,14 @@
         .module('companyWinlossApp')
         .controller('SiteController', SiteController);
 
-    SiteController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper'];
-    function SiteController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper) {
+    SiteController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function SiteController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         var service = getService();
 
         $scope.generate = generate;
         $scope.show = show;
-       
+
         function getService() {
             var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
             var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
@@ -39,7 +39,7 @@
             };
 
             data.titleInfo = titleInfo;
-            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
@@ -48,7 +48,7 @@
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
         }
-      
+
         function exportExcel() {
         }
     }

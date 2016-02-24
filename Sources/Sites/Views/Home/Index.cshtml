@@ -2,9 +2,9 @@
     Layout = null;
     var napConfig = new
     {
-        Today = DateTime.UtcNow
-            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
-            .TotalMilliseconds,
+        Today = Convert.ToInt64(DateTime.Now
+            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
+            .TotalMilliseconds),
         RootUrl = Request.Url,
         LegacyPath= ViewBag.LegacyPath
     };

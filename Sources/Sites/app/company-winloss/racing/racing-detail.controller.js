@@ -5,8 +5,8 @@
         .module('companyWinlossApp')
         .controller('RacingDetailController', RacingDetailController);
 
-    RacingDetailController.$inject = ['$compile', '$scope', '$element', 'racingDetailService', 'breadcrumbHelper'];
-    function RacingDetailController($compile, $scope, $element, racingDetailService, breadcrumbHelper) {
+    RacingDetailController.$inject = ['$compile', '$scope', '$element', 'racingDetailService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function RacingDetailController($compile, $scope, $element, racingDetailService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
@@ -25,7 +25,7 @@
             };
 
             data.titleInfo = titleInfo;
-            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 

@@ -104,7 +104,8 @@
             var products = data.Products;
             for (var i = 0; i < products.length; i++) {
                 var productItem = products[i];
-                var isSportsBook = i === 0;
+                var productName = productItem.Total.Name;
+                var isSportsBook = productName === 'Sportsbook Total';
                 bodyData.push(createProductWinLossDataRow(productItem, isSportsBook));
             }
 

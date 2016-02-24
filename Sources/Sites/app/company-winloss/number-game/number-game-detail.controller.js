@@ -5,15 +5,15 @@
         .module('companyWinlossApp')
         .controller('NumberGameDetailController', NumberGameDetailController);
 
-    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService', 'breadcrumbHelper'];
-    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService, breadcrumbHelper) {
+    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameDetailService', 'breadcrumbHelper'];
+    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameDetailService, breadcrumbHelper) {
         var gridModel = companyWinlossService.gridModel;
         var filterModel = companyWinlossService.filterModel;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
         function generate(startDate, endDate) {            
-            numberGameService.getMatchDetail().then(function (data) {
+            numberGameDetailService.getData().then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
@@ -27,6 +27,7 @@
             };
 
             data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             data.defaultCollapseAllGroups = true;
             gridElement.fanexGrid(data);
         }
