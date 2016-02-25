@@ -13,6 +13,11 @@ namespace UniversalReports.Application.Menu
         public IHttpActionResult Values()
         {
             var session = new CurrentSession();
+            if (session.MenuItemList == null || session.MenuItemList.Count == 0)
+            {
+                return Json(GetFakeMenu());
+            }
+
             var sessionMenus = session.MenuItemList == null ? new List<MenuItem>() : session.MenuItemList;
             var menus = GetMenu(sessionMenus);
             return Json(menus);
@@ -41,6 +46,32 @@ namespace UniversalReports.Application.Menu
                             Url = m.Url
                         }).
                         ToList();
+        }
+
+        private List<Menu> GetFakeMenu()
+        {
+            var mainMenu = new Menu
+            {
+                Url = string.Empty,
+                Name = "Main",
+                Children = new List<Menu>
+                {
+                    new Menu { Url="/Main/DailyWinLoss2h/Index", Name="Daily Win Loss (2h)"},
+                    new Menu { Url="/UniversalReport/CompanyWinLoss", Name="Company Win Loss By Products"}
+                }
+            };
+
+            var balanceMenu = new Menu
+            {
+                Url = string.Empty,
+                Name = "Balance",
+                Children = new List<Menu>
+                {
+                    new Menu { Url="/Balance/DirectBalance/Index", Name="Direct Balance"}
+                }
+            };
+
+            return new List<Menu> { mainMenu, balanceMenu };
         }
     }
 }

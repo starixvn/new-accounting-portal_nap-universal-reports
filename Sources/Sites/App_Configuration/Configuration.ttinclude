@@ -1,0 +1,329 @@
+<#@ import namespace="System" #>
+<#
+    var sites = new SiteInfo[]{
+         new SiteInfo
+        {
+            Environment = SiteEnvironment.LOCAL
+        },
+		 new SiteInfo
+        {
+            Environment = SiteEnvironment.DEV
+        },
+        new SiteInfo
+        {
+            Environment = SiteEnvironment.SANDBOX
+        },
+        new SiteInfo
+        {
+            Environment = SiteEnvironment.UAT
+        },
+        new SiteInfo
+        {
+            Environment = SiteEnvironment.MNL
+        },
+        new SiteInfo
+        {
+            Environment = SiteEnvironment.PRO
+        }
+    };
+#>
+<#+
+    enum SiteEnvironment
+    {
+		DEV,
+        LOCAL,
+        SANDBOX,
+        UAT,
+        MNL,
+        PRO
+    }
+    class SiteInfo
+    {
+        public SiteEnvironment Environment { get; set; }
+                
+        #region For Webconfig file
+
+		public string LoggingMsmqPath
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return @"FormatName:DIRECT=http://10.40.40.127/msmq/Private$/entlib";
+                    case SiteEnvironment.MNL:
+                        return @"FormatName:DIRECT=tcp:10.2.98.3\private$\entlib";
+
+                    case SiteEnvironment.UAT:
+                        return @"FormatName:DIRECT=tcp:10.40.40.73\private$\entlib";
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return @"FormatName:DIRECT=tcp:10.18.200.124\private$\entlib";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+        
+        public string LoggingDefaultCategory
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                        return "NAP-Report";
+
+                    case SiteEnvironment.UAT:
+                        return "NAP-Report-UAT";
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "NAP-Report-LOCAL";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+        public string ErrorMode
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                             return "On";
+
+                    case SiteEnvironment.MNL:
+                    case SiteEnvironment.UAT:
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "Off";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+        
+        public string DebugMode
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "false";
+                    case SiteEnvironment.MNL:
+                    case SiteEnvironment.UAT:
+                    case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "true";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string EnvironmentSettings
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                        return "LIVE";
+
+                    case SiteEnvironment.UAT:
+                    case SiteEnvironment.LOCAL:
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.SANDBOX:
+                        return "UAT";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string SiteIdSettings
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                    case SiteEnvironment.UAT:
+                        return "4";
+                    default:
+                        return "3";
+                }
+            }
+        }
+
+        public string UMAddress
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "tcp://10.40.40.150:8990/UMControllerInterface";
+                    case SiteEnvironment.MNL:
+                        return "tcp://10.2.96.1:8990/UMControllerInterface";
+                    case SiteEnvironment.UAT:
+                        return "tcp://10.40.40.150:8990/UMControllerInterface";					
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+         public string EnableCheckUM
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                        return "true";
+
+                    case SiteEnvironment.UAT:  
+					case SiteEnvironment.DEV:                  
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "false";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string EnableReCheckin
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+					case SiteEnvironment.UAT:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "true";
+
+                    default:
+                        return "false";
+                }
+            }
+        }
+
+        public string HubUrl
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "http://58.86.55.10/NapSpecialDelete/UserLogin/login";
+                    case SiteEnvironment.MNL:
+                        return "http://nap-hub.ibcbk.com/NapSpecialDelete/UserLogin/login";
+
+                    case SiteEnvironment.UAT:
+                        return "http://58.86.55.10/NapSpecialDelete/UserLogin/login";
+
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "http://localhost:54332/NAPHub";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string StateConnectionString
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "stateConnectionString=\"tcpip=10.40.40.135:42424\"";
+                    case SiteEnvironment.MNL:
+                        return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
+                    case SiteEnvironment.UAT:
+                        return "stateConnectionString=\"tcpip=127.0.0.1:42424\"";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string AuthorizeDomain
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "<add Name=\"58.86.55.10\" Path=\"/AccReport\"></add>";
+                    case SiteEnvironment.MNL:
+                        return "<add Name=\"10.2.12.8\" Path=\"/AccReport\"></add>";
+
+                    case SiteEnvironment.UAT:
+                        return "<add Name=\"58.86.55.10\" Path=\"/AccReport\"></add>";
+
+					case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.SANDBOX:
+                        return "<add Name=\"10.18.200.124:7123\" Path=\"/\" />";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string SPName
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                        return "~/App_Data/PRO/";
+
+                    case SiteEnvironment.UAT:
+                        return "~/App_Data/UAT/";
+
+					case SiteEnvironment.DEV:
+						return "~/App_Data/DEV/";
+                    case SiteEnvironment.LOCAL:
+                        return "~/App_Data/LOCAL/";
+                    case SiteEnvironment.SANDBOX:
+                        return "~/App_Data/SANDBOX/";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        #endregion End for Webconfig file
+    }
+#>
