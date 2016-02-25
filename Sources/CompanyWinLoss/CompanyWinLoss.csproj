@@ -189,6 +189,8 @@
     <Compile Include="NumberGame\BetType\ServiceImp.cs" />
     <Compile Include="NumberGame\BetType\WinLossModel.cs" />
     <Compile Include="NumberGame\BetType\QueryModel.cs" />
+    <Compile Include="Products\GridOptionService.cs" />
+    <Compile Include="Products\GridOptionServiceImp.cs" />
     <Compile Include="Products\ProductController.cs" />
     <Compile Include="Products\Criteria.cs" />
     <Compile Include="Products\QueryModel.cs" />

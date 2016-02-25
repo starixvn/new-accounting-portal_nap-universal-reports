@@ -1,0 +1,148 @@
+﻿using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using UniversalReports.CompanyWinLoss.Common.Models;
+
+namespace UniversalReports.CompanyWinLoss.Products
+{
+    public class GridOptionServiceImp : GridOptionService
+    {
+        public GridOptions FromWinLossModel(ProductWinLoss winLoss)
+        {
+            return new GridOptions
+            {
+                CustomizeHeader = true,
+                ShowTitle = true,
+                TitleType = TitleType.TwoLineBlue,
+                Columns = BuildHeader(),
+                GroupHeaderRows = BuildGroupHeaderRows(),
+                BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
+                FooterRows = BuildFooter(winLoss.GrandTotal),
+                ShowFooter = true,
+                ShowTree = true
+            };
+        }
+
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2100:CodeLineMustNotBeLongerThan",
+          Justification = "Reviewed. Suppression is OK here.")]
+        private List<HeaderColumns> BuildHeader()
+        {
+            return new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Product", Width = 150, Name = "Product", HeaderAlign = "center", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualIncome", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Variance", Width = 120, Name = "Variance", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", HeaderAlign = "center", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
+            };
+        }
+
+        private List<GroupHeaderRows> BuildGroupHeaderRows()
+        {
+            var columns = new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Product", Name = "Product", MergeRowNumber = 2, Width = 150 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Variance", Name = "Variance", MergeRowNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 120 },
+                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 120 }
+            };
+
+            var groupHeader = new GroupHeaderRows { Columns = columns };
+            return new List<GroupHeaderRows> { groupHeader };
+        }
+
+        private List<GridDataRow> BuildBodyRows(IList<WinLoss> sportsbookDetail, IList<SiteWinLossSummary> products)
+        {
+            var bodyRows = new List<GridDataRow>();
+            foreach (var winLoss in sportsbookDetail)
+            {
+                bodyRows.Add(BuildDataRow(winLoss, HAlignment.Left));
+            }
+
+            foreach (var product in products)
+            {
+                bodyRows.Add(BuildProduct(product));
+            }
+
+            return bodyRows;
+        }
+
+        private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
+        {
+            var productName = productWinLoss.Total.Name;
+            var isSportsbook = productName == "Sportsbook Total";
+            var rowCssClass = isSportsbook ? "highlight-product" : "";
+            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left);
+            productDataRow.CssClass = rowCssClass;
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right));
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right));
+
+            return productDataRow;
+        }
+
+        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
+        {
+            int columnIndex = 0;
+            var columns = new List<Columns>
+            {
+                new Columns(columnIndex++, "Product", item.Name, alignment),
+                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
+                new Columns(columnIndex++, "Variance", item.VarianceIncome),
+                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
+                new Columns(columnIndex++, "RealMargin", item.RealMargin),
+                new Columns(columnIndex++, "VirtualMargin", item.VirtualMargin)
+            };
+
+            return new GridDataRow { Columns = columns };
+        }
+
+        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
+        {
+            return new List<GridDataRow>
+            {
+                BuildDataRow(item.Total, HAlignment.Right),
+                BuildDataRow(item.Credit, HAlignment.Right),
+                BuildDataRow(item.Deposit, HAlignment.Right),
+                BuildNoteRow()
+            };
+        }
+
+        private GridDataRow BuildNoteRow()
+        {
+            var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
+                             "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
+
+            int columnIndex = 0;
+            var columns = new List<Columns>
+            {
+                new Columns(columnIndex++)
+                {
+                    Name = "Product",
+                    Value = reportNote,
+                    MergeColNumber = 11,
+                    CellAlignment = HAlignment.Left,
+                    TDClass = "grand-total-note"
+                }
+            };
+
+            return new GridDataRow { Columns = columns };
+        }
+    }
+}

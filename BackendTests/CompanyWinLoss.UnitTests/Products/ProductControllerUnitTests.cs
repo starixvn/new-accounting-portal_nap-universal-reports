@@ -22,7 +22,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             };
 
             var service = Substitute.For<Service>();
-            using (var controller = new ProductController(service))
+            var gridOptionService = Substitute.For<GridOptionService>();
+            using (var controller = new ProductController(service, gridOptionService))
             {
                 controller.ModelState.AddModelError("DateTo", "DateFrom must be less than DateTo");
 
@@ -41,6 +42,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             // Arrange
             var expectedReportData = new ProductWinLoss();
             var service = Substitute.For<Service>();
+            var gridOptionService = Substitute.For<GridOptionService>();
             service.Query(Arg.Any<WinLossCriteria>()).Returns(expectedReportData);
             var model = new ProductWinLossQuery
             {
@@ -48,7 +50,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
                 EndDate = DateTime.Today.AddDays(+1)
             };
 
-            using (var controller = new ProductController(service))
+            using (var controller = new ProductController(service, gridOptionService))
             {
                 // Act
                 var result = controller.Values(model);

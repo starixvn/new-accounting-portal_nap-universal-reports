@@ -1,29 +1,35 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
     public class ProductController : ApiController
     {
         private readonly Service service;
+        private readonly GridOptionService gridOptionService;
 
-        public ProductController(Service service)
+        public ProductController(Service service, GridOptionService gridOptionService)
         {
             this.service = service;
+            this.gridOptionService = gridOptionService;
         }
 
         [Route("api/company-win-loss/values")]
-        public ProductWinLoss Values(ProductWinLossQuery query)
+        public IHttpActionResult Values(ProductWinLossQuery query)
         {
-            var criteria = new Criteria
+            if (ModelState.IsValid)
             {
-                StartDate = query.StartDate,
-                EndDate = query.EndDate
-            };
+                var criteria = new Criteria
+                {
+                    StartDate = query.StartDate,
+                    EndDate = query.EndDate
+                };
+                var winlosses = service.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
 
-            return ModelState.IsValid
-                ? service.Query(criteria)
-                : null;
+                return Json(gridOptions);
+            }
+
+            return null;
         }
     }
 }
