@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-
 namespace UniversalReports.Application.Menu
 {
     public class MenuController : ApiController
@@ -44,8 +43,8 @@ namespace UniversalReports.Application.Menu
                         {
                             Name = m.Name,
                             Url = m.Url
-                        }).
-                        ToList();
+                        })
+                        .ToList();
         }
 
         private List<Menu> GetFakeMenu()
@@ -56,8 +55,8 @@ namespace UniversalReports.Application.Menu
                 Name = "Main",
                 Children = new List<Menu>
                 {
-                    new Menu { Url="/Main/DailyWinLoss2h/Index", Name="Daily Win Loss (2h)"},
-                    new Menu { Url="/UniversalReports/CompanyWinLoss", Name="Company Win Loss By Products"}
+                    new Menu { Url = "/Main/DailyWinLoss2h/Index", Name = "Daily Win Loss (2h)" },
+                    new Menu { Url = "/UniversalReports/CompanyWinLoss", Name = "Company Win Loss By Products" }
                 }
             };
 
@@ -67,7 +66,7 @@ namespace UniversalReports.Application.Menu
                 Name = "Balance",
                 Children = new List<Menu>
                 {
-                    new Menu { Url="/Balance/DirectBalance/Index", Name="Direct Balance"}
+                    new Menu { Url = "/Balance/DirectBalance/Index", Name = "Direct Balance" }
                 }
             };
 

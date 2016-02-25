@@ -62,17 +62,6 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
             return new GridDataRow { Columns = columns };
         }
 
-        private GridDataRow BuildLeagueNameRow(string leagueName)
-        {
-            return new GridDataRow
-            {
-                Columns = new List<Columns>
-                {
-                    new Columns { ColumnIndex = 1, Name = "Race", Value = leagueName, MergeColNumber = 7 }
-                }
-            };
-        }
-
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
             return new List<GridDataRow> { BuildDataRow(item, HAlignment.Right) };

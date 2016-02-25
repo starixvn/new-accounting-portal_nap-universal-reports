@@ -83,7 +83,7 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var productName = productWinLoss.Total.Name;
             var isSportsbook = productName == "Sportsbook Total";
-            var rowCssClass = isSportsbook ? "highlight-product" : "";
+            var rowCssClass = isSportsbook ? "highlight-product" : string.Empty;
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left);
             productDataRow.CssClass = rowCssClass;
             productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right));
