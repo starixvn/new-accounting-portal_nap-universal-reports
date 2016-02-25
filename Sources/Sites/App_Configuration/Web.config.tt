@@ -55,7 +55,7 @@
 		if(site.Environment == SiteEnvironment.DEV)
 	#>
 	<authentication mode="None">
-      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" />
+      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/"/>
     </authentication>
     <authorization>
       <allow users="*" />

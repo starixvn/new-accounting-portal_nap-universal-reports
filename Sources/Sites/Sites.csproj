@@ -214,6 +214,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CompanyWinLossController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,6 +240,7 @@
     <Content Include="app\company-winloss\common\breadcrumb.helper.js" />
     <Content Include="app\common\http-response.service.js" />
     <Content Include="app\company-winloss\common\keno-drilldown-style.helper.js" />
+    <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-site.service.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-bet-type.service.js" />
     <Content Include="app\components\menu\menu.service.js" />
@@ -1382,7 +1384,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CompanyWinLoss\Index.cshtml" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1426,7 +1428,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:9900/</IISUrl>
+          <IISUrl>http://localhost:9900/UniversalReports</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

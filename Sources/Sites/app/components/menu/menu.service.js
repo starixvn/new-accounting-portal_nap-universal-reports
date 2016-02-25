@@ -5,53 +5,42 @@
         .module('companyWinlossApp')
         .factory('menuService', menuService);
 
-    menuService.$inject = ['$http', 'httpResponseService'];
-    function menuService($http, httpResponseService) {
+    menuService.$inject = ['$http', 'universalMenus', 'httpResponseService'];
+    function menuService($http, universalMenus, httpResponseService) {
         var service = {
             getData: getData,
-            getCssClass: getCssClass
+            getCompiledMenu: getCompiledMenu,
+            getCssClass: getCssClass,
+            getMenuUrl: getMenuUrl
         };
         return service;
 
-        function getData() {
-            var menus = getRawData();
+        function getCompiledMenu(menus) {
             for (var i = 0; i < menus.length; i++) {
                 var menu = menus[i];
-                menu.cssClass = getCssClass(menu, i, menus.length);
-                menu.Url = napConfig.LegacyPath + menu.Url;
-
+                
                 for (var j = 0; j < menu.Children.length; j++) {
-                    menu.Children[j].Url = napConfig.LegacyPath + menu.Children[j].Url;
+                    menu.Children[j].Url = getMenuUrl(menu.Children[j].Url);
                 }
             }
 
             return menus;
         }
 
-        function getRawData() {
+        function getData() {
             return $http.post('api/application/menu', {})
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
-       
-        function getCssClass(menu, index, menuCount) {
-            if (index == 0 && menu.Children.length == 0) {
-                return "first";
+      
+        function getMenuUrl(url) {
+            for (var i = 0; i < universalMenus.length; i++) {
+                if (url.indexOf(universalMenus[i]) >= 0) {
+                    return url;
+                }
             }
 
-            if (index == 0 && menu.Children.length >= 0) {
-                return "first has-child";
-            }
-
-            if (index != 0 && index == menuCount - 1) {
-                return "last";
-            }
-
-            if (index != 0 && index == menuCount - 1 && menu.Children.length >= 0) {
-                return "last has-child";
-            }
-
-            return "";
+            return napConfig.LegacyPath + url;
         }
     }
 })();

@@ -23,7 +23,7 @@
             /*jshint validthis: true */
             var vm = this;
             menuService.getData().then(function (data) {
-                vm.menus = data;
+                vm.menus = menuService.getCompiledMenu(data);
             });
         }
     }

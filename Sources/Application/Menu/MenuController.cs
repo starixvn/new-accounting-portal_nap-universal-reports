@@ -57,7 +57,7 @@ namespace UniversalReports.Application.Menu
                 Children = new List<Menu>
                 {
                     new Menu { Url="/Main/DailyWinLoss2h/Index", Name="Daily Win Loss (2h)"},
-                    new Menu { Url="/UniversalReport/CompanyWinLoss", Name="Company Win Loss By Products"}
+                    new Menu { Url="/UniversalReports/CompanyWinLoss", Name="Company Win Loss By Products"}
                 }
             };
 
