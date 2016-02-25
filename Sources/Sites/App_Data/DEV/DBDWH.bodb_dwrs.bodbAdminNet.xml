@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Functions>
+  <Function Name="CompanyWinLoss-Products">
+    <Setting Key="CompanyWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+
+  <Function Name="CompanyWinLoss-NumberGame">
+    <Setting Key="CompanyWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>   
+  </Function>
+  <Function Name="VirtualSports">
+    <Setting Key="CompanyWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Keno">
+    <Setting Key="CompanyWinLoss-Keno-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Keno_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Keno-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Keno_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Racing">
+    <Setting Key="CompanyWinLoss-Racing-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>    
+  </Function>
+  <Function Name="Live Casino">
+    <Setting Key="CompanyWinLoss-LiveCasino-ThirdPartyProduct-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Bettrade">
+    <Setting Key="CompanyWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+ <Function Name="Casino">
+    <Setting Key="CompanyWinLoss-Casino-ThirdPartyProduct-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Colossus Bets">
+    <Setting Key="CompanyWinLoss-ColossusBets-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-ColossusBets-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBets_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+  <Function Name="Bingo">
+    <Setting Key="CompanyWinLoss-Bingo-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Bingo-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
+</Functions>

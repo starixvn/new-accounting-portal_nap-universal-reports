@@ -12,7 +12,7 @@ namespace UniversalReports.Sites
     {
         protected void Application_Start()
         {
-            CheatApplicationName();
+            ChangeApplicationName();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -29,15 +29,15 @@ namespace UniversalReports.Sites
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             }
         }
-        
-        private void CheatApplicationName()
+
+        private void ChangeApplicationName()
         {
             string applicationName = "NAP_ACC_REPORT";
 
             // Change the Application Name in runtime.
             var runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
-            var theRuntime = (HttpRuntime)runtimeInfo.GetValue(null);
             var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
+            var theRuntime = runtimeInfo.GetValue(null);
 
             appNameInfo.SetValue(theRuntime, applicationName);
         }
