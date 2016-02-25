@@ -1,13 +1,13 @@
 ﻿@{
-        var napConfig = new
-        {
-            Today = Convert.ToInt64(DateTime.Now
-                .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
-                .TotalMilliseconds),
-            RootUrl = Url.Content("~").TrimEnd(new[] { '/' }),
-            LegacyPath = ViewBag.LegacyPath
-        };
-    }
+    var napConfig = new
+    {
+        Today = Convert.ToInt64(DateTime.Now
+            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
+            .TotalMilliseconds),
+        RootUrl = Url.Content("~").TrimEnd(new[] { '/' }),
+        LegacyPath = ViewBag.LegacyPath
+    };
+}
 
 <!DOCTYPE html>
 <!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
@@ -29,12 +29,17 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container-fluid">
+    <header class="navbar navbar-static-top">
+        <div class="logo">
+            <a href="/?ref=logo">&nbsp;</a>
+        </div>
         <div data-nap-menu></div>
+    </header>
+    <div class="container-fluid">
         @RenderBody()
     </div>
 
-    
+
     <script src="~/Scripts/jquery-2.2.0.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>

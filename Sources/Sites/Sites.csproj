@@ -338,7 +338,9 @@
     <Content Include="Content\images\filter\legend-information.png" />
     <Content Include="Content\images\filter\note-collapse.png" />
     <Content Include="Content\images\filter\note-expand.png" />
+    <Content Include="Content\images\header\bgmenu-more.png" />
     <Content Include="Content\images\loading\loading.gif" />
+    <Content Include="Content\images\header\logo.png" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />

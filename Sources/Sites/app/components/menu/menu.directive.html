@@ -1,12 +1,12 @@
 ﻿<nav>
-    <ul class="menu" ng-repeat="item in vm.menus">
-        <li ng-class="{first: $first, last: $last && !$first}" ng-if="item.Children.length == 0 ">
-            <a href="{{item.Url}}">{{item.Name}}</a>
-        </li>
-        <li ng-class="{first: $first, last: $last && !$first}" ng-if="item.Children.length != 0 " class="has-child">
-            <a href="javascript:;">{{item.Name}}</a>
-            <ul ng-repeat="childItem in item.Children">
-                <li><a href="{{childItem.Url}}">{{childItem.Name}}</a></li>
+    <ul class="menu">
+        <li data-ng-repeat="item in vm.menus" data-ng-class="{first: $first, last: $last && !$first, 'has-child': item.Children}">
+            <a href="javascript:;" data-ng-if="item.Children">{{item.Name}}</a>
+            <a data-ng-href="{{item.Url}}" data-ng-if="!item.Children">{{item.Name}}</a>
+            <ul class="sub-menu" data-ng-if="item.Children">
+                <li data-ng-repeat="childItem in item.Children">
+                    <a data-ng-href="{{childItem.Url}}">{{childItem.Name}}</a>
+                </li>
             </ul>
         </li>
     </ul>

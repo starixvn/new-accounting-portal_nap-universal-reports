@@ -70,7 +70,13 @@ namespace UniversalReports.Application.Menu
                 }
             };
 
-            return new List<Menu> { mainMenu, balanceMenu };
+            var legendMenu = new Menu
+            {
+                Url = "/LegendManagement",
+                Name = "Legend Management"
+            };
+
+            return new List<Menu> { mainMenu, legendMenu, balanceMenu };
         }
     }
 }
