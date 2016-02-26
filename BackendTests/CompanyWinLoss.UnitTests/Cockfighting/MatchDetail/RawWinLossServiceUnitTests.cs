@@ -13,6 +13,7 @@ using commonService = UniversalReports.CompanyWinLoss.Common.Services;
 namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
 {
     [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class RawWinLossServiceUnitTests
     {
         [Test]

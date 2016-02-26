@@ -1,16 +1,14 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using commonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
 {
     [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
         [Test]

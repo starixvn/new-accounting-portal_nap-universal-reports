@@ -1,6 +1,5 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using commonServices = UniversalReports.CompanyWinLoss.Common.Services;
@@ -8,6 +7,7 @@ using commonServices = UniversalReports.CompanyWinLoss.Common.Services;
 namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
 {
     [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]

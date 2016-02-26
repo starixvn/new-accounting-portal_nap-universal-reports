@@ -6,6 +6,7 @@ using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
 {
     [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
