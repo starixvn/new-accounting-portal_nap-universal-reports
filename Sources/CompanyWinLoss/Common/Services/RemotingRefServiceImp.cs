@@ -9,5 +9,11 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var teamIdString = teamId.ToString();
             return RefData.GetTeamName(teamIdString, "en", string.Empty);
         }
+
+        public string GetLeagueName(int leagueId)
+        {
+            var leagueIdString = leagueId.ToString();
+            return RefData.GetLeagueName(leagueIdString, "en", string.Empty);
+        }
     }
 }

@@ -153,6 +153,11 @@
                 controller: 'BetTypeController'
             },
             {
+                level: levels.DETAIL,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CockfightingDetailController'
+            },
+            {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SiteController'

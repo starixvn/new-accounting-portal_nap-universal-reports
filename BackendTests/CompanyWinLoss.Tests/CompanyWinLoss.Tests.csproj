@@ -90,6 +90,8 @@
     <Compile Include="Casino\BetType\ServiceTests.cs" />
     <Compile Include="Casino\Site\ServiceTests.cs" />
     <Compile Include="Casino\ThirdPartyProduct\ServiceTests.cs" />
+    <Compile Include="Cockfighting\BetType\BetTypeServiceTests.cs" />
+    <Compile Include="Cockfighting\Site\SiteServiceTests.cs" />
     <Compile Include="ColossusBets\BetType\BetTypeServiceTests.cs" />
     <Compile Include="ColossusBets\Site\SiteServiceTests.cs" />
     <Compile Include="Common\BalanceUpServiceTests.cs" />
@@ -134,6 +136,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Cockfighting\MatchDetail\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>

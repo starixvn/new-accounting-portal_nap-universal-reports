@@ -3,10 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .factory('kenoSiteService', kenoSiteService);
+        .factory('cockFightingSiteService', kenoSiteService);
 
     kenoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function kenoSiteService($http, httpResponseService, companyWinlossService) {
+    function cockFightingSiteService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData
         };
@@ -16,9 +16,7 @@
             var gridModel = companyWinlossService.gridModel;
             var data = {
                 startDate: gridModel.startDate,
-                endDate: gridModel.endDate,
-                betType: gridModel.betType,
-                site: gridModel.site
+                endDate: gridModel.endDate
             };
             return $http.post('/api/company-win-loss/keno/site', data)
                 .then(httpResponseService.getDataComplete)

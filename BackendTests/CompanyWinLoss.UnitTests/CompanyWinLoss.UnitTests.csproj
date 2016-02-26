@@ -51,6 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cockfighting\MatchDetail\CalculationServiceUnitTests.cs" />
+    <Compile Include="Cockfighting\MatchDetail\RawWinLossServiceUnitTests.cs" />
+    <Compile Include="Cockfighting\MatchDetail\ServiceUnitTests.cs" />
+    <Compile Include="Cockfighting\MatchDetail\WinLossComparison.cs" />
+    <Compile Include="Cockfighting\MatchDetail\WinLossFactory.cs" />
     <Compile Include="Common\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\CalculationServiceUnitTests.cs" />

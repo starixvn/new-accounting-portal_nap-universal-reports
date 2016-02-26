@@ -224,6 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\company-winloss\cock-fighting\cock-fighting-detail.controller.js" />
     <Content Include="app\company-winloss\colossus-bets\colossus-bets-bet-type.service.js" />
     <Content Include="app\company-winloss\colossus-bets\colossus-bets-site.service.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fighting-bet-type.service.js" />
