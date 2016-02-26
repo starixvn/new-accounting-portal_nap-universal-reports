@@ -8,8 +8,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SportTypeGridOptionServiceImp : SportTypeGridOptionService
     {
-        private const int RealIncomeColumnIndex = 4;
-
         public GridOptions FromWinLossModel(SportTypeWinLossModel winLoss)
         {
             return new GridOptions
@@ -57,19 +55,21 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
         {
-            var footerRows = new List<GridDataRow>();
-            var footerRow = BuildSportDataRow(item, HAlignment.Right);
-            footerRow.Columns[RealIncomeColumnIndex].TDClass = "highlight-column";
-            footerRows.Add(footerRow);
-            return footerRows;
+            return new List<GridDataRow>
+            {
+                BuildSportDataRow(item, HAlignment.Right)
+            };
         }
 
         private GridDataRow BuildSportDataRow(SiteWinLossSummary item, HAlignment alignment)
         {
             var row = BuildDataRow(item.Total, alignment);
-            var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
-            var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
-            row.SubRows.AddRange(new List<GridDataRow> { creditRow, depositRow });
+            row.SubRows = new List<GridDataRow>
+            {
+                BuildDataRow(item.Credit, HAlignment.Right),
+                BuildDataRow(item.Deposit, HAlignment.Right)
+            };
+
             return row;
         }
 

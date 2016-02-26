@@ -14,9 +14,9 @@
 
         function getSetting() {
             var gridModel = companyWinlossService.gridModel;
-            var levelSetting = undefined;
+            var levelSetting;
             if (gridModel.level === levels.PRODUCT) {
-                levelSetting = levelSettings.Product;
+                var levelSetting = levelSettings.Product;
             } else {
                 var productSetting = levelSettings[gridModel.productName];
                 for (var i = 0; i < productSetting.templates.length; i++) {
@@ -28,15 +28,10 @@
                 }
             }
 
-            if (angular.isFunction(levelSetting.templateUrl)) {
-                levelSetting.templateUrl = levelSetting.templateUrl(gridModel);
-            }
-
-            if (angular.isFunction(levelSetting.controller)) {
-                levelSetting.controller = levelSetting.controller(gridModel);
-            }
-
-            return levelSetting;
+            return {
+                templateUrl: angular.isFunction(levelSetting.templateUrl) ? levelSetting.templateUrl(gridModel) : levelSetting.templateUrl,
+                controller: angular.isFunction(levelSetting.controller) ? levelSetting.controller(gridModel) : levelSetting.controller
+            };
         }
     }
 })();

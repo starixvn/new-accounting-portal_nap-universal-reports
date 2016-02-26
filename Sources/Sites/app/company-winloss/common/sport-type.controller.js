@@ -43,6 +43,7 @@
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
+            fanexGridHelper.highlightFooterColumns(data);
             data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
