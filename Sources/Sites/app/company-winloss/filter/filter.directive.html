@@ -6,65 +6,7 @@
             <div class="modal fade" id="legend-information-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog legend-information-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <div class="modal-title">Company Win Loss Legend</div>
-                        </div>
-                        <div class="modal-body">
-                            <ul class="nav nav-tabs">
-                                <li role="presentation" class="active">
-                                    <a href="">
-                                        General Info
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>All amounts shown are in MYR (Malaysian ringgit).</li>
-                                <li>This report contains only Won/Lose/Draw tickets.</li>
-                                <li>The report is grouped by Product.</li>
-                                <li>The Virtual Rate is applied for Sportsbook. Other products are based on Actual Rate.</li>
-                                <li>For more historical data, please click to HISTORY REPORT to view report with data range up to 3 months.</li>
-                                <li>For the company winloss, a red positive number indicates a loss for company, whereas a black negative number indicates a win.</li>
-                                <li>For agency winloss, a black positive number indicates a win for agency, whereas a black negative number indicates a loss.</li>
-                            </ul>
-                            <ul class="nav nav-tabs">
-                                <li role="presentation" class="active">
-                                    <a href="">
-                                        Term definition and explanation
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li><strong>Product:</strong> list all the Product having bet tickets within selected date range.</li>
-                                <li><strong>Member Winloss:</strong> member winloss excluding commission.</li>
-                                <li><strong>SMA Win Loss:</strong> agency winloss excluding commission.</li>
-                                <li><strong>Commission:</strong> super commission received from company.</li>
-                                <li>
-                                    <strong>Company Income:</strong> the company net winloss
-                                    <ul>
-                                        <li><strong>Company Income (Real):</strong> the company net winloss based on actual rate after deducting super commission.</li>
-                                        <li><strong>Company Income (Virtual):</strong> the company net winloss based on virtual rate after deducting super commission.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Variance:</strong> the difference between Line Total Real and Line Total Virtual.</li>
-                                <li>
-                                    <strong>Company Turnover:</strong> the Company’s Turnover after Position Taking (exclude MBC - RNG Casino, Bingo products).
-                                    <ul>
-                                        <li><strong>Company Turnover (Real):</strong> the Company’s Turnover based on actual rate.</li>
-                                        <li><strong>Company Turnover (Virtual):</strong> the Company’s Turnover based on virtual rate.</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <strong>Margin:</strong> % percentage of Line Total over Turnover.
-                                    <ul>
-                                        <li><strong>Margin (Real):</strong> percentage of Line Total Real over Turnover Real.</li>
-                                        <li><strong>Margin (Virtual):</strong> percentage of Line Total Virtual over Turnover Virtual.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Sportsbook Total:</strong> winloss of Sportsbook in total (Sportsbook Live, Sportsbook Non-Live, Parlay and Outright)</li>
-                                <li><strong>Grand Total=</strong> Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing + Bingo + Bettrade + Colossus Bets.​</li>
-                            </ul>
-                        </div>
+                        <div data-nap-legend data-legend="company-winloss"></div>
                     </div>
                 </div>
             </div>

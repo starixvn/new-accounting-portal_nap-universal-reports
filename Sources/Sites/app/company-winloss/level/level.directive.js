@@ -18,12 +18,14 @@
 
         controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService'];
         function controller($log, $compile, $timeout, $element, $scope, levelService, $templateRequest, companyWinlossService) {
-            var currentScope;
+            var dateRange,
+                currentScope;
 
             $scope.$on('generate', function (event, level) {
                 if ($scope.level === level) {
                     $timeout(function () {
                         companyWinlossService.filterModel.reloadDateRange();
+                        dateRange = companyWinlossService.filterModel.getDateRange();
                         generate();
                     });
                 }
@@ -32,7 +34,7 @@
             $scope.$on('show', function (event, level) {
                 if ($scope.level === level) {
                     $timeout(function () {
-                        companyWinlossService.filterModel.reloadDateRange();
+                        companyWinlossService.filterModel.updateDateRange(dateRange);
                         currentScope.show();
                     });
                 }

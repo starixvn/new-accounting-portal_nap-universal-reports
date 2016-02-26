@@ -137,6 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Legend\LegendController.cs" />
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\MenuController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

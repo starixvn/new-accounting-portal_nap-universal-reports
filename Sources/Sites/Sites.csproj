@@ -242,6 +242,8 @@
     <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-site.service.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-bet-type.service.js" />
+    <Content Include="app\components\legend\legend.directive.js" />
+    <Content Include="app\components\legend\legend.service.js" />
     <Content Include="app\components\menu\menu.service.js" />
     <Content Include="app\components\menu\menu.directive.html" />
     <Content Include="app\components\menu\menu.directive.js" />
@@ -349,7 +351,9 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
     <None Include="App_Configuration\DEV\Web.AppSettings.config" />
-    <None Include="App_Configuration\DEV\Web.ConnectionString.config" />
+    <None Include="App_Configuration\DEV\Web.ConnectionString.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="App_Configuration\LOCAL\Web.AppSettings.config" />
     <None Include="App_Configuration\LOCAL\Web.ConnectionString.config" />
     <None Include="App_Configuration\MNL\Web.AppSettings.config" />
@@ -1429,7 +1433,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:9900/UniversalReports</IISUrl>
+          <IISUrl>http://localhost:9902/UniversalReports</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

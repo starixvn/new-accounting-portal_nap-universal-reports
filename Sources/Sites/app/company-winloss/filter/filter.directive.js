@@ -37,6 +37,7 @@
             vm.dateRange = createDateRange();
             vm.getDateRange = getDateRange;
             vm.reloadDateRange = reloadDateRange;
+            vm.updateDateRange = updateDateRange;
 
             function generate() {
                 vm.dateRange = createDateRange();
@@ -83,6 +84,11 @@
                 vm.date = vm.dateRange.startDate;
                 vm.startDate = vm.dateRange.startDate;
                 vm.endDate = vm.dateRange.endDate;
+            }
+
+            function updateDateRange(dateRange) {
+                vm.dateRange = dateRange;
+                reloadDateRange();
             }
         }
     }

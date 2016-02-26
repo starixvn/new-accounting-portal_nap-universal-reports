@@ -12,7 +12,7 @@
         };
         return service;
 
-        function getData(startDate, endDate) {
+        function getData() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
                 startDate: gridModel.startDate,

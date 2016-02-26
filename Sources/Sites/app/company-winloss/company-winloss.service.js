@@ -27,9 +27,9 @@
         }
 
         function updateGridModel(data) {
-            this.filterModel.reloadDateRange();
-            this.gridModel.startDate = this.filterModel.startDate;
-            this.gridModel.endDate = this.filterModel.endDate;
+            var dateRange = this.filterModel.getDateRange();
+            this.gridModel.startDate = dateRange.startDate;
+            this.gridModel.endDate = dateRange.endDate;
             this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
             this.gridModel.productName = angular.isDefined(data.productName) ? data.productName : this.gridModel.productName;
             this.gridModel.thirdPartyProductId = angular.isDefined(data.thirdPartyProductId) ? data.thirdPartyProductId : this.gridModel.thirdPartyProductId;
