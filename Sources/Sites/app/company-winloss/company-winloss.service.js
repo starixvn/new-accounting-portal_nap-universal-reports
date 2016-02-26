@@ -27,6 +27,7 @@
         }
 
         function updateGridModel(data) {
+            this.filterModel.reloadDateRange();
             this.gridModel.startDate = this.filterModel.startDate;
             this.gridModel.endDate = this.filterModel.endDate;
             this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
