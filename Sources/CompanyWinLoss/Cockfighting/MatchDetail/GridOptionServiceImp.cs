@@ -1,11 +1,8 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
@@ -50,14 +47,14 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
         {
             var columns = new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Fight No.", Name = "FightNo", Width = 100, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 260, MergeColNumber = 3, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 120, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome",  Width = 120, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover",  Width = 120, MergeRowNumber = 1 },
-                new HeaderColumns { HeaderText = "Margin", Name = "Margin",  Width = 120, MergeRowNumber = 1 }
+                new HeaderColumns { HeaderText = "Fight No.", Name = "FightNo", Width = 100, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 260, MergeColNumber = 3, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome",  Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover",  Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Margin", Name = "Margin",  Width = 120, MergeRowNumber = 2 }
             };
 
             var groupHeader = new GroupHeaderRows { Columns = columns };
@@ -66,12 +63,105 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 
         private List<GridDataRow> BuildBodyRows(List<ArenaWinLoss> arenaWinLoss)
         {
-            return new List<GridDataRow>();
+            List<List<GridDataRow>> gridDataRows = new List<List<GridDataRow>>();
+            foreach (var arena in arenaWinLoss)
+            {
+                var arenaRows = BuildArenaDataRows(arena);
+                gridDataRows.Add(arenaRows);
+            }
+
+            return gridDataRows.SelectMany(x => x).ToList();
+        }
+
+        private List<GridDataRow> BuildArenaDataRows(ArenaWinLoss arena)
+        {
+            List<GridDataRow> dataRows = new List<GridDataRow>();
+
+            var arenaNameRow = BuildArenaNameRow(arena.ArenaName);
+            dataRows.Add(arenaNameRow);
+
+            foreach (var item in arena.Matches)
+            {
+                var row = BuidDataRow(item);
+                dataRows.Add(row);
+            }
+
+            if (arena.Matches.Count > 1)
+            {
+                var arenaTotalRow = BuildArenalTotalRow(arena.Total);
+                dataRows.Add(arenaTotalRow);
+            }
+
+            return dataRows;
+        }
+
+        private GridDataRow BuidDataRow(WinLoss item)
+        {
+            int columnIndex = 0;
+            var colummns = new List<Columns>
+               {
+                    new Columns(columnIndex++, "FightNo", item.FightNo),
+                    new Columns(columnIndex++, "Home", item.HomeName),
+                    new Columns(columnIndex++, "VS", "-vs-"),
+                    new Columns(columnIndex++, "Away", item.AwayName),
+                    new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                    new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                    new Columns(columnIndex++, "Commission", item.Commission),
+                    new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                    new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                    new Columns(columnIndex++, "Margin", item.Margin)
+               };
+
+            return new GridDataRow { Columns = colummns };
+        }
+
+        private GridDataRow BuildArenaNameRow(string arenaName)
+        {
+            int columnIndex = 0;
+            var colummns = new List<Columns>
+               {
+                    new Columns { ColumnIndex = columnIndex++, Name = "FightNo", Value = string.Empty },
+                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = arenaName, MergeColNumber = 9, Bold = true }
+               };
+
+            return new GridDataRow { Columns = colummns };
+        }
+
+        private GridDataRow BuildArenalTotalRow(WinLoss total)
+        {
+            int startColumnIndex = 0;
+            int columnIndex = 4;
+            var colummns = new List<Columns>
+               {
+                    new Columns { ColumnIndex = startColumnIndex, Name = "FightNo", Value = string.Empty, MergeColNumber = 4 },
+                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
+                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
+                    new Columns(columnIndex++, "Commission", total.Commission),
+                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
+                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
+                    new Columns(columnIndex++, "Margin", total.Margin)
+               };
+
+            return new GridDataRow { Columns = colummns };
         }
 
         private List<GridDataRow> BuildFooter(WinLoss total)
         {
-            return new List<GridDataRow>();
+            int startColumnIndex = 0;
+            int columnIndex = 4;
+            var colummns = new List<Columns>
+               {
+                    new Columns { ColumnIndex = startColumnIndex, Name = "FightNo", Value = "Cockfighting Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
+                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
+                    new Columns(columnIndex++, "Commission", total.Commission),
+                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
+                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
+                    new Columns(columnIndex++, "Margin", total.Margin)
+               };
+
+            var row = new GridDataRow { Columns = colummns };
+            return new List<GridDataRow> { row };
         }
     }
 }

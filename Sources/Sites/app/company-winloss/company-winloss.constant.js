@@ -146,7 +146,7 @@
                 controller: 'SiteController'
             }]
         },
-        'Cock Fighting': {
+        'Cockfighting': {
             templates: [{
                 level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -154,7 +154,7 @@
             },
             {
                 level: levels.DETAIL,
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-sport-type.html',
                 controller: 'CockfightingDetailController'
             },
             {
