@@ -7,6 +7,8 @@
         RootUrl = Url.Content("~").TrimEnd(new[] { '/' }),
         LegacyPath = ViewBag.LegacyPath
     };
+
+    var isDebuggingEnabled = HttpContext.Current.IsDebuggingEnabled;
 }
 
 <!DOCTYPE html>
@@ -38,8 +40,9 @@
     <div class="container-fluid">
         @RenderBody()
     </div>
-
-
+    <script type="text/javascript">
+        var napConfig = @Html.Raw(Json.Encode(napConfig));
+    </script>
     <script src="~/Scripts/jquery-2.2.0.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
@@ -49,25 +52,34 @@
     <script src="~/Scripts/numeral/numeral.min.js"></script>
     <script src="~/Scripts/Fanex.Grid.js"></script>
     <script src="~/Scripts/Fanex.Pagination.js"></script>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="~/app/app.js"></script>
+        <script src="~/app/app.config.js"></script>
+        <script src="~/app/app.constant.js"></script>
 
-    <script src="~/app/app.js"></script>
-    <script type="text/javascript">
-        napConfig = @Html.Raw(Json.Encode(napConfig));
-    </script>
-    <script src="~/app/app.constant.js"></script>
-    <script src="~/app/app.config.js"></script>
-    <script src="~/app/common/logger.js"></script>
-    <script src="~/app/common/fanexGridHelper.js"></script>
-    <script src="~/app/common/http-response.service.js"></script>
-    <script src="~/app/components/alert/alert.directive.js"></script>
-    <script src="~/app/components/click/click.directive.js"></script>
-    <script src="~/app/components/loading/loading.directive.js"></script>
-    <script src="~/app/components/date-picker/date-picker.directive.js"></script>
-    <script src="~/app/components/month-picker/month-picker.directive.js"></script>
-    <script src="~/app/components/legend/legend.service.js"></script>
-    <script src="~/app/components/legend/legend.directive.js"></script>
-    <script src="~/app/components/menu/menu.service.js"></script>
-    <script src="~/app/components/menu/menu.directive.js"></script>
+        <script src="~/app/common/fanexGridHelper.js"></script>
+        <script src="~/app/common/http-response.service.js"></script>
+        <script src="~/app/common/logger.js"></script>
+
+        <script src="~/app/components/alert/alert.directive.js"></script>
+        <script src="~/app/components/date-picker/date-picker.directive.js"></script>
+        <script src="~/app/components/click/click.directive.js"></script>
+        <script src="~/app/components/legend/legend.service.js"></script>
+        <script src="~/app/components/legend/legend.directive.js"></script>
+        <script src="~/app/components/loading/loading.directive.js"></script>
+        <script src="~/app/components/menu/menu.directive.js"></script>
+        <script src="~/app/components/menu/menu.service.js"></script>
+        <script src="~/app/components/month-picker/month-picker.directive.js"></script>
+
+        <script src="~/app/legacy-scripts/check-in.js"></script>
+    }
+    else
+    {
+        <script src="~/app/app.min.js"></script>
+        <script src="~/app/common.min.js"></script>
+    }
+
     @RenderSection("Scripts", false)
 </body>
 </html>

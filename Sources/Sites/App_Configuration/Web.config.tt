@@ -47,10 +47,16 @@
 	</Fanex.Data.DbSettingProvider>
 	<Fanex.Logging msmqPath="<#=site.LoggingMsmqPath#>" defaultCategory="<#=site.LoggingDefaultCategory#>"/>
 	<connectionStrings configSource="<#= connectionStringFileName #>"/>
-	<appSettings configSource="<#= appSettingsFileName #>"/>
+	<appSettings file="<#= appSettingsFileName #>">
+		<add key="webpages:Version" value="2.0.0.0" />
+		<add key="webpages:Enabled" value="false" />
+		<add key="ClientValidationEnabled" value="true" />
+		<add key="UnobtrusiveJavaScriptEnabled" value="true" />
+	</appSettings>
+  
   <system.web>
 	<pages controlRenderingCompatibilityVersion="4.0" />
-    <compilation debug="<#= site.DebugMode #>" targetFramework="4.0"/>
+    <compilation debug="<#= site.DebugMode #>" targetFramework="4.6"/>
 	<#
 		if(site.Environment == SiteEnvironment.DEV)
 	#>

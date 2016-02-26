@@ -120,10 +120,6 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MvcPager, Version=1.5.0.28157, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvcPager.1.5.0.28157\lib\net40\MvcPager.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -224,6 +220,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.min.js" />
+    <Content Include="app\common.min.js" />
+    <Content Include="app\company-win-loss.min.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fighting-detail.controller.js" />
     <Content Include="app\company-winloss\colossus-bets\colossus-bets-bet-type.service.js" />
     <Content Include="app\company-winloss\colossus-bets\colossus-bets-site.service.js" />
@@ -285,6 +284,7 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sport-type.service.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.service.js" />
     <Content Include="app\components\click\click.directive.js" />
+    <Content Include="app\legacy-scripts\check-in.js" />
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>
@@ -355,6 +355,8 @@
     <None Include="App_Configuration\DEV\Web.ConnectionString.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="App_Configuration\SANDBOX\Web.AppSettings.config" />
+    <None Include="App_Configuration\SANDBOX\Web.ConnectionString.config" />
     <None Include="App_Configuration\LOCAL\Web.AppSettings.config" />
     <None Include="App_Configuration\LOCAL\Web.ConnectionString.config" />
     <None Include="App_Configuration\MNL\Web.AppSettings.config" />
@@ -1389,7 +1391,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\CompanyWinLoss\Index.cshtml" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">

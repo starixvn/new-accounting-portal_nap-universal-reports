@@ -8,16 +8,22 @@ namespace UniversalReports.Application.Menu
 {
     public class MenuController : ApiController
     {
+        private ICurrentSession currentSession;
+
+        public MenuController(ICurrentSession currentSession)
+        {
+            this.currentSession = currentSession;
+        }
+
         [Route("api/application/menu")]
         public IHttpActionResult Values()
         {
-            var session = new CurrentSession();
-            if (session.MenuItemList == null || session.MenuItemList.Count == 0)
+            if (currentSession.MenuItemList == null || currentSession.MenuItemList.Count == 0)
             {
                 return Json(GetFakeMenu());
             }
 
-            var sessionMenus = session.MenuItemList == null ? new List<MenuItem>() : session.MenuItemList;
+            var sessionMenus = currentSession.MenuItemList == null ? new List<MenuItem>() : currentSession.MenuItemList;
             var menus = GetMenu(sessionMenus);
             return Json(menus);
         }
