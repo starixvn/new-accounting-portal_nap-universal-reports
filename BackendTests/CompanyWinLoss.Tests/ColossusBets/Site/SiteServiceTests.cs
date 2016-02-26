@@ -41,8 +41,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.ColossusBets.Site
 
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
+                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
+                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
                 Site = "Credit"
             };
         }

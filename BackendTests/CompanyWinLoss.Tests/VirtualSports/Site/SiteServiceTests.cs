@@ -41,8 +41,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.Site
 
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
+                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
+                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
                 SportType = 180,
                 BetType = 1203,
                 Site = "Credit"

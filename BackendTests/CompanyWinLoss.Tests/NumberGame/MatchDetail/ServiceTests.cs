@@ -41,8 +41,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.MatchDetail
 
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-2),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(2),
+                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
+                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
                 BetType = 81,
                 IsLive = true,
                 SportType = 161
