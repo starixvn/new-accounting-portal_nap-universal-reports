@@ -5,10 +5,11 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -25,7 +26,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -41,7 +41,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void FromRawWinLoss_ReturnsCorrectTeamNameAndMargin()
         {
             // Arrange
@@ -60,7 +59,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange

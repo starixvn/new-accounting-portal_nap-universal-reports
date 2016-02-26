@@ -11,10 +11,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class RawServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
         {
             // Arrange
@@ -55,7 +56,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_TwoSources_CallCalculationServiceWithTwoDimensionArray()
         {
             // Arrange

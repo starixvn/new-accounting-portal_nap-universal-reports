@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.ColossusBets.Site
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class SiteServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -15,8 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.ColossusBets.Site
             DbSettingProviderManager.Current.Start();
         }
 
-        [Test]
-        [Category("CompanyWinLossIntegrationTests")]
+        [Test]        
         public void Query()
         {
             // Arrange

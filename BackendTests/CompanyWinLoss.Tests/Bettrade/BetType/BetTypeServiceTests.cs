@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class BetTypeServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -16,7 +18,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

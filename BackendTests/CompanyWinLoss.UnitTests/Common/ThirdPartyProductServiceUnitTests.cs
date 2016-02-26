@@ -10,7 +10,7 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
     [TestFixture]
-    [Category("Third Party Product")]
+    [Category("CompanyWinLossUnitTests")]
     public class ThirdPartyProductServiceUnitTests
     {
         [Test]

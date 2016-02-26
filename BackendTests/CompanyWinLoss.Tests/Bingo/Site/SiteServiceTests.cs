@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Bingo.Site
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class SiteServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -16,7 +18,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bingo.Site
         }
 
         [Test]
-        [Category("CompanyWinLossIntegrationTests")]
         public void Query()
         {
             // Arrange

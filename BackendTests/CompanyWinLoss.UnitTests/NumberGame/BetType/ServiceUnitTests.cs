@@ -10,10 +10,11 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightNumberGameBetTypeWinLossSummary()
         {
             // Arrange   

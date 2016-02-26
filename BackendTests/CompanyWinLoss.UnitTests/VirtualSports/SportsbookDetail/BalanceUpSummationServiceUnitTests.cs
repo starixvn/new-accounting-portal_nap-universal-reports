@@ -5,10 +5,11 @@ using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -40,7 +41,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             // Arrange

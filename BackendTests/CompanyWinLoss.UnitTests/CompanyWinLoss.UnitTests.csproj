@@ -63,7 +63,6 @@
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\NumberGameWinLossFactory.cs" />
-    <Compile Include="Products\ProductControllerUnitTests.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\MatchDetail\ServiceUnitTests.cs" />

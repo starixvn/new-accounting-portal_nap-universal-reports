@@ -5,10 +5,11 @@ using UniversalReports.CompanyWinLoss.NumberGame.BetType;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             var expectedSum = new List<RawWinLoss>
@@ -39,7 +40,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             var expectedSum = new List<RawWinLoss>

@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Products
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -15,8 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Products
             DbSettingProviderManager.Current.Start();
         }
 
-        [Test]
-        [Category("CompanyWinLossIntegrationTests")]
+        [Test]        
         public void Query()
         {
             // Arrange

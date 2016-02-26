@@ -7,10 +7,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsZero_ReturnsZero()
         {
             // Arrange
@@ -26,7 +27,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
         {
             // Arrange
@@ -40,8 +40,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             Assert.AreEqual(ExpectedDividend, result);
         }
 
-        [Test]
-        [Category("CompanyWinLossUnitTests")]
+        [Test]        
         public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
@@ -58,7 +57,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -78,7 +76,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLoss_ReturnsRightTotalValue()
         {
             // Arrange
@@ -98,12 +95,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
             var expectedGrandTotal = CreateExpectedGrandTotal();
-            var fakeData = CreateFakeRawWinLoss();
+            var fakeData = CreateFakeTwoRawGroupWinLoss();
 
             // Act 
             var service = new CalculationServiceImp();
@@ -124,7 +120,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             };
         }
 
-        private IEnumerable<RawWinLoss> CreateFakeRawWinLoss()
+        private IEnumerable<RawWinLoss> CreateFakeTwoRawGroupWinLoss()
         {
             var group1 = CreateFakeRawGroupWinLoss(1, "Group 1");
             var group2 = CreateFakeRawGroupWinLoss(2, "Group 2");
@@ -143,8 +139,33 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
-        public void CalculateSiteWinLossSummary_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
+        public void CalculateSumWinLossSummary_EmptyData_ReturnZeroCreditAndDeposit()
+        {
+            // Arrange   
+            var expectedGrandTotal = CreateEmptyTotalWinLoss();
+            var fakeData = new List<RawWinLoss>();
+
+            // Act 
+            var service = new CalculationServiceImp();
+            var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
+
+            // Assert
+            var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGrandTotal, result);
+            Assert.True(equal);
+        }
+
+        private SiteWinLossSummary CreateEmptyTotalWinLoss()
+        {
+            return new SiteWinLossSummary
+            {
+                Credit = WinLossFactory.CreateWinLoss(0, "Credit", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+                Deposit = WinLossFactory.CreateWinLoss(0, "Deposit", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+                Total = WinLossFactory.CreateWinLoss(0, "Grand Total", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            };
+        }
+
+        [Test]
+        public void CalculateSiteWinLossSummary_EmptyData_ReturnEmptySiteWinLoss()
         {
             // Arrange   
             var expectedGroup = CreateEmptySiteWinLoss();
@@ -170,12 +191,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange   
             var expectedGroups = CreateExpectedGroups();
-            var fakeData = CreateFakeRawWinLoss();
+            var fakeData = CreateFakeTwoRawGroupWinLoss();
 
             // Act 
             var service = new CalculationServiceImp();

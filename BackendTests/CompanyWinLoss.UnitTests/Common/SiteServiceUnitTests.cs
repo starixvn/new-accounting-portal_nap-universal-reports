@@ -8,10 +8,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class SiteServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightSiteWinLoss()
         {
             // Arrange   

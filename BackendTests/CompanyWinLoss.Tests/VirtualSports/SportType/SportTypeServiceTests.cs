@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.VirtualSports.SportType;
 
 namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportType
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class SportTypeServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -15,8 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportType
             DbSettingProviderManager.Current.Start();
         }
 
-        [Test]
-        [Category("CompanyWinLossIntegrationTests")]
+        [Test]        
         public void Query()
         {
             // Arrange

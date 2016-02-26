@@ -10,10 +10,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSportsbookDetail_ReturnRightSportsbookDetail()
         {
             // Arrange   
@@ -49,7 +50,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMainWinLoss()
         {
             // Arrange   

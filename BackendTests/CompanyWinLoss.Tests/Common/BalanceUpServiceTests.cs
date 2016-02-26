@@ -8,6 +8,8 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class BalanceUpServiceTests
     {
         [OneTimeSetUp]
@@ -17,7 +19,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void QueryBalanceUp_Successful()
         {
             // Arrange

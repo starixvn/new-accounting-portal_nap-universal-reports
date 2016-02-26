@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BalanceUpSourceChooserUnitTests
     {
         private static readonly BalanceUpRange BalanceUpRange = new BalanceUpRange
@@ -16,7 +18,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         };
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateAfterMoveBetsDate_ReturnsOneSource()
         {
             // Arrange
@@ -34,7 +35,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateBetweenBalanceUpRange_EndDateAfterMoveBetsDate_ReturnsTwoSources()
         {
             // Arrange
@@ -53,7 +53,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateBetweenBalanceUpRange_EndDateBeforeMoveBetsDate_ReturnsOneSource()
         {
             // Arrange
@@ -72,7 +71,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateBeforeBalanceUpDate_EndDateAfterMoveBetsDate_ReturnThreeSources()
         {
             // Arrange
@@ -91,7 +89,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateBeforeBalanceUpDate_EndDateBetweenBalanceUpDRange_ReturnTwoSources()
         {
             // Arrange
@@ -110,7 +107,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateAndEndDateBeforeBalanceUpDate_ReturnOneSource()
         {
             // Arrange
@@ -129,7 +125,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Determine_StartDateAndEndDateBetweenBalanceUpDateAndMoveBetsDate_ReturnOneSource()
         {
             // Arrange

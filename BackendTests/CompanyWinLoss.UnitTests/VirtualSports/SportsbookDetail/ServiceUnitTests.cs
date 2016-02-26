@@ -7,10 +7,11 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   

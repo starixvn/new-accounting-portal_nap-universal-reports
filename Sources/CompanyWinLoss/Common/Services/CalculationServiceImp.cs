@@ -91,7 +91,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var creditData = rawWinLosses.Where(r => r.RowName == "Credit");
             var sumData = CalculateSum(creditData);
 
-            return FromRawWinLossByRowName(sumData);
+            var winloss = FromRawWinLossByRowName(sumData);
+            winloss.Name = "Credit";
+
+            return winloss;
         }
 
         private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
@@ -99,7 +102,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var depositData = rawWinLosses.Where(r => r.RowName == "Deposit");
             var sumData = CalculateSum(depositData);
 
-            return FromRawWinLossByRowName(sumData);
+            var winloss = FromRawWinLossByRowName(sumData);
+            winloss.Name = "Deposit";
+
+            return winloss;
         }
 
         public virtual IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses)

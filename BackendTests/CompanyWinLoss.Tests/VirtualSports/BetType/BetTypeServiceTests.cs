@@ -7,6 +7,8 @@ using UniversalReports.CompanyWinLoss.VirtualSports.BetType;
 
 namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class BetTypeServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -15,8 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.BetType
             DbSettingProviderManager.Current.Start();
         }
 
-        [Test]
-        [Category("CompanyWinLossIntegrationTests")]
+        [Test]        
         public void Query()
         {
             // Arrange

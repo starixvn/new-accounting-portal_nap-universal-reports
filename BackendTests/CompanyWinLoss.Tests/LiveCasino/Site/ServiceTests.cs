@@ -8,7 +8,7 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.Site
 {
     [TestFixture]
-    [Category("LiveCasinoIntegrationTests")]
+    [Category("CompanyWinLossIntegrationTests")]
     public class SiteServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]

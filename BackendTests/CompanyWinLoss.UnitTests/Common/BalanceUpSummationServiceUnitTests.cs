@@ -7,10 +7,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BalanceUpSummationServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
@@ -42,7 +43,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSum_ArrayWithTwoWinLosses_AndArrayWithOneWinLoss_ReturnsRightSumValue()
         {
             // Arrange

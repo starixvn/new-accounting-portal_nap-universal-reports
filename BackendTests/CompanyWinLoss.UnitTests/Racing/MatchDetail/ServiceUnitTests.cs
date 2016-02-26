@@ -10,10 +10,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Racing.MatchDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   

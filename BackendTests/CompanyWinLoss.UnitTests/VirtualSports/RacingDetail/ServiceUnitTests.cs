@@ -9,10 +9,11 @@ using UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class ServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   

@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Tests.Common;
 namespace UniversalReports.CompanyWinLoss.Tests.Casino.BetType
 {
     [TestFixture]
-    [Category("CasinoIntegrationTests")]
+    [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]

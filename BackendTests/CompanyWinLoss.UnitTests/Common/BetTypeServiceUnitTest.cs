@@ -9,10 +9,11 @@ using UniversalReports.CompanyWinLoss.UnitTests.Utility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class BetTypeServiceUnitTest
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_ReturnRightBetTypeWinLossSummary()
         {
             // Arrange   

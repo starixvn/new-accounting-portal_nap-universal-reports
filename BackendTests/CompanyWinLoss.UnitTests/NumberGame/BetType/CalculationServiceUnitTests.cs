@@ -8,6 +8,8 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
         private CommonServices.CalculationService commonCalculationService;
@@ -19,7 +21,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
@@ -64,7 +65,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_MissingCreditAndDeposit_ReturnEmptySiteWinLoss()
         {
             // Arrange   
@@ -91,7 +91,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange   

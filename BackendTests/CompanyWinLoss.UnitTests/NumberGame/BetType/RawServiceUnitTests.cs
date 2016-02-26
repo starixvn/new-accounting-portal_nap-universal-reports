@@ -12,10 +12,11 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
+    [TestFixture]
+    [Category("CompanyWinLossUnitTests")]
     public class RawServiceUnitTests
     {
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_BalanceUpSourceChooserReturnsTwoSources_DynamicRepositoryCallTwice()
         {
             // Arrange
@@ -56,7 +57,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         }
 
         [Test]
-        [Category("CompanyWinLossUnitTests")]
         public void Query_TwoSources_CallCalculationServiceWithTwoDimensionArray()
         {
             // Arrange

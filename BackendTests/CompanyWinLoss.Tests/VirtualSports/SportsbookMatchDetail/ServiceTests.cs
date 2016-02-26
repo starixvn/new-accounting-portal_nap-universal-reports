@@ -9,6 +9,8 @@ using CommonService = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
 {
+    [TestFixture]
+    [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
         [OneTimeSetUp]
@@ -17,8 +19,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
             DbSettingProviderManager.Current.Start();
         }
 
-        [Test]
-        [Category("CompanyWinLossIntegrationTests")]
+        [Test]        
         public void Query()
         {
             // Arrange
