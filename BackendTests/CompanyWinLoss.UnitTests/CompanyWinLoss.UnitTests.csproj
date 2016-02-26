@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cockfighting\MatchDetail\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Cockfighting\MatchDetail\CalculationServiceUnitTests.cs" />
     <Compile Include="Cockfighting\MatchDetail\RawWinLossServiceUnitTests.cs" />
     <Compile Include="Cockfighting\MatchDetail\ServiceUnitTests.cs" />

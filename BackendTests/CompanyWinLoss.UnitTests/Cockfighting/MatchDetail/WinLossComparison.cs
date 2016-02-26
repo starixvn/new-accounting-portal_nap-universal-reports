@@ -8,7 +8,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
     {
         internal static bool CompareTwoMatchDetailIsEqual(WinLossModel first, WinLossModel second)
         {
-
             return CompareTwoListArenaIsEqual(first.Arenas, second.Arenas) &&
                 CompareTwoWinLossIsEqual(first.Total, second.Total);
         }

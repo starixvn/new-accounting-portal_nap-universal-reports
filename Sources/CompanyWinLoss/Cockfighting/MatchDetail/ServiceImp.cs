@@ -3,7 +3,7 @@ using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
-    public class ServiceImp
+    public class ServiceImp : Service
     {
         private RawWinLossService rawWinLossService;
         private CalculationService calculationService;

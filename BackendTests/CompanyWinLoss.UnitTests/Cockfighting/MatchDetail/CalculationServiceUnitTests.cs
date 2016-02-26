@@ -95,7 +95,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
             // Assert
             var equal = WinLossComparison.CompareTwoArenaIsEqual(result, expectedArena);
             Assert.True(equal);
-
         }
 
         [Test]

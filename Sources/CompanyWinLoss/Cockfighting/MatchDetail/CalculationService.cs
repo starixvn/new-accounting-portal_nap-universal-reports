@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
         IEnumerable<ArenaWinLoss> Arenas(IEnumerable<RawWinLoss> rawWinLoss);
 
         ArenaWinLoss CalculationArena(IEnumerable<RawWinLoss> rawWinLoss, int arenaId);
+
         RawWinLoss CalculationSum(IEnumerable<RawWinLoss> rawWinLoss);
 
         WinLoss FromRawWinLoss(RawWinLoss winLoss);

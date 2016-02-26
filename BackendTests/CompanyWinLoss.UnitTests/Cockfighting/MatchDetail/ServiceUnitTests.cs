@@ -16,9 +16,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
             // Arrange
             var fakeWinLoss = WinLossFactory.CreateFakeRawWinLoss();
             var expectedMatchDetail = WinLossFactory.CreateExpectMatchDetail();
-            var rawService = Substitute.For<RawWinLossServiceImp>();
+            var rawService = Substitute.For<RawWinLossService>();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
-            var refService = Substitute.For<commonServices.RemotingRefServiceImp>();
+            var refService = Substitute.For<commonServices.RemotingRefService>();
             refService.GetLeagueName(Arg.Any<int>()).Returns("Any Arena");
             var calculationService = new CalculationServiceImp(refService);
 

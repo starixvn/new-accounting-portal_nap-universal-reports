@@ -6,8 +6,6 @@
 
         public int ArenaId { get; set; }
 
-        //public string ArenaName { get; set; }
-
         public string HomeName { get; set; }
 
         public string AwayName { get; set; }

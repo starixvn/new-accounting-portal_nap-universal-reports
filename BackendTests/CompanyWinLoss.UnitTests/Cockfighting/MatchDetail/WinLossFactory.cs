@@ -84,7 +84,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
             var firstArenaTotal = CreateExpectedFirstArenaTotal();
             var firstArena = CreateExpectedArenaWinLoss(firstArenaMatches, firstArenaTotal);
 
-            var secondArenaMatches = CreateExpectedFirstArenaMatches();
+            var secondArenaMatches = CreateExpectedSecondArenaMatches();
             var secondArenaTotal = CreateExpectedSecondArenaTotal();
             var secondArena = CreateExpectedArenaWinLoss(secondArenaMatches, secondArenaTotal);
 

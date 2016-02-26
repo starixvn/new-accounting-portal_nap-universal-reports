@@ -117,6 +117,11 @@
     <Compile Include="Cockfighting\MatchDetail\BalanceUpSummationServiceImp.cs" />
     <Compile Include="Cockfighting\MatchDetail\CalculationService.cs" />
     <Compile Include="Cockfighting\MatchDetail\CalculationServiceImp.cs" />
+    <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailController.cs" />
+    <Compile Include="Cockfighting\MatchDetail\Criteria.cs" />
+    <Compile Include="Cockfighting\MatchDetail\GridOptionService.cs" />
+    <Compile Include="Cockfighting\MatchDetail\GridOptionServiceImp.cs" />
+    <Compile Include="Cockfighting\MatchDetail\QueryModel.cs" />
     <Compile Include="Cockfighting\MatchDetail\RawWinLoss.cs" />
     <Compile Include="Cockfighting\MatchDetail\RawWinLossService.cs" />
     <Compile Include="Cockfighting\MatchDetail\RawWinLossServiceImp.cs" />
