@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UniversalReports.Application.Menu
+namespace UniversalReports.Application.Header
 {
     public class Menu
     {

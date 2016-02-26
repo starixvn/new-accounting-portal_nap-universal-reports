@@ -31,12 +31,7 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="navbar navbar-static-top">
-        <div class="logo">
-            <a href="/?ref=logo">&nbsp;</a>
-        </div>
-        <div data-nap-menu></div>
-    </header>
+    <nap-header></nap-header>
     <div class="container-fluid">
         @RenderBody()
     </div>
@@ -68,8 +63,8 @@
         <script src="~/app/components/legend/legend.service.js"></script>
         <script src="~/app/components/legend/legend.directive.js"></script>
         <script src="~/app/components/loading/loading.directive.js"></script>
-        <script src="~/app/components/menu/menu.directive.js"></script>
-        <script src="~/app/components/menu/menu.service.js"></script>
+        <script src="~/app/components/header/header.directive.js"></script>
+        <script src="~/app/components/header/header.service.js"></script>
         <script src="~/app/components/month-picker/month-picker.directive.js"></script>
 
         <script src="~/app/legacy-scripts/check-in.js"></script>

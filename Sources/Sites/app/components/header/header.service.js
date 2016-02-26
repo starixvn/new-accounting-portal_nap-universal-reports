@@ -3,10 +3,10 @@
 
     angular
         .module('companyWinlossApp')
-        .factory('menuService', menuService);
+        .factory('headerService', headerService);
 
-    menuService.$inject = ['$http', 'universalMenus', 'httpResponseService'];
-    function menuService($http, universalMenus, httpResponseService) {
+    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService'];
+    function headerService($http, universalMenus, httpResponseService) {
         var service = {
             getData: getData,
             getCompiledMenu: getCompiledMenu,
@@ -29,7 +29,7 @@
         }
 
         function getData() {
-            return $http.post('api/application/menu', {})
+            return $http.post('api/application/header', {})
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }

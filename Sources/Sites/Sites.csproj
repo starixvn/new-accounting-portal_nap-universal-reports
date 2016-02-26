@@ -244,9 +244,9 @@
     <Content Include="app\company-winloss\live-casino\live-casino-bet-type.service.js" />
     <Content Include="app\components\legend\legend.directive.js" />
     <Content Include="app\components\legend\legend.service.js" />
-    <Content Include="app\components\menu\menu.service.js" />
-    <Content Include="app\components\menu\menu.directive.html" />
-    <Content Include="app\components\menu\menu.directive.js" />
+    <Content Include="app\components\header\header.service.js" />
+    <Content Include="app\components\header\header.directive.html" />
+    <Content Include="app\components\header\header.directive.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-bet-type.service.js" />
     <Content Include="app\company-winloss\racing\racing-bet-type.service.js" />
@@ -342,6 +342,8 @@
     <Content Include="Content\images\filter\note-collapse.png" />
     <Content Include="Content\images\filter\note-expand.png" />
     <Content Include="Content\images\header\bgmenu-more.png" />
+    <Content Include="Content\images\header\small-arrow-down.png" />
+    <Content Include="Content\images\header\user.png" />
     <Content Include="Content\images\loading\loading.gif" />
     <Content Include="Content\images\header\logo.png" />
     <Content Include="Content\ui-bootstrap-csp.css" />

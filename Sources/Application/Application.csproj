@@ -159,9 +159,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Header\Header.cs" />
     <Compile Include="Legend\LegendController.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\MenuController.cs" />
+    <Compile Include="Header\Menu.cs" />
+    <Compile Include="Header\HeaderController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

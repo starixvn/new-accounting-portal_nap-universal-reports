@@ -1,0 +1,30 @@
+﻿<header class="navbar navbar-static-top">
+    <div class="logo">
+        <a href="/?ref=logo">&nbsp;</a>
+    </div>
+    <nav>
+        <ul class="menu">
+            <li data-ng-repeat="item in vm.menus" data-ng-class="{first: $first, last: $last && !$first, 'has-child': item.Children}">
+                <a href="javascript:;" data-ng-if="item.Children">{{item.Name}}</a>
+                <a data-ng-href="{{item.Url}}" data-ng-if="!item.Children">{{item.Name}}</a>
+                <ul class="sub-menu" data-ng-if="item.Children">
+                    <li data-ng-repeat="childItem in item.Children">
+                        <a data-ng-href="{{childItem.Url}}">{{childItem.Name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <div class="greeting">
+            <h2>
+                Welcome <span class="info-acc">{{vm.username}}</span><span class="info-more"></span>
+            </h2>
+            <ul>
+                <li><a href="/NAP-Reports/UserControl/User/UserProfile">Profile</a></li>
+                <li><a href="/NAP-Reports/UserControl/User/ChangePassword">Change Password</a></li>
+                <li><a href="/NAP-Reports/UserLogin/Login/LogOut">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

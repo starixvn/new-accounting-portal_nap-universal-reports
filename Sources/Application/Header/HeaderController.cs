@@ -4,31 +4,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace UniversalReports.Application.Menu
+namespace UniversalReports.Application.Header
 {
-    public class MenuController : ApiController
+    public class HeaderController : ApiController
     {
         private ICurrentSession currentSession;
 
-        public MenuController(ICurrentSession currentSession)
+        public HeaderController(ICurrentSession currentSession)
         {
             this.currentSession = currentSession;
         }
 
-        [Route("api/application/menu")]
-        public IHttpActionResult Values()
+        [Route("api/application/header")]
+        public Header Index()
         {
             if (currentSession.MenuItemList == null || currentSession.MenuItemList.Count == 0)
             {
-                return Json(GetFakeMenu());
+                return new Header
+                {
+                    Menus = GetFakeMenu()
+                };
             }
 
             var sessionMenus = currentSession.MenuItemList == null ? new List<MenuItem>() : currentSession.MenuItemList;
-            var menus = GetMenu(sessionMenus);
-            return Json(menus);
+            var menus = GetMenus(sessionMenus);
+            return new Header
+            {
+                Username = currentSession.Username,
+                Menus = menus
+            };
         }
 
-        private List<Menu> GetMenu(IList<MenuItem> menus)
+        private List<Menu> GetMenus(IList<MenuItem> menus)
         {
             return menus.Where(m => m.Parent == null)
                                .OrderBy(m => m.DisplayOrder)

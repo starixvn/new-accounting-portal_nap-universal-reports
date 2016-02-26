@@ -3,13 +3,13 @@
 
     angular
         .module('companyWinlossApp')
-        .directive('napMenu', napMenu);
+        .directive('napHeader', napHeader);
 
-    function napMenu() {
+    function napHeader() {
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: 'app/components/menu/menu.directive.html',
+            templateUrl: 'app/components/header/header.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -17,13 +17,14 @@
         };
         return directive;
 
-        controller.$inject = ['menuService'];
-        function controller(menuService) {
+        controller.$inject = ['headerService'];
+        function controller(headerService) {
 
             /*jshint validthis: true */
             var vm = this;
-            menuService.getData().then(function (data) {
-                vm.menus = menuService.getCompiledMenu(data);
+            headerService.getData().then(function (data) {
+                vm.username = data.Username;
+                vm.menus = headerService.getCompiledMenu(data.Menus);
             });
         }
     }

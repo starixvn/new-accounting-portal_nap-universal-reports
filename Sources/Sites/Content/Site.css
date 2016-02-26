@@ -9273,3 +9273,95 @@ header nav .sub-menu li:hover a {
 header nav .sub-menu li:last-child {
   border: none;
 }
+/* line 498, ../stylesheets/Site.scss */
+header .user-info {
+  float: right;
+  position: absolute;
+  right: 8px;
+  top: 6px;
+}
+/* line 504, ../stylesheets/Site.scss */
+header .user-info .greeting {
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+/* line 509, ../stylesheets/Site.scss */
+header .user-info .greeting h2 {
+  background: #486cb8 url(images/header/user.png) no-repeat 6px center;
+  display: block;
+  clear: none;
+  margin: 0 0 0 -2px;
+  float: left;
+  padding: 4px 10px 4px 28px;
+  color: white;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  line-height: 16.003px;
+  font-weight: normal;
+  font-size: 1em;
+  text-shadow: 0 0 0.03em black;
+  box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+}
+/* line 528, ../stylesheets/Site.scss */
+header .user-info .greeting h2 .info-acc {
+  color: #fecc35;
+  font-weight: bold;
+  display: inline-block;
+}
+/* line 534, ../stylesheets/Site.scss */
+header .user-info .greeting h2 .info-more {
+  background: url(images/header/small-arrow-down.png) no-repeat center 6px;
+  margin-left: 6px;
+  padding: 0 6px;
+}
+/* line 541, ../stylesheets/Site.scss */
+header .user-info .greeting ul {
+  position: absolute;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: white;
+  list-style-type: none;
+  margin: 0;
+  border: solid 1px #3c5b9b;
+  width: 100%;
+  padding: 2px 0px;
+  z-index: 11;
+}
+/* line 555, ../stylesheets/Site.scss */
+header .user-info .greeting ul li {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  padding: 4px 10px;
+}
+/* line 561, ../stylesheets/Site.scss */
+header .user-info .greeting ul li a {
+  display: block;
+  color: #3b5b98;
+  font-size: 0.9em;
+}
+/* line 567, ../stylesheets/Site.scss */
+header .user-info .greeting ul li:hover {
+  background-color: #3c5b9b;
+}
+/* line 570, ../stylesheets/Site.scss */
+header .user-info .greeting ul li:hover a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0em 0em 0.05em black;
+}
+/* line 580, ../stylesheets/Site.scss */
+header .user-info .greeting:hover ul {
+  top: 24px;
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
+}
