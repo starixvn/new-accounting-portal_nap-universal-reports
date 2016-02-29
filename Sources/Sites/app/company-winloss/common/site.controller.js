@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('SiteController', SiteController);
 
     SiteController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];

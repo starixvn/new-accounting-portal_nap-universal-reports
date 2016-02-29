@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('CockfightingDetailController', CockfightingDetailController);
 
     CockfightingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'cockfightingDetailService', 'breadcrumbHelper'];

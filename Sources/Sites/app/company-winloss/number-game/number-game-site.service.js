@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .factory('numberGameSiteService', numberGameSiteService);
 
     numberGameSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];

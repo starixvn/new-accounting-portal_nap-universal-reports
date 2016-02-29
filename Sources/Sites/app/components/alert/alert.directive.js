@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .directive('napAlert', napAlert);
 
     function napAlert() {

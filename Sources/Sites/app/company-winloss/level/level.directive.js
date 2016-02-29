@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .directive('napLevel', napSite);
 
     napSite.$inject = ['$controller'];

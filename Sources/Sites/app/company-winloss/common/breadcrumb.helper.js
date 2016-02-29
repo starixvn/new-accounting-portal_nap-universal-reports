@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .factory('breadcrumbHelper', breadcrumbHelper);
 
     breadcrumbHelper.$inject = ['$compile', 'levels', 'levelSettings', 'companyWinlossService'];

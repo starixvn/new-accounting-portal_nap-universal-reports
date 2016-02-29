@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .service('companyWinlossService', companyWinlossService);
 
     companyWinlossService.$inject = ['$timeout', 'levels'];

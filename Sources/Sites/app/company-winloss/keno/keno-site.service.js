@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .factory('kenoSiteService', kenoSiteService);
 
     kenoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];

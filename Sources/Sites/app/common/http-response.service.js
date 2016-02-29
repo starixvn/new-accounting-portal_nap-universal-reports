@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .factory('httpResponseService', httpResponseService);
 
     httpResponseService.$inject = ['logger'];

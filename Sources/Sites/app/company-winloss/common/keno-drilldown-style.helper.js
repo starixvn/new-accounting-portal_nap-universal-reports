@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .factory('kenoDrilldownStyleHelper', kenoDrilldownStyleHelper);
 
     kenoDrilldownStyleHelper.$inject = ['levels', 'companyWinlossService'];

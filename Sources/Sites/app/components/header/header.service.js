@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .factory('headerService', headerService);
 
     headerService.$inject = ['$http', 'universalMenus', 'httpResponseService'];

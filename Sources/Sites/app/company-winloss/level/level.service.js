@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .factory('levelService', levelService);
 
     levelService.$inject = ['levels', 'levelSettings', 'companyWinlossService'];

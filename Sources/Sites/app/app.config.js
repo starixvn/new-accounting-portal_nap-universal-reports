@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .config(config);
 
     config.$injector = ['$routeProvider', '$httpProvider', 'appConfig'];

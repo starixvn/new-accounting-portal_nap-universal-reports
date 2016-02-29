@@ -3,7 +3,7 @@ var napConfig = { "Today": 1456412260620, "RootUrl": "/UniversalReports", "Legac
     'use strict';
 
     angular
-        .module('companyWinlossApp', [
+        .module('app.core', [
             'ngRoute',
             'angularMoment'
         ]);

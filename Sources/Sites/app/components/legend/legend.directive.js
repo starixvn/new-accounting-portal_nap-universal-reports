@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .directive('napLegend', napLegend);
 
     function napLegend() {

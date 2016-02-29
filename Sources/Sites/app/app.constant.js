@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .constant('moment', moment)
         .constant('config', (function () {
             moment.now = function () {

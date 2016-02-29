@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('CompanyWinlossController', CompanyWinlossController);
 
     CompanyWinlossController.$inject = ['$scope', 'levels', 'companyWinlossService'];

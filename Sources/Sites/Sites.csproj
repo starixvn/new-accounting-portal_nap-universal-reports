@@ -223,6 +223,7 @@
     <Content Include="app\app.min.js" />
     <Content Include="app\common.min.js" />
     <Content Include="app\company-win-loss.min.js" />
+    <Content Include="app\company-winloss\app.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fight-detail.service.js" />
     <Content Include="app\company-winloss\cock-fighting\cock-fighting-detail.controller.js" />
     <Content Include="app\company-winloss\colossus-bets\colossus-bets-bet-type.service.js" />

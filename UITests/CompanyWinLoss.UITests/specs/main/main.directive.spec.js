@@ -26,7 +26,7 @@ describe('Directive: MainDirective', function () {
         mainService;
 
     // load the controller's module
-    beforeEach(module('companyWinlossApp'));
+    beforeEach(module('app.companyWinlossApp'));
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($rootScope, $compile, _$timeout_, $templateCache, $httpBackend, _companyWinlossService_, _levels_, _mainService_) {

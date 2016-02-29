@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('VirtualSportsRacingDetailController', VirtualSportsRacingDetailController);
 
     VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'virtualSportsRacingDetailService', 'breadcrumbHelper', 'fanexGridHelper'];

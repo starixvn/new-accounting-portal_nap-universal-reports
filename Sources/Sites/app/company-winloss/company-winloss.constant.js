@@ -166,7 +166,7 @@
     };
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .constant('levels', levels)
         .constant('levelSettings', levelSettings);
 })();
