@@ -13,6 +13,7 @@
 
             return {
                 rootUrl: napConfig.RootUrl,
+                legacyPath: napConfig.LegacyPath,
                 today: today,
                 yesterday: yesterday
             }
