@@ -60,7 +60,6 @@
             };
 
             data.titleInfo = titleInfo;
-            fanexGridHelper.highlightFooterColumns(data);
             data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
             data.defaultCollapseAllGroups = true;
             gridElement.fanexGrid(data);
