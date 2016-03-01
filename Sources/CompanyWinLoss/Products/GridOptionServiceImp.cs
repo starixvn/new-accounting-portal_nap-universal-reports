@@ -19,6 +19,8 @@ namespace UniversalReports.CompanyWinLoss.Products
                 GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
+                ShowHighlightRow = false,
+                ShowDistinctRow = false,
                 ShowFooter = true,
                 ShowTree = true
             };
@@ -68,7 +70,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var bodyRows = new List<GridDataRow>();
             foreach (var winLoss in sportsbookDetail)
             {
-                bodyRows.Add(BuildDataRow(winLoss, HAlignment.Left));
+                bodyRows.Add(BuildDataRow(winLoss, HAlignment.Left, false));
             }
 
             foreach (var product in products)
@@ -84,15 +86,15 @@ namespace UniversalReports.CompanyWinLoss.Products
             var productName = productWinLoss.Total.Name;
             var isSportsbook = productName == "Sportsbook Total";
             var rowCssClass = isSportsbook ? "highlight-product" : string.Empty;
-            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left);
+            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = rowCssClass;
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right));
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right));
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right, false));
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false));
 
             return productDataRow;
         }
 
-        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
+        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, bool isFooter)
         {
             int columnIndex = 0;
             var columns = new List<Columns>
@@ -106,8 +108,8 @@ namespace UniversalReports.CompanyWinLoss.Products
                 new Columns(columnIndex++, "Variance", item.VarianceIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
-                new Columns(columnIndex++, "RealMargin", item.RealMargin),
-                new Columns(columnIndex++, "VirtualMargin", item.VirtualMargin)
+                new Columns(columnIndex++, "RealMargin", GetFormattedMargin(item, isFooter)),
+                new Columns(columnIndex++, "VirtualMargin", GetFormattedMargin(item, isFooter))
             };
 
             return new GridDataRow { Columns = columns };
@@ -117,11 +119,23 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             return new List<GridDataRow>
             {
-                BuildDataRow(item.Total, HAlignment.Right),
-                BuildDataRow(item.Credit, HAlignment.Right),
-                BuildDataRow(item.Deposit, HAlignment.Right),
+                BuildDataRow(item.Total, HAlignment.Right, true),
+                BuildDataRow(item.Credit, HAlignment.Right, true),
+                BuildDataRow(item.Deposit, HAlignment.Right, true),
                 BuildNoteRow()
             };
+        }
+
+        private object GetFormattedMargin(WinLoss item, bool isFooter)
+        {
+            if (isFooter)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return item.RealMargin == 0 ? "N/A" : (object)item.RealMargin;
+            }
         }
 
         private GridDataRow BuildNoteRow()
