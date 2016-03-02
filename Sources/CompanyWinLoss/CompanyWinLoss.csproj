@@ -181,7 +181,6 @@
     <Compile Include="Keno\Site\KenoSiteController.cs" />
     <Compile Include="LiveCasino\BetType\LiveCasinoBetTypeController.cs" />
     <Compile Include="LiveCasino\BetType\Criteria.cs" />
-    <Compile Include="LiveCasino\BetType\LiveCasinoBetTypeExportController.cs" />
     <Compile Include="LiveCasino\BetType\QueryModel.cs" />
     <Compile Include="LiveCasino\Site\Criteria.cs" />
     <Compile Include="LiveCasino\Site\QueryModel.cs" />

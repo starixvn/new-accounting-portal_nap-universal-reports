@@ -55,9 +55,11 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
         {
-            var footerRow = new List<GridDataRow>();
-            footerRow.Add(BuildBetTypeDataRow(item, HAlignment.Right));
-            return footerRow;
+            var row = BuildDataRow(item.Total, HAlignment.Right);
+            var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
+            var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
+            
+            return new List<GridDataRow> { row, creditRow, depositRow };
         }
 
         private GridDataRow BuildBetTypeDataRow(SiteWinLossSummary item, HAlignment alignment)

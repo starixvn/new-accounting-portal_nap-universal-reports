@@ -9,7 +9,6 @@
     function BetTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         var service = getService();
-
         $scope.generate = generate;
         $scope.generateSite = service.generateSite;
         $scope.generateDetail = service.generateDetail;
@@ -24,6 +23,8 @@
 
         function generate() {
             service.getData().then(function (data) {
+                $scope.data = angular.copy(data);
+                $scope.data.TitleInfoText = breadcrumbHelper.generateText();
                 service.createLinks(data);
                 renderGrid(data);
                 compileLinks();
@@ -35,7 +36,6 @@
         }
 
         function renderGrid(data) {
-            $scope.data = data;
             var titleInfo = {
                 text: breadcrumbHelper.generateHtml($scope),
                 showCollapseExpandButton: true,
@@ -56,6 +56,7 @@
         }
 
         function exportExcel() {
+            console.log($scope.data);
             service.exportExcel($scope.data);
         }
     }
