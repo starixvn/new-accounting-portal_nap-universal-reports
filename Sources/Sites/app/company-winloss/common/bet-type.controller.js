@@ -35,6 +35,7 @@
         }
 
         function renderGrid(data) {
+            $scope.data = data;
             var titleInfo = {
                 text: breadcrumbHelper.generateHtml($scope),
                 showCollapseExpandButton: true,
@@ -55,6 +56,7 @@
         }
 
         function exportExcel() {
+            service.exportExcel($scope.data);
         }
     }
 })();

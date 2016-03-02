@@ -10,7 +10,8 @@
         var service = {
             getData: getData,
             createLinks: createLinks,
-            generateSite: generateSite
+            generateSite: generateSite,
+            exportExcel: exportExcel
         };
         return service;
 
@@ -42,6 +43,51 @@
                 betTypeName: betTypeName,
                 site: site
             });
-        }       
+        }
+
+        function exportExcel(gridOptions) {
+            return $http.post('/api/company-win-loss/live-casino/export-bet-type', gridOptions, { responseType: "arraybuffer" })
+               .then(httpResponseService.getDataComplete)
+               .catch(httpResponseService.getDataFailed);
+        };
+
+        function exportExcel(gridOptions, defaultFileName) {
+            //var deferred = $q.defer();
+            $http.post('/api/company-win-loss/live-casino/export-bet-type', gridOptions, { responseType: "arraybuffer" })
+                .success(
+                function (data, status, headers) {
+                    var type = headers('Content-Type');
+                    var disposition = headers('Content-Disposition');
+                    if (disposition) {
+                        var match = disposition.match(/.*filename=\"?([^;\"]+)\"?.*/);
+                        if (match[1])
+                            defaultFileName = match[1];
+                    }
+                    defaultFileName = defaultFileName.replace(/[<>:"\/\\|?*]+/g, '_');
+                    var blob = new Blob([data], { type: type });
+                    window.navigator.msSaveOrOpenBlob(blob, defaultFileName);
+                    //saveAs(blob, defaultFileName);
+                    //deferred.resolve(defaultFileName);
+                }).error(function (data, status) {
+                    //var e = /* error */
+                    //deferred.reject(e);
+                    });
+
+            //return deferred.promise;
+        }
+
+        function saveAs(data, fileName)
+        {
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            return function () {
+                url = window.URL.createObjectURL(data);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            };
+        };
     }
 })();
