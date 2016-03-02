@@ -7,18 +7,16 @@
 
     httpResponseService.$inject = ['logger'];
     function httpResponseService(logger) {
-        var cachedData;
         var service = {
             getDataComplete: getDataComplete,
             getDataFailed: getDataFailed,
-            getCachedData: getCachedData
+            saveExcelFile: saveExcelFile
         };
 
         return service;
 
         function getDataComplete(response) {
             logger.hide();
-            cachedData = response.data;
             return response.data;
         }
 
@@ -26,8 +24,18 @@
             logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
         }
 
-        function getCachedData() {
-            return cachedData;
+        function saveExcelFile(data, fileName) {
+            var contentType = 'application/vnd.ms-excel';
+            var blob = new Blob([data], { type: contentType }),
+              e = document.createEvent('MouseEvents'),
+              a = document.createElement('a');
+
+            a.download = fileName;
+            a.href = window.URL.createObjectURL(blob);
+            a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+            e.initMouseEvent('click', true, false, window,
+                0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            a.dispatchEvent(e);
         }
     }
 })();
