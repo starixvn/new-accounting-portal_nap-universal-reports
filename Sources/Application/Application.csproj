@@ -160,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Header\Header.cs" />
-    <Compile Include="Legend\LegendController.cs" />
     <Compile Include="Header\Menu.cs" />
     <Compile Include="Header\HeaderController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

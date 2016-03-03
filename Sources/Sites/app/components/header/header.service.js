@@ -18,7 +18,7 @@
             for (var i = 0; i < menus.length; i++) {
                 var menu = menus[i];
 
-                if (menu.Children.length > 0) {
+                if (menu.Children && menu.Children.length > 0) {
                     for (var j = 0; j < menu.Children.length; j++) {
                         menu.Children[j].Url = getMenuUrl(menu.Children[j].Url);
                     }

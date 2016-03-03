@@ -9,7 +9,7 @@
         var directive = {
             restrict: 'EA',
             scope: {
-                legend: '='
+                menuId: '='
             },
             replace: true,
             controller: controller,
@@ -21,8 +21,8 @@
         controller.$inject = ['$element', 'legendService'];
         function controller($element, legendService) {
             var vm = this;
-            legendService.getData(vm.legend).then(function (response) {
-                $element.html(response);
+            legendService.getData(vm.menuId).then(function (data) {
+                $element.html(data.Content);
             });
         }
     }

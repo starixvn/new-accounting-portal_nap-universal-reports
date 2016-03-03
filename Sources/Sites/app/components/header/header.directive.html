@@ -4,10 +4,10 @@
     </div>
     <nav>
         <ul class="menu">
-            <li data-ng-repeat="item in vm.menus" data-ng-class="{first: $first, last: $last && !$first, 'has-child': item.Children.length > 0}">
-                <a href="javascript:;" data-ng-if="item.Children.length > 0">{{item.Name}}</a>
-                <a data-ng-href="{{item.Url}}" data-ng-if="item.Children.length === 0">{{item.Name}}</a>
-                <ul class="sub-menu" data-ng-if="item.Children.length > 0">
+            <li data-ng-repeat="item in vm.menus" data-ng-class="{first: $first, last: $last && !$first, 'has-child': item.Children && item.Children.length > 0}">
+                <a href="javascript:;" data-ng-if="item.Children && item.Children.length > 0">{{item.Name}}</a>
+                <a data-ng-href="{{item.Url}}" data-ng-if="!item.Children || item.Children.length === 0">{{item.Name}}</a>
+                <ul class="sub-menu" data-ng-if="item.Children && item.Children.length > 0">
                     <li data-ng-repeat="childItem in item.Children">
                         <a data-ng-href="{{childItem.Url}}">{{childItem.Name}}</a>
                     </li>
@@ -21,9 +21,9 @@
                 Welcome <span class="info-acc">{{vm.username}}</span><span class="info-more"></span>
             </h2>
             <ul>
-                <li><a href="/NAP-Reports/UserControl/User/UserProfile">Profile</a></li>
-                <li><a href="/NAP-Reports/UserControl/User/ChangePassword">Change Password</a></li>
-                <li><a href="/NAP-Reports/UserLogin/Login/LogOut">Sign Out</a></li>
+                <li><a data-ng-href="{{vm.userProfileUrl}}">Profile</a></li>
+                <li><a data-ng-href="{{vm.changePasswordUrl}}">Change Password</a></li>
+                <li><a data-ng-href="{{vm.logOutUrl}}">Sign Out</a></li>
             </ul>
         </div>
     </div>

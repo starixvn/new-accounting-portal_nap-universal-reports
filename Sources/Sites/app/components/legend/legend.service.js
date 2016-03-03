@@ -5,19 +5,18 @@
         .module('app.core')
         .factory('legendService', legendService);
 
-    legendService.$inject = ['$http', 'httpResponseService'];
-    function legendService($http, httpResponseService) {
+    legendService.$inject = ['$http', 'httpResponseService', 'config'];
+    function legendService($http, httpResponseService, config) {
         var service = {
             getData: getData
         };
         return service;
 
-        function getData(legend) {
-            return $http.post('api/application/legend', {
-                legend: legend
-            })
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
+        function getData(menuId) {
+            var url = config.legacyPath + '/LegendManagement/LegendManagement/GetReportLegend';
+            return $http.post(url, {
+                menuId: menuId
+            }).then(httpResponseService.getDataComplete);
         }
     }
 })();

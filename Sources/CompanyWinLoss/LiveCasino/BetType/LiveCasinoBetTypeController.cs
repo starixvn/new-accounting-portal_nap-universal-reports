@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.MVC.Filter;
 
 namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
@@ -43,7 +42,6 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
         }
 
         [Route("export-bet-type")]
-        [JsonFilter(Parameter = "gridOptions")]
         public HttpResponseMessage Export(QueryModel queryModel)
         {
             if (ModelState.IsValid)
