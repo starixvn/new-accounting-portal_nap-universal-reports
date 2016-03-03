@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
@@ -10,14 +9,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class BalanceUpServiceTests
+    public class BalanceUpServiceTests : BaseSetupServiceTests
     {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
         [Test]
         public void QueryBalanceUp_Successful()
         {

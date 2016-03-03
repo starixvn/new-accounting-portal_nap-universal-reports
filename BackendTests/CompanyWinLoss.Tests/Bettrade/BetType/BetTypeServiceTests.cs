@@ -10,13 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
     public class BetTypeServiceTests : BaseServiceTests
-    {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
+    {        
         [Test]
         public void Query()
         {
@@ -35,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
             return new BetTypeServiceImp(rawWinLossService, calculationService);
         }
 
-        private WinLossCriteria CreateCriteria()
+        protected override WinLossCriteria CreateCriteria()
         {
             var balanceUpRange = GetBalanceUpRange();
 

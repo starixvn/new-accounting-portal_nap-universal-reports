@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
@@ -13,13 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
     [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
-        [Test]        
+        [Test]
         public void Query()
         {
             // Arrange
@@ -39,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
-        private WinLossCriteria CreateCriteria()
+        protected override WinLossCriteria CreateCriteria()
         {
             var balanceUpRange = GetBalanceUpRange();
 

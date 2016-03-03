@@ -1,10 +1,11 @@
 ﻿using Fanex.Data.Repository;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
-    public class BaseServiceTests
+    public abstract class BaseServiceTests : BaseSetupServiceTests
     {
         protected virtual RawWinLossService CreateRawWinLossService()
         {
@@ -22,5 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
             return balanceUpService.Query();
         }
+
+        protected abstract WinLossCriteria CreateCriteria();
     }
 }

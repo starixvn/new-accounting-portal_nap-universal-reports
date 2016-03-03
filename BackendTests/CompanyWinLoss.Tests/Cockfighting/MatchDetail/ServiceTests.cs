@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
@@ -13,12 +12,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
     [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
         [Test]
         public void Query()
         {
@@ -39,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
-        private WinLossCriteria CreateCriteria()
+        protected override WinLossCriteria CreateCriteria()
         {
             var balanceUpRange = GetBalanceUpRange();
 

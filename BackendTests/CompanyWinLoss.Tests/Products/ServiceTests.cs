@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Products;
@@ -11,13 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Products
     [Category("CompanyWinLossIntegrationTests")]
     public class ServiceTests : BaseServiceTests
     {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
-        [Test]        
+        [Test]
         public void Query()
         {
             // Arrange
@@ -35,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Products
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
-        private WinLossCriteria CreateCriteria()
+        protected override WinLossCriteria CreateCriteria()
         {
             var balanceUpRange = GetBalanceUpRange();
 

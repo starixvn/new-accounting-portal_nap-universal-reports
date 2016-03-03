@@ -1,7 +1,5 @@
-﻿using Fanex.Data.Configuration;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.LiveCasino.Site;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
@@ -9,33 +7,9 @@ namespace UniversalReports.CompanyWinLoss.Tests.LiveCasino.Site
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class SiteServiceTests : BaseServiceTests
+    public class SiteServiceTests : BaseSiteServiceTests
     {
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            DbSettingProviderManager.Current.Start();
-        }
-
-        [Test]
-        public void Query()
-        {
-            // Arrange
-            var criteria = CreateCriteria();
-            var service = CreateService();
-
-            // Act
-            service.Query(criteria);
-        }
-
-        private SiteService CreateService()
-        {
-            var rawWinLossService = CreateRawWinLossService();
-            var calculationService = new CalculationServiceImp();
-            return new SiteServiceImp(rawWinLossService, calculationService);
-        }
-
-        private WinLossCriteria CreateCriteria()
+        protected override WinLossCriteria CreateCriteria()
         {
             var balanceUpRange = GetBalanceUpRange();
 

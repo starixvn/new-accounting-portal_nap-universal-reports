@@ -60,7 +60,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
         }
 
         [Test]
-        public void CalculationSum_Should_Return_Right_RawWinLoss_Total()
+        public void CalculationSum_Should_Return_Right_RawWinLoss_Sum()
         {
             // Arrange
             var rawWinLoss = WinLossFactory.CreateFakeRawWinLoss();
