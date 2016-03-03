@@ -67,6 +67,7 @@
         }
 
         function exportExcel() {
+            productService.exportExcel();
         }
     }
 })();
