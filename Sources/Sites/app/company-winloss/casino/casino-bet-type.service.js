@@ -42,6 +42,6 @@
                 betTypeName: betTypeName,
                 site: site
             });
-        }       
+        }
     }
 })();

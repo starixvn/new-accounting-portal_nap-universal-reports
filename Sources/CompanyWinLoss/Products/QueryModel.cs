@@ -3,7 +3,7 @@ using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
-    public class ProductWinLossQuery
+    public class QueryModel
     {
         public DateTime StartDate { get; set; }
 

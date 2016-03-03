@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
             }

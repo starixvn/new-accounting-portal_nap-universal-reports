@@ -121,7 +121,7 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SiteController'
             }]
-        },        
+        },
         'Bettrade': {
             templates: [{
                 level: levels.BET_TYPE,

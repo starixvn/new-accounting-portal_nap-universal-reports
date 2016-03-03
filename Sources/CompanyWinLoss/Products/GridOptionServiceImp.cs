@@ -8,17 +8,18 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class GridOptionServiceImp : GridOptionService
     {
-        public GridOptions FromWinLossModel(ProductWinLoss winLoss)
+        public GridOptions FromWinLossModel(ProductWinLoss winLoss, string title, bool hasNode)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
+                TitleInfoText = title,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
-                FooterRows = BuildFooter(winLoss.GrandTotal),
+                FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
                 ShowFooter = true,
@@ -115,15 +116,21 @@ namespace UniversalReports.CompanyWinLoss.Products
             return new GridDataRow { Columns = columns };
         }
 
-        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
+        private List<GridDataRow> BuildFooter(SiteWinLossSummary item, bool hasNode)
         {
-            return new List<GridDataRow>
+            var list = new List<GridDataRow>
             {
                 BuildDataRow(item.Total, HAlignment.Right, true),
                 BuildDataRow(item.Credit, HAlignment.Right, true),
-                BuildDataRow(item.Deposit, HAlignment.Right, true),
-                BuildNoteRow()
+                BuildDataRow(item.Deposit, HAlignment.Right, true)
             };
+
+            if (hasNode)
+            {
+                list.Add(BuildNoteRow());
+            }
+
+            return list;
         }
 
         private object GetFormattedMargin(WinLoss item, bool isFooter)
@@ -142,7 +149,6 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
                              "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
-
             int columnIndex = 0;
             var columns = new List<Columns>
             {

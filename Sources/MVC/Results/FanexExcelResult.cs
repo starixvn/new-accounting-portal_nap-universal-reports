@@ -1,5 +1,6 @@
 ﻿using Fanex.Excel;
 using Fanex.Excel.Models;
+using NPOI.SS.UserModel;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -12,20 +13,24 @@ namespace UniversalReports.MVC.Results
 {
     public class FanexExcelResult : IHttpActionResult
     {
-        public FanexExcelResult(GridOptions gridOptions)
+        public FanexExcelResult(GridOptions gridOptions, string sheetName)
         {
-            GridOptions = gridOptions;
+            var excel = new FanexExcel(gridOptions);
+            Workbook = excel.ToExcel2003(sheetName);
         }
 
-        public GridOptions GridOptions { get; private set; }
+        public FanexExcelResult(IWorkbook workbook)
+        {
+            Workbook = workbook;
+        }
+
+        public IWorkbook Workbook { get; private set; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
-            var excel = new FanexExcel(GridOptions);
-            var workbook = excel.ToExcel2003("sheet1");
             using (var memoryStream = new MemoryStream())
             {
-                workbook.Write(memoryStream);
+                Workbook.Write(memoryStream);
                 var response = new HttpResponseMessage(HttpStatusCode.OK);
                 response.Content = new ByteArrayContent(memoryStream.ToArray());
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");

@@ -56,8 +56,7 @@
         }
 
         function exportExcel() {
-            console.log($scope.data);
-            service.exportExcel($scope.data);
+            service.exportExcel();
         }
     }
 })();

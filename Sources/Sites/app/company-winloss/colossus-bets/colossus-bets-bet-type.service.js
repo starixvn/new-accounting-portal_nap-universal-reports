@@ -20,6 +20,6 @@
             return $http.post('/api/company-win-loss/colossus-bets/bet-type', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
-        }   
+        }
     }
 })();

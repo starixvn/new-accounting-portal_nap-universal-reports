@@ -36,6 +36,7 @@
         }
 
         function exportExcel() {
+            virtualSportsSportsbookDetailService.exportExcel();
         }
     }
 })();

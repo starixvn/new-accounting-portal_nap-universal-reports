@@ -33,7 +33,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
             }
@@ -55,7 +55,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
                 var excel = new FanexExcel(gridOptions);
                 var workbook = excel.ToExcel2003("sheet1");
 

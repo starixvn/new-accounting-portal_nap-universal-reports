@@ -4,6 +4,6 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
     public interface GridOptionService
     {
-        GridOptions FromWinLossModel(WinLossModel winLoss);
+        GridOptions FromWinLossModel(WinLossModel winLoss, string title);
     }
 }

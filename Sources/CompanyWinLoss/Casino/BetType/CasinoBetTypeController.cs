@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Casino.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
             }

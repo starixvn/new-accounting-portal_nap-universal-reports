@@ -54,6 +54,7 @@
         }
 
         function exportExcel() {
+            service.exportExcel();
         }
     }
 })();

@@ -5,10 +5,11 @@
         .module('app.companyWinlossApp')
         .factory('virtualSportsSportTypeService', virtualSportsSportTypeService);
 
-    virtualSportsSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
-    function virtualSportsSportTypeService($http, httpResponseService, levels, companyWinlossService) {
+    virtualSportsSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsSportTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
+            exportExcel: exportExcel,
             createLinks: createLinks,
             generateBetType: generateBetType
         };
@@ -19,6 +20,21 @@
             var data = { startDate: gridModel.startDate, endDate: gridModel.endDate };
             return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
                 .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/sport-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
                 .catch(httpResponseService.getDataFailed);
         }
 

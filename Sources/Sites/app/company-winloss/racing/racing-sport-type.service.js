@@ -5,10 +5,11 @@
         .module('app.companyWinlossApp')
         .factory('racingSportTypeService', racingSportTypeService);
 
-    racingSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
-    function racingSportTypeService($http, httpResponseService, levels, companyWinlossService) {
+    racingSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function racingSportTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
+            exportExcel: exportExcel,
             createLinks: createLinks,
             generateBetType: generateBetType
         };
@@ -16,9 +17,27 @@
 
         function getData() {
             var gridModel = companyWinlossService.gridModel;
-            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate };
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
             return $http.post('/api/company-win-loss/racing/sport-type', data)
                 .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/racing/sport-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
                 .catch(httpResponseService.getDataFailed);
         }
 

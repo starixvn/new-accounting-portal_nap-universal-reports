@@ -9,12 +9,13 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 {
     public class GridOptionServiceImp : GridOptionService
     {
-        public GridOptions FromWinLossModel(WinLossModel winLoss)
+        public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
+                TitleInfoText = title,
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 BodyRows = BuildBodyRows(winLoss.Leagues),

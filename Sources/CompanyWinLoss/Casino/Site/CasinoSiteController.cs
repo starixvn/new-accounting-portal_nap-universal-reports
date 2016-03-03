@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Casino.Site
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
 
                 return Json(gridOptions);
             }

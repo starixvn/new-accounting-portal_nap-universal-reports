@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
 {
@@ -29,9 +31,31 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
+            }
+
+            return null;
+        }
+
+        [Route("racing-match-detail/excel")]
+        public IHttpActionResult Excel(ExcelModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = new RacingDetail.Criteria
+                {
+                    StartDate = queryModel.StartDate,
+                    EndDate = queryModel.EndDate,
+                    SportType = queryModel.SportType,
+                    BetType = queryModel.BetType
+                };
+
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
             return null;

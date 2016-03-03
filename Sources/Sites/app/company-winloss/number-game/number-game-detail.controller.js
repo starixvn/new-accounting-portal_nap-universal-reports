@@ -12,7 +12,7 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
-        function generate(startDate, endDate) {            
+        function generate(startDate, endDate) {
             numberGameDetailService.getData().then(function (data) {
                 renderGrid(data);
                 compileLinks();

@@ -5,6 +5,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface BetTypeGridOptionService
     {
-        GridOptions FromWinLossModel(BetTypeWinLossModel winLoss);
+        GridOptions FromWinLossModel(BetTypeWinLossModel winLoss, string title);
     }
 }

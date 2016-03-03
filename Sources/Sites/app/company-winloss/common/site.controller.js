@@ -50,6 +50,7 @@
         }
 
         function exportExcel() {
+            service.exportExcel();
         }
     }
 })();

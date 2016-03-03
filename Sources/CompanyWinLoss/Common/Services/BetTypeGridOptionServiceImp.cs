@@ -8,12 +8,13 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class BetTypeGridOptionServiceImp : BetTypeGridOptionService
     {
-        public GridOptions FromWinLossModel(BetTypeWinLossModel winLoss)
+        public GridOptions FromWinLossModel(BetTypeWinLossModel winLoss, string title)
         {
             return new GridOptions
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
+                TitleInfoText = title,
                 Columns = BuildHeader(),
                 BodyRows = BuildBodyRows(winLoss.BetTypes),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
@@ -58,7 +59,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             var row = BuildDataRow(item.Total, HAlignment.Right);
             var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
             var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
-            
+
             return new List<GridDataRow> { row, creditRow, depositRow };
         }
 

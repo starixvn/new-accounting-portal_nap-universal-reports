@@ -11,7 +11,7 @@
             getData: getData
         };
         return service;
-       
+
         function getData() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
@@ -23,6 +23,6 @@
             return $http.post('/api/company-win-loss/casino/site', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
-        }       
+        }
     }
 })();

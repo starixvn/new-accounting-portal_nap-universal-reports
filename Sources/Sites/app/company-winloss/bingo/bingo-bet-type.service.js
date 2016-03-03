@@ -20,6 +20,6 @@
             return $http.post('/api/company-win-loss/bingo/bet-type', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
-        }     
+        }
     }
 })();
