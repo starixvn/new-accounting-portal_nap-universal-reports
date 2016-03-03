@@ -12,12 +12,12 @@ namespace UniversalReports.MVC.Results
 {
     public class FanexExcelResult : IHttpActionResult
     {
-        public GridOptions GridOptions { get; private set; }
-
         public FanexExcelResult(GridOptions gridOptions)
         {
             GridOptions = gridOptions;
         }
+
+        public GridOptions GridOptions { get; private set; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
