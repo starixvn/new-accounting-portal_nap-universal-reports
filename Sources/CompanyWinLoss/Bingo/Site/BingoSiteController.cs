@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Bingo.Site
@@ -22,13 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Bingo.Site
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate,
-                    Site = queryModel.Site
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
 
@@ -43,13 +38,7 @@ namespace UniversalReports.CompanyWinLoss.Bingo.Site
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate,
-                    Site = queryModel.Site
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);

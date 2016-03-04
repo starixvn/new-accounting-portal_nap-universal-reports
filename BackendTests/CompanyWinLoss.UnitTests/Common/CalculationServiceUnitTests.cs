@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {

@@ -191,6 +191,7 @@
     <Compile Include="Common\Services\ThirdPartyProductService.cs" />
     <Compile Include="Common\Services\ThirdPartyProductServiceImp.cs" />
     <Compile Include="Keno\BetType\ExcelModel.cs" />
+    <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="Keno\Site\ExcelModel.cs" />
     <Compile Include="LiveCasino\BetType\ExcelModel.cs" />
     <Compile Include="LiveCasino\Site\ExcelModel.cs" />
@@ -198,7 +199,7 @@
     <Compile Include="NumberGame\BetType\ExcelModel.cs" />
     <Compile Include="NumberGame\MatchDetail\ExcelModel.cs" />
     <Compile Include="NumberGame\Site\ExcelModel.cs" />
-    <Compile Include="Products\ExcelModel.cs" />
+    <Compile Include="Products\ExcelQueryModel.cs" />
     <Compile Include="Keno\BetType\KenoBetTypeController.cs" />
     <Compile Include="Keno\Site\KenoSiteController.cs" />
     <Compile Include="LiveCasino\BetType\LiveCasinoBetTypeController.cs" />

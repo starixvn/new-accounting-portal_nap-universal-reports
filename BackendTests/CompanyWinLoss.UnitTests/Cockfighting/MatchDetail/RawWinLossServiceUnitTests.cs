@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using commonModel = UniversalReports.CompanyWinLoss.Common.Models;
 using commonService = UniversalReports.CompanyWinLoss.Common.Services;
 

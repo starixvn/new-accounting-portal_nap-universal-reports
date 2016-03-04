@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Racing.Site
@@ -22,15 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.Site
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Site.Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate,
-                    SportType = queryModel.SportType,
-                    BetType = queryModel.BetType,
-                    Site = queryModel.Site
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
 
@@ -41,19 +34,11 @@ namespace UniversalReports.CompanyWinLoss.Racing.Site
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(ExcelModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Site.Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate,
-                    SportType = queryModel.SportType,
-                    BetType = queryModel.BetType,
-                    Site = queryModel.Site
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.Title);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);

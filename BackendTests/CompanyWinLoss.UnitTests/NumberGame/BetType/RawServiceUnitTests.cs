@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.NumberGame.BetType;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 

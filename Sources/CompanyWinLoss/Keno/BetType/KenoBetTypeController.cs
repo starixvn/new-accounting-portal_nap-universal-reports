@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Keno.BetType
@@ -22,12 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
         {
             if (ModelState.IsValid)
             {
-                var criteria = new BetType.Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
@@ -38,16 +34,11 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(BetType.ExcelModel queryModel)
+        public IHttpActionResult Excel(BetType.ExcelQueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                var criteria = new BetType.Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);

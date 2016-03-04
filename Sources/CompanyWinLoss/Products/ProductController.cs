@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Products
@@ -17,15 +18,11 @@ namespace UniversalReports.CompanyWinLoss.Products
         }
 
         [Route("")]
-        public IHttpActionResult Values(QueryModel query)
+        public IHttpActionResult Values(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Criteria
-                {
-                    StartDate = query.StartDate,
-                    EndDate = query.EndDate
-                };
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = service.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, true);
 
@@ -36,17 +33,13 @@ namespace UniversalReports.CompanyWinLoss.Products
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(ExcelModel query)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Criteria
-                {
-                    StartDate = query.StartDate,
-                    EndDate = query.EndDate
-                };
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = service.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, query.Title, false);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, false);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingDetail

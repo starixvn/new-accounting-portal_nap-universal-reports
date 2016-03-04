@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Factory;
 
 namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
 {
@@ -21,12 +22,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
         {
             if (ModelState.IsValid)
             {
-                var criteria = new Criteria
-                {
-                    StartDate = queryModel.StartDate,
-                    EndDate = queryModel.EndDate
-                };
-
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var liveBetTypeWinLoss = new BetTypeWinLossModel
                 {

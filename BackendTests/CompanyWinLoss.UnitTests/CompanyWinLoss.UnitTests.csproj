@@ -63,6 +63,7 @@
     <Compile Include="Common\RawServiceUnitTests.cs" />
     <Compile Include="Common\SiteServiceUnitTests.cs" />
     <Compile Include="Common\ThirdPartyProductServiceUnitTests.cs" />
+    <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
     <Compile Include="NumberGame\BetType\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\CalculationServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\RawServiceUnitTests.cs" />
@@ -72,9 +73,9 @@
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\MatchDetail\ServiceUnitTests.cs" />
-    <Compile Include="Utility\FakeWinLossCriteria.cs" />
-    <Compile Include="Utility\WinLossComparision.cs" />
-    <Compile Include="Utility\WinLossFactory.cs" />
+    <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
+    <Compile Include="TestUtility\WinLossComparision.cs" />
+    <Compile Include="TestUtility\WinLossFactory.cs" />
     <Compile Include="Common\BetTypeServiceUnitTest.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\CalculationServiceUnitTests.cs" />

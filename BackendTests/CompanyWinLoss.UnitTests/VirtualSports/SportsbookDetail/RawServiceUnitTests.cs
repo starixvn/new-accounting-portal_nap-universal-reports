@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.UnitTests.Utility;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
