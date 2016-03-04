@@ -37,6 +37,7 @@
             var titleInfo = {
                 text: breadcrumbHelper.generateHtml($scope),
                 showExcelButton: true,
+                showCollapseExpandButton: true,
                 exportExcelFunction: exportExcel
             };
 

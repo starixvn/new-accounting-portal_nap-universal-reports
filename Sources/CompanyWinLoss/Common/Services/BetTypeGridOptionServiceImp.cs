@@ -18,7 +18,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 Columns = BuildHeader(),
                 BodyRows = BuildBodyRows(winLoss.BetTypes),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
-
                 ShowFooter = true,
                 ShowTree = true,
                 ShowHighlightRow = false,
@@ -89,7 +88,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns { ColumnIndex = columnIndex++,Name = "Margin", Value = item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin, CellAlignment = HAlignment.Right }
+                new Columns { ColumnIndex = columnIndex++, Name = "Margin", Value = item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin, CellAlignment = HAlignment.Right }
             };
 
             return new GridDataRow { Columns = columns };

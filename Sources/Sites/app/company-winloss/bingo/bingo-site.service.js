@@ -3,10 +3,10 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('kenoSiteService', kenoSiteService);
+        .factory('bingoSiteService', bingoSiteService);
 
-    kenoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
-    function kenoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+    bingoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function bingoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
