@@ -61,14 +61,14 @@
 		if(site.Environment == SiteEnvironment.DEV)
 	#>
 	<authentication mode="None">
-      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/"/>
+      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/NAP-REPORTS"/>
     </authentication>
     <authorization>
       <allow users="*" />
     </authorization>
 	<# else{ #>
     <authentication mode="Forms">
-      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Home/SessionExpired" timeout="2880" defaultUrl="~/Home" />
+      <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/NAP-REPORTS"/>
     </authentication>
     <authorization>
       <deny users="?" />

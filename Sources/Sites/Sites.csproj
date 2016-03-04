@@ -457,6 +457,7 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Blob.js" />
     <Content Include="Scripts\Fanex.Grid.css" />
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.css" />
@@ -1232,6 +1233,7 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
+    <None Include="Properties\PublishProfiles\xx.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

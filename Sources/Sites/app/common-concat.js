@@ -1,13 +1,13 @@
-/* Author: Nexcel -  2016-02-17 */
+/* Author: Nexcel -  2016-03-04 */
 (function () {
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .factory('fanexGridHelper', fanexGridHelper);
 
-    fanexGridHelper.$inject = ['$window'];
-    function fanexGridHelper($window) {
+    fanexGridHelper.$inject = [];
+    function fanexGridHelper() {
         var service = {
             calculateExpandHeight: calculateExpandHeight
         };
@@ -24,7 +24,48 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
+        .factory('httpResponseService', httpResponseService);
+
+    httpResponseService.$inject = ['logger'];
+    function httpResponseService(logger) {
+        var service = {
+            getDataComplete: getDataComplete,
+            getDataFailed: getDataFailed,
+            saveExcelFile: saveExcelFile
+        };
+
+        return service;
+
+        function getDataComplete(response) {
+            logger.hide();
+            return response.data;
+        }
+
+        function getDataFailed(error) {
+            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+        }
+
+        function saveExcelFile(data, fileName) {
+            var contentType = 'application/vnd.ms-excel';
+            var blob = new Blob([data], { type: contentType }),
+              e = document.createEvent('MouseEvents'),
+              a = document.createElement('a');
+
+            a.download = fileName;
+            a.href = window.URL.createObjectURL(blob);
+            a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+            e.initMouseEvent('click', true, false, window,
+                0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            a.dispatchEvent(e);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
         .factory('logger', logger);
 
     logger.$inject = ['$rootScope'];
@@ -69,14 +110,14 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .directive('napAlert', napAlert);
 
     function napAlert() {
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: '/app/components/alert.directive.html',
+            templateUrl: 'app/components/alert/alert.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -107,13 +148,53 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
+        .directive('napClick', napClick);
+
+    napClick.$inject = ['$parse', '$rootScope'];
+    function napClick($parse, $rootScope) {
+        var directive = {
+            restrict: 'A',
+            compile: compile
+        };
+        return directive;
+
+        function compile($element, attr) {
+            // so that they are not executed in an inconsistent state.
+            var forceAsyncEvents = {
+                'blur': true,
+                'focus': true
+            };
+            var eventName = 'click';
+            var directiveName = 'napClick';
+            var fn = $parse(attr[directiveName], /* interceptorFn */ null, /* expensiveChecks */ true);
+            return function eventHandler(scope, element) {
+                element.on(eventName, function (event) {
+                    event.stopPropagation();
+                    var callback = function () {
+                        fn(scope);
+                    };
+                    if (forceAsyncEvents[eventName] && $rootScope.$$phase) {
+                        scope.$evalAsync(callback);
+                    } else {
+                        scope.$apply(callback);
+                    }
+                });
+            };
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
         .directive('napDatePicker', napDatePicker);
 
     function napDatePicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: '/app/components/date-picker.directive.html',
+            templateUrl: 'app/components/date-picker/date-picker.directive.html',
             scope: {
                 ngModel: '='
             },
@@ -327,7 +408,145 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
+        .directive('napHeader', napHeader);
+
+    function napHeader() {
+        var directive = {
+            restrict: 'EA',
+            scope: {},
+            templateUrl: 'app/components/header/header.directive.html',
+            replace: true,
+            controller: controller,
+            controllerAs: 'vm',
+            bindToController: true
+        };
+        return directive;
+
+        controller.$inject = ['headerService', 'config'];
+        function controller(headerService, config) {
+            /*jshint validthis: true */
+            var vm = this;
+            vm.userProfileUrl = resolveUrl('/UserControl/User/UserProfile');
+            vm.changePasswordUrl = resolveUrl('/UserControl/User/ChangePassword');
+            vm.logOutUrl = resolveUrl('/UserLogin/Login/LogOut');
+
+            headerService.getData().then(function (data) {
+                vm.username = data.Username;
+                vm.menus = headerService.getCompiledMenu(data.Menus);
+            });
+
+            function resolveUrl(url) {
+                return config.legacyPath + url;
+            }
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('headerService', headerService);
+
+    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService'];
+    function headerService($http, universalMenus, httpResponseService) {
+        var service = {
+            getData: getData,
+            getCompiledMenu: getCompiledMenu,
+            getMenuUrl: getMenuUrl
+        };
+        return service;
+
+        function getCompiledMenu(menus) {
+            for (var i = 0; i < menus.length; i++) {
+                var menu = menus[i];
+
+                if (menu.Children && menu.Children.length > 0) {
+                    for (var j = 0; j < menu.Children.length; j++) {
+                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Url);
+                    }
+                } else {
+                    menu.Url = getMenuUrl(menu.Url);
+                }
+            }
+
+            return menus;
+        }
+
+        function getData() {
+            return $http.post('api/application/header', {})
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function getMenuUrl(url) {
+            for (var i = 0; i < universalMenus.length; i++) {
+                if (url.indexOf(universalMenus[i]) >= 0) {
+                    return url;
+                }
+            }
+
+            return napConfig.LegacyPath + url;
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .directive('napLegend', napLegend);
+
+    function napLegend() {
+        var directive = {
+            restrict: 'EA',
+            scope: {
+                menuId: '='
+            },
+            replace: true,
+            controller: controller,
+            controllerAs: 'vm',
+            bindToController: true
+        };
+        return directive;
+
+        controller.$inject = ['$element', 'legendService'];
+        function controller($element, legendService) {
+            var vm = this;
+            legendService.getData(vm.menuId).then(function (data) {
+                $element.html(data.Content);
+            });
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('legendService', legendService);
+
+    legendService.$inject = ['$http', 'httpResponseService', 'config'];
+    function legendService($http, httpResponseService, config) {
+        var service = {
+            getData: getData
+        };
+        return service;
+
+        function getData(menuId) {
+            var url = config.legacyPath + '/LegendManagement/LegendManagement/GetReportLegend';
+            return $http.post(url, {
+                menuId: menuId
+            }).then(httpResponseService.getDataComplete);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.core')
         .directive('napLoading', napLoading);
 
     function napLoading() {
@@ -361,13 +580,13 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.core')
         .directive('napMonthPicker', napMonthPicker);
 
     function napMonthPicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: '/app/components/month-picker.directive.html',
+            templateUrl: 'app/components/month-picker/month-picker.directive.html',
             scope: {
                 startDate: '=',
                 endDate: '='

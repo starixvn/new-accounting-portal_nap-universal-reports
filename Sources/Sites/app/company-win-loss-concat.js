@@ -1,11 +1,18 @@
-/* Author: Nexcel -  2016-02-17 */
-/* Author: Nexcel -  2016-02-17 */
+/* Author: Nexcel -  2016-03-04 */
 (function () {
     'use strict';
 
+    angular
+        .module('app.companyWinlossApp', [
+            'app.core'
+        ]);
+})();
+(function () {
+    'use strict';
+
     var levels = {
         PRODUCT: 1,
-        SUB_PRODUCT: 2,
+        THIRD_PARTY_PRODUCT: 2,
         SPORT_TYPE: 3,
         BET_TYPE: 4,
         SITE: 5,
@@ -13,87 +20,174 @@
     };
 
     var levelSettings = {
-        'product': {
+        'Product': {
             templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
             controller: 'ProductController'
         },
         'Number Game': {
-            level: levels.BET_TYPE,
-            betType: {
+            templates: [{
+                level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/number-game/number-game.html',
                 controller: 'NumberGameBetTypeController'
             },
-            detail: {
+            {
+                level: levels.DETAIL,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'NumberGameDetailController'
             },
-            site: {
+            {
+                level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameSiteController'
-            }
+                controller: 'SiteController'
+            }]
         },
         'Virtual Sports': {
-            level: levels.SPORT_TYPE,
-            sportType: {
+            templates: [{
+                level: levels.SPORT_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSportTypeController'
+                controller: 'SportTypeController'
             },
-            betType: {
+            {
+                level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsBetTypeController'
+                controller: 'BetTypeController'
             },
-            detail: function (gridModel) {
-                if (gridModel.sportType >= 181 && gridModel.sportType <= 185) {
-                    return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                        controller: 'VirtualSportsRacingDetailController'
-                    }
-                } else {
-                    return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                        controller: 'VirtualSportsSportsbookDetailController'
-                    }
+            {
+                level: levels.DETAIL,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-detail.html',
+                controller: function (gridModel) {
+                    return gridModel.sportType >= 181 && gridModel.sportType <= 185 ? 'VirtualSportsRacingDetailController' : 'VirtualSportsSportsbookDetailController'
                 }
             },
-            site: {
+            {
+                level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSiteController'
-            }
+                controller: 'SiteController'
+            }]
+        },
+        'Live Casino': {
+            templates: [{
+                level: levels.THIRD_PARTY_PRODUCT,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'ThirdPartyProductController'
+            }, {
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
+        'Casino': {
+            templates: [{
+                level: levels.THIRD_PARTY_PRODUCT,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'ThirdPartyProductController'
+            }, {
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
         },
         'Racing': {
-            level: levels.SPORT_TYPE,
-            sportType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSportTypeController'
+            templates: [{
+                level: levels.SPORT_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-sport-type.html',
+                controller: 'SportTypeController'
             },
-            betType: {
+            {
+                level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingBetTypeController'
+                controller: 'BetTypeController'
             },
-            detail: {
+            {
+                level: levels.DETAIL,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'RacingDetailController'
             },
-            site: {
+            {
+                level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSiteController'
-            }
+                controller: 'SiteController'
+            }]
         },
         'Keno': {
-            level: levels.BET_TYPE,
-            betType: {
+            templates: [{
+                level: levels.BET_TYPE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoBetTypeController'
+                controller: 'BetTypeController'
             },
-            site: {
+            {
+                level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoSiteController'
-            }
-        }
+                controller: 'SiteController'
+            }]
+        },
+        'Bettrade': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+                {
+                    level: levels.SITE,
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'SiteController'
+                }]
+        },
+        'Bingo': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
+        'Colossus Bets': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
+        'Cockfighting': {
+            templates: [{
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.DETAIL,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-sport-type.html',
+                controller: 'CockfightingDetailController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
     };
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .constant('levels', levels)
         .constant('levelSettings', levelSettings);
 })();
@@ -101,7 +195,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('CompanyWinlossController', CompanyWinlossController);
 
     CompanyWinlossController.$inject = ['$scope', 'levels', 'companyWinlossService'];
@@ -117,7 +211,7 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .service('companyWinlossService', companyWinlossService);
 
     companyWinlossService.$inject = ['$timeout', 'levels'];
@@ -142,9 +236,13 @@
         }
 
         function updateGridModel(data) {
+            var dateRange = this.filterModel.getDateRange();
+            this.gridModel.startDate = dateRange.startDate;
+            this.gridModel.endDate = dateRange.endDate;
             this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
             this.gridModel.productName = angular.isDefined(data.productName) ? data.productName : this.gridModel.productName;
-            this.gridModel.subProductName = angular.isDefined(data.subProductName) ? data.subProductName : this.gridModel.subProductName;
+            this.gridModel.thirdPartyProductId = angular.isDefined(data.thirdPartyProductId) ? data.thirdPartyProductId : this.gridModel.thirdPartyProductId;
+            this.gridModel.thirdPartyProductName = angular.isDefined(data.thirdPartyProductName) ? data.thirdPartyProductName : this.gridModel.thirdPartyProductName;
             this.gridModel.sportType = angular.isDefined(data.sportType) ? data.sportType : this.gridModel.sportType;
             this.gridModel.sportTypeName = angular.isDefined(data.sportTypeName) ? data.sportTypeName : this.gridModel.sportTypeName;
             this.gridModel.isLive = angular.isDefined(data.isLive) ? data.isLive : this.gridModel.isLive;
@@ -158,18 +256,43 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .factory('breadcrumbHelper', breadcrumbHelper);
+        .module('app.companyWinlossApp')
+        .factory('bettradeBetTypeService', bettradeBetTypeService);
 
-    breadcrumbHelper.$inject = [];
-    function breadcrumbHelper() {
+    bettradeBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'kenoDrilldownStyleHelper', 'breadcrumbHelper'];
+    function bettradeBetTypeService($http, httpResponseService, companyWinlossService, kenoDrilldownStyleHelper, breadcrumbHelper) {
         var service = {
-            generateHtml: generateHtml
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: kenoDrilldownStyleHelper.createSiteLinks,
+            generateSite: kenoDrilldownStyleHelper.generateSite
         };
         return service;
 
-        function generateHtml(scope) {
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/bettrade/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
 
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/bettrade/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
@@ -177,14 +300,1049 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
+        .factory('bettradeSiteService', bettradeSiteService);
+
+    bettradeSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function bettradeSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/bettrade/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/bettrade/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('bingoBetTypeService', bingoBetTypeService);
+
+    bingoBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'kenoDrilldownStyleHelper', 'breadcrumbHelper'];
+    function bingoBetTypeService($http, httpResponseService, companyWinlossService, kenoDrilldownStyleHelper, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: kenoDrilldownStyleHelper.createSiteLinks,
+            generateSite: kenoDrilldownStyleHelper.generateSite
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/bingo/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/bingo/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('bingoSiteService', bingoSiteService);
+
+    bingoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function bingoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/keno/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/keno/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('casinoBetTypeService', casinoBetTypeService);
+
+    casinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function casinoBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateSite: generateSite
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+            return $http.post('/api/company-win-loss/casino/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+
+            return $http.post('/api/company-win-loss/casino/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var betTypeId = siteRow.Columns[0].CustomAttr;
+                    var siteName = siteRow.Columns[0].Value;
+                    data.bodyRows[i].SubRows[j].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
+
+        function generateSite(betType, betTypeName, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site
+            });
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('casinoSiteService', casinoSiteService);
+
+    casinoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function casinoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/casino/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/casino/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('casinoThirdPartyProductService', casinoThirdPartyProductService);
+
+    casinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels', 'breadcrumbHelper'];
+    function casinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            generateBetType: generateBetType,
+            createLinks: createLinks
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/casino/third-party-product', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/casino/third-party-product/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function generateBetType(thirdPartyProductId, thirdPartyProductName) {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE,
+                thirdPartyProductId: thirdPartyProductId,
+                thirdPartyProductName: thirdPartyProductName
+            });
+        };
+
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var productColumn = data.bodyRows[i].Columns[0];
+                var productId = productColumn.CustomAttr;
+                var productName = productColumn.Value;
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+            }
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('cockfightingBetTypeService', cockfightingBetTypeService);
+
+    cockfightingBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels', 'breadcrumbHelper'];
+    function cockfightingBetTypeService($http, httpResponseService, companyWinlossService, levels, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createSiteLinks,
+            generateDetail: generateDetail,
+            generateSite: generateSite
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function createSiteLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                data.bodyRows[i].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateDetail(\'' + betTypeName + '\')">' + betTypeName + '</a>';
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var betTypeId = siteRow.Columns[0].CustomAttr;
+                    var siteName = siteRow.Columns[0].Value;
+                    data.bodyRows[i].SubRows[j].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
+
+        function generateDetail(betTypeName) {
+            companyWinlossService.generate({
+                level: levels.DETAIL,
+                betTypeName: betTypeName
+            });
+        }
+
+        function generateSite(betTypeName, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betTypeName: betTypeName,
+                site: site
+            });
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('CockfightingDetailController', CockfightingDetailController);
+
+    CockfightingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'cockfightingDetailService', 'breadcrumbHelper'];
+    function CockfightingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, cockfightingDetailService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
+        var gridElement = $element.find('.freegrid');
+        $scope.generate = generate;
+
+        function generate(startDate, endDate) {
+            cockfightingDetailService.getData().then(function (data) {
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.defaultCollapseAllGroups = true;
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            cockfightingDetailService.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('cockfightingDetailService', cockfightingDetailService);
+
+    cockfightingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function cockfightingDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/match-detail', data)
+                 .then(httpResponseService.getDataComplete)
+                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('cockfightingSiteService', cockfightingSiteService);
+
+    cockfightingSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function cockfightingSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('colossusBetsBetTypeService', colossusBetsBetTypeService);
+
+    colossusBetsBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'kenoDrilldownStyleHelper', 'breadcrumbHelper'];
+    function colossusBetsBetTypeService($http, httpResponseService, companyWinlossService, kenoDrilldownStyleHelper, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: kenoDrilldownStyleHelper.createSiteLinks,
+            generateSite: kenoDrilldownStyleHelper.generateSite
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/colossus-bets/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/colossus-bets/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('colossusBetsSiteService', colossusBetsSiteService);
+
+    colossusBetsSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function colossusBetsSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/colossus-bets/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/colossus-bets/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('BetTypeController', BetTypeController);
+
+    BetTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function BetTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
+        var gridElement = $element.find('.freegrid');
+        var service = getService();
+        $scope.generate = generate;
+        $scope.generateSite = service.generateSite;
+        $scope.generateDetail = service.generateDetail;
+        $scope.show = show;
+
+        function getService() {
+            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
+            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
+            var serviceName = camelProductName + 'BetTypeService';
+            return $injector.get(serviceName);
+        };
+
+        function generate() {
+            service.getData().then(function (data) {
+                $scope.data = angular.copy(data);
+                $scope.data.TitleInfoText = breadcrumbHelper.generateText();
+                service.createLinks(data);
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            service.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('breadcrumbHelper', breadcrumbHelper);
+
+    breadcrumbHelper.$inject = ['$compile', 'levels', 'levelSettings', 'companyWinlossService'];
+    function breadcrumbHelper($compile, levels, levelSettings, companyWinlossService) {
+        var gridModel = companyWinlossService.gridModel;
+        var currentScope;
+        var service = {
+            generateHtml: generateHtml,
+            generateList: generateList,
+            generateText: generateText,
+            compile: compile
+        };
+        return service;
+
+        function generateBreadcrumbItems(isLive) {
+            var breadcrumbItems = [];
+            if (gridModel.level === levels.PRODUCT) {
+                breadcrumbItems.push({
+                    text: 'Product Win/Loss Report',
+                    level: levels.PRODUCT
+                });
+            } else {
+                breadcrumbItems.push({
+                    text: 'Main',
+                    level: levels.PRODUCT
+                });
+                var level = levels.PRODUCT;
+                var text = gridModel.productName;
+                var productSetting = levelSettings[gridModel.productName];
+                for (var i = 0; i < productSetting.templates.length; i++) {
+                    var productSettingTemplate = productSetting.templates[i];
+                    var maxLevel = Math.min(levels.BET_TYPE, gridModel.level);
+                    if (productSettingTemplate.level > maxLevel) break;
+
+                    var isActive = productSettingTemplate.level === gridModel.level;
+                    var nextText = undefined;
+                    var isAdded = true;
+                    switch (productSettingTemplate.level) {
+                        case levels.THIRD_PARTY_PRODUCT:
+                            nextText = gridModel.thirdPartyProductName;
+                            break;
+
+                        case levels.SPORT_TYPE:
+                            nextText = gridModel.sportTypeName;
+                            break;
+
+                        case levels.BET_TYPE:
+                            nextText = gridModel.betTypeName;
+                            break;
+
+                        case levels.DETAIL:
+                        case levels.SITE:
+                            isAdded = isActive;
+                            break;
+                    }
+
+                    breadcrumbItems.push({
+                        text: text,
+                        level: productSettingTemplate.level,
+                        isLive: isLive
+                    });
+                    text = nextText;
+                }
+
+                if (gridModel.level === levels.DETAIL || gridModel.level === levels.SITE) {
+                    breadcrumbItems.push({
+                        text: text,
+                        level: gridModel.level,
+                        isLive: isLive
+                    });
+                }
+            }
+
+            return breadcrumbItems;
+        }
+
+        function getLiveText(isLive) {
+            return angular.isDefined(isLive)
+                ? isLive ? ' "Live"' : ' "Non-Live"'
+                : '';
+        }
+
+        function generateBreadcrumbText(breadcrumbItem, isLast) {
+            switch (breadcrumbItem.level) {
+                case levels.PRODUCT:
+                    return breadcrumbItem.text;
+
+                case levels.THIRD_PARTY_PRODUCT:
+                case levels.SPORT_TYPE:
+                case levels.BET_TYPE:
+                    return isLast
+                        ? breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' Product Win/Loss Report'
+                        : breadcrumbItem.text;
+
+                case levels.DETAIL:
+                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive);
+
+                case levels.SITE:
+                    return breadcrumbItem.text + getLiveText(breadcrumbItem.isLive) + ' | Product Win Loss By ' + gridModel.site + ' Site'
+            }
+        }
+
+        function generateList(isLive) {
+            var breadcrumbItems = generateBreadcrumbItems(isLive);
+            var list = [];
+            for (var i = 0; i < breadcrumbItems.length; i++) {
+                var breadcrumbItem = breadcrumbItems[i];
+                var isLast = i === breadcrumbItems.length - 1;
+                var breadcrumbText = generateBreadcrumbText(breadcrumbItem, isLast);
+                list.push(breadcrumbText);
+            }
+
+            return list;
+        }
+
+        function generateText(isLive) {
+            var list = this.generateList(isLive);
+            return list.join(' > ');
+        }
+
+        function generateHtml(scope, isLive) {
+            currentScope = scope;
+            currentScope.breadcrumbClicked = breadcrumbClicked;
+            var html = '<ol class="breadcrumb">';
+            var breadcrumbItems = generateBreadcrumbItems(isLive);
+            var list = [];
+            for (var i = 0; i < breadcrumbItems.length; i++) {
+                var breadcrumbItem = breadcrumbItems[i];
+                var isLast = i === breadcrumbItems.length - 1;
+                var breadcrumbText = generateBreadcrumbText(breadcrumbItem, isLast);
+                if (isLast) {
+                    html += '<li class="active">' + breadcrumbText + '</li>';
+                } else {
+                    html += '<li><a href data-ng-click="breadcrumbClicked(' + breadcrumbItem.level + ')">' + breadcrumbText + '</a></li>';
+                }
+            }
+
+            html += '</ol>';
+            return html;
+        }
+
+        function breadcrumbClicked(level) {
+            companyWinlossService.generate({
+                level: level
+            });
+        }
+
+        function compile($element) {
+            var breadcrumbElement = $element.find('.breadcrumb');
+            $compile(breadcrumbElement)(currentScope);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('kenoDrilldownStyleHelper', kenoDrilldownStyleHelper);
+
+    kenoDrilldownStyleHelper.$inject = ['levels', 'companyWinlossService'];
+    function kenoDrilldownStyleHelper(levels, companyWinlossService) {
+        var service = {
+            createSiteLinks: createSiteLinks,
+            generateSite: generateSite,
+        };
+        return service;
+
+        function createSiteLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var betTypeId = siteRow.Columns[0].CustomAttr;
+                    var siteName = siteRow.Columns[0].Value;
+                    data.bodyRows[i].SubRows[j].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
+
+        function generateSite(betType, betTypeName, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site
+            });
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('SiteController', SiteController);
+
+    SiteController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function SiteController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
+        var gridElement = $element.find('.freegrid');
+        var service = getService();
+
+        $scope.generate = generate;
+        $scope.show = show;
+
+        function getService() {
+            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
+            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
+            var serviceName = camelProductName + 'SiteService';
+            return $injector.get(serviceName);
+        };
+
+        function generate() {
+            service.getData().then(function (data) {
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            service.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('SportTypeController', SportTypeController);
+
+    SportTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function SportTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
+        var gridElement = $element.find('.freegrid');
+        var service = getService();
+
+        $scope.generate = generate;
+        $scope.generateBetType = service.generateBetType;
+        $scope.show = show;
+
+        function getService() {
+            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
+            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
+            var serviceName = camelProductName + 'SportTypeService';
+            return $injector.get(serviceName);
+        };
+
+        function generate() {
+            service.getData().then(function (data) {
+                service.createLinks(data);
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            service.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('ThirdPartyProductController', ThirdPartyProductController);
+
+    ThirdPartyProductController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper'];
+    function ThirdPartyProductController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper) {
+        var gridElement = $element.find('.freegrid');
+        var service = getService();
+
+        $scope.generate = generate;
+        $scope.generateBetType = service.generateBetType;
+        $scope.show = show;
+
+        function getService() {
+            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
+            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
+            var serviceName = camelProductName + 'ThirdPartyProductService';
+            return $injector.get(serviceName);
+        };
+
+        function generate() {
+            service.getData().then(function (data) {
+                service.createLinks(data);
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                showCollapseExpandButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.defaultCollapseAllGroups = true;
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            service.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
         .directive('napFilter', napFilter);
 
     function napFilter() {
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: '/app/company-winloss/filter/filter.directive.html',
+            templateUrl: 'app/company-winloss/filter/filter.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -204,36 +1362,40 @@
             vm.date = config.today;
             vm.startDate = moment.utc(config.today).startOf('month');
             vm.endDate = config.today;
+            vm.generate = generate;
+            vm.todayClicked = todayClicked;
+            vm.yesterdayClicked = yesterdayClicked;
+            vm.viewNormalMode = viewNormalMode;
+            vm.viewHistoryMode = viewHistoryMode;
+            vm.dateRange = createDateRange();
             vm.getDateRange = getDateRange;
+            vm.reloadDateRange = reloadDateRange;
             vm.updateDateRange = updateDateRange;
 
-            vm.generate = function () {
+            function generate() {
+                vm.dateRange = createDateRange();
                 companyWinlossService.generate({});
-            };
+            }
 
-            vm.todayClicked = function () {
+            function todayClicked() {
                 vm.date = vm.today;
                 vm.generate();
-            };
+            }
 
-            vm.yesterdayClicked = function () {
+            function yesterdayClicked() {
                 vm.date = vm.yesterday;
                 vm.generate();
-            };
+            }
 
-            vm.viewHistoryMode = function () {
-                vm.normalMode = false;
-            };
-
-            vm.viewNormalMode = function () {
+            function viewNormalMode() {
                 vm.normalMode = true;
-            };
+            }
 
-            vm.getEndOfDay = function (date) {
-                return moment.utc(date).endOf('day');
-            };
+            function viewHistoryMode() {
+                vm.normalMode = false;
+            }
 
-            function getDateRange() {
+            function createDateRange() {
                 if (vm.normalMode) {
                     return {
                         startDate: vm.date,
@@ -247,10 +1409,19 @@
                 }
             }
 
+            function getDateRange() {
+                return vm.dateRange;
+            }
+
+            function reloadDateRange() {
+                vm.date = vm.dateRange.startDate;
+                vm.startDate = vm.dateRange.startDate;
+                vm.endDate = vm.dateRange.endDate;
+            }
+
             function updateDateRange(dateRange) {
-                vm.date = dateRange.startDate;
-                vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;
+                vm.dateRange = dateRange;
+                reloadDateRange();
             }
         }
     }
@@ -259,344 +1430,43 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('KenoBetTypeController', KenoBetTypeController);
+        .module('app.companyWinlossApp')
+        .factory('kenoBetTypeService', kenoBetTypeService);
 
-    KenoBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService'];
-    function KenoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        
-        function generateSite(betType, site) {
-            companyWinlossService.generate({
-                level: levels.SITE,
-                betType: betType,
-                site: site
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            kenoService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "Name", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var bettypes = data.BetTypes;
-            for (var i = 0; i < bettypes.length; i++) {
-                var bettypeItem = bettypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(bettypeItem));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(bettypeItem) {
-            return {
-                Columns: createWinLossDataRow(bettypeItem.Total, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(bettypeItem.Credit, false) },
-                    { Columns: createWinLossDataRow(bettypeItem.Deposit, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTotal) {
-            var betTypeColumn = isTotal ? createBetTypeTotalColumn(winLoss) : createBetTypeSiteColumn(winLoss);
-            var remainColumn = createColumnWithoutBetType(winLoss);
-            return betTypeColumn.concat(remainColumn);
-        }
-        
-        function createBetTypeTotalColumn(winLoss) {
-            return [{
-                Name: "Name",
-                Value: winLoss.Name,
-            }];
-        }
-
-        function createBetTypeSiteColumn(winLoss) {
-            return [{
-                Name: "Name",
-                Value: winLoss.Name,
-                CellAlign: 'right',
-                CustomCellRender: function (cellValue) {
-                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                }
-            }];
-        }
-
-        function createColumnWithoutBetType(winLoss) {
-            return [
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createGrandTotalColumn(grandTotal.Total) },
-                { Columns: createGrandTotalColumn(grandTotal.Credit) },
-                { Columns: createGrandTotalColumn(grandTotal.Deposit) }
-            ];
-        }
-
-        function createGrandTotalColumn(winLoss) {
-            var betTypeColumn = [{
-                Name: "Name",
-                Value: winLoss.Name,
-                CellAlign: 'right',
-            }];
-            var remainColumn = createColumnWithoutBetType(winLoss);
-            return betTypeColumn.concat(remainColumn);
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('KenoSiteController', KenoSiteController);
-
-    KenoSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService'];
-    function KenoSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            kenoService.getSite(dateRange.startDate, dateRange.endDate, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('kenoService', kenoService);
-
-    kenoService.$inject = ['$http', 'logger'];
-    function kenoService($http, logger) {
+    kenoBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'kenoDrilldownStyleHelper', 'breadcrumbHelper'];
+    function kenoBetTypeService($http, httpResponseService, companyWinlossService, kenoDrilldownStyleHelper, breadcrumbHelper) {
         var service = {
-            getBetType: getBetType,
-            getSite: getSite
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: kenoDrilldownStyleHelper.createSiteLinks,
+            generateSite: kenoDrilldownStyleHelper.generateSite
         };
         return service;
 
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/keno/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-      
-        function getSite(startDate, endDate, betType, site) {
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
-                betType: betType,
-                site: site
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
             };
-            return $http.post('/api/company-win-loss/keno/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
+            return $http.post('/api/company-win-loss/keno/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
 
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+            return $http.post('/api/company-win-loss/keno/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
@@ -604,7 +1474,52 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
+        .factory('kenoSiteService', kenoSiteService);
+
+    kenoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function kenoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/keno/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/keno/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
         .directive('napLevel', napSite);
 
     napSite.$inject = ['$controller'];
@@ -618,14 +1533,15 @@
         };
         return directive;
 
-        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'config', 'levels', 'levelSettings', '$templateRequest', 'companyWinlossService'];
-        function controller($log, $compile, $timeout, $element, $scope, config, levels, levelSettings, $templateRequest, companyWinlossService) {
+        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService'];
+        function controller($log, $compile, $timeout, $element, $scope, levelService, $templateRequest, companyWinlossService) {
             var dateRange,
                 currentScope;
 
             $scope.$on('generate', function (event, level) {
                 if ($scope.level === level) {
                     $timeout(function () {
+                        companyWinlossService.filterModel.reloadDateRange();
                         dateRange = companyWinlossService.filterModel.getDateRange();
                         generate();
                     });
@@ -643,36 +1559,10 @@
 
             function generate() {
                 var gridModel = companyWinlossService.gridModel;
-                var levelSetting = undefined;
-                switch ($scope.level) {
-                    case levels.PRODUCT:
-                        levelSetting = levelSettings.product;
-                        break;
-
-                    case levels.SPORT_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].sportType;
-                        break;
-
-                    case levels.BET_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].betType;
-                        break;
-
-                    case levels.SITE:
-                        levelSetting = levelSettings[gridModel.productName].site;
-                        break;
-
-                    case levels.DETAIL:
-                        levelSetting = levelSettings[gridModel.productName].detail;
-                        break;
-                }
-
+                var levelSetting = levelService.getSetting();
                 if (angular.isUndefined(levelSetting)) {
                     $log.error('Product level setting is undefined');
                     return;
-                }
-
-                if (angular.isFunction(levelSetting)) {
-                    levelSetting = levelSetting(gridModel);
                 }
 
                 $templateRequest(levelSetting.templateUrl, true).then(function (response) {
@@ -698,2551 +1588,36 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('LiveCasinoController', LiveCasinoController);
+        .module('app.companyWinlossApp')
+        .factory('levelService', levelService);
 
-    LiveCasinoController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService'];
-    function LiveCasinoController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService) {
-        $scope.generate = generate;
-
-        function generate() {
-            $element.html('test');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('NumberGameBetTypeController', NumberGameBetTypeController);
-
-    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
-        var gridElements = $element.find('.freegrid');
-        var nonliveGridElement = angular.element(gridElements[0]);
-        var liveGridElement = angular.element(gridElements[1]);
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateDetail = generateDetail;        
-        $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateDetail(betType, betTypeName, isLive) {
-            companyWinlossService.generate({
-                level: levels.DETAIL,
-                betType: betType,
-                betTypeName: betTypeName,
-                isLive: isLive
-            });
-        };
-
-        function generateSite(betType, betTypeName, isLive, site) {
-            companyWinlossService.generate({
-                level: levels.SITE,
-                betType: betType,
-                betTypeName: betTypeName,
-                isLive: isLive,
-                site: site
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            numberGameService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                var nonLiveData = {
-                    IsLive: false,
-                    GrandTotal: data.NonLiveGrandTotal,
-                    BetTypes: data.NonLive
-                };
-                renderGrid(nonliveGridElement, nonLiveData);
-                var liveData = {
-                    IsLive: true,
-                    GrandTotal: data.LiveGrandTotal,
-                    BetTypes: data.Live
-                };
-                renderGrid(liveGridElement, liveData);
-                compileLinks();
-            });
-        }
-
-        function show() {
-            nonliveGridElement.fanexGrid('resizeGrid');
-            liveGridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var title = gridModel.productName + ' "' + (data.IsLive ? 'Live' : 'Non-Live') + '" ' + 'PRODUCT WIN/LOSS REPORT';
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + title + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(nonliveGridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeItem = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeItem, data.IsLive));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem, isLive) {
-            var betTypeName = betTypeWinLossItem.Total.Name;
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName, isLive),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateSite', betTypeName, isLive) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateSite', betTypeName, isLive) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName, isLive) {
-            var betTypeColumn = !generateFunc
-                ? { Name: "BetType", Value: winLoss.Name }
-                : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                betTypeColumn.CellAlign = 'right';
-            }
-            return [
-                betTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('NumberGameDetailController', NumberGameDetailController);
-
-    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            numberGameService.getMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" ' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var leagues = data.Leagues;
-            for (var i = 0; i < leagues.length; i++) {
-                var leagueData = leagues[i];
-                var leagueName = leagueData.LeagueName;
-                bodyData.push({ Columns: createLeagueNameDataRow(leagueName) });
-                var matches = leagueData.Matches;
-                for (var j = 0; j < matches.length; j++) {
-                    var matchData = matches[j];
-                    bodyData.push({ Columns: createWinLossDataRow(matchData) });
-                }
-            }
-
-            return bodyData;
-        }
-
-        function createLeagueNameDataRow(leagueName) {
-            return [
-                { Name: "Code", Value: "" },
-                { Name: "MemberWinLoss", Value: leagueName, MergeColNumber: 6, CssClass: 'league-header' }
-            ];
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.Name = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('NumberGameSiteController', NumberGameSiteController);
-
-    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            numberGameService.getSite(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('numberGameService', numberGameService);
-
-    numberGameService.$inject = ['$http', 'logger'];
-    function numberGameService($http, logger) {
+    levelService.$inject = ['levels', 'levelSettings', 'companyWinlossService'];
+    function levelService(levels, levelSettings, companyWinlossService) {
         var service = {
-            getBetType: getBetType,
-            getMatchDetail: getMatchDetail,
-            getSite: getSite
-        };
-
-        return service;
-
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/number-game/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getMatchDetail(startDate, endDate, isLive, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/number-game/match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSite(startDate, endDate, isLive, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/number-game/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('ProductController', ProductController);
-
-    ProductController.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'productService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService'];
-    function ProductController($compile, $timeout, $element, $scope, formatStrings, productService, fanexGridHelper, levels, levelSettings, companyWinlossService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-
-        function generateProduct(productName) {
-            var level = levelSettings[productName].level;
-            companyWinlossService.generate({
-                level: level,
-                productName: productName
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            productService.getData(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(data);
-            });
-        }
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-            var elements = gridElement.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Product", Width: 150, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Product", Name: "Product", MergeRowNumber: 2 },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeColNumber: 2 },
-                { HeaderText: "Variance", Name: "Variance", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeColNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeColNumber: 2 }
-            ];
-
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li class="active">PRODUCT WIN/LOSS REPORT</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sportsbookDetail = data.SportsbookDetail;
-            for (var i = 0; i < sportsbookDetail.length; i++) {
-                var sportsbookItem = sportsbookDetail[i];
-                bodyData.push({
-                    Columns: createWinLossDataRow(sportsbookItem)
-                });
-            }
-
-            var products = data.Products;
-            for (var i = 0; i < products.length; i++) {
-                var productItem = products[i];
-                var isSportsBook = i === 0;
-                bodyData.push(createProductWinLossDataRow(productItem, isSportsBook));
-            }
-
-            return bodyData;
-        }
-
-        function createProductWinLossDataRow(productWinLossItem, isSportsBook) {
-            var rowCssClass = isSportsBook ? 'sports-book-row' : '';
-            return {
-                Columns: createWinLossDataRow(productWinLossItem.Total, !isSportsBook),
-                SubRows: [
-                    { Columns: createWinLossDataRow(productWinLossItem.Credit, false, true), CssClass: rowCssClass },
-                    { Columns: createWinLossDataRow(productWinLossItem.Deposit, false, true), CssClass: rowCssClass }
-                ],
-                CssClass: rowCssClass
-            };
-        }
-
-        function createWinLossDataRow(winLoss, hasProductDrillDown, isTextRight) {
-            var productColumn = !hasProductDrillDown
-                ? { Name: "Product", Value: winLoss.Name }
-                : {
-                    Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                productColumn.CellAlign = 'right';
-            }
-            return [
-                productColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "VirtualIncome", Value: winLoss.VirtualIncome },
-                { Name: "Variance", Value: winLoss.VarianceIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "VirtualTurnover", Value: winLoss.VirtualTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin },
-                { Name: "VirtualMargin", Value: winLoss.VirtualMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, false, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, false, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, false, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('productService', productService);
-
-    productService.$inject = ['$http', 'logger'];
-    function productService($http, logger) {
-        var service = {
-            getData: getData
+            getSetting: getSetting
         };
         return service;
 
-        function getData(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/values', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingBetTypeController', RacingBetTypeController);
-
-    RacingBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateSite = generateSite;
-        $scope.generateDetail = generateDetail;
-        
-        function generateDetail(betType, betTypeName) {
-            companyWinlossService.generate({
-                level: levels.DETAIL,
-                betType: betType,
-                betTypeName: betTypeName
-            });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateSite(betType, site) {
-            companyWinlossService.generate({
-                level: levels.SITE,
-                betType: betType,
-                site: site
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
+        function getSetting() {
             var gridModel = companyWinlossService.gridModel;
-            racingService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.sportType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeData = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeData));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? {
-                    Name: "BetType",
-                    Value: winLoss.Name,
-                    CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                }
-                : {
-                    Name: "BetType",
-                    Value: winLoss.Name,
-                    CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateDetail(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingDetailController', RacingDetailController);
-
-    RacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            racingService.getGameDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Race", Width: 150, Name: "Name", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var leagues = data.Leagues;
-            for (var i = 0; i < leagues.length; i++) {
-                var leagueData = leagues[i];
-
-                appendLeagueHeaderRow(bodyData, leagueData);
-                appendRaceWinLossDataRow(bodyData, leagueData);
-            }
-
-            return bodyData;
-        }
-
-
-        function appendLeagueHeaderRow(bodyData, leagueData) {
-            var leagueRowHeader = {
-                Columns: [{
-                    Name: "Name", Value: leagueData.LeagueName, MergeColNumber: 7, CellAlign: "left",
-                }]
-            };
-            bodyData.push(leagueRowHeader);
-        }
-
-        function appendRaceWinLossDataRow(bodyData, leagueData) {
-
-            var races = leagueData.Races;
-            for (var i = 0; i < races.length; i++) {
-                appendRaceDataRow(bodyData, races[i], "center");
-            }
-
-            appendRaceDataRow(bodyData, leagueData.Total, "right");
-        }
-
-        function appendRaceDataRow(bodyData, winLoss, align) {
-            var row = createRaceDataRow(winLoss, align);
-            bodyData.push(row);
-        }
-
-        function createRaceDataRow(winLoss, align) {
-            return {
-                Columns: [
-                    { Name: "Name", Value: winLoss.Name, CellAlign: align },
-                    { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                    { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                    { Name: "Commission", Value: winLoss.Commission },
-                    { Name: "RealIncome", Value: winLoss.RealIncome },
-                    { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                    { Name: "RealMargin", Value: winLoss.RealMargin }
-                ]
-            };
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return;
-        }
-
-        function createFooterData(data) {
-            return createRaceDataRow(data.Total, "right");
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingSiteController', RacingSiteController);
-
-    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;        
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            racingService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingSportTypeController', RacingSportTypeController);
-
-    RacingSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;       
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType(sportType, sportTypeName) {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE,
-                sportType: sportType,
-                sportTypeName: sportTypeName
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            racingService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(gridElement, data);
-                compileLinks();
-            });
-        }
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sports = data.Sports;
-            for (var i = 0; i < sports.length; i++) {
-                var sportTypeItem = sports[i];
-                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
-            }
-
-            return bodyData;
-        }
-
-        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? { Name: "SportType", Value: winLoss.Name }
-                : {
-                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('racingService', racingService);
-
-    racingService.$inject = ['$http', 'logger'];
-    function racingService($http, logger) {
-        var service = {
-            getSportType: getSportType,
-            getBetType: getBetType,
-            getGameDetail: getGameDetail,
-            getSite: getSite
-        };
-        return service;
-
-        function getSportType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/racing/sport-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getBetType(startDate, endDate, sportType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType
-            };
-            return $http.post('/api/company-win-loss/racing/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getGameDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/racing/match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSite(startDate, endDate, sportType, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/racing/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsDetailController', VirtualSportsDetailController);
-
-    VirtualSportsDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = function () {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        $scope.generateSportType = function () {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-        $scope.generateBetType = function () {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getGameDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "center", MergeHeaderColNumber: 3 },
-                 { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode },
-                { Name: "HomeName", Value: winLoss.HomeName },
-                { Name: "vs", Value: '-vs-' },
-                { Name: "AwayName", Value: winLoss.AwayName },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsBetTypeController', VirtualSportsBetTypeController);
-
-    VirtualSportsBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateDetail = generateDetail;
-        $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateDetail(betType, betTypeName) {
-            companyWinlossService.generate({
-                level: levels.DETAIL,
-                betType: betType,
-                betTypeName: betTypeName
-            });
-        };
-
-        function generateSite(betType, betTypeName, site) {
-            companyWinlossService.generate({
-                level: levels.SITE,
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.sportType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeData = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeData));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
-            var betTypeName = betTypeWinLossItem.Total.Name;
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateSite', betTypeName) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateSite', betTypeName) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName) {
-            var sportTypeColumn = !generateFunc
-                ? { Name: "BetType", Value: winLoss.Name }
-                : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsRacingDetailController', VirtualSportsRacingDetailController);
-
-    VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsRacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateSportType = generateSportType;       
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getRacingMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.Name },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.Name, CssClass: 'text-right' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSiteController', VirtualSportsSiteController);
-
-    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct =generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + ' | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSportTypeController', VirtualSportsSportTypeController);
-
-    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateBetType = generateBetType;
-        $scope.generateProduct = generateProduct;
-
-        function generateBetType(sportType, sportTypeName) {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE,
-                sportType: sportType,
-                sportTypeName: sportTypeName
-            });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(gridElement, data);
-                compileLinks();
-            });
-        }
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sports = data.Sports;
-            for (var i = 0; i < sports.length; i++) {
-                var sportTypeItem = sports[i];
-                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
-            }
-
-            return bodyData;
-        }
-
-        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? { Name: "SportType", Value: winLoss.Name }
-                : {
-                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSportsbookDetailController', VirtualSportsSportsbookDetailController);
-
-    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportsbookDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getSportsBookMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "right", MergeHeaderColNumber: 3 },
-                 { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "left" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode },
-                { Name: "HomeName", Value: winLoss.HomeName },
-                { Name: "vs", Value: '-vs-' },
-                { Name: "AwayName", Value: winLoss.AwayName },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('virtualSportsService', virtualSportsService);
-
-    virtualSportsService.$inject = ['$http', 'logger'];
-    function virtualSportsService($http, logger) {
-        var service = {
-            getSportType: getSportType,
-            getBetType: getBetType,
-            getSportsBookMatchDetail: getSportsBookMatchDetail,
-            getRacingMatchDetail: getRacingMatchDetail,
-            getSite: getSite
-        };
-        return service;
-
-        function getSportType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getBetType(startDate, endDate, sportType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSportsBookMatchDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/sports-book-match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getRacingMatchDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSite(startDate, endDate, sportType, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    var levels = {
-        PRODUCT: 1,
-        SUB_PRODUCT: 2,
-        SPORT_TYPE: 3,
-        BET_TYPE: 4,
-        SITE: 5,
-        DETAIL: 6
-    };
-
-    var levelSettings = {
-        'product': {
-            templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-            controller: 'ProductController'
-        },
-        'Number Game': {
-            level: levels.BET_TYPE,
-            betType: {
-                templateUrl: 'app/company-winloss/number-game/number-game.html',
-                controller: 'NumberGameBetTypeController'
-            },
-            detail: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameDetailController'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameSiteController'
-            }
-        },
-        'Virtual Sports': {
-            level: levels.SPORT_TYPE,
-            sportType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSportTypeController'
-            },
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsBetTypeController'
-            },
-            detail: function (gridModel) {
-                if (gridModel.sportType >= 181 && gridModel.sportType <= 185) {
-                    return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                        controller: 'VirtualSportsRacingDetailController'
-                    }
-                } else {
-                    return {
-                        templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                        controller: 'VirtualSportsSportsbookDetailController'
-                    }
-                }
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'VirtualSportsSiteController'
-            }
-        },
-        'Racing': {
-            level: levels.SPORT_TYPE,
-            sportType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSportTypeController'
-            },
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingBetTypeController'
-            },
-            detail: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingDetailController'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'RacingSiteController'
-            }
-        },
-        'Keno': {
-            level: levels.BET_TYPE,
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoBetTypeController'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'KenoSiteController'
-            }
-        }
-    };
-
-    angular
-        .module('companyWinlossApp')
-        .constant('levels', levels)
-        .constant('levelSettings', levelSettings);
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('CompanyWinlossController', CompanyWinlossController);
-
-    CompanyWinlossController.$inject = ['$scope', 'levels', 'companyWinlossService'];
-    function CompanyWinlossController($scope, levels, companyWinlossService) {
-        companyWinlossService.scope = $scope;
-        companyWinlossService.gridModel = this;
-        var vm = this;
-        vm.level = levels.PRODUCT;
-        vm.levels = levels;
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .service('companyWinlossService', companyWinlossService);
-
-    companyWinlossService.$inject = ['$timeout', 'levels'];
-    function companyWinlossService($timeout, levels) {
-        var service = {
-            scope: {},
-            gridModel: {},
-            filterModel: {},
-            updateGridModel: updateGridModel,
-            generate: generate
-        };
-        return service;
-
-        function generate(data) {
-            var hasGenerate = data.level === undefined || this.gridModel.level <= data.level;
-            this.updateGridModel(data);
-            if (hasGenerate) {
-                this.scope.$broadcast('generate', this.gridModel.level);
+            var levelSetting;
+            if (gridModel.level === levels.PRODUCT) {
+                var levelSetting = levelSettings.Product;
             } else {
-                this.scope.$broadcast('show', this.gridModel.level);
-            }
-        }
-
-        function updateGridModel(data) {
-            this.gridModel.level = angular.isDefined(data.level) ? data.level : this.gridModel.level;
-            this.gridModel.productName = angular.isDefined(data.productName) ? data.productName : this.gridModel.productName;
-            this.gridModel.subProductName = angular.isDefined(data.subProductName) ? data.subProductName : this.gridModel.subProductName;
-            this.gridModel.sportType = angular.isDefined(data.sportType) ? data.sportType : this.gridModel.sportType;
-            this.gridModel.sportTypeName = angular.isDefined(data.sportTypeName) ? data.sportTypeName : this.gridModel.sportTypeName;
-            this.gridModel.isLive = angular.isDefined(data.isLive) ? data.isLive : this.gridModel.isLive;
-            this.gridModel.betType = angular.isDefined(data.betType) ? data.betType : this.gridModel.betType;
-            this.gridModel.betTypeName = angular.isDefined(data.betTypeName) ? data.betTypeName : this.gridModel.betTypeName;
-            this.gridModel.site = angular.isDefined(data.site) ? data.site : this.gridModel.site;
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('breadcrumbHelper', breadcrumbHelper);
-
-    breadcrumbHelper.$inject = [];
-    function breadcrumbHelper() {
-        var service = {
-            generateHtml: generateHtml
-        };
-        return service;
-
-        function generateHtml(scope) {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .directive('napFilter', napFilter);
-
-    function napFilter() {
-        var directive = {
-            restrict: 'EA',
-            scope: {},
-            templateUrl: '/app/company-winloss/filter/filter.directive.html',
-            replace: true,
-            controller: controller,
-            controllerAs: 'vm',
-            bindToController: true
-        };
-        return directive;
-
-        controller.$inject = ['$scope', 'config', 'companyWinlossService'];
-        function controller($scope, config, companyWinlossService) {
-            companyWinlossService.filterModel = this;
-            /*jshint validthis: true */
-            var vm = this;
-            vm.currentLevel = 0;
-            vm.normalMode = true;
-            vm.today = config.today;
-            vm.yesterday = config.yesterday;
-            vm.date = config.today;
-            vm.startDate = moment.utc(config.today).startOf('month');
-            vm.endDate = config.today;
-            vm.getDateRange = getDateRange;
-            vm.updateDateRange = updateDateRange;
-
-            vm.generate = function () {
-                companyWinlossService.generate({});
-            };
-
-            vm.todayClicked = function () {
-                vm.date = vm.today;
-                vm.generate();
-            };
-
-            vm.yesterdayClicked = function () {
-                vm.date = vm.yesterday;
-                vm.generate();
-            };
-
-            vm.viewHistoryMode = function () {
-                vm.normalMode = false;
-            };
-
-            vm.viewNormalMode = function () {
-                vm.normalMode = true;
-            };
-
-            vm.getEndOfDay = function (date) {
-                return moment.utc(date).endOf('day');
-            };
-
-            function getDateRange() {
-                if (vm.normalMode) {
-                    return {
-                        startDate: vm.date,
-                        endDate: vm.date
-                    };
-                } else {
-                    return {
-                        startDate: vm.startDate,
-                        endDate: vm.endDate
-                    };
+                var productSetting = levelSettings[gridModel.productName];
+                for (var i = 0; i < productSetting.templates.length; i++) {
+                    var productSettingTemplate = productSetting.templates[i];
+                    if (gridModel.level === productSettingTemplate.level) {
+                        levelSetting = productSettingTemplate;
+                        break;
+                    }
                 }
             }
 
-            function updateDateRange(dateRange) {
-                vm.date = dateRange.startDate;
-                vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;
-            }
+            return {
+                templateUrl: angular.isFunction(levelSetting.templateUrl) ? levelSetting.templateUrl(gridModel) : levelSetting.templateUrl,
+                controller: angular.isFunction(levelSetting.controller) ? levelSetting.controller(gridModel) : levelSetting.controller
+            };
         }
     }
 })();
@@ -3250,167 +1625,67 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('KenoBetTypeController', KenoBetTypeController);
+        .module('app.companyWinlossApp')
+        .factory('liveCasinoBetTypeService', liveCasinoBetTypeService);
 
-    KenoBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService'];
-    function KenoBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
+    liveCasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
+    function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateSite: generateSite
         };
-        
-        function generateSite(betType, site) {
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+            return $http.post('/api/company-win-loss/live-casino/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+
+            return $http.post('/api/company-win-loss/live-casino/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var betTypeId = siteRow.Columns[0].CustomAttr;
+                    var siteName = siteRow.Columns[0].Value;
+                    data.bodyRows[i].SubRows[j].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
+
+        function generateSite(betType, betTypeName, site) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,
+                betTypeName: betTypeName,
                 site: site
             });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            kenoService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "Name", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var bettypes = data.BetTypes;
-            for (var i = 0; i < bettypes.length; i++) {
-                var bettypeItem = bettypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(bettypeItem));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(bettypeItem) {
-            return {
-                Columns: createWinLossDataRow(bettypeItem.Total, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(bettypeItem.Credit, false) },
-                    { Columns: createWinLossDataRow(bettypeItem.Deposit, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTotal) {
-            var betTypeColumn = isTotal ? createBetTypeTotalColumn(winLoss) : createBetTypeSiteColumn(winLoss);
-            var remainColumn = createColumnWithoutBetType(winLoss);
-            return betTypeColumn.concat(remainColumn);
-        }
-        
-        function createBetTypeTotalColumn(winLoss) {
-            return [{
-                Name: "Name",
-                Value: winLoss.Name,
-            }];
-        }
-
-        function createBetTypeSiteColumn(winLoss) {
-            return [{
-                Name: "Name",
-                Value: winLoss.Name,
-                CellAlign: 'right',
-                CustomCellRender: function (cellValue) {
-                    return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                }
-            }];
-        }
-
-        function createColumnWithoutBetType(winLoss) {
-            return [
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createGrandTotalColumn(grandTotal.Total) },
-                { Columns: createGrandTotalColumn(grandTotal.Credit) },
-                { Columns: createGrandTotalColumn(grandTotal.Deposit) }
-            ];
-        }
-
-        function createGrandTotalColumn(winLoss) {
-            var betTypeColumn = [{
-                Name: "Name",
-                Value: winLoss.Name,
-                CellAlign: 'right',
-            }];
-            var remainColumn = createColumnWithoutBetType(winLoss);
-            return betTypeColumn.concat(remainColumn);
-        }
-
-        function exportExcel() {
-
         }
     }
 })();
@@ -3418,176 +1693,44 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('KenoSiteController', KenoSiteController);
+        .module('app.companyWinlossApp')
+        .factory('liveCasinoSiteService', liveCasinoSiteService);
 
-    KenoSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'kenoService'];
-    function KenoSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, kenoService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            kenoService.getSite(dateRange.startDate, dateRange.endDate, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('kenoService', kenoService);
-
-    kenoService.$inject = ['$http', 'logger'];
-    function kenoService($http, logger) {
+    liveCasinoSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function liveCasinoSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
-            getBetType: getBetType,
-            getSite: getSite
+            getData: getData,
+            exportExcel: exportExcel
         };
         return service;
 
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/keno/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-      
-        function getSite(startDate, endDate, betType, site) {
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
-                betType: betType,
-                site: site
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
             };
-            return $http.post('/api/company-win-loss/keno/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
+            return $http.post('/api/company-win-loss/live-casino/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/live-casino/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
@@ -3595,92 +1738,58 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .directive('napLevel', napSite);
+        .module('app.companyWinlossApp')
+        .factory('liveCasinoThirdPartyProductService', liveCasinoThirdPartyProductService);
 
-    napSite.$inject = ['$controller'];
-    function napSite($controller) {
-        var directive = {
-            restrict: 'EA',
-            scope: {
-                level: '='
-            },
-            controller: controller
+    liveCasinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels'];
+    function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            generateBetType: generateBetType,
+            createLinks: createLinks
         };
-        return directive;
+        return service;
 
-        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'config', 'levels', 'levelSettings', '$templateRequest', 'companyWinlossService'];
-        function controller($log, $compile, $timeout, $element, $scope, config, levels, levelSettings, $templateRequest, companyWinlossService) {
-            var dateRange,
-                currentScope;
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/live-casino/third-party-product', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
 
-            $scope.$on('generate', function (event, level) {
-                if ($scope.level === level) {
-                    $timeout(function () {
-                        dateRange = companyWinlossService.filterModel.getDateRange();
-                        generate();
-                    });
-                }
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/live-casino/third-party-product/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function generateBetType(thirdPartyProductId, thirdPartyProductName) {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE,
+                thirdPartyProductId: thirdPartyProductId,
+                thirdPartyProductName: thirdPartyProductName
             });
+        };
 
-            $scope.$on('show', function (event, level) {
-                if ($scope.level === level) {
-                    $timeout(function () {
-                        companyWinlossService.filterModel.updateDateRange(dateRange);
-                        currentScope.show();
-                    });
-                }
-            });
-
-            function generate() {
-                var gridModel = companyWinlossService.gridModel;
-                var levelSetting = undefined;
-                switch ($scope.level) {
-                    case levels.PRODUCT:
-                        levelSetting = levelSettings.product;
-                        break;
-
-                    case levels.SPORT_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].sportType;
-                        break;
-
-                    case levels.BET_TYPE:
-                        levelSetting = levelSettings[gridModel.productName].betType;
-                        break;
-
-                    case levels.SITE:
-                        levelSetting = levelSettings[gridModel.productName].site;
-                        break;
-
-                    case levels.DETAIL:
-                        levelSetting = levelSettings[gridModel.productName].detail;
-                        break;
-                }
-
-                if (angular.isUndefined(levelSetting)) {
-                    $log.error('Product level setting is undefined');
-                    return;
-                }
-
-                if (angular.isFunction(levelSetting)) {
-                    levelSetting = levelSetting(gridModel);
-                }
-
-                $templateRequest(levelSetting.templateUrl, true).then(function (response) {
-                    var templateScope = $scope.$new();
-                    var templateElement = $element.html(response);
-                    var templateCtrl = $controller(levelSetting.controller, { $scope: templateScope, $element: templateElement });
-                    templateElement.data('$ngControllerController', templateCtrl);
-                    $compile(templateElement.contents())(templateScope, function (clonedElement, scope) {
-                        if (currentScope) {
-                            currentScope.$destroy();
-                            currentScope = null;
-                        }
-
-                        currentScope = scope;
-                        currentScope.generate();
-                    });
-                });
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var productColumn = data.bodyRows[i].Columns[0];
+                var productId = productColumn.CustomAttr;
+                var productName = productColumn.Value;
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
             }
         }
     }
@@ -3689,41 +1798,20 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('LiveCasinoController', LiveCasinoController);
-
-    LiveCasinoController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService'];
-    function LiveCasinoController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService) {
-        $scope.generate = generate;
-
-        function generate() {
-            $element.html('test');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
         .controller('NumberGameBetTypeController', NumberGameBetTypeController);
 
-    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
+    NumberGameBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameBetTypeService', 'breadcrumbHelper'];
+    function NumberGameBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameBetTypeService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
         $scope.show = show;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateDetail = generateDetail;        
+        $scope.generateDetail = generateDetail;
         $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
 
         function generateDetail(betType, betTypeName, isLive) {
             companyWinlossService.generate({
@@ -3734,31 +1822,22 @@
             });
         };
 
-        function generateSite(betType, betTypeName, isLive, site) {
+        function generateSite(betType, betTypeName, site, isLive) {
             companyWinlossService.generate({
                 level: levels.SITE,
                 betType: betType,
-                betTypeName: betTypeName,
                 isLive: isLive,
+                betTypeName: betTypeName,
                 site: site
             });
         };
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            numberGameService.getBetType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                var nonLiveData = {
-                    IsLive: false,
-                    GrandTotal: data.NonLiveGrandTotal,
-                    BetTypes: data.NonLive
-                };
-                renderGrid(nonliveGridElement, nonLiveData);
-                var liveData = {
-                    IsLive: true,
-                    GrandTotal: data.LiveGrandTotal,
-                    BetTypes: data.Live
-                };
-                renderGrid(liveGridElement, liveData);
+            numberGameBetTypeService.getData().then(function (data) {
+                createLinks(data.Live, true);
+                createLinks(data.NonLive, false);
+                renderGrid(nonliveGridElement, data.NonLive, true);
+                renderGrid(liveGridElement, data.Live, false);
                 compileLinks();
             });
         }
@@ -3768,364 +1847,44 @@
             liveGridElement.fanexGrid('resizeGrid');
         }
 
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var title = gridModel.productName + ' "' + (data.IsLive ? 'Live' : 'Non-Live') + '" ' + 'PRODUCT WIN/LOSS REPORT';
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + title + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(nonliveGridElement, true)
+        function renderGrid(gridElement, data, showExcelButton) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
+                showExcelButton: showExcelButton,
+                exportExcelFunction: exportExcel
             };
 
-            return gridOptions;
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.defaultCollapseAllGroups = true;
+            gridElement.fanexGrid(data);
         }
 
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeItem = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeItem, data.IsLive));
-            }
+        function createLinks(data, isLive) {
+            var betTypeId;
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',' + isLive + ')">' + betTypeName + '</a>';
 
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem, isLive) {
-            var betTypeName = betTypeWinLossItem.Total.Name;
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName, isLive),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateSite', betTypeName, isLive) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateSite', betTypeName, isLive) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName, isLive) {
-            var betTypeColumn = !generateFunc
-                ? { Name: "BetType", Value: winLoss.Name }
-                : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',' + isLive + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                betTypeColumn.CellAlign = 'right';
-            }
-            return [
-                betTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('NumberGameDetailController', NumberGameDetailController);
-
-    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            numberGameService.getMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" ' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var leagues = data.Leagues;
-            for (var i = 0; i < leagues.length; i++) {
-                var leagueData = leagues[i];
-                var leagueName = leagueData.LeagueName;
-                bodyData.push({ Columns: createLeagueNameDataRow(leagueName) });
-                var matches = leagueData.Matches;
-                for (var j = 0; j < matches.length; j++) {
-                    var matchData = matches[j];
-                    bodyData.push({ Columns: createWinLossDataRow(matchData) });
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\',' + isLive + ')">' + siteName + '</a>';
                 }
             }
-
-            return bodyData;
-        }
-
-        function createLeagueNameDataRow(leagueName) {
-            return [
-                { Name: "Code", Value: "" },
-                { Name: "MemberWinLoss", Value: leagueName, MergeColNumber: 6, CssClass: 'league-header' }
-            ];
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Code", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.Name = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('NumberGameSiteController', NumberGameSiteController);
-
-    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameService'];
-    function NumberGameSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            numberGameService.getSite(dateRange.startDate, dateRange.endDate, gridModel.isLive, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
         }
 
         function exportExcel() {
-
+            numberGameBetTypeService.exportExcel();
         }
     }
 })();
@@ -4133,60 +1892,42 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .factory('numberGameService', numberGameService);
+        .module('app.companyWinlossApp')
+        .factory('numberGameBetTypeService', numberGameBetTypeService);
 
-    numberGameService.$inject = ['$http', 'logger'];
-    function numberGameService($http, logger) {
+    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function numberGameBetTypeService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
-            getBetType: getBetType,
-            getMatchDetail: getMatchDetail,
-            getSite: getSite
+            getData: getData,
+            exportExcel: exportExcel
         };
 
         return service;
 
-        function getBetType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
             return $http.post('/api/company-win-loss/number-game/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getMatchDetail(startDate, endDate, isLive, betType) {
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
             };
-            return $http.post('/api/company-win-loss/number-game/match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
 
-        function getSite(startDate, endDate, isLive, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: 161,
-                isLive: isLive,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/number-game/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+            return $http.post('/api/company-win-loss/number-game/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
@@ -4194,511 +1935,216 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
+        .module('app.companyWinlossApp')
+        .controller('NumberGameDetailController', NumberGameDetailController);
+
+    NumberGameDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'numberGameDetailService', 'breadcrumbHelper'];
+    function NumberGameDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, numberGameDetailService, breadcrumbHelper) {
+        var gridModel = companyWinlossService.gridModel;
+        var filterModel = companyWinlossService.filterModel;
+        var gridElement = $element.find('.freegrid');
+        $scope.generate = generate;
+
+        function generate(startDate, endDate) {
+            numberGameDetailService.getData().then(function (data) {
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.defaultCollapseAllGroups = true;
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            numberGameDetailService.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('numberGameDetailService', numberGameDetailService);
+
+    numberGameDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function numberGameDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: 161,
+                isLive: gridModel.isLive,
+                betType: gridModel.betType
+            };
+            return $http.post('/api/company-win-loss/number-game/match-detail', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: 161,
+                isLive: gridModel.isLive,
+                betType: gridModel.betType
+            };
+
+            return $http.post('/api/company-win-loss/number-game/match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('numberGameSiteService', numberGameSiteService);
+
+    numberGameSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function numberGameSiteService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: 161,
+                isLive: gridModel.isLive,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/number-game/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: 161,
+                isLive: gridModel.isLive,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/number-game/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'productService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService'];
-    function ProductController($compile, $timeout, $element, $scope, formatStrings, productService, fanexGridHelper, levels, levelSettings, companyWinlossService) {
+    ProductController.$inject = ['$compile', '$timeout', '$element', '$scope', 'formatStrings', 'productService', 'fanexGridHelper', 'levels', 'levelSettings', 'companyWinlossService', 'breadcrumbHelper'];
+    function ProductController($compile, $timeout, $element, $scope, formatStrings, productService, fanexGridHelper, levels, levelSettings, companyWinlossService, breadcrumbHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.show = show;
         $scope.generateProduct = generateProduct;
 
         function generateProduct(productName) {
-            var level = levelSettings[productName].level;
+            var templates = levelSettings[productName].templates;
+            var firstTemplate = templates[0];
             companyWinlossService.generate({
-                level: level,
+                level: firstTemplate.level,
                 productName: productName
             });
         };
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            productService.getData(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(data);
-            });
-        }
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-            var elements = gridElement.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Product", Width: 150, Name: "Product", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Variance", Width: 120, Name: "Variance", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Real", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER },
-                 { HeaderText: "Virtual", Width: 120, Name: "VirtualMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Product", Name: "Product", MergeRowNumber: 2 },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeColNumber: 2 },
-                { HeaderText: "Variance", Name: "Variance", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeColNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeColNumber: 2 }
-            ];
-
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li class="active">PRODUCT WIN/LOSS REPORT</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sportsbookDetail = data.SportsbookDetail;
-            for (var i = 0; i < sportsbookDetail.length; i++) {
-                var sportsbookItem = sportsbookDetail[i];
-                bodyData.push({
-                    Columns: createWinLossDataRow(sportsbookItem)
-                });
-            }
-
-            var products = data.Products;
-            for (var i = 0; i < products.length; i++) {
-                var productItem = products[i];
-                var isSportsBook = i === 0;
-                bodyData.push(createProductWinLossDataRow(productItem, isSportsBook));
-            }
-
-            return bodyData;
-        }
-
-        function createProductWinLossDataRow(productWinLossItem, isSportsBook) {
-            var rowCssClass = isSportsBook ? 'sports-book-row' : '';
-            return {
-                Columns: createWinLossDataRow(productWinLossItem.Total, !isSportsBook),
-                SubRows: [
-                    { Columns: createWinLossDataRow(productWinLossItem.Credit, false, true), CssClass: rowCssClass },
-                    { Columns: createWinLossDataRow(productWinLossItem.Deposit, false, true), CssClass: rowCssClass }
-                ],
-                CssClass: rowCssClass
-            };
-        }
-
-        function createWinLossDataRow(winLoss, hasProductDrillDown, isTextRight) {
-            var productColumn = !hasProductDrillDown
-                ? { Name: "Product", Value: winLoss.Name }
-                : {
-                    Name: "Product", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateProduct(\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                productColumn.CellAlign = 'right';
-            }
-            return [
-                productColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "VirtualIncome", Value: winLoss.VirtualIncome },
-                { Name: "Variance", Value: winLoss.VarianceIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "VirtualTurnover", Value: winLoss.VirtualTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin },
-                { Name: "VirtualMargin", Value: winLoss.VirtualMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, false, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, false, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, false, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('productService', productService);
-
-    productService.$inject = ['$http', 'logger'];
-    function productService($http, logger) {
-        var service = {
-            getData: getData
-        };
-        return service;
-
-        function getData(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/values', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingBetTypeController', RacingBetTypeController);
-
-    RacingBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateSite = generateSite;
-        $scope.generateDetail = generateDetail;
-        
-        function generateDetail(betType, betTypeName) {
-            companyWinlossService.generate({
-                level: levels.DETAIL,
-                betType: betType,
-                betTypeName: betTypeName
-            });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateSite(betType, site) {
-            companyWinlossService.generate({
-                level: levels.SITE,
-                betType: betType,
-                site: site
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            racingService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.sportType).then(function (data) {
+            productService.getData().then(function (data) {
+                createLinks(data);
                 renderGrid(data);
                 compileLinks();
             });
         }
 
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
         function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showCollapseExpandButton: true,
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
             };
 
-            return gridOptions;
+            data.titleInfo = titleInfo;
+            data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
         }
 
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeData = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeData));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? {
-                    Name: "BetType",
-                    Value: winLoss.Name,
-                    CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateSite(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var productRow = data.bodyRows[i];
+                if (angular.isDefined(productRow.SubRows)) {
+                    var productName = productRow.Columns[0].Value;
+                    var isSportsbookTotal = productName === 'Sportsbook Total';
+                    if (!isSportsbookTotal) {
+                        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
                     }
                 }
-                : {
-                    Name: "BetType",
-                    Value: winLoss.Name,
-                    CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateDetail(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
             }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingDetailController', RacingDetailController);
-
-    RacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            racingService.getGameDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Race", Width: 150, Name: "Name", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var leagues = data.Leagues;
-            for (var i = 0; i < leagues.length; i++) {
-                var leagueData = leagues[i];
-
-                appendLeagueHeaderRow(bodyData, leagueData);
-                appendRaceWinLossDataRow(bodyData, leagueData);
-            }
-
-            return bodyData;
-        }
-
-
-        function appendLeagueHeaderRow(bodyData, leagueData) {
-            var leagueRowHeader = {
-                Columns: [{
-                    Name: "Name", Value: leagueData.LeagueName, MergeColNumber: 7, CellAlign: "left",
-                }]
-            };
-            bodyData.push(leagueRowHeader);
-        }
-
-        function appendRaceWinLossDataRow(bodyData, leagueData) {
-
-            var races = leagueData.Races;
-            for (var i = 0; i < races.length; i++) {
-                appendRaceDataRow(bodyData, races[i], "center");
-            }
-
-            appendRaceDataRow(bodyData, leagueData.Total, "right");
-        }
-
-        function appendRaceDataRow(bodyData, winLoss, align) {
-            var row = createRaceDataRow(winLoss, align);
-            bodyData.push(row);
-        }
-
-        function createRaceDataRow(winLoss, align) {
-            return {
-                Columns: [
-                    { Name: "Name", Value: winLoss.Name, CellAlign: align },
-                    { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                    { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                    { Name: "Commission", Value: winLoss.Commission },
-                    { Name: "RealIncome", Value: winLoss.RealIncome },
-                    { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                    { Name: "RealMargin", Value: winLoss.RealMargin }
-                ]
-            };
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return;
-        }
-
-        function createFooterData(data) {
-            return createRaceDataRow(data.Total, "right");
         }
 
         function exportExcel() {
-
+            productService.exportExcel();
         }
     }
 })();
@@ -4706,480 +2152,42 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('RacingSiteController', RacingSiteController);
+        .module('app.companyWinlossApp')
+        .factory('productService', productService);
 
-    RacingSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;        
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            racingService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateBetType()">NUMBER GAME</a></li><li class="active">' + gridModel.betTypeName + ' "' + (gridModel.isLive ? 'LIVE' : 'NON-LIVE') + '" | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('RacingSportTypeController', RacingSportTypeController);
-
-    RacingSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'racingService'];
-    function RacingSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, racingService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateBetType = generateBetType;       
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateBetType(sportType, sportTypeName) {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE,
-                sportType: sportType,
-                sportTypeName: sportTypeName
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            racingService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(gridElement, data);
-                compileLinks();
-            });
-        }
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sports = data.Sports;
-            for (var i = 0; i < sports.length; i++) {
-                var sportTypeItem = sports[i];
-                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
-            }
-
-            return bodyData;
-        }
-
-        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? { Name: "SportType", Value: winLoss.Name }
-                : {
-                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .factory('racingService', racingService);
-
-    racingService.$inject = ['$http', 'logger'];
-    function racingService($http, logger) {
+    productService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function productService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
-            getSportType: getSportType,
-            getBetType: getBetType,
-            getGameDetail: getGameDetail,
-            getSite: getSite
+            getData: getData,
+            exportExcel: exportExcel
         };
         return service;
 
-        function getSportType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/racing/sport-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getBetType(startDate, endDate, sportType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType
-            };
-            return $http.post('/api/company-win-loss/racing/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getGameDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/racing/match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSite(startDate, endDate, sportType, betType, site) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType,
-                site: site
-            };
-            return $http.post('/api/company-win-loss/racing/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
-        }
-
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsDetailController', VirtualSportsDetailController);
-
-    VirtualSportsDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct = function () {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-        $scope.generateSportType = function () {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-        $scope.generateBetType = function () {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
+        function getData() {
             var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getGameDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "center", MergeHeaderColNumber: 3 },
-                 { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
             };
 
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode },
-                { Name: "HomeName", Value: winLoss.HomeName },
-                { Name: "vs", Value: '-vs-' },
-                { Name: "AwayName", Value: winLoss.AwayName },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
+            return $http.post('/api/company-win-loss/product', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
 
+            return $http.post('/api/company-win-loss/product/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
@@ -5187,38 +2195,63 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsBetTypeController', VirtualSportsBetTypeController);
+        .module('app.companyWinlossApp')
+        .factory('racingBetTypeService', racingBetTypeService);
 
-    VirtualSportsBetTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsBetTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateDetail = generateDetail;
-        $scope.generateSite = generateSite;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
+    racingBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function racingBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateSite: generateSite,
+            generateDetail: generateDetail,
         };
+        return service;
 
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType
+            };
+            return $http.post('/api/company-win-loss/racing/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
 
-        function generateDetail(betType, betTypeName) {
-            companyWinlossService.generate({
-                level: levels.DETAIL,
-                betType: betType,
-                betTypeName: betTypeName
-            });
-        };
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType
+            };
+
+            return $http.post('/api/company-win-loss/racing/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function createLinks(data) {
+            var betTypeId;
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
 
         function generateSite(betType, betTypeName, site) {
             companyWinlossService.generate({
@@ -5227,122 +2260,14 @@
                 betTypeName: betTypeName,
                 site: site
             });
-        };
-
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
         }
 
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getBetType(dateRange.startDate, dateRange.endDate, gridModel.sportType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
+        function generateDetail(betType, betTypeName) {
+            companyWinlossService.generate({
+                level: levels.DETAIL,
+                betType: betType,
+                betTypeName: betTypeName
             });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "BetType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li class="active">' + gridModel.sportTypeName + ' Product Win/Loss Report</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var betTypes = data.BetTypes;
-            for (var i = 0; i < betTypes.length; i++) {
-                var betTypeData = betTypes[i];
-                bodyData.push(createBetTypeWinLossDataRow(betTypeData));
-            }
-
-            return bodyData;
-        }
-
-        function createBetTypeWinLossDataRow(betTypeWinLossItem) {
-            var betTypeName = betTypeWinLossItem.Total.Name;
-            return {
-                Columns: createWinLossDataRow(betTypeWinLossItem.Total, false, 'generateDetail', betTypeName),
-                SubRows: [
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Credit, true, 'generateSite', betTypeName) },
-                    { Columns: createWinLossDataRow(betTypeWinLossItem.Deposit, true, 'generateSite', betTypeName) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, generateFunc, betTypeName) {
-            var sportTypeColumn = !generateFunc
-                ? { Name: "BetType", Value: winLoss.Name }
-                : {
-                    Name: "BetType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="' + generateFunc + '(' + winLoss.Id + ',\'' + betTypeName + '\',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
         }
     }
 })();
@@ -5350,268 +2275,41 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsRacingDetailController', VirtualSportsRacingDetailController);
+        .module('app.companyWinlossApp')
+        .controller('RacingDetailController', RacingDetailController);
 
-    VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsRacingDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    RacingDetailController.$inject = ['$compile', '$scope', '$element', 'racingDetailService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function RacingDetailController($compile, $scope, $element, racingDetailService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = generateProduct;       
-        $scope.generateSportType = generateSportType;       
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getRacingMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
-        }
-
-        function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Bet Type", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.Name },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.Name, CssClass: 'text-right' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
-        }
-
-        function exportExcel() {
-
-        }
-    }
-})();
-(function () {
-    'use strict';
-
-    angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSiteController', VirtualSportsSiteController);
-
-    VirtualSportsSiteController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSiteController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.generateProduct =generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
 
         function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getSite(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType, gridModel.site).then(function (data) {
+            racingDetailService.getData().then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
         }
 
         function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Credit Site", Width: 150, Name: "Site", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var groupHeaderRowsColumns = [
-                { HeaderText: "Site", Name: "Site" },
-                { HeaderText: "Member Win Loss", Name: "MemberWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "SMA Win Loss", Name: "SMAWinLoss", MergeRowNumber: 2 },
-                { HeaderText: "Commission", Name: "Commission", MergeRowNumber: 2 },
-                { HeaderText: "Company Income", Name: "RealIncome", MergeRowNumber: 2 },
-                { HeaderText: "Company Turnover", Name: "RealTurnover", MergeRowNumber: 2 },
-                { HeaderText: "Margin", Name: "RealMargin", MergeRowNumber: 2 }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                customizeHeader: true,
-                groupHeaderRows: [
-                    { Columns: groupHeaderRowsColumns }
-                ],
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + ' | Product WinLoss By ' + gridModel.site + ' Site' + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sites = data.Sites;
-            for (var i = 0; i < sites.length; i++) {
-                var siteData = sites[i];
-                bodyData.push({ Columns: createWinLossDataRow(siteData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss, isFooter) {
-            return [
-                { Name: "Site", Value: winLoss.Name, CssClass: isFooter ? 'text-right' : '' },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var total = data.Total;
-            total.Name = 'Total';
-            return [
-                { Columns: createWinLossDataRow(total, true) }
-            ];
         }
 
         function exportExcel() {
-
+            racingDetailService.exportExcel();
         }
     }
 })();
@@ -5619,16 +2317,138 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSportTypeController', VirtualSportsSportTypeController);
+        .module('app.companyWinlossApp')
+        .factory('racingDetailService', racingDetailService);
 
-    VirtualSportsSportTypeController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportTypeController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
-        var gridElement = $element.find('.freegrid');
-        $scope.generate = generate;
-        $scope.show = show;
-        $scope.generateBetType = generateBetType;
-        $scope.generateProduct = generateProduct;
+    racingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function racingDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
+            };
+            return $http.post('/api/company-win-loss/racing/match-detail', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
+            };
+
+            return $http.post('/api/company-win-loss/racing/match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('racingSiteService', racingSiteService);
+
+    racingSiteService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function racingSiteService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+            return $http.post('/api/company-win-loss/racing/site', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/racing/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('racingSportTypeService', racingSportTypeService);
+
+    racingSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function racingSportTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateBetType: generateBetType
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/racing/sport-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/racing/sport-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
 
         function generateBetType(sportType, sportTypeName) {
             companyWinlossService.generate({
@@ -5636,126 +2456,15 @@
                 sportType: sportType,
                 sportTypeName: sportTypeName
             });
-        };
-
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generate() {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            virtualSportsService.getSportType(dateRange.startDate, dateRange.endDate).then(function (data) {
-                renderGrid(gridElement, data);
-                compileLinks();
-            });
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
-        }
-
-        function renderGrid(gridElement, data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
-        }
-
-        function compileLinks() {
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Sport Type", Width: 150, Name: "SportType", HeaderAlign: "center", CellAlign: "left", ShowCollapseExpand: true },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTree: true,
-                defaultCollapseAllGroups: true,
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li class="active">' + gridModel.productName + '</li></ol>',
-                    showCollapseExpandButton: true,
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var sports = data.Sports;
-            for (var i = 0; i < sports.length; i++) {
-                var sportTypeItem = sports[i];
-                bodyData.push(createSportTypeWinLossDataRow(sportTypeItem));
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var sportTypeRow = data.bodyRows[i];
+                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
+                var sportTypeName = sportTypeRow.Columns[0].Value;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
             }
-
-            return bodyData;
-        }
-
-        function createSportTypeWinLossDataRow(sportTypeWinLossItem) {
-            return {
-                Columns: createWinLossDataRow(sportTypeWinLossItem.Total, false, true),
-                SubRows: [
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Credit, true, false) },
-                    { Columns: createWinLossDataRow(sportTypeWinLossItem.Deposit, true, false) }
-                ]
-            };
-        }
-
-        function createWinLossDataRow(winLoss, isTextRight, isTotal) {
-            var sportTypeColumn = !isTotal
-                ? { Name: "SportType", Value: winLoss.Name }
-                : {
-                    Name: "SportType", Value: winLoss.Name, CustomCellRender: function (cellValue) {
-                        return '<a class="drill-down" href data-ng-click="generateBetType(' + winLoss.Id + ',\'' + winLoss.Name + '\')">' + winLoss.Name + '</a>';
-                    }
-                };
-            if (isTextRight) {
-                sportTypeColumn.CellAlign = 'right';
-            }
-            return [
-                sportTypeColumn,
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.RealMargin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var grandTotal = data.GrandTotal;
-            return [
-                { Columns: createWinLossDataRow(grandTotal.Total, true) },
-                { Columns: createWinLossDataRow(grandTotal.Credit, true) },
-                { Columns: createWinLossDataRow(grandTotal.Deposit, true) }
-            ];
-        }
-
-        function exportExcel() {
-
         }
     }
 })();
@@ -5763,139 +2472,121 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .controller('VirtualSportsSportsbookDetailController', VirtualSportsSportsbookDetailController);
+        .module('app.companyWinlossApp')
+        .factory('virtualSportsBetTypeService', virtualSportsBetTypeService);
 
-    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'formatStrings', 'fanexGridHelper', 'levels', 'companyWinlossService', 'virtualSportsService'];
-    function VirtualSportsSportsbookDetailController($compile, $scope, $element, formatStrings, fanexGridHelper, levels, companyWinlossService, virtualSportsService) {
+    virtualSportsBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateSite: generateSite,
+            generateDetail: generateDetail,
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType
+            };
+            return $http.post('/api/company-win-loss/virtual-sports/bet-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function createLinks(data) {
+            var betTypeId;
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
+        }
+
+        function generateSite(betType, betTypeName, site) {
+            companyWinlossService.generate({
+                level: levels.SITE,
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site
+            });
+        }
+
+        function generateDetail(betType, betTypeName) {
+            companyWinlossService.generate({
+                level: levels.DETAIL,
+                betType: betType,
+                betTypeName: betTypeName
+            });
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('VirtualSportsRacingDetailController', VirtualSportsRacingDetailController);
+
+    VirtualSportsRacingDetailController.$inject = ['$compile', '$scope', '$element', 'virtualSportsRacingDetailService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function VirtualSportsRacingDetailController($compile, $scope, $element, virtualSportsRacingDetailService, breadcrumbHelper, fanexGridHelper) {
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateProduct = generateProduct;
-        $scope.generateSportType = generateSportType;
-        $scope.generateBetType = generateBetType;
 
-        function generateProduct() {
-            companyWinlossService.generate({
-                level: levels.PRODUCT
-            });
-        };
-
-        function generateSportType() {
-            companyWinlossService.generate({
-                level: levels.SPORT_TYPE
-            });
-        };
-
-        function generateBetType() {
-            companyWinlossService.generate({
-                level: levels.BET_TYPE
-            });
-        };
-
-        function generate(startDate, endDate) {
-            var dateRange = companyWinlossService.filterModel.getDateRange();
-            var gridModel = companyWinlossService.gridModel;
-            virtualSportsService.getSportsBookMatchDetail(dateRange.startDate, dateRange.endDate, gridModel.sportType, gridModel.betType).then(function (data) {
+        function generate() {
+            virtualSportsRacingDetailService.getData().then(function (data) {
                 renderGrid(data);
                 compileLinks();
             });
         }
 
         function renderGrid(data) {
-            var gridOptions = createGridOptions(data);
-            gridElement.fanexGrid(gridOptions);
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
         }
 
         function compileLinks() {
+            breadcrumbHelper.compile($element);
             var elements = $element.find('.drill-down');
             $compile(elements)($scope);
-
-            var breadcrumbElement = $element.find('.breadcrumb');
-            $compile(breadcrumbElement)($scope);
-        }
-
-        function createGridOptions(data) {
-            var columns = [
-                 { HeaderText: "Code", Width: 150, Name: "Code", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "Event", Width: 150, Name: "HomeName", HeaderAlign: "center", CellAlign: "right", MergeHeaderColNumber: 3 },
-                 { HeaderText: "vs", Width: 30, Name: "vs", HeaderAlign: "center", CellAlign: "center" },
-                 { HeaderText: "AwayName", Width: 150, Name: "AwayName", HeaderAlign: "center", CellAlign: "left" },
-                 { HeaderText: "Member Win Loss", Width: 120, Name: "MemberWinLoss", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "SMA Win Loss", Width: 120, Name: "SMAWinLoss", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Commission", Width: 120, Name: "Commission", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Income", Width: 120, Name: "RealIncome", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Company Turnover", Width: 120, Name: "RealTurnover", HeaderAlign: "center", CellAlign: "right", FormatNumber: formatStrings.TWO_DECIMAL_NUMBER },
-                 { HeaderText: "Margin", Width: 120, Name: "RealMargin", HeaderAlign: "center", CellAlign: "right", FormatPositive: '$', FormatNumber: formatStrings.TWO_DECIMAL_PERCENT_NUMBER }
-            ];
-
-            var gridModel = companyWinlossService.gridModel;
-            var gridOptions = {
-                columns: columns,
-                bodyRows: createBodyData(data),
-                showTitle: true,
-                titleInfo:
-                {
-                    text: '<ol class="breadcrumb"><li><a href data-ng-click="generateProduct()">MAIN</a></li><li><a href data-ng-click="generateSportType()">' + gridModel.productName + '</a></li><li><a href data-ng-click="generateBetType()">' + gridModel.sportTypeName + '</a></li><li class="active">' + gridModel.betTypeName + '</li></ol>',
-                    showExcelButton: true,
-                    exportExcelFunction: exportExcel
-                },
-                showFooter: true,
-                footerRows: createFooterData(data),
-                gridExpandHeight: fanexGridHelper.calculateExpandHeight(gridElement, true)
-            };
-
-            return gridOptions;
-        }
-
-        function createBodyData(data) {
-            var bodyData = [];
-            var matches = data.Matches;
-            for (var i = 0; i < matches.length; i++) {
-                var matchData = matches[i];
-                bodyData.push({ Columns: createWinLossDataRow(matchData) });
-            }
-
-            return bodyData;
-        }
-
-        function createWinLossDataRow(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode },
-                { Name: "HomeName", Value: winLoss.HomeName },
-                { Name: "vs", Value: '-vs-' },
-                { Name: "AwayName", Value: winLoss.AwayName },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createWinLossDataRowFooter(winLoss) {
-            return [
-                { Name: "Code", Value: winLoss.MatchCode, CssClass: 'text-right', MergeColNumber: 4 },
-                { Name: "MemberWinLoss", Value: winLoss.MemberWinLoss },
-                { Name: "SMAWinLoss", Value: winLoss.SMAWinLoss },
-                { Name: "Commission", Value: winLoss.Commission },
-                { Name: "RealIncome", Value: winLoss.RealIncome },
-                { Name: "RealTurnover", Value: winLoss.RealTurnover },
-                { Name: "RealMargin", Value: winLoss.Margin }
-            ];
-        }
-
-        function createFooterData(data) {
-            var gridModel = companyWinlossService.gridModel;
-            var total = data.Total;
-            total.MatchCode = gridModel.betTypeName + ' Total';
-            return [
-                { Columns: createWinLossDataRowFooter(total) }
-            ];
         }
 
         function exportExcel() {
-
+            virtualSportsRacingDetailService.exportExcel();
         }
     }
 })();
@@ -5903,82 +2594,239 @@
     'use strict';
 
     angular
-        .module('companyWinlossApp')
-        .factory('virtualSportsService', virtualSportsService);
+        .module('app.companyWinlossApp')
+        .factory('virtualSportsRacingDetailService', virtualSportsRacingDetailService);
 
-    virtualSportsService.$inject = ['$http', 'logger'];
-    function virtualSportsService($http, logger) {
+    virtualSportsRacingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsRacingDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
-            getSportType: getSportType,
-            getBetType: getBetType,
-            getSportsBookMatchDetail: getSportsBookMatchDetail,
-            getRacingMatchDetail: getRacingMatchDetail,
-            getSite: getSite
+            getData: getData,
+            exportExcel: exportExcel
         };
         return service;
 
-        function getSportType(startDate, endDate) {
-            var data = { startDate: startDate, endDate: endDate };
-            return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getBetType(startDate, endDate, sportType) {
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/bet-type', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getSportsBookMatchDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
-            };
-            return $http.post('/api/company-win-loss/virtual-sports/sports-book-match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
-        }
-
-        function getRacingMatchDetail(startDate, endDate, sportType, betType) {
-            var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
             };
             return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getSite(startDate, endDate, sportType, betType, site) {
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
             var data = {
-                startDate: startDate,
-                endDate: endDate,
-                sportType: sportType,
-                betType: betType,
-                site: site
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('virtualSportsSiteService', virtualSportsSiteService);
+
+    virtualSportsSiteService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsSiteService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType,
+                site: gridModel.site
             };
             return $http.post('/api/company-win-loss/virtual-sports/site', data)
-                .then(getDataComplete)
-                .catch(getDataFailed);
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getDataComplete(response) {
-            logger.hide();
-            return response.data;
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType,
+                site: gridModel.site
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/site/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('virtualSportsSportTypeService', virtualSportsSportTypeService);
+
+    virtualSportsSportTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsSportTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel,
+            createLinks: createLinks,
+            generateBetType: generateBetType
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate };
+            return $http.post('/api/company-win-loss/virtual-sports/sport-type', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
-        function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/sport-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function generateBetType(sportType, sportTypeName) {
+            companyWinlossService.generate({
+                level: levels.BET_TYPE,
+                sportType: sportType,
+                sportTypeName: sportTypeName
+            });
+        }
+
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var sportTypeRow = data.bodyRows[i];
+                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
+                var sportTypeName = sportTypeRow.Columns[0].Value;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
+            }
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('VirtualSportsSportsbookDetailController', VirtualSportsSportsbookDetailController);
+
+    VirtualSportsSportsbookDetailController.$inject = ['$compile', '$scope', '$element', 'virtualSportsSportsbookDetailService', 'breadcrumbHelper', 'fanexGridHelper'];
+    function VirtualSportsSportsbookDetailController($compile, $scope, $element, virtualSportsSportsbookDetailService, breadcrumbHelper, fanexGridHelper) {
+        var gridElement = $element.find('.freegrid');
+        $scope.generate = generate;
+
+        function generate() {
+            virtualSportsSportsbookDetailService.getData().then(function (data) {
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            virtualSportsSportsbookDetailService.exportExcel();
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
+
+    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function virtualSportsSportsbookDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
+            };
+            return $http.post('/api/company-win-loss/virtual-sports/sportsbook-match-detail', data)
+                 .then(httpResponseService.getDataComplete)
+                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                sportType: gridModel.sportType,
+                betType: gridModel.betType
+            };
+
+            return $http.post('/api/company-win-loss/virtual-sports/sportsbook-match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();
