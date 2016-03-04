@@ -4,7 +4,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
-    [RoutePrefix("api/company-win-loss/virtual-sports")]
+    [RoutePrefix("api/company-win-loss/virtual-sports/sportsbook-match-detail")]
     public class VirtualSportsSportsbookDetailController : ApiController
     {
         private readonly Service winlossService;
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("sportsbook-match-detail")]
+        [Route("")]
         public IHttpActionResult SportsbookDetail(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             return null;
         }
 
-        [Route("sportsbook-match-detail/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)
@@ -54,7 +54,6 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

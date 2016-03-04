@@ -5,7 +5,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
 {
-    [RoutePrefix("api/company-win-loss/virtual-sports")]
+    [RoutePrefix("api/company-win-loss/virtual-sports/sport-type")]
     public class VirtualSportsSportTypeController : ApiController
     {
         private readonly SportTypeService sportTypeService;
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("sport-type")]
+        [Route("")]
         public IHttpActionResult SportType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -37,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
             return null;
         }
 
-        [Route("sport-type/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)

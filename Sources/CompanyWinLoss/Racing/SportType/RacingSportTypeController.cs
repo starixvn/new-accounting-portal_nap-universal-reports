@@ -5,7 +5,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Racing.SportType
 {
-    [RoutePrefix("api/company-win-loss/racing")]
+    [RoutePrefix("api/company-win-loss/racing/sport-type")]
     public class RacingSportTypeController : ApiController
     {
         private readonly SportTypeService sportTypeService;
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.SportType
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("sport-type")]
+        [Route("")]
         public IHttpActionResult SportType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -37,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.SportType
             return null;
         }
 
-        [Route("sport-type/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)
@@ -50,7 +50,6 @@ namespace UniversalReports.CompanyWinLoss.Racing.SportType
 
                 var winlosses = this.sportTypeService.Query(criteria);
                 var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

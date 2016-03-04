@@ -234,7 +234,6 @@
     <Content Include="app\company-winloss\bettrade\bettrade-site.service.js" />
     <Content Include="app\company-winloss\casino\casino-bet-type.service.js" />
     <Content Include="app\company-winloss\casino\casino-site.service.js" />
-    <Content Include="app\company-winloss\casino\casino-third-party-product.controller.js" />
     <Content Include="app\company-winloss\casino\casino-third-party-product.service.js" />
     <Content Include="app\company-winloss\bingo\bingo-bet-type.service.js" />
     <Content Include="app\company-winloss\bingo\bingo-site.service.js" />
@@ -266,7 +265,6 @@
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="app\company-winloss\live-casino\live-casino-third-party-product.controller.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-third-party-product.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-detail.service.js" />

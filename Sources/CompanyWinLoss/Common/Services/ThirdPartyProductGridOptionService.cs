@@ -5,6 +5,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface ThirdPartyProductGridOptionService
     {
-        GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss);
+        GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss, string title);
     }
 }

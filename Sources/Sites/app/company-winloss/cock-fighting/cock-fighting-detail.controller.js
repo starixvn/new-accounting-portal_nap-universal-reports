@@ -39,6 +39,7 @@
         }
 
         function exportExcel() {
+            cockfightingDetailService.exportExcel();
         }
     }
 })();

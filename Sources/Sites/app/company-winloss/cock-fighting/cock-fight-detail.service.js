@@ -5,10 +5,11 @@
         .module('app.companyWinlossApp')
         .factory('cockfightingDetailService', cockfightingDetailService);
 
-    cockfightingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function cockfightingDetailService($http, httpResponseService, companyWinlossService) {
+    cockfightingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
+    function cockfightingDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
         var service = {
-            getData: getData
+            getData: getData,
+            exportExcel: exportExcel
         };
         return service;
 
@@ -21,6 +22,20 @@
             return $http.post('/api/company-win-loss/cock-fighting/match-detail', data)
                  .then(httpResponseService.getDataComplete)
                  .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/cock-fighting/match-detail/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })();

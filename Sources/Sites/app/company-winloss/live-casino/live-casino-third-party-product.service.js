@@ -9,6 +9,7 @@
     function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels) {
         var service = {
             getData: getData,
+            exportExcel: exportExcel,
             generateBetType: generateBetType,
             createLinks: createLinks
         };
@@ -16,9 +17,26 @@
 
         function getData() {
             var gridModel = companyWinlossService.gridModel;
-            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate };
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
             return $http.post('/api/company-win-loss/live-casino/third-party-product', data)
                 .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate
+            };
+            return $http.post('/api/company-win-loss/live-casino/third-party-product/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
                 .catch(httpResponseService.getDataFailed);
         }
 

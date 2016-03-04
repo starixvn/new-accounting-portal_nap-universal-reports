@@ -1,14 +1,11 @@
-﻿using Fanex.Excel;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Web.Http;
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
 {
-    [RoutePrefix("api/company-win-loss/live-casino")]
+    [RoutePrefix("api/company-win-loss/live-casino/bet-type")]
     public class LiveCasinoBetTypeController : ApiController
     {
         private readonly BetTypeService winlossService;
@@ -20,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("bet-type")]
+        [Route("")]
         public IHttpActionResult BetType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -41,12 +38,11 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
             return null;
         }
 
-        [Route("export-bet-type")]
-        public HttpResponseMessage Export(QueryModel queryModel)
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)
             {
-                HttpResponseMessage response;
                 var criteria = new Criteria
                 {
                     StartDate = queryModel.StartDate,
@@ -55,21 +51,8 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.BetType
                 };
 
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-                var excel = new FanexExcel(gridOptions);
-                var workbook = excel.ToExcel2003("sheet1");
-
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    workbook.Write(memoryStream);
-                    response = Request.CreateResponse(HttpStatusCode.OK);
-                    MediaTypeHeaderValue mediaType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                    response.Content = new ByteArrayContent(memoryStream.ToArray());
-                    response.Content.Headers.ContentType = mediaType;
-                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-                    response.Content.Headers.ContentDisposition.FileName = "aaa.xls";
-                    return response;
-                }
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
             return null;

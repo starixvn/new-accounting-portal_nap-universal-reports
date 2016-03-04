@@ -91,9 +91,11 @@
   <ItemGroup>
     <Compile Include="Bettrade\BetType\BettradeBetTypeController.cs" />
     <Compile Include="Bettrade\BetType\Criteria.cs" />
+    <Compile Include="Bettrade\BetType\ExcelModel.cs" />
     <Compile Include="Bettrade\BetType\QueryModel.cs" />
     <Compile Include="Bettrade\Site\BettradeSiteController.cs" />
     <Compile Include="Bettrade\Site\Criteria.cs" />
+    <Compile Include="Bettrade\Site\ExcelModel.cs" />
     <Compile Include="Bettrade\Site\QueryModel.cs" />
     <Compile Include="Bingo\BetType\BingoBetTypeController.cs" />
     <Compile Include="Bingo\BetType\Criteria.cs" />

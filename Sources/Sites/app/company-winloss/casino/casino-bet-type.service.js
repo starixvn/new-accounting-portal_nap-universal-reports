@@ -5,10 +5,11 @@
         .module('app.companyWinlossApp')
         .factory('casinoBetTypeService', casinoBetTypeService);
 
-    casinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
-    function casinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
+    casinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function casinoBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
+            exportExcel: exportExcel,
             createLinks: createLinks,
             generateSite: generateSite
         };
@@ -16,9 +17,29 @@
 
         function getData() {
             var gridModel = companyWinlossService.gridModel;
-            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate, productId: gridModel.thirdPartyProductId };
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
             return $http.post('/api/company-win-loss/casino/bet-type', data)
                 .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+
+            return $http.post('/api/company-win-loss/casino/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
                 .catch(httpResponseService.getDataFailed);
         }
 

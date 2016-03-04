@@ -1,8 +1,10 @@
 ﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
-    [RoutePrefix("api/company-win-loss/cock-fighting")]
+    [RoutePrefix("api/company-win-loss/cock-fighting/match-detail")]
     public class CockfightingMatchDetailController : ApiController
     {
         private readonly Service service;
@@ -14,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("match-detail")]
+        [Route("")]
         public IHttpActionResult MatchDetail(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -26,9 +28,28 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                 };
 
                 var winlosses = service.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
+            }
+
+            return null;
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = new Criteria
+                {
+                    StartDate = queryModel.StartDate,
+                    EndDate = queryModel.EndDate
+                };
+
+                var winlosses = service.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
             return null;

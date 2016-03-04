@@ -5,7 +5,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Racing.BetType
 {
-    [RoutePrefix("api/company-win-loss/racing")]
+    [RoutePrefix("api/company-win-loss/racing/bet-type")]
     public class RacingBetTypeController : ApiController
     {
         private readonly BetTypeService winlossService;
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
             this.winlossService = betTypeService;
         }
 
-        [Route("bet-type")]
+        [Route("")]
         public IHttpActionResult BetType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
             return null;
         }
 
-        [Route("bet-type/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)
@@ -52,7 +52,6 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
 
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

@@ -5,7 +5,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
 {
-    [RoutePrefix("api/company-win-loss/virtual-sports")]
+    [RoutePrefix("api/company-win-loss/virtual-sports/bet-type")]
     public class VirtualSportsBetTypeController : ApiController
     {
         private readonly BetTypeService winlossService;
@@ -19,7 +19,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             this.winlossService = betTypeService;
         }
 
-        [Route("bet-type")]
+        [Route("")]
         public IHttpActionResult BetType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -40,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             return null;
         }
 
-        [Route("bet-type/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)

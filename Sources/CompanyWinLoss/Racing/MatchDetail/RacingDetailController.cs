@@ -4,7 +4,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 {
-    [RoutePrefix("api/company-win-loss/racing")]
+    [RoutePrefix("api/company-win-loss/racing/match-detail")]
     public class RacingDetailController : ApiController
     {
         private Service winlossService;
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("match-detail")]
+        [Route("")]
         public IHttpActionResult MatchDetail(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
             return null;
         }
 
-        [Route("match-detail/excel")]
+        [Route("excel")]
         public IHttpActionResult Excel(ExcelModel queryModel)
         {
             if (ModelState.IsValid)
@@ -54,7 +54,6 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

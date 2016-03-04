@@ -1,9 +1,11 @@
 ﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
 {
-    [RoutePrefix("api/company-win-loss/live-casino")]
+    [RoutePrefix("api/company-win-loss/live-casino/site")]
     public class LiveCasinoSiteController : ApiController
     {
         private readonly SiteService winlossService;
@@ -15,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("site")]
+        [Route("")]
         public IHttpActionResult Site(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -32,6 +34,27 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.Site
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
 
                 return Json(gridOptions);
+            }
+
+            return null;
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = new Criteria
+                {
+                    StartDate = queryModel.StartDate,
+                    EndDate = queryModel.EndDate,
+                    BetType = queryModel.BetType,
+                    Site = queryModel.Site
+                };
+
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.Title);
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
             return null;

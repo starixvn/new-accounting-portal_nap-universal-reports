@@ -9,17 +9,37 @@
     function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
         var service = {
             getData: getData,
+            exportExcel: exportExcel,
             createLinks: createLinks,
-            generateSite: generateSite,
-            exportExcel: exportExcel
+            generateSite: generateSite
         };
         return service;
 
         function getData() {
             var gridModel = companyWinlossService.gridModel;
-            var data = { startDate: gridModel.startDate, endDate: gridModel.endDate, productId: gridModel.thirdPartyProductId };
+            var data = {
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
             return $http.post('/api/company-win-loss/live-casino/bet-type', data)
                 .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel() {
+            var gridModel = companyWinlossService.gridModel;
+            var data = {
+                title: breadcrumbHelper.generateText(),
+                startDate: gridModel.startDate,
+                endDate: gridModel.endDate,
+                productId: gridModel.thirdPartyProductId
+            };
+
+            return $http.post('/api/company-win-loss/live-casino/bet-type/excel', data, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                })
                 .catch(httpResponseService.getDataFailed);
         }
 
@@ -43,13 +63,6 @@
                 betTypeName: betTypeName,
                 site: site
             });
-        }
-
-        function exportExcel(gridOptions) {
-            $http.post('/api/company-win-loss/live-casino/export-bet-type', gridOptions, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
-                }).catch(httpResponseService.getDataFailed);
         }
     }
 })();

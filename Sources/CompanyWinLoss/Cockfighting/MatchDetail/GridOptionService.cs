@@ -4,6 +4,6 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
     public interface GridOptionService
     {
-        GridOptions FromWinLossModel(WinLossModel winloss);
+        GridOptions FromWinLossModel(WinLossModel winloss, string title);
     }
 }
