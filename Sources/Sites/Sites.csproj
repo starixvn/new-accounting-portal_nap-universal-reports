@@ -366,24 +366,24 @@
     <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
     <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
     <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
-    <None Include="App_Configuration\Web.DEV.config">
+    <Content Include="App_Configuration\Web.DEV.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
-    <None Include="App_Configuration\Web.LOCAL.config">
+    </Content>
+    <Content Include="App_Configuration\Web.LOCAL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
-    <None Include="App_Configuration\Web.MNL.config">
+    </Content>
+    <Content Include="App_Configuration\Web.MNL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
-    <None Include="App_Configuration\Web.PRO.config">
+    </Content>
+    <Content Include="App_Configuration\Web.PRO.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
-    <None Include="App_Configuration\Web.SANDBOX.config">
+    </Content>
+    <Content Include="App_Configuration\Web.SANDBOX.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
-    <None Include="App_Configuration\Web.UAT.config">
+    </Content>
+    <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </None>
+    </Content>
     <None Include="packages.config" />
     <Content Include="app\app.constant.js" />
     <Content Include="app\common\fanexGridHelper.js" />
