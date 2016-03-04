@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('liveCasinoThirdPartyProductService', liveCasinoThirdPartyProductService);
 
-    liveCasinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels'];
-    function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels) {
+    liveCasinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels', 'breadcrumbHelper'];
+    function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels, breadcrumbHelper) {
         var service = {
             getData: getData,
             exportExcel: exportExcel,
@@ -35,7 +35,7 @@
             };
             return $http.post('/api/company-win-loss/live-casino/third-party-product/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }

@@ -1,11 +1,15 @@
-﻿using System.Web.Http;
+﻿using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
 {
-    [RoutePrefix("api/company-win-loss/number-game")]
+    [RoutePrefix("api/company-win-loss/number-game/bet-type")]
     public class NumberGameBetTypeController : ApiController
     {
         private readonly Service winlossService;
@@ -17,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             this.gridOptionService = gridOptionService;
         }
 
-        [Route("bet-type")]
+        [Route("")]
         public IHttpActionResult BetType(QueryModel queryModel)
         {
             if (ModelState.IsValid)
@@ -40,6 +44,34 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                 var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, string.Empty);
 
                 return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
+            }
+
+            return null;
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var winlosses = winlossService.Query(criteria);
+                var liveBetTypeWinLoss = new BetTypeWinLossModel
+                {
+                    BetTypes = winlosses.Live,
+                    GrandTotal = winlosses.LiveGrandTotal
+                };
+                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.LiveTitle);
+
+                var nonLiveBetTypeWinLoss = new BetTypeWinLossModel
+                {
+                    BetTypes = winlosses.NonLive,
+                    GrandTotal = winlosses.NonLiveGrandTotal
+                };
+
+                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, queryModel.NonLiveTitle);
+
+                return new FanexExcelResult(new List<GridOptions> { nonLiveGridOptions, liveGridOptions }, Constants.SheetName);
             }
 
             return null;

@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('liveCasinoBetTypeService', liveCasinoBetTypeService);
 
-    liveCasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
-    function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
+    liveCasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
             exportExcel: exportExcel,
@@ -38,7 +38,7 @@
 
             return $http.post('/api/company-win-loss/live-casino/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }

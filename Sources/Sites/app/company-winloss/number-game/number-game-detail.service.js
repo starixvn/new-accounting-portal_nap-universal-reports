@@ -31,7 +31,7 @@
         function exportExcel() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
-                title: breadcrumbHelper.generateText(),
+                title: breadcrumbHelper.generateText(gridModel.isLive),
                 startDate: gridModel.startDate,
                 endDate: gridModel.endDate,
                 sportType: 161,
@@ -41,7 +41,7 @@
 
             return $http.post('/api/company-win-loss/number-game/match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }

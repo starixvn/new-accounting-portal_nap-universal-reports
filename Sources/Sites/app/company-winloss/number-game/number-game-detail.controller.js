@@ -21,7 +21,7 @@
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: breadcrumbHelper.generateHtml($scope, gridModel.isLive),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
             };

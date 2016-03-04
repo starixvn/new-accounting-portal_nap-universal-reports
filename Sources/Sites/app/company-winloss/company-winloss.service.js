@@ -12,6 +12,7 @@
             gridModel: {},
             filterModel: {},
             updateGridModel: updateGridModel,
+            getExcelFileName: getExcelFileName,
             generate: generate
         };
         return service;
@@ -40,6 +41,10 @@
             this.gridModel.betType = angular.isDefined(data.betType) ? data.betType : this.gridModel.betType;
             this.gridModel.betTypeName = angular.isDefined(data.betTypeName) ? data.betTypeName : this.gridModel.betTypeName;
             this.gridModel.site = angular.isDefined(data.site) ? data.site : this.gridModel.site;
+        }
+
+        function getExcelFileName() {
+            return 'Company_Win_Loss_By_Products_From_' + this.gridModel.startDate.format('DD_MM_YYYY') + '_To_' + this.gridModel.endDate.format('DD_MM_YYYY') + '.xls';
         }
     }
 })();

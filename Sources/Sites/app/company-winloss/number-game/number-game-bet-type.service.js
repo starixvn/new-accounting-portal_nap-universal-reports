@@ -28,14 +28,15 @@
         function exportExcel() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
-                title: breadcrumbHelper.generateText(),
+                liveTitle: breadcrumbHelper.generateText(true),
+                nonLiveTitle: breadcrumbHelper.generateText(false),
                 startDate: gridModel.startDate,
                 endDate: gridModel.endDate
             };
 
             return $http.post('/api/company-win-loss/number-game/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }

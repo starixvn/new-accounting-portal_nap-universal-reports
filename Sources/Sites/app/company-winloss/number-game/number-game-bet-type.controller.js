@@ -40,8 +40,8 @@
             numberGameBetTypeService.getData().then(function (data) {
                 createLinks(data.Live, true);
                 createLinks(data.NonLive, false);
-                renderGrid(nonliveGridElement, data.NonLive, true);
-                renderGrid(liveGridElement, data.Live, false);
+                renderGrid(nonliveGridElement, data.NonLive, false);
+                renderGrid(liveGridElement, data.Live, true);
                 compileLinks();
             });
         }
@@ -51,11 +51,11 @@
             liveGridElement.fanexGrid('resizeGrid');
         }
 
-        function renderGrid(gridElement, data, showExcelButton) {
+        function renderGrid(gridElement, data, isLive) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: breadcrumbHelper.generateHtml($scope, isLive),
                 showCollapseExpandButton: true,
-                showExcelButton: showExcelButton,
+                showExcelButton: !isLive,
                 exportExcelFunction: exportExcel
             };
 

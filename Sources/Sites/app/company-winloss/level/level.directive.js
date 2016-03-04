@@ -35,6 +35,8 @@
                 if ($scope.level === level) {
                     $timeout(function () {
                         companyWinlossService.filterModel.updateDateRange(dateRange);
+                        companyWinlossService.gridModel.startDate = dateRange.startDate;
+                        companyWinlossService.gridModel.endDate = dateRange.endDate;
                         currentScope.show();
                     });
                 }

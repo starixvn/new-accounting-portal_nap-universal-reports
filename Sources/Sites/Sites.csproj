@@ -243,6 +243,7 @@
     <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-site.service.js" />
     <Content Include="app\company-winloss\live-casino\live-casino-bet-type.service.js" />
+    <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
     <Content Include="app\components\legend\legend.directive.js" />
     <Content Include="app\components\legend\legend.service.js" />
     <Content Include="app\components\header\header.service.js" />

@@ -1,6 +1,7 @@
 ﻿using Fanex.Excel;
 using Fanex.Excel.Models;
 using NPOI.SS.UserModel;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -16,6 +17,12 @@ namespace UniversalReports.MVC.Results
         public FanexExcelResult(GridOptions gridOptions, string sheetName)
         {
             var excel = new FanexExcel(gridOptions);
+            Workbook = excel.ToExcel2003(sheetName);
+        }
+
+        public FanexExcelResult(List<GridOptions> listGridOptions, string sheetName)
+        {
+            var excel = new FanexExcel(listGridOptions);
             Workbook = excel.ToExcel2003(sheetName);
         }
 
