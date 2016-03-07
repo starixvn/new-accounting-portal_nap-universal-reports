@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-03-04 */
+/* Author: Nexcel -  2016-03-07 */
 (function () {
     'use strict';
 
@@ -38,7 +38,7 @@
             {
                 level: levels.SITE,
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController'
+                controller: 'NumberGameSiteController'
             }]
         },
         'Virtual Sports': {
@@ -221,6 +221,7 @@
             gridModel: {},
             filterModel: {},
             updateGridModel: updateGridModel,
+            getExcelFileName: getExcelFileName,
             generate: generate
         };
         return service;
@@ -249,6 +250,10 @@
             this.gridModel.betType = angular.isDefined(data.betType) ? data.betType : this.gridModel.betType;
             this.gridModel.betTypeName = angular.isDefined(data.betTypeName) ? data.betTypeName : this.gridModel.betTypeName;
             this.gridModel.site = angular.isDefined(data.site) ? data.site : this.gridModel.site;
+        }
+
+        function getExcelFileName() {
+            return 'Company_Win_Loss_By_Products_From_' + this.gridModel.startDate.format('DD_MM_YYYY') + '_To_' + this.gridModel.endDate.format('DD_MM_YYYY') + '.xls';
         }
     }
 })();
@@ -290,7 +295,7 @@
 
             return $http.post('/api/company-win-loss/bettrade/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -336,7 +341,7 @@
 
             return $http.post('/api/company-win-loss/bettrade/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -380,7 +385,7 @@
 
             return $http.post('/api/company-win-loss/bingo/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -426,7 +431,7 @@
 
             return $http.post('/api/company-win-loss/keno/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -472,7 +477,7 @@
 
             return $http.post('/api/company-win-loss/casino/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -539,7 +544,7 @@
             };
             return $http.post('/api/company-win-loss/casino/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -582,7 +587,7 @@
             };
             return $http.post('/api/company-win-loss/casino/third-party-product/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -643,7 +648,7 @@
             };
             return $http.post('/api/company-win-loss/cock-fighting/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -758,7 +763,7 @@
             };
             return $http.post('/api/company-win-loss/cock-fighting/match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -802,7 +807,7 @@
             };
             return $http.post('/api/company-win-loss/cock-fighting/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -846,7 +851,7 @@
 
             return $http.post('/api/company-win-loss/colossus-bets/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -892,7 +897,7 @@
 
             return $http.post('/api/company-win-loss/colossus-bets/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1464,7 +1469,7 @@
 
             return $http.post('/api/company-win-loss/keno/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1509,7 +1514,7 @@
             };
             return $http.post('/api/company-win-loss/keno/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1552,6 +1557,8 @@
                 if ($scope.level === level) {
                     $timeout(function () {
                         companyWinlossService.filterModel.updateDateRange(dateRange);
+                        companyWinlossService.gridModel.startDate = dateRange.startDate;
+                        companyWinlossService.gridModel.endDate = dateRange.endDate;
                         currentScope.show();
                     });
                 }
@@ -1628,8 +1635,8 @@
         .module('app.companyWinlossApp')
         .factory('liveCasinoBetTypeService', liveCasinoBetTypeService);
 
-    liveCasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService'];
-    function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService) {
+    liveCasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'levels', 'companyWinlossService', 'breadcrumbHelper'];
+    function liveCasinoBetTypeService($http, httpResponseService, levels, companyWinlossService, breadcrumbHelper) {
         var service = {
             getData: getData,
             exportExcel: exportExcel,
@@ -1661,7 +1668,7 @@
 
             return $http.post('/api/company-win-loss/live-casino/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1728,7 +1735,7 @@
             };
             return $http.post('/api/company-win-loss/live-casino/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1741,8 +1748,8 @@
         .module('app.companyWinlossApp')
         .factory('liveCasinoThirdPartyProductService', liveCasinoThirdPartyProductService);
 
-    liveCasinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels'];
-    function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels) {
+    liveCasinoThirdPartyProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'levels', 'breadcrumbHelper'];
+    function liveCasinoThirdPartyProductService($http, httpResponseService, companyWinlossService, levels, breadcrumbHelper) {
         var service = {
             getData: getData,
             exportExcel: exportExcel,
@@ -1771,7 +1778,7 @@
             };
             return $http.post('/api/company-win-loss/live-casino/third-party-product/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1836,8 +1843,8 @@
             numberGameBetTypeService.getData().then(function (data) {
                 createLinks(data.Live, true);
                 createLinks(data.NonLive, false);
-                renderGrid(nonliveGridElement, data.NonLive, true);
-                renderGrid(liveGridElement, data.Live, false);
+                renderGrid(nonliveGridElement, data.NonLive, false);
+                renderGrid(liveGridElement, data.Live, true);
                 compileLinks();
             });
         }
@@ -1847,11 +1854,11 @@
             liveGridElement.fanexGrid('resizeGrid');
         }
 
-        function renderGrid(gridElement, data, showExcelButton) {
+        function renderGrid(gridElement, data, isLive) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: breadcrumbHelper.generateHtml($scope, isLive),
                 showCollapseExpandButton: true,
-                showExcelButton: showExcelButton,
+                showExcelButton: !isLive,
                 exportExcelFunction: exportExcel
             };
 
@@ -1918,14 +1925,15 @@
         function exportExcel() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
-                title: breadcrumbHelper.generateText(),
+                liveTitle: breadcrumbHelper.generateText(true),
+                nonLiveTitle: breadcrumbHelper.generateText(false),
                 startDate: gridModel.startDate,
                 endDate: gridModel.endDate
             };
 
             return $http.post('/api/company-win-loss/number-game/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -1954,7 +1962,7 @@
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: breadcrumbHelper.generateHtml($scope, gridModel.isLive),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
             };
@@ -2009,7 +2017,7 @@
         function exportExcel() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
-                title: breadcrumbHelper.generateText(),
+                title: breadcrumbHelper.generateText(gridModel.isLive),
                 startDate: gridModel.startDate,
                 endDate: gridModel.endDate,
                 sportType: 161,
@@ -2019,9 +2027,57 @@
 
             return $http.post('/api/company-win-loss/number-game/match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+    }
+})();
+(function () {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('NumberGameSiteController', NumberGameSiteController);
+
+    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper', 'numberGameSiteService'];
+    function NumberGameSiteController($compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper, numberGameSiteService) {
+        var gridElement = $element.find('.freegrid');
+        var gridModel = companyWinlossService.gridModel;
+        $scope.generate = generate;
+        $scope.show = show;
+
+        function generate() {
+            numberGameSiteService.getData().then(function (data) {
+                renderGrid(data);
+                compileLinks();
+            });
+        }
+
+        function show() {
+            gridElement.fanexGrid('resizeGrid');
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: breadcrumbHelper.generateHtml($scope, gridModel.isLive),
+                showExcelButton: true,
+                exportExcelFunction: exportExcel
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            gridElement.fanexGrid(data);
+        }
+
+        function compileLinks() {
+            breadcrumbHelper.compile($element);
+            var elements = $element.find('.drill-down');
+            $compile(elements)($scope);
+        }
+
+        function exportExcel() {
+            numberGameSiteService.exportExcel();
         }
     }
 })();
@@ -2058,7 +2114,7 @@
         function exportExcel() {
             var gridModel = companyWinlossService.gridModel;
             var data = {
-                title: breadcrumbHelper.generateText(),
+                title: breadcrumbHelper.generateText(gridModel.isLive),
                 startDate: gridModel.startDate,
                 endDate: gridModel.endDate,
                 sportType: 161,
@@ -2069,7 +2125,7 @@
 
             return $http.post('/api/company-win-loss/number-game/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2185,7 +2241,7 @@
 
             return $http.post('/api/company-win-loss/product/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2232,7 +2288,7 @@
 
             return $http.post('/api/company-win-loss/racing/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2353,7 +2409,7 @@
 
             return $http.post('/api/company-win-loss/racing/match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2401,7 +2457,7 @@
 
             return $http.post('/api/company-win-loss/racing/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2445,7 +2501,7 @@
 
             return $http.post('/api/company-win-loss/racing/sport-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2509,7 +2565,7 @@
 
             return $http.post('/api/company-win-loss/virtual-sports/bet-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2630,7 +2686,7 @@
 
             return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2678,7 +2734,7 @@
 
             return $http.post('/api/company-win-loss/virtual-sports/site/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2719,7 +2775,7 @@
 
             return $http.post('/api/company-win-loss/virtual-sports/sport-type/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
@@ -2824,7 +2880,7 @@
 
             return $http.post('/api/company-win-loss/virtual-sports/sportsbook-match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, 'test.xls');
+                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
                 })
                 .catch(httpResponseService.getDataFailed);
         }
