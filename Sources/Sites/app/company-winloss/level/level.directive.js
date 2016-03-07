@@ -12,11 +12,10 @@
             scope: {
                 level: '='
             },
-            controller: controller
+            controller: ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService', controller]
         };
         return directive;
 
-        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService'];
         function controller($log, $compile, $timeout, $element, $scope, levelService, $templateRequest, companyWinlossService) {
             var dateRange,
                 currentScope;

@@ -24,7 +24,7 @@ module.exports = function (grunt) {
                     banner: '/* Author: Nexcel -  <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 },
                 // select the files to concatenate
-                src: ['app/app.js', 'app/app.config.js', 'app/app.constant.js'],
+                src: ['app/app.js', 'app/app.constant.js', 'app/app.config.js'],
                 // the resulting JS file
                 dest: 'app/app-concat.js'
             },
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                     banner: '/* Author: Nexcel -  <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 },
                 // select the files to concatenate
-                src: ['app/common/*.js', 'app/components/*.js', 'app/components/**/*.js'],
+                src: ['app/common/*.js', 'app/components/*.js', 'app/components/**/*.js', 'app/legacy-scripts/*.js'],
                 // the resulting JS file
                 dest: 'app/common-concat.js'
             }

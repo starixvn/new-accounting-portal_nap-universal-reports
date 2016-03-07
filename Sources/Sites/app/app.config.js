@@ -5,7 +5,7 @@
         .module('app.core')
         .config(config);
 
-    config.$injector = ['$routeProvider', '$httpProvider', 'appConfig'];
+    config.$inject = ['$routeProvider', '$httpProvider', 'config'];
     function config($routeProvider, $httpProvider, config) {
         configRouting();
         configHttp();
@@ -39,7 +39,7 @@
             }
 
             $httpProvider.interceptors.push(loadingInterceptor);
-            loadingInterceptor.$injector = ['$q', '$rootScope'];
+            loadingInterceptor.$inject = ['$q', '$rootScope'];
             function loadingInterceptor($q, $rootScope) {
                 return {
                     request: function (config) {

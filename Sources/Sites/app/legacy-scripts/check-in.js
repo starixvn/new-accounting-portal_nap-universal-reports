@@ -5,7 +5,7 @@
         .module('app.core')
         .run(reCheckIn);
 
-    reCheckIn.$injector = ['$http', '$interval', 'config'];
+    reCheckIn.$inject = ['$interval', 'config'];
     function reCheckIn($interval, config) {
         $interval(callback, 60000);
 

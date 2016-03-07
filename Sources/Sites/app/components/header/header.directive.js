@@ -11,13 +11,12 @@
             scope: {},
             templateUrl: 'app/components/header/header.directive.html',
             replace: true,
-            controller: controller,
+            controller: ['headerService', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['headerService', 'config'];
         function controller(headerService, config) {
             /*jshint validthis: true */
             var vm = this;

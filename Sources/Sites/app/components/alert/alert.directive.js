@@ -11,13 +11,12 @@
             scope: {},
             templateUrl: 'app/components/alert/alert.directive.html',
             replace: true,
-            controller: controller,
+            controller: ['$scope', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope'];
         function controller($scope) {
             var vm = this;
             vm.isShow = false;

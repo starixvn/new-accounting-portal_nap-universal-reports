@@ -12,13 +12,12 @@
                 menuId: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$element', 'legendService', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$element', 'legendService'];
         function controller($element, legendService) {
             var vm = this;
             legendService.getData(vm.menuId).then(function (data) {

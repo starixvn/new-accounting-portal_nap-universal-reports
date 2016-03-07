@@ -13,13 +13,12 @@
                 ngModel: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$scope', '$element', '$document', 'moment', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
         function controller($scope, $element, $document, moment, config) {
             var vm = this;
             var selectedDate;

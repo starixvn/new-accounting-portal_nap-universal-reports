@@ -119,13 +119,12 @@
             scope: {},
             templateUrl: 'app/components/alert/alert.directive.html',
             replace: true,
-            controller: controller,
+            controller: ['$scope', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope'];
         function controller($scope) {
             var vm = this;
             vm.isShow = false;
@@ -199,13 +198,12 @@
                 ngModel: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$scope', '$element', '$document', 'moment', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
         function controller($scope, $element, $document, moment, config) {
             var vm = this;
             var selectedDate;
@@ -417,13 +415,12 @@
             scope: {},
             templateUrl: 'app/components/header/header.directive.html',
             replace: true,
-            controller: controller,
+            controller: ['headerService', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['headerService', 'config'];
         function controller(headerService, config) {
             /*jshint validthis: true */
             var vm = this;
@@ -505,13 +502,12 @@
                 menuId: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$element', 'legendService', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$element', 'legendService'];
         function controller($element, legendService) {
             var vm = this;
             legendService.getData(vm.menuId).then(function (data) {
@@ -555,13 +551,12 @@
             scope: {},
             template: '<div class="loading-container" data-ng-show="vm.isLoading"><div class="block-overlay"></div><div class="block-loading"></div></div>',
             replace: true,
-            controller: controller,
+            controller: ['$scope', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope'];
         function controller($scope) {
             var vm = this;
             vm.isLoading = false;
@@ -747,3 +742,27 @@
         }
     }
 })();
+(function ($) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .run(reCheckIn);
+
+    reCheckIn.$inject = ['$interval', 'config'];
+    function reCheckIn($interval, config) {
+        $interval(callback, 60000);
+
+        function callback() {
+            var url = config.legacyPath + "/UserLogin/Login/ReCheckLogin";
+            $.post(url, function (result) {
+                if (result.IsKickedOut === "1") {
+                    alert('Another session has been logged in or your session is expired. Forced to logout!');
+                    window.location.href = config.legacyPath + "/UserLogin/Login/LogOut";
+                } else if (result.IsKickedOut === "-1") {
+                    window.location.href = config.legacyPath + "/UserLogin/Common/Offline";
+                }
+            });
+        }
+    }
+})(jQuery);

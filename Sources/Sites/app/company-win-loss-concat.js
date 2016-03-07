@@ -1349,13 +1349,12 @@
             scope: {},
             templateUrl: 'app/company-winloss/filter/filter.directive.html',
             replace: true,
-            controller: controller,
+            controller: ['$scope', 'config', 'companyWinlossService', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$scope', 'config', 'companyWinlossService'];
         function controller($scope, config, companyWinlossService) {
             companyWinlossService.filterModel = this;
             /*jshint validthis: true */
@@ -1534,11 +1533,10 @@
             scope: {
                 level: '='
             },
-            controller: controller
+            controller: ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService', controller]
         };
         return directive;
 
-        controller.$inject = ['$log', '$compile', '$timeout', '$element', '$scope', 'levelService', '$templateRequest', 'companyWinlossService'];
         function controller($log, $compile, $timeout, $element, $scope, levelService, $templateRequest, companyWinlossService) {
             var dateRange,
                 currentScope;
