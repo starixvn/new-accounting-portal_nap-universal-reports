@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .alert-container {
     position: absolute;
-    top: 28px;
+    top: 42px;
     left: 30%;
     right: 30%;
     z-index: $zindex-modal - 1;
@@ -348,7 +348,7 @@ header {
     color: white;
     border: solid 1px #3c5b9b !important;
     border-width: 1px 0 !important;
-    min-height: initial !important;
+    min-height: 0 !important;
     margin: 0 !important;
 
     .logo {
