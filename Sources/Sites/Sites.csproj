@@ -370,12 +370,12 @@
     <Content Include="App_Configuration\Web.PRO.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Configuration\Web.SANDBOX.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
     <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <None Include="App_Configuration\Web.MASTER.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="app\app.constant.js" />
     <Content Include="app\common\fanexGridHelper.js" />

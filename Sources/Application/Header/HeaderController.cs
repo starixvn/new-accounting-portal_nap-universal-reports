@@ -22,7 +22,7 @@ namespace UniversalReports.Application.Header
             {
                 return new Header
                 {
-                    Menus = GetFakeMenu()
+                    Menus = GetFakeMenus()
                 };
             }
 
@@ -35,6 +35,19 @@ namespace UniversalReports.Application.Header
             };
         }
 
+        private string ResolveMenuUrl(MenuItem menuItem)
+        {
+            var menuNames = new string[] { "Company Win Loss by Products" };
+            if (menuNames.Contains(menuItem.Name))
+            {
+                return ".." + menuItem.Url;
+            }
+            else
+            {
+                return menuItem.Url;
+            }
+        }
+
         private List<Menu> GetMenus(IList<MenuItem> menus)
         {
             return menus.Where(m => m.Parent == null)
@@ -43,12 +56,12 @@ namespace UniversalReports.Application.Header
                                {
                                    Name = m.Name,
                                    Link = m.Url,
-                                   Children = GetChildrendMenu(menus, m.Id)
+                                   Children = GetChildrenMenus(menus, m.Id)
                                })
                                .ToList();
         }
 
-        private List<Menu> GetChildrendMenu(IList<MenuItem> menus, int parentMenuId)
+        private List<Menu> GetChildrenMenus(IList<MenuItem> menus, int parentMenuId)
         {
             return menus.Where(x => x.Parent?.Id == parentMenuId)
                         .OrderBy(m => m.DisplayOrder)
@@ -60,7 +73,7 @@ namespace UniversalReports.Application.Header
                         .ToList();
         }
 
-        private List<Menu> GetFakeMenu()
+        private List<Menu> GetFakeMenus()
         {
             var mainMenu = new Menu
             {

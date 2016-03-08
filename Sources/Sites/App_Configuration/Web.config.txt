@@ -2,9 +2,9 @@
 
 // Generated helper templates
 // Generated items
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.PRO.config
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.MNL.config
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.UAT.config
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.MASTER.config
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.DEV.config
-// D:\SourceCode\NAP.Reports\nap-universal-reports\Sources\Sites\App_Configuration\Web.LOCAL.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.PRO.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.MNL.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.UAT.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.MASTER.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.DEV.config
+// D:\Work\Git\nap-reports\nap-reports-companywinloss\Sources\Sites\App_Configuration\Web.LOCAL.config
