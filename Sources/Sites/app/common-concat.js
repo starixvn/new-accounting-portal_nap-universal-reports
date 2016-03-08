@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-03-07 */
+/* Author: Nexcel -  2016-03-08 */
 (function () {
     'use strict';
 
@@ -48,16 +48,21 @@
 
         function saveExcelFile(data, fileName) {
             var contentType = 'application/vnd.ms-excel';
-            var blob = new Blob([data], { type: contentType }),
-              e = document.createEvent('MouseEvents'),
-              a = document.createElement('a');
+            var blob = new Blob([data], { type: contentType });
+            if (navigator.appVersion.toString().indexOf('.NET') > 0) {
+                window.navigator.msSaveBlob(blob, fileName);
+            }
+            else {
+                var e = document.createEvent('MouseEvents');
+                var a = document.createElement('a');
 
-            a.download = fileName;
-            a.href = window.URL.createObjectURL(blob);
-            a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
-            e.initMouseEvent('click', true, false, window,
-                0, 0, 0, 0, 0, false, false, false, false, 0, null);
-            a.dispatchEvent(e);
+                a.download = fileName;
+                a.href = window.URL.createObjectURL(blob);
+                a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+                e.initMouseEvent('click', true, false, window,
+                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                a.dispatchEvent(e);
+            }
         }
     }
 })();
@@ -460,11 +465,12 @@
                 var menu = menus[i];
 
                 if (menu.Children && menu.Children.length > 0) {
+                    menu.Url = menu.Link;
                     for (var j = 0; j < menu.Children.length; j++) {
-                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Url);
+                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Link);
                     }
                 } else {
-                    menu.Url = getMenuUrl(menu.Url);
+                    menu.Url = getMenuUrl(menu.Link);
                 }
             }
 
@@ -587,13 +593,12 @@
                 endDate: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$log', '$scope', 'moment', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$log', '$scope', 'moment', 'config'];
         function controller($log, $scope, moment, config) {
             var vm = this;
             var minDate = moment.utc(config.today).subtract(2, 'years');

@@ -14,13 +14,12 @@
                 endDate: '='
             },
             replace: true,
-            controller: controller,
+            controller: ['$log', '$scope', 'moment', 'config', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        controller.$inject = ['$log', '$scope', 'moment', 'config'];
         function controller($log, $scope, moment, config) {
             var vm = this;
             var minDate = moment.utc(config.today).subtract(2, 'years');
