@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
     public class GridOptionServiceImp : GridOptionService
     {
-        public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(WinLossModel winloss, string title)
         {
             return new GridOptions
             {
@@ -18,8 +18,8 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
-                BodyRows = BuildBodyRows(winLoss.Arenas),
-                FooterRows = BuildFooter(winLoss.Total),
+                BodyRows = BuildBodyRows(winloss.Arenas),
+                FooterRows = BuildFooter(winloss.Total),
                 ShowFooter = true
             };
         }

@@ -19,11 +19,12 @@
                 var menu = menus[i];
 
                 if (menu.Children && menu.Children.length > 0) {
+                    menu.Url = menu.Link;
                     for (var j = 0; j < menu.Children.length; j++) {
-                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Url);
+                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Link);
                     }
                 } else {
-                    menu.Url = getMenuUrl(menu.Url);
+                    menu.Url = getMenuUrl(menu.Link);
                 }
             }
 

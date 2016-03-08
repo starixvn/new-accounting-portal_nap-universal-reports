@@ -42,7 +42,7 @@ namespace UniversalReports.Application.Header
                                .Select(m => new Menu
                                {
                                    Name = m.Name,
-                                   Url = m.Url,
+                                   Link = m.Url,
                                    Children = GetChildrendMenu(menus, m.Id)
                                })
                                .ToList();
@@ -55,7 +55,7 @@ namespace UniversalReports.Application.Header
                         .Select(m => new Menu
                         {
                             Name = m.Name,
-                            Url = m.Url
+                            Link = m.Url
                         })
                         .ToList();
         }
@@ -64,28 +64,28 @@ namespace UniversalReports.Application.Header
         {
             var mainMenu = new Menu
             {
-                Url = string.Empty,
+                Link = string.Empty,
                 Name = "Main",
                 Children = new List<Menu>
                 {
-                    new Menu { Url = "/Main/DailyWinLoss2h/Index", Name = "Daily Win Loss (2h)" },
-                    new Menu { Url = "/UniversalReports/CompanyWinLoss", Name = "Company Win Loss By Products" }
+                    new Menu { Link = "/Main/DailyWinLoss2h/Index", Name = "Daily Win Loss (2h)" },
+                    new Menu { Link = "/UniversalReports/CompanyWinLoss", Name = "Company Win Loss By Products" }
                 }
             };
 
             var balanceMenu = new Menu
             {
-                Url = string.Empty,
+                Link = string.Empty,
                 Name = "Balance",
                 Children = new List<Menu>
                 {
-                    new Menu { Url = "/Balance/DirectBalance/Index", Name = "Direct Balance" }
+                    new Menu { Link = "/Balance/DirectBalance/Index", Name = "Direct Balance" }
                 }
             };
 
             var legendMenu = new Menu
             {
-                Url = "/LegendManagement",
+                Link = "/LegendManagement",
                 Name = "Legend Management"
             };
 

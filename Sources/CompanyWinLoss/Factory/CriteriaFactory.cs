@@ -5,7 +5,7 @@ using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Factory
 {
-    public class CriteriaFactory
+    public static class CriteriaFactory
     {
         public static T Transform<T>(object @object) where T : WinLossCriteria
         {

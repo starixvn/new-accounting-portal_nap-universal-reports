@@ -6,7 +6,7 @@ namespace UniversalReports.Application.Header
     {
         public string Name { get; set; }
 
-        public string Url { get; set; }
+        public string Link { get; set; }
 
         public List<Menu> Children { get; set; }
     }

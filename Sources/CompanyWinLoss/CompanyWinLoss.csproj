@@ -190,6 +190,7 @@
     <Compile Include="Common\Services\ThirdPartyProductGridOptionServiceImp.cs" />
     <Compile Include="Common\Services\ThirdPartyProductService.cs" />
     <Compile Include="Common\Services\ThirdPartyProductServiceImp.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Keno\BetType\ExcelQueryModel.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="Keno\Site\ExcelQueryModel.cs" />
