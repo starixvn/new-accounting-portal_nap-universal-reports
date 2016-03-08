@@ -35,19 +35,6 @@ namespace UniversalReports.Application.Header
             };
         }
 
-        private string ResolveMenuUrl(MenuItem menuItem)
-        {
-            var menuNames = new string[] { "Company Win Loss by Products" };
-            if (menuNames.Contains(menuItem.Name))
-            {
-                return ".." + menuItem.Url;
-            }
-            else
-            {
-                return menuItem.Url;
-            }
-        }
-
         private List<Menu> GetMenus(IList<MenuItem> menus)
         {
             return menus.Where(m => m.Parent == null)
