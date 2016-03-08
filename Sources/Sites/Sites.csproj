@@ -358,21 +358,23 @@
     <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
     <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
     <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\Web.DEV.config">
+    <None Include="App_Configuration\Web.DEV.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.LOCAL.config">
+    </None>
+    <None Include="App_Configuration\Web.LOCAL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.MNL.config">
+    </None>
+    <None Include="App_Configuration\Web.MASTER.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.PRO.config">
+    </None>
+    <None Include="App_Configuration\Web.MNL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.UAT.config">
+    </None>
+    <None Include="App_Configuration\Web.PRO.config">
+    </None>
+    <None Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
+    </None>
     <None Include="App_Configuration\Web.MASTER.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </None>
