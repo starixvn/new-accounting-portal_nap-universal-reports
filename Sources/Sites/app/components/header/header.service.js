@@ -5,8 +5,8 @@
         .module('app.core')
         .factory('headerService', headerService);
 
-    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService'];
-    function headerService($http, universalMenus, httpResponseService) {
+    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService', 'config'];
+    function headerService($http, universalMenus, httpResponseService, config) {
         var service = {
             getData: getData,
             getCompiledMenu: getCompiledMenu,
@@ -44,7 +44,7 @@
                 }
             }
 
-            return napConfig.LegacyPath + url;
+            return config.legacyPath + url;
         }
     }
 })();
