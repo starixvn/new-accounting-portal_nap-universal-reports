@@ -32,7 +32,12 @@
             function templateInterceptor() {
                 return {
                     request: function (c) {
-                        c.url = config.rootUrl + '/' + c.url;
+                        var url = c.url;
+                        var subString = url.substring(0, 4);
+                        if (subString.toLowerCase() !== 'http') {
+                            c.url = config.rootUrl + '/' + url;
+                        }
+
                         return c;
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace UniversalReports.Sites.Controllers
@@ -8,7 +9,10 @@ namespace UniversalReports.Sites.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.LegacyPath = ConfigurationManager.AppSettings["LegacyPath"];
+            var appUri = new Uri(Request.Url, Url.Content("~/"));
+            var legacyPath = ConfigurationManager.AppSettings["LegacyPath"];
+            var legacyUri = new Uri(appUri, legacyPath);
+            ViewBag.LegacyPath = legacyUri.AbsoluteUri;
             return View();
         }
     }
