@@ -19,31 +19,76 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
             if (startDate > balanceUpRange.MoveBetsDate)
             {
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = endDate, Source = "BetTrans" };
+                return DetermineWhenStartDateMoreThanMoveBetsDate(startDate, endDate);
             }
             else if (startDate >= balanceUpRange.BalanceUpDate)
             {
-                if (endDate > balanceUpRange.MoveBetsDate)
-                {
-                    yield return new BalanceUpSource { StartDate = balanceUpRange.MoveBetsDate.AddDays(1), EndDate = endDate, Source = "BetTrans" };
-                }
-
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)), Source = "BetTrans14" };
+                return DetermineWhenStartDateMoreThanBalanceUpDate(startDate, endDate, balanceUpRange);
             }
             else
             {
-                if (endDate > balanceUpRange.MoveBetsDate)
-                {
-                    yield return new BalanceUpSource { StartDate = balanceUpRange.MoveBetsDate.AddDays(1), EndDate = endDate, Source = "BetTrans" };
-                }
-
-                if (endDate >= balanceUpRange.BalanceUpDate)
-                {
-                    yield return new BalanceUpSource { StartDate = balanceUpRange.BalanceUpDate, EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)), Source = "BetTrans14" };
-                }
-
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = new DateTime(Math.Min(balanceUpRange.BalanceUpDate.AddDays(-1).Ticks, endDate.Ticks)), Source = "Warehouse" };
+                return DetermineWhenStartDateLessThanBalanceUpDate(startDate, endDate, balanceUpRange);
             }
+        }
+
+        private IEnumerable<BalanceUpSource> DetermineWhenStartDateMoreThanMoveBetsDate(DateTime startDate, DateTime endDate)
+        {
+            yield return new BalanceUpSource
+            {
+                StartDate = startDate,
+                EndDate = endDate,
+                Source = "BetTrans"
+            };
+        }
+
+        private IEnumerable<BalanceUpSource> DetermineWhenStartDateMoreThanBalanceUpDate(DateTime startDate, DateTime endDate, BalanceUpRange balanceUpRange)
+        {
+            if (endDate > balanceUpRange.MoveBetsDate)
+            {
+                yield return new BalanceUpSource
+                {
+                    StartDate = balanceUpRange.MoveBetsDate.AddDays(1),
+                    EndDate = endDate,
+                    Source = "BetTrans"
+                };
+            }
+
+            yield return new BalanceUpSource
+            {
+                StartDate = startDate,
+                EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)),
+                Source = "BetTrans14"
+            };
+        }
+
+        private IEnumerable<BalanceUpSource> DetermineWhenStartDateLessThanBalanceUpDate(DateTime startDate, DateTime endDate, BalanceUpRange balanceUpRange)
+        {
+            if (endDate > balanceUpRange.MoveBetsDate)
+            {
+                yield return new BalanceUpSource
+                {
+                    StartDate = balanceUpRange.MoveBetsDate.AddDays(1),
+                    EndDate = endDate,
+                    Source = "BetTrans"
+                };
+            }
+
+            if (endDate >= balanceUpRange.BalanceUpDate)
+            {
+                yield return new BalanceUpSource
+                {
+                    StartDate = balanceUpRange.BalanceUpDate,
+                    EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)),
+                    Source = "BetTrans14"
+                };
+            }
+
+            yield return new BalanceUpSource
+            {
+                StartDate = startDate,
+                EndDate = new DateTime(Math.Min(balanceUpRange.BalanceUpDate.AddDays(-1).Ticks, endDate.Ticks)),
+                Source = "Warehouse"
+            };
         }
     }
 }
