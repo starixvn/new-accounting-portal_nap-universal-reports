@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-03-09 */
+/* Author: Nexcel -  2016-03-11 */
 (function () {
     'use strict';
 
@@ -1418,9 +1418,14 @@
             }
 
             function reloadDateRange() {
-                vm.date = vm.dateRange.startDate;
-                vm.startDate = vm.dateRange.startDate;
-                vm.endDate = vm.dateRange.endDate;
+                if (vm.dateRange.startDate === vm.dateRange.endDate) {
+                    vm.normalMode = true;
+                    vm.date = vm.dateRange.startDate;
+                } else {
+                    vm.normalMode = false;
+                    vm.startDate = vm.dateRange.startDate;
+                    vm.endDate = vm.dateRange.endDate;
+                }
             }
 
             function updateDateRange(dateRange) {

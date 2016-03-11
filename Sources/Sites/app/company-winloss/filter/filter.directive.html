@@ -17,8 +17,8 @@
                 </div>
             </div>
         </div>
-        <form class="form-inline" data-ng-switch data-on="vm.normalMode">
-            <div class="form-group" data-ng-switch-when="true">
+        <form class="form-inline">
+            <div class="form-group" data-ng-show="vm.normalMode">
                 <label>Date</label>
                 <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
@@ -26,7 +26,7 @@
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
             </div>
-            <div class="form-group" data-ng-switch-when="false">
+            <div class="form-group"  data-ng-hide="vm.normalMode">
                 <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate"></nap-month-picker>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
