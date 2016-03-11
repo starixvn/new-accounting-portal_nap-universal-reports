@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                     yield return new BalanceUpSource { StartDate = balanceUpRange.MoveBetsDate.AddDays(1), EndDate = endDate, Source = "BetTrans" };
                 }
 
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = endDate, Source = "BetTrans14" };
+                yield return new BalanceUpSource { StartDate = startDate, EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)), Source = "BetTrans14" };
             }
             else
             {
@@ -39,10 +39,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
                 if (endDate >= balanceUpRange.BalanceUpDate)
                 {
-                    yield return new BalanceUpSource { StartDate = balanceUpRange.BalanceUpDate, EndDate = balanceUpRange.MoveBetsDate, Source = "BetTrans14" };
+                    yield return new BalanceUpSource { StartDate = balanceUpRange.BalanceUpDate, EndDate = new DateTime(Math.Min(balanceUpRange.MoveBetsDate.Ticks, endDate.Ticks)), Source = "BetTrans14" };
                 }
 
-                yield return new BalanceUpSource { StartDate = startDate, EndDate = balanceUpRange.BalanceUpDate.AddDays(-1), Source = "Warehouse" };
+                yield return new BalanceUpSource { StartDate = startDate, EndDate = new DateTime(Math.Min(balanceUpRange.BalanceUpDate.AddDays(-1).Ticks, endDate.Ticks)), Source = "Warehouse" };
             }
         }
     }
