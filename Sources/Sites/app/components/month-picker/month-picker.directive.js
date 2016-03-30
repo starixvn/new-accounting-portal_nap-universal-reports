@@ -22,7 +22,7 @@
 
         function controller($log, $scope, moment, config) {
             var vm = this;
-            var minDate = moment.utc(config.today).subtract(2, 'years');
+            var minDate = moment.utc([2011, 0, 1]);
             var monthOfMinDate = minDate.month();
             var yearOfMinDate = minDate.year();
             var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');

@@ -26,11 +26,6 @@ namespace UniversalReports.MVC.Results
             Workbook = excel.ToExcel2003(sheetName);
         }
 
-        public FanexExcelResult(IWorkbook workbook)
-        {
-            Workbook = workbook;
-        }
-
         public IWorkbook Workbook { get; private set; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
@@ -38,17 +33,15 @@ namespace UniversalReports.MVC.Results
             using (var memoryStream = new MemoryStream())
             {
                 Workbook.Write(memoryStream);
-                using (var response = new HttpResponseMessage(HttpStatusCode.OK))
+                var response = new HttpResponseMessage(HttpStatusCode.OK);
+                response.Content = new ByteArrayContent(memoryStream.ToArray());
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {
-                    response.Content = new ByteArrayContent(memoryStream.ToArray());
-                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                    {
-                        FileName = "undefined.xls"
-                    };
+                    FileName = "undefined.xls"
+                };
 
-                    return Task.FromResult(response);
-                }
+                return Task.FromResult(response);
             }
         }
     }
