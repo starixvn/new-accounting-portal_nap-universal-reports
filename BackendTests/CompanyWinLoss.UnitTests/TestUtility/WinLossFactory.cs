@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
            decimal commission,
            decimal realIncome,
            decimal virtualIncome,
+           decimal varianceIncome,
            decimal realTurnover,
            decimal virtualTurnover)
         {
@@ -26,6 +27,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
                 Commission = commission,
                 RealIncome = realIncome,
                 VirtualIncome = virtualIncome,
+                VarianceIncome = varianceIncome,
                 RealTurnover = realTurnover,
                 VirtualTurnover = virtualTurnover
             };

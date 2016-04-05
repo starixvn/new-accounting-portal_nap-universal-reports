@@ -40,14 +40,14 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
           Justification = "Reviewed. Suppression is OK here.")]
         private List<RawWinLoss> CreateFakeRawWinLoss()
         {
-            var firstProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var firstProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var firstProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Credit", 100, 110, 10, 300, 600, 100, 600, 1000);
+            var firstProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(4, "SLI", "Deposit", 110, 120, 11, 100, 300, 100, 400, 500);
 
-            var secondProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var secondProductCasinoDepositWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var secondProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Credit", 100, 110, 10, 300, 600, 100, 600, 1000);
+            var secondProductCasinoDepositWinLoss = WinLossFactory.CreateRawWinLoss(11, "AG Casino", "Deposit", 110, 120, 11, 100, 300, 100, 400, 500);
 
-            var thirdProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Credit", 100, 110, 10, 300, 600, 600, 1000);
-            var thirdProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Deposit", 110, 120, 11, 100, 300, 400, 500);
+            var thirdProductCreditWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Credit", 100, 110, 10, 300, 600, 100, 600, 1000);
+            var thirdProductDepositWinLoss = WinLossFactory.CreateRawWinLoss(12, "Gold Deluxe", "Deposit", 110, 120, 11, 100, 300, 100, 400, 500);
 
             return new List<RawWinLoss> { firstProductCreditWinLoss, firstProductDepositWinLoss, secondProductCreditWinLoss, secondProductCasinoDepositWinLoss, thirdProductCreditWinLoss, thirdProductDepositWinLoss };
         }

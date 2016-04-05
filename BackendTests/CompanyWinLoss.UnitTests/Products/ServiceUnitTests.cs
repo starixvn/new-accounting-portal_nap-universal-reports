@@ -112,18 +112,18 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
         private List<RawWinLoss> CreateFakeSportsbookDetail()
         {
-            var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Live", 100, 110, 10, 500, 600, 900, 1000);
-            var nonLiveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Non-Live", 110, 120, 11, 550, 660, 990, 1100);
-            var parlayWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Parlay", 120, 130, 12, 600, 720, 1080, 1200);
-            var outrightWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Outright", 130, 140, 13, 650, 780, 1170, 1300);
+            var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Live", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var nonLiveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Non-Live", 110, 120, 11, 550, 660, 100, 990, 1100);
+            var parlayWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Parlay", 120, 130, 12, 600, 720, 100, 1080, 1200);
+            var outrightWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Outright", 130, 140, 13, 650, 780, 100, 1170, 1300);
 
             return new List<RawWinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
 
         private List<RawWinLoss> CreateFakeRawProductWinLoss(int productId, string productName)
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Deposit", 110, 120, 11, 550, 660, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Credit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

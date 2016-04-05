@@ -32,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
                 VirtualIncome = rawWinLoss.VirtualIncome,
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
-                VarianceIncome = rawWinLoss.RealIncome - rawWinLoss.VirtualIncome,
+                VarianceIncome = rawWinLoss.VarianceIncome,
                 RealMargin = CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
                 VirtualMargin = CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };

@@ -18,6 +18,8 @@
 
         public decimal VirtualIncome { get; set; }
 
+        public decimal VarianceIncome { get; set; }
+
         public decimal RealTurnover { get; set; }
 
         public decimal VirtualTurnover { get; set; }

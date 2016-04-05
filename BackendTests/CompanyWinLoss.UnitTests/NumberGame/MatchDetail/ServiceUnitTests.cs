@@ -49,10 +49,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 1", 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 2", 110, 120, 11, 550, 660, 990, 1100),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 1", 100, 110, 10, 500, 600, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 2", 110, 120, 11, 550, 660, 990, 1100)
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 1", 100, 110, 10, 500, 600, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 2", 110, 120, 11, 550, 660, 100, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 1", 100, 110, 10, 500, 600, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 2", 110, 120, 11, 550, 660, 100, 990, 1100)
             };
         }
 

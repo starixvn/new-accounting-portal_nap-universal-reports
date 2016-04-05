@@ -44,7 +44,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
-            var rawWinLoss = WinLossFactory.CreateRawWinLoss(1, "Sportsbook", "Sportsbook Live", 100, 110, 10, 500, 600, 900, 1000);
+            var rawWinLoss = WinLossFactory.CreateRawWinLoss(1, "Sportsbook", "Sportsbook Live", 100, 110, 10, 500, 600, -100, 900, 1000);
             var expectedWinLoss = WinLossFactory.CreateWinLoss(1, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 900, 1000, 500m / 900, 600m / 1000);
             var calculationService = new CalculationServiceImp();
 
@@ -60,9 +60,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
-            var expectedSum = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 1890, 2100);
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
+            var expectedSum = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100, 1890, 2100);
+            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
 
             var winlosses = new[] { deposit1, deposit2 };
 
@@ -83,8 +83,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var calculationService = new CalculationServiceImp();
 
             // Act
-            var deposit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 100, 200, 10, 300, 400, 1000, 1200);
-            var credit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 110, 210, 20, 310, 410, 1100, 1300);
+            var deposit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 100, 200, 10, 300, 400, 100, 1000, 1200);
+            var credit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 110, 210, 20, 310, 410, 100, 1100, 1300);
             var rawWinLosses = new List<RawWinLoss> { deposit, credit };
 
             var result = calculationService.CalculateSumWinLoss("Group 1", rawWinLosses);
@@ -132,8 +132,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
         private List<RawWinLoss> CreateFakeRawGroupWinLoss(int groupId, string groupName)
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

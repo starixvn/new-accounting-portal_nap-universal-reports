@@ -117,7 +117,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
                 VirtualIncome = rawWinLoss.VirtualIncome,
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
-                VarianceIncome = rawWinLoss.RealIncome - rawWinLoss.VirtualIncome,
+                VarianceIncome = rawWinLoss.VarianceIncome,
                 RealMargin = caculationService.CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
                 VirtualMargin = caculationService.CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };

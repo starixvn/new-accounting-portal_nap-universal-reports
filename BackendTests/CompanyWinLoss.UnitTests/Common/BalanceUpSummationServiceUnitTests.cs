@@ -17,14 +17,14 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             // Arrange
             var expectedSum = new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 1890, 2100),
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 210, 230, 21, 1050, 1260, 1890, 2100)
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100, 1890, 2100),
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 210, 230, 21, 1050, 1260, 100, 1890, 2100)
             };
 
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
-            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 900, 1000);
-            var credit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 110, 120, 11, 550, 660, 990, 1100);
+            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
+            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var credit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 110, 120, 11, 550, 660, 100, 990, 1100);
 
             var group1 = new[] { deposit1, credit1 };
             var group2 = new[] { deposit2, credit2 };
@@ -48,13 +48,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             // Arrange
             var expectedSum = new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 1890, 2100),
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit",  100, 110, 10, 500, 600, 900, 1000)
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100, 1890, 2100),
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit",  100, 110, 10, 500, 600, 100, 900, 1000)
             };
 
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 990, 1100);
-            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 900, 1000);
+            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 900, 1000);
+            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
+            var credit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 100, 110, 10, 500, 600, 100, 900, 1000);
 
             var group1 = new[] { deposit1, credit1 };
             var group2 = new[] { deposit2 };
