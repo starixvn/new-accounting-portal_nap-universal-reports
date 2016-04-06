@@ -12,10 +12,12 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         {
             return new GridOptions
             {
+                CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
                 Columns = BuildHeader(),
+                GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winLoss.Products),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowFooter = true,
@@ -36,10 +38,29 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Extra PT", Width = 120, Name = "ExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "After Extra PT", Width = 120, Name = "AfterExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
             };
+        }
+
+        private List<GroupHeaderRows> BuildGroupHeaderRows()
+        {
+            var columns = new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "3rd Party Product", Width = 150, Name = "ThirdPartyProduct", MergeRowNumber = 2},
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", MergeRowNumber = 2},
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", MergeRowNumber = 2},
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", MergeRowNumber = 2},
+                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", MergeColNumber = 3},
+                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", MergeRowNumber = 2},
+                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", MergeRowNumber = 2}
+            };
+
+            var groupHeader = new GroupHeaderRows { Columns = columns };
+            return new List<GroupHeaderRows> { groupHeader };
         }
 
         private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
@@ -85,6 +106,8 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                     new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                     new Columns(columnIndex++, "Commission", item.Commission),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                    new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
+                    new Columns(columnIndex++, "AfterExtraPT", item.AfterExtraPT),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                     new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
                };
