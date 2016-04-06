@@ -53,4 +53,10 @@
     <Setting Key="CompanyWinLoss-Cockfighting-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Cockfighting-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Other Sports">
+    <Setting Key="CompanyWinLoss-OtherSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

@@ -175,6 +175,28 @@
                 controller: 'SiteController'
             }]
         },
+        'Other Sports': {
+            templates: [{
+                level: levels.SPORT_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title-for-sport-type.html',
+                controller: 'SportTypeController'
+            },
+            {
+                level: levels.BET_TYPE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController'
+            },
+            {
+                level: levels.DETAIL,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'OtherSportsDetailController'
+            },
+            {
+                level: levels.SITE,
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController'
+            }]
+        },
     };
 
     angular
