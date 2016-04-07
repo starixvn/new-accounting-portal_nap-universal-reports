@@ -49,10 +49,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 1", 100, 110, 10, 500, 600, 100, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 2", 110, 120, 11, 550, 660, 100, 990, 1100),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 1", 100, 110, 10, 500, 600, 100, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 2", 110, 120, 11, 550, 660, 100, 990, 1100)
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 1", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "MatchCode 2", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 1", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "MatchCode 2", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100)
             };
         }
 
@@ -68,11 +68,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
         {
             var expectedMatches = new List<WinLoss>
             {
-                WinLossFactory.CreateWinLoss(0, "MatchCode 1", 100, 110, 10, 500, 600, -100, 900, 1000, 500m / 900, 600m / 1000),
-                WinLossFactory.CreateWinLoss(0, "MatchCode 2", 110, 120, 11, 550, 660, -110, 990, 1100, 550m / 990, 660m / 1100)
+                WinLossFactory.CreateWinLoss(0, "MatchCode 1", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000),
+                WinLossFactory.CreateWinLoss(0, "MatchCode 2", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100)
             };
 
-            var expectedTotal = WinLossFactory.CreateWinLoss(0, "Total", 210, 230, 21, 1050, 1260, -210, 1980, 2100, 1050m / 1980, 1260m / 2100);
+            var expectedTotal = WinLossFactory.CreateWinLoss(0, "Total", 210, 230, 21, 1050, 1260, -210, 100, 100, 1980, 2100, 1050m / 1980, 1260m / 2100);
 
             return new LeagueWinLoss
             {
@@ -84,7 +84,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
 
         private WinLoss CreateExpectedGrandTotal()
         {
-            return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 3780, 4200, 2100m / 3780, 2520m / 4200);
+            return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200);
         }
 
         private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)

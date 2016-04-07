@@ -80,8 +80,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
         private List<RawWinLoss> CreateFakeRawWinLosses()
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 100, 110, 10, 500, 600, 100, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 110, 120, 11, 550, 660, 100, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }

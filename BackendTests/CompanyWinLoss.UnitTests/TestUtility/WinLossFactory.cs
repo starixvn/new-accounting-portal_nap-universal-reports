@@ -14,6 +14,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
            decimal realIncome,
            decimal virtualIncome,
            decimal varianceIncome,
+           decimal extraPT,
+           decimal afterExtraPT,
            decimal realTurnover,
            decimal virtualTurnover)
         {
@@ -28,6 +30,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
                 RealIncome = realIncome,
                 VirtualIncome = virtualIncome,
                 VarianceIncome = varianceIncome,
+                ExtraPT = extraPT,
+                AfterExtraPT = afterExtraPT,
                 RealTurnover = realTurnover,
                 VirtualTurnover = virtualTurnover
             };
@@ -42,6 +46,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
             decimal realIncome,
             decimal virtualIncome,
             decimal varianceIncome,
+            decimal extraPT,
+            decimal afterExtraPT,
             decimal realTurnover,
             decimal virtualTurnover,
             decimal realMargin,
@@ -59,6 +65,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
                 RealTurnover = realTurnover,
                 VirtualTurnover = virtualTurnover,
                 VarianceIncome = varianceIncome,
+                ExtraPT = extraPT,
+                AfterExtraPT = afterExtraPT,
                 RealMargin = realMargin,
                 VirtualMargin = virtualMargin
             };
