@@ -33,6 +33,8 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 VirtualIncome = rawWinLoss.VirtualIncome,
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
                 VarianceIncome = rawWinLoss.VarianceIncome,
+                ExtraPT = rawWinLoss.ExtraPT,
+                AfterExtraPT = rawWinLoss.AfterExtraPT,
                 RealMargin = CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
                 VirtualMargin = CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
             };
@@ -59,6 +61,9 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 MemberWinLoss = winlosses.Sum(r => r.MemberWinLoss),
                 RealIncome = winlosses.Sum(r => r.RealIncome),
                 VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
+                VarianceIncome = winlosses.Sum(r => r.VarianceIncome),
+                ExtraPT = winlosses.Sum(r => r.ExtraPT),
+                AfterExtraPT = winlosses.Sum(r => r.AfterExtraPT),
                 RealTurnover = winlosses.Sum(r => r.RealTurnover),
                 SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
                 VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
