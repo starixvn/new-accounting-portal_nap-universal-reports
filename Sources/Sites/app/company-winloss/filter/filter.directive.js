@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
@@ -11,13 +11,13 @@
             scope: {},
             templateUrl: 'app/company-winloss/filter/filter.directive.html',
             replace: true,
-            controller: ['$scope', 'config', 'companyWinlossService', controller],
+            controller: ['$scope', '$rootScope', 'config', 'companyWinlossService', controller],
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
 
-        function controller($scope, config, companyWinlossService) {
+        function controller($scope, $rootScope, config, companyWinlossService) {
             companyWinlossService.filterModel = this;
             /*jshint validthis: true */
             var vm = this;
@@ -37,10 +37,13 @@
             vm.getDateRange = getDateRange;
             vm.reloadDateRange = reloadDateRange;
             vm.updateDateRange = updateDateRange;
+            $scope.$on('nap-filter-date', function (event, data) {
+                updateDateRange(data);
+            });
 
             function generate() {
                 vm.dateRange = createDateRange();
-                companyWinlossService.generate({});
+                $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
             }
 
             function todayClicked() {
@@ -96,4 +99,4 @@
             }
         }
     }
-})();
+})(angular);

@@ -1,48 +1,44 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('NumberGameSiteController', NumberGameSiteController);
 
-    NumberGameSiteController.$inject = ['$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper', 'numberGameSiteService'];
-    function NumberGameSiteController($compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper, numberGameSiteService) {
+    NumberGameSiteController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function NumberGameSiteController($scope, $element, fanexGridService) {
+        var pane = $scope.pane;
+        pane.getTitle = getTitle;
+        var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        var gridModel = companyWinlossService.gridModel;
         $scope.generate = generate;
-        $scope.show = show;
 
-        function generate() {
-            numberGameSiteService.getData().then(function (data) {
-                renderGrid(data);
-                compileLinks();
-            });
+        function getTitle(isLast) {
+            return pane.data.betTypeName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '" Product Win/Loss Report';
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
+        function generate() {
+            pane.service.getData(pane.data).then(function (data) {
+                renderGrid(data);
+                pane.compileLinks();
+            });
         }
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope, gridModel.isLive),
+                text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
             };
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
-        function compileLinks() {
-            breadcrumbHelper.compile($element);
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
         function exportExcel() {
-            numberGameSiteService.exportExcel();
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
-})();
+})(angular);

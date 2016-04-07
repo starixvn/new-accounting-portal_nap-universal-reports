@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     'use strict';
 
     angular
@@ -6,4 +6,4 @@
             'ngRoute',
             'angularMoment'
         ]);
-})();
+})(angular);

@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
@@ -19,4 +19,4 @@
             }).then(httpResponseService.getDataComplete);
         }
     }
-})();
+})(angular);

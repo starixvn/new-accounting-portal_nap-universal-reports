@@ -5,7 +5,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
-    [RoutePrefix("api/company-win-loss/cock-fighting/match-detail")]
+    [RoutePrefix("api/company-win-loss/cockfighting/match-detail")]
     public class CockfightingMatchDetailController : ApiController
     {
         private readonly Service service;

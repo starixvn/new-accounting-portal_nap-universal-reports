@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = service.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, true);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, "Main", true);
 
                 return Json(gridOptions);
             }

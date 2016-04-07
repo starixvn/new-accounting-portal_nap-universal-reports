@@ -1,12 +1,12 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.core')
-        .factory('logger', logger);
+        .factory('loggerService', loggerService);
 
-    logger.$inject = ['$rootScope'];
-    function logger($rootScope) {
+    loggerService.$inject = ['$rootScope'];
+    function loggerService($rootScope) {
         var service = {
             log: log,
             hide: hide,
@@ -42,4 +42,4 @@
             }
         }
     }
-})();
+})(angular);

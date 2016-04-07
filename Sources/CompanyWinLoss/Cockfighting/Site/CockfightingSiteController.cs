@@ -6,7 +6,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.Site
 {
-    [RoutePrefix("api/company-win-loss/cock-fighting/site")]
+    [RoutePrefix("api/company-win-loss/cockfighting/site")]
     public class CockfightingSiteController : ApiController
     {
         private readonly SiteService winlossService;

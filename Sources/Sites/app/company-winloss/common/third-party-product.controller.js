@@ -1,41 +1,48 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('ThirdPartyProductController', ThirdPartyProductController);
 
-    ThirdPartyProductController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper'];
-    function ThirdPartyProductController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper) {
+    ThirdPartyProductController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function ThirdPartyProductController($scope, $element, fanexGridService) {
+        var pane = $scope.pane;
+        var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        var service = getService();
 
         $scope.generate = generate;
-        $scope.generateBetType = service.generateBetType;
-        $scope.show = show;
+        $scope.generateBetType = generateBetType;
 
-        function getService() {
-            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
-            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
-            var serviceName = camelProductName + 'ThirdPartyProductService';
-            return $injector.get(serviceName);
-        };
+        function generateBetType(thirdPartyProduct, thirdPartyProductName) {
+            var data = {
+                thirdPartyProduct: thirdPartyProduct,
+                thirdPartyProductName: thirdPartyProductName
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('thirdPartyProduct', data);
+        }
 
         function generate() {
-            service.getData().then(function (data) {
-                service.createLinks(data);
+            pane.service.getData(pane.data).then(function (data) {
+                createLinks(data);
                 renderGrid(data);
-                compileLinks();
+                pane.compileLinks();
             });
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var productColumn = data.bodyRows[i].Columns[0];
+                var productId = productColumn.CustomAttr;
+                var productName = productColumn.Value;
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+            }
         }
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 showCollapseExpandButton: true,
                 exportExcelFunction: exportExcel
@@ -43,17 +50,13 @@
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
-        function compileLinks() {
-            breadcrumbHelper.compile($element);
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
         function exportExcel() {
-            service.exportExcel();
+            var title = tab.generateBreadcrumbText();
+            service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
-})();
+})(angular);

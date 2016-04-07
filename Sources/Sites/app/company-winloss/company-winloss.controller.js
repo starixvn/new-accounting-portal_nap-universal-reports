@@ -1,16 +1,13 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('CompanyWinlossController', CompanyWinlossController);
 
-    CompanyWinlossController.$inject = ['$scope', 'levels', 'companyWinlossService'];
-    function CompanyWinlossController($scope, levels, companyWinlossService) {
-        companyWinlossService.scope = $scope;
-        companyWinlossService.gridModel = this;
+    CompanyWinlossController.$inject = [];
+    function CompanyWinlossController() {
         var vm = this;
-        vm.level = levels.PRODUCT;
-        vm.levels = levels;
+        vm.panes = [];
     }
-})();
+})(angular);

@@ -5,40 +5,39 @@
         .module('app.companyWinlossApp')
         .factory('virtualSportsRacingDetailService', virtualSportsRacingDetailService);
 
-    virtualSportsRacingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
-    function virtualSportsRacingDetailService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+    virtualSportsRacingDetailService.$inject = ['$http', 'httpResponseService'];
+    function virtualSportsRacingDetailService($http, httpResponseService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
         };
         return service;
 
-        function getData() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate,
-                sportType: gridModel.sportType,
-                betType: gridModel.betType
+        function getData(data) {
+            var httpData = {
+                startDate: data.startDate,
+                endDate: data.endDate,
+                sportType: data.sportType,
+                betType: data.betType
             };
-            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', data)
+
+            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                title: breadcrumbHelper.generateText(),
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate,
-                sportType: gridModel.sportType,
-                betType: gridModel.betType
+        function exportExcel(title, data, fileName) {
+            var httpData = {
+                title: title,
+                startDate: data.startDate,
+                endDate: data.endDate,
+                sportType: data.sportType,
+                betType: data.betType
             };
 
             return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail/excel', data, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
+                    httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
         }

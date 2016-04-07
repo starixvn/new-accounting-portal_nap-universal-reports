@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
@@ -47,4 +47,4 @@
             return config.legacyPath + url;
         }
     }
-})();
+})(angular);

@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
@@ -36,4 +36,4 @@
             PERCENT_NUMBER: '0%'
         })
         .constant('universalMenus', ['/UniversalReports/CompanyWinLoss']);
-})();
+})(angular);

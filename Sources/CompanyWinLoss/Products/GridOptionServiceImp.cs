@@ -90,6 +90,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var rowCssClass = isSportsbook ? "highlight-product" : string.Empty;
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = rowCssClass;
+            productDataRow.CustomAttr = "product";
             productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right, false));
             productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false));
 

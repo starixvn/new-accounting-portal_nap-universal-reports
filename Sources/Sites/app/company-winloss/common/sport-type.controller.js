@@ -1,41 +1,53 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('SportTypeController', SportTypeController);
 
-    SportTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
-    function SportTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
+    SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
+    function SportTypeController($injector, $scope, $element, fanexGridService) {
+        var pane = $scope.pane;
+        var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        var service = getService();
 
         $scope.generate = generate;
-        $scope.generateBetType = service.generateBetType;
-        $scope.show = show;
+        $scope.generateBetType = generateBetType;
 
-        function getService() {
-            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
-            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
-            var serviceName = camelProductName + 'SportTypeService';
-            return $injector.get(serviceName);
-        };
+        function generateBetType(sportType, sportTypeName) {
+            var data = {
+                sportType: sportType,
+                sportTypeName: sportTypeName
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('sportType', data);
+        }
 
         function generate() {
-            service.getData().then(function (data) {
-                service.createLinks(data);
+            pane.service.getData(pane.data).then(function (data) {
+                createLinks(data);
                 renderGrid(data);
-                compileLinks();
+                pane.compileLinks();
             });
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
+        function exportExcel() {
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
+        }
+
+        function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var sportTypeRow = data.bodyRows[i];
+                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
+                var sportTypeName = sportTypeRow.Columns[0].Value;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
+            }
         }
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
@@ -43,18 +55,8 @@
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
-            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
-
-        function compileLinks() {
-            breadcrumbHelper.compile($element);
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
-        function exportExcel() {
-            service.exportExcel();
-        }
     }
-})();
+})(angular);

@@ -1,12 +1,12 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.core')
-        .factory('fanexGridHelper', fanexGridHelper);
+        .factory('fanexGridService', fanexGridService);
 
-    fanexGridHelper.$inject = [];
-    function fanexGridHelper() {
+    fanexGridService.$inject = [];
+    function fanexGridService() {
         var service = {
             calculateExpandHeight: calculateExpandHeight
         };
@@ -18,4 +18,4 @@
             return gridOffsetTop + bonusSpacing;
         }
     }
-})();
+})(angular);

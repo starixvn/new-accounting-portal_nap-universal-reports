@@ -1,43 +1,69 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('BetTypeController', BetTypeController);
 
-    BetTypeController.$inject = ['$injector', '$compile', '$scope', '$element', 'companyWinlossService', 'breadcrumbHelper', 'fanexGridHelper'];
-    function BetTypeController($injector, $compile, $scope, $element, companyWinlossService, breadcrumbHelper, fanexGridHelper) {
+    BetTypeController.$inject = ['$injector', '$scope', '$element', 'companyWinlossService', 'fanexGridService'];
+    function BetTypeController($injector, $scope, $element, companyWinlossService, fanexGridService) {
+        var pane = $scope.pane;
+        var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        var service = getService();
         $scope.generate = generate;
-        $scope.generateSite = service.generateSite;
-        $scope.generateDetail = service.generateDetail;
-        $scope.show = show;
+        $scope.generateSite = generateSite;
+        $scope.generateMatchDetail = generateMatchDetail;
 
-        function getService() {
-            var productName = companyWinlossService.gridModel.productName.replace(/\s+/g, '');
-            var camelProductName = productName.charAt(0).toLowerCase() + productName.slice(1);
-            var serviceName = camelProductName + 'BetTypeService';
-            return $injector.get(serviceName);
-        };
+        function generateSite(betType, betTypeName, site) {
+            var data = {
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('site', data);
+        }
+
+        function generateMatchDetail(betType, betTypeName) {
+            var data = {
+                betType: betType,
+                betTypeName: betTypeName
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('matchDetail', data);
+        }
 
         function generate() {
-            service.getData().then(function (data) {
-                $scope.data = angular.copy(data);
-                $scope.data.TitleInfoText = breadcrumbHelper.generateText();
-                service.createLinks(data);
+            pane.service.getData(pane.data).then(function (data) {
+                createLinks(data);
                 renderGrid(data);
-                compileLinks();
+                pane.compileLinks();
             });
         }
 
-        function show() {
-            gridElement.fanexGrid('resizeGrid');
+        function createLinks(data) {
+            var betTypeId;
+            var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
+            var hasDetailDrilldown = angular.isDefined(template);
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeName = betTypeRow.Columns[0].Value;
+                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                if (hasDetailDrilldown) {
+                    betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                }
+
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
+            }
         }
 
         function renderGrid(data) {
             var titleInfo = {
-                text: breadcrumbHelper.generateHtml($scope),
+                text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel
@@ -45,18 +71,13 @@
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
-            data.gridExpandHeight = fanexGridHelper.calculateExpandHeight(gridElement, true);
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
-        function compileLinks() {
-            breadcrumbHelper.compile($element);
-            var elements = $element.find('.drill-down');
-            $compile(elements)($scope);
-        }
-
         function exportExcel() {
-            service.exportExcel();
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
-})();
+})(angular);

@@ -1,12 +1,12 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.core')
         .factory('httpResponseService', httpResponseService);
 
-    httpResponseService.$inject = ['logger'];
-    function httpResponseService(logger) {
+    httpResponseService.$inject = ['loggerService'];
+    function httpResponseService(loggerService) {
         var service = {
             getDataComplete: getDataComplete,
             getDataFailed: getDataFailed,
@@ -16,12 +16,12 @@
         return service;
 
         function getDataComplete(response) {
-            logger.hide();
+            loggerService.hide();
             return response.data;
         }
 
         function getDataFailed(error) {
-            logger.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+            loggerService.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
         }
 
         function saveExcelFile(data, fileName) {
@@ -43,4 +43,4 @@
             }
         }
     }
-})();
+})(angular);

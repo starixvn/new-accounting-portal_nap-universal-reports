@@ -6,7 +6,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.BetType
 {
-    [RoutePrefix("api/company-win-loss/cock-fighting/bet-type")]
+    [RoutePrefix("api/company-win-loss/cockfighting/bet-type")]
     public class CockfightingBetTypeController : ApiController
     {
         private readonly BetTypeService winlossService;

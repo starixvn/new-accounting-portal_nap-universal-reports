@@ -1,12 +1,12 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .factory('numberGameBetTypeService', numberGameBetTypeService);
 
-    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
-    function numberGameBetTypeService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+    numberGameBetTypeService.$inject = ['$http', 'httpResponseService'];
+    function numberGameBetTypeService($http, httpResponseService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -14,31 +14,28 @@
 
         return service;
 
-        function getData() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate
+        function getData(data) {
+            var httpData = {
+                startDate: data.startDate,
+                endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/number-game/bet-type', data)
+            return $http.post('/api/company-win-loss/number-game/bet-type', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                liveTitle: breadcrumbHelper.generateText(true),
-                nonLiveTitle: breadcrumbHelper.generateText(false),
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate
+        function exportExcel(liveTitle, nonLiveTitle, data, fileName) {
+            var httpData = {
+                liveTitle: liveTitle,
+                nonLiveTitle: nonLiveTitle,
+                startDate: data.startDate,
+                endDate: data.endDate
             };
-
-            return $http.post('/api/company-win-loss/number-game/bet-type/excel', data, { responseType: "arraybuffer" })
+            return $http.post('/api/company-win-loss/number-game/bet-type/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
+                    httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
         }
     }
-})();
+})(angular);

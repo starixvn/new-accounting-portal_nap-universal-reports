@@ -1,43 +1,39 @@
-﻿(function () {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .factory('productService', productService);
 
-    productService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'breadcrumbHelper'];
-    function productService($http, httpResponseService, companyWinlossService, breadcrumbHelper) {
+    productService.$inject = ['$http', 'httpResponseService'];
+    function productService($http, httpResponseService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
         };
         return service;
 
-        function getData() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate
+        function getData(data) {
+            var httpData = {
+                startDate: data.startDate,
+                endDate: data.endDate
             };
-
-            return $http.post('/api/company-win-loss/product', data)
+            return $http.post('/api/company-win-loss/product', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel() {
-            var gridModel = companyWinlossService.gridModel;
-            var data = {
-                title: breadcrumbHelper.generateText(),
-                startDate: gridModel.startDate,
-                endDate: gridModel.endDate
+        function exportExcel(title, data, fileName) {
+            var httpData = {
+                title: title,
+                startDate: data.startDate,
+                endDate: data.endDate
             };
-
-            return $http.post('/api/company-win-loss/product/excel', data, { responseType: "arraybuffer" })
+            return $http.post('/api/company-win-loss/product/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, companyWinlossService.getExcelFileName());
+                    httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
         }
     }
-})();
+})(angular);
