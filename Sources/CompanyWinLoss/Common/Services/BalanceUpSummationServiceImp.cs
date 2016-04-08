@@ -10,9 +10,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         {
             var allSources = sources.SelectMany(s => s);
             return allSources
-                .GroupBy(l => new { l.GroupId, l.GroupName, l.RowName })
+                .GroupBy(l => new { l.IsLive, l.GroupId, l.GroupName, l.RowName })
                 .Select(g => new RawWinLoss
                 {
+                    IsLive = g.Key.IsLive,
                     GroupId = g.Key.GroupId,
                     GroupName = g.Key.GroupName,
                     RowName = g.Key.RowName,

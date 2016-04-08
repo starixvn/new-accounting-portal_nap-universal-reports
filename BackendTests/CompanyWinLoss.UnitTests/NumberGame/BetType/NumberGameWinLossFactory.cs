@@ -1,10 +1,10 @@
-﻿using UniversalReports.CompanyWinLoss.NumberGame.BetType;
+﻿using CommonModels = UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 {
     internal static class NumberGameWinLossFactory
     {
-        internal static RawWinLoss CreateRawWinLoss(
+        internal static CommonModels.RawWinLoss CreateRawWinLoss(
             int groupId,
            string groupName,
            string site,
@@ -14,10 +14,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
            decimal commission,
            decimal realIncome,
            decimal virtualIncome,
+           decimal varianceIncome,
            decimal realTurnover,
            decimal virtualTurnover)
         {
-            return new RawWinLoss
+            return new CommonModels.RawWinLoss
             {
                 GroupId = groupId,
                 GroupName = groupName,
@@ -28,6 +29,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
                 Commission = commission,
                 RealIncome = realIncome,
                 VirtualIncome = virtualIncome,
+                VarianceIncome = varianceIncome,
                 RealTurnover = realTurnover,
                 VirtualTurnover = virtualTurnover
             };

@@ -250,14 +250,7 @@
     <Compile Include="NumberGame\Site\NumberGameSiteController.cs" />
     <Compile Include="NumberGame\Site\QueryModel.cs" />
     <Compile Include="NumberGame\Site\Criteria.cs" />
-    <Compile Include="NumberGame\BetType\BalanceUpSummationService.cs" />
-    <Compile Include="NumberGame\BetType\BalanceUpSummationServiceImp.cs" />
-    <Compile Include="NumberGame\BetType\CalculationService.cs" />
-    <Compile Include="NumberGame\BetType\CalculationServiceImp.cs" />
     <Compile Include="NumberGame\BetType\Criteria.cs" />
-    <Compile Include="NumberGame\BetType\RawWinLossService.cs" />
-    <Compile Include="NumberGame\BetType\RawWinLossServiceImp.cs" />
-    <Compile Include="NumberGame\BetType\RawWinLoss.cs" />
     <Compile Include="NumberGame\BetType\Service.cs" />
     <Compile Include="NumberGame\BetType\ServiceImp.cs" />
     <Compile Include="NumberGame\BetType\WinLossModel.cs" />

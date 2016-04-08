@@ -63,9 +63,6 @@
     <Compile Include="Common\RawServiceUnitTests.cs" />
     <Compile Include="Common\SiteServiceUnitTests.cs" />
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
-    <Compile Include="NumberGame\BetType\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="NumberGame\BetType\CalculationServiceUnitTests.cs" />
-    <Compile Include="NumberGame\BetType\RawServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\NumberGameWinLossFactory.cs" />

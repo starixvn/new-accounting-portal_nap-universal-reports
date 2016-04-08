@@ -49,10 +49,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Racing.MatchDetail
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "Race 1", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 1", "Race 2", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "Race 1", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "League 2", "Race 2", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100)
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "Race 1", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 1", "Race 2", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "Race 1", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "League 2", "Race 2", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100)
             };
         }
 

@@ -20,8 +20,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             // Arrange   
             var expectedNumberGameBetTypeWinLossSummary = CreateExpectedNumberGameBetTypeWinLossSummary();
             var commonCalculationService = new CommonServices.CalculationServiceImp();
-            var calculationService = new CalculationServiceImp(commonCalculationService);
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var calculationService = new CommonServices.CalculationServiceImp();
+            var rawWinLossService = Substitute.For<CommonServices.RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
@@ -48,23 +48,23 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             };
         }
 
-        private List<RawWinLoss> CreateFakeRawWinLoss()
+        private List<CommonModels.RawWinLoss> CreateFakeRawWinLoss()
         {
             var site1Live = CreateFakeRawBetTypeWinLoss(1, "BetType 1", true);
             var site2Live = CreateFakeRawBetTypeWinLoss(2, "BetType 2", true);
             var site1NoneLive = CreateFakeRawBetTypeWinLoss(1, "BetType 1", false);
             var site2NoneLive = CreateFakeRawBetTypeWinLoss(2, "BetType 2", false);
-            return (new List<List<RawWinLoss>> { site1Live, site2Live, site1NoneLive, site2NoneLive })
+            return (new List<List<CommonModels.RawWinLoss>> { site1Live, site2Live, site1NoneLive, site2NoneLive })
                     .SelectMany(l => l)
                     .ToList();
         }
 
-        private List<RawWinLoss> CreateFakeRawBetTypeWinLoss(int groupId, string groupName, bool isLive)
+        private List<CommonModels.RawWinLoss> CreateFakeRawBetTypeWinLoss(int groupId, string groupName, bool isLive)
         {
-            var creditWinLoss = NumberGameWinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", isLive, 100, 110, 10, 500, 600, 900, 1000);
-            var depositWinLoss = NumberGameWinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", isLive, 110, 120, 11, 550, 660, 990, 1100);
+            var creditWinLoss = NumberGameWinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", isLive, 100, 110, 10, 500, 600, -100, 900, 1000);
+            var depositWinLoss = NumberGameWinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", isLive, 110, 120, 11, 550, 660, -110, 990, 1100);
 
-            return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
+            return new List<CommonModels.RawWinLoss> { creditWinLoss, depositWinLoss };
         }
 
         private List<CommonModels.SiteWinLossSummary> CreateExpectedListOfBetTypeWinLoss()

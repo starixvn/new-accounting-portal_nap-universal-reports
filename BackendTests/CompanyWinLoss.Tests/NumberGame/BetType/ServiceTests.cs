@@ -26,7 +26,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.BetType
         {
             var rawWinLossService = CreateNumberGameRawService();
             var commonCalculationService = new CommonServices.CalculationServiceImp();
-            var calculationService = new CalculationServiceImp(commonCalculationService);
+            var calculationService = new CommonServices.CalculationServiceImp();
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
@@ -41,14 +41,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.BetType
             };
         }
 
-        protected virtual RawWinLossService CreateNumberGameRawService()
+        protected virtual CommonServices.RawWinLossService CreateNumberGameRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new CommonServices.BalanceUpServiceImp(dynamicRepository);
             var balanceUpSourceChooser = new CommonServices.BalanceUpSourceChooserImp(balanceUpService);
 
-            var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var balanceUpSummationService = new CommonServices.BalanceUpSummationServiceImp();
+            return new CommonServices.RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }
