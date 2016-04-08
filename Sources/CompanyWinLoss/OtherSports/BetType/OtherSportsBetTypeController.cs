@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
         private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService winlossService)
+        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService betTypeService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;
@@ -28,6 +28,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
                 var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
                 return Json(gridOptions);
             }
+            return null;
 
             return null;
         }

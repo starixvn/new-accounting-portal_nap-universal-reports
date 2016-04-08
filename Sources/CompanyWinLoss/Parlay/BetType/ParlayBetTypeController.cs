@@ -28,6 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
                 var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
                 return Json(gridOptions);
             }
+            return null;
 
             return null;
         }
