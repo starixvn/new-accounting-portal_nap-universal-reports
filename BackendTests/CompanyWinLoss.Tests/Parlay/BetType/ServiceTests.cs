@@ -1,14 +1,13 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 using UniversalReports.CompanyWinLoss.Parlay.BetType;
-using System;
+using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Parlay.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests: BaseBetTypeServiceTests
+    public class ServiceTests : BaseReportWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

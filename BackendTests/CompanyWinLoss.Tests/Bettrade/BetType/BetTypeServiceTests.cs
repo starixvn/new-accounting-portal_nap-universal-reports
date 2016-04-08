@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Bettrade.BetType;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
@@ -9,8 +8,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class BetTypeServiceTests : BaseServiceTests
-    {        
+    public class ReportWinLossServiceTests : BaseServiceTests
+    {
         [Test]
         public void Query()
         {
@@ -22,11 +21,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
             service.Query(criteria);
         }
 
-        private BetTypeServiceImp CreateService()
+        private ReportWinLossServiceImp CreateService()
         {
             var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new BetTypeServiceImp(rawWinLossService, calculationService);
+            return new ReportWinLossServiceImp(rawWinLossService, calculationService);
         }
 
         protected override WinLossCriteria CreateCriteria()

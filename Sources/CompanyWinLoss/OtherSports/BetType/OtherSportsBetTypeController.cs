@@ -9,13 +9,13 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
     [RoutePrefix("api/company-win-loss/other-sports/bet-type")]
     public class OtherSportsBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, BetTypeService betTypeService)
+        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService winlossService)
         {
             this.gridOptionService = gridOptionService;
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
         }
 
         [Route("")]
@@ -28,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
                 var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
                 return Json(gridOptions);
             }
-            return null;
 
+            return null;
         }
 
         [Route("excel")]
@@ -43,6 +43,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
 
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
+
             return null;
         }
     }

@@ -11,6 +11,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveAndNoneLive
             newCriteria.Update(source);
             return newCriteria;
         }
+
         public override string GetSettingKey()
         {
             return $"CompanyWinLoss-LiveAndNoneLive-SportType-{Source}";

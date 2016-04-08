@@ -4,11 +4,11 @@ using Fanex.NAP.Core.Web.Session;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
+using Cockfighting = UniversalReports.CompanyWinLoss.Cockfighting;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
-using Cockfighting = UniversalReports.CompanyWinLoss.Cockfighting;
 
 namespace UniversalReports.Sites
 {
@@ -37,11 +37,9 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteGridOptionService, CommonServices.SiteGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.BetTypeService, CommonServices.BetTypeServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.ReportWinLossService, CommonServices.ReportWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeGridOptionService, CommonServices.BetTypeGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.SportTypeService, CommonServices.SportTypeServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeGridOptionService, CommonServices.SportTypeGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.ThirdPartyProductService, CommonServices.ThirdPartyProductServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.ThirdPartyProductGridOptionService, CommonServices.ThirdPartyProductGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.BalanceUpSummationService, NumberGame.BetType.BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.CalculationService, NumberGame.BetType.CalculationServiceImp>(Lifestyle.Transient);

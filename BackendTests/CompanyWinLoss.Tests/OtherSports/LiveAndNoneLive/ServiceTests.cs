@@ -1,14 +1,13 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 using UniversalReports.CompanyWinLoss.OtherSports.LiveAndNoneLive;
-using System;
+using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.OtherSports.LiveAndNoneLive
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests: BaseSportTypeServiceTests
+    public class ServiceTests : BaseReportWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

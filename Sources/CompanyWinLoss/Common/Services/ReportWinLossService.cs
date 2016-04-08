@@ -3,8 +3,8 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Common.Services
 {
-    public interface BetTypeService
+    public interface ReportWinLossService
     {
-        BetTypeWinLossModel Query(WinLossCriteria criteria);
+        ReportWinLossModel Query(WinLossCriteria criteria);
     }
 }

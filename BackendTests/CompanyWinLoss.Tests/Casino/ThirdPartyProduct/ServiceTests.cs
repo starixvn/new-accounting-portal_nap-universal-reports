@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Casino.ThirdPartyProduct
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests : BaseThirdPartyProductServiceTests
+    public class ServiceTests : BaseReportWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

@@ -9,12 +9,12 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.BetType
     [RoutePrefix("api/company-win-loss/cockfighting/bet-type")]
     public class CockfightingBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public CockfightingBetTypeController(BetTypeService betTypeService, BetTypeGridOptionService gridOptionService)
+        public CockfightingBetTypeController(ReportWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

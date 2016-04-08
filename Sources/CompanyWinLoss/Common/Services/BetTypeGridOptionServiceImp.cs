@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class BetTypeGridOptionServiceImp : BetTypeGridOptionService
     {
-        public GridOptions FromWinLossModel(BetTypeWinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(ReportWinLossModel winLoss, string title)
         {
             return new GridOptions
             {
@@ -16,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
                 Columns = BuildHeader(),
-                BodyRows = BuildBodyRows(winLoss.BetTypes),
+                BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowFooter = true,
                 ShowTree = true,

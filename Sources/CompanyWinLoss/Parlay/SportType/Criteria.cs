@@ -11,6 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SportType
             newCriteria.Update(source);
             return newCriteria;
         }
+
         public override string GetSettingKey()
         {
             return $"CompanyWinLoss-Parlay-SportType-{Source}";

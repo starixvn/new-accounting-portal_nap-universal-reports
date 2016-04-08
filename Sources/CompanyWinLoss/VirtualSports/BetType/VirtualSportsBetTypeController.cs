@@ -9,15 +9,15 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
     [RoutePrefix("api/company-win-loss/virtual-sports/bet-type")]
     public class VirtualSportsBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
         public VirtualSportsBetTypeController(
             BetTypeGridOptionService gridOptionService,
-            BetTypeService betTypeService)
+            ReportWinLossService winlossService)
         {
             this.gridOptionService = gridOptionService;
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
         }
 
         [Route("")]

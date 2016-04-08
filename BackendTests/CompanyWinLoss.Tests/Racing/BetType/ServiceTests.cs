@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Racing.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests : BaseBetTypeServiceTests
+    public class ServiceTests : BaseReportWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

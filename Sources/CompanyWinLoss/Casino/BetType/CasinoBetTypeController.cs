@@ -9,12 +9,12 @@ namespace UniversalReports.CompanyWinLoss.Casino.BetType
     [RoutePrefix("api/company-win-loss/casino/bet-type")]
     public class CasinoBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public CasinoBetTypeController(BetTypeService betTypeService, BetTypeGridOptionService gridOptionService)
+        public CasinoBetTypeController(ReportWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

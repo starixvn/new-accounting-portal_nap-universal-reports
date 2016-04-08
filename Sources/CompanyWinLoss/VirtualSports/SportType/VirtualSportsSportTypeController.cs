@@ -9,12 +9,12 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
     [RoutePrefix("api/company-win-loss/virtual-sports/sport-type")]
     public class VirtualSportsSportTypeController : ApiController
     {
-        private readonly SportTypeService sportTypeService;
+        private readonly ReportWinLossService winlossService;
         private readonly SportTypeGridOptionService gridOptionService;
 
-        public VirtualSportsSportTypeController(SportTypeService sportTypeService, SportTypeGridOptionService gridOptionService)
+        public VirtualSportsSportTypeController(ReportWinLossService winlossService, SportTypeGridOptionService gridOptionService)
         {
-            this.sportTypeService = sportTypeService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.sportTypeService.Query(criteria);
+                var winlosses = this.winlossService.Query(criteria);
                 var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
 
                 return Json(gridOptions);
@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.sportTypeService.Query(criteria);
+                var winlosses = this.winlossService.Query(criteria);
                 var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }

@@ -3,7 +3,7 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Common
 {
-    public abstract class BaseThirdPartyProductServiceTests : BaseServiceTests
+    public abstract class BaseReportWinLossServiceTests : BaseServiceTests
     {
         [Test]
         public void Query()
@@ -16,11 +16,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
             service.Query(criteria);
         }
 
-        private ThirdPartyProductServiceImp CreateService()
+        private ReportWinLossServiceImp CreateService()
         {
-            var rawService = CreateRawWinLossService();
+            var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ThirdPartyProductServiceImp(rawService, calculationService);
+            return new ReportWinLossServiceImp(rawWinLossService, calculationService);
         }
     }
 }

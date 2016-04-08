@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class ThirdPartyProductGridOptionServiceImp : ThirdPartyProductGridOptionService
     {
-        public GridOptions FromWinLossModel(ThirdPartyProductWinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(ReportWinLossModel winLoss, string title)
         {
             return new GridOptions
             {
@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 TitleInfoText = title,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
-                BodyRows = BuildBodyRows(winLoss.Products),
+                BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowFooter = true,
                 ShowTree = true,
@@ -50,13 +50,13 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         {
             var columns = new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "3rd Party Product", Width = 150, Name = "ThirdPartyProduct", MergeRowNumber = 2},
-                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", MergeRowNumber = 2},
-                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", MergeRowNumber = 2},
-                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", MergeRowNumber = 2},
-                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", MergeColNumber = 3},
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", MergeRowNumber = 2},
-                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", MergeRowNumber = 2}
+                new HeaderColumns { HeaderText = "3rd Party Product", Width = 150, Name = "ThirdPartyProduct", MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", MergeColNumber = 3 },
+                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", MergeRowNumber = 2 }
             };
 
             var groupHeader = new GroupHeaderRows { Columns = columns };

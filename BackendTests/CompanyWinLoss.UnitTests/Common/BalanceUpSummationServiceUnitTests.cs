@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
@@ -17,8 +17,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             // Arrange
             var expectedSum = new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100 ,100 ,100 , 1890, 2100),
-                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 210, 230, 21, 1050, 1260, 100 ,100 ,100, 1890, 2100)
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100, 100, 100, 1890, 2100),
+                WinLossFactory.CreateRawWinLoss(1, "Casino", "Credit", 210, 230, 21, 1050, 1260, 100, 100, 100, 1890, 2100)
             };
 
             var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000);

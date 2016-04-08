@@ -2,9 +2,9 @@
 
 namespace UniversalReports.CompanyWinLoss.Common.Models
 {
-    public class ThirdPartyProductWinLossModel
+    public class ReportWinLossModel
     {
-        public List<SiteWinLossSummary> Products { get; set; }
+        public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
 
         public SiteWinLossSummary GrandTotal { get; set; }
     }

@@ -4,13 +4,13 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Common.Services
 {
-    public class SportTypeServiceImp : SportTypeService
+    public class ReportWinLossServiceImp : ReportWinLossService
     {
         private readonly RawWinLossService rawWinLossService;
 
         private readonly CalculationService calculationService;
 
-        public SportTypeServiceImp(
+        public ReportWinLossServiceImp(
             RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {
@@ -18,16 +18,16 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             this.calculationService = calculationService;
         }
 
-        public SportTypeWinLossModel Query(WinLossCriteria criteria)
+        public ReportWinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var sports = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
 
-            return new SportTypeWinLossModel
+            return new ReportWinLossModel
             {
-                Sports = sports.ToList(),
+                SiteWinLossSummaries = betTypeWinLosses.ToList(),
                 GrandTotal = grandTotal
             };
         }

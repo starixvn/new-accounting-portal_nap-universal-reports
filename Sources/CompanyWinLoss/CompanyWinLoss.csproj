@@ -158,12 +158,11 @@
     <Compile Include="Common\Models\BalanceUpSource.cs" />
     <Compile Include="Common\Models\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
+    <Compile Include="Common\Models\ReportWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\SiteWinLossSummaryByGroup.cs" />
-    <Compile Include="Common\Models\ThirdPartyProductWinLossModel.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
-    <Compile Include="Common\Models\BetTypeWinLossModel.cs" />
     <Compile Include="Common\Services\BalanceUpService.cs" />
     <Compile Include="Common\Services\BalanceUpServiceImp.cs" />
     <Compile Include="Common\Services\BalanceUpSourceChooser.cs" />
@@ -172,14 +171,14 @@
     <Compile Include="Common\Services\BalanceUpSummationServiceImp.cs" />
     <Compile Include="Common\Services\BetTypeGridOptionService.cs" />
     <Compile Include="Common\Services\BetTypeGridOptionServiceImp.cs" />
-    <Compile Include="Common\Services\BetTypeService.cs" />
+    <Compile Include="Common\Services\ReportWinLossService.cs" />
+    <Compile Include="Common\Services\ReportWinLossServiceImp.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
     <Compile Include="Common\Services\CalculationServiceImp.cs" />
     <Compile Include="Common\Services\RawWinLossService.cs" />
     <Compile Include="Common\Services\RawWinLossServiceImp.cs" />
     <Compile Include="Common\Services\RemotingRefService.cs" />
     <Compile Include="Common\Services\RemotingRefServiceImp.cs" />
-    <Compile Include="Common\Services\BetTypeServiceImp.cs" />
     <Compile Include="Common\Services\SiteGridOptionService.cs" />
     <Compile Include="Common\Services\SiteGridOptionServiceImp.cs" />
     <Compile Include="Common\Services\SiteService.cs" />
@@ -188,8 +187,6 @@
     <Compile Include="Common\Services\SportTypeGridOptionServiceImp.cs" />
     <Compile Include="Common\Services\ThirdPartyProductGridOptionService.cs" />
     <Compile Include="Common\Services\ThirdPartyProductGridOptionServiceImp.cs" />
-    <Compile Include="Common\Services\ThirdPartyProductService.cs" />
-    <Compile Include="Common\Services\ThirdPartyProductServiceImp.cs" />
     <Compile Include="OtherSports\BetType\Criteria.cs" />
     <Compile Include="OtherSports\BetType\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\BetType\OtherSportsBetTypeController.cs" />
@@ -336,9 +333,6 @@
     <Compile Include="VirtualSports\SportType\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\SportType\QueryModel.cs" />
     <Compile Include="VirtualSports\SportType\Criteria.cs" />
-    <Compile Include="Common\Services\SportTypeService.cs" />
-    <Compile Include="Common\Services\SportTypeServiceImp.cs" />
-    <Compile Include="Common\Models\SportTypeWinLossModel.cs" />
     <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeController.cs" />
   </ItemGroup>
   <ItemGroup>

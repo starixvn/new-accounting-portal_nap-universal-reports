@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests : BaseSportTypeServiceTests
+    public class ServiceTests : BaseReportWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

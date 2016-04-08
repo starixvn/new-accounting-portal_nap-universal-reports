@@ -9,13 +9,13 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
     [RoutePrefix("api/company-win-loss/parlay/bet-type")]
     public class ParlayBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public ParlayBetTypeController(BetTypeGridOptionService gridOptionService, BetTypeService betTypeService)
+        public ParlayBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService winlossService)
         {
             this.gridOptionService = gridOptionService;
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
         }
 
         [Route("")]
@@ -28,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
                 var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
                 return Json(gridOptions);
             }
-            return null;
 
+            return null;
         }
 
         [Route("excel")]
@@ -43,6 +43,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
 
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
+
             return null;
         }
     }

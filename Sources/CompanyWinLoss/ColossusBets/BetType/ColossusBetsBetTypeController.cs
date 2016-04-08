@@ -9,12 +9,12 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
     [RoutePrefix("api/company-win-loss/colossus-bets/bet-type")]
     public class ColossusBetsBetTypeController : ApiController
     {
-        private readonly BetTypeService winlossService;
+        private readonly ReportWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public ColossusBetsBetTypeController(BetTypeService betTypeService, BetTypeGridOptionService gridOptionService)
+        public ColossusBetsBetTypeController(ReportWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

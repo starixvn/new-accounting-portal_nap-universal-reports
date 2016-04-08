@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
-    public class BetTypeServiceUnitTest
+    public class ReportWinLossServiceUnitTest
     {
         [Test]
         public void Query_ReturnRightBetTypeWinLossSummary()
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new BetTypeServiceImp(rawWinLossService, calculationService);
+            var service = new ReportWinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
@@ -32,14 +32,14 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             Assert.True(equal);
         }
 
-        private BetTypeWinLossModel CreateExpectedBetTypeWinLossSummary()
+        private ReportWinLossModel CreateExpectedBetTypeWinLossSummary()
         {
             var expectedBetTypeWinLosses = CreateExpectedListOfBetTypeWinLoss();
             var expectedGrandTotal = CreateExpectedGrandTotal();
 
-            return new BetTypeWinLossModel
+            return new ReportWinLossModel
             {
-                BetTypes = expectedBetTypeWinLosses,
+                SiteWinLossSummaries = expectedBetTypeWinLosses,
                 GrandTotal = expectedGrandTotal
             };
         }
@@ -88,9 +88,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             };
         }
 
-        private bool AreTwoBetTypeWinLossSummaryEqual(BetTypeWinLossModel first, BetTypeWinLossModel second)
+        private bool AreTwoBetTypeWinLossSummaryEqual(ReportWinLossModel first, ReportWinLossModel second)
         {
-            return WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.BetTypes, second.BetTypes)
+            return WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
                 && WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.GrandTotal, second.GrandTotal);
         }
     }

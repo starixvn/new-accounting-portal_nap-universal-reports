@@ -15,9 +15,9 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
         private readonly Service winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public NumberGameBetTypeController(Service betTypeService, BetTypeGridOptionService gridOptionService)
+        public NumberGameBetTypeController(Service winlossService, BetTypeGridOptionService gridOptionService)
         {
-            this.winlossService = betTypeService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 
@@ -28,16 +28,16 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var liveBetTypeWinLoss = new BetTypeWinLossModel
+                var liveBetTypeWinLoss = new ReportWinLossModel
                 {
-                    BetTypes = winlosses.Live,
+                    SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
                 var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, string.Empty);
 
-                var nonLiveBetTypeWinLoss = new BetTypeWinLossModel
+                var nonLiveBetTypeWinLoss = new ReportWinLossModel
                 {
-                    BetTypes = winlosses.NonLive,
+                    SiteWinLossSummaries = winlosses.NonLive,
                     GrandTotal = winlosses.NonLiveGrandTotal
                 };
 
@@ -56,16 +56,16 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var liveBetTypeWinLoss = new BetTypeWinLossModel
+                var liveBetTypeWinLoss = new ReportWinLossModel
                 {
-                    BetTypes = winlosses.Live,
+                    SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
                 var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.LiveTitle);
 
-                var nonLiveBetTypeWinLoss = new BetTypeWinLossModel
+                var nonLiveBetTypeWinLoss = new ReportWinLossModel
                 {
-                    BetTypes = winlosses.NonLive,
+                    SiteWinLossSummaries = winlosses.NonLive,
                     GrandTotal = winlosses.NonLiveGrandTotal
                 };
 
