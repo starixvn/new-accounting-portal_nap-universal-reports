@@ -88,9 +88,13 @@
   <Function Name="Other Sports">
     <Setting Key="CompanyWinLoss-OtherSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-OtherSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-LiveAndNoneLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveAndNoneLive" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-LiveAndNoneLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveAndNoneLive_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-OtherSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-OtherSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-OtherSports-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-OtherSports-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-OtherSports-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
 </Functions>
