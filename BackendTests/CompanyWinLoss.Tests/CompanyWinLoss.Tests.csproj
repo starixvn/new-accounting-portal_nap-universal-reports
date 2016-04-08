@@ -116,6 +116,7 @@
     <Compile Include="OtherSports\SportType\ServiceTests.cs" />
     <Compile Include="Parlay\BetType\ServiceTests.cs" />
     <Compile Include="Parlay\Site\ServiceTests.cs" />
+    <Compile Include="Parlay\SportType\ServiceTests.cs" />
     <Compile Include="Products\ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\BetType\ServiceTests.cs" />

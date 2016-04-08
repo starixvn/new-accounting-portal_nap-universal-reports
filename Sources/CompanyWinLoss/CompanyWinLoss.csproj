@@ -214,6 +214,10 @@
     <Compile Include="Parlay\Site\ExcelQueryModel.cs" />
     <Compile Include="Parlay\Site\ParlaySiteController.cs" />
     <Compile Include="Parlay\Site\QueryModel.cs" />
+    <Compile Include="Parlay\SportType\Criteria.cs" />
+    <Compile Include="Parlay\SportType\ExcelQueryModel.cs" />
+    <Compile Include="Parlay\SportType\ParlaySportTypeController.cs" />
+    <Compile Include="Parlay\SportType\QueryModel.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Keno\BetType\ExcelQueryModel.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
@@ -353,6 +357,7 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MetricGamingSuperlive\MatchDetail\" />
     <Folder Include="OtherSports\MatchDetail\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
