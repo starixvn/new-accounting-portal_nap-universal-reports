@@ -110,6 +110,12 @@
     <Compile Include="NumberGame\BetType\ServiceTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceTests.cs" />
     <Compile Include="NumberGame\Site\ServiceTests.cs" />
+    <Compile Include="OtherSports\BetType\ServiceTests.cs" />
+    <Compile Include="OtherSports\LiveAndNoneLive\ServiceTests.cs" />
+    <Compile Include="OtherSports\Site\ServiceTests.cs" />
+    <Compile Include="OtherSports\SportType\ServiceTests.cs" />
+    <Compile Include="Parlay\BetType\ServiceTests.cs" />
+    <Compile Include="Parlay\Site\ServiceTests.cs" />
     <Compile Include="Products\ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\BetType\ServiceTests.cs" />
@@ -142,6 +148,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="OtherSports\MatchDetail\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>

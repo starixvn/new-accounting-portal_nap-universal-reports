@@ -1,7 +1,7 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site
+namespace UniversalReports.CompanyWinLoss.OtherSports.Site
 {
     public class Criteria : WinLossCriteria
     {
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-LiveAndNoneLive-Site-{Source}";
+            return $"CompanyWinLoss-OtherSports-Site-{Source}";
         }
     }
 }

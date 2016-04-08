@@ -4,15 +4,15 @@ using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
-namespace UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site
+namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
-    [RoutePrefix("api/company-win-loss/racing/site")]
-    public class LiveAndNoneLiveSiteController : ApiController
+    [RoutePrefix("api/company-win-loss/parlay/site")]
+    public class ParlaySiteController : ApiController
     {
         private readonly SiteService winlossService;
         private readonly SiteGridOptionService gridOptionService;
 
-        public LiveAndNoneLiveSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        public ParlaySiteController(SiteService siteService, SiteGridOptionService gridOptionService)
         {
             this.winlossService = siteService;
             this.gridOptionService = gridOptionService;

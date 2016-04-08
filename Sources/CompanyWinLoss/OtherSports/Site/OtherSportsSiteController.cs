@@ -1,0 +1,50 @@
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.MVC.Results;
+
+namespace UniversalReports.CompanyWinLoss.OtherSports.Site
+{
+    [RoutePrefix("api/company-win-loss/other-sports/site")]
+    public class OtherSportsSiteController : ApiController
+    {
+        private readonly SiteService winlossService;
+        private readonly SiteGridOptionService gridOptionService;
+
+        public OtherSportsSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        {
+            this.winlossService = siteService;
+            this.gridOptionService = gridOptionService;
+        }
+
+        [Route("")]
+        public IHttpActionResult Site(QueryModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
+
+                return Json(gridOptions);
+            }
+
+            return null;
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.Title);
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
+            }
+
+            return null;
+        }
+    }
+}

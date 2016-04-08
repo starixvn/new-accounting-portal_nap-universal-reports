@@ -1,7 +1,7 @@
 ﻿using System;
 using UniversalReports.MVC.Validation;
 
-namespace UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site
+namespace UniversalReports.CompanyWinLoss.OtherSports.Site
 {
     public class QueryModel
     {

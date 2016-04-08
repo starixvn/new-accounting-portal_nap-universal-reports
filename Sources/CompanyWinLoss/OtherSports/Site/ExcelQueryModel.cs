@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site
+namespace UniversalReports.CompanyWinLoss.OtherSports.Site
 {
     public class ExcelQueryModel : QueryModel
     {

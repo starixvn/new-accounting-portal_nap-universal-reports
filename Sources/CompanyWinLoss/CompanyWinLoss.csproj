@@ -190,6 +190,30 @@
     <Compile Include="Common\Services\ThirdPartyProductGridOptionServiceImp.cs" />
     <Compile Include="Common\Services\ThirdPartyProductService.cs" />
     <Compile Include="Common\Services\ThirdPartyProductServiceImp.cs" />
+    <Compile Include="OtherSports\BetType\Criteria.cs" />
+    <Compile Include="OtherSports\BetType\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\BetType\OtherSportsBetTypeController.cs" />
+    <Compile Include="OtherSports\BetType\QueryModel.cs" />
+    <Compile Include="OtherSports\LiveAndNoneLive\Criteria.cs" />
+    <Compile Include="OtherSports\LiveAndNoneLive\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\LiveAndNoneLive\OtherSportsLiveAndNoneLiveController.cs" />
+    <Compile Include="OtherSports\LiveAndNoneLive\QueryModel.cs" />
+    <Compile Include="OtherSports\Site\Criteria.cs" />
+    <Compile Include="OtherSports\Site\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\Site\QueryModel.cs" />
+    <Compile Include="OtherSports\Site\OtherSportsSiteController.cs" />
+    <Compile Include="OtherSports\SportType\Criteria.cs" />
+    <Compile Include="OtherSports\SportType\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\SportType\OtherSportsSportTypeController.cs" />
+    <Compile Include="OtherSports\SportType\QueryModel.cs" />
+    <Compile Include="Parlay\BetType\Criteria.cs" />
+    <Compile Include="Parlay\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Parlay\BetType\ParlayBetTypeController.cs" />
+    <Compile Include="Parlay\BetType\QueryModel.cs" />
+    <Compile Include="Parlay\Site\Criteria.cs" />
+    <Compile Include="Parlay\Site\ExcelQueryModel.cs" />
+    <Compile Include="Parlay\Site\ParlaySiteController.cs" />
+    <Compile Include="Parlay\Site\QueryModel.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Keno\BetType\ExcelQueryModel.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
@@ -328,7 +352,9 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="OtherSports\MatchDetail\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

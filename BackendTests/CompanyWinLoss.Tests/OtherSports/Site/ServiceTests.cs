@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.LiveAndNoneLive.Site;
+using UniversalReports.CompanyWinLoss.OtherSports.Site;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
-namespace UniversalReports.CompanyWinLoss.Tests.LiveAndNoneLive.Site
+namespace UniversalReports.CompanyWinLoss.Tests.OtherSports.Site
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]

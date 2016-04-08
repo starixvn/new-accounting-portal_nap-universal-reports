@@ -97,4 +97,10 @@
     <Setting Key="CompanyWinLoss-OtherSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-OtherSports-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Parlay">
+    <Setting Key="CompanyWinLoss-Parlay-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Parlay-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Parlay_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Parlay-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Parlay-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
 </Functions>
