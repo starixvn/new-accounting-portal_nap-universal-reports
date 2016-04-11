@@ -188,10 +188,6 @@
     <Compile Include="OtherSports\LiveAndNoneLive\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\LiveAndNoneLive\OtherSportsLiveAndNoneLiveController.cs" />
     <Compile Include="OtherSports\LiveAndNoneLive\QueryModel.cs" />
-    <Compile Include="OtherSports\Site\Criteria.cs" />
-    <Compile Include="OtherSports\Site\ExcelQueryModel.cs" />
-    <Compile Include="OtherSports\Site\QueryModel.cs" />
-    <Compile Include="OtherSports\Site\OtherSportsSiteController.cs" />
     <Compile Include="OtherSports\SportType\Criteria.cs" />
     <Compile Include="OtherSports\SportType\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\SportType\OtherSportsSportTypeController.cs" />
@@ -352,7 +348,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MetricGamingSuperlive\MatchDetail\" />
-    <Folder Include="OtherSports\MatchDetail\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
