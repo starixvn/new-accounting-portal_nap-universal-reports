@@ -4,7 +4,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class SportsbookConstants
     {
-        public List<string> stringName = new List<string>
+        public List<string> listName = new List<string>
         {
             "Soccer",
             "Metric Gaming - Superlive",
@@ -14,6 +14,13 @@ namespace UniversalReports.CompanyWinLoss.Products
             "Sportsbook Live Total",
             "Sportsbook Non-Live Total",
             "RM"
+        };
+
+        public List<string> listExclude = new List<string>
+        {
+            "Sportsbook Total",
+            "Sportsbook Live Total",
+            "Sportsbook Non-Live Total",
         };
     }
 }

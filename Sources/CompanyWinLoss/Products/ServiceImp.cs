@@ -24,21 +24,20 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
             var listSportsbook = new SportsbookConstants();
-            var rawSportsbookProducts = rawWinLosses.Where(r => listSportsbook.stringName.Contains(r.GroupName));
+             
+            var rawSportsbookProducts = rawWinLosses.Where(r => listSportsbook.listName.Contains(r.GroupName));
 
             var rawNonSportsbookProducts = (from r in rawWinLosses
-                                            where !listSportsbook.stringName.Contains(r.GroupName)
+                                            where !listSportsbook.listName.Contains(r.GroupName)
                                             select r).ToList();
-
-            var sportsbookProducts = GetSportsbookProducts(rawSportsbookProducts);
-            var nonSportsbookProducts = GetNoneSportbookProducts(rawNonSportsbookProducts);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
-
+            var rawSportsGrandTotal = (from r in rawWinLosses
+                                       where !listSportsbook.listExclude.Contains(r.GroupName)
+                                       select r).ToList();
             return new ProductWinLoss
             {
-                GrandTotal = grandTotal,
-                NoneSportsbookProducts = nonSportsbookProducts,
-                SportsbookProducts = sportsbookProducts
+                GrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawSportsGrandTotal),
+                NoneSportsbookProducts = GetNoneSportbookProducts(rawNonSportsbookProducts),
+                SportsbookProducts = GetSportsbookProducts(rawSportsbookProducts)
             };
         }
 
