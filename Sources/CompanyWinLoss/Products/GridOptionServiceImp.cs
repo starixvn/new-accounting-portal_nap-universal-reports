@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 TitleInfoText = title,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
-               // BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
+                BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
@@ -67,22 +67,38 @@ namespace UniversalReports.CompanyWinLoss.Products
             return new List<GroupHeaderRows> { groupHeader };
         }
 
-        private List<GridDataRow> BuildBodyRows(IList<WinLoss> sportsbookDetail, IList<SiteWinLossSummary> products)
+        private List<GridDataRow> BuildBodyRows(ProductWinLoss productWinLoss)
         {
             var bodyRows = new List<GridDataRow>();
-            foreach (var winLoss in sportsbookDetail)
-            {
-                bodyRows.Add(BuildDataRow(winLoss, HAlignment.Left, false));
-            }
-
-            foreach (var product in products)
+            foreach (var product in productWinLoss.SportsbookProducts.Products)
             {
                 bodyRows.Add(BuildProduct(product));
             }
 
+            foreach (var product in productWinLoss.SportsbookProducts.RM)
+            {
+                bodyRows.Add(BuildProductRM(product));
+            }
+
+            foreach (var product in productWinLoss.NoneSportsbookProducts.Products)
+            {
+                bodyRows.Add(BuildProduct(product));
+            }
+
+            bodyRows.Add(BuildProduct(productWinLoss.NoneSportsbookProducts.Total));
+
             return bodyRows;
         }
 
+        private GridDataRow BuildProductRM(WinLoss winLossRM)
+        {
+            var productName = winLossRM.Name;
+            var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
+            productDataRow.CssClass = string.Empty;
+            productDataRow.CustomAttr = "product";
+
+            return productDataRow;
+        }
         private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
         {
             var productName = productWinLoss.Total.Name;
