@@ -73,7 +73,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                 return new MatchDetailWinLoss();
             }
 
-            var rawSumWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
+            rawWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
             var sumWinLoss = new MatchDetailRawWinLoss
             {
                 AwayId = 0,

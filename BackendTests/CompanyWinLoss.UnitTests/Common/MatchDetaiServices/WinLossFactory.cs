@@ -75,8 +75,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             var match2 = CreateRawWinLoss(2, 2, 1, 200, 20, 400, 800);
             var match3 = CreateRawWinLoss(3, 3, 1, 300, 30, 600, 1200);
             var match4 = CreateRawWinLoss(4, 4, 1, 400, 40, 800, 1600);
+            var matchRM = CreateRawWinLoss(0, 0, 0, 100, 10, 200, 400);
 
-            return new List<MatchDetailRawWinLoss> { match1, match2, match3, match4 };
+            return new List<MatchDetailRawWinLoss> { match1, match2, match3, match4, matchRM };
         }
     }
 }
