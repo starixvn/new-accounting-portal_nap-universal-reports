@@ -10,7 +10,6 @@
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
@@ -20,7 +19,7 @@
                 sportTypeName: sportTypeName
             };
             angular.extend(data, pane.data);
-            tab.goForward('sportType', data);
+            tab.goForward('betType', data);
         }
 
         function generate() {

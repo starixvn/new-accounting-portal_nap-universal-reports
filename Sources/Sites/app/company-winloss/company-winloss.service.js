@@ -13,6 +13,14 @@
         return service;
 
         function getTemplate(data, type) {
+            if (type === 'product') {
+                return {
+                    templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                    controller: 'ProductController',
+                    service: 'productService'
+                };
+            }
+
             var productSetting = templateSetting[data.productName];
             if (angular.isUndefined(productSetting)) {
                 return undefined;

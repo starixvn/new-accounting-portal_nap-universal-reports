@@ -8,11 +8,16 @@
     ThirdPartyProductController.$inject = ['$scope', '$element', 'fanexGridService'];
     function ThirdPartyProductController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
+        pane.getTitle = getTitle;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
+
+        function getTitle(isLast) {
+            var previousPane = tab.getPreviousPane(pane);
+            return data.thirdPartyProductName + (isLast ? ' Product Win/Loss Report' : '');
+        }
 
         function generateBetType(thirdPartyProduct, thirdPartyProductName) {
             var data = {

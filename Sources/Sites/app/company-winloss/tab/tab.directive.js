@@ -27,7 +27,7 @@
 
         $scope.$on('nap-filter-generate', function (event, data) {
             if (tab.panes.length === 0) {
-                var mainPane = new Pane('main', data);
+                var mainPane = new Pane('product', data);
                 tab.addPane(mainPane);
             } else {
                 var activePane = tab.getActivePane();
@@ -40,6 +40,7 @@
             this.panes = angular.isDefined(panes) ? panes : [];
             this.addPane = addPane;
             this.getActivePane = getActivePane;
+            this.getPreviousPane = getPreviousPane;
             this.goBack = goBack;
             this.goForward = goForward;
             this.generateBreadcrumbList = generateBreadcrumbList;
@@ -52,6 +53,20 @@
 
             function getActivePane() {
                 return this.panes[this.panes.length - 1];
+            }
+
+            function getPreviousPane(pane) {
+                var previousPane = null;
+                for (var i = 0; i < this.panes.length; i++) {
+                    var currentPane = this.panes[i];
+                    if (currentPane === pane) {
+                        break;
+                    }
+
+                    previousPane = currentPane;
+                }
+
+                return previousPane;
             }
 
             function goBack(index) {
@@ -108,16 +123,10 @@
                 return;
             }
 
-            if (level === 'main') {
-                this.templateUrl = 'app/company-winloss/shared/fanex-grid-with-title.html';
-                this.controller = 'ProductController';
-                this.service = $injector.get('productService');
-            } else {
-                var template = companyWinlossService.getTemplate(data, level);
-                this.templateUrl = template.templateUrl;
-                this.controller = template.controller;
-                this.service = $injector.get(template.service);
-            }
+            var template = companyWinlossService.getTemplate(data, level);
+            this.templateUrl = template.templateUrl;
+            this.controller = template.controller;
+            this.service = $injector.get(template.service);
 
             function generate() {
                 this.$scope.generate();
@@ -129,11 +138,13 @@
             }
 
             function getTitle(isLast) {
-                var data = this.data;
-                switch (this.level) {
-                    case 'main':
-                        return isLast ? 'Product Win/Loss Report' : 'Main';
+                var previousPane = tab.getPreviousPane(this);
+                if (previousPane === null) {
+                    return isLast ? 'Product Win/Loss Report' : 'Main';
+                }
 
+                var data = this.data;
+                switch (previousPane.level) {
                     case 'product':
                         return data.productName + (isLast ? ' Product Win/Loss Report' : '');
 
@@ -143,11 +154,13 @@
                     case 'sportType':
                         return data.sportTypeName + (isLast ? ' Product Win/Loss Report' : '');
 
-                    case 'matchDetail':
-                        return data.betTypeName + (isLast ? ' Product Win/Loss Report' : '');
-
-                    case 'site':
-                        return data.betTypeName + ' | Product Win/Loss By ' + data.site + ' Site';
+                    case 'betType':
+                        if (this.level === 'site') {
+                            return data.betTypeName + ' | Product Win/Loss By ' + data.site + ' Site';
+                        }
+                        else {
+                            return data.betTypeName + (isLast ? ' Product Win/Loss Report' : '');
+                        }
                 }
             }
 

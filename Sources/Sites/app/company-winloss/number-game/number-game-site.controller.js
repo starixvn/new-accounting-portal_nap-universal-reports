@@ -14,7 +14,7 @@
         $scope.generate = generate;
 
         function getTitle(isLast) {
-            return pane.data.betTypeName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '" Product Win/Loss Report';
+            return pane.data.betTypeName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + ' | Product Win/Loss By ' + pane.data.site + ' Site';
         }
 
         function generate() {

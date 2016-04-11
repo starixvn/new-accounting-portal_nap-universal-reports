@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$element', '$scope', 'fanexGridService'];
-    function ProductController($element, $scope, fanexGridService) {
+    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting'];
+    function ProductController($element, $scope, fanexGridService, templateSetting) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -18,7 +18,8 @@
                 productName: productName
             };
             angular.extend(data, pane.data);
-            tab.goForward('product', data);
+            var level = templateSetting[productName]['product'];
+            tab.goForward(level, data);
         };
 
         function generate() {
