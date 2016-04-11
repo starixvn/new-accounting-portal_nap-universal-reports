@@ -1,0 +1,26 @@
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorAndMinorSportTypes
+{
+    using UniversalReports.CompanyWinLoss.Common.Criteria;
+    using UniversalReports.CompanyWinLoss.Common.Models;
+
+    public class Criteria : WinLossCriteria
+    {
+        public int IsLive { get; set; }
+
+        public override WinLossCriteria Clone(BalanceUpSource source)
+        {
+            var newCriteria = new Criteria
+            {
+                IsLive = IsLive
+            };
+            newCriteria.Update(source);
+
+            return newCriteria;
+        }
+
+        public override string GetSettingKey()
+        {
+            return $"CompanyWinLoss-Soccer-MajorAndMinorSportTypes";
+        }
+    }
+}
