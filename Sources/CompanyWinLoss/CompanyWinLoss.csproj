@@ -287,6 +287,8 @@
     <Compile Include="Sportsbook\Site\Criteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
+    <Compile Include="Sportsbook\Site\GridOptionService.cs" />
+    <Compile Include="Sportsbook\Site\GridOptionServiceImp.cs" />
     <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />
     <Compile Include="Sportsbook\MatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\MatchDetail\ExcelQueryModel.cs" />

@@ -11,9 +11,9 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
     {
         private readonly SiteService winlossService;
 
-        private readonly SiteGridOptionService gridOptionService;
+        private readonly GridOptionService gridOptionService;
 
-        public SportsbookSiteController(SiteService winlossService, SiteGridOptionService gridOptionService)
+        public SportsbookSiteController(SiteService winlossService, GridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

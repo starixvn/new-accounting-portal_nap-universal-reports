@@ -9,6 +9,7 @@ using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using MatchDetailServices = UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
+using Sportsbook = UniversalReports.CompanyWinLoss.Sportsbook;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
 
 namespace UniversalReports.Sites
@@ -58,6 +59,8 @@ namespace UniversalReports.Sites
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.GridOptionService, Racing.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
             container.Register<Cockfighting.MatchDetail.GridOptionService, Cockfighting.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<Sportsbook.MatchDetail.GridOptionService, Sportsbook.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<Sportsbook.Site.GridOptionService, Sportsbook.Site.GridOptionServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

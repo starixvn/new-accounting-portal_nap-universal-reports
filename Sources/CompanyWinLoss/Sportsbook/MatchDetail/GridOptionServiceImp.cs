@@ -49,7 +49,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
         {
             var columns = new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Code", Name = "FightNo", Width = 100, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Code", Name = "MatchCode", Width = 100, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 260, MergeColNumber = 3, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120, MergeRowNumber = 2 },
@@ -68,18 +68,18 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
             List<List<GridDataRow>> gridDataRows = new List<List<GridDataRow>>();
             foreach (var arena in arenaWinLoss)
             {
-                var arenaRows = BuildArenaDataRows(arena);
+                var arenaRows = BuildLeagueDataRows(arena);
                 gridDataRows.Add(arenaRows);
             }
 
             return gridDataRows.SelectMany(x => x).ToList();
         }
 
-        private List<GridDataRow> BuildArenaDataRows(LeagueWinLoss arena)
+        private List<GridDataRow> BuildLeagueDataRows(LeagueWinLoss arena)
         {
             List<GridDataRow> dataRows = new List<GridDataRow>();
 
-            var arenaNameRow = BuildArenaNameRow(arena.LeagueName);
+            var arenaNameRow = BuildLeagueNameRow(arena.LeagueName);
             dataRows.Add(arenaNameRow);
 
             foreach (var item in arena.Matches)
@@ -90,7 +90,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
             if (arena.Matches.Count > 1)
             {
-                var arenaTotalRow = BuildArenalTotalRow(arena.Total);
+                var arenaTotalRow = BuildLeagueTotalRow(arena.Total);
                 dataRows.Add(arenaTotalRow);
             }
 
@@ -102,7 +102,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns(columnIndex++, "FightNo", item.MatchCode),
+                    new Columns(columnIndex++, "MatchCode", item.MatchCode),
                     new Columns(columnIndex++, "Home", item.HomeName),
                     new Columns(columnIndex++, "VS", "-vs-"),
                     new Columns(columnIndex++, "Away", item.AwayName),
@@ -117,25 +117,25 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
             return new GridDataRow { Columns = colummns };
         }
 
-        private GridDataRow BuildArenaNameRow(string arenaName)
+        private GridDataRow BuildLeagueNameRow(string arenaName)
         {
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = columnIndex++, Name = "FightNo", Value = string.Empty },
+                    new Columns { ColumnIndex = columnIndex++, Name = "MatchCode", Value = string.Empty },
                     new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = arenaName, MergeColNumber = 9, Bold = true }
                };
 
             return new GridDataRow { Columns = colummns };
         }
 
-        private GridDataRow BuildArenalTotalRow(MatchDetailWinLoss total)
+        private GridDataRow BuildLeagueTotalRow(MatchDetailWinLoss total)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = startColumnIndex, Name = "FightNo", Value = string.Empty, MergeColNumber = 4 },
+                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = string.Empty, MergeColNumber = 4 },
                     new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
                     new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
                     new Columns(columnIndex++, "Commission", total.Commission),
@@ -153,7 +153,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
             int columnIndex = 4;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = startColumnIndex, Name = "FightNo", Value = "Cockfighting Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
                     new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
                     new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
                     new Columns(columnIndex++, "Commission", total.Commission),
