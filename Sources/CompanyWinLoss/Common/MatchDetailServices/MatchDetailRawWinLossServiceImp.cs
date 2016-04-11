@@ -16,7 +16,10 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
         private readonly BalanceUpSourceChooser balanceUpSourceChooser;
 
-        public MatchDetailRawWinLossServiceImp(IDynamicRepository repository, MatchDetailBalanceUpSummationService balanceUpSummationService, BalanceUpSourceChooser balanceUpSourceChooser)
+        public MatchDetailRawWinLossServiceImp(
+            IDynamicRepository repository,
+            MatchDetailBalanceUpSummationService balanceUpSummationService,
+            BalanceUpSourceChooser balanceUpSourceChooser)
         {
             this.repository = repository;
             this.balanceUpSummationService = balanceUpSummationService;

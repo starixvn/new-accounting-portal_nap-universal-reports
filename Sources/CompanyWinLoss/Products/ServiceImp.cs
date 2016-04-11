@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
             var listSportsbook = new SportsbookConstants();
-             
+
             var rawSportsbookProducts = rawWinLosses.Where(r => listSportsbook.listName.Contains(r.GroupName));
 
             var rawNonSportsbookProducts = (from r in rawWinLosses
@@ -58,9 +58,10 @@ namespace UniversalReports.CompanyWinLoss.Products
             return new NoneSportsbookWinloss
             {
                 Products = calculationService.CalculateSiteWinLossSummary(rawWinLosses).ToList(),
-                Total = calculationService.CalculateSumWinLossSummary("Non-Sports Total",rawWinLosses)
+                Total = calculationService.CalculateSumWinLossSummary("Non-Sports Total", rawWinLosses)
             };
         }
+
         public virtual List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses)
         {
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();

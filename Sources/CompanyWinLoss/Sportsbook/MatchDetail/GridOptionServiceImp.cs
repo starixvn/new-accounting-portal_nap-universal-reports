@@ -20,7 +20,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winloss.Leagues),
-                FooterRows = BuildFooter(winloss.Total),
+                FooterRows = BuildFooter(winloss),
                 ShowFooter = true
             };
         }
@@ -111,7 +111,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
                     new Columns(columnIndex++, "Commission", item.Commission),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.Margin)
+                    new Columns(columnIndex++, "Margin", item.RealMargin)
                };
 
             return new GridDataRow { Columns = colummns };
@@ -141,13 +141,24 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
                     new Columns(columnIndex++, "Commission", total.Commission),
                     new Columns(columnIndex++, "RealIncome", total.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.Margin)
+                    new Columns(columnIndex++, "Margin", total.RealMargin)
                };
 
             return new GridDataRow { Columns = colummns };
         }
 
-        private List<GridDataRow> BuildFooter(MatchDetailWinLoss total)
+        private List<GridDataRow> BuildFooter(WinLossModel model)
+        {
+            var totalRow = BuildTotal(model.Total);
+            var allRMRows = BuildRM(model.RM);
+
+            var result = new List<GridDataRow> { totalRow };
+            result.AddRange(allRMRows);
+
+            return result;
+        }
+
+        private GridDataRow BuildTotal(MatchDetailWinLoss total)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
@@ -159,11 +170,31 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
                     new Columns(columnIndex++, "Commission", total.Commission),
                     new Columns(columnIndex++, "RealIncome", total.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.Margin)
+                    new Columns(columnIndex++, "Margin", total.RealMargin)
                };
 
-            var row = new GridDataRow { Columns = colummns };
-            return new List<GridDataRow> { row };
+            return new GridDataRow { Columns = colummns };
+        }
+
+        private IEnumerable<GridDataRow> BuildRM(List<MatchDetailWinLoss> rm)
+        {
+            foreach (var total in rm)
+            {
+                int startColumnIndex = 0;
+                int columnIndex = 4;
+                var colummns = new List<Columns>
+               {
+                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
+                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
+                    new Columns(columnIndex++, "Commission", total.Commission),
+                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
+                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
+                    new Columns(columnIndex++, "Margin", total.RealMargin)
+               };
+
+                yield return new GridDataRow { Columns = colummns };
+            }
         }
     }
 }

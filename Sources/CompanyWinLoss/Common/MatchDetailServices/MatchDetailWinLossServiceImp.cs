@@ -20,11 +20,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             var rawWinLoss = rawWinLossService.Query(criteria);
             var leagues = calculationService.CalculateLeagues(rawWinLoss).ToList();
             var total = calculationService.CalculateSumWinLoss(rawWinLoss);
+            var rm = calculationService.CalculateRM(rawWinLoss).ToList();
 
             return new WinLossModel
             {
                 Leagues = leagues,
-                Total = total
+                Total = total,
+                RM = rm
             };
         }
     }

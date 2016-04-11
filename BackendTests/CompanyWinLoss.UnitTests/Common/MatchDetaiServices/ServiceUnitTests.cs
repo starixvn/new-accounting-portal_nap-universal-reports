@@ -50,21 +50,29 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             {
                 LeagueName = string.Empty,
                 Matches = matches,
-                Total = WinLossFactory.CreateWinLoss(0, 0, 1, 1000, 100, 2000, 4000, 0.5m)
+                Total = WinLossFactory.CreateWinLoss(0, 0, 1, 1000, 100, 2000, 4000, 0.5m),
             };
 
             var leagues = new List<LeagueWinLoss> { league };
             return new WinLossModel
             {
                 Leagues = leagues,
+                RM = CreateExpectedRM(),
                 Total = WinLossFactory.CreateWinLoss(0, 0, 0, 1000, 100, 2000, 4000, 0.5m)
             };
+        }
+
+        private List<MatchDetailWinLoss> CreateExpectedRM()
+        {
+            var rm = WinLossFactory.CreateWinLoss(0, 0, 0, 100, 10, 200, 400, 0.5m);
+            return new List<MatchDetailWinLoss> { rm };
         }
 
         private bool AreEqual(WinLossModel expected, WinLossModel model)
         {
             return WinLossComparison.AreEqual(expected.Total, model.Total)
-                && WinLossComparison.AreEqual(expected.Leagues, model.Leagues);
+                && WinLossComparison.AreEqual(expected.Leagues, model.Leagues)
+                && WinLossComparison.AreEqual(expected.RM, model.RM);
         }
     }
 }

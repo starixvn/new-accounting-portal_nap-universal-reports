@@ -36,6 +36,8 @@
 
         public decimal VirtualTurnover { get; set; }
 
-        public decimal Margin { get; set; }
+        public decimal RealMargin { get; set; }
+
+        public decimal VirtualMargin { get; set; }
     }
 }

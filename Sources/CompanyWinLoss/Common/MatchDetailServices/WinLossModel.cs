@@ -7,5 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
         public List<LeagueWinLoss> Leagues { get; set; }
 
         public MatchDetailWinLoss Total { get; set; }
+
+        public List<MatchDetailWinLoss> RM { get; set; }
     }
 }

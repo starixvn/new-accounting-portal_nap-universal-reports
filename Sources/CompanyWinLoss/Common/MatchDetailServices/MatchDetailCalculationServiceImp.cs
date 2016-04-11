@@ -34,7 +34,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
-                Margin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover)
+                RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
+                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover),
             };
         }
 
@@ -45,9 +46,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
         public IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<MatchDetailRawWinLoss> rawWinLoss)
         {
-            var groups = rawWinLoss.GroupBy(x => x.LeagueId).Distinct();
-            return from @group in groups
-                   select CalculateLeague(@group, @group.Key);
+            return rawWinLoss.Where(x => x.LeagueId > 0 && x.MatchId > 0)
+                .GroupBy(x => x.LeagueId)
+                .Select(x => CalculateLeague(x, x.Key));
         }
 
         public LeagueWinLoss CalculateLeague(IEnumerable<MatchDetailRawWinLoss> rawWinLoss, int leagueId)
@@ -72,6 +73,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                 return new MatchDetailWinLoss();
             }
 
+            var rawSumWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
             var sumWinLoss = new MatchDetailRawWinLoss
             {
                 AwayId = 0,
@@ -93,6 +95,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             };
 
             return FromRawWinLoss(sumWinLoss);
+        }
+
+        public IEnumerable<MatchDetailWinLoss> CalculateRM(IEnumerable<MatchDetailRawWinLoss> rawWinLosses)
+        {
+            return rawWinLosses.Where(r => r.MatchId == 0 && r.LeagueId == 0)
+                               .Select(r => FromRawWinLoss(r));
         }
     }
 }

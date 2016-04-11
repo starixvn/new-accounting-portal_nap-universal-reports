@@ -64,7 +64,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
                 VirtualTurnover = turnover,
                 VarianceIncome = 0,
                 LeagueName = string.Empty,
-                Margin = margin
+                RealMargin = margin,
+                VirtualMargin = margin
             };
         }
 

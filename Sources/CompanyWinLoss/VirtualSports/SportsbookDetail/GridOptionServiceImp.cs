@@ -85,7 +85,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "Margin", item.Margin)
+                new Columns(columnIndex++, "Margin", item.RealMargin)
             };
 
             var row = new GridDataRow { Columns = colummns };
@@ -106,7 +106,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
                     new Columns(columnIndex++, "Commission", item.Commission),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.Margin)
+                    new Columns(columnIndex++, "Margin", item.RealMargin)
                };
 
             return new GridDataRow { Columns = colummns };

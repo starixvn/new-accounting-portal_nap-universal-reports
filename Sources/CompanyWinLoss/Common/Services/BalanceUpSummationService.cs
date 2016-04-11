@@ -5,6 +5,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public interface BalanceUpSummationService
     {
-        IEnumerable<RawWinLoss> CalculateSum( IEnumerable<IEnumerable<RawWinLoss>> sources);
+        IEnumerable<RawWinLoss> CalculateSum(IEnumerable<IEnumerable<RawWinLoss>> sources);
     }
 }

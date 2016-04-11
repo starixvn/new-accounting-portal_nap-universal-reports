@@ -48,7 +48,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Sportsbook.MatchDetail
             return new MatchDetailWinLossServiceImp(rawWinLossService, calculationService);
         }
 
-
         private MatchDetailRawWinLossService CreateMatchDetailRawService()
         {
             var dynamicRepository = new DynamicRepository();

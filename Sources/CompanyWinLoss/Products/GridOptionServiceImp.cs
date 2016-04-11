@@ -100,6 +100,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 
             return productDataRow;
         }
+
         private GridDataRow BuildProductRM(WinLoss winLossRM)
         {
             var productName = winLossRM.Name;
@@ -108,6 +109,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 
             return productDataRow;
         }
+
         private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
         {
             var productName = productWinLoss.Total.Name;

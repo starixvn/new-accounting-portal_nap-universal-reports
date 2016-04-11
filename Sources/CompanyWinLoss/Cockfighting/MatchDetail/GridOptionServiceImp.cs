@@ -111,7 +111,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                     new Columns(columnIndex++, "Commission", item.Commission),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.Margin)
+                    new Columns(columnIndex++, "Margin", item.RealMargin)
                };
 
             return new GridDataRow { Columns = colummns };
@@ -141,7 +141,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                     new Columns(columnIndex++, "Commission", total.Commission),
                     new Columns(columnIndex++, "RealIncome", total.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.Margin)
+                    new Columns(columnIndex++, "Margin", total.RealMargin)
                };
 
             return new GridDataRow { Columns = colummns };
@@ -159,7 +159,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                     new Columns(columnIndex++, "Commission", total.Commission),
                     new Columns(columnIndex++, "RealIncome", total.RealIncome),
                     new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.Margin)
+                    new Columns(columnIndex++, "Margin", total.RealMargin)
                };
 
             var row = new GridDataRow { Columns = colummns };

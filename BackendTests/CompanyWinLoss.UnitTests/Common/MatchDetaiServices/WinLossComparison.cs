@@ -52,7 +52,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
                 expected.VarianceIncome == model.VarianceIncome &&
                 expected.RealTurnover == model.RealTurnover &&
                 expected.VirtualTurnover == model.VirtualTurnover &&
-                expected.Margin == model.Margin;
+                expected.RealMargin == model.RealMargin;
         }
 
         internal static bool AreEqual(MatchDetailRawWinLoss expected, MatchDetailRawWinLoss model)

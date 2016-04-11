@@ -51,7 +51,6 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
         {
             var columns = new List<HeaderColumns>
             {
-
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
@@ -82,7 +81,6 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
             footerRow.Add(BuildDataRow(item, HAlignment.Right));
             return footerRow;
         }
-
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
