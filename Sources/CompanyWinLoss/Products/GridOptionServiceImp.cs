@@ -85,17 +85,26 @@ namespace UniversalReports.CompanyWinLoss.Products
                 bodyRows.Add(BuildProduct(product));
             }
 
-            bodyRows.Add(BuildProduct(productWinLoss.NoneSportsbookProducts.Total));
+            bodyRows.Add(BuildNonSportsToTal(productWinLoss.NoneSportsbookProducts.Total));
 
             return bodyRows;
         }
 
+        private GridDataRow BuildNonSportsToTal(SiteWinLossSummary productWinLoss)
+        {
+            var productName = productWinLoss.Total.Name;
+            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Right, false);
+            productDataRow.CssClass = string.Empty;
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right, false));
+            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false));
+
+            return productDataRow;
+        }
         private GridDataRow BuildProductRM(WinLoss winLossRM)
         {
             var productName = winLossRM.Name;
             var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
             productDataRow.CssClass = string.Empty;
-            productDataRow.CustomAttr = "product";
 
             return productDataRow;
         }
