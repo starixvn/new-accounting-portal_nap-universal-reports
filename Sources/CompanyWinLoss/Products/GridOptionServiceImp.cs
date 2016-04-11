@@ -85,18 +85,22 @@ namespace UniversalReports.CompanyWinLoss.Products
                 bodyRows.Add(BuildProduct(product));
             }
 
-            bodyRows.Add(BuildNonSportsToTal(productWinLoss.NoneSportsbookProducts.Total));
+            bodyRows.Add(BuildNonSportsTotal(productWinLoss.NoneSportsbookProducts.Total));
 
             return bodyRows;
         }
 
-        private GridDataRow BuildNonSportsToTal(SiteWinLossSummary productWinLoss)
+        private GridDataRow BuildNonSportsTotal(SiteWinLossSummary productWinLoss)
         {
             var productName = productWinLoss.Total.Name;
-            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Right, false);
-            productDataRow.CssClass = string.Empty;
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right, false));
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false));
+            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
+            productDataRow.CssClass = "total-row";
+            var subRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
+            subRow.CssClass = "total-row";
+            productDataRow.SubRows.Add(subRow);
+            subRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
+            subRow.CssClass = "total-row";
+            productDataRow.SubRows.Add(subRow);
 
             return productDataRow;
         }
@@ -105,21 +109,24 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var productName = winLossRM.Name;
             var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
-            productDataRow.CssClass = string.Empty;
-
+            productDataRow.CssClass = "total-row";
             return productDataRow;
         }
 
         private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
         {
             var productName = productWinLoss.Total.Name;
-            var isSportsbook = productName == "Sportsbook Total";
-            var rowCssClass = isSportsbook ? "highlight-product" : string.Empty;
+            var isSportsbook = productName.Contains("Sportsbook");
+            var rowCssClass = isSportsbook ? "total-row" : string.Empty;
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = rowCssClass;
-            productDataRow.CustomAttr = "product";
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Credit, HAlignment.Right, false));
-            productDataRow.SubRows.Add(BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false));
+            productDataRow.CustomAttr = isSportsbook ? null : "product";
+            var subRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
+            subRow.CssClass = rowCssClass;
+            productDataRow.SubRows.Add(subRow);
+            subRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
+            subRow.CssClass = rowCssClass;
+            productDataRow.SubRows.Add(subRow);
 
             return productDataRow;
         }

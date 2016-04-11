@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -9081,7 +9081,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 /* line 290, ../stylesheets/Site.scss */
-.grid-boundary .freegrid .highlight-product > td {
+.grid-boundary .freegrid .total-row > td {
   font-weight: bold;
   background-color: #f4f4be;
 }

@@ -227,8 +227,6 @@
     <Content Include="app\company-winloss\common\sport-type.service.js" />
     <Content Include="app\company-winloss\common\match-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
-    <Content Include="app\company-winloss\other-sports\other-sports-bet-type.service.js" />
-    <Content Include="app\company-winloss\other-sports\other-sports-sport-type.service.js" />
     <Content Include="app\company-winloss\tab\tab.directive.html" />
     <Content Include="app\company-winloss\tab\pane.directive.js" />
     <Content Include="app\company-winloss\tab\tab.directive.js" />
@@ -1399,6 +1397,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\company-winloss\other-sports\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>
