@@ -77,8 +77,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             return new ProductWinLoss
             {
                 GrandTotal = expectedGrandTotal,
-                Products = expectedProducts,
-                SportsbookDetail = expectedSportsbookDetail
+                SportsbookProducts = null,
+                NoneSportsbookProducts = null
             };
         }
 

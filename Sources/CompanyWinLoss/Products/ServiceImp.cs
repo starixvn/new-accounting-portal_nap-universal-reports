@@ -23,23 +23,45 @@ namespace UniversalReports.CompanyWinLoss.Products
         public virtual ProductWinLoss Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
+            var listSportsbook = new SportsbookConstants();
+            var rawSportsbookProducts = rawWinLosses.Where(r => listSportsbook.stringName.Contains(r.GroupName));
 
-            var rawSportsbookDetail = rawWinLosses.Where(r => r.GroupName == "Sportsbook Detail");
-            var rawProductWinLoss = rawWinLosses.Where(r => r.GroupName != "Sportsbook Detail");
+            var rawNonSportsbookProducts = (from r in rawWinLosses
+                                            where !listSportsbook.stringName.Contains(r.GroupName)
+                                            select r).ToList();
 
-            var sportsbookDetail = CalculateSportsbookDetail(rawSportsbookDetail);
-            var productWinLoss = calculationService.CalculateSiteWinLossSummary(rawProductWinLoss);
-
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawProductWinLoss);
+            var sportsbookProducts = GetSportsbookProducts(rawSportsbookProducts);
+            var nonSportsbookProducts = GetNoneSportbookProducts(rawNonSportsbookProducts);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawNonSportsbookProducts);
 
             return new ProductWinLoss
             {
                 GrandTotal = grandTotal,
-                Products = productWinLoss.ToList(),
-                SportsbookDetail = sportsbookDetail
+                NoneSportsbookProducts = nonSportsbookProducts,
+                SportsbookProducts = sportsbookProducts
             };
         }
 
+        public virtual SportsbookWinLoss GetSportsbookProducts(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var rawProducts = rawWinLosses.Where(r => r.GroupName != "RM").ToList();
+            var products = calculationService.CalculateSiteWinLossSummary(rawProducts);
+            var rM = rawWinLosses.Where(r => r.GroupName == "RM").ToList();
+            return new SportsbookWinLoss
+            {
+                Products = products.ToList(),
+                RM = CalculateSportsbookDetail(rM)
+            };
+        }
+
+        public virtual NoneSportsbookWinloss GetNoneSportbookProducts(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            return new NoneSportsbookWinloss
+            {
+                Products = calculationService.CalculateSiteWinLossSummary(rawWinLosses).ToList(),
+                Total = calculationService.CalculateSumWinLossSummary("Non-Sport Total",rawWinLosses)
+            };
+        }
         public virtual List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses)
         {
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();

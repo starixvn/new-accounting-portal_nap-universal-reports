@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 TitleInfoText = title,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
-                BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
+               // BodyRows = BuildBodyRows(winLoss.SportsbookDetail, winLoss.Products),
                 FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,

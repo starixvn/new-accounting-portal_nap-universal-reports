@@ -148,7 +148,8 @@
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\Models\BalanceUpRange.cs" />
     <Compile Include="Common\Models\BalanceUpSource.cs" />
-    <Compile Include="Common\Models\ProductWinLoss.cs" />
+    <Compile Include="Products\NoneSportsbookWinloss.cs" />
+    <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
     <Compile Include="Common\Models\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossModel.cs" />
@@ -207,6 +208,8 @@
     <Compile Include="Parlay\SportType\ExcelQueryModel.cs" />
     <Compile Include="Parlay\SportType\ParlaySportTypeController.cs" />
     <Compile Include="Parlay\SportType\QueryModel.cs" />
+    <Compile Include="Products\SportsbookConstants.cs" />
+    <Compile Include="Products\SportsbookWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Keno\BetType\ExcelQueryModel.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
