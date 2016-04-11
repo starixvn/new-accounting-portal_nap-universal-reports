@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Common.Models
 {
-    public class ReportWinLossModel
+    public class BasicWinLossModel
     {
         public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
 

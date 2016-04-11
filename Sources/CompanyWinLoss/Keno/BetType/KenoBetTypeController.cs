@@ -9,10 +9,10 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
     [RoutePrefix("api/company-win-loss/keno/bet-type")]
     public class KenoBetTypeController : ApiController
     {
-        private readonly ReportWinLossService winlossService;
+        private readonly BasicWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public KenoBetTypeController(ReportWinLossService winlossService, BetTypeGridOptionService gridOptionService)
+        public KenoBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

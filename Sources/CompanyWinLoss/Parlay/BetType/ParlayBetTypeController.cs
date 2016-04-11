@@ -9,10 +9,10 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
     [RoutePrefix("api/company-win-loss/parlay/bet-type")]
     public class ParlayBetTypeController : ApiController
     {
-        private readonly ReportWinLossService winlossService;
+        private readonly BasicWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public ParlayBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService winlossService)
+        public ParlayBetTypeController(BetTypeGridOptionService gridOptionService, BasicWinLossService winlossService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

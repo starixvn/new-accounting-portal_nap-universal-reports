@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
         private readonly SiteService winlossService;
         private readonly SiteGridOptionService gridOptionService;
 
-        public NumberGameSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        public NumberGameSiteController(SiteService winlossService, SiteGridOptionService gridOptionService)
         {
-            this.winlossService = siteService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

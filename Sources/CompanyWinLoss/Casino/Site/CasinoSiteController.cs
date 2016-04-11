@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.Casino.Site
         private readonly SiteService winlossService;
         private readonly SiteGridOptionService gridOptionService;
 
-        public CasinoSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        public CasinoSiteController(SiteService winlossService, SiteGridOptionService gridOptionService)
         {
-            this.winlossService = siteService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

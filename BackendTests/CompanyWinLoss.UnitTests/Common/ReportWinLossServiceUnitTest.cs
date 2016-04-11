@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new ReportWinLossServiceImp(rawWinLossService, calculationService);
+            var service = new BasicWinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
@@ -32,12 +32,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             Assert.True(equal);
         }
 
-        private ReportWinLossModel CreateExpectedBetTypeWinLossSummary()
+        private BasicWinLossModel CreateExpectedBetTypeWinLossSummary()
         {
             var expectedBetTypeWinLosses = CreateExpectedListOfBetTypeWinLoss();
             var expectedGrandTotal = CreateExpectedGrandTotal();
 
-            return new ReportWinLossModel
+            return new BasicWinLossModel
             {
                 SiteWinLossSummaries = expectedBetTypeWinLosses,
                 GrandTotal = expectedGrandTotal
@@ -88,7 +88,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             };
         }
 
-        private bool AreTwoBetTypeWinLossSummaryEqual(ReportWinLossModel first, ReportWinLossModel second)
+        private bool AreTwoBetTypeWinLossSummaryEqual(BasicWinLossModel first, BasicWinLossModel second)
         {
             return WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
                 && WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.GrandTotal, second.GrandTotal);

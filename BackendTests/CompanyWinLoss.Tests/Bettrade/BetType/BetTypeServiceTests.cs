@@ -21,11 +21,11 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
             service.Query(criteria);
         }
 
-        private ReportWinLossServiceImp CreateService()
+        private BasicWinLossServiceImp CreateService()
         {
             var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new ReportWinLossServiceImp(rawWinLossService, calculationService);
+            return new BasicWinLossServiceImp(rawWinLossService, calculationService);
         }
 
         protected override WinLossCriteria CreateCriteria()

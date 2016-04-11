@@ -9,10 +9,10 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveAndNoneLive
     [RoutePrefix("api/company-win-loss/other-sports/live-and-none-live")]
     public class OtherSportsLiveAndNoneLiveController : ApiController
     {
-        private readonly ReportWinLossService winlossService;
+        private readonly BasicWinLossService winlossService;
         private readonly SportTypeGridOptionService gridOptionService;
 
-        public OtherSportsLiveAndNoneLiveController(ReportWinLossService winlossService, SportTypeGridOptionService gridOptionService)
+        public OtherSportsLiveAndNoneLiveController(BasicWinLossService winlossService, SportTypeGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

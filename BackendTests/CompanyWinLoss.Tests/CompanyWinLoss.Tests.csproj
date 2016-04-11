@@ -97,7 +97,7 @@
     <Compile Include="ColossusBets\Site\ServiceTests.cs" />
     <Compile Include="Common\BalanceUpServiceTests.cs" />
     <Compile Include="Common\BaseSetupServiceTests.cs" />
-    <Compile Include="Common\BaseReportWinLossServiceTests.cs" />
+    <Compile Include="Common\BaseBasicWinLossServiceTests.cs" />
     <Compile Include="Common\BaseSiteServiceTests.cs" />
     <Compile Include="Common\BaseServiceTests.cs" />
     <Compile Include="Keno\BetType\ServiceTests.cs" />

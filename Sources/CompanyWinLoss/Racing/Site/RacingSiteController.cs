@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.Racing.Site
         private readonly SiteService winlossService;
         private readonly SiteGridOptionService gridOptionService;
 
-        public RacingSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        public RacingSiteController(SiteService winlossService, SiteGridOptionService gridOptionService)
         {
-            this.winlossService = siteService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

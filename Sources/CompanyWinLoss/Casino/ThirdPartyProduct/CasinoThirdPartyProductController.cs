@@ -9,11 +9,11 @@ namespace UniversalReports.CompanyWinLoss.Casino.ThirdPartyProduct
     [RoutePrefix("api/company-win-loss/casino/third-party-product")]
     public class CasinoThirdPartyProductController : ApiController
     {
-        private readonly ReportWinLossService winlossService;
+        private readonly BasicWinLossService winlossService;
         private readonly ThirdPartyProductGridOptionService gridOptionService;
 
         public CasinoThirdPartyProductController(
-            ReportWinLossService winlossService,
+            BasicWinLossService winlossService,
             ThirdPartyProductGridOptionService thirdPartyProductGridOptionService)
         {
             this.winlossService = winlossService;

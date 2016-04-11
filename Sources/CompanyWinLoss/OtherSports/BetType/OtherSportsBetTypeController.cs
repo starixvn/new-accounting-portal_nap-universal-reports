@@ -9,10 +9,10 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
     [RoutePrefix("api/company-win-loss/other-sports/bet-type")]
     public class OtherSportsBetTypeController : ApiController
     {
-        private readonly ReportWinLossService winlossService;
+        private readonly BasicWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, ReportWinLossService winlossService)
+        public OtherSportsBetTypeController(BetTypeGridOptionService gridOptionService, BasicWinLossService winlossService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

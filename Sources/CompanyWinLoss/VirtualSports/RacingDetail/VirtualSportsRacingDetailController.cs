@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
 
         private readonly GridOptionService gridOptionService;
 
-        public VirtualSportsRacingDetailController(Service racingService, GridOptionService gridOptionService)
+        public VirtualSportsRacingDetailController(Service winlossService, GridOptionService gridOptionService)
         {
-            this.winlossService = racingService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

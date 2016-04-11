@@ -28,14 +28,14 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var liveBetTypeWinLoss = new ReportWinLossModel
+                var liveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
                 var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, string.Empty);
 
-                var nonLiveBetTypeWinLoss = new ReportWinLossModel
+                var nonLiveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.NonLive,
                     GrandTotal = winlosses.NonLiveGrandTotal
@@ -56,14 +56,14 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var liveBetTypeWinLoss = new ReportWinLossModel
+                var liveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
                 var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.LiveTitle);
 
-                var nonLiveBetTypeWinLoss = new ReportWinLossModel
+                var nonLiveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.NonLive,
                     GrandTotal = winlosses.NonLiveGrandTotal

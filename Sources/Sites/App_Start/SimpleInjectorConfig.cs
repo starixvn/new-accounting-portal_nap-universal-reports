@@ -37,7 +37,7 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SiteGridOptionService, CommonServices.SiteGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.ReportWinLossService, CommonServices.ReportWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.BasicWinLossService, CommonServices.BasicWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeGridOptionService, CommonServices.BetTypeGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeGridOptionService, CommonServices.SportTypeGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.ThirdPartyProductGridOptionService, CommonServices.ThirdPartyProductGridOptionServiceImp>(Lifestyle.Transient);

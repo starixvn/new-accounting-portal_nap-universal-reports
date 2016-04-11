@@ -158,7 +158,7 @@
     <Compile Include="Common\Models\BalanceUpSource.cs" />
     <Compile Include="Common\Models\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
-    <Compile Include="Common\Models\ReportWinLossModel.cs" />
+    <Compile Include="Common\Models\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\SiteWinLossSummaryByGroup.cs" />
@@ -171,8 +171,8 @@
     <Compile Include="Common\Services\BalanceUpSummationServiceImp.cs" />
     <Compile Include="Common\Services\BetTypeGridOptionService.cs" />
     <Compile Include="Common\Services\BetTypeGridOptionServiceImp.cs" />
-    <Compile Include="Common\Services\ReportWinLossService.cs" />
-    <Compile Include="Common\Services\ReportWinLossServiceImp.cs" />
+    <Compile Include="Common\Services\BasicWinLossService.cs" />
+    <Compile Include="Common\Services\BasicWinLossServiceImp.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
     <Compile Include="Common\Services\CalculationServiceImp.cs" />
     <Compile Include="Common\Services\RawWinLossService.cs" />

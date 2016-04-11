@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.Site
         private readonly SiteService winlossService;
         private readonly SiteGridOptionService gridOptionService;
 
-        public ColossusBetsSiteController(SiteService siteService, SiteGridOptionService gridOptionService)
+        public ColossusBetsSiteController(SiteService winlossService, SiteGridOptionService gridOptionService)
         {
-            this.winlossService = siteService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

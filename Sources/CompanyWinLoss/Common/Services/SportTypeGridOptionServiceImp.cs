@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class SportTypeGridOptionServiceImp : SportTypeGridOptionService
     {
-        public GridOptions FromWinLossModel(ReportWinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title)
         {
             return new GridOptions
             {

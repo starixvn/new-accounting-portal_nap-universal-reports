@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.OtherSports.LiveAndNoneLive
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class ServiceTests : BaseReportWinLossServiceTests
+    public class ServiceTests : BaseBasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

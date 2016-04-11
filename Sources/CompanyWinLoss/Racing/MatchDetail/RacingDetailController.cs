@@ -12,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
 
         private GridOptionService gridOptionService;
 
-        public RacingDetailController(Service service, GridOptionService gridOptionService)
+        public RacingDetailController(Service winlossService, GridOptionService gridOptionService)
         {
-            this.winlossService = service;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 

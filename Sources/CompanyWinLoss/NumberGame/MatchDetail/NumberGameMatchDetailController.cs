@@ -11,9 +11,9 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
         private readonly Service winlossService;
         private readonly GridOptionService gridOptionService;
 
-        public NumberGameMatchDetailController(Service detailService, GridOptionService gridOptionService)
+        public NumberGameMatchDetailController(Service winlossService, GridOptionService gridOptionService)
         {
-            this.winlossService = detailService;
+            this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
         }
 
