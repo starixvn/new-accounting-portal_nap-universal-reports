@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
     public class WinLossModel
     {
-        public List<WinLoss> Matches { get; set; }
+        public List<MatchDetailWinLoss> Matches { get; set; }
 
-        public WinLoss Total { get; set; }
+        public MatchDetailWinLoss Total { get; set; }
     }
 }

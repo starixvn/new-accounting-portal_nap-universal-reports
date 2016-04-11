@@ -4,13 +4,13 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using commonModel = UniversalReports.CompanyWinLoss.Common.Models;
 using commonService = UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -21,20 +21,20 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
+            var balanceUpSummationService = Substitute.For<MatchDetailBalanceUpSummationService>();
 
             var twoSources = CreateBalanceUpSources();
             var balanceUpSourceChooser = Substitute.For<commonService.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
 
-            var service = new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
             service.Query(criteria);
 
             // Assert
-            dynamicRepository.Received(2).Fetch<RawWinLoss>(Arg.Any<WinLossCriteria>());
+            dynamicRepository.Received(2).Fetch<MatchDetailRawWinLoss>(Arg.Any<WinLossCriteria>());
         }
 
         private IEnumerable<commonModel.BalanceUpSource> CreateBalanceUpSources()
@@ -61,13 +61,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
+            var balanceUpSummationService = Substitute.For<MatchDetailBalanceUpSummationService>();
 
             var sources = CreateBalanceUpSources();
             var balanceUpSourceChooser = Substitute.For<commonService.BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
 
-            var service = Substitute.ForPartsOf<RawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var service = Substitute.ForPartsOf<MatchDetailRawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
             service.QueryBySource(Arg.Any<CompanyWinLoss.Common.Models.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
@@ -76,15 +76,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Cockfighting.MatchDetail
             service.Query(criteria);
 
             // Assert
-            balanceUpSummationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<RawWinLoss>>>(x => x.Count() == 2));
+            balanceUpSummationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<MatchDetailRawWinLoss>>>(x => x.Count() == 2));
         }
 
-        private List<RawWinLoss> CreateFakeRawWinLosses()
+        private List<MatchDetailRawWinLoss> CreateFakeRawWinLosses()
         {
-            var match1 = WinLossFactory.CreateRawWinLoss("match1", 1, "Home1", "Away1", 100, 110, 10, 500, 900);
-            var match2 = WinLossFactory.CreateRawWinLoss("match2", 2, "Home2", "Away2", 110, 120, 11, 550, 990);
+            var match1 = WinLossFactory.CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
+            var match2 = WinLossFactory.CreateRawWinLoss(2, 2, 2, 200, 20, 400, 800);
 
-            return new List<RawWinLoss> { match1, match2 };
+            return new List<MatchDetailRawWinLoss> { match1, match2 };
         }
     }
 }

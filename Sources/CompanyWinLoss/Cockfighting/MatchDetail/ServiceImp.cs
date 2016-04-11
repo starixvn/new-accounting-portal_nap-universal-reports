@@ -1,14 +1,16 @@
 ﻿using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
     public class ServiceImp : Service
     {
-        private RawWinLossService rawWinLossService;
-        private CalculationService calculationService;
+        private MatchDetailRawWinLossService rawWinLossService;
 
-        public ServiceImp(RawWinLossService rawWinLossService, CalculationService calculationService)
+        private MatchDetailCalculationService calculationService;
+
+        public ServiceImp(MatchDetailRawWinLossService rawWinLossService, MatchDetailCalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;
@@ -17,9 +19,8 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
         public WinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLoss = rawWinLossService.Query(criteria);
-            var arenas = calculationService.Arenas(rawWinLoss).ToList();
-            var totalRawWinLoss = calculationService.CalculationSum(rawWinLoss);
-            var total = calculationService.FromRawWinLoss(totalRawWinLoss);
+            var arenas = calculationService.CalculateLeagues(rawWinLoss).ToList();
+            var total = calculationService.CalculateSumWinLoss(rawWinLoss);
 
             return new WinLossModel
             {

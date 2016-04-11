@@ -51,12 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cockfighting\MatchDetail\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\CalculationServiceUnitTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\RawWinLossServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetaiServices\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetaiServices\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetaiServices\RawWinLossServiceUnitTests.cs" />
     <Compile Include="Cockfighting\MatchDetail\ServiceUnitTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\WinLossComparison.cs" />
-    <Compile Include="Cockfighting\MatchDetail\WinLossFactory.cs" />
+    <Compile Include="Common\MatchDetaiServices\WinLossComparison.cs" />
+    <Compile Include="Common\MatchDetaiServices\WinLossFactory.cs" />
     <Compile Include="Common\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\CalculationServiceUnitTests.cs" />
@@ -73,9 +73,6 @@
     <Compile Include="TestUtility\WinLossComparision.cs" />
     <Compile Include="TestUtility\WinLossFactory.cs" />
     <Compile Include="Common\ReportWinLossServiceUnitTest.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\CalculationServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\RawServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ServiceUnitTests.cs" />
     <Compile Include="VirtualSports\RacingDetail\ServiceUnitTests.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\WinLossComparision.cs" />
@@ -99,6 +96,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

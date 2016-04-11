@@ -1,17 +1,18 @@
 ﻿using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
     public class ServiceImp : Service
     {
-        private readonly RawWinLossService rawWinLossService;
+        private readonly MatchDetailRawWinLossService rawWinLossService;
 
-        private readonly CalculationService calculationService;
+        private readonly MatchDetailCalculationService calculationService;
 
         public ServiceImp(
-            RawWinLossService rawWinLossService,
-            CalculationService calculationService)
+            MatchDetailRawWinLossService rawWinLossService,
+            MatchDetailCalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;

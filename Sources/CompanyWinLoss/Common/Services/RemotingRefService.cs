@@ -2,7 +2,7 @@
 {
     public interface RemotingRefService
     {
-        string GetTeamName(int teamId);
+        string GetTeamName(int teamId, string defaultName);
 
         string GetLeagueName(int leagueId);
     }

@@ -4,10 +4,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 {
     public class RemotingRefServiceImp : RemotingRefService
     {
-        public string GetTeamName(int teamId)
+        public string GetTeamName(int teamId, string defaultName = "")
         {
             var teamIdString = teamId.ToString();
-            return RefData.GetTeamName(teamIdString, "en", string.Empty);
+            return RefData.GetTeamName(teamIdString, "en", defaultName);
         }
 
         public string GetLeagueName(int leagueId)

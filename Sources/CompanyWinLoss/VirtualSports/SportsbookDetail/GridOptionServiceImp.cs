@@ -2,6 +2,7 @@
 using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
 {
@@ -61,7 +62,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             return new List<GroupHeaderRows> { groupHeader };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
+        private List<GridDataRow> BuildBodyRows(List<MatchDetailWinLoss> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
             foreach (var item in winLoss)
@@ -73,7 +74,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             return bodyRows;
         }
 
-        private List<GridDataRow> BuildFooter(WinLoss item)
+        private List<GridDataRow> BuildFooter(MatchDetailWinLoss item)
         {
             int columnIndex = 4;
             var colummns = new List<Columns>
@@ -91,7 +92,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
             return new List<GridDataRow> { row };
         }
 
-        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
+        private GridDataRow BuildDataRow(MatchDetailWinLoss item, HAlignment alignment)
         {
             int columnIndex = 0;
             var colummns = new List<Columns>

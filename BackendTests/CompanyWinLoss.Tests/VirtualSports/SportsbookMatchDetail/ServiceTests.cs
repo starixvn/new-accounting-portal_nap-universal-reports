@@ -2,6 +2,7 @@
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 using CommonService = UniversalReports.CompanyWinLoss.Common.Services;
@@ -27,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
         {
             var rawWinLossService = CreateVirtualSportsRawService();
             var remotingRefService = Substitute.For<CommonService.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>()).Returns("Any team name");
-            var calculationService = new CalculationServiceImp(remotingRefService);
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any team name");
+            var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
@@ -45,14 +46,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
             };
         }
 
-        private RawWinLossService CreateVirtualSportsRawService()
+        private MatchDetailRawWinLossService CreateVirtualSportsRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new CommonService.BalanceUpServiceImp(dynamicRepository);
             var balanceUpSourceChooser = new CommonService.BalanceUpSourceChooserImp(balanceUpService);
 
-            var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var balanceUpSummationService = new MatchDetailBalanceUpSummationServiceImp();
+            return new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }

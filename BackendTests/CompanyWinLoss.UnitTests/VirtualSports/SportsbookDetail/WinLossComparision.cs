@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
     internal class WinLossComparision
     {
-        internal static bool AreTwoWinLossEqual(WinLoss first, WinLoss second)
+        internal static bool AreTwoWinLossEqual(MatchDetailWinLoss first, MatchDetailWinLoss second)
         {
             return first.MatchCode == second.MatchCode &&
                 first.HomeName == second.HomeName &&
@@ -19,7 +19,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
                     first.Margin == second.Margin;
         }
 
-        internal static bool AreTwoRawWinLossEqual(RawWinLoss first, RawWinLoss second)
+        internal static bool AreTwoRawWinLossEqual(MatchDetailRawWinLoss first, MatchDetailRawWinLoss second)
         {
             return first.MatchCode == second.MatchCode &&
                 first.HomeId == second.HomeId &&
@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
                     first.RealTurnover == second.RealTurnover;
         }
 
-        internal static bool AreTwoWinLossListEqual(List<WinLoss> first, List<WinLoss> second)
+        internal static bool AreTwoWinLossListEqual(List<MatchDetailWinLoss> first, List<MatchDetailWinLoss> second)
         {
             if (first.Count != second.Count)
             {

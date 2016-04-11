@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
@@ -17,9 +18,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
             // Arrange   
             var expectedMatchDetailWinLoss = CreateExpectedMatchDetailWinLoss();
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>()).Returns("AnyTeam");
-            var calculationService = new CalculationServiceImp(remotingRefService);
-            var rawWinLossService = Substitute.For<RawWinLossService>();
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("AnyTeam");
+            var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
+            var rawWinLossService = Substitute.For<MatchDetailRawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
@@ -44,25 +45,25 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
             };
         }
 
-        private List<RawWinLoss> CreateFakeRawWinLoss()
+        private List<MatchDetailRawWinLoss> CreateFakeRawWinLoss()
         {
-            return new List<RawWinLoss>
+            return new List<MatchDetailRawWinLoss>
            {
                 WinLossFactory.CreateRawWinLoss("MatchCode 1", 1, 1, 100, 110, 10, 500, 900),
                 WinLossFactory.CreateRawWinLoss("MatchCode 2", 2, 2, 110, 120, 11, 550, 990)
             };
         }
 
-        private List<WinLoss> CreateExpectedMatches()
+        private List<MatchDetailWinLoss> CreateExpectedMatches()
         {
-            return new List<WinLoss>
+            return new List<MatchDetailWinLoss>
             {
                 WinLossFactory.CreateWinLoss("MatchCode 1", "AnyTeam", "AnyTeam", 100, 110, 10, 500,  900, 500m / 900),
                 WinLossFactory.CreateWinLoss("MatchCode 2", "AnyTeam", "AnyTeam", 110, 120, 11, 550, 990, 550m / 990m)
             };
         }
 
-        private WinLoss CreateExpectedGrandTotal()
+        private MatchDetailWinLoss CreateExpectedGrandTotal()
         {
             return WinLossFactory.CreateWinLoss(null, "AnyTeam", "AnyTeam", 210, 230, 21, 1050, 1890, 1050m / 1890);
         }

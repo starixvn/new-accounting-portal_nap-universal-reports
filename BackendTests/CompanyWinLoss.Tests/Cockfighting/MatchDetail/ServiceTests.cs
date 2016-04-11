@@ -3,6 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 using commonService = UniversalReports.CompanyWinLoss.Common.Services;
 
@@ -27,8 +28,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
         {
             var rawWinLossService = CreateRawService();
             var remotingRefService = Substitute.For<commonService.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>()).Returns("Any Arena");
-            var calculationService = new CalculationServiceImp(remotingRefService);
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any Arena");
+            var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
             return new ServiceImp(rawWinLossService, calculationService);
         }
 
@@ -43,14 +44,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
             };
         }
 
-        private RawWinLossService CreateRawService()
+        private MatchDetailRawWinLossService CreateRawService()
         {
             var dynamicRepository = new DynamicRepository();
             var balanceUpService = new commonService.BalanceUpServiceImp(dynamicRepository);
             var balanceUpSourceChooser = new commonService.BalanceUpSourceChooserImp(balanceUpService);
 
-            var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
+            var balanceUpSummationService = new MatchDetailBalanceUpSummationServiceImp();
+            return new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }

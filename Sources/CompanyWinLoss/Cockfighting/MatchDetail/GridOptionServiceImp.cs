@@ -3,6 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
 {
@@ -62,7 +63,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             return new List<GroupHeaderRows> { groupHeader };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<ArenaWinLoss> arenaWinLoss)
+        private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> arenaWinLoss)
         {
             List<List<GridDataRow>> gridDataRows = new List<List<GridDataRow>>();
             foreach (var arena in arenaWinLoss)
@@ -74,11 +75,11 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             return gridDataRows.SelectMany(x => x).ToList();
         }
 
-        private List<GridDataRow> BuildArenaDataRows(ArenaWinLoss arena)
+        private List<GridDataRow> BuildArenaDataRows(LeagueWinLoss arena)
         {
             List<GridDataRow> dataRows = new List<GridDataRow>();
 
-            var arenaNameRow = BuildArenaNameRow(arena.ArenaName);
+            var arenaNameRow = BuildArenaNameRow(arena.LeagueName);
             dataRows.Add(arenaNameRow);
 
             foreach (var item in arena.Matches)
@@ -96,12 +97,12 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             return dataRows;
         }
 
-        private GridDataRow BuidDataRow(WinLoss item)
+        private GridDataRow BuidDataRow(MatchDetailWinLoss item)
         {
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns(columnIndex++, "FightNo", item.FightNo),
+                    new Columns(columnIndex++, "FightNo", item.MatchCode),
                     new Columns(columnIndex++, "Home", item.HomeName),
                     new Columns(columnIndex++, "VS", "-vs-"),
                     new Columns(columnIndex++, "Away", item.AwayName),
@@ -128,7 +129,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             return new GridDataRow { Columns = colummns };
         }
 
-        private GridDataRow BuildArenalTotalRow(WinLoss total)
+        private GridDataRow BuildArenalTotalRow(MatchDetailWinLoss total)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
@@ -146,7 +147,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
             return new GridDataRow { Columns = colummns };
         }
 
-        private List<GridDataRow> BuildFooter(WinLoss total)
+        private List<GridDataRow> BuildFooter(MatchDetailWinLoss total)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;

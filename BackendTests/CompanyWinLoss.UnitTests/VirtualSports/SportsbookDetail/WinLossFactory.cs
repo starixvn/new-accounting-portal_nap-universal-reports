@@ -1,10 +1,10 @@
-﻿using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
+﻿using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
     internal static class WinLossFactory
     {
-        internal static RawWinLoss CreateRawWinLoss(
+        internal static MatchDetailRawWinLoss CreateRawWinLoss(
            string matchCode,
            int homeId,
            int awayId,
@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
            decimal realIncome,
            decimal realTurnover)
         {
-            return new RawWinLoss
+            return new MatchDetailRawWinLoss
             {
                 MatchCode = matchCode,
                 HomeId = homeId,
@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
             };
         }
 
-        internal static WinLoss CreateWinLoss(
+        internal static MatchDetailWinLoss CreateWinLoss(
             string matchCode,
             string homeName,
             string awayName,
@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
             decimal realTurnover,
             decimal margin)
         {
-            return new WinLoss
+            return new MatchDetailWinLoss
             {
                 MatchCode = matchCode,
                 HomeName = homeName,

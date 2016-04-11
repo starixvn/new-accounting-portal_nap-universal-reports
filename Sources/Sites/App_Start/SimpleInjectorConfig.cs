@@ -6,6 +6,7 @@ using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using Cockfighting = UniversalReports.CompanyWinLoss.Cockfighting;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
+using MatchDetailServices = UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
@@ -51,16 +52,13 @@ namespace UniversalReports.Sites
             container.Register<CompanyWinLoss.Products.GridOptionService, CompanyWinLoss.Products.GridOptionServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.RacingDetail.Service, VirtualSports.RacingDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.RacingDetail.GridOptionService, VirtualSports.RacingDetail.GridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookDetail.BalanceUpSummationService, VirtualSports.SportsbookDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookDetail.CalculationService, VirtualSports.SportsbookDetail.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.SportsbookDetail.RawWinLossService, VirtualSports.SportsbookDetail.RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetailServices.MatchDetailBalanceUpSummationService, MatchDetailServices.MatchDetailBalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetailServices.MatchDetailCalculationService, MatchDetailServices.MatchDetailCalculationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetailServices.MatchDetailRawWinLossService, MatchDetailServices.MatchDetailRawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookDetail.Service, VirtualSports.SportsbookDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<VirtualSports.SportsbookDetail.GridOptionService, VirtualSports.SportsbookDetail.GridOptionServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Racing.MatchDetail.GridOptionService, Racing.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<Cockfighting.MatchDetail.BalanceUpSummationService, Cockfighting.MatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            container.Register<Cockfighting.MatchDetail.RawWinLossService, Cockfighting.MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<Cockfighting.MatchDetail.CalculationService, Cockfighting.MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<Cockfighting.MatchDetail.Service, Cockfighting.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<Cockfighting.MatchDetail.GridOptionService, Cockfighting.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
 

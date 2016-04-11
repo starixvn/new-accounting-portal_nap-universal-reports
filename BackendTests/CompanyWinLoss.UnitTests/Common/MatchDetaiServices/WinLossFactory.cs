@@ -1,0 +1,81 @@
+﻿using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
+
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
+{
+    internal static class WinLossFactory
+    {
+        internal static MatchDetailRawWinLoss CreateRawWinLoss(
+            int matchId,
+           int teamId,
+           int leagueId,
+           decimal winloss,
+           decimal commission,
+           decimal income,
+           decimal turnover)
+        {
+            return new MatchDetailRawWinLoss
+            {
+                MatchId = matchId,
+                MatchCode = string.Empty,
+                LeagueId = leagueId,
+                HomeId = teamId,
+                AwayId = teamId,
+                IsNeutral = false,
+                HomeName = string.Empty,
+                AwayName = string.Empty,
+                MemberWinLoss = winloss,
+                SMAWinLoss = winloss,
+                Commission = commission,
+                RealIncome = income,
+                VirtualIncome = income,
+                RealTurnover = turnover,
+                VirtualTurnover = turnover,
+                VarianceIncome = 0
+            };
+        }
+
+        internal static MatchDetailWinLoss CreateWinLoss(
+           int matchId,
+           int teamId,
+           int leagueId,
+           decimal winloss,
+           decimal commission,
+           decimal income,
+           decimal turnover,
+           decimal margin)
+        {
+            return new MatchDetailWinLoss
+            {
+                MatchId = matchId,
+                MatchCode = string.Empty,
+                LeagueId = leagueId,
+                HomeId = teamId,
+                AwayId = teamId,
+                IsNeutral = false,
+                HomeName = string.Empty,
+                AwayName = string.Empty,
+                MemberWinLoss = winloss,
+                SMAWinLoss = winloss,
+                Commission = commission,
+                RealIncome = income,
+                VirtualIncome = income,
+                RealTurnover = turnover,
+                VirtualTurnover = turnover,
+                VarianceIncome = 0,
+                LeagueName = string.Empty,
+                Margin = margin
+            };
+        }
+
+        internal static List<MatchDetailRawWinLoss> CreateFakeRawWinLoss()
+        {
+            var match1 = CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
+            var match2 = CreateRawWinLoss(2, 2, 1, 200, 20, 400, 800);
+            var match3 = CreateRawWinLoss(3, 3, 1, 300, 30, 600, 1200);
+            var match4 = CreateRawWinLoss(4, 4, 1, 400, 40, 800, 1600);
+
+            return new List<MatchDetailRawWinLoss> { match1, match2, match3, match4 };
+        }
+    }
+}
