@@ -5,7 +5,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -52,7 +52,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = calculationService.FromRawWinLossByRowName(rawWinLoss);
 
             // Assert
-            var equal = WinLossComparision.AreTwoWinLossEqual(expectedWinLoss, result);
+            var equal = Comparison.AreEqual(expectedWinLoss, result);
             Assert.True(equal);
         }
 
@@ -71,7 +71,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = calculationService.CalculateSum(winlosses);
 
             // Assert
-            var areEqual1 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum, result);
+            var areEqual1 = Comparison.AreEqual(expectedSum, result);
             Assert.True(areEqual1);
         }
 
@@ -90,7 +90,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = calculationService.CalculateSumWinLoss("Group 1", rawWinLosses);
 
             // Assert
-            var areEqual = WinLossComparision.AreTwoWinLossEqual(expectedTotal, result);
+            var areEqual = Comparison.AreEqual(expectedTotal, result);
             Assert.True(areEqual);
         }
 
@@ -106,7 +106,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGrandTotal, result);
+            var equal = Comparison.AreEqual(expectedGrandTotal, result);
             Assert.True(equal);
         }
 
@@ -150,7 +150,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGrandTotal, result);
+            var equal = Comparison.AreEqual(expectedGrandTotal, result);
             Assert.True(equal);
         }
 
@@ -175,7 +175,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
-            var equal = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGroup, result);
+            var equal = Comparison.AreEqual(expectedGroup, result);
 
             Assert.True(equal);
         }
@@ -202,8 +202,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
             // Assert
-            var equal1 = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGroups[0], result[0]);
-            var equal2 = WinLossComparision.AreTwoSiteWinLossSummaryEqual(expectedGroups[1], result[1]);
+            var equal1 = Comparison.AreEqual(expectedGroups[0], result[0]);
+            var equal2 = Comparison.AreEqual(expectedGroups[1], result[1]);
             Assert.True(equal1);
             Assert.True(equal2);
         }

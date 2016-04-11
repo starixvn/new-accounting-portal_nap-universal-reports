@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
         {
             var allSources = sources.SelectMany(s => s);
             return allSources
-                .GroupBy(l => new { l.MatchId, l.MatchCode, l.IsNeutral, l.HomeId, l.AwayId, l.LeagueId })
+                .GroupBy(l => new { l.MatchId, l.MatchCode, l.IsNeutral, l.HomeId, l.AwayId, l.LeagueId, l.HomeName, l.AwayName })
                 .Select(g => new MatchDetailRawWinLoss
                 {
                     MatchId = g.Key.MatchId,
@@ -17,6 +17,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                     IsNeutral = g.Key.IsNeutral,
                     HomeId = g.Key.HomeId,
                     AwayId = g.Key.AwayId,
+                    HomeName = g.Key.HomeName,
+                    AwayName = g.Key.AwayName,
                     LeagueId = g.Key.LeagueId,
                     MemberWinLoss = g.Sum(r => r.MemberWinLoss),
                     SMAWinLoss = g.Sum(r => r.SMAWinLoss),

@@ -28,10 +28,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.CalculateSportsbookDetail(fakeData);
 
             // Assert
-            var equal1 = WinLossComparision.AreTwoWinLossEqual(expectedProducts[0], result[0]);
-            var equal2 = WinLossComparision.AreTwoWinLossEqual(expectedProducts[1], result[1]);
-            var equal3 = WinLossComparision.AreTwoWinLossEqual(expectedProducts[2], result[2]);
-            var equal4 = WinLossComparision.AreTwoWinLossEqual(expectedProducts[3], result[3]);
+            var equal1 = Comparison.AreEqual(expectedProducts[0], result[0]);
+            var equal2 = Comparison.AreEqual(expectedProducts[1], result[1]);
+            var equal3 = Comparison.AreEqual(expectedProducts[2], result[2]);
+            var equal4 = Comparison.AreEqual(expectedProducts[3], result[3]);
 
             Assert.True(equal1);
             Assert.True(equal2);
@@ -64,7 +64,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = WinLossComparision.AreTwoProductWinLossEqual(expectedMainWinLoss, result);
+            var equal = Comparison.AreEqual(expectedMainWinLoss, result);
             Assert.True(equal);
         }
 

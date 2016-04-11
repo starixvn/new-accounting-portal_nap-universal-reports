@@ -1,8 +1,8 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
-namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
+namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 {
-    public interface Service
+    public interface MatchDetailWinLossService
     {
         WinLossModel Query(WinLossCriteria criteria);
     }

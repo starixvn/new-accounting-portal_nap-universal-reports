@@ -5,7 +5,7 @@ using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]

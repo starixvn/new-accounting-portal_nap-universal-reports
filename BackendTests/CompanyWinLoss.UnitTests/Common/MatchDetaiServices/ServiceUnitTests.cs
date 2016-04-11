@@ -1,7 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using commonServices = UniversalReports.CompanyWinLoss.Common.Services;
@@ -17,20 +16,21 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
         {
             // Arrange
             var fakeWinLoss = WinLossFactory.CreateFakeRawWinLoss();
-            var expectedModel = CreateExpectedWinLossModel();
+            var expected = CreateExpectedWinLossModel();
             var rawService = Substitute.For<MatchDetailRawWinLossService>();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
+
             var refService = Substitute.For<commonServices.RemotingRefService>();
             refService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
             refService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
             var calculationService = new MatchDetailCalculationServiceImp(refService);
 
             // Act
-            var service = new ServiceImp(rawService, calculationService);
+            var service = new MatchDetailWinLossServiceImp(rawService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreEqual(result, expectedModel);
+            var equal = AreEqual(expected, result);
             Assert.True(equal);
         }
 
@@ -50,21 +50,21 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             {
                 LeagueName = string.Empty,
                 Matches = matches,
-                Total = WinLossFactory.CreateWinLoss(1, 1, 1, 1000, 100, 2000, 4000, 0.5m)
+                Total = WinLossFactory.CreateWinLoss(0, 0, 1, 1000, 100, 2000, 4000, 0.5m)
             };
 
-            var arenas = new List<LeagueWinLoss> { league };
+            var leagues = new List<LeagueWinLoss> { league };
             return new WinLossModel
             {
-                Arenas = arenas,
-                Total = WinLossFactory.CreateWinLoss(1, 1, 1, 1000, 100, 2000, 4000, 0.5m)
+                Leagues = leagues,
+                Total = WinLossFactory.CreateWinLoss(0, 0, 0, 1000, 100, 2000, 4000, 0.5m)
             };
         }
 
         private bool AreEqual(WinLossModel expected, WinLossModel model)
         {
             return WinLossComparison.AreEqual(expected.Total, model.Total)
-                && WinLossComparison.AreEqual(expected.Arenas, model.Arenas);
+                && WinLossComparison.AreEqual(expected.Leagues, model.Leagues);
         }
     }
 }

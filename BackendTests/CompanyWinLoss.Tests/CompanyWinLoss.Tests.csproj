@@ -121,6 +121,8 @@
     <Compile Include="Racing\MatchDetail\ServiceTests.cs" />
     <Compile Include="Racing\Site\ServiceTests.cs" />
     <Compile Include="Racing\SportType\ServiceTests.cs" />
+    <Compile Include="Sportsbook\Site\ServiceTests.cs" />
+    <Compile Include="Sportsbook\MatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\RacingDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\Site\ServiceTests.cs" />

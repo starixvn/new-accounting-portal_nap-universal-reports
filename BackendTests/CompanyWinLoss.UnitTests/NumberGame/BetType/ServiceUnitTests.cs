@@ -96,10 +96,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
 
         private bool AreTwoNumberGameBetTypeWinLossSummaryEqual(WinLossModel first, WinLossModel second)
         {
-            return WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.LiveGrandTotal, second.LiveGrandTotal)
-                && WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
-                && WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.Live, second.Live)
-                && WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.NonLive, second.NonLive);
+            return Comparison.AreEqual(first.LiveGrandTotal, second.LiveGrandTotal)
+                && Comparison.AreEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
+                && Comparison.AreEqual(first.Live, second.Live)
+                && Comparison.AreEqual(first.NonLive, second.NonLive);
         }
     }
 }

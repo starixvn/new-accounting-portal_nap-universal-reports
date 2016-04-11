@@ -6,7 +6,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = WinLossComparision.AreTwoSiteWinLossEqual(expectedSiteWinLoss, result);
+            var equal = Comparison.AreEqual(expectedSiteWinLoss, result);
             Assert.True(equal);
         }
 

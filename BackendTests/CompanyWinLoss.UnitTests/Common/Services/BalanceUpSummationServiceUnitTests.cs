@@ -5,7 +5,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -35,8 +35,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
             // Assert
-            var areEqual1 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[1], result[1]);
+            var areEqual1 = Comparison.AreEqual(expectedSum[0], result[0]);
+            var areEqual2 = Comparison.AreEqual(expectedSum[1], result[1]);
 
             Assert.True(areEqual1);
             Assert.True(areEqual2);
@@ -65,8 +65,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
             // Assert
-            var areEqual1 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparision.AreTwoRawWinLossEqual(expectedSum[1], result[1]);
+            var areEqual1 = Comparison.AreEqual(expectedSum[0], result[0]);
+            var areEqual2 = Comparison.AreEqual(expectedSum[1], result[1]);
 
             Assert.True(areEqual1);
             Assert.True(areEqual2);

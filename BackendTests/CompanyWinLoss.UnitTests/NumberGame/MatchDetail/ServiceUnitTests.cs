@@ -94,18 +94,18 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
                 return false;
             }
 
-            if (!WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total))
+            if (!Comparison.AreEqual(first.Total, second.Total))
             {
                 return false;
             }
 
-            return !first.Leagues.Where((t, i) => !AreTwoLeagueWinLossEqual(t, second.Leagues[i])).Any();
+            return !first.Leagues.Where((t, i) => !AreEqual(t, second.Leagues[i])).Any();
         }
 
-        private bool AreTwoLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
+        private bool AreEqual(LeagueWinLoss first, LeagueWinLoss second)
         {
             return first.Name == second.Name
-                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
+                && Comparison.AreEqual(first.Matches, second.Matches);
         }
     }
 }

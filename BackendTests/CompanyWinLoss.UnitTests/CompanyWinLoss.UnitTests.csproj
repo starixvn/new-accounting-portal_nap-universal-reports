@@ -54,14 +54,14 @@
     <Compile Include="Common\MatchDetaiServices\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetaiServices\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetaiServices\RawWinLossServiceUnitTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\ServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetaiServices\ServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetaiServices\WinLossComparison.cs" />
     <Compile Include="Common\MatchDetaiServices\WinLossFactory.cs" />
-    <Compile Include="Common\BalanceUpSourceChooserUnitTests.cs" />
-    <Compile Include="Common\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="Common\CalculationServiceUnitTests.cs" />
-    <Compile Include="Common\RawServiceUnitTests.cs" />
-    <Compile Include="Common\SiteServiceUnitTests.cs" />
+    <Compile Include="Common\Services\BalanceUpSourceChooserUnitTests.cs" />
+    <Compile Include="Common\Services\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\Services\RawServiceUnitTests.cs" />
+    <Compile Include="Common\Services\SiteServiceUnitTests.cs" />
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />
@@ -70,13 +70,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
-    <Compile Include="TestUtility\WinLossComparision.cs" />
+    <Compile Include="TestUtility\Comparison.cs" />
     <Compile Include="TestUtility\WinLossFactory.cs" />
-    <Compile Include="Common\ReportWinLossServiceUnitTest.cs" />
+    <Compile Include="Common\Services\ReportWinLossServiceUnitTest.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ServiceUnitTests.cs" />
     <Compile Include="VirtualSports\RacingDetail\ServiceUnitTests.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\WinLossComparision.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\WinLossFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -34,11 +34,11 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
-                Margin = CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome)
+                Margin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover)
             };
         }
 
-        public decimal CalculateMargin(decimal turnover, decimal income)
+        public decimal CalculateMargin(decimal income, decimal turnover)
         {
             return turnover > 0 ? income / turnover : 0;
         }
@@ -52,15 +52,16 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
         public LeagueWinLoss CalculateLeague(IEnumerable<MatchDetailRawWinLoss> rawWinLoss, int leagueId)
         {
-            var rawWinLossTotal = CalculateSumWinLoss(rawWinLoss);
-            var matches = from item in rawWinLoss
-                          select FromRawWinLoss(item);
+            var leagueTotal = CalculateSumWinLoss(rawWinLoss);
+            leagueTotal.LeagueId = leagueId;
+            leagueTotal.LeagueName = refService.GetLeagueName(leagueId);
+            var matches = rawWinLoss.Select(r => FromRawWinLoss(r));
 
             return new LeagueWinLoss
             {
-                LeagueName = refService.GetLeagueName(leagueId),
+                LeagueName = leagueTotal.LeagueName,
                 Matches = matches.ToList(),
-                Total = rawWinLossTotal
+                Total = leagueTotal
             };
         }
 
@@ -73,6 +74,14 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
             var sumWinLoss = new MatchDetailRawWinLoss
             {
+                AwayId = 0,
+                AwayName = string.Empty,
+                HomeId = 0,
+                HomeName = string.Empty,
+                IsNeutral = false,
+                LeagueId = 0,
+                MatchCode = string.Empty,
+                MatchId = 0,
                 SMAWinLoss = rawWinLosses.Sum(r => r.SMAWinLoss),
                 MemberWinLoss = rawWinLosses.Sum(r => r.MemberWinLoss),
                 Commission = rawWinLosses.Sum(r => r.Commission),

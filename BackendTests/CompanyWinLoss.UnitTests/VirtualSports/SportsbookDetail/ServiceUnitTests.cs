@@ -3,8 +3,10 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
+using UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
+using SportsbookDetails = UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDetail
 {
@@ -16,62 +18,49 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.SportsbookDeta
         public void Query_ReturnRightMatchDetailWinLoss()
         {
             // Arrange   
-            var expectedMatchDetailWinLoss = CreateExpectedMatchDetailWinLoss();
+            var expected = CreateExpectedWinLossModel();
+
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("AnyTeam");
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
+            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+
             var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
             var rawWinLossService = Substitute.For<MatchDetailRawWinLossService>();
-            var fakeData = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            var fakeWinLoss = WinLossFactory.CreateFakeRawWinLoss();
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
             // Act 
             var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreTwoMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
+            var equal = AreEqual(expected, result);
             Assert.True(equal);
         }
 
-        private WinLossModel CreateExpectedMatchDetailWinLoss()
+        private SportsbookDetails.WinLossModel CreateExpectedWinLossModel()
         {
-            var expectedMatches = CreateExpectedMatches();
-            var expectedGrandTotal = CreateExpectedGrandTotal();
+            var match1 = WinLossFactory.CreateWinLoss(1, 1, 1, 100, 10, 200, 400, 0.5m);
+            var match2 = WinLossFactory.CreateWinLoss(2, 2, 1, 200, 20, 400, 800, 0.5m);
+            var match3 = WinLossFactory.CreateWinLoss(3, 3, 1, 300, 30, 600, 1200, 0.5m);
+            var match4 = WinLossFactory.CreateWinLoss(4, 4, 1, 400, 40, 800, 1600, 0.5m);
 
-            return new WinLossModel
+            var matches = new List<MatchDetailWinLoss>
             {
-                Matches = expectedMatches,
-                Total = expectedGrandTotal
+                match1, match2, match3, match4
             };
-        }
 
-        private List<MatchDetailRawWinLoss> CreateFakeRawWinLoss()
-        {
-            return new List<MatchDetailRawWinLoss>
-           {
-                WinLossFactory.CreateRawWinLoss("MatchCode 1", 1, 1, 100, 110, 10, 500, 900),
-                WinLossFactory.CreateRawWinLoss("MatchCode 2", 2, 2, 110, 120, 11, 550, 990)
-            };
-        }
-
-        private List<MatchDetailWinLoss> CreateExpectedMatches()
-        {
-            return new List<MatchDetailWinLoss>
+            return new SportsbookDetails.WinLossModel
             {
-                WinLossFactory.CreateWinLoss("MatchCode 1", "AnyTeam", "AnyTeam", 100, 110, 10, 500,  900, 500m / 900),
-                WinLossFactory.CreateWinLoss("MatchCode 2", "AnyTeam", "AnyTeam", 110, 120, 11, 550, 990, 550m / 990m)
+                Matches = matches,
+                Total = WinLossFactory.CreateWinLoss(0, 0, 0, 1000, 100, 2000, 4000, 0.5m)
             };
         }
 
-        private MatchDetailWinLoss CreateExpectedGrandTotal()
+        private bool AreEqual(SportsbookDetails.WinLossModel expected, SportsbookDetails.WinLossModel model)
         {
-            return WinLossFactory.CreateWinLoss(null, "AnyTeam", "AnyTeam", 210, 230, 21, 1050, 1890, 1050m / 1890);
-        }
-
-        private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
-        {
-            return WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total)
-                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
+            return WinLossComparison.AreEqual(expected.Total, model.Total)
+                && WinLossComparison.AreEqual(expected.Matches, model.Matches);
         }
     }
 }

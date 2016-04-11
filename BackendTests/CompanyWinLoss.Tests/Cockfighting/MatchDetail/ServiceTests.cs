@@ -24,13 +24,13 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
             service.Query(criteria);
         }
 
-        private ServiceImp CreateService()
+        private MatchDetailWinLossServiceImp CreateService()
         {
             var rawWinLossService = CreateRawService();
             var remotingRefService = Substitute.For<commonService.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any Arena");
             var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
-            return new ServiceImp(rawWinLossService, calculationService);
+            return new MatchDetailWinLossServiceImp(rawWinLossService, calculationService);
         }
 
         protected override WinLossCriteria CreateCriteria()

@@ -6,73 +6,73 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
 {
     internal class WinLossComparison
     {
-        internal static bool AreEqual(List<LeagueWinLoss> first, List<LeagueWinLoss> second)
+        internal static bool AreEqual(List<LeagueWinLoss> expected, List<LeagueWinLoss> model)
         {
-            if (first.Count != second.Count)
+            if (expected.Count != model.Count)
             {
                 return false;
             }
 
-            return !first.Where((t, i) => !AreEqual(t, second[i])).Any();
+            return !expected.Where((t, i) => !AreEqual(t, model[i])).Any();
         }
 
-        internal static bool AreEqual(LeagueWinLoss first, LeagueWinLoss second)
+        internal static bool AreEqual(LeagueWinLoss expected, LeagueWinLoss model)
         {
-            return first.LeagueName == second.LeagueName &&
-                AreEqual(first.Matches, second.Matches) &&
-                AreEqual(first.Total, second.Total);
+            return expected.LeagueName == model.LeagueName &&
+                AreEqual(expected.Matches, model.Matches) &&
+                AreEqual(expected.Total, model.Total);
         }
 
-        internal static bool AreEqual(List<MatchDetailWinLoss> first, List<MatchDetailWinLoss> second)
+        internal static bool AreEqual(List<MatchDetailWinLoss> expected, List<MatchDetailWinLoss> model)
         {
-            if (first.Count != second.Count)
+            if (expected.Count != model.Count)
             {
                 return false;
             }
 
-            return !first.Where((t, i) => !AreEqual(t, second[i])).Any();
+            return !expected.Where((t, i) => !AreEqual(t, model[i])).Any();
         }
 
-        internal static bool AreEqual(MatchDetailWinLoss first, MatchDetailWinLoss second)
+        internal static bool AreEqual(MatchDetailWinLoss expected, MatchDetailWinLoss model)
         {
-            return first.MatchId == second.MatchId &&
-                first.MatchCode == second.MatchCode &&
-                first.IsNeutral == second.IsNeutral &&
-                first.HomeId == second.HomeId &&
-                first.AwayId == second.AwayId &&
-                first.HomeName == second.HomeName &&
-                first.AwayName == second.AwayName &&
-                first.LeagueId == second.LeagueId &&
-                first.LeagueName == second.LeagueName &&
-                first.MemberWinLoss == second.MemberWinLoss &&
-                first.SMAWinLoss == second.SMAWinLoss &&
-                first.Commission == second.Commission &&
-                first.RealIncome == second.RealIncome &&
-                first.VirtualIncome == second.VirtualIncome &&
-                first.VarianceIncome == second.VarianceIncome &&
-                first.RealTurnover == second.RealTurnover &&
-                first.VirtualTurnover == second.VirtualTurnover &&
-                first.Margin == second.Margin;
+            return expected.MatchId == model.MatchId &&
+                expected.MatchCode == model.MatchCode &&
+                expected.IsNeutral == model.IsNeutral &&
+                expected.HomeId == model.HomeId &&
+                expected.AwayId == model.AwayId &&
+                expected.HomeName == model.HomeName &&
+                expected.AwayName == model.AwayName &&
+                expected.LeagueId == model.LeagueId &&
+                expected.LeagueName == model.LeagueName &&
+                expected.MemberWinLoss == model.MemberWinLoss &&
+                expected.SMAWinLoss == model.SMAWinLoss &&
+                expected.Commission == model.Commission &&
+                expected.RealIncome == model.RealIncome &&
+                expected.VirtualIncome == model.VirtualIncome &&
+                expected.VarianceIncome == model.VarianceIncome &&
+                expected.RealTurnover == model.RealTurnover &&
+                expected.VirtualTurnover == model.VirtualTurnover &&
+                expected.Margin == model.Margin;
         }
 
-        internal static bool AreEqual(MatchDetailRawWinLoss first, MatchDetailRawWinLoss second)
+        internal static bool AreEqual(MatchDetailRawWinLoss expected, MatchDetailRawWinLoss model)
         {
-            return first.MatchId == second.MatchId &&
-               first.MatchCode == second.MatchCode &&
-               first.IsNeutral == second.IsNeutral &&
-               first.HomeId == second.HomeId &&
-               first.AwayId == second.AwayId &&
-               first.HomeName == second.HomeName &&
-               first.AwayName == second.AwayName &&
-               first.LeagueId == second.LeagueId &&
-               first.MemberWinLoss == second.MemberWinLoss &&
-               first.SMAWinLoss == second.SMAWinLoss &&
-               first.Commission == second.Commission &&
-               first.RealIncome == second.RealIncome &&
-               first.VirtualIncome == second.VirtualIncome &&
-               first.VarianceIncome == second.VarianceIncome &&
-               first.RealTurnover == second.RealTurnover &&
-               first.VirtualTurnover == second.VirtualTurnover;
+            return expected.MatchId == model.MatchId &&
+               expected.MatchCode == model.MatchCode &&
+               expected.IsNeutral == model.IsNeutral &&
+               expected.HomeId == model.HomeId &&
+               expected.AwayId == model.AwayId &&
+               expected.HomeName == model.HomeName &&
+               expected.AwayName == model.AwayName &&
+               expected.LeagueId == model.LeagueId &&
+               expected.MemberWinLoss == model.MemberWinLoss &&
+               expected.SMAWinLoss == model.SMAWinLoss &&
+               expected.Commission == model.Commission &&
+               expected.RealIncome == model.RealIncome &&
+               expected.VirtualIncome == model.VirtualIncome &&
+               expected.VarianceIncome == model.VarianceIncome &&
+               expected.RealTurnover == model.RealTurnover &&
+               expected.VirtualTurnover == model.VirtualTurnover;
         }
     }
 }

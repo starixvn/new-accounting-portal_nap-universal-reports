@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -90,8 +90,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common
 
         private bool AreTwoBetTypeWinLossSummaryEqual(BasicWinLossModel first, BasicWinLossModel second)
         {
-            return WinLossComparision.AreTwoSiteWinLossSummaryListEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
-                && WinLossComparision.AreTwoSiteWinLossSummaryEqual(first.GrandTotal, second.GrandTotal);
+            return Comparison.AreEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
+                && Comparison.AreEqual(first.GrandTotal, second.GrandTotal);
         }
     }
 }

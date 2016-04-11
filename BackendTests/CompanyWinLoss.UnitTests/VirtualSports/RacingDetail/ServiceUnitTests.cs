@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingDetail
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreTwoMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
+            var equal = AreEqual(expectedMatchDetailWinLoss, result);
             Assert.True(equal);
         }
 
@@ -67,10 +67,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.VirtualSports.RacingDetail
             return WinLossFactory.CreateWinLoss(0, "Total", 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
         }
 
-        private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
+        private bool AreEqual(WinLossModel first, WinLossModel second)
         {
-            return WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total)
-                && WinLossComparision.AreTwoWinLossListEqual(first.Matches, second.Matches);
+            return Comparison.AreEqual(first.Total, second.Total)
+                && Comparison.AreEqual(first.Matches, second.Matches);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                 TitleType = TitleType.TwoLineBlue,
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
-                BodyRows = BuildBodyRows(winloss.Arenas),
+                BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss.Total),
                 ShowFooter = true
             };

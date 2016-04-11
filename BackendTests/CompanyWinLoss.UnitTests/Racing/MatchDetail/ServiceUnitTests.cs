@@ -94,7 +94,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Racing.MatchDetail
                 return false;
             }
 
-            if (!WinLossComparision.AreTwoWinLossEqual(first.Total, second.Total))
+            if (!Comparison.AreEqual(first.Total, second.Total))
             {
                 return false;
             }
@@ -105,7 +105,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Racing.MatchDetail
         private bool AreTwoLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
         {
             return first.Name == second.Name
-                && WinLossComparision.AreTwoWinLossListEqual(first.Races, second.Races);
+                && Comparison.AreEqual(first.Races, second.Races);
         }
     }
 }
