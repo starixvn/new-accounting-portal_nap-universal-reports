@@ -1,7 +1,6 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinorSportTypes
 {
     using Common.BasicWinLoss;
-    using GridOption;
     using System.Web.Http;
     using UniversalReports.CompanyWinLoss.Common;
     using UniversalReports.CompanyWinLoss.Factory;
@@ -11,9 +10,9 @@
     public class SoccerMajorAndMinorSportTypesController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly SportTypesGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public SoccerMajorAndMinorSportTypesController(BasicWinLossService winlossService, SportTypesGridOptionService gridOptionService)
+        public SoccerMajorAndMinorSportTypesController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -26,7 +25,7 @@
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
 
                 return Json(gridOptions);
             }
@@ -41,7 +40,7 @@
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Sport Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

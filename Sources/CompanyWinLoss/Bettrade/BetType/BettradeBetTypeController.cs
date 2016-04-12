@@ -40,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

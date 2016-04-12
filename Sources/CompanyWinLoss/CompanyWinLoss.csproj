@@ -121,6 +121,8 @@
     <Compile Include="Cockfighting\BetType\Criteria.cs" />
     <Compile Include="Cockfighting\BetType\ExcelQueryModel.cs" />
     <Compile Include="Cockfighting\BetType\QueryModel.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridOptionService.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridOptionServiceImp.cs" />
     <Compile Include="Common\MatchDetailServices\LeagueWinLoss.cs" />
     <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailController.cs" />
     <Compile Include="Cockfighting\MatchDetail\Criteria.cs" />
@@ -150,16 +152,12 @@
     <Compile Include="Common\Models\BalanceUpSource.cs" />
     <Compile Include="MetricGaming\BetType\Criteria.cs" />
     <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
-    <Compile Include="MetricGaming\BetType\GridOptionService.cs" />
-    <Compile Include="MetricGaming\BetType\GridOptionServiceImp.cs" />
     <Compile Include="MetricGaming\BetType\MetricGamingBetTypeController.cs" />
     <Compile Include="MetricGaming\BetType\QueryModel.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\Criteria.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\ExcelQueryModel.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\MetricGamingLiveNonLiveController.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\QueryModel.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\GridOptionService.cs" />
-    <Compile Include="MetricGaming\LiveAndNoneLive\GridOptionServiceImp.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\Criteria.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveController.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\QueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\Criteria.cs" />
     <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\QueryModel.cs" />
@@ -196,10 +194,6 @@
     <Compile Include="Common\SiteWinLoss\SiteGridOptionServiceImp.cs" />
     <Compile Include="Common\SiteWinLoss\SiteService.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceImp.cs" />
-    <Compile Include="Common\Services\SportTypeGridOptionService.cs" />
-    <Compile Include="Common\Services\SportTypeGridOptionServiceImp.cs" />
-    <Compile Include="Common\Services\ThirdPartyProductGridOptionService.cs" />
-    <Compile Include="Common\Services\ThirdPartyProductGridOptionServiceImp.cs" />
     <Compile Include="OtherSports\BetType\Criteria.cs" />
     <Compile Include="OtherSports\BetType\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\BetType\OtherSportsBetTypeController.cs" />
@@ -300,10 +294,6 @@
     <Compile Include="Racing\SportType\ExcelQueryModel.cs" />
     <Compile Include="Racing\SportType\QueryModel.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionService.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionServiceImp.cs" />
-    <Compile Include="Soccer\GridOption\SportTypesGridOptionService.cs" />
-    <Compile Include="Soccer\GridOption\SportTypesGridOptionServiceImp.cs" />
     <Compile Include="Soccer\LiveNonLiveSportTypes\Criteria.cs" />
     <Compile Include="Soccer\LiveNonLiveSportTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\LiveNonLiveSportTypes\QueryModel.cs" />
@@ -312,6 +302,8 @@
     <Compile Include="Soccer\MajorMinorSportTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorMinorSportTypes\QueryModel.cs" />
     <Compile Include="Soccer\MajorMinorSportTypes\SoccerMajorAndMinorSportTypesController.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionService.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionServiceImp.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\Criteria.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\QueryModel.cs" />
@@ -384,7 +376,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MetricGamingSuperlive\MatchDetail\" />
-    <Folder Include="OtherSports\MatchDetail\" />
+    <Folder Include="Soccer\GridOption\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

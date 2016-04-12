@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Bet Type");
 
                 return Json(gridOptions);
             }
@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

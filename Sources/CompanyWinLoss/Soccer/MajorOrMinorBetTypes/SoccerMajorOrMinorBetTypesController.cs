@@ -1,7 +1,6 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {
     using Common.BasicWinLoss;
-    using GridOption;
     using System.Web.Http;
     using UniversalReports.CompanyWinLoss.Common;
     using UniversalReports.CompanyWinLoss.Factory;

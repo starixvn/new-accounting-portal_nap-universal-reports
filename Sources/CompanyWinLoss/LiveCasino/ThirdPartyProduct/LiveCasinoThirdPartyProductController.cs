@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,11 +10,11 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
     public class LiveCasinoThirdPartyProductController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly ThirdPartyProductGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
         public LiveCasinoThirdPartyProductController(
             BasicWinLossService winlossService,
-            ThirdPartyProductGridOptionService thirdPartyProductGridOptionService)
+            BasicGridOptionService thirdPartyProductGridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = thirdPartyProductGridOptionService;
@@ -28,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "3rd Party Product");
 
                 return Json(gridOptions);
             }
@@ -43,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.LiveCasino.ThirdPartyProduct
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "3rd Party Product");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

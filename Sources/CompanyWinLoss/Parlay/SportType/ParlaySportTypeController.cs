@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SportType
     public class ParlaySportTypeController : ApiController
     {
         private readonly BasicWinLossService winLossService;
-        private readonly SportTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public ParlaySportTypeController(BasicWinLossService winLossService, SportTypeGridOptionService gridOptionService)
+        public ParlaySportTypeController(BasicWinLossService winLossService, BasicGridOptionService gridOptionService)
         {
             this.winLossService = winLossService;
             this.gridOptionService = gridOptionService;
@@ -26,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SportType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winLossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
 
                 return Json(gridOptions);
             }
@@ -41,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SportType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winLossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Sport Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
