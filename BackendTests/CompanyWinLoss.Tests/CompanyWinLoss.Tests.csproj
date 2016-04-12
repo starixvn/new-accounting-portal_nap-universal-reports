@@ -120,6 +120,9 @@
     <Compile Include="Racing\MatchDetail\ServiceTests.cs" />
     <Compile Include="Racing\Site\ServiceTests.cs" />
     <Compile Include="Racing\SportType\ServiceTests.cs" />
+    <Compile Include="Soccer\LiveAndNonLiveSportTypes\ServiceTests.cs" />
+    <Compile Include="Soccer\MajorAndMinorSportTypes\ServiceTests.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\ServiceTests.cs" />
     <Compile Include="Sportsbook\Site\ServiceTests.cs" />
     <Compile Include="Sportsbook\MatchDetail\ServiceTests.cs" />
     <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
