@@ -9,10 +9,10 @@
     [RoutePrefix("api/company-win-loss/soccer/major-or-minor-bet-types")]
     public class SoccerMajorOrMinorBetTypesController : ApiController
     {
-        private readonly BasicWinLossService winlossService;
+        private readonly WinLossService winlossService;
         private readonly BetTypesGridOptionService gridOptionService;
 
-        public SoccerMajorOrMinorBetTypesController(BasicWinLossService winlossService, BetTypesGridOptionService gridOptionService)
+        public SoccerMajorOrMinorBetTypesController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 
     public class BetTypesGridOptionServiceImp : BetTypesGridOptionService
     {
-        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
         {
             return new GridOptions
             {
@@ -20,7 +20,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
                 Columns = BuildHeader(),
                 GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
-                FooterRows = BuildFooter(winLoss.GrandTotal),
+                FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowTree = true,
                 ShowHighlightRow = false,
@@ -68,23 +68,31 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
             return new List<GroupHeaderRows> { groupHeader };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
+        private List<GridDataRow> BuildBodyRows(List<WinLossSummaryByBetTypeGroup> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
-            foreach (var item in winLoss)
+            foreach (var winLossSummary in winLoss)
             {
-                var row = BuildSportDataRow(item, HAlignment.Left);
-                bodyRows.Add(row);
+                foreach (var item in winLossSummary.SiteWinLossSummaries)
+                {
+                    var row = BuildSportDataRow(item, HAlignment.Left);
+                    bodyRows.Add(row);
+                }
+
+                var totalRow = BuildDataRow(winLossSummary.Total, HAlignment.Right);
+                bodyRows.Add(totalRow);
             }
 
             return bodyRows;
         }
 
-        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
+        private List<GridDataRow> BuildFooter(WinLossModel winLoss)
         {
             return new List<GridDataRow>
             {
-                BuildSportDataRow(item, HAlignment.Right)
+                BuildDataRow(winLoss.MainTotal, HAlignment.Right),
+                BuildDataRow(winLoss.OtherTotal, HAlignment.Right),
+                BuildSportDataRow(winLoss.GrandTotal, HAlignment.Right)
             };
         }
 

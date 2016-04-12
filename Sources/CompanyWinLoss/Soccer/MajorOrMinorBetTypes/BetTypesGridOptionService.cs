@@ -5,6 +5,6 @@
 
     public interface BetTypesGridOptionService
     {
-        GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title);
+        GridOptions FromWinLossModel(WinLossModel winLoss, string title);
     }
 }

@@ -298,10 +298,17 @@
     <Compile Include="Soccer\MajorMinorSportTypes\SoccerMajorAndMinorSportTypesController.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionService.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionServiceImp.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\CalculationService.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\CalculationServiceImp.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\Criteria.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\QueryModel.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerBetTypeGroupConstants.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerMajorOrMinorBetTypesController.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossModel.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossService.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossServiceImp.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossSummaryByGroup.cs" />
     <Compile Include="Sportsbook\Site\Criteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
