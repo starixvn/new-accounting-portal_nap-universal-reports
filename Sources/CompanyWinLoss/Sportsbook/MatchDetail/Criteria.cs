@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public int BetType { get; set; }
 
-        public bool IsLive { get; set; }
+        public int IsLive { get; set; }
 
         public bool IsHedge { get; set; }
 

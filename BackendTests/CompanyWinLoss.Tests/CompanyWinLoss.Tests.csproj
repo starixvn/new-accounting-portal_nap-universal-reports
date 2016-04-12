@@ -83,53 +83,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bettrade\BetType\BetTypeServiceTests.cs" />
-    <Compile Include="Bettrade\Site\SiteServiceTests.cs" />
-    <Compile Include="Bingo\BetType\ServiceTests.cs" />
-    <Compile Include="Bingo\Site\ServiceTests.cs" />
-    <Compile Include="Casino\BetType\ServiceTests.cs" />
-    <Compile Include="Casino\Site\ServiceTests.cs" />
-    <Compile Include="Casino\ThirdPartyProduct\ServiceTests.cs" />
-    <Compile Include="Cockfighting\BetType\ServiceTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\ServiceTests.cs" />
-    <Compile Include="Cockfighting\Site\ServiceTests.cs" />
-    <Compile Include="ColossusBets\BetType\ServiceTests.cs" />
-    <Compile Include="ColossusBets\Site\ServiceTests.cs" />
-    <Compile Include="Common\BalanceUpServiceTests.cs" />
+    <Compile Include="Bettrade\BetType\BettradeBetTypeServiceTests.cs" />
+    <Compile Include="Bettrade\Site\BettradeSiteServiceTests.cs" />
+    <Compile Include="Bingo\BetType\BingoBetTypeServiceTests.cs" />
+    <Compile Include="Bingo\Site\BingoSiteServiceTests.cs" />
+    <Compile Include="Casino\BetType\CasinoBetTypeServiceTests.cs" />
+    <Compile Include="Casino\Site\CasinoSiteServiceTests.cs" />
+    <Compile Include="Casino\ThirdPartyProduct\CasinoThirdPartyProductServiceTests.cs" />
+    <Compile Include="Cockfighting\BetType\CockfightingBetTypeServiceTests.cs" />
+    <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailServiceTests.cs" />
+    <Compile Include="Cockfighting\Site\CockfightingSiteServiceTests.cs" />
+    <Compile Include="ColossusBets\BetType\ColossusBetsBetTypeServiceTests.cs" />
+    <Compile Include="ColossusBets\Site\ColossusBetsSiteServiceTests.cs" />
+    <Compile Include="Common\CommonBalanceUpServiceTests.cs" />
     <Compile Include="Common\BaseSetupServiceTests.cs" />
     <Compile Include="Common\BaseBasicWinLossServiceTests.cs" />
     <Compile Include="Common\BaseSiteServiceTests.cs" />
     <Compile Include="Common\BaseServiceTests.cs" />
-    <Compile Include="Keno\BetType\ServiceTests.cs" />
-    <Compile Include="Keno\Site\ServiceTests.cs" />
-    <Compile Include="LiveCasino\BetType\ServiceTests.cs" />
-    <Compile Include="LiveCasino\Site\ServiceTests.cs" />
-    <Compile Include="LiveCasino\ThirdPartyProduct\ServiceTests.cs" />
-    <Compile Include="NumberGame\BetType\ServiceTests.cs" />
-    <Compile Include="NumberGame\MatchDetail\ServiceTests.cs" />
-    <Compile Include="NumberGame\Site\ServiceTests.cs" />
-    <Compile Include="OtherSports\BetType\ServiceTests.cs" />
-    <Compile Include="OtherSports\LiveAndNoneLive\ServiceTests.cs" />
-    <Compile Include="OtherSports\SportType\ServiceTests.cs" />
-    <Compile Include="Parlay\BetType\ServiceTests.cs" />
-    <Compile Include="Parlay\Site\ServiceTests.cs" />
-    <Compile Include="Parlay\SportType\ServiceTests.cs" />
-    <Compile Include="Products\ServiceTests.cs" />
+    <Compile Include="Keno\BetType\KenoBetTypeServiceTests.cs" />
+    <Compile Include="Keno\Site\KenoSiteServiceTests.cs" />
+    <Compile Include="LiveCasino\BetType\LiveCasinoBetTypeServiceTests.cs" />
+    <Compile Include="LiveCasino\Site\LiveCasinoSiteServiceTests.cs" />
+    <Compile Include="LiveCasino\ThirdPartyProduct\LiveCasinoThirdPartyProductServiceTests.cs" />
+    <Compile Include="MetricGaming\BetType\MetricGamingBetTypeServiceTests.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveServiceTests.cs" />
+    <Compile Include="NumberGame\BetType\NumberGameBetTypeServiceTests.cs" />
+    <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailServiceTests.cs" />
+    <Compile Include="NumberGame\Site\NumberGameSiteServiceTests.cs" />
+    <Compile Include="OtherSports\BetType\OtherSportsBetTypeServiceTests.cs" />
+    <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveServiceTests.cs" />
+    <Compile Include="OtherSports\SportType\OtherSportsSportTypeServiceTests.cs" />
+    <Compile Include="Parlay\BetType\ParlayBetTypeServiceTests.cs" />
+    <Compile Include="Parlay\Site\ParlaySiteServiceTests.cs" />
+    <Compile Include="Parlay\SportType\ParlaySportTypeServiceTests.cs" />
+    <Compile Include="Products\ProductsServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Racing\BetType\ServiceTests.cs" />
-    <Compile Include="Racing\MatchDetail\ServiceTests.cs" />
-    <Compile Include="Racing\Site\ServiceTests.cs" />
-    <Compile Include="Racing\SportType\ServiceTests.cs" />
+    <Compile Include="Racing\BetType\RacingBetTypeServiceTests.cs" />
+    <Compile Include="Racing\MatchDetail\RacingMatchDetailServiceTests.cs" />
+    <Compile Include="Racing\Site\RacingSiteServiceTests.cs" />
+    <Compile Include="Racing\SportType\RacingSportTypeServiceTests.cs" />
     <Compile Include="Soccer\LiveAndNonLiveSportTypes\ServiceTests.cs" />
     <Compile Include="Soccer\MajorAndMinorSportTypes\ServiceTests.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\ServiceTests.cs" />
-    <Compile Include="Sportsbook\Site\ServiceTests.cs" />
-    <Compile Include="Sportsbook\MatchDetail\ServiceTests.cs" />
-    <Compile Include="VirtualSports\SportsbookMatchDetail\ServiceTests.cs" />
-    <Compile Include="VirtualSports\RacingDetail\ServiceTests.cs" />
-    <Compile Include="VirtualSports\Site\ServiceTests.cs" />
-    <Compile Include="VirtualSports\BetType\ServiceTests.cs" />
-    <Compile Include="VirtualSports\SportType\ServiceTests.cs" />
+    <Compile Include="Sportsbook\Site\SportsbookSiteServiceTests.cs" />
+    <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailServiceTests.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailServiceTests.cs" />
+    <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailServiceTests.cs" />
+    <Compile Include="VirtualSports\Site\VirtualSportsSiteServiceTests.cs" />
+    <Compile Include="VirtualSports\BetType\VirtualSportsBetTypeServiceTests.cs" />
+    <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
@@ -151,7 +153,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="OtherSports\MatchDetail\" />
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>

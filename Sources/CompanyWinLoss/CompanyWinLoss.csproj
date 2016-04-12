@@ -148,6 +148,14 @@
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\Models\BalanceUpRange.cs" />
     <Compile Include="Common\Models\BalanceUpSource.cs" />
+    <Compile Include="MetricGaming\BetType\Criteria.cs" />
+    <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\BetType\MetricGamingBetTypeController.cs" />
+    <Compile Include="MetricGaming\BetType\QueryModel.cs" />
+    <Compile Include="MetricGaming\LiveAndNoneLive\Criteria.cs" />
+    <Compile Include="MetricGaming\LiveAndNoneLive\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\LiveAndNoneLive\MetricGamingLiveNonLiveController.cs" />
+    <Compile Include="MetricGaming\LiveAndNoneLive\QueryModel.cs" />
     <Compile Include="Products\NoneSportsbookWinloss.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
@@ -184,10 +192,10 @@
     <Compile Include="OtherSports\BetType\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\BetType\OtherSportsBetTypeController.cs" />
     <Compile Include="OtherSports\BetType\QueryModel.cs" />
-    <Compile Include="OtherSports\LiveAndNoneLive\Criteria.cs" />
-    <Compile Include="OtherSports\LiveAndNoneLive\ExcelQueryModel.cs" />
-    <Compile Include="OtherSports\LiveAndNoneLive\OtherSportsLiveAndNoneLiveController.cs" />
-    <Compile Include="OtherSports\LiveAndNoneLive\QueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\Criteria.cs" />
+    <Compile Include="OtherSports\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveController.cs" />
+    <Compile Include="OtherSports\LiveNonLive\QueryModel.cs" />
     <Compile Include="OtherSports\SportType\Criteria.cs" />
     <Compile Include="OtherSports\SportType\ExcelQueryModel.cs" />
     <Compile Include="OtherSports\SportType\OtherSportsSportTypeController.cs" />
@@ -362,9 +370,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MetricGamingSuperlive\MatchDetail\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
