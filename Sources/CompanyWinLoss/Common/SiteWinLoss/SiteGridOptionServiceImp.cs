@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 {
     public class SiteGridOptionServiceImp : SiteGridOptionService
     {

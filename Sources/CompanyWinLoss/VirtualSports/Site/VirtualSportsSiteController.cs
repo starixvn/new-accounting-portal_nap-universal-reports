@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 

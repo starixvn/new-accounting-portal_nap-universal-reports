@@ -1,7 +1,6 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
     public interface BasicWinLossService
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Models
+namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 {
     public class SiteWinLossModel
     {

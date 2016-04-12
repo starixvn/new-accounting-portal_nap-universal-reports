@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 {
     public class SiteServiceImp : SiteService
     {

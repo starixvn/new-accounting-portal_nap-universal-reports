@@ -3,6 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
 {

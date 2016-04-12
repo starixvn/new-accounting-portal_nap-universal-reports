@@ -1,9 +1,9 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinorSportTypes
 {
+    using Common.BasicWinLoss;
     using GridOption;
     using System.Web.Http;
     using UniversalReports.CompanyWinLoss.Common;
-    using UniversalReports.CompanyWinLoss.Common.Services;
     using UniversalReports.CompanyWinLoss.Factory;
     using UniversalReports.MVC.Results;
 

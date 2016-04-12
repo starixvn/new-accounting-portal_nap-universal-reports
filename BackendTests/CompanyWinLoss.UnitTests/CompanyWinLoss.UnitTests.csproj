@@ -61,7 +61,7 @@
     <Compile Include="Common\Services\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\Services\RawServiceUnitTests.cs" />
-    <Compile Include="Common\Services\SiteServiceUnitTests.cs" />
+    <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\MatchDetail\ServiceUnitTests.cs" />

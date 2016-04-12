@@ -1,7 +1,7 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
 {
+    using Common.BasicWinLoss;
     using Fanex.Excel.Models;
-    using UniversalReports.CompanyWinLoss.Common.Models;
 
     public interface BetTypesGridOptionService
     {

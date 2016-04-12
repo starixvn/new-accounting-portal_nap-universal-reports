@@ -1,5 +1,5 @@
 ﻿using Fanex.Excel.Models;
-using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
 {

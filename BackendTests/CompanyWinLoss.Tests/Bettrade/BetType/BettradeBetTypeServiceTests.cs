@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Bettrade.BetType;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Tests.Common;

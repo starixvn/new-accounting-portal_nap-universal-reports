@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Common

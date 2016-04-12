@@ -4,11 +4,13 @@ using Fanex.NAP.Core.Web.Session;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
+using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using Cockfighting = UniversalReports.CompanyWinLoss.Cockfighting;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using MatchDetailServices = UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using Racing = UniversalReports.CompanyWinLoss.Racing;
+using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Sportsbook = UniversalReports.CompanyWinLoss.Sportsbook;
 using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
 
@@ -37,9 +39,9 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.SiteService, CommonServices.SiteServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.SiteGridOptionService, CommonServices.SiteGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.BasicWinLossService, CommonServices.BasicWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.SiteService, SiteWinLoss.SiteServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.SiteGridOptionService, SiteWinLoss.SiteGridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.BetTypeGridOptionService, CommonServices.BetTypeGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.SportTypeGridOptionService, CommonServices.SportTypeGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.ThirdPartyProductGridOptionService, CommonServices.ThirdPartyProductGridOptionServiceImp>(Lifestyle.Transient);

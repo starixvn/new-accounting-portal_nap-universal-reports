@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.NumberGame.Site;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 

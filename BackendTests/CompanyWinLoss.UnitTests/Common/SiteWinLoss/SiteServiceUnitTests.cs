@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.SiteWinLoss
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]

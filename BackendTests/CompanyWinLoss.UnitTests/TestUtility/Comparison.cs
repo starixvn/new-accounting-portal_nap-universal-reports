@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Products;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
