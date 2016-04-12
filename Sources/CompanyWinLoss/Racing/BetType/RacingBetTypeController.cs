@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
         private readonly BasicWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public RacingBetTypeController(BetTypeGridOptionService gridOptionService, BasicWinLossService winlossService)
+        public RacingBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

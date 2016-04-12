@@ -10,17 +10,17 @@ namespace UniversalReports.CompanyWinLoss.Products
             "Metric Gaming - Superlive",
             "Other Sports",
             "Parlay",
-            "Sportsbook Total",
-            "Sportsbook Live Total",
-            "Sportsbook Non-Live Total",
+            "MetricGaming Total",
+            "MetricGaming Live Total",
+            "MetricGaming Non-Live Total",
             "RM"
         };
 
         public List<string> listExclude = new List<string>
         {
-            "Sportsbook Total",
-            "Sportsbook Live Total",
-            "Sportsbook Non-Live Total",
+            "MetricGaming Total",
+            "MetricGaming Live Total",
+            "MetricGaming Non-Live Total",
         };
     }
 }

@@ -10,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
     public class MetricGamingBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly GridOptionService gridOptionService;
 
-        public MetricGamingBetTypeController(BetTypeGridOptionService gridOptionService, BasicWinLossService winlossService)
+        public MetricGamingBetTypeController(BasicWinLossService winlossService, GridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

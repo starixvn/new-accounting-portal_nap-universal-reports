@@ -107,6 +107,8 @@
     <Compile Include="LiveCasino\ThirdPartyProduct\LiveCasinoThirdPartyProductServiceTests.cs" />
     <Compile Include="MetricGaming\BetType\MetricGamingBetTypeServiceTests.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveServiceTests.cs" />
+    <Compile Include="MetricGaming\MatchDetail\MetricGamingMatchDetailServiceTests.cs" />
+    <Compile Include="MetricGaming\Site\MetricGamingSiteServiceTests.cs" />
     <Compile Include="NumberGame\BetType\NumberGameBetTypeServiceTests.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailServiceTests.cs" />
     <Compile Include="NumberGame\Site\NumberGameSiteServiceTests.cs" />

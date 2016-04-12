@@ -40,17 +40,17 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         }
         private List<RawWinLoss> CreateFakeSportsbookDetail()
         {
-            var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
-            var nonLiveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
-            var parlayWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Parlay", 120, 130, 12, 600, 720, -120, 100, 100, 1080, 1200);
-            var outrightWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Outright", 130, 140, 13, 650, 780, -130, 100, 100, 1170, 1300);
+            var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "MetricGaming Detail", "MetricGaming Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
+            var nonLiveWinLoss = WinLossFactory.CreateRawWinLoss(0, "MetricGaming Detail", "MetricGaming Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
+            var parlayWinLoss = WinLossFactory.CreateRawWinLoss(0, "MetricGaming Detail", "Parlay", 120, 130, 12, 600, 720, -120, 100, 100, 1080, 1200);
+            var outrightWinLoss = WinLossFactory.CreateRawWinLoss(0, "MetricGaming Detail", "Outright", 130, 140, 13, 650, 780, -130, 100, 100, 1170, 1300);
 
             return new List<RawWinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
         private List<WinLoss> CreateExpectedSportsbookDetail()
         {
-            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
-            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
+            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "MetricGaming Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
+            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "MetricGaming Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
             var parlayWinLoss = WinLossFactory.CreateWinLoss(0, "Parlay", 120, 130, 12, 600, 720, -120, 100, 100, 1080, 1200, 600m / 1080, 720m / 1200);
             var outrightWinLoss = WinLossFactory.CreateWinLoss(0, "Outright", 130, 140, 13, 650, 780, -130, 100, 100, 1170, 1300, 650m / 1170, 780m / 1300);
 

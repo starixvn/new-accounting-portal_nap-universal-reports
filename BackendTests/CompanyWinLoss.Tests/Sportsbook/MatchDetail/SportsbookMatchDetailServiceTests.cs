@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 using CommonService = UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.Tests.Sportsbook.MatchDetail
+namespace UniversalReports.CompanyWinLoss.Tests.MetricGamingSportsbook.MatchDetail
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]

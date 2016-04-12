@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
         private readonly BasicWinLossService winlossService;
         private readonly BetTypeGridOptionService gridOptionService;
 
-        public ParlayBetTypeController(BetTypeGridOptionService gridOptionService, BasicWinLossService winlossService)
+        public ParlayBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

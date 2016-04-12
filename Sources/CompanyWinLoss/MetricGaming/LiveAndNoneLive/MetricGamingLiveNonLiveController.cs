@@ -10,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
     public class MetricGamingLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly SportTypeGridOptionService gridOptionService;
+        private readonly GridOptionService gridOptionService;
 
-        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, SportTypeGridOptionService gridOptionService)
+        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, GridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
