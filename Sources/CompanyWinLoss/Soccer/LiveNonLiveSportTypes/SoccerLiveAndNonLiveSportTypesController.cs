@@ -8,7 +8,7 @@
     using UniversalReports.MVC.Results;
 
     [RoutePrefix("api/company-win-loss/soccer/live-and-nonlive-sport-types")]
-    class SoccerLiveAndNonLiveSportTypesController : ApiController
+    public class SoccerLiveAndNonLiveSportTypesController : ApiController
     {
         private readonly BasicWinLossService winlossService;
         private readonly SportTypesGridOptionService gridOptionService;

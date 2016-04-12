@@ -1,13 +1,13 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorOrMinorBetTypes
 {
     using Common;
-    using CompanyWinLoss.Soccer.MajorOrMinorBetTypes;
     using CompanyWinLoss.Common.Criteria;
+    using CompanyWinLoss.Soccer.MajorOrMinorBetTypes;
     using NUnit.Framework;
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    class SoccerBetTypeServiceTests : BaseBasicWinLossServiceTests
+    public class SoccerBetTypeServiceTests : BaseBasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

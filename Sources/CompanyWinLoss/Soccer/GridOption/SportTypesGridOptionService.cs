@@ -2,7 +2,7 @@
 {
     using Common.BasicWinLoss;
     using Fanex.Excel.Models;
-
+    
     public interface SportTypesGridOptionService
     {
         GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title);

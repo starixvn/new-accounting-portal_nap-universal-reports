@@ -3,7 +3,7 @@
     using System;
     using UniversalReports.MVC.Validation;
 
-    class QueryModel
+    public class QueryModel
     {
         public DateTime StartDate { get; set; }
 

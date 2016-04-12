@@ -108,7 +108,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
             var sportId = $"{item.Id}";
             int columnIndex = 0;
             var columns = new List<Columns>
-            {
+            {                
                 new Columns { ColumnIndex = columnIndex++, Name = "SportType", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CellAlignment = alignment, CustomAttributes = sportId },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),

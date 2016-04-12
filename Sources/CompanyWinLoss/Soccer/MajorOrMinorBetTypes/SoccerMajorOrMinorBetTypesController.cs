@@ -8,7 +8,7 @@
     using UniversalReports.MVC.Results;
 
     [RoutePrefix("api/company-win-loss/soccer/major-or-minor-bet-types")]
-    class SoccerMajorOrMinorBetTypesController : ApiController
+    public class SoccerMajorOrMinorBetTypesController : ApiController
     {
         private readonly BasicWinLossService winlossService;
         private readonly BetTypesGridOptionService gridOptionService;

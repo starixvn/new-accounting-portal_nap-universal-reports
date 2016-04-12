@@ -300,8 +300,8 @@
     <Compile Include="Racing\SportType\ExcelQueryModel.cs" />
     <Compile Include="Racing\SportType\QueryModel.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
-    <Compile Include="Soccer\GridOption\BetTypesGridOptionService.cs" />
-    <Compile Include="Soccer\GridOption\BetTypesGridOptionServiceImp.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionService.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionServiceImp.cs" />
     <Compile Include="Soccer\GridOption\SportTypesGridOptionService.cs" />
     <Compile Include="Soccer\GridOption\SportTypesGridOptionServiceImp.cs" />
     <Compile Include="Soccer\LiveNonLiveSportTypes\Criteria.cs" />

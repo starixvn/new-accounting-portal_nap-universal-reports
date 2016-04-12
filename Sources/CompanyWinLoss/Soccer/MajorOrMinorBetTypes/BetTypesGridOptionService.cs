@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {
     using Common.BasicWinLoss;
     using Fanex.Excel.Models;

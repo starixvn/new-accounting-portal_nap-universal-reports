@@ -1,13 +1,13 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Models;
-
-namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
+namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {
-    class BetTypesGridOptionServiceImp : BetTypesGridOptionService
+    using Common.BasicWinLoss;
+    using Fanex.Excel.Enums;
+    using Fanex.Excel.Models;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using UniversalReports.CompanyWinLoss.Common.Models;
+
+    public class BetTypesGridOptionServiceImp : BetTypesGridOptionService
     {
         public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title)
         {
@@ -109,8 +109,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
             var betTypeId = $"{item.Id}";
             var columns = new List<Columns>
             {
-
-                new Columns { ColumnIndex = columnIndex++, Name = "BetType", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CellAlignment = alignment, CustomAttributes = betTypeId},
+                new Columns { ColumnIndex = columnIndex++, Name = "BetType", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CellAlignment = alignment, CustomAttributes = betTypeId },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),

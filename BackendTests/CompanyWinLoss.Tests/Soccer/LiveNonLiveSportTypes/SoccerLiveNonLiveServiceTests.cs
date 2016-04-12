@@ -7,7 +7,7 @@
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    class SoccerLiveNonLiveServiceTests : BaseBasicWinLossServiceTests
+    public class SoccerLiveNonLiveServiceTests : BaseBasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

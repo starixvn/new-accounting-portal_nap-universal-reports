@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    class ExcelQueryModel : QueryModel
+    public class ExcelQueryModel : QueryModel
     {
         [Required]
         public string Title { get; set; }
