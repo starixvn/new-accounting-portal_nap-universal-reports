@@ -1,9 +1,9 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.LiveAndNonLiveSportTypes
 {
-    using NUnit.Framework;
-    using CompanyWinLoss.Soccer.LiveNonLiveSportTypes;
-    using CompanyWinLoss.Common.Criteria;
     using Common;
+    using CompanyWinLoss.Common.Criteria;
+    using CompanyWinLoss.Soccer.LiveNonLiveSportTypes;
+    using NUnit.Framework;
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]

@@ -46,7 +46,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
                 new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
-                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }                
+                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
             };
         }
 
@@ -108,7 +108,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
             int columnIndex = 0;
             var columns = new List<Columns>
             {
-                
                 new Columns { ColumnIndex = columnIndex++, Name = "SportType", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CellAlignment = alignment, CustomAttributes = sportId },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),

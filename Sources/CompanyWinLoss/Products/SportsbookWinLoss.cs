@@ -7,6 +7,6 @@ namespace UniversalReports.CompanyWinLoss.Products
     {
         public List<SiteWinLossSummary> Products { set; get; }
 
-        public List <WinLoss> RM { set; get; }
+        public List<WinLoss> RM { set; get; }
     }
 }

@@ -1,11 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GridOption
