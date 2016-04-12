@@ -14,7 +14,7 @@
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Soccer-LiveAndNonLiveSportTypes";
+            return $"CompanyWinLoss-Soccer-Live-NonLive-SportType-{Source}";
         }
     }
 }

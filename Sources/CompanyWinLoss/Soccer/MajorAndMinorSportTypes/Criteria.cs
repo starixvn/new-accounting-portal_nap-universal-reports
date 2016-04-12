@@ -20,7 +20,7 @@
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Soccer-MajorAndMinorSportTypes";
+            return $"CompanyWinLoss-Soccer-Major-Minor-SportType-{Source}";
         }
     }
 }
