@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
-    public class ReportWinLossServiceUnitTest
+    public class BasicWinLossServiceUnitTest
     {
         [Test]
         public void Query_ReturnRightBetTypeWinLossSummary()
@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var expectedBetTypeWinLossSummary = CreateExpectedBetTypeWinLossSummary();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            var fakeData = CreateFakeRawWinLoss();
+            var fakeData = CreateFakeRawData();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
@@ -29,32 +29,34 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreTwoBetTypeWinLossSummaryEqual(expectedBetTypeWinLossSummary, result);
+            var equal = AreEqual(expectedBetTypeWinLossSummary, result);
             Assert.True(equal);
         }
 
         private BasicWinLossModel CreateExpectedBetTypeWinLossSummary()
         {
-            var expectedBetTypeWinLosses = CreateExpectedListOfBetTypeWinLoss();
+            var expectedSummaries = CreateExpectedSummaries();
             var expectedGrandTotal = CreateExpectedGrandTotal();
 
             return new BasicWinLossModel
             {
-                SiteWinLossSummaries = expectedBetTypeWinLosses,
+                SiteWinLossSummaries = expectedSummaries,
                 GrandTotal = expectedGrandTotal
             };
         }
 
-        private List<RawWinLoss> CreateFakeRawWinLoss()
+        private List<RawWinLoss> CreateFakeRawData()
         {
-            var site1Live = CreateFakeRawBetTypeWinLoss(1, "BetType 1");
-            var site2Live = CreateFakeRawBetTypeWinLoss(2, "BetType 2");
-            return (new List<List<RawWinLoss>> { site1Live, site2Live })
+            var site1Live = CreateFakeRawGroup(1, "Name 1");
+            var site2Live = CreateFakeRawGroup(2, "Name 2");
+            var allRMData = CreateFakeRMWinLoss();
+
+            return (new List<List<RawWinLoss>> { site1Live, site2Live, allRMData })
                     .SelectMany(l => l)
                     .ToList();
         }
 
-        private List<RawWinLoss> CreateFakeRawBetTypeWinLoss(int groupId, string groupName)
+        private List<RawWinLoss> CreateFakeRawGroup(int groupId, string groupName)
         {
             var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
             var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
@@ -62,19 +64,28 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }
 
-        private List<SiteWinLossSummary> CreateExpectedListOfBetTypeWinLoss()
+        private List<RawWinLoss> CreateFakeRMWinLoss()
         {
-            var site1 = CreateExpectedBetTypeWinLoss(1, "BetType 1");
-            var site2 = CreateExpectedBetTypeWinLoss(2, "BetType 2");
+            return new List<RawWinLoss>
+            {
+                WinLossFactory.CreateRawWinLoss(0, "RM", "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "RM", "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100)
+            };
+        }
+
+        private List<SiteWinLossSummary> CreateExpectedSummaries()
+        {
+            var site1 = CreateExpectedSiteSummaries(1, "Name 1");
+            var site2 = CreateExpectedSiteSummaries(2, "Name 2");
 
             return new List<SiteWinLossSummary> { site1, site2 };
         }
 
-        private SiteWinLossSummary CreateExpectedBetTypeWinLoss(int betTypeId, string betType)
+        private SiteWinLossSummary CreateExpectedSiteSummaries(int id, string name)
         {
-            var creditWinLoss = WinLossFactory.CreateWinLoss(betTypeId, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
-            var depositWinLoss = WinLossFactory.CreateWinLoss(betTypeId, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
-            var totalWinLoss = WinLossFactory.CreateWinLoss(betTypeId, betType, 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
+            var creditWinLoss = WinLossFactory.CreateWinLoss(id, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
+            var depositWinLoss = WinLossFactory.CreateWinLoss(id, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
+            var totalWinLoss = WinLossFactory.CreateWinLoss(id, name, 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
         }
@@ -89,7 +100,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             };
         }
 
-        private bool AreTwoBetTypeWinLossSummaryEqual(BasicWinLossModel first, BasicWinLossModel second)
+        private bool AreEqual(BasicWinLossModel first, BasicWinLossModel second)
         {
             return Comparison.AreEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
                 && Comparison.AreEqual(first.GrandTotal, second.GrandTotal);

@@ -7,6 +7,8 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
     {
         public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
 
+        public List<WinLoss> RM { get; set; }
+
         public SiteWinLossSummary GrandTotal { get; set; }
     }
 }

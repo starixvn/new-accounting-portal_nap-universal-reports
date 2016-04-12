@@ -15,5 +15,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
         MatchDetailWinLoss FromRawWinLoss(MatchDetailRawWinLoss rawWinLoss);
 
         IEnumerable<MatchDetailWinLoss> CalculateRM(IEnumerable<MatchDetailRawWinLoss> rawWinLosses);
+
+        IEnumerable<MatchDetailWinLoss> CalculateMatches(IEnumerable<MatchDetailRawWinLoss> rawWinLoss);
     }
 }

@@ -83,7 +83,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
         public void CalculationLeagues_Should_Return_Right_Leagues()
         {
             // Arrange
-            var fakeLeague = CreateFakeLeague();
+            var fakeData = CreateFakeData();
             var expected = CreateExpectedLeagueWinLoss();
             var expectedList = new List<LeagueWinLoss> { expected };
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
@@ -93,7 +93,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateLeagues(fakeLeague).ToList();
+            var result = calculationService.CalculateLeagues(fakeData).ToList();
 
             // Assert
             var equal = WinLossComparison.AreEqual(expectedList, result);
@@ -105,7 +105,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
         {
             // Arrange
             const int AnyLeagueId = 1;
-            var fakeLeague = CreateFakeLeague().Where(m => m.LeagueId > 0);
+            var fakeLeague = CreateFakeData().Where(m => m.LeagueId > 0);
             var expected = CreateExpectedLeagueWinLoss();
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
@@ -121,7 +121,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             Assert.True(equal);
         }
 
-        private List<MatchDetailRawWinLoss> CreateFakeLeague()
+        private List<MatchDetailRawWinLoss> CreateFakeData()
         {
             var match1 = WinLossFactory.CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
             var match2 = WinLossFactory.CreateRawWinLoss(2, 2, 1, 200, 20, 400, 800);
@@ -152,7 +152,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
         public void CalculateRM_ShouldReturnRight_RM()
         {
             // Arrange
-            var fakeLeague = CreateFakeLeague();
+            var fakeLeague = CreateFakeData();
             var expected = CreateExpectedRM();
             var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
@@ -189,6 +189,34 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             };
 
             return new List<MatchDetailWinLoss> { winLoss };
+        }
+
+        [Test]
+        public void CalculateMatches_ShouldReturnRightMatches()
+        {
+            // Arrange
+            var fakeData = CreateFakeData();
+            var expected = CreateExpectedMatches();
+            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
+            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+
+            var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
+
+            // Act
+            var result = calculationService.CalculateMatches(fakeData).ToList();
+
+            // Assert
+            var equal = WinLossComparison.AreEqual(expected, result);
+            Assert.True(equal);
+        }
+
+        private List<MatchDetailWinLoss> CreateExpectedMatches()
+        {
+            var match1 = WinLossFactory.CreateWinLoss(1, 1, 1, 100, 10, 200, 400, 0.5m);
+            var match2 = WinLossFactory.CreateWinLoss(2, 2, 1, 200, 20, 400, 800, 0.5m);
+
+            return new List<MatchDetailWinLoss> { match1, match2 };
         }
     }
 }

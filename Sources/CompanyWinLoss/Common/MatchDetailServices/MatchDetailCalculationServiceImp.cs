@@ -66,6 +66,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             };
         }
 
+        public IEnumerable<MatchDetailWinLoss> CalculateMatches(IEnumerable<MatchDetailRawWinLoss> rawWinLoss)
+        {
+            return rawWinLoss.Where(x => x.LeagueId > 0 && x.MatchId > 0)
+                .Select(x => FromRawWinLoss(x));
+        }
+
         public MatchDetailWinLoss CalculateSumWinLoss(IEnumerable<MatchDetailRawWinLoss> rawWinLosses)
         {
             if (!rawWinLosses.Any())

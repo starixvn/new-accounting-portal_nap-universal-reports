@@ -72,7 +72,7 @@
     <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
     <Compile Include="TestUtility\Comparison.cs" />
     <Compile Include="TestUtility\WinLossFactory.cs" />
-    <Compile Include="Common\Services\ReportWinLossServiceUnitTest.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ServiceUnitTests.cs" />
     <Compile Include="VirtualSports\RacingDetail\ServiceUnitTests.cs" />
   </ItemGroup>

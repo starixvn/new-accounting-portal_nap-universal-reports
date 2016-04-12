@@ -81,6 +81,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
+            rawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
             var grandTotal = new SiteWinLossSummary
             {
                 Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
@@ -115,7 +116,10 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         public virtual IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
+            var groups = rawWinLosses
+                            .Where(r => r.GroupName != "RM")
+                            .Select(r => new { Name = r.GroupName, Id = r.GroupId })
+                            .Distinct();
             return from @group in groups
                    let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupId == @group.Id && r.GroupName == @group.Name).ToArray()
                    select CalculateSiteWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
@@ -145,6 +149,12 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 Id = id,
                 Name = name
             };
+        }
+
+        public IEnumerable<WinLoss> CalculateRM(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            return rawWinLosses.Where(r => r.GroupName == "RM")
+                .Select(r => FromRawWinLossByRowName(r));
         }
     }
 }

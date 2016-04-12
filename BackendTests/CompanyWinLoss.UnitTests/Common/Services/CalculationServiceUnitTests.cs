@@ -124,8 +124,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
         {
             var group1 = CreateFakeRawGroupWinLoss(1, "Group 1");
             var group2 = CreateFakeRawGroupWinLoss(2, "Group 2");
+            var groupRM = CreateFakeRMWinLoss();
 
-            return (new List<List<RawWinLoss>> { group1, group2 })
+            return (new List<List<RawWinLoss>> { group1, group2, groupRM })
                     .SelectMany(l => l)
                     .ToList();
         }
@@ -136,6 +137,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
+        }
+
+        private List<RawWinLoss> CreateFakeRMWinLoss()
+        {
+            return new List<RawWinLoss>
+            {
+                WinLossFactory.CreateRawWinLoss(0, "RM", "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "RM", "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100)
+            };
         }
 
         [Test]
@@ -223,6 +233,31 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var totalWinLoss = WinLossFactory.CreateWinLoss(groupId, groupName, 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
+        }
+
+        [Test]
+        public void CalculateRM_ReturnRightRMData()
+        {
+            // Arrange   
+            var expected = CreateExpectedRM();
+            var fakeData = CreateFakeTwoRawGroupWinLoss();
+
+            // Act 
+            var service = new CalculationServiceImp();
+            var result = service.CalculateRM(fakeData).ToList();
+
+            // Assert
+            var equal = Comparison.AreEqual(expected, result);
+            Assert.True(equal);
+        }
+
+        public List<WinLoss> CreateExpectedRM()
+        {
+            return new List<WinLoss>
+            {
+                WinLossFactory.CreateWinLoss(0, "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000),
+                WinLossFactory.CreateWinLoss(0, "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100)
+            };
         }
     }
 }

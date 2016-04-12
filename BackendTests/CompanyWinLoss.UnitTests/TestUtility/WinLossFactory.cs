@@ -38,8 +38,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
         }
 
         internal static WinLoss CreateWinLoss(
-            int groupId,
-            string groupName,
+            int id,
+            string name,
             decimal memberWinLoss,
             decimal smaWinLoss,
             decimal commission,
@@ -55,8 +55,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
         {
             return new WinLoss
             {
-                Name = groupName,
-                Id = groupId,
+                Name = name,
+                Id = id,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
                 Commission = commission,

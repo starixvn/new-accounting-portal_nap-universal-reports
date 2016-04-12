@@ -24,10 +24,12 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
             var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
+            var allRMData = calculationService.CalculateRM(rawWinLosses);
 
             return new BasicWinLossModel
             {
                 SiteWinLossSummaries = betTypeWinLosses.ToList(),
+                RM = allRMData.ToList(),
                 GrandTotal = grandTotal
             };
         }

@@ -18,5 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         decimal CalculateMargin(decimal turnover, decimal income);
 
         WinLoss CreateEmptyWinLoss(int id, string name);
+
+        IEnumerable<WinLoss> CalculateRM(IEnumerable<RawWinLoss> rawWinLosses);
     }
 }
