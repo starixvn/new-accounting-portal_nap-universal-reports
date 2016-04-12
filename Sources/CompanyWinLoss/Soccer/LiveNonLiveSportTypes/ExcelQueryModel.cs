@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveAndNonLiveSportTypes
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLiveSportTypes
 {
     using System.ComponentModel.DataAnnotations;
 

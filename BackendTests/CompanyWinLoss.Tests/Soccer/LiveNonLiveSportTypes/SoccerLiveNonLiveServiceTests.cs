@@ -1,13 +1,13 @@
 ﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.LiveAndNonLiveSportTypes
 {
     using NUnit.Framework;
-    using CompanyWinLoss.Soccer.LiveAndNonLiveSportTypes;
+    using CompanyWinLoss.Soccer.LiveNonLiveSportTypes;
     using CompanyWinLoss.Common.Criteria;
     using Common;
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    class ServiceTests : BaseBasicWinLossServiceTests
+    class SoccerLiveNonLiveServiceTests : BaseBasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {

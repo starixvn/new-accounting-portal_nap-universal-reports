@@ -104,4 +104,12 @@
     <Setting Key="CompanyWinLoss-MetricGaming-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-MetricGaming-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Soccer">
+    <Setting Key="CompanyWinLoss-Soccer-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Soccer-LiveNonLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Soccer-Major-Minor-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Soccer-Major-Minor-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Soccer-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Soccer-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

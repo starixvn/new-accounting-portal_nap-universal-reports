@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorAndMinorSportTypes
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLiveSportTypes
 {
     using GridOption;
     using System.Web.Http;
@@ -7,13 +7,13 @@
     using UniversalReports.CompanyWinLoss.Factory;
     using UniversalReports.MVC.Results;
 
-    [RoutePrefix("api/company-win-loss/soccer/major-and-minor-sport-types")]
-    public class SoccerMajorAndMinorSportTypesController : ApiController
+    [RoutePrefix("api/company-win-loss/soccer/live-and-nonlive-sport-types")]
+    class SoccerLiveAndNonLiveSportTypesController : ApiController
     {
         private readonly BasicWinLossService winlossService;
         private readonly SportTypesGridOptionService gridOptionService;
 
-        public SoccerMajorAndMinorSportTypesController(BasicWinLossService winlossService, SportTypesGridOptionService gridOptionService)
+        public SoccerLiveAndNonLiveSportTypesController(BasicWinLossService winlossService, SportTypesGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

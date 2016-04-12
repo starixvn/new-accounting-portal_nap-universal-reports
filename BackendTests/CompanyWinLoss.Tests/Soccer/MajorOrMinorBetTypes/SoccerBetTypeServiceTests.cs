@@ -1,13 +1,13 @@
-﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorAndMinorSportTypes
+﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorOrMinorBetTypes
 {
     using Common;
-    using CompanyWinLoss.Soccer.MajorAndMinorSportTypes;
+    using CompanyWinLoss.Soccer.MajorOrMinorBetTypes;
     using CompanyWinLoss.Common.Criteria;
     using NUnit.Framework;
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    class ServiceTests : BaseBasicWinLossServiceTests
+    class SoccerBetTypeServiceTests : BaseBasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {
@@ -16,7 +16,8 @@
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
-                IsLive = 2
+                IsLive = 2,
+                IsMajor = true
             };
         }
     }

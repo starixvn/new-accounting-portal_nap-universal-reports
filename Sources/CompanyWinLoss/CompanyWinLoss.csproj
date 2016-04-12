@@ -292,14 +292,14 @@
     <Compile Include="Soccer\GridOption\BetTypesGridOptionServiceImp.cs" />
     <Compile Include="Soccer\GridOption\SportTypesGridOptionService.cs" />
     <Compile Include="Soccer\GridOption\SportTypesGridOptionServiceImp.cs" />
-    <Compile Include="Soccer\LiveAndNonLiveSportTypes\Criteria.cs" />
-    <Compile Include="Soccer\LiveAndNonLiveSportTypes\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\LiveAndNonLiveSportTypes\QueryModel.cs" />
-    <Compile Include="Soccer\LiveAndNonLiveSportTypes\SoccerLiveAndNonLiveSportTypesController.cs" />
-    <Compile Include="Soccer\MajorAndMinorSportTypes\Criteria.cs" />
-    <Compile Include="Soccer\MajorAndMinorSportTypes\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\MajorAndMinorSportTypes\QueryModel.cs" />
-    <Compile Include="Soccer\MajorAndMinorSportTypes\SoccerMajorAndMinorSportTypesController.cs" />
+    <Compile Include="Soccer\LiveNonLiveSportTypes\Criteria.cs" />
+    <Compile Include="Soccer\LiveNonLiveSportTypes\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLiveSportTypes\QueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLiveSportTypes\SoccerLiveAndNonLiveSportTypesController.cs" />
+    <Compile Include="Soccer\MajorMinorSportTypes\Criteria.cs" />
+    <Compile Include="Soccer\MajorMinorSportTypes\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\MajorMinorSportTypes\QueryModel.cs" />
+    <Compile Include="Soccer\MajorMinorSportTypes\SoccerMajorAndMinorSportTypesController.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\Criteria.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\QueryModel.cs" />
@@ -370,7 +370,10 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MetricGamingSuperlive\MatchDetail\" />
+    <Folder Include="OtherSports\MatchDetail\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorAndMinorSportTypes
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinorSportTypes
 {
     using System;
     using UniversalReports.MVC.Validation;

@@ -1,26 +1,20 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.MajorAndMinorSportTypes
+﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLiveSportTypes
 {
     using UniversalReports.CompanyWinLoss.Common.Criteria;
     using UniversalReports.CompanyWinLoss.Common.Models;
 
     public class Criteria : WinLossCriteria
     {
-        public int IsLive { get; set; }
-
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
-            var newCriteria = new Criteria
-            {
-                IsLive = IsLive
-            };
+            var newCriteria = new Criteria();
             newCriteria.Update(source);
-
             return newCriteria;
         }
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Soccer-Major-Minor-SportType-{Source}";
+            return $"CompanyWinLoss-Soccer-LiveNonLive-{Source}";
         }
     }
 }

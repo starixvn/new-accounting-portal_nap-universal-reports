@@ -22,7 +22,7 @@
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Soccer-Major-Or-Minor-BetType-{Source}";
+            return $"CompanyWinLoss-Soccer-BetType-{Source}";
         }
     }
 }
