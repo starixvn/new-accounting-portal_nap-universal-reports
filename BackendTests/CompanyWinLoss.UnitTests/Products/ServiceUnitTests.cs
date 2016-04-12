@@ -17,17 +17,17 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         [Test]
         public void CalculateSportsbookDetail_ReturnRightSportsbookDetail()
         {
-            // Arrange   
+            //// Arrange   
             var expectedProducts = CreateExpectedSportsbookDetail();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeSportsbookDetail();
 
-            // Act 
+            //// Act 
             var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.CalculateSportsbookDetail(fakeData);
 
-            // Assert
+            //// Assert
             var equal1 = Comparison.AreEqual(expectedProducts[0], result[0]);
             var equal2 = Comparison.AreEqual(expectedProducts[1], result[1]);
             var equal3 = Comparison.AreEqual(expectedProducts[2], result[2]);
@@ -38,6 +38,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             Assert.True(equal3);
             Assert.True(equal4);
         }
+
         private List<RawWinLoss> CreateFakeSportsbookDetail()
         {
             var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "MetricGaming Detail", "MetricGaming Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
@@ -47,6 +48,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
             return new List<RawWinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
+
         private List<WinLoss> CreateExpectedSportsbookDetail()
         {
             var liveWinLoss = WinLossFactory.CreateWinLoss(0, "MetricGaming Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
@@ -56,28 +58,32 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
             return new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
+
         [Test]
         public void GetNoneSportbookProducts_ReturnRightNoneSportbookProducts()
         {
-            //Arrange
+            //// Arrange
             var expectedProducts = CreateExpectedNoneSportsbook();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
             var fakeData = CreateFakeNoneSportsbook();
 
-            //Act
+            //// Act
             var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.GetNoneSportbookProducts(fakeData);
-            //Assert
+
+            //// Assert
             var equal1 = Comparison.AreEqual(expectedProducts.Products[0].Total, result.Products[0].Total);
             Assert.True(equal1);
         }
+
         private List<RawWinLoss> CreateFakeNoneSportsbook()
         {
             var casino = WinLossFactory.CreateRawWinLoss(1, "Casino", "Casino", 210, 230, 21, 1050, 1260, -210, 200, 200, 1890, 2100);
 
-            return new List<RawWinLoss> { casino};
+            return new List<RawWinLoss> { casino };
         }
+
         private NoneSportsbookWinloss CreateExpectedNoneSportsbook()
         {
             return new NoneSportsbookWinloss
@@ -90,7 +96,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
         private List<SiteWinLossSummary> CreateExpectedProducts()
         {
             var casino = CreateExpectedProduct(1, "Casino");
-            return new List<SiteWinLossSummary> { casino};
+            return new List<SiteWinLossSummary> { casino };
         }
 
         private SiteWinLossSummary CreateExpectedProduct(int productId, string productName)

@@ -5,8 +5,8 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class SportsbookWinLoss
     {
-        public List<SiteWinLossSummary> Products { set; get; }
+        public List<SiteWinLossSummary> Products { get; set; }
 
-        public List<WinLoss> RM { set; get; }
+        public List<WinLoss> RM { get; set; }
     }
 }

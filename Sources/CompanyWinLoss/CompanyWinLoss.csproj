@@ -218,7 +218,7 @@
     <Compile Include="Parlay\SportType\ExcelQueryModel.cs" />
     <Compile Include="Parlay\SportType\ParlaySportTypeController.cs" />
     <Compile Include="Parlay\SportType\QueryModel.cs" />
-    <Compile Include="Products\SportsbookConstants.cs" />
+    <Compile Include="Products\Constants.cs" />
     <Compile Include="Products\SportsbookWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Keno\BetType\ExcelQueryModel.cs" />

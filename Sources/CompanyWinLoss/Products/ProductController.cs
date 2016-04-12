@@ -8,13 +8,13 @@ namespace UniversalReports.CompanyWinLoss.Products
     [RoutePrefix("api/company-win-loss/product")]
     public class ProductController : ApiController
     {
-        private readonly Service service;
-        private readonly GridOptionService gridOptionService;
+        private readonly Service _service;
+        private readonly GridOptionService _gridOptionService;
 
         public ProductController(Service service, GridOptionService gridOptionService)
         {
-            this.service = service;
-            this.gridOptionService = gridOptionService;
+            this._service = service;
+            this._gridOptionService = gridOptionService;
         }
 
         [Route("")]
@@ -23,8 +23,8 @@ namespace UniversalReports.CompanyWinLoss.Products
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, "Main", true);
+                var winlosses = _service.Query(criteria);
+                var gridOptions = _gridOptionService.FromWinLossModel(winlosses, "Main", true);
 
                 return Json(gridOptions);
             }
@@ -38,9 +38,9 @@ namespace UniversalReports.CompanyWinLoss.Products
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, false);
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
+                var winlosses = _service.Query(criteria);
+                var gridOptions = _gridOptionService.FromWinLossModel(winlosses, queryModel.Title, false);
+                return new FanexExcelResult(gridOptions, Common.Constants.SheetName);
             }
 
             return null;
