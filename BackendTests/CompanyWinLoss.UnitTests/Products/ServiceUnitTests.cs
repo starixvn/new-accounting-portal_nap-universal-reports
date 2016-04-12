@@ -38,78 +38,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             Assert.True(equal3);
             Assert.True(equal4);
         }
-
-        private List<WinLoss> CreateExpectedSportsbookDetail()
-        {
-            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
-            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
-            var parlayWinLoss = WinLossFactory.CreateWinLoss(0, "Parlay", 120, 130, 12, 600, 720, -120, 100, 100, 1080, 1200, 600m / 1080, 720m / 1200);
-            var outrightWinLoss = WinLossFactory.CreateWinLoss(0, "Outright", 130, 140, 13, 650, 780, -130, 100, 100, 1170, 1300, 650m / 1170, 780m / 1300);
-
-            return new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
-        }
-
-        [Test]
-        public void Query_ReturnRightMainWinLoss()
-        {
-            // Arrange   
-            var expectedMainWinLoss = CreateExpectedMainWinLoss();
-            var calculationService = new CalculationServiceImp();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
-            var fakeData = CreateFakeRawWinLoss();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
-
-            // Act 
-            var service = new ServiceImp(rawWinLossService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
-
-            // Assert
-            var equal = Comparison.AreEqual(expectedMainWinLoss, result);
-            Assert.True(equal);
-        }
-
-        private ProductWinLoss CreateExpectedMainWinLoss()
-        {
-            var expectedSportsbookDetail = CreateExpectedSportsbookDetail();
-            var expectedProducts = CreateExpectedProducts();
-            var expectedGrandTotal = CreateExpectedGrandTotal();
-
-            return new ProductWinLoss
-            {
-                GrandTotal = expectedGrandTotal,
-                SportsbookProducts = null,
-                NoneSportsbookProducts = null
-            };
-        }
-
-        private List<SiteWinLossSummary> CreateExpectedProducts()
-        {
-            var sportsbook = CreateExpectedProduct(1, "Sportsbook");
-            var numberGame = CreateExpectedProduct(2, "Number Game");
-
-            return new List<SiteWinLossSummary> { sportsbook, numberGame };
-        }
-
-        private SiteWinLossSummary CreateExpectedProduct(int productId, string productName)
-        {
-            var creditWinLoss = WinLossFactory.CreateWinLoss(productId, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
-            var depositWinLoss = WinLossFactory.CreateWinLoss(productId, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
-            var totalWinLoss = WinLossFactory.CreateWinLoss(productId, productName, 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
-
-            return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
-        }
-
-        private List<RawWinLoss> CreateFakeRawWinLoss()
-        {
-            var sportsbookDetail = CreateFakeSportsbookDetail();
-            var sportsbook = CreateFakeRawProductWinLoss(1, "Sportsbook");
-            var numberGame = CreateFakeRawProductWinLoss(2, "Number Game");
-
-            return (new List<List<RawWinLoss>> { sportsbookDetail, sportsbook, numberGame })
-                    .SelectMany(l => l)
-                    .ToList();
-        }
-
         private List<RawWinLoss> CreateFakeSportsbookDetail()
         {
             var liveWinLoss = WinLossFactory.CreateRawWinLoss(0, "Sportsbook Detail", "Sportsbook Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
@@ -119,23 +47,59 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
 
             return new List<RawWinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
         }
-
-        private List<RawWinLoss> CreateFakeRawProductWinLoss(int productId, string productName)
+        private List<WinLoss> CreateExpectedSportsbookDetail()
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(productId, productName, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
+            var liveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Live", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
+            var nonLiveWinLoss = WinLossFactory.CreateWinLoss(0, "Sportsbook Non-Live", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
+            var parlayWinLoss = WinLossFactory.CreateWinLoss(0, "Parlay", 120, 130, 12, 600, 720, -120, 100, 100, 1080, 1200, 600m / 1080, 720m / 1200);
+            var outrightWinLoss = WinLossFactory.CreateWinLoss(0, "Outright", 130, 140, 13, 650, 780, -130, 100, 100, 1170, 1300, 650m / 1170, 780m / 1300);
 
-            return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
+            return new List<WinLoss> { liveWinLoss, nonLiveWinLoss, parlayWinLoss, outrightWinLoss };
+        }
+        [Test]
+        public void GetNoneSportbookProducts_ReturnRightNoneSportbookProducts()
+        {
+            //Arrange
+            var expectedProducts = CreateExpectedNoneSportsbook();
+            var calculationService = new CalculationServiceImp();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
+            var fakeData = CreateFakeNoneSportsbook();
+
+            //Act
+            var service = new ServiceImp(rawWinLossService, calculationService);
+            var result = service.GetNoneSportbookProducts(fakeData);
+            //Assert
+            var equal1 = Comparison.AreEqual(expectedProducts.Products[0].Total, result.Products[0].Total);
+            Assert.True(equal1);
+        }
+        private List<RawWinLoss> CreateFakeNoneSportsbook()
+        {
+            var casino = WinLossFactory.CreateRawWinLoss(1, "Casino", "Casino", 210, 230, 21, 1050, 1260, -210, 200, 200, 1890, 2100);
+
+            return new List<RawWinLoss> { casino};
+        }
+        private NoneSportsbookWinloss CreateExpectedNoneSportsbook()
+        {
+            return new NoneSportsbookWinloss
+            {
+                Products = CreateExpectedProducts(),
+                Total = CreateExpectedProduct(1, "Non-Sports Total")
+            };
         }
 
-        private SiteWinLossSummary CreateExpectedGrandTotal()
+        private List<SiteWinLossSummary> CreateExpectedProducts()
         {
-            return new SiteWinLossSummary
-            {
-                Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 100, 100, 1800, 2000, 1000m / 1800, 1200m / 2000),
-                Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 100, 100, 1980, 2200, 1100m / 1980, 1320m / 2200),
-                Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200)
-            };
+            var casino = CreateExpectedProduct(1, "Casino");
+            return new List<SiteWinLossSummary> { casino};
+        }
+
+        private SiteWinLossSummary CreateExpectedProduct(int productId, string productName)
+        {
+            var creditWinLoss = WinLossFactory.CreateWinLoss(productId, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
+            var depositWinLoss = WinLossFactory.CreateWinLoss(productId, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
+            var totalWinLoss = WinLossFactory.CreateWinLoss(productId, productName, 210, 230, 21, 1050, 1260, -210, 200, 200, 1890, 2100, 1050m / 1890, 1260m / 2100);
+
+            return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
         }
     }
 }
