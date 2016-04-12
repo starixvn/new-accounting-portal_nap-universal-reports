@@ -20,7 +20,7 @@
             angular.extend(data, pane.data);
             var level = templateSetting[productName]['product'];
             tab.goForward(level, data);
-        };
+        }
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
@@ -40,8 +40,22 @@
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
+            //data.hiddenColumns = [7, 8];
+            //data.enableHiddenColumns = false;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
+            //gridElement.parent().find('.btExpand').onFirst('click', function () {
+            //    var isExpanded = !$(this).hasClass('expanded');
+            //    gridElement.fanexGrid("hideColumns", data, [7, 8]);
+            //    return;
+            //    if (isExpanded) {
+            //        delete (data.hiddenColumns);
+            //        delete (data.enableHiddenColumns);
+            //        gridElement.fanexGrid("hideColumns", data, []);
+            //    } else {
+            //        gridElement.fanexGrid("hideColumns", data, data.hiddenColumns);
+            //    }
+            //});
         }
 
         function createLinks(data) {

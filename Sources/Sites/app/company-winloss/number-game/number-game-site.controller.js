@@ -13,7 +13,7 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
-        function getTitle(isLast) {
+        function getTitle() {
             return pane.data.betTypeName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + ' | Product Win/Loss By ' + pane.data.site + ' Site';
         }
 

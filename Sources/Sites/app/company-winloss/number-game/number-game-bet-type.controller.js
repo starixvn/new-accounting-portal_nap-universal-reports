@@ -31,7 +31,7 @@
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
-        };
+        }
 
         function generateSite(betType, betTypeName, site, isLive) {
             var data = {
@@ -42,7 +42,7 @@
             };
             angular.extend(data, pane.data);
             tab.goForward('site', data);
-        };
+        }
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
@@ -58,7 +58,6 @@
         }
 
         function renderGrid(gridElement, data, isLive) {
-            var list = tab.generateBreadcrumbList();
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,

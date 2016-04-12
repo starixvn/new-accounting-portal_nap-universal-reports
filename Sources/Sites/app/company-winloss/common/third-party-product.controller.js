@@ -55,7 +55,7 @@
 
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
-            service.exportExcel(title, pane.data, pane.getFileName());
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
 })(angular);

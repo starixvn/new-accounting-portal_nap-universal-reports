@@ -32,8 +32,8 @@
         }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText()
-            pane.service.exportExcel(title, data, pane.getFileName());
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
 })(angular);

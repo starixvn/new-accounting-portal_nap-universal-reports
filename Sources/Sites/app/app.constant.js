@@ -1,4 +1,4 @@
-﻿(function (angular) {
+﻿(function (angular, moment) {
     'use strict';
 
     angular
@@ -16,7 +16,7 @@
                 legacyPath: napConfig.LegacyPath,
                 today: today,
                 yesterday: yesterday
-            }
+            };
         })())
         .constant('formatStrings', {
             INT_NUMBER: '0,0',
@@ -36,4 +36,4 @@
             PERCENT_NUMBER: '0%'
         })
         .constant('universalMenus', ['/UniversalReports/CompanyWinLoss']);
-})(angular);
+})(angular, moment);

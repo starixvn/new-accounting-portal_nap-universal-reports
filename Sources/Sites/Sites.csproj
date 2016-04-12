@@ -227,6 +227,10 @@
     <Content Include="app\company-winloss\common\sport-type.service.js" />
     <Content Include="app\company-winloss\common\match-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
+    <Content Include="app\company-winloss\other-sports\other-sports-sport-type.service.js" />
+    <Content Include="app\company-winloss\other-sports\other-sports-bet-type.service.js" />
+    <Content Include="app\company-winloss\other-sports\other-sports-bet-type.controller.js" />
+    <Content Include="app\company-winloss\other-sports\other-sports-sport-type.controller.js" />
     <Content Include="app\company-winloss\tab\tab.directive.html" />
     <Content Include="app\company-winloss\tab\pane.directive.js" />
     <Content Include="app\company-winloss\tab\tab.directive.js" />
@@ -247,7 +251,7 @@
     </CodeAnalysisDictionary>
     <Content Include="app\company-winloss\number-game\number-game-match-detail.controller.js" />
     <Content Include="app\company-winloss\number-game\number-game-match-detail.service.js" />
-    <Content Include="app\company-winloss\number-game\number-game.html" />
+    <Content Include="app\company-winloss\shared\two-fanex-grid-with-title.html" />
     <Content Include="app\company-winloss\number-game\number-game-bet-type.controller.js" />
     <Content Include="app\company-winloss\shared\fanex-grid-with-title.html" />
     <Content Include="app\company-winloss\common\site.controller.js" />
@@ -1397,7 +1401,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\company-winloss\other-sports\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

@@ -40,7 +40,7 @@
 
                         return c;
                     }
-                }
+                };
             }
 
             $httpProvider.interceptors.push(loadingInterceptor);

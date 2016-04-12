@@ -22,7 +22,7 @@
             vm.isShow = false;
             vm.close = function () {
                 vm.isShow = false;
-            }
+            };
 
             $scope.$on('alert-show', function (event, message) {
                 vm.message = message;

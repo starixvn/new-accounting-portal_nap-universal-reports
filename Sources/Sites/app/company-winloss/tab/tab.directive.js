@@ -174,6 +174,6 @@
                 elements = this.$element.find('.breadcrumb');
                 $compile(elements)(this.$scope);
             }
-        };
+        }
     }
 })(angular);

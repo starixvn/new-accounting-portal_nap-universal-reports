@@ -199,7 +199,7 @@
 
                     return weeks;
                 }
-            };
+            }
 
             function documentClickBind(event) {
                 if (!vm.isOpen) {

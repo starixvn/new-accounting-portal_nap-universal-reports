@@ -2,10 +2,33 @@
     'use strict';
 
     var templateSetting = {
+        'Other Sports': {
+            product: 'sportType',
+            sportType: {
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'OtherSportsSportTypeController',
+                service: 'otherSportsSportTypeService'
+            },
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'OtherSportsBetTypeController',
+                service: 'otherSportsBetTypeService'
+            },
+            matchDetail: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'NumberGameMatchDetailController',
+                service: 'numberGameMatchDetailService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'NumberGameSiteController',
+                service: 'numberGameSiteService'
+            }
+        },
         'Number Game': {
             product: 'betType',
             betType: {
-                templateUrl: 'app/company-winloss/number-game/number-game.html',
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
                 controller: 'NumberGameBetTypeController',
                 service: 'numberGameBetTypeService'
             },
@@ -36,7 +59,7 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'MatchDetailController',
                 service: function (data) {
-                    return data.sportType >= 181 && data.sportType <= 185 ? 'virtualSportsRacingDetailService' : 'virtualSportsSportsbookDetailService'
+                    return data.sportType >= 181 && data.sportType <= 185 ? 'virtualSportsRacingDetailService' : 'virtualSportsSportsbookDetailService';
                 }
             },
             site: {

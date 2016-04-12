@@ -13,11 +13,11 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
-        function getTitle(isLast) {
+        function getTitle() {
             return pane.data.betTypeName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '" Product Win/Loss Report';
         }
 
-        function generate(startDate, endDate) {
+        function generate() {
             pane.service.getData(pane.data).then(function (data) {
                 renderGrid(data);
                 pane.compileLinks();
