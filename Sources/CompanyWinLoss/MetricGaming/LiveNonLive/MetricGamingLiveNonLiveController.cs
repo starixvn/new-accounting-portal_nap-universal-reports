@@ -10,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
     public class MetricGamingLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly GridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, GridOptionService gridOptionService)
+        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Live/Non-Live");
 
                 return Json(gridOptions);
             }
@@ -40,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

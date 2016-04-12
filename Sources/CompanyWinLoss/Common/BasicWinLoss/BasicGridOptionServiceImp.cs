@@ -2,21 +2,20 @@
 using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
+namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
-    public class GridOptionServiceImp : GridOptionService
+    public class BasicGridOptionServiceImp : BasicGridOptionService
     {
-        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title)
+        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title, string mainColumnText)
         {
             return new GridOptions
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
-                Columns = BuildHeader(),
+                Columns = BuildHeader(mainColumnText),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowFooter = true,
@@ -29,11 +28,11 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2100:CodeLineMustNotBeLongerThan",
           Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildHeader()
+        private List<HeaderColumns> BuildHeader(string mainColumnText)
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Sport Type", Width = 150, Name = "SportType", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
+                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "Main Column", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
@@ -48,7 +47,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
             var bodyRows = new List<GridDataRow>();
             foreach (var item in winLoss)
             {
-                var row = BuildSportDataRow(item, HAlignment.Left);
+                var row = BuildBetTypeDataRow(item, HAlignment.Left);
                 bodyRows.Add(row);
             }
 
@@ -57,20 +56,20 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
         {
-            return new List<GridDataRow>
-            {
-                BuildSportDataRow(item, HAlignment.Right)
-            };
+            var row = BuildDataRow(item.Total, HAlignment.Right);
+            var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
+            var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
+
+            return new List<GridDataRow> { row, creditRow, depositRow };
         }
 
-        private GridDataRow BuildSportDataRow(SiteWinLossSummary item, HAlignment alignment)
+        private GridDataRow BuildBetTypeDataRow(SiteWinLossSummary item, HAlignment alignment)
         {
             var row = BuildDataRow(item.Total, alignment);
-            row.SubRows = new List<GridDataRow>
-            {
-                BuildDataRow(item.Credit, HAlignment.Right),
-                BuildDataRow(item.Deposit, HAlignment.Right)
-            };
+            var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
+            var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
+            row.SubRows.Add(creditRow);
+            row.SubRows.Add(depositRow);
 
             return row;
         }
@@ -80,17 +79,17 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
          Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
-            var sportId = $"{item.Id}";
             int columnIndex = 0;
+            var betTypeId = $"{item.Id}";
             var columns = new List<Columns>
             {
-                new Columns { ColumnIndex = columnIndex++, Name = "SportType", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CellAlignment = alignment, CustomAttributes = sportId },
+                new Columns { ColumnIndex = columnIndex++, Name = "MainColumn", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = betTypeId, CellAlignment = alignment },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
+                new Columns { ColumnIndex = columnIndex++, Name = "Margin", Value = item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin, CellAlignment = HAlignment.Right }
             };
 
             return new GridDataRow { Columns = columns };

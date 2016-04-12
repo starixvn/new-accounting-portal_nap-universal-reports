@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
     public class BettradeBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public BettradeBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
+        public BettradeBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -26,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Bettrade.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Bet Type");
 
                 return Json(gridOptions);
             }

@@ -10,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
     public class MetricGamingBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly GridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public MetricGamingBetTypeController(BasicWinLossService winlossService, GridOptionService gridOptionService)
+        public MetricGamingBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;
@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winloss = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty, "Bet Type");
                 return Json(gridOptions);
             }
 
@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
 
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }

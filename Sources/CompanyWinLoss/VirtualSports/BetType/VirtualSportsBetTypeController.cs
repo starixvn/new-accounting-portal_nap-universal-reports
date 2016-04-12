@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,11 +10,11 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
     public class VirtualSportsBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
         public VirtualSportsBetTypeController(
-            BetTypeGridOptionService gridOptionService,
-            BasicWinLossService winlossService)
+            BasicWinLossService winlossService,
+            BasicGridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;

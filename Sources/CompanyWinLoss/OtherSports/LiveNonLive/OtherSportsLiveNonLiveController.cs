@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
     public class OtherSportsLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly SportTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public OtherSportsLiveNonLiveController(BasicWinLossService winlossService, SportTypeGridOptionService gridOptionService)
+        public OtherSportsLiveNonLiveController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -26,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
 
                 return Json(gridOptions);
             }
@@ -41,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

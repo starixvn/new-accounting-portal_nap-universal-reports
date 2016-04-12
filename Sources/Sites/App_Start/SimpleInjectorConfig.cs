@@ -42,9 +42,7 @@ namespace UniversalReports.Sites
             container.Register<SiteWinLoss.SiteService, SiteWinLoss.SiteServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLoss.SiteGridOptionService, SiteWinLoss.SiteGridOptionServiceImp>(Lifestyle.Transient);
             container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.BetTypeGridOptionService, CommonServices.BetTypeGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.SportTypeGridOptionService, CommonServices.SportTypeGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.ThirdPartyProductGridOptionService, CommonServices.ThirdPartyProductGridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicGridOptionService, BasicWinLoss.BasicGridOptionService>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.Service, NumberGame.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.MatchDetail.Service, NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
             container.Register<NumberGame.MatchDetail.GridOptionService, NumberGame.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
