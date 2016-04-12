@@ -110,7 +110,6 @@
     <Compile Include="NumberGame\Site\ServiceTests.cs" />
     <Compile Include="OtherSports\BetType\ServiceTests.cs" />
     <Compile Include="OtherSports\LiveAndNoneLive\ServiceTests.cs" />
-    <Compile Include="OtherSports\Site\ServiceTests.cs" />
     <Compile Include="OtherSports\SportType\ServiceTests.cs" />
     <Compile Include="Parlay\BetType\ServiceTests.cs" />
     <Compile Include="Parlay\Site\ServiceTests.cs" />
