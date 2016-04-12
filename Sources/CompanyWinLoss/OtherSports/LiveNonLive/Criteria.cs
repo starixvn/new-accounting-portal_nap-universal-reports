@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-LiveNonLive-SportType-{Source}";
+            return $"CompanyWinLoss-OtherSports-SportType-{Source}";
         }
     }
 }

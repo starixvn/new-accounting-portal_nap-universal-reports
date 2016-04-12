@@ -5,18 +5,12 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
     public class Criteria : WinLossCriteria
     {
-        public int SportType { get; set; }
-
-        public int BetType { get; set; }
-
         public string Site { get; set; }
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
             var newCriteria = new Criteria();
             newCriteria.Update(source);
-            newCriteria.SportType = SportType;
-            newCriteria.BetType = BetType;
             newCriteria.Site = Site;
 
             return newCriteria;
@@ -24,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Parlay-Site-{Source}";
+            return $"CompanyWinLoss-SystemParlay-{Source}";
         }
     }
 }

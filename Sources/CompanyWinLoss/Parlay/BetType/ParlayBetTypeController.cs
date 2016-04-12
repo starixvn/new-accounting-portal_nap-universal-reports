@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
     public class ParlayBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public ParlayBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
+        public ParlayBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.gridOptionService = gridOptionService;
             this.winlossService = winlossService;
@@ -26,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winloss = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winloss, string.Empty, "Bet Type");
                 return Json(gridOptions);
             }
 
@@ -40,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
 
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }

@@ -1,5 +1,4 @@
-﻿using System;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Parlay.BetType
@@ -15,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
 
         public override string GetSettingKey()
         {
-            return $"CompanyWinLoss-Parlay-BetType-{Source}";
+            return $"CompanyWinLoss-Parlay-{Source}";
         }
     }
 }

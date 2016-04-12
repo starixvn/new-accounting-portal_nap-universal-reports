@@ -17,7 +17,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Parlay.Site
             {
                 StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
                 EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
-                BetType = 29,
                 Site = "Credit"
             };
         }

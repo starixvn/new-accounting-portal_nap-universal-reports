@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
     public class ColossusBetsBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public ColossusBetsBetTypeController(BasicWinLossService winlossService, BetTypeGridOptionService gridOptionService)
+        public ColossusBetsBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -26,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Bet Type");
 
                 return Json(gridOptions);
             }
@@ -41,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.ColossusBets.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

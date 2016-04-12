@@ -180,8 +180,6 @@
     <Compile Include="Common\Services\BalanceUpSourceChooserImp.cs" />
     <Compile Include="Common\Services\BalanceUpSummationService.cs" />
     <Compile Include="Common\Services\BalanceUpSummationServiceImp.cs" />
-    <Compile Include="Common\Services\BetTypeGridOptionService.cs" />
-    <Compile Include="Common\Services\BetTypeGridOptionServiceImp.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceImp.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
@@ -214,10 +212,6 @@
     <Compile Include="Parlay\Site\ExcelQueryModel.cs" />
     <Compile Include="Parlay\Site\ParlaySiteController.cs" />
     <Compile Include="Parlay\Site\QueryModel.cs" />
-    <Compile Include="Parlay\SportType\Criteria.cs" />
-    <Compile Include="Parlay\SportType\ExcelQueryModel.cs" />
-    <Compile Include="Parlay\SportType\ParlaySportTypeController.cs" />
-    <Compile Include="Parlay\SportType\QueryModel.cs" />
     <Compile Include="Products\Constants.cs" />
     <Compile Include="Products\SportsbookWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -13,9 +12,9 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
     public class NumberGameBetTypeController : ApiController
     {
         private readonly Service winlossService;
-        private readonly BetTypeGridOptionService gridOptionService;
+        private readonly BasicGridOptionService gridOptionService;
 
-        public NumberGameBetTypeController(Service winlossService, BetTypeGridOptionService gridOptionService)
+        public NumberGameBetTypeController(Service winlossService, BasicGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
@@ -33,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
-                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, string.Empty);
+                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, string.Empty, "Bet Type");
 
                 var nonLiveBetTypeWinLoss = new BasicWinLossModel
                 {
@@ -41,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     GrandTotal = winlosses.NonLiveGrandTotal
                 };
 
-                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, string.Empty);
+                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, string.Empty, "Bet Type");
 
                 return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
             }
@@ -61,7 +60,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     SiteWinLossSummaries = winlosses.Live,
                     GrandTotal = winlosses.LiveGrandTotal
                 };
-                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.LiveTitle);
+                var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, queryModel.LiveTitle, "Bet Type");
 
                 var nonLiveBetTypeWinLoss = new BasicWinLossModel
                 {
@@ -69,7 +68,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                     GrandTotal = winlosses.NonLiveGrandTotal
                 };
 
-                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, queryModel.NonLiveTitle);
+                var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, queryModel.NonLiveTitle, "Bet Type");
 
                 return new FanexExcelResult(new List<GridOptions> { nonLiveGridOptions, liveGridOptions }, Constants.SheetName);
             }
