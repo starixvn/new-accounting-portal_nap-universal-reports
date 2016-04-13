@@ -10,6 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
         WinLoss FromRawWinLossByGroupName(RawWinLoss rawWinLoss);
 
         WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+
         WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
 
         SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);

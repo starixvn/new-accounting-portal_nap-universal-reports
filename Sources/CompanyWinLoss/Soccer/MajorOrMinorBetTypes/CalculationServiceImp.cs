@@ -166,7 +166,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
         public virtual IEnumerable<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses)
         {
             var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
-            var winLosses =  from @group in groups
+            var winLosses = from @group in groups
                    let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupId == @group.Id && r.GroupName == @group.Name).ToArray()
                    select CalculateSiteWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
             var winLossesByBetTypeGroup = CalculateSiteWinLossSummaryByBetTypeGroup(winLosses);
