@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         public decimal CalculateMargin(decimal turnover, decimal income)
         {
-            return turnover > 0 ? income / turnover : 0;
+            return turnover != 0 ? income / turnover : 0;
         }
 
         public RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses)

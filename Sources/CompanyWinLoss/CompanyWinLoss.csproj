@@ -376,7 +376,6 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MetricGamingSuperlive\MatchDetail\" />
     <Folder Include="Soccer\GridOption\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

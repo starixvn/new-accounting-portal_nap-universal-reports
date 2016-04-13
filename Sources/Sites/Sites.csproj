@@ -226,6 +226,8 @@
     <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\common\sport-type.service.js" />
     <Content Include="app\company-winloss\common\match-detail.controller.js" />
+    <Content Include="app\company-winloss\metric-gaming\metric-gaming-betype-controller.js" />
+    <Content Include="app\company-winloss\metric-gaming\metric-gaming-betype-service.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-sport-type.controller.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.service.js" />

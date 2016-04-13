@@ -2,6 +2,19 @@
     'use strict';
 
     var templateSetting = {
+        'Metric Gaming': {
+            product: 'liveNonLive',
+            betType: {
+                templateSetting: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'MetricGamingBetTypeController',
+                service: 'metricGamingBetTypeService'
+            },
+            matchDetail: {
+                templateSetting: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'MetricGamingMatchDetailController',
+                service: 'metricGamingMatchDetailService'
+            }
+        },
         'Other Sports': {
             product: 'liveNonLive',
             liveNonLive: {
