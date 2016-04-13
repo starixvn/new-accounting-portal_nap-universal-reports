@@ -19,7 +19,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/sport-type', httpData)
+            return $http.post('api/company-win-loss/other-sports/sport-type', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -31,7 +31,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/sport-type/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/other-sports/sport-type/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

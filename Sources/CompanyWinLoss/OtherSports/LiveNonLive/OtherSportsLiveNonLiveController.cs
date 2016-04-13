@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
@@ -19,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
         }
 
         [Route("")]
-        public IHttpActionResult SportType(QueryModel queryModel)
+        public IHttpActionResult LiveNonLive(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
@@ -38,10 +40,13 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
         {
             if (ModelState.IsValid)
             {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
+                var sportTypeCriteria = CriteriaFactory.Transform<SportType.Criteria>(queryModel);
+                var sportTypeWinlosses = this.winlossService.Query(sportTypeCriteria);
+                var sportTypeGridOptions = this.gridOptionService.FromWinLossModel(sportTypeWinlosses, queryModel.SportTypeTitle, "Sport Type");
+                var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var liveNonLiveWinlosses = this.winlossService.Query(liveNonLiveCriteria);
+                var liveNonLiveGridOptions = this.gridOptionService.FromWinLossModel(liveNonLiveWinlosses, queryModel.LiveNonLiveTitle, "Live/Non-Live");
+                return new FanexExcelResult(new List<GridOptions> { sportTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
             }
 
             return null;

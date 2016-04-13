@@ -5,6 +5,9 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
     public class ExcelQueryModel : QueryModel
     {
         [Required]
-        public string Title { get; set; }
+        public string SportTypeTitle { get; set; }
+
+        [Required]
+        public string LiveNonLiveTitle { get; set; }
     }
 }

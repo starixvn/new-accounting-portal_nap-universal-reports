@@ -18,7 +18,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/product', httpData)
+            return $http.post('api/company-win-loss/product', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -29,7 +29,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/product/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/product/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

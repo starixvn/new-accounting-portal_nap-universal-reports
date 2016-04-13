@@ -21,7 +21,7 @@
                 betType: data.betType
             };
 
-            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail', httpData)
+            return $http.post('api/company-win-loss/virtual-sports/racing-match-detail', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -35,7 +35,7 @@
                 betType: data.betType
             };
 
-            return $http.post('/api/company-win-loss/virtual-sports/racing-match-detail/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/virtual-sports/racing-match-detail/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

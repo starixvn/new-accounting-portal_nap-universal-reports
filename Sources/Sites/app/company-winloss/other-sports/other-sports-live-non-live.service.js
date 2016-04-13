@@ -19,19 +19,19 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/live-non-live', httpData)
+            return $http.post('api/company-win-loss/other-sports/live-non-live', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(betTypeTitle, sportTypeTitle, data, fileName) {
+        function exportExcel(sportTypeTitle, liveNonLiveTitle, data, fileName) {
             var httpData = {
-                betTypeTitle: betTypeTitle,
                 sportTypeTitle: sportTypeTitle,
+                liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/live-non-live/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/other-sports/live-non-live/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

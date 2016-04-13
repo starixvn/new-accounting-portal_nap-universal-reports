@@ -19,7 +19,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/number-game/bet-type', httpData)
+            return $http.post('api/company-win-loss/number-game/bet-type', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -31,7 +31,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/number-game/bet-type/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/number-game/bet-type/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
