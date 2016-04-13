@@ -24,8 +24,8 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.SportType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
 
                 return Json(gridOptions);
             }
@@ -39,8 +39,8 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.SportType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Sport Type");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Sport Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

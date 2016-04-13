@@ -26,8 +26,8 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Sport Type");
 
                 return Json(gridOptions);
             }
@@ -41,11 +41,11 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
             if (ModelState.IsValid)
             {
                 var sportTypeCriteria = CriteriaFactory.Transform<SportType.Criteria>(queryModel);
-                var sportTypeWinlosses = this.winlossService.Query(sportTypeCriteria);
-                var sportTypeGridOptions = this.gridOptionService.FromWinLossModel(sportTypeWinlosses, queryModel.SportTypeTitle, "Sport Type");
+                var sportTypeWinlosses = winlossService.Query(sportTypeCriteria);
+                var sportTypeGridOptions = gridOptionService.FromWinLossModel(sportTypeWinlosses, queryModel.SportTypeTitle, "Sport Type");
                 var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var liveNonLiveWinlosses = this.winlossService.Query(liveNonLiveCriteria);
-                var liveNonLiveGridOptions = this.gridOptionService.FromWinLossModel(liveNonLiveWinlosses, queryModel.LiveNonLiveTitle, "Live/Non-Live");
+                var liveNonLiveWinlosses = winlossService.Query(liveNonLiveCriteria);
+                var liveNonLiveGridOptions = gridOptionService.FromWinLossModel(liveNonLiveWinlosses, queryModel.LiveNonLiveTitle, "Live/Non-Live");
                 return new FanexExcelResult(new List<GridOptions> { sportTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
             }
 

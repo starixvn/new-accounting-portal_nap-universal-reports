@@ -41,8 +41,8 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

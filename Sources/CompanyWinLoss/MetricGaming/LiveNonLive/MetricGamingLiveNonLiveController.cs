@@ -24,8 +24,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, string.Empty, "Live/Non-Live");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Live/Non-Live");
 
                 return Json(gridOptions);
             }
@@ -39,8 +39,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = this.winlossService.Query(criteria);
-                var gridOptions = this.gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
+                var winlosses = winlossService.Query(criteria);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
