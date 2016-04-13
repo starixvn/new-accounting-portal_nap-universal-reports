@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using Fanex.Excel.Models;
+using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
@@ -38,12 +40,14 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
         {
             if (ModelState.IsValid)
             {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Live/Non-Live");
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
+                var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
+                var betTypeWinlosses = winlossService.Query(betTypeCriteria);
+                var betTypeGridOptions = gridOptionService.FromWinLossModel(betTypeWinlosses, queryModel.BetTypeTitle, "Bet Type");
+                var liveNoneLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var liveNoneLiveWinlosses = winlossService.Query(liveNoneLiveCriteria);
+                var liveNoneLiveGridOptions = gridOptionService.FromWinLossModel(liveNoneLiveWinlosses, queryModel.LiveNonLiveTitle, "Live/Non-Live");
+                return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNoneLiveGridOptions }, Constants.SheetName);
             }
-
             return null;
         }
     }

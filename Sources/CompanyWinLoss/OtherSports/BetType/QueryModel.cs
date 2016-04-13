@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
@@ -16,6 +17,6 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
         [Required]
         public int SportType { get; set; }
 
-        public int IsLive { get; set; } = Common.Constants.LiveDefault;
+        public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

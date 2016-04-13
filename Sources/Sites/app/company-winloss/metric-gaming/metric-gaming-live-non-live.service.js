@@ -24,18 +24,18 @@
                     .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(betTypeTitle, data, fileName) {
+        function exportExcel(betTypeTitle, liveNonLiveTitle, data, fileName) {
             var httpData = {
                 betTypeTitle: betTypeTitle,
+                liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/metric-gaming/live-none-live/excel', httpData)
+            return $http.post('api/company-win-loss/metric-gaming/live-none-live/excel', httpData, { responseType: "arraybuffer" })
                         .then(function (response) {
                             httpResponseService.saveExcelFile(response.data, fileName);
                         })
                         .catch(httpResponseService.getDataFailed);
         }
     }
-
 })(angular);

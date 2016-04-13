@@ -9,6 +9,7 @@
     function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingBetTypeService) {
         var pane = $scope.pane;
         var metricGamingLiveNonLiveService = pane.service;
+        var defaultGetTitle = pane.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
@@ -20,7 +21,7 @@
             var data = {
                 betType: betType,
                 betTypeName: betTypeName,
-                IsLive : isLive
+                IsLive: isLive
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -42,6 +43,7 @@
         }
 
         function renderGridForBetType(data) {
+            pane.getTitle = defaultGetTitle;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -68,9 +70,9 @@
             data.defaultCollapseAllGroups = true;
             liveNonLiveGridElement.fanexGrid(data);
         }
-        
+
         function getTitleWhenLiveNonLive(isLast) {
-            return isLast ? 'Metric Gaming - Superlive Live/Non-Live Win/Loss Report' : 'Metric Gaming - Superlive';
+            return isLast ? pane.data.productName + ' Live/Non-Live Win/Loss Report' : pane.data.productName;
         }
 
         function createLinksForBetType(data) {
@@ -84,12 +86,11 @@
         }
 
         function exportExcel() {
-            pane.data.isLive = true;
-            var liveTitle = tab.generateBreadcrumbText();
-            pane.data.isLive = false;
-            var noneLiveTitle = tab.generateBreadcrumbText();
-            delete (pane.data.isLive);
-            pane.service.exportExcel(liveTitle, noneLiveTitle, pane.data, pane.getFileName());
+            pane.getTitle = defaultGetTitle;
+            var sportTypeTitle = tab.generateBreadcrumbText();
+            pane.getTitle = getTitleWhenLiveNonLive;
+            var liveNonLiveTitle = tab.generateBreadcrumbText();
+            metricGamingLiveNonLiveService.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
 
