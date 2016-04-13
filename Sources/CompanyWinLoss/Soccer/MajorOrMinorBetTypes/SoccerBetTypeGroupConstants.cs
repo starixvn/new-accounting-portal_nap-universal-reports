@@ -1,54 +1,56 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {
     public class SoccerBetTypeGroupConstants
     {
-        public static readonly List<int> BetTypeGroup1 = new List<int>
+        public enum BetTypeGroup1
         {
-            1, // Handicap
-            5, // _1x2BetType
-            24, // DoubleChanceBetType
-            25, // DrawNoBetBetType
-            28, // _3wayHandicap
-            121, // HomeNoBetBetType
-            122, // AwayNoBetBetType
-            123, // DrawNoDrawBetType
-            301 // MyanmarHandicap
-        };
+            Handicap = 1,
+            _1x2BetType = 5,
+            DoubleChanceBetType = 24,
+            DrawNoBetBetType = 25,
+            _3wayHandicap = 28,
+            HomeNoBetBetType = 121,
+            AwayNoBetBetType = 122,
+            DrawNoDrawBetType = 123,
+            MyanmarHandicap = 301
+        }
 
-        public static readonly List<int> BetTypeGroup2 = new List<int>
+        public enum BetTypeGroup2
         {
-            3, // OverUnder2
-            6, // TotalGoal
-            2, // OddEvenBetType
-            302 // MyanmarOverUnder
-        };
+            OverUnder2 = 3,
+            TotalGoal = 6,
+            OddEvenBetType = 2,
+            MyanmarOverUnder = 302
+        }
 
-        public static readonly List<int> BetTypeGroup3 = new List<int>
+        public enum BetTypeGroup3
         {
-            7, // _1stHandicap
-            15, // _1st1x2BetType
-            151, // _1stDoubleChange
-            303 // _1stMyanmarHandicap
-        };
+            _1stHandicap = 7,
+            _1st1x2BetType = 15,
+            _1stDoubleChange = 151,
+            _1stMyanmarHandicap = 303
+        }
+      
+        public enum MainBetTypes
+        {
+            Handicap = 1,
+            _1stHandicap = 7,
+            OverUnder2 = 3,
+            _1stOverUnder = 8
+        }
 
         public static List<int> BetTypeGroup123()
         {
-            List<int> betTypeGroup123 = new List<int>();
-            betTypeGroup123.AddRange(BetTypeGroup1);
-            betTypeGroup123.AddRange(BetTypeGroup2);
-            betTypeGroup123.AddRange(BetTypeGroup3);
+            var group1Arr = (int[])Enum.GetValues(typeof(BetTypeGroup1));
+            var group2Arr = (int[])Enum.GetValues(typeof(BetTypeGroup2));
+            var group3Arr = (int[])Enum.GetValues(typeof(BetTypeGroup3));
+            var betTypeGroup123 = group1Arr.Concat(group2Arr).Concat(group3Arr);
 
-            return betTypeGroup123;
+            return betTypeGroup123.ToList();
         }
-
-        public static readonly List<int> MainBetTypes = new List<int>
-        {
-            1, // Handicap
-            7, // _1stHandicap
-            3, // OverUnder2
-            8 // _1stOverUnder
-        };
     }
 }

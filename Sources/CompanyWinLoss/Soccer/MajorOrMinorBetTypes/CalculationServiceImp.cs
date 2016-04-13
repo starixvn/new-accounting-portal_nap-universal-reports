@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
@@ -127,7 +128,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 
         public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var mainRawWinLosses = rawWinLosses.Where(r => SoccerBetTypeGroupConstants.MainBetTypes.Contains(r.GroupId));
+            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.MainBetTypes), r.GroupId));
             var total = CalculateSumWinLoss(sumTitle, mainRawWinLosses);
             
             return total;
@@ -135,7 +136,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 
         public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var otherRawWinLosses = rawWinLosses.Where(r => !SoccerBetTypeGroupConstants.MainBetTypes.Contains(r.GroupId));
+            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.MainBetTypes), r.GroupId));
             var total = CalculateSumWinLoss(sumTitle, otherRawWinLosses);
 
             return total;
@@ -193,9 +194,9 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 
         private IEnumerable<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
         {
-            var winLossesGroup1 = winLosses.Where(r => SoccerBetTypeGroupConstants.BetTypeGroup1.Contains(r.Total.Id));
-            var winLossesGroup2 = winLosses.Where(r => SoccerBetTypeGroupConstants.BetTypeGroup2.Contains(r.Total.Id));
-            var winLossesGroup3 = winLosses.Where(r => SoccerBetTypeGroupConstants.BetTypeGroup3.Contains(r.Total.Id));
+            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup1), r.Total.Id));
+            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup2), r.Total.Id));
+            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup3), r.Total.Id));
             var winLossesGroup4 = winLosses.Where(r => !SoccerBetTypeGroupConstants.BetTypeGroup123().Contains(r.Total.Id));
 
             IEnumerable<WinLossSummaryByBetTypeGroup> winLossesByGroup = new List<WinLossSummaryByBetTypeGroup>

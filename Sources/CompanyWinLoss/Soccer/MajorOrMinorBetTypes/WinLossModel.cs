@@ -8,7 +8,9 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
         public List<WinLossSummaryByBetTypeGroup> SiteWinLossSummaries { get; set; }
 
         public SiteWinLossSummary GrandTotal { get; set; }
+
         public WinLoss MainTotal { get; set; }
+
         public WinLoss OtherTotal { get; set; }
     }
 }

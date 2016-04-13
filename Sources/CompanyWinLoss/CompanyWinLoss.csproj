@@ -304,7 +304,7 @@
     <Compile Include="Soccer\MajorOrMinorBetTypes\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\QueryModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerBetTypeGroupConstants.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerMajorOrMinorBetTypesController.cs" />
+    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerMajorMinorBetTypesController.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossModel.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossService.cs" />
     <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossServiceImp.cs" />

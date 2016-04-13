@@ -7,12 +7,12 @@
     using UniversalReports.MVC.Results;
 
     [RoutePrefix("api/company-win-loss/soccer/major-or-minor-bet-types")]
-    public class SoccerMajorOrMinorBetTypesController : ApiController
+    public class SoccerMajorMinorBetTypesController : ApiController
     {
         private readonly WinLossService winlossService;
         private readonly BetTypesGridOptionService gridOptionService;
 
-        public SoccerMajorOrMinorBetTypesController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
+        public SoccerMajorMinorBetTypesController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
