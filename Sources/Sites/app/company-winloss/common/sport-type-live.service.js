@@ -3,10 +3,10 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('otherSportsSportTypeService', otherSportsSportTypeService);
+        .factory('sportTypeLiveService', sportTypeLiveService);
 
-    otherSportsSportTypeService.$inject = ['$http', 'httpResponseService'];
-    function otherSportsSportTypeService($http, httpResponseService) {
+    sportTypeLiveService.$inject = ['$http', 'httpResponseService'];
+    function sportTypeLiveService($http, httpResponseService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -20,19 +20,20 @@
                 endDate: data.endDate,
                 isLive: data.isLive
             };
-            return $http.post('api/company-win-loss/other-sports/sport-type', httpData)
+            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/sport-type';
+            return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(betTypeTitle, sportTypeTitle, data, fileName) {
+        function exportExcel(title, data, fileName) {
             var httpData = {
-                betTypeTitle: betTypeTitle,
-                sportTypeTitle: sportTypeTitle,
+                title: title,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/other-sports/sport-type/excel', httpData, { responseType: "arraybuffer" })
+            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/sport-type/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

@@ -3,10 +3,10 @@
 
     angular
         .module('app.companyWinlossApp')
-        .controller('OtherSportsSportTypeController', OtherSportsSportTypeController);
+        .controller('SportTypeLiveController', SportTypeLiveController);
 
-    OtherSportsSportTypeController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function OtherSportsSportTypeController($scope, $element, fanexGridService) {
+    SportTypeLiveController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function SportTypeLiveController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
         pane.getTitle = getTitle;
         var tab = $scope.tab;

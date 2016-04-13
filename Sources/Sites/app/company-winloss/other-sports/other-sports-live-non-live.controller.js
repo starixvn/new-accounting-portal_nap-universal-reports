@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
 
-    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'otherSportsSportTypeService'];
-    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, otherSportsSportTypeService) {
+    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeLiveService'];
+    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeLiveService) {
         var pane = $scope.pane;
         var defaultGetTitle = pane.getTitle;
         var otherSportsLiveNonLiveService = pane.service;
@@ -36,7 +36,7 @@
         }
 
         function generate() {
-            otherSportsSportTypeService.getData(pane.data).then(function (data) {
+            sportTypeLiveService.getData(pane.data).then(function (data) {
                 createLinksForSportType(data);
                 renderGridForSportType(data);
                 pane.compileLinks();
