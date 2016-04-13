@@ -32,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "Main Column", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
+                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "MainColumn", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
