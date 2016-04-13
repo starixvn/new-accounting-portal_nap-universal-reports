@@ -30,7 +30,8 @@
             var httpData = {
                 title: title,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                isLive: data.isLive
             };
             var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/sport-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })

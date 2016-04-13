@@ -217,6 +217,8 @@
     <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-win-loss.min.js" />
     <Content Include="app\company-winloss\app.js" />
+    <Content Include="app\company-winloss\common\bet-type-live.controller.js" />
+    <Content Include="app\company-winloss\common\bet-type-live.service.js" />
     <Content Include="app\company-winloss\common\third-party-bet-type.service.js" />
     <Content Include="app\company-winloss\common\third-party-product.service.js" />
     <Content Include="app\common\http-response.service.js" />
@@ -1405,7 +1407,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\company-winloss\sports-book\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

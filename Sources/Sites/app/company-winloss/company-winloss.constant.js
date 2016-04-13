@@ -34,8 +34,8 @@
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'OtherSportsBetTypeController',
-                service: 'otherSportsBetTypeService'
+                controller: 'BetTypeLiveController',
+                service: 'betTypeLiveService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',

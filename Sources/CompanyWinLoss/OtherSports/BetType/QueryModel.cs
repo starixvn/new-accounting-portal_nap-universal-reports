@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
         public DateTime EndDate { get; set; }
 
         [Required]
-        public string SportType { get; set; }
+        public int SportType { get; set; }
 
         public int IsLive { get; set; } = Common.Constants.LiveDefault;
     }

@@ -36,15 +36,22 @@
         }
 
         function generate() {
+            var count = 0;
+            var compileLinks = function () {
+                count++;
+                if (count === 2) {
+                    pane.compileLinks();
+                }
+            };
             sportTypeLiveService.getData(pane.data).then(function (data) {
                 createLinksForSportType(data);
                 renderGridForSportType(data);
-                pane.compileLinks();
+                compileLinks();
             });
             otherSportsLiveNonLiveService.getData(pane.data).then(function (data) {
                 createLinksForLiveNonLive(data);
                 renderGridForLiveNonLive(data);
-                pane.compileLinks();
+                compileLinks();
             });
         }
 

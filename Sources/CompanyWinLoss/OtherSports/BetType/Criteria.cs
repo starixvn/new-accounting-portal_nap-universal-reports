@@ -7,6 +7,8 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
     {
         public int SportType { get; set; }
 
+        public int IsLive { get; set; }
+
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
             var newCriteria = new Criteria();
