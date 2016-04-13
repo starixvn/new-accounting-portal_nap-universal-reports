@@ -4,6 +4,7 @@ using Fanex.NAP.Core.Web.Session;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using Cockfighting = UniversalReports.CompanyWinLoss.Cockfighting;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
@@ -33,9 +34,9 @@ namespace UniversalReports.Sites
 
             container.Register<ICurrentSession, CurrentSession>(Lifestyle.Transient);
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
-            container.Register<CommonServices.BalanceUpService, CommonServices.BalanceUpServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.BalanceUpSourceChooser, CommonServices.BalanceUpSourceChooserImp>(Lifestyle.Transient);
-            container.Register<CommonServices.BalanceUpSummationService, CommonServices.BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);

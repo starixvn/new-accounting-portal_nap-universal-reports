@@ -2,6 +2,7 @@
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Tests.Common;
@@ -47,8 +48,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
         private MatchDetailRawWinLossService CreateRawService()
         {
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new commonService.BalanceUpServiceImp(dynamicRepository);
-            var balanceUpSourceChooser = new commonService.BalanceUpSourceChooserImp(balanceUpService);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
+            var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             var balanceUpSummationService = new MatchDetailBalanceUpSummationServiceImp();
             return new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);

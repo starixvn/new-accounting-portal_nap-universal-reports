@@ -1,5 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.NumberGame.BetType;
 using UniversalReports.CompanyWinLoss.Tests.Common;
@@ -44,10 +45,10 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.BetType
         protected virtual CommonServices.RawWinLossService CreateNumberGameRawService()
         {
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new CommonServices.BalanceUpServiceImp(dynamicRepository);
-            var balanceUpSourceChooser = new CommonServices.BalanceUpSourceChooserImp(balanceUpService);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
+            var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
-            var balanceUpSummationService = new CommonServices.BalanceUpSummationServiceImp();
+            var balanceUpSummationService = new BalanceUpSummationServiceImp();
             return new CommonServices.RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }

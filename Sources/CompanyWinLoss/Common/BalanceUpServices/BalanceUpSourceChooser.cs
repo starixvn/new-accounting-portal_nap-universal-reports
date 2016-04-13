@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
 {
     public interface BalanceUpSourceChooser
     {

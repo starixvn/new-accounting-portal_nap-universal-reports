@@ -1,5 +1,4 @@
-﻿using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {

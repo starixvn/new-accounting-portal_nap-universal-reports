@@ -1,9 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Common
 {

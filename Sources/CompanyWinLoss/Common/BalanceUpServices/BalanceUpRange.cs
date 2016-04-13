@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversalReports.CompanyWinLoss.Common.Models
+namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
 {
     public class BalanceUpRange
     {

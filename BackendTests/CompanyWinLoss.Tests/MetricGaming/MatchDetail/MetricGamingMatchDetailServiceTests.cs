@@ -1,6 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail;
@@ -49,8 +50,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.MetricGaming.MatchDetail
         private MatchDetailRawWinLossService CreateMatchDetailRawService()
         {
             var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new CommonService.BalanceUpServiceImp(dynamicRepository);
-            var balanceUpSourceChooser = new CommonService.BalanceUpSourceChooserImp(balanceUpService);
+            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
+            var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             var balanceUpSummationService = new MatchDetailBalanceUpSummationServiceImp();
             return new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);

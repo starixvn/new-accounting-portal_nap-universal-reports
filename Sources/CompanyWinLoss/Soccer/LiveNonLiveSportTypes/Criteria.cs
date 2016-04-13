@@ -1,7 +1,8 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLiveSportTypes
+﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+
+namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLiveSportTypes
 {
     using UniversalReports.CompanyWinLoss.Common.Criteria;
-    using UniversalReports.CompanyWinLoss.Common.Models;
 
     public class Criteria : WinLossCriteria
     {

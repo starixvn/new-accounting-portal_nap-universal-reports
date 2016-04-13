@@ -1,9 +1,7 @@
 ﻿using Fanex.Caching;
 using Fanex.Data.Repository;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.Services
+namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
 {
     public class BalanceUpServiceImp : BalanceUpService
     {

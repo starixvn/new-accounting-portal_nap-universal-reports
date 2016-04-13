@@ -1,5 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
+﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
 {

@@ -4,11 +4,10 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
-using commonModel = UniversalReports.CompanyWinLoss.Common.Models;
-using commonService = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
 {
@@ -24,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             var balanceUpSummationService = Substitute.For<MatchDetailBalanceUpSummationService>();
 
             var twoSources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<commonService.BalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
 
             var service = new MatchDetailRawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
@@ -37,18 +36,18 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             dynamicRepository.Received(2).Fetch<MatchDetailRawWinLoss>(Arg.Any<WinLossCriteria>());
         }
 
-        private IEnumerable<commonModel.BalanceUpSource> CreateBalanceUpSources()
+        private IEnumerable<BalanceUpSource> CreateBalanceUpSources()
         {
-            return new List<commonModel.BalanceUpSource>
+            return new List<BalanceUpSource>
             {
                 CreateBalanceUpSource(1, 5, "BetTrans14"),
                 CreateBalanceUpSource(6, 8, "BetTrans")
             };
         }
 
-        private commonModel.BalanceUpSource CreateBalanceUpSource(int dayStart, int dayEnd, string source)
+        private BalanceUpSource CreateBalanceUpSource(int dayStart, int dayEnd, string source)
         {
-            return new commonModel.BalanceUpSource
+            return new BalanceUpSource
             {
                 StartDate = new DateTime(2015, 01, dayStart),
                 EndDate = new DateTime(2015, 01, dayEnd),
@@ -64,12 +63,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetailServices
             var balanceUpSummationService = Substitute.For<MatchDetailBalanceUpSummationService>();
 
             var sources = CreateBalanceUpSources();
-            var balanceUpSourceChooser = Substitute.For<commonService.BalanceUpSourceChooser>();
+            var balanceUpSourceChooser = Substitute.For<BalanceUpSourceChooser>();
             balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
 
             var service = Substitute.ForPartsOf<MatchDetailRawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
             var fakeWinLoss = CreateFakeRawWinLosses();
-            service.QueryBySource(Arg.Any<CompanyWinLoss.Common.Models.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
+            service.QueryBySource(Arg.Any<BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
 
             // Act
             var criteria = new FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };

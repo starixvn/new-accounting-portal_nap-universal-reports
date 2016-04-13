@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.ColossusBets.Site;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.ColossusBets.Site

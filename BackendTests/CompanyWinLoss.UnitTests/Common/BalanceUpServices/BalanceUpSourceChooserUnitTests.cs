@@ -1,11 +1,10 @@
-﻿using NSubstitute;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
-using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.Common.Services;
+using NSubstitute;
+using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]

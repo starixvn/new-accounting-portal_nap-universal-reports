@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]

@@ -1,8 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Products;

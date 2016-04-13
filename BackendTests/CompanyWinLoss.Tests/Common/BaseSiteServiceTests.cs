@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 
@@ -23,6 +22,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
             var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
             return new SiteServiceImp(rawWinLossService, calculationService);
-        }        
+        }
     }
 }

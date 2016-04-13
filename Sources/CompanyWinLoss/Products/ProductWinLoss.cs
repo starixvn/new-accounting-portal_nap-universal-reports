@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Common.Models;
+﻿using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {

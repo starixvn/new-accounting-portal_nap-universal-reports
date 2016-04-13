@@ -1,6 +1,5 @@
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorOrMinorBetTypes
 {
-    using Common.BasicWinLoss;
     using Fanex.Excel.Enums;
     using Fanex.Excel.Models;
     using System.Collections.Generic;

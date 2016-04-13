@@ -51,14 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\MatchDetaiServices\BalanceUpSummationServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetaiServices\CalculationServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetaiServices\RawWinLossServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetaiServices\ServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetaiServices\WinLossComparison.cs" />
-    <Compile Include="Common\MatchDetaiServices\WinLossFactory.cs" />
-    <Compile Include="Common\Services\BalanceUpSourceChooserUnitTests.cs" />
-    <Compile Include="Common\Services\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetailServices\BalanceUpSummationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetailServices\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetailServices\RawWinLossServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetailServices\ServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetailServices\WinLossComparison.cs" />
+    <Compile Include="Common\MatchDetailServices\WinLossFactory.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\Services\RawServiceUnitTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
