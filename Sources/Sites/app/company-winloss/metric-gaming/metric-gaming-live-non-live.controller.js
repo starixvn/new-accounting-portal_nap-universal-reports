@@ -19,7 +19,7 @@
 
         function generateBetType(isLive) {
             var data = {
-                IsLive: isLive
+                isLive: isLive
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -40,7 +40,7 @@
             });
 
             metricGamingLiveNonLiveService.getData(pane.data).then(function (data) {
-                createLinksForBetType(data);
+                createLinksForLiveNonLive(data);
                 renderForLiveNonLive(data);
                 compileLinks();
             });
@@ -86,6 +86,15 @@
                 var betTypeName = betTypeRow.Columns[0].Value;
                 betType = betTypeRow.Columns[0].CustomAttr;
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+            }
+        }
+
+        function createLinksForLiveNonLive(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var row = data.bodyRows[i];
+                var name = row.Columns[0].Value;
+                var isLive = parseInt(row.Columns[0].CustomAttr);
+                row.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + isLive + ')">' + name + '</a>';
             }
         }
 

@@ -10,8 +10,8 @@
                 service: 'metricGamingLiveNonLiveService'
             },
             betType: {
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
-                controller: 'MetricGamingBetTypeController',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeLiveController',
                 service: 'metricGamingBetTypeService'
             },
             matchDetail: {
