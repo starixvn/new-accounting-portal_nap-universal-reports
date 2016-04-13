@@ -6,7 +6,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
 {
-    [RoutePrefix("api/company-win-loss/other-sports/bet-type")]
+    [RoutePrefix("api/company-win-loss/metric-gaming/bet-type")]
     public class MetricGamingBetTypeController : ApiController
     {
         private readonly BasicWinLossService winlossService;

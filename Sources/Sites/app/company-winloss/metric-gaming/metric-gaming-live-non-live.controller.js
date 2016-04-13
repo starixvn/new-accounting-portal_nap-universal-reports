@@ -11,14 +11,15 @@
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
-        var sportTypeGridElement = angular.element(gridElements[1]);
+        var liveNonLiveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
-        function generateBetType(betType, betTypeName) {
+        function generateBetType(isLive) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                IsLive : isLive
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -26,10 +27,16 @@
         }
 
         function generate() {
+            metricGamingBetTypeService.getData(date.pane).then(function (data) {
+                createLinksForBetType(data);
+                renderGridForBetType(data);
+                pane.compileLinks();
+            });
 
             metricGamingLiveNonLiveService.getData(data.pane).then(function (data) {
-                renderGridForBetType(data);
-                createLinksForSportType(data);
+                createLinksForBetType(data);
+                renderForLiveNonLive(data);
+                pane.compileLinks();
             });
         }
 
@@ -47,21 +54,25 @@
             betTypeGridElement.fanexGrid(data);
         }
 
-        function renderGridForSportType(data) {
+        function renderForLiveNonLive(data) {
+            pane.getTitle = getTitleWhenLiveNonLive;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
-                showExcelButton: false,
-                exportExcelFunction: exportExcel
+                showExcelButton: false
             };
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
             data.defaultCollapseAllGroups = true;
-            sportTypeGridElement.fanexGrid(data);
+            liveNonLiveGridElement.fanexGrid(data);
+        }
+        
+        function getTitleWhenLiveNonLive(isLast) {
+            return isLast ? 'Metric Gaming - Superlive Live/Non-Live Win/Loss Report' : 'Metric Gaming - Superlive';
         }
 
-        function createLinksForSportType(data) {
+        function createLinksForBetType(data) {
             var betType;
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
