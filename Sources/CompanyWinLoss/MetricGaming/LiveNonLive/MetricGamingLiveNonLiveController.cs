@@ -6,7 +6,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
 {
-    [RoutePrefix("api/company-win-loss/other-sports/live-and-none-live")]
+    [RoutePrefix("api/company-win-loss/metric-gaming/live-none-live")]
     public class MetricGamingLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;
@@ -19,7 +19,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
         }
 
         [Route("")]
-        public IHttpActionResult SportType(QueryModel queryModel)
+        public IHttpActionResult LiveNonLive(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {

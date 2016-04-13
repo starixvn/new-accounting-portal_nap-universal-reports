@@ -2,12 +2,12 @@
     'use strict';
 
     var templateSetting = {
-        'Metric Gaming': {
+        'Metric Gaming - Superlive': {
             product: 'liveNonLive',
             liveNonLive: {
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
                 controller: 'MetricGamingLiveNonLiveController',
-                service: 'MetricGamingLiveNonLiveService'
+                service: 'metricGamingLiveNonLiveService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',

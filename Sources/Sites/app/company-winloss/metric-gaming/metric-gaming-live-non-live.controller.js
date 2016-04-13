@@ -1,11 +1,12 @@
 ﻿(function (angular, undefined) {
     'use strict';
+
     angular
         .module('app.companyWinlossApp')
-        .controller('MetricGamingLiveNonLive', MetricGamingLiveNonlive);
-    MetricGamingLiveNonLive.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingBetTypeService'];
+        .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingBetTypeService'];
 
-    function MetricGamingLiveNoneLive($scope, $element, fanexGridService, metricGamingBetTypeService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingBetTypeService) {
         var pane = $scope.pane;
         var metricGamingLiveNonLiveService = pane.service;
         var tab = $scope.tab;
@@ -27,13 +28,13 @@
         }
 
         function generate() {
-            metricGamingBetTypeService.getData(date.pane).then(function (data) {
+            metricGamingBetTypeService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderGridForBetType(data);
                 pane.compileLinks();
             });
 
-            metricGamingLiveNonLiveService.getData(data.pane).then(function (data) {
+            metricGamingLiveNonLiveService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderForLiveNonLive(data);
                 pane.compileLinks();
@@ -78,7 +79,7 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 betType = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSportType(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
             }
         }
 

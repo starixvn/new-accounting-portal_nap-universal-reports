@@ -1,11 +1,12 @@
 ﻿(function (angular) {
-    'use strict'
+    'use strict';
+
     angular
         .module('app.companyWinlossApp')
-        .factory('MetricGamingLiveNonLiveService', MetricGamingLiveNonLiveService);
+        .factory('metricGamingLiveNonLiveService', metricGamingLiveNonLiveService);
 
-    MetricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
-    function MetricGamingLiveNonLiveService($http, httpResponseService) {
+    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
+    function metricGamingLiveNonLiveService($http, httpResponseService) {
 
         var service = {
             getData: getData,
@@ -18,7 +19,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/live-non-live', httpData)
+            return $http.post('api/company-win-loss/metric-gaming/live-none-live', httpData)
                     .then(httpResponseService.getDataComplete)
                     .catch(httpResponseService.getDataFailed);
         }
@@ -29,7 +30,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('/api/company-win-loss/other-sports/live-non-live/excel', httpData)
+            return $http.post('api/company-win-loss/metric-gaming/live-none-live/excel', httpData)
                         .then(function (response) {
                             httpResponseService.saveExcelFile(response.data, fileName);
                         })
