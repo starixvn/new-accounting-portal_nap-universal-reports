@@ -19,26 +19,30 @@
 
         function generateBetType(isLive) {
             var data = {
-                betType: betType,
-                betTypeName: betTypeName,
                 IsLive: isLive
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
-
         }
 
         function generate() {
+            var count = 0;
+            var compileLinks = function () {
+                count++;
+                if (count === 2) {
+                    pane.compileLinks();
+                }
+            };
             metricGamingBetTypeService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderGridForBetType(data);
-                pane.compileLinks();
+                compileLinks();
             });
 
             metricGamingLiveNonLiveService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderForLiveNonLive(data);
-                pane.compileLinks();
+                compileLinks();
             });
         }
 
