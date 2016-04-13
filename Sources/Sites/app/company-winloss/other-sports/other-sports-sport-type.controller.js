@@ -5,17 +5,19 @@
         .module('app.companyWinlossApp')
         .controller('OtherSportsSportTypeController', OtherSportsSportTypeController);
 
-    OtherSportsSportTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'otherSportsBetTypeService'];
-    function OtherSportsSportTypeController($scope, $element, fanexGridService, otherSportsBetTypeService) {
+    OtherSportsSportTypeController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function OtherSportsSportTypeController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
-        var otherSportsSportTypeService = pane.service;
+        pane.getTitle = getTitle;
         var tab = $scope.tab;
-        var gridElements = $element.find('.freegrid');
-        var betTypeGridElement = angular.element(gridElements[0]);
-        var sportTypeGridElement = angular.element(gridElements[1]);
+        var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateMatchDetail = generateMatchDetail;
-        $scope.generateSite = generateSite;
+        $scope.generateBetType = generateBetType;
+
+        function getTitle(isLast) {
+            var title = pane.data.productName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '"';
+            return isLast ? title + ' Product Win/Loss Report' : title;
+        }
 
         function generateBetType(sportType, sportTypeName, isLive) {
             var data = {
@@ -27,38 +29,15 @@
             tab.goForward('betType', data);
         }
 
-        function generateMatchDetail(betType, betTypeName) {
-            var data = {
-                betType: betType,
-                betTypeName: betTypeName
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('matchDetail', data);
-        }
-
-        function generateSite(betType, betTypeName, site) {
-            var data = {
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('site', data);
-        }
-
         function generate() {
-            //otherSportsBetTypeService.getData(pane.data).then(function (data) {
-            //    renderGridForBetType(data);
-            //    createLinksForBetType(data);
-            //});
-
-            otherSportsSportTypeService.getData(pane.data).then(function (data) {
-                renderGridForSportType(data);
-                createLinksForSportType(data);
+            pane.service.getData(pane.data).then(function (data) {
+                createLinks(data);
+                renderGrid(data);
+                pane.compileLinks();
             });
         }
 
-        function renderGridForBetType(data) {
+        function renderGrid(data) {
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -67,74 +46,23 @@
             };
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.defaultCollapseAllGroups = true;
-            betTypeGridElement.fanexGrid(data);
+            gridElement.fanexGrid(data);
         }
 
-        function renderGridForSportType(data) {
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showCollapseExpandButton: true,
-                showExcelButton: false,
-                exportExcelFunction: exportExcel
-            };
-
-            data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
-            data.defaultCollapseAllGroups = true;
-            sportTypeGridElement.fanexGrid(data);
-        }
-
-        function createLinksForBetType(data) {
-            var betTypeId;
+        function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeName = betTypeRow.Columns[0].Value;
-                betTypeId = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',' + isLive + ')">' + betTypeName + '</a>';
-
-                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                    var siteRow = data.bodyRows[i].SubRows[j];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\',' + isLive + ')">' + siteName + '</a>';
-                }
-            }
-        }
-
-        function createLinksForSportType(data) {
-            var betTypeId;
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeName = betTypeRow.Columns[0].Value;
-                betTypeId = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',' + isLive + ')">' + betTypeName + '</a>';
-            }
-        }
-
-        function createLinksForSportType(data) {
-            var betTypeId;
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeName = betTypeRow.Columns[0].Value;
-                betTypeId = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',' + isLive + ')">' + betTypeName + '</a>';
-
-                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                    var siteRow = data.bodyRows[i].SubRows[j];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\',' + isLive + ')">' + siteName + '</a>';
-                }
+                var sportTypeRow = data.bodyRows[i];
+                var sportTypeName = sportTypeRow.Columns[0].Value;
+                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
             }
         }
 
         function exportExcel() {
-            pane.data.isLive = true;
-            var liveTitle = tab.generateBreadcrumbText();
-            pane.data.isLive = false;
-            var noneLiveTitle = tab.generateBreadcrumbText();
-            delete (pane.data.isLive);
-            pane.service.exportExcel(liveTitle, noneLiveTitle, pane.data, pane.getFileName());
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);

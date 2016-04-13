@@ -3,5 +3,7 @@
     public static class Constants
     {
         public const string SheetName = "Company Win Loss by Products";
+
+        public const int LiveDefault = 2;
     }
 }

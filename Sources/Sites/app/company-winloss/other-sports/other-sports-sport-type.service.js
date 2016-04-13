@@ -17,7 +17,8 @@
         function getData(data) {
             var httpData = {
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                isLive: data.isLive
             };
             return $http.post('api/company-win-loss/other-sports/sport-type', httpData)
                 .then(httpResponseService.getDataComplete)

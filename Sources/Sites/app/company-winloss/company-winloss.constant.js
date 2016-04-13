@@ -28,7 +28,7 @@
                 service: 'otherSportsLiveNonLiveService'
             },
             sportType: {
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'OtherSportsSportTypeController',
                 service: 'otherSportsSportTypeService'
             },

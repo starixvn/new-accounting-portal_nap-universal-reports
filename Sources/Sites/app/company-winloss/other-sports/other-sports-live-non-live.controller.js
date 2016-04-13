@@ -29,9 +29,7 @@
 
         function generateSportType(isLive) {
             var data = {
-                sportType: sportType,
-                sportTypeName: sportTypeName,
-                IsLive: isLive
+                isLive: isLive
             };
             angular.extend(data, pane.data);
             tab.goForward('sportType', data);
@@ -89,14 +87,14 @@
         }
 
         function getTitleWhenLiveNonLive(isLast) {
-            return isLast ? 'Other Sports Live/Non-Live Win/Loss Report' : 'Other Sports';
+            return isLast ? pane.data.productName + ' Live/Non-Live Win/Loss Report' : pane.data.productName;
         }
 
         function createLinksForLiveNonLive(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var row = data.bodyRows[i];
                 var name = row.Columns[0].Value;
-                var isLive = row.Columns[0].CustomAttr === '1';
+                var isLive = parseInt(row.Columns[0].CustomAttr);
                 row.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSportType(' + isLive + ')">' + name + '</a>';
             }
         }
