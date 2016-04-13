@@ -3,7 +3,12 @@
 
     var templateSetting = {
         'Other Sports': {
-            product: 'sportType',
+            product: 'liveNonLive',
+            liveNonLive: {
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'OtherSportsLiveNonLiveController',
+                service: 'otherSportsLiveNonLiveService'
+            },
             sportType: {
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
                 controller: 'OtherSportsSportTypeController',

@@ -6,7 +6,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
 {
-    [RoutePrefix("api/company-win-loss/other-sports/live-and-none-live")]
+    [RoutePrefix("api/company-win-loss/other-sports/live-non-live")]
     public class OtherSportsLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;
