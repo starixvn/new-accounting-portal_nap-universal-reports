@@ -63,6 +63,7 @@ namespace UniversalReports.Sites
             container.Register<Sportsbook.Site.GridOptionService, Sportsbook.Site.GridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Soccer.MajorOrMinorBetTypes.WinLossService, CompanyWinLoss.Soccer.MajorOrMinorBetTypes.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Soccer.MajorOrMinorBetTypes.BetTypesGridOptionService, CompanyWinLoss.Soccer.MajorOrMinorBetTypes.BetTypesGridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Soccer.MajorOrMinorBetTypes.CalculationService, CompanyWinLoss.Soccer.MajorOrMinorBetTypes.CalculationServiceImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
