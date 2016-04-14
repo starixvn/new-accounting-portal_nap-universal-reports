@@ -113,7 +113,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             {
                 foreach (var subRow in row.SubRows)
                 {
-                    RemoveColumn(row, index);
+                    RemoveColumn(subRow, index);
                 }
             }
         }
