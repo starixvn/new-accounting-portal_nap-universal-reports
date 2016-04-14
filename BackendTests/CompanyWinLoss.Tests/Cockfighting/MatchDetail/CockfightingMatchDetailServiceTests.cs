@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Cockfighting.MatchDetail
         {
             var rawWinLossService = CreateRawService();
             var remotingRefService = Substitute.For<commonService.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any Arena");
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any Team");
             var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
             return new MatchDetailWinLossServiceImp(rawWinLossService, calculationService);
         }

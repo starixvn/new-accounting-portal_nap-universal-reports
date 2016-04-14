@@ -2,6 +2,7 @@
 using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Extensions;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
@@ -17,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
-                FooterRows = BuildFooter(winLoss.GrandTotal),
+                FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowTree = true,
                 ShowHighlightRow = false,
@@ -37,13 +38,17 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             return bodyRows;
         }
 
-        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
+        private List<GridDataRow> BuildFooter(BasicWinLossModel model)
         {
-            var row = BuildDataRow(item.Total, HAlignment.Right);
-            var creditRow = BuildDataRow(item.Credit, HAlignment.Right);
-            var depositRow = BuildDataRow(item.Deposit, HAlignment.Right);
+            var row = BuildDataRow(model.GrandTotal.Total, HAlignment.Right);
+            var creditRow = BuildDataRow(model.GrandTotal.Credit, HAlignment.Right);
+            var depositRow = BuildDataRow(model.GrandTotal.Deposit, HAlignment.Right);
+            var allRMRows = model.RM.Select(r => BuildDataRow(r, HAlignment.Right));
 
-            return new List<GridDataRow> { row, creditRow, depositRow };
+            var footer = new List<GridDataRow> { row, creditRow, depositRow };
+
+            footer.AddRange(allRMRows);
+            return footer;
         }
 
         private GridDataRow BuildBetTypeDataRow(SiteWinLossSummary item, HAlignment alignment)

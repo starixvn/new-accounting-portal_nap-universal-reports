@@ -4,13 +4,13 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 {
     public interface GridOptionBuilder
     {
-        GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText);
+        GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150);
 
-        GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText);
+        GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150);
 
-        GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText);
+        GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150);
 
-        GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText);
+        GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150);
 
         GridOptions BuildBasicMatchDetailOptions(GridOptions gridOptions);
 

@@ -1,7 +1,6 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Extensions;
 
@@ -13,133 +12,66 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
         {
             return new GridOptions
             {
-                CustomizeHeader = true,
                 ShowTitle = true,
                 TitleInfoText = title,
                 TitleType = TitleType.TwoLineBlue,
-                Columns = BuildHeader(),
-                GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),
                 ShowFooter = true
             };
         }
 
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
-          "SP2100:CodeLineMustNotBeLongerThan",
-          Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildHeader()
-        {
-            return new List<HeaderColumns>
-            {
-                new HeaderColumns { HeaderText = "Code", Width = 100, Name = "MatchCode", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 120, Name = "Home", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 20, Name = "VS", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 120, Name = "Away", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
-            };
-        }
-
-        private List<GroupHeaderRows> BuildGroupHeaderRows()
-        {
-            var columns = new List<HeaderColumns>
-            {
-                new HeaderColumns { HeaderText = "Code", Name = "MatchCode", Width = 100, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 260, MergeColNumber = 3, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome",  Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover",  Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Margin", Name = "Margin",  Width = 120, MergeRowNumber = 2 }
-            };
-
-            var groupHeader = new GroupHeaderRows { Columns = columns };
-            return new List<GroupHeaderRows> { groupHeader };
-        }
-
-        private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> arenaWinLoss)
+        private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagueWinLoss)
         {
             List<List<GridDataRow>> gridDataRows = new List<List<GridDataRow>>();
-            foreach (var arena in arenaWinLoss)
+            foreach (var league in leagueWinLoss)
             {
-                var arenaRows = BuildLeagueDataRows(arena);
-                gridDataRows.Add(arenaRows);
+                var leagueRows = BuildLeagueDataRows(league);
+                gridDataRows.Add(leagueRows);
             }
 
             return gridDataRows.SelectMany(x => x).ToList();
         }
 
-        private List<GridDataRow> BuildLeagueDataRows(LeagueWinLoss arena)
+        private List<GridDataRow> BuildLeagueDataRows(LeagueWinLoss league)
         {
-            List<GridDataRow> dataRows = new List<GridDataRow>();
+            var dataRows = new List<GridDataRow>();
+            var leagueNameRow = BuildLeagueNameRow(league.LeagueName);
+            var matchRows = league.Matches.Select(r => BuidMatchRow(r));
 
-            var arenaNameRow = BuildLeagueNameRow(arena.LeagueName);
-            dataRows.Add(arenaNameRow);
+            dataRows.Add(leagueNameRow);
+            dataRows.AddRange(matchRows);
 
-            foreach (var item in arena.Matches)
+            if (league.Matches.Count > 1)
             {
-                var row = BuidDataRow(item);
-                dataRows.Add(row);
-            }
-
-            if (arena.Matches.Count > 1)
-            {
-                var arenaTotalRow = BuildLeagueTotalRow(arena.Total);
-                dataRows.Add(arenaTotalRow);
+                var leagueTotalRow = BuildTotalRow(league.Total, string.Empty);
+                dataRows.Add(leagueTotalRow);
             }
 
             return dataRows;
         }
 
-        private GridDataRow BuidDataRow(MatchDetailWinLoss item)
-        {
-            int columnIndex = 0;
-            var colummns = new List<Columns>
-               {
-                    new Columns(columnIndex++, "MatchCode", item.MatchCode),
-                    new Columns(columnIndex++, "Home", item.HomeName),
-                    new Columns(columnIndex++, "VS", "-vs-"),
-                    new Columns(columnIndex++, "Away", item.AwayName),
-                    new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", item.Commission),
-                    new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
-                    new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
-                    new Columns(columnIndex++, "RealIncome", item.RealIncome),
-                    new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
-                    new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
-                    new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
-               };
-
-            return new GridDataRow { Columns = colummns };
-        }
-
-        private GridDataRow BuildLeagueNameRow(string arenaName)
+        private GridDataRow BuildLeagueNameRow(string leagueName)
         {
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
                     new Columns { ColumnIndex = columnIndex++, Name = "MatchCode", Value = string.Empty },
-                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = arenaName, MergeColNumber = 13, Bold = true }
+                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 13, Bold = true }
                };
 
             return new GridDataRow { Columns = colummns };
         }
 
-        private GridDataRow BuildLeagueTotalRow(MatchDetailWinLoss item)
+        private GridDataRow BuidMatchRow(MatchDetailWinLoss item)
         {
-            int startColumnIndex = 0;
-            int columnIndex = 4;
+            int columnIndex = 0;
             var colummns = new List<Columns>
             {
-                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = string.Empty, MergeColNumber = 4 },
+                new Columns(columnIndex++, "MatchCode", item.MatchCode),
+                new Columns(columnIndex++, "Home", item.HomeName),
+                new Columns(columnIndex++, "VS", "-vs-"),
+                new Columns(columnIndex++, "Away", item.AwayName),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
@@ -157,8 +89,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
         private List<GridDataRow> BuildFooter(WinLossModel model)
         {
-            var totalRow = BuildTotal(model.Total);
-            var allRMRows = BuildRM(model.RM);
+            var totalRow = BuildTotalRow(model.Total, "Grand Total");
+            var allRMRows = model.RM.Select(r => BuildTotalRow(r, r.MatchCode));
 
             var result = new List<GridDataRow> { totalRow };
             result.AddRange(allRMRows);
@@ -166,13 +98,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             return result;
         }
 
-        private GridDataRow BuildTotal(MatchDetailWinLoss item)
+        private GridDataRow BuildTotalRow(MatchDetailWinLoss item, string totalText)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
             var colummns = new List<Columns>
             {
-                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = totalText, MergeColNumber = 4, CellAlignment = HAlignment.Right },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
@@ -186,31 +118,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             };
 
             return new GridDataRow { Columns = colummns };
-        }
-
-        private IEnumerable<GridDataRow> BuildRM(List<MatchDetailWinLoss> rm)
-        {
-            foreach (var item in rm)
-            {
-                int startColumnIndex = 0;
-                int columnIndex = 4;
-                var colummns = new List<Columns>
-               {
-                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
-                    new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", item.Commission),
-                    new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
-                    new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
-                    new Columns(columnIndex++, "RealIncome", item.RealIncome),
-                    new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
-                    new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
-                    new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
-               };
-
-                yield return new GridDataRow { Columns = colummns };
-            }
         }
     }
 }

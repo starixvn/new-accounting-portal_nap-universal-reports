@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Code", Width = 100, Name = "MatchCode", CellAlignment = HAlignment.Center },
+                new HeaderColumns { HeaderText = "Code", Width = 120, Name = "MatchCode", CellAlignment = HAlignment.Center },
                 new HeaderColumns { HeaderText = string.Empty, Width = 120, Name = "Home", CellAlignment = HAlignment.Center },
                 new HeaderColumns { HeaderText = string.Empty, Width = 20, Name = "VS", CellAlignment = HAlignment.Center },
                 new HeaderColumns { HeaderText = string.Empty, Width = 120, Name = "Away", CellAlignment = HAlignment.Center },
@@ -35,7 +35,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
         {
             var columns = new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Code", Name = "MatchCode", Width = 100, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Code", Name = "MatchCode", Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 260, MergeColNumber = 3, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120, MergeRowNumber = 2 },

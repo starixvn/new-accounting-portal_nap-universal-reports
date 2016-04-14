@@ -33,15 +33,18 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
                 var liveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.Live,
-                    GrandTotal = winlosses.LiveGrandTotal
+                    GrandTotal = winlosses.LiveGrandTotal,
+                    RM = new List<Common.Models.WinLoss>()
                 };
+
                 var liveGridOptions = gridOptionService.FromWinLossModel(liveBetTypeWinLoss, string.Empty);
                 liveGridOptions = gridOptionBuilder.BuildBasicGridOptions(liveGridOptions, "Bet Type");
 
                 var nonLiveBetTypeWinLoss = new BasicWinLossModel
                 {
                     SiteWinLossSummaries = winlosses.NonLive,
-                    GrandTotal = winlosses.NonLiveGrandTotal
+                    GrandTotal = winlosses.NonLiveGrandTotal,
+                    RM = new List<Common.Models.WinLoss>()
                 };
 
                 var nonLiveGridOptions = gridOptionService.FromWinLossModel(nonLiveBetTypeWinLoss, string.Empty);

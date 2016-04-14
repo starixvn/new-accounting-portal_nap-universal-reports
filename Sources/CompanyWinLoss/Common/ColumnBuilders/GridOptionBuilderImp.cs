@@ -38,37 +38,41 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             this.columnBuilder = columnBuilder;
         }
 
-        public GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText)
+        public GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
         {
-            gridOptions.Columns = FullHeaderBuilder.BuildColumns(mainColumnText);
-            gridOptions.GroupHeaderRows = FullHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
+            gridOptions.CustomizeHeader = true;
+            gridOptions.Columns = FullHeaderBuilder.BuildColumns(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = FullHeaderBuilder.BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
 
-        public GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText)
+        public GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
         {
             RemoveBodyAndFooterColumn(gridOptions, AfterExtraPTIndex, ExtraPTIndex);
-            gridOptions.Columns = VirtualHeaderBuilder.BuildColumns(mainColumnText);
-            gridOptions.GroupHeaderRows = VirtualHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
+            gridOptions.CustomizeHeader = true;
+            gridOptions.Columns = VirtualHeaderBuilder.BuildColumns(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = VirtualHeaderBuilder.BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
 
-        public GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText)
+        public GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
-            gridOptions.Columns = ExtraPTHeaderBuilder.BuildColumns(mainColumnText);
-            gridOptions.GroupHeaderRows = ExtraPTHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
+            gridOptions.CustomizeHeader = true;
+            gridOptions.Columns = ExtraPTHeaderBuilder.BuildColumns(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = ExtraPTHeaderBuilder.BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
 
-        public GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText)
+        public GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
-            gridOptions.Columns = BasicHeaderBuilder.BuildColumns(mainColumnText);
-            gridOptions.GroupHeaderRows = BasicHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
+            gridOptions.CustomizeHeader = false;
+            gridOptions.Columns = BasicHeaderBuilder.BuildColumns(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = BasicHeaderBuilder.BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
@@ -76,6 +80,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
         public GridOptions BuildBasicMatchDetailOptions(GridOptions gridOptions)
         {
             RemoveBodyAndFooterColumn(gridOptions, MatchDetailVirtualMarginIndex, MatchDetailVirtualTurnoverIndex, MatchDetailVirtualIncomeIndex, MatchDetailVarianceIndex);
+            gridOptions.CustomizeHeader = false;
             gridOptions.Columns = MatchDetailBasicHeaderBuilder.BuildColumns();
             gridOptions.GroupHeaderRows = MatchDetailBasicHeaderBuilder.BuildGroupHeaderRows();
 
@@ -84,6 +89,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public GridOptions BuildFullMatchDetailOptions(GridOptions gridOptions)
         {
+            gridOptions.CustomizeHeader = true;
             gridOptions.Columns = MatchDetailFullHeaderBuilder.BuildColumns();
             gridOptions.GroupHeaderRows = MatchDetailFullHeaderBuilder.BuildGroupHeaderRows();
 
