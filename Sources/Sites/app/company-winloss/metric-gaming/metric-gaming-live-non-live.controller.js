@@ -25,6 +25,15 @@
             tab.goForward('betType', data);
         }
 
+        function generateMatchDetail(betType, betTypeName) {
+            var data = {
+                betType: betType,
+                betTypeName: betTypeName
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('matchDetail', data);
+        }
+
         function generate() {
             var count = 0;
             var compileLinks = function () {
@@ -85,7 +94,7 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 betType = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
             }
         }
 
