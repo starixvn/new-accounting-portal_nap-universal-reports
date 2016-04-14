@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 {
-    public class ColumnBuilderImp
+    public class ColumnBuilderImp : ColumnBuilder
     {
         public List<Columns> RemoveColumn(List<Columns> columns, int index)
         {
