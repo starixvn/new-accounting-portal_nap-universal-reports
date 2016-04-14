@@ -24,12 +24,13 @@
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(liveTitle, nonLiveTitle, data, fileName) {
+        function exportExcel(title, data, fileName) {
             var httpData = {
-                liveTitle: liveTitle,
-                nonLiveTitle: nonLiveTitle,
+                title: title,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                sportType: data.sportType,
+                isLive: data.isLive
             };
             return $http.post('api/company-win-loss/metric-gaming/bet-type/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
