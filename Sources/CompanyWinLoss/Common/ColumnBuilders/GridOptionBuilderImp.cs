@@ -48,7 +48,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText)
         {
-            RemoveColumn(gridOptions.BodyRows, AfterExtraPTIndex, ExtraPTIndex);
+            RemoveBodyAndFooterColumn(gridOptions, AfterExtraPTIndex, ExtraPTIndex);
             gridOptions.Columns = VirtualHeaderBuilder.BuildColumns(mainColumnText);
             gridOptions.GroupHeaderRows = VirtualHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
 
@@ -57,7 +57,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText)
         {
-            RemoveColumn(gridOptions.BodyRows, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
+            RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.Columns = ExtraPTHeaderBuilder.BuildColumns(mainColumnText);
             gridOptions.GroupHeaderRows = ExtraPTHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
 
@@ -66,7 +66,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText)
         {
-            RemoveColumn(gridOptions.BodyRows, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
+            RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.Columns = BasicHeaderBuilder.BuildColumns(mainColumnText);
             gridOptions.GroupHeaderRows = BasicHeaderBuilder.BuildGroupHeaderRows(mainColumnText);
 
@@ -75,7 +75,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public GridOptions BuildBasicMatchDetailOptions(GridOptions gridOptions)
         {
-            RemoveColumn(gridOptions.BodyRows, MatchDetailVirtualMarginIndex, MatchDetailVirtualTurnoverIndex, MatchDetailVirtualIncomeIndex, MatchDetailVarianceIndex);
+            RemoveBodyAndFooterColumn(gridOptions, MatchDetailVirtualMarginIndex, MatchDetailVirtualTurnoverIndex, MatchDetailVirtualIncomeIndex, MatchDetailVarianceIndex);
             gridOptions.Columns = MatchDetailBasicHeaderBuilder.BuildColumns();
             gridOptions.GroupHeaderRows = MatchDetailBasicHeaderBuilder.BuildGroupHeaderRows();
 
@@ -88,6 +88,22 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             gridOptions.GroupHeaderRows = MatchDetailFullHeaderBuilder.BuildGroupHeaderRows();
 
             return gridOptions;
+        }
+
+        private void RemoveBodyAndFooterColumn(GridOptions gridOptions, params int[] indice)
+        {
+            foreach (var index in indice)
+            {
+                if (gridOptions.BodyRows != null)
+                {
+                    RemoveColumn(gridOptions.BodyRows, index);
+                }
+
+                if (gridOptions.FooterRows != null)
+                {
+                    RemoveColumn(gridOptions.FooterRows, index);
+                }
+            }
         }
 
         private void RemoveColumn(List<GridDataRow> rows, params int[] indice)
