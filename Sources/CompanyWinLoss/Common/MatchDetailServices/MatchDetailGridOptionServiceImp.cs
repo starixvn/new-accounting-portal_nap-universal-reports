@@ -57,7 +57,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             var colummns = new List<Columns>
                {
                     new Columns { ColumnIndex = columnIndex++, Name = "MatchCode", Value = string.Empty },
-                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 13, Bold = true }
+                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 13, Bold = true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns };

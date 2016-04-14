@@ -23,13 +23,13 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         private const int RealMarginIndex = 12;
 
+        private const int MatchDetailVarianceIndex = 7;
+
         private const int MatchDetailVirtualIncomeIndex = 8;
 
-        private const int MatchDetailVarianceIndex = 9;
+        private const int MatchDetailVirtualTurnoverIndex = 10;
 
-        private const int MatchDetailVirtualTurnoverIndex = 11;
-
-        private const int MatchDetailVirtualMarginIndex = 13;
+        private const int MatchDetailVirtualMarginIndex = 12;
 
         private readonly ColumnBuilder columnBuilder;
 

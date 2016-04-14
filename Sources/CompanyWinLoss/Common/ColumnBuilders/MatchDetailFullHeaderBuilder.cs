@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", Width = 120, MergeColNumber = 3 },
                 new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover",  Width = 120, MergeColNumber = 2 },
-                new HeaderColumns { HeaderText = "Margin", Name = "Margin",  Width = 120, MergeColNumber = 2 }
+                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin",  Width = 120, MergeColNumber = 2 }
             };
 
             var groupHeader = new GroupHeaderRows { Columns = columns };
