@@ -219,7 +219,7 @@
     <Content Include="app\company-win-loss.min.js" />
     <Content Include="app\company-winloss\app.js" />
     <Content Include="app\company-winloss\common\sportsbook-match-detail.controller.js" />
-    <Content Include="app\company-winloss\common\sportsbook -match-detail.service.js" />
+    <Content Include="app\company-winloss\common\sportsbook-match-detail.service.js" />
     <Content Include="app\company-winloss\common\product-view-bet-type-live.controller.js" />
     <Content Include="app\company-winloss\common\bet-type-live.controller.js" />
     <Content Include="app\company-winloss\common\bet-type-live.service.js" />
