@@ -1,10 +1,12 @@
-﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorOrMinorBetTypes
-{
-    using Common;
-    using CompanyWinLoss.Common.Criteria;
-    using CompanyWinLoss.Soccer.BetType;
-    using NUnit.Framework;
+﻿using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Soccer.BetType;
+using UniversalReports.CompanyWinLoss.Tests.Common;
 
+namespace UniversalReports.CompanyWinLoss.Tests.Soccer.BetType
+{
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
     public class SoccerBetTypeServiceTests : BaseServiceTests
@@ -32,11 +34,11 @@
             };
         }
 
-        private WinLossServiceImp CreateService()
+        private BasicWinLossService CreateService()
         {
             var rawWinLossService = CreateRawWinLossService();
             var calculationService = new CalculationServiceImp();
-            return new WinLossServiceImp(rawWinLossService, calculationService);
+            return new BasicWinLossServiceImp(rawWinLossService, calculationService);
         }
     }
 }

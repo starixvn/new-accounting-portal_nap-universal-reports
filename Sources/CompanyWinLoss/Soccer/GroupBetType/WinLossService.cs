@@ -1,6 +1,6 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
     public interface WinLossService
     {

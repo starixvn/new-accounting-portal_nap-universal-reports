@@ -1,9 +1,8 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.BetType
 {
-    using UniversalReports.CompanyWinLoss.Common.Criteria;
-
     public class Criteria : WinLossCriteria
     {
         public bool IsMajor { get; set; }

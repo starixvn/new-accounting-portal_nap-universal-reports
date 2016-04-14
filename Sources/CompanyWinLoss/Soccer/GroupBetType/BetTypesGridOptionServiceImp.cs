@@ -1,4 +1,4 @@
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
     using Fanex.Excel.Enums;
     using Fanex.Excel.Models;

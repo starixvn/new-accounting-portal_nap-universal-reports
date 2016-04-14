@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
     public class CalculationServiceImp : CalculationService
     {
