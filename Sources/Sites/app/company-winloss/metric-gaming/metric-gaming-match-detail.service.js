@@ -15,7 +15,7 @@
 
         function getData(data) {
             var httpData = {
-                isLive: isLive,
+                isLive: data.isLive,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate
@@ -29,7 +29,7 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                isLive : data.isLive,
+                isLive: data.isLive,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate

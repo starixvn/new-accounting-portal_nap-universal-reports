@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module('app.companyWinlossApp')
-        .controller('MetricGamingMatchDetail', MetricGamingMatchDetail);
+        .controller('MetricGamingMatchDetailController', MetricGamingMatchDetailController);
 
-    MetricGamingMatchDetail.$inject = ['$scope', '$element', 'fanexGridService'];
-    function MetricGamingMatchDetail($scope, $element, fanexGridService) {
+    MetricGamingMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function MetricGamingMatchDetailController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -35,6 +35,5 @@
             pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
-
 
 })(angular);

@@ -16,6 +16,7 @@
         var liveNonLiveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
+        $scope.generateMatchDetail = generateMatchDetail;
 
         function generateBetType(isLive) {
             var data = {
@@ -25,11 +26,10 @@
             tab.goForward('betType', data);
         }
 
-        function generateMatchDetail(betType, betTypeName, isLive) {
+        function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName,
-                isLive: isLive
+                betTypeName: betTypeName
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
