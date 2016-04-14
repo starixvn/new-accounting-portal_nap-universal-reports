@@ -13,6 +13,8 @@
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
 
+        pane.data.isMajor = (pane.data.betTypeNameMajorMinor == "Soccer-Major Bet Types") ? true : false;
+
         function getTitleWhenMajorMinor() {
             return pane.data.productName + ' MAJOR/MINOR BET TYPES';
         }

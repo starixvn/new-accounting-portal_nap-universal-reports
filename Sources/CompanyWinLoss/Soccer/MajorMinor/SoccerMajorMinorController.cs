@@ -32,7 +32,7 @@
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, "Major/Minor");
+                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, "Major/Minor", 170);
 
                 return Json(gridOptions);
             }

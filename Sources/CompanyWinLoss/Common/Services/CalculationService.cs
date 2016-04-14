@@ -20,5 +20,9 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         WinLoss CreateEmptyWinLoss(int id, string name);
 
         IEnumerable<WinLoss> CalculateRM(IEnumerable<RawWinLoss> rawWinLosses);
+
+        SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<RawWinLoss> rawWinLosses);
+
+        RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses);
     }
 }

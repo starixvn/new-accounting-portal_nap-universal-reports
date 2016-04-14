@@ -15,6 +15,8 @@
 		$scope.generate = generate;
 		$scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
 		$scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
+
+		pane.data.isLive = 2; // live and nonlive
 		
 		function getTitleWhenMajorMinor() {
 		    return pane.data.productName + ' MAJOR/MINOR BET TYPES';
@@ -33,12 +35,13 @@
                 }
             };
 
-			pane.service.getData(pane.data).then(function (data) {
+            pane.service.getData(pane.data).then(function (data) {
 			    createLinksForMajorMinor(data);
                 pane.getTitle = getTitleWhenMajorMinor;
 				renderGrid(majorMinorGridElement, data);
 				compileLinks();
 			});
+
 			soccerLiveNonLiveService.getData(pane.data).then(function (data) {
 			    createLinksForLiveNonLive(data);
                 pane.getTitle = getTitleWhenLiveNonLive;

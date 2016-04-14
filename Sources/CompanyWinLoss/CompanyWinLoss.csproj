@@ -315,8 +315,6 @@
     <Compile Include="Soccer\MajorMinor\SoccerMajorMinorController.cs" />
     <Compile Include="Soccer\GroupBetType\BetTypesGridOptionService.cs" />
     <Compile Include="Soccer\GroupBetType\BetTypesGridOptionServiceImp.cs" />
-    <Compile Include="Soccer\GroupBetType\CalculationService.cs" />
-    <Compile Include="Soccer\GroupBetType\CalculationServiceImp.cs" />
     <Compile Include="Soccer\GroupBetType\SoccerBetTypeGroupConstants.cs" />
     <Compile Include="Soccer\GroupBetType\SoccerGroupBetTypeController.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossModel.cs" />

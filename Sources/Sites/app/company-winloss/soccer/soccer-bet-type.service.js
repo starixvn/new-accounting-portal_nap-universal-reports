@@ -17,8 +17,11 @@
         function getData(data) {
             var httpData = {
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                isLive: data.isLive,
+                isMajor: data.isMajor
             };
+            
             return $http.post('api/company-win-loss/soccer/group-bettype', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -29,7 +32,9 @@
                 liveTitle: liveTitle,
                 nonLiveTitle: nonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                isLive: data.isLive,
+                isMajor: data.isMajor
             };
             return $http.post('api/company-win-loss/soccer/group-bettype/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {

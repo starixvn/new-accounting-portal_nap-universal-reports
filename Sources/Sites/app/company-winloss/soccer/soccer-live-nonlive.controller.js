@@ -14,11 +14,14 @@
         $scope.generate = generate;
         $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
 
+        pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
+
         function getTitleWhenMajorMinor() {
             return pane.data.productName + ' MAJOR/MINOR BET TYPES';
         }
 
         function generate() {
+            pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
             pane.service.getData(pane.data).then(function (data) {
                 createLinksForMajorMinor(data);
                 pane.getTitle = getTitleWhenMajorMinor;
