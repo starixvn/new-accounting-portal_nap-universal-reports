@@ -10,17 +10,17 @@
                 service: 'soccerMajorMinorService'
             },
             soccerLiveNonLive: { // child of soccer
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SoccerLiveNonLiveController',
                 service: 'soccerMajorMinorService'
             },
             soccerBetType: { // child of soccer
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SoccerBetTypeController',
                 service: 'soccerBetTypeService'
             },
             soccerLiveNonLiveBetType: { // child of soccerLiveNonLive
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SoccerLiveNonLiveBetTypeController',
                 service: 'soccerBetTypeService'
             }

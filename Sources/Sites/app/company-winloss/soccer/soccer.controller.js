@@ -13,6 +13,8 @@
 		var majorMinorGridElement = angular.element(gridElements[0]);
 		var liveNonLiveGridElement = angular.element(gridElements[1]);
 		$scope.generate = generate;
+		$scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
+		$scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
 		
 		function getTitleWhenMajorMinor() {
 		    return pane.data.productName + ' MAJOR/MINOR BET TYPES';
@@ -80,7 +82,7 @@
 			for (var i = 0; i < data.bodyRows.length; i++) {
 				var betTypeRow = data.bodyRows[i];
 				var soccerLiveNonLive = betTypeRow.Columns[0].Value;
-				betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
+				betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
 			}
         }
 

@@ -318,7 +318,7 @@
     <Compile Include="Soccer\GroupBetType\CalculationService.cs" />
     <Compile Include="Soccer\GroupBetType\CalculationServiceImp.cs" />
     <Compile Include="Soccer\GroupBetType\SoccerBetTypeGroupConstants.cs" />
-    <Compile Include="Soccer\GroupBetType\SoccerBetTypeController.cs" />
+    <Compile Include="Soccer\GroupBetType\SoccerGroupBetTypeController.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossModel.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossService.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossServiceImp.cs" />

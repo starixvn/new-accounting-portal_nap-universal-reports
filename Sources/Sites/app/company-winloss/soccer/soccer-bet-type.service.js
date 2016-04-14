@@ -19,7 +19,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/soccer/major-or-minor-bettypes', httpData)
+            return $http.post('api/company-win-loss/soccer/group-bettype', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -31,7 +31,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/soccer/major-or-minor-bettypes/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/soccer/group-bettype/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

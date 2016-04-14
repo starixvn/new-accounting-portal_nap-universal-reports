@@ -11,27 +11,19 @@
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
-        var liveNonLiveGridElement = angular.element(gridElements[1]);
         $scope.generate = generate;
+        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
 
         function getTitleWhenMajorMinor() {
             return pane.data.productName + ' MAJOR/MINOR BET TYPES';
         }
 
         function generate() {
-            var count = 0;
-            var compileLinks = function () {
-                count++;
-                if (count === 2) {
-                    pane.compileLinks();
-                }
-            };
-
             pane.service.getData(pane.data).then(function (data) {
                 createLinksForMajorMinor(data);
                 pane.getTitle = getTitleWhenMajorMinor;
                 renderGrid(majorMinorGridElement, data);
-                compileLinks();
+                pane.compileLinks();
             });
         }
 
@@ -53,11 +45,11 @@
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
                 var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
             }
         }
 
-        function generateSoccerBetTypePane(betTypeNameMajorMinor) {
+        function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
             var data = {
                 betTypeNameMajorMinor: betTypeNameMajorMinor
             };

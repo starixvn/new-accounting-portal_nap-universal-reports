@@ -6,13 +6,13 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
-    [RoutePrefix("api/company-win-loss/soccer/major-or-minor-bettypes")]
-    public class SoccerBetTypeController : ApiController
+    [RoutePrefix("api/company-win-loss/soccer/group-bettype")]
+    public class SoccerGroupBetTypeController : ApiController
     {
         private readonly WinLossService winlossService;
         private readonly BetTypesGridOptionService gridOptionService;
 
-        public SoccerBetTypeController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
+        public SoccerGroupBetTypeController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
