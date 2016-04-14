@@ -26,7 +26,19 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
 
         public static List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText)
         {
-            return null;
+            var columns = new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = mainColumnText, Name = "Main", Width = 150 },
+                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120 },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", Width = 120 },
+                new HeaderColumns { HeaderText = "Commission", Name = "Commission", Width = 120 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", Width = 120 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", Width = 120 },
+                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", Width = 120 }
+            };
+
+            var groupHeader = new GroupHeaderRows { Columns = columns };
+            return new List<GroupHeaderRows> { groupHeader };
         }
     }
 }

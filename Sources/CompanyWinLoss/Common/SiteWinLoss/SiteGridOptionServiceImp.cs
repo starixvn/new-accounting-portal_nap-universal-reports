@@ -12,7 +12,6 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
         {
             return new GridOptions
             {
-                CustomizeHeader = true,
                 ShowTitle = true,
                 TitleInfoText = title,
                 TitleType = TitleType.TwoLineBlue,
@@ -46,7 +45,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
             int columnIndex = 0;
             var columns = new List<Columns>
             {
-                new Columns(columnIndex++, "Site", "Main", alignment),
+                new Columns(columnIndex++, "Main", item.Name, alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
