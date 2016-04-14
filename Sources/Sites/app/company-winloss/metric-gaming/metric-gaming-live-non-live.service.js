@@ -5,9 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('metricGamingLiveNonLiveService', metricGamingLiveNonLiveService);
 
-    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
-    function metricGamingLiveNonLiveService($http, httpResponseService) {
-
+    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function metricGamingLiveNonLiveService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -19,7 +18,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/metric-gaming/live-none-live', httpData)
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
+            return $http.post(url, httpData)
                     .then(httpResponseService.getDataComplete)
                     .catch(httpResponseService.getDataFailed);
         }
@@ -31,7 +31,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            return $http.post('api/company-win-loss/metric-gaming/live-none-live/excel', httpData, { responseType: "arraybuffer" })
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                         .then(function (response) {
                             httpResponseService.saveExcelFile(response.data, fileName);
                         })

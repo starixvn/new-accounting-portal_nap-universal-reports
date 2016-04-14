@@ -9,7 +9,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
 {
-    [RoutePrefix("api/company-win-loss/metric-gaming/live-none-live")]
+    [RoutePrefix("api/company-win-loss/metric-gaming-superlive/live-none-live")]
     public class MetricGamingLiveNonLiveController : ApiController
     {
         private readonly BasicWinLossService winlossService;

@@ -22,7 +22,8 @@
                 isLive: data.isLive,
                 betType: data.betType
             };
-            return $http.post('api/company-win-loss/number-game/match-detail', httpData)
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+            return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -36,7 +37,8 @@
                 isLive: data.isLive,
                 betType: data.betType
             };
-            return $http.post('api/company-win-loss/number-game/match-detail/excel', httpData, { responseType: "arraybuffer" })
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

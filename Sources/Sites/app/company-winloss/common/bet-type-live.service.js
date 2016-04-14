@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('betTypeLiveService', betTypeLiveService);
 
-    betTypeLiveService.$inject = ['$http', 'httpResponseService'];
-    function betTypeLiveService($http, httpResponseService) {
+    betTypeLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function betTypeLiveService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -21,7 +21,7 @@
                 sportType: data.sportType,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/bet-type';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -35,7 +35,7 @@
                 sportType: data.sportType,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/bet-type/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

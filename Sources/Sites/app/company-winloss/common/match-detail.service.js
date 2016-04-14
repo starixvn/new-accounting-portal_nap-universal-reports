@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('matchDetailService', matchDetailService);
 
-    matchDetailService.$inject = ['$http', 'httpResponseService'];
-    function matchDetailService($http, httpResponseService) {
+    matchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function matchDetailService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -20,7 +20,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/match-detail';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -34,7 +34,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/match-detail/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
 
-    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService'];
-    function virtualSportsSportsbookDetailService($http, httpResponseService) {
+    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function virtualSportsSportsbookDetailService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -20,8 +20,8 @@
                 sportType: data.sportType,
                 betType: data.betType
             };
-
-            return $http.post('api/company-win-loss/virtual-sports/sportsbook-match-detail', httpData)
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
+            return $http.post(url, httpData)
                  .then(httpResponseService.getDataComplete)
                  .catch(httpResponseService.getDataFailed);
         }
@@ -34,8 +34,8 @@
                 sportType: data.sportType,
                 betType: data.betType
             };
-
-            return $http.post('api/company-win-loss/virtual-sports/sportsbook-match-detail/excel', httpData, { responseType: "arraybuffer" })
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

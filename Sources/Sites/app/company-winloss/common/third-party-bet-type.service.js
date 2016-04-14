@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('thirdPartyBetTypeService', thirdPartyBetTypeService);
 
-    thirdPartyBetTypeService.$inject = ['$http', 'httpResponseService'];
-    function thirdPartyBetTypeService($http, httpResponseService) {
+    thirdPartyBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
+    function thirdPartyBetTypeService($http, httpResponseService, companyWinlossService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -20,7 +20,7 @@
                 endDate: data.endDate
             };
 
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/bet-type';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -34,7 +34,7 @@
                 endDate: data.endDate
             };
 
-            var url = 'api/company-win-loss/' + data.productName.replace(/\s+/g, '-') + '/third-party-product/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/third-party-product/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

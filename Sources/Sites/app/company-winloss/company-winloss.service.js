@@ -8,9 +8,14 @@
     companyWinlossService.$inject = ['templateSetting'];
     function companyWinlossService(templateSetting) {
         var service = {
-            getTemplate: getTemplate
+            getTemplate: getTemplate,
+            resolveProductPath: resolveProductPath
         };
         return service;
+
+        function resolveProductPath(productName) {
+            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');;
+        }
 
         function getTemplate(data, type) {
             if (type === 'product') {

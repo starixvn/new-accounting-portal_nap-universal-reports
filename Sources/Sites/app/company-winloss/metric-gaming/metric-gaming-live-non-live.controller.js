@@ -4,9 +4,9 @@
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingBetTypeService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'betTypeLiveService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingBetTypeService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, betTypeLiveService) {
         var pane = $scope.pane;
         var metricGamingLiveNonLiveService = pane.service;
         var defaultGetTitle = pane.getTitle;
@@ -42,7 +42,7 @@
                     pane.compileLinks();
                 }
             };
-            metricGamingBetTypeService.getData(pane.data).then(function (data) {
+            betTypeLiveService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderGridForBetType(data);
                 compileLinks();
