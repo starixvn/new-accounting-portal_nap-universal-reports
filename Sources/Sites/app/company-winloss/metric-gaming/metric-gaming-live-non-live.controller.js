@@ -25,10 +25,11 @@
             tab.goForward('betType', data);
         }
 
-        function generateMatchDetail(betType, betTypeName) {
+        function generateMatchDetail(betType, betTypeName, isLive) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                isLive: isLive
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);

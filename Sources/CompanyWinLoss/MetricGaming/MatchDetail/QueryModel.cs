@@ -10,8 +10,6 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
-        public int SportType { get; set; }
-
         public int BetType { get; set; }
 
         private bool IsLive { get; set; }
