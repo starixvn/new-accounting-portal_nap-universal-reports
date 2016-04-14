@@ -19,14 +19,9 @@
                 controller: 'SoccerBetTypeController',
                 service: 'soccerBetTypeService'
             },
-            soccerLiveBetType: { // child of soccerLiveNonLive
+            soccerLiveNonLiveBetType: { // child of soccerLiveNonLive
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
-                controller: 'SoccerLiveBetTypeController',
-                service: 'soccerBetTypeService'
-            },
-            soccerNonLiveBetType: { // child of soccerLiveNonLive
-                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
-                controller: 'SoccerNonLiveBetTypeController',
+                controller: 'SoccerLiveNonLiveBetTypeController',
                 service: 'soccerBetTypeService'
             }
         },
