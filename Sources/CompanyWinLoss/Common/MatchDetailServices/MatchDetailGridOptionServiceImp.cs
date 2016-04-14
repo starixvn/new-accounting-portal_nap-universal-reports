@@ -3,6 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.Extensions;
 
 namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 {
@@ -108,9 +109,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
                     new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                     new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                     new Columns(columnIndex++, "Commission", item.Commission),
+                    new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                    new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
                     new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                    new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                     new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                    new Columns(columnIndex++, "Margin", item.RealMargin)
+                    new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                    new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
                };
 
             return new GridDataRow { Columns = colummns };
@@ -122,26 +127,30 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             var colummns = new List<Columns>
                {
                     new Columns { ColumnIndex = columnIndex++, Name = "MatchCode", Value = string.Empty },
-                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = arenaName, MergeColNumber = 9, Bold = true }
+                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = arenaName, MergeColNumber = 13, Bold = true }
                };
 
             return new GridDataRow { Columns = colummns };
         }
 
-        private GridDataRow BuildLeagueTotalRow(MatchDetailWinLoss total)
+        private GridDataRow BuildLeagueTotalRow(MatchDetailWinLoss item)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
             var colummns = new List<Columns>
-               {
-                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = string.Empty, MergeColNumber = 4 },
-                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", total.Commission),
-                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
-                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.RealMargin)
-               };
+            {
+                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = string.Empty, MergeColNumber = 4 },
+                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
+                new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
+                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
+            };
 
             return new GridDataRow { Columns = colummns };
         }
@@ -157,39 +166,47 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             return result;
         }
 
-        private GridDataRow BuildTotal(MatchDetailWinLoss total)
+        private GridDataRow BuildTotal(MatchDetailWinLoss item)
         {
             int startColumnIndex = 0;
             int columnIndex = 4;
             var colummns = new List<Columns>
-               {
-                    new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
-                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", total.Commission),
-                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
-                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.RealMargin)
-               };
+            {
+                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
+                new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
+                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
+            };
 
             return new GridDataRow { Columns = colummns };
         }
 
         private IEnumerable<GridDataRow> BuildRM(List<MatchDetailWinLoss> rm)
         {
-            foreach (var total in rm)
+            foreach (var item in rm)
             {
                 int startColumnIndex = 0;
                 int columnIndex = 4;
                 var colummns = new List<Columns>
                {
                     new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = "Total", MergeColNumber = 4, CellAlignment = HAlignment.Right },
-                    new Columns(columnIndex++, "MemberWinLoss", total.MemberWinLoss),
-                    new Columns(columnIndex++, "SMAWinLoss", total.SMAWinLoss),
-                    new Columns(columnIndex++, "Commission", total.Commission),
-                    new Columns(columnIndex++, "RealIncome", total.RealIncome),
-                    new Columns(columnIndex++, "RealTurnover", total.RealTurnover),
-                    new Columns(columnIndex++, "Margin", total.RealMargin)
+                    new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                    new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                    new Columns(columnIndex++, "Commission", item.Commission),
+                    new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                    new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
+                    new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                    new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
+                    new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
+                    new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                    new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
                };
 
                 yield return new GridDataRow { Columns = colummns };

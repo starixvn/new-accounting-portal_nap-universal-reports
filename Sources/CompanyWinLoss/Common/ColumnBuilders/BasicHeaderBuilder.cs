@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "Product", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
+                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "Main", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },

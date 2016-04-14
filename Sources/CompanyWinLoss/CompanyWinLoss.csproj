@@ -138,6 +138,7 @@
     <Compile Include="Common\ColumnBuilders\MatchDetailBasicHeaderBuilder.cs" />
     <Compile Include="Common\ColumnBuilders\MatchDetailFullHeaderBuilder.cs" />
     <Compile Include="Common\ColumnBuilders\VirtualHeaderBuilder.cs" />
+    <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
     <Compile Include="Common\MatchDetailServices\LeagueWinLoss.cs" />
     <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailController.cs" />
     <Compile Include="Cockfighting\MatchDetail\Criteria.cs" />

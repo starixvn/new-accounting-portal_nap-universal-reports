@@ -1,6 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.Extensions;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
@@ -45,13 +46,19 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
             int columnIndex = 0;
             var columns = new List<Columns>
             {
-                new Columns(columnIndex++, "Site", item.Name, alignment),
+                new Columns(columnIndex++, "Site", "Main", alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
+                new Columns(columnIndex++, "AfterExtraPT", item.AfterExtraPT),
+                new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "Margin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
+                new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
 
             return new GridDataRow { Columns = columns };
