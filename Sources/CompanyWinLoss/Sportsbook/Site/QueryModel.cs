@@ -20,8 +20,8 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
 
         public string Site { get; set; }
 
-        private int IsLive { get; set; } = Constants.LiveDefault;
+        public int IsLive { get; set; } = Constants.LiveDefault;
 
-        private bool IsHedge { get; set; }
+        public bool IsHedge { get; set; }
     }
 }
