@@ -239,6 +239,13 @@
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.service.js" />
     <Content Include="app\company-winloss\common\sport-type-live.service.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.controller.js" />
+    <Content Include="app\company-winloss\soccer\soccer-bet-type.service.js" />
+    <Content Include="app\company-winloss\soccer\soccer-live-bettype.controller.js" />
+    <Content Include="app\company-winloss\soccer\soccer-live-nonlive.controller.js" />
+    <Content Include="app\company-winloss\soccer\soccer-live-nonlive.service.js" />
+    <Content Include="app\company-winloss\soccer\soccer-bettype.controller.js" />
+    <Content Include="app\company-winloss\soccer\soccer-major-minor.service.js" />
+    <Content Include="app\company-winloss\soccer\soccer-nonlive-bettype.controller.js" />
     <Content Include="app\company-winloss\tab\tab.directive.html" />
     <Content Include="app\company-winloss\tab\pane.directive.js" />
     <Content Include="app\company-winloss\tab\tab.directive.js" />
@@ -347,6 +354,7 @@
     <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
     <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
     <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
+    <Content Include="app\company-winloss\soccer\soccer.controller.js" />
     <None Include="App_Configuration\Web.DEV.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </None>

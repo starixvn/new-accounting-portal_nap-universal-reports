@@ -2,6 +2,34 @@
     'use strict';
 
     var templateSetting = {
+        'Soccer': {
+            product: 'soccer',
+            soccer: {
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'SoccerController',
+                service: 'soccerMajorMinorService'
+            },
+            soccerLiveNonLive: { // child of soccer
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'SoccerLiveNonLiveController',
+                service: 'soccerMajorMinorService'
+            },
+            soccerBetType: { // child of soccer
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'SoccerBetTypeController',
+                service: 'soccerBetTypeService'
+            },
+            soccerLiveBetType: { // child of soccerLiveNonLive
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'SoccerLiveBetTypeController',
+                service: 'soccerBetTypeService'
+            },
+            soccerNonLiveBetType: { // child of soccerLiveNonLive
+                templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
+                controller: 'SoccerNonLiveBetTypeController',
+                service: 'soccerBetTypeService'
+            }
+        },
         'Metric Gaming - Superlive': {
             product: 'liveNonLive',
             liveNonLive: {

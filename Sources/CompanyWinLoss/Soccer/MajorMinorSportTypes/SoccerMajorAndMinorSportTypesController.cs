@@ -6,7 +6,7 @@
     using UniversalReports.CompanyWinLoss.Factory;
     using UniversalReports.MVC.Results;
 
-    [RoutePrefix("api/company-win-loss/soccer/major-and-minor-sport-types")]
+    [RoutePrefix("api/company-win-loss/soccer/major-minor")]
     public class SoccerMajorAndMinorSportTypesController : ApiController
     {
         private readonly BasicWinLossService winlossService;
