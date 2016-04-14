@@ -173,6 +173,8 @@
                 $compile(elements)(this.$scope);
                 elements = this.$element.find('.breadcrumb');
                 $compile(elements)(this.$scope);
+                elements = this.$element.find('.nap-component');
+                $compile(elements)(this.$scope);
             }
         }
     }

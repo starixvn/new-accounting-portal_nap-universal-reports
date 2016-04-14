@@ -14,7 +14,7 @@
         return service;
 
         function resolveProductPath(productName) {
-            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');;
+            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
         }
 
         function getTemplate(data, type) {

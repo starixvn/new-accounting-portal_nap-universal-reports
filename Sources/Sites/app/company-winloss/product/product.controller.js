@@ -7,11 +7,24 @@
 
     ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting'];
     function ProductController($element, $scope, fanexGridService, templateSetting) {
+        var enableHiddenColumns = false;
+        var hiddenColumns = [1, 2];
+        var gridOptions;
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateProduct = generateProduct;
+        $scope.showHideColumns = showHideColumns;
+
+        function showHideColumns() {
+            if (enableHiddenColumns) {
+                gridElement.fanexGrid("hideColumns", gridOptions, hiddenColumns);
+            } else {
+                gridElement.fanexGrid("hideColumns", gridOptions, []);
+            }
+            enableHiddenColumns = !enableHiddenColumns;
+        }
 
         function generateProduct(productName) {
             var data = {
@@ -24,6 +37,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                gridOptions = data;
                 createLinks(data);
                 renderGrid(data);
                 pane.compileLinks();
@@ -35,27 +49,16 @@
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: '<input type="button" class="btn-show-hide nap-component" title="Show/Hide" data-ng-click="showHideColumns()" />'
             };
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
-            //data.hiddenColumns = [7, 8];
-            //data.enableHiddenColumns = false;
+            data.hiddenColumns = hiddenColumns;
+            data.enableHiddenColumns = enableHiddenColumns;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
-            //gridElement.parent().find('.btExpand').onFirst('click', function () {
-            //    var isExpanded = !$(this).hasClass('expanded');
-            //    gridElement.fanexGrid("hideColumns", data, [7, 8]);
-            //    return;
-            //    if (isExpanded) {
-            //        delete (data.hiddenColumns);
-            //        delete (data.enableHiddenColumns);
-            //        gridElement.fanexGrid("hideColumns", data, []);
-            //    } else {
-            //        gridElement.fanexGrid("hideColumns", data, data.hiddenColumns);
-            //    }
-            //});
         }
 
         function createLinks(data) {

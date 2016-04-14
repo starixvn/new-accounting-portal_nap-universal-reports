@@ -24,7 +24,6 @@
                 var templateScope = scope.$new(false);
                 var templateElement = element.html(response);
                 var grids = templateElement.find('.freegrid');
-                var index = 0;
                 angular.forEach(grids, function (grid, key) {
                     var id = 'grid_' + templateScope.$id + '_' + key;
                     $(grid).attr('id', id);

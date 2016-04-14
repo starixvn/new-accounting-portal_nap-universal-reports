@@ -130,6 +130,16 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.btn-show-hide {
+    width: 20px;
+    height: 20px;
+    background: url("images/show-hide.png") no-repeat;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-right: 2px;
+}
+
 .legend-information {
     display: block;
     position: relative;
@@ -398,7 +408,6 @@ header {
         }
 
         .menu {
-
             & > li {
                 & > a {
                     display: block;

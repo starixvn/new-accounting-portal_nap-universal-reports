@@ -20,7 +20,7 @@
             return response.data;
         }
 
-        function getDataFailed(error) {
+        function getDataFailed() {
             loggerService.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
         }
 
