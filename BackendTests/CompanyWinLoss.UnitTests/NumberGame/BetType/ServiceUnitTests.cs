@@ -52,9 +52,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         {
             var site1Live = CreateFakeRawBetTypeWinLoss(1, "BetType 1", true);
             var site2Live = CreateFakeRawBetTypeWinLoss(2, "BetType 2", true);
-            var site1NoneLive = CreateFakeRawBetTypeWinLoss(1, "BetType 1", false);
-            var site2NoneLive = CreateFakeRawBetTypeWinLoss(2, "BetType 2", false);
-            return (new List<List<CommonModels.RawWinLoss>> { site1Live, site2Live, site1NoneLive, site2NoneLive })
+            var site1NonLive = CreateFakeRawBetTypeWinLoss(1, "BetType 1", false);
+            var site2NonLive = CreateFakeRawBetTypeWinLoss(2, "BetType 2", false);
+            return (new List<List<CommonModels.RawWinLoss>> { site1Live, site2Live, site1NonLive, site2NonLive })
                     .SelectMany(l => l)
                     .ToList();
         }

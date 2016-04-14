@@ -1,0 +1,21 @@
+﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+
+namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLive
+{
+    using UniversalReports.CompanyWinLoss.Common.Criteria;
+
+    public class Criteria : WinLossCriteria
+    {
+        public override WinLossCriteria Clone(BalanceUpSource source)
+        {
+            var newCriteria = new Criteria();
+            newCriteria.Update(source);
+            return newCriteria;
+        }
+
+        public override string GetSettingKey()
+        {
+            return $"CompanyWinLoss-Soccer-LiveNonLive-{Source}";
+        }
+    }
+}

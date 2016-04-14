@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
@@ -10,12 +11,19 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
     public class CockfightingMatchDetailController : ApiController
     {
         private readonly MatchDetailWinLossService winlossService;
-        private readonly GridOptionService gridOptionService;
 
-        public CockfightingMatchDetailController(MatchDetailWinLossService winlossService, GridOptionService gridOptionService)
+        private readonly MatchDetailGridOptionService gridOptionService;
+
+        private readonly GridOptionBuilder gridOptionBuilder;
+
+        public CockfightingMatchDetailController(
+            MatchDetailWinLossService winlossService, 
+            MatchDetailGridOptionService gridOptionService, 
+            GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -26,6 +34,7 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptions = gridOptionBuilder.BuildBasicMatchDetailOptions(gridOptions);
 
                 return Json(gridOptions);
             }
@@ -41,6 +50,8 @@ namespace UniversalReports.CompanyWinLoss.Cockfighting.MatchDetail
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                gridOptions = gridOptionBuilder.BuildBasicMatchDetailOptions(gridOptions);
+
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,11 +12,13 @@ namespace UniversalReports.CompanyWinLoss.Bingo.BetType
     {
         private readonly BasicWinLossService winlossService;
         private readonly BasicGridOptionService gridOptionService;
+        private readonly GridOptionBuilder gridOptionBuilder;
 
-        public BingoBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
+        public BingoBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -25,7 +28,8 @@ namespace UniversalReports.CompanyWinLoss.Bingo.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Bet Type");
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptions = gridOptionBuilder.BuildBasicGridOptions(gridOptions, "Bet Type");
 
                 return Json(gridOptions);
             }
@@ -40,7 +44,9 @@ namespace UniversalReports.CompanyWinLoss.Bingo.BetType
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "Bet Type");
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                gridOptions = gridOptionBuilder.BuildBasicGridOptions(gridOptions, "Bet Type");
+
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

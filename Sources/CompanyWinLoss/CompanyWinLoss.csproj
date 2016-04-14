@@ -123,12 +123,20 @@
     <Compile Include="Cockfighting\BetType\QueryModel.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridOptionService.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridOptionServiceImp.cs" />
+    <Compile Include="Common\ColumnBuilders\BasicHeaderBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\ColumnBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\ColumnBuilderImp.cs" />
+    <Compile Include="Common\ColumnBuilders\ExtraPTHeaderBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\FullHeaderBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\GridOptionBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\GridOptionBuilderImp.cs" />
+    <Compile Include="Common\ColumnBuilders\MatchDetailBasicHeaderBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\MatchDetailFullHeaderBuilder.cs" />
+    <Compile Include="Common\ColumnBuilders\VirtualHeaderBuilder.cs" />
     <Compile Include="Common\MatchDetailServices\LeagueWinLoss.cs" />
     <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailController.cs" />
     <Compile Include="Cockfighting\MatchDetail\Criteria.cs" />
     <Compile Include="Cockfighting\MatchDetail\ExcelQueryModel.cs" />
-    <Compile Include="Cockfighting\MatchDetail\GridOptionService.cs" />
-    <Compile Include="Cockfighting\MatchDetail\GridOptionServiceImp.cs" />
     <Compile Include="Cockfighting\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailWinLossService.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailWinLossServiceImp.cs" />
@@ -287,37 +295,35 @@
     <Compile Include="Racing\SportType\ExcelQueryModel.cs" />
     <Compile Include="Racing\SportType\QueryModel.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
-    <Compile Include="Soccer\LiveNonLiveSportTypes\Criteria.cs" />
-    <Compile Include="Soccer\LiveNonLiveSportTypes\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\LiveNonLiveSportTypes\QueryModel.cs" />
-    <Compile Include="Soccer\LiveNonLiveSportTypes\SoccerLiveAndNonLiveSportTypesController.cs" />
-    <Compile Include="Soccer\MajorMinorSportTypes\Criteria.cs" />
-    <Compile Include="Soccer\MajorMinorSportTypes\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\MajorMinorSportTypes\QueryModel.cs" />
-    <Compile Include="Soccer\MajorMinorSportTypes\SoccerMajorAndMinorSportTypesController.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionService.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\BetTypesGridOptionServiceImp.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\CalculationService.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\CalculationServiceImp.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\Criteria.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\QueryModel.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerBetTypeGroupConstants.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerMajorMinorBetTypesController.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossModel.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossService.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossServiceImp.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\WinLossSummaryByGroup.cs" />
+    <Compile Include="Soccer\LiveNonLive\Criteria.cs" />
+    <Compile Include="Soccer\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLive\QueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveController.cs" />
+    <Compile Include="Soccer\MajorMinor\Criteria.cs" />
+    <Compile Include="Soccer\MajorMinor\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\MajorMinor\QueryModel.cs" />
+    <Compile Include="Soccer\MajorMinor\SoccerMajorMinorController.cs" />
+    <Compile Include="Soccer\BetType\BetTypesGridOptionService.cs" />
+    <Compile Include="Soccer\BetType\BetTypesGridOptionServiceImp.cs" />
+    <Compile Include="Soccer\BetType\CalculationService.cs" />
+    <Compile Include="Soccer\BetType\CalculationServiceImp.cs" />
+    <Compile Include="Soccer\BetType\Criteria.cs" />
+    <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\BetType\QueryModel.cs" />
+    <Compile Include="Soccer\BetType\SoccerBetTypeGroupConstants.cs" />
+    <Compile Include="Soccer\BetType\SoccerBetTypeController.cs" />
+    <Compile Include="Soccer\BetType\WinLossModel.cs" />
+    <Compile Include="Soccer\BetType\WinLossService.cs" />
+    <Compile Include="Soccer\BetType\WinLossServiceImp.cs" />
+    <Compile Include="Soccer\BetType\WinLossSummaryByGroup.cs" />
     <Compile Include="Sportsbook\Site\Criteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
-    <Compile Include="Sportsbook\Site\GridOptionService.cs" />
-    <Compile Include="Sportsbook\Site\GridOptionServiceImp.cs" />
     <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />
     <Compile Include="Sportsbook\MatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\MatchDetail\ExcelQueryModel.cs" />
-    <Compile Include="Sportsbook\MatchDetail\GridOptionService.cs" />
-    <Compile Include="Sportsbook\MatchDetail\GridOptionServiceImp.cs" />
+    <Compile Include="Common\MatchDetailServices\MatchDetailGridOptionService.cs" />
+    <Compile Include="Common\MatchDetailServices\MatchDetailGridOptionServiceImp.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
     <Compile Include="VirtualSports\BetType\ExcelQueryModel.cs" />
@@ -334,17 +340,12 @@
     <Compile Include="Common\MatchDetailServices\MatchDetailCalculationServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\Criteria.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ExcelQueryModel.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\GridOptionService.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailRawWinLossService.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\QueryModel.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailRawWinLossServiceImp.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\Service.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\ServiceImp.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailRawWinLoss.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\GridOptionServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailController.cs" />
     <Compile Include="Common\MatchDetailServices\MatchDetailWinLoss.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\WinLossModel.cs" />
     <Compile Include="VirtualSports\RacingDetail\Criteria.cs" />
     <Compile Include="VirtualSports\RacingDetail\QueryModel.cs" />
     <Compile Include="VirtualSports\RacingDetail\Service.cs" />
@@ -374,9 +375,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Soccer\GridOption\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

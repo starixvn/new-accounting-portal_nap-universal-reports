@@ -25,13 +25,13 @@ namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.SportsbookDetail
             service.Query(criteria);
         }
 
-        private ServiceImp CreateService()
+        private MatchDetailWinLossService CreateService()
         {
             var rawWinLossService = CreateVirtualSportsRawService();
             var remotingRefService = Substitute.For<CommonService.RemotingRefService>();
             remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns("Any team name");
             var calculationService = new MatchDetailCalculationServiceImp(remotingRefService);
-            return new ServiceImp(rawWinLossService, calculationService);
+            return new MatchDetailWinLossServiceImp(rawWinLossService, calculationService);
         }
 
         protected override WinLossCriteria CreateCriteria()

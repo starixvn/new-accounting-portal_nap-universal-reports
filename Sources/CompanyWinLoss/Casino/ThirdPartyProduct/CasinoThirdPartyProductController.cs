@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -11,13 +12,16 @@ namespace UniversalReports.CompanyWinLoss.Casino.ThirdPartyProduct
     {
         private readonly BasicWinLossService winlossService;
         private readonly BasicGridOptionService gridOptionService;
+        private readonly GridOptionBuilder gridOptionBuilder;
 
         public CasinoThirdPartyProductController(
             BasicWinLossService winlossService,
-            BasicGridOptionService gridOptionService)
+            BasicGridOptionService gridOptionService,
+            GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -27,7 +31,8 @@ namespace UniversalReports.CompanyWinLoss.Casino.ThirdPartyProduct
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "3rd Party Product");
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptions = gridOptionBuilder.BuildExtraPTGridOptions(gridOptions, "3rd Party Product");
 
                 return Json(gridOptions);
             }
@@ -42,7 +47,9 @@ namespace UniversalReports.CompanyWinLoss.Casino.ThirdPartyProduct
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title, "3rd Party Product");
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                gridOptions = gridOptionBuilder.BuildExtraPTGridOptions(gridOptions, "3rd Party Product");
+
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

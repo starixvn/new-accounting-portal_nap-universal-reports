@@ -1,7 +1,7 @@
 ﻿using System;
-using UniversalReports.MVC.Validation;
-using UniversalReports.CompanyWinLoss.Common;
 using System.ComponentModel.DataAnnotations;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 {

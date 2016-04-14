@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
@@ -11,12 +12,15 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
     {
         private readonly SiteService winlossService;
 
-        private readonly GridOptionService gridOptionService;
+        private readonly SiteGridOptionService gridOptionService;
 
-        public SportsbookSiteController(SiteService winlossService, GridOptionService gridOptionService)
+        private readonly GridOptionBuilder gridOptionBuilder;
+
+        public SportsbookSiteController(SiteService winlossService, SiteGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -26,7 +30,8 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, string.Empty);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, queryModel.Site);
 
                 return Json(gridOptions);
             }
@@ -41,7 +46,9 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site, queryModel.Title);
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, queryModel.Site);
+
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

@@ -8,37 +8,19 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
     public class BasicGridOptionServiceImp : BasicGridOptionService
     {
-        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title, string mainColumnText)
+        public GridOptions FromWinLossModel(BasicWinLossModel winLoss, string title)
         {
             return new GridOptions
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
-                Columns = BuildHeader(mainColumnText),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowFooter = true,
                 ShowTree = true,
                 ShowHighlightRow = false,
                 ShowDistinctRow = false
-            };
-        }
-
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
-          "SP2100:CodeLineMustNotBeLongerThan",
-          Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildHeader(string mainColumnText)
-        {
-            return new List<HeaderColumns>
-            {
-                new HeaderColumns { HeaderText = mainColumnText, Width = 150, Name = "MainColumn", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
-                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "Margin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
             };
         }
 

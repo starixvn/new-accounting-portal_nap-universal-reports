@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
@@ -12,12 +12,18 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
     {
         private readonly MatchDetailWinLossService winlossService;
 
-        private GridOptionService gridOptionService;
+        private readonly MatchDetailGridOptionService gridOptionService;
 
-        public MetricGamingMatchDetailController(MatchDetailWinLossService winlossService, GridOptionService gridOptionService)
+        private readonly GridOptionBuilder gridOptionBuilder;
+
+        public MetricGamingMatchDetailController(
+            MatchDetailWinLossService winlossService,
+            MatchDetailGridOptionService gridOptionService,
+            GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -28,6 +34,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptionBuilder.BuildFullMatchDetailOptions(gridOptions);
 
                 return Json(gridOptions);
             }
@@ -43,6 +50,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
                 var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                gridOptionBuilder.BuildFullMatchDetailOptions(gridOptions);
+
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

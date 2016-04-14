@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -13,11 +14,13 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
     {
         private readonly BasicWinLossService winlossService;
         private readonly BasicGridOptionService gridOptionService;
+        private readonly GridOptionBuilder gridOptionBuilder;
 
-        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService)
+        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;
+            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
@@ -27,7 +30,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty, "Live/Non-Live");
+                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                gridOptions = gridOptionBuilder.BuildBasicGridOptions(gridOptions, "Live/Non-Live");
 
                 return Json(gridOptions);
             }
@@ -42,12 +46,17 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             {
                 var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
                 var betTypeWinlosses = winlossService.Query(betTypeCriteria);
-                var betTypeGridOptions = gridOptionService.FromWinLossModel(betTypeWinlosses, queryModel.BetTypeTitle, "Bet Type");
-                var liveNoneLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var liveNoneLiveWinlosses = winlossService.Query(liveNoneLiveCriteria);
-                var liveNoneLiveGridOptions = gridOptionService.FromWinLossModel(liveNoneLiveWinlosses, queryModel.LiveNonLiveTitle, "Live/Non-Live");
-                return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNoneLiveGridOptions }, Constants.SheetName);
+                var betTypeGridOptions = gridOptionService.FromWinLossModel(betTypeWinlosses, queryModel.BetTypeTitle);
+                betTypeGridOptions = gridOptionBuilder.BuildBasicGridOptions(betTypeGridOptions, "Bet Type");
+
+                var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+                var liveNonLiveWinlosses = winlossService.Query(liveNonLiveCriteria);
+                var liveNonLiveGridOptions = gridOptionService.FromWinLossModel(liveNonLiveWinlosses, queryModel.LiveNonLiveTitle);
+                betTypeGridOptions = gridOptionBuilder.BuildBasicGridOptions(betTypeGridOptions, "Live/Non-Live");
+
+                return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
             }
+
             return null;
         }
     }

@@ -123,9 +123,9 @@
     <Compile Include="Racing\MatchDetail\RacingMatchDetailServiceTests.cs" />
     <Compile Include="Racing\Site\RacingSiteServiceTests.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeServiceTests.cs" />
-    <Compile Include="Soccer\LiveNonLiveSportTypes\SoccerLiveNonLiveServiceTests.cs" />
-    <Compile Include="Soccer\MajorMinorSportTypes\SoccerMajorMinorServiceTests.cs" />
-    <Compile Include="Soccer\MajorOrMinorBetTypes\SoccerBetTypeServiceTests.cs" />
+    <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveServiceTests.cs" />
+    <Compile Include="Soccer\MajorMinor\SoccerMajorMinorServiceTests.cs" />
+    <Compile Include="Soccer\BetType\SoccerBetTypeServiceTests.cs" />
     <Compile Include="Sportsbook\Site\SportsbookSiteServiceTests.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailServiceTests.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailServiceTests.cs" />

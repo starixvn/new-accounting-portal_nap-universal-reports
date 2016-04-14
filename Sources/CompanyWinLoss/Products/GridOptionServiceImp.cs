@@ -1,7 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
@@ -16,8 +16,8 @@ namespace UniversalReports.CompanyWinLoss.Products
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
-                Columns = BuildHeader(),
-                GroupHeaderRows = BuildGroupHeaderRows(),
+                Columns = FullHeaderBuilder.BuildColumns("Product"),
+                GroupHeaderRows = FullHeaderBuilder.BuildGroupHeaderRows("Product"),
                 BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
                 ShowHighlightRow = false,
@@ -25,46 +25,6 @@ namespace UniversalReports.CompanyWinLoss.Products
                 ShowFooter = true,
                 ShowTree = true
             };
-        }
-
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
-          "SP2100:CodeLineMustNotBeLongerThan",
-          Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildHeader()
-        {
-            return new List<HeaderColumns>
-            {
-                new HeaderColumns { HeaderText = "Product", Width = 150, Name = "Product", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
-                new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Variance", Width = 120, Name = "Variance", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Extra PT", Width = 120, Name = "ExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "After Extra PT", Width = 120, Name = "AfterExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
-                new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
-            };
-        }
-
-        private List<GroupHeaderRows> BuildGroupHeaderRows()
-        {
-            var columns = new List<HeaderColumns>
-            {
-                new HeaderColumns { HeaderText = "Product", Name = "Product", MergeRowNumber = 2, Width = 150 },
-                new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
-                new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
-                new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 5, Width = 120 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 120 },
-                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 120 }
-            };
-
-            var groupHeader = new GroupHeaderRows { Columns = columns };
-            return new List<GroupHeaderRows> { groupHeader };
         }
 
         private List<GridDataRow> BuildBodyRows(ProductWinLoss productWinLoss)
