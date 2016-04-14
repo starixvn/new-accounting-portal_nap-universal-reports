@@ -2,6 +2,9 @@
     'use strict';
 
     var templateSetting = {
+        'Parlay': {
+            product: 'sportType'
+        },
         'Soccer': {
             product: 'soccer',
             soccer: {
@@ -34,13 +37,13 @@
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeLiveController',
+                controller: 'ProductViewBetTypeLiveController',
                 service: 'betTypeLiveService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'MetricGamingMatchDetailController',
-                service: 'metricGamingMatchDetailService'
+                controller: 'SportsbookMatchDetailController',
+                service: 'sportsbookMatchDetailService'
             }
         },
         'Other Sports': {
@@ -62,8 +65,8 @@
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameMatchDetailController',
-                service: 'numberGameMatchDetailService'
+                controller: 'SportsbookMatchDetailController',
+                service: 'sportsbookMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',

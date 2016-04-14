@@ -24,6 +24,7 @@
                 gridElement.fanexGrid("hideColumns", gridOptions, []);
             }
             enableHiddenColumns = !enableHiddenColumns;
+            pane.compileLinks();
         }
 
         function generateProduct(productName) {
@@ -40,7 +41,7 @@
                 gridOptions = data;
                 createLinks(data);
                 renderGrid(data);
-                pane.compileLinks();
+                pane.compile();
             });
         }
 

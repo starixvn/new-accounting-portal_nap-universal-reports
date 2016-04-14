@@ -3,10 +3,10 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('metricGamingMatchDetailService', metricGamingMatchDetailService);
+        .factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
 
-    metricGamingMatchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function metricGamingMatchDetailService($http, httpResponseService, companyWinlossService) {
+    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService'];
+    function sportsbookMatchDetailService($http, httpResponseService) {
         var service = {
             getData: getData,
             exportExcel: exportExcel
@@ -16,11 +16,12 @@
         function getData(data) {
             var httpData = {
                 isLive: data.isLive,
+                sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+            var url = 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -30,11 +31,12 @@
             var httpData = {
                 title: title,
                 isLive: data.isLive,
+                sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+            var url = 'api/company-win-loss/sportsbook/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

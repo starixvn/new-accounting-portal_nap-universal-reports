@@ -218,6 +218,9 @@
     <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-win-loss.min.js" />
     <Content Include="app\company-winloss\app.js" />
+    <Content Include="app\company-winloss\common\sportsbook-match-detail.controller.js" />
+    <Content Include="app\company-winloss\common\sportsbook -match-detail.service.js" />
+    <Content Include="app\company-winloss\common\product-view-bet-type-live.controller.js" />
     <Content Include="app\company-winloss\common\bet-type-live.controller.js" />
     <Content Include="app\company-winloss\common\bet-type-live.service.js" />
     <Content Include="app\company-winloss\common\third-party-bet-type.service.js" />
@@ -229,11 +232,8 @@
     <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\common\sport-type.service.js" />
     <Content Include="app\company-winloss\common\match-detail.controller.js" />
-    <Content Include="app\company-winloss\metric-gaming\metric-gaming-bet-type.controller.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-live-non-live.controller.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-live-non-live.service.js" />
-    <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.controller.js" />
-    <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
     <Content Include="app\company-winloss\number-game\number-game-site.controller.js" />
     <Content Include="app\company-winloss\common\sport-type-live.controller.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.service.js" />

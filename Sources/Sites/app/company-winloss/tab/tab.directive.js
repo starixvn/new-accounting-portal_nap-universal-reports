@@ -114,6 +114,7 @@
             this.$element = undefined;
             this.generate = generate;
             this.show = show;
+            this.compile = compile;
             this.compileLinks = compileLinks;
             this.getTitle = getTitle;
             this.getFileName = getFileName;
@@ -168,12 +169,16 @@
                 return 'Company_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
             }
 
+            function compile() {
+                this.compileLinks();
+                var elements = this.$element.find('.nap-component');
+                $compile(elements)(this.$scope);
+            }
+
             function compileLinks() {
                 var elements = this.$element.find('.drill-down');
                 $compile(elements)(this.$scope);
                 elements = this.$element.find('.breadcrumb');
-                $compile(elements)(this.$scope);
-                elements = this.$element.find('.nap-component');
                 $compile(elements)(this.$scope);
             }
         }

@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module('app.companyWinlossApp')
-        .controller('MetricGamingMatchDetailController', MetricGamingMatchDetailController);
+        .controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
 
-    MetricGamingMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function MetricGamingMatchDetailController($scope, $element, fanexGridService) {
+    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function SportsbookMatchDetailController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');

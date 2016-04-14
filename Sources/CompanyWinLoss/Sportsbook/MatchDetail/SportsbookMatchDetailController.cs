@@ -7,7 +7,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 {
-    [RoutePrefix("api/company-win-loss/virtual-sports/sportsbook-match-detail")]
+    [RoutePrefix("api/company-win-loss/sportsbook/match-detail")]
     public class SportsbookMatchDetailController : ApiController
     {
         private readonly MatchDetailWinLossService winlossService;
