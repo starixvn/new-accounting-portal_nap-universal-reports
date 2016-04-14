@@ -16,8 +16,8 @@ namespace UniversalReports.CompanyWinLoss.Products
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
-                Columns = FullHeaderBuilder.BuildColumns("Product"),
-                GroupHeaderRows = FullHeaderBuilder.BuildGroupHeaderRows("Product"),
+                Columns = FullHeaderBuilder.BuildColumns("Main"),
+                GroupHeaderRows = FullHeaderBuilder.BuildGroupHeaderRows("Main"),
                 BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
                 ShowHighlightRow = false,
@@ -96,7 +96,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             int columnIndex = 0;
             var columns = new List<Columns>
             {
-                new Columns(columnIndex++, "Product", item.Name, alignment),
+                new Columns(columnIndex++, "Main", item.Name, alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
@@ -152,7 +152,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             {
                 new Columns(columnIndex++)
                 {
-                    Name = "Product",
+                    Name = "Main",
                     Value = reportNote,
                     MergeColNumber = 13,
                     CellAlignment = HAlignment.Left,
