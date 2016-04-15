@@ -70,8 +70,8 @@
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'NumberGameSiteController',
-                service: 'numberGameSiteService'
+                controller: 'OtherSportsSiteController',
+                service: 'otherSportsSiteService'
             }
         },
         'Number Game': {

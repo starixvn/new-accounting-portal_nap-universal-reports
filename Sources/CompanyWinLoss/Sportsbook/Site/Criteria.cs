@@ -1,4 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+﻿using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
@@ -11,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
 
         public string Site { get; set; }
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
 
         public bool IsHedge { get; set; }
 
