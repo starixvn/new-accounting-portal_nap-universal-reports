@@ -3,7 +3,17 @@
 
     var templateSetting = {
         'Parlay': {
-            product: 'sportType'
+            product: 'betType',
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'ParlayBetTypeController',
+                service: 'parlayBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'parlaySiteService'
+            }
         },
         'Soccer': {
             product: 'soccer',

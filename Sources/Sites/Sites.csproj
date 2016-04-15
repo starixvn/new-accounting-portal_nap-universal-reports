@@ -222,6 +222,9 @@
     <Content Include="app\company-winloss\breadcrumb\title.service.js" />
     <Content Include="app\company-winloss\common\product-view-bet-type.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
+    <Content Include="app\company-winloss\parlay\parlay-bet-type.controller.js" />
+    <Content Include="app\company-winloss\parlay\parlay-bet-type.service.js" />
+    <Content Include="app\company-winloss\parlay\parlay-site.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-product-view-bet-type.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-match-detail.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-sport-type-view-bet-type.service.js" />
