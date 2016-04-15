@@ -52,6 +52,6 @@ namespace UniversalReports.CompanyWinLoss.Tests
             Instance.Verify();
         }
 
-        public static Container Instance { get; private set; }
+        public static Container Instance { get; }
     }
 }

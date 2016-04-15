@@ -1,7 +1,5 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
-
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {

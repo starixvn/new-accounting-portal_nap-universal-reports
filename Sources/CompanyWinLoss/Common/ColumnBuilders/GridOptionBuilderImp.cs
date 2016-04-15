@@ -110,15 +110,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
                     RemoveColumn(gridOptions.FooterRows, index);
                 }
             }
-        }
-
-        private void RemoveColumn(List<GridDataRow> rows, params int[] indice)
-        {
-            foreach (var index in indice)
-            {
-                RemoveColumn(rows, index);
-            }
-        }
+        }     
 
         private void RemoveColumn(List<GridDataRow> rows, int index)
         {

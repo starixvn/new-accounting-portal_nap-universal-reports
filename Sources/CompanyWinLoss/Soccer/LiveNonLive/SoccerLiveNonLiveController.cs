@@ -1,12 +1,12 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLive
-{
-    using Common.BasicWinLoss;
-    using Common.ColumnBuilders;
-    using System.Web.Http;
-    using UniversalReports.CompanyWinLoss.Common;
-    using UniversalReports.CompanyWinLoss.Factory;
-    using UniversalReports.MVC.Results;
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.MVC.Results;
 
+namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLive
+{
     [RoutePrefix("api/company-win-loss/soccer/live-nonlive")]
     public class SoccerLiveNonLiveController : ApiController
     {

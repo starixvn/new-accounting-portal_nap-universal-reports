@@ -26,15 +26,17 @@ namespace UniversalReports.MVC.Results
             Workbook = excel.ToExcel2003(sheetName);
         }
 
-        public IWorkbook Workbook { get; private set; }
+        public IWorkbook Workbook { get; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
             using (var memoryStream = new MemoryStream())
             {
                 Workbook.Write(memoryStream);
-                var response = new HttpResponseMessage(HttpStatusCode.OK);
-                response.Content = new ByteArrayContent(memoryStream.ToArray());
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(memoryStream.ToArray())
+                };
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {

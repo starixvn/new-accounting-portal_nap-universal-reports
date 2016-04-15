@@ -77,7 +77,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "RealMargin", item.RealMargin),
+                new Columns(columnIndex, "RealMargin", item.RealMargin),
             };
 
             return new GridDataRow { Columns = columns };

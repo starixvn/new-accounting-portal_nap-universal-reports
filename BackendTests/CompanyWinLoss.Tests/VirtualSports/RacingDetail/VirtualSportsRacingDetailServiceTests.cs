@@ -1,13 +1,12 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 using UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail;
 
 namespace UniversalReports.CompanyWinLoss.Tests.VirtualSports.RacingDetail
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class VirtualSportsRacingDetailServiceTests 
+    public class VirtualSportsRacingDetailServiceTests
     {
         [Test]
         public void Query()

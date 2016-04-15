@@ -139,7 +139,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
                                                 .ToList();
 
             // Assert          
-            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(1, result.Count);
             Assert.AreEqual(startDate, result[0].StartDate);
             Assert.AreEqual(endDate, result[0].EndDate);
         }

@@ -11,11 +11,11 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
     {
         private readonly RawWinLossService rawWinLossService;
 
-        private readonly Common.Services.CalculationService calculationService;
+        private readonly CalculationService calculationService;
 
         public WinLossServiceImp(
             RawWinLossService rawWinLossService,
-            Common.Services.CalculationService calculationService)
+            CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;
@@ -70,7 +70,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             List<WinLossSummaryByBetTypeGroup> winLossesByGroupList,
             IEnumerable<SiteWinLossSummary> winLossesGroup)
         {
-            if (winLossesGroup.Count() > 0)
+            if (winLossesGroup.Any())
             {
                 winLossesByGroupList.Add(CreateWinLossSummaryByBetTypeGroup(winLossesGroup));
             }

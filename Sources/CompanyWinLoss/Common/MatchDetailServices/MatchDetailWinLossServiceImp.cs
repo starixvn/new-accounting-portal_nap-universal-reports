@@ -5,9 +5,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 {
     public class MatchDetailWinLossServiceImp : MatchDetailWinLossService
     {
-        private MatchDetailRawWinLossService rawWinLossService;
+        private readonly MatchDetailRawWinLossService rawWinLossService;
 
-        private MatchDetailCalculationService calculationService;
+        private readonly MatchDetailCalculationService calculationService;
 
         public MatchDetailWinLossServiceImp(MatchDetailRawWinLossService rawWinLossService, MatchDetailCalculationService calculationService)
         {

@@ -28,14 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
         {
-            var bodyRows = new List<GridDataRow>();
-            foreach (var item in winLoss)
-            {
-                var row = BuildBetTypeDataRow(item, HAlignment.Left);
-                bodyRows.Add(row);
-            }
-
-            return bodyRows;
+            return winLoss.Select(item => BuildBetTypeDataRow(item, HAlignment.Left)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(BasicWinLossModel model)

@@ -8,7 +8,7 @@ namespace UniversalReports.Application.Header
 {
     public class HeaderController : ApiController
     {
-        private ICurrentSession currentSession;
+        private readonly ICurrentSession currentSession;
 
         public HeaderController(ICurrentSession currentSession)
         {
@@ -26,7 +26,7 @@ namespace UniversalReports.Application.Header
                 };
             }
 
-            var sessionMenus = currentSession.MenuItemList == null ? new List<MenuItem>() : currentSession.MenuItemList;
+            var sessionMenus = currentSession.MenuItemList ?? new List<MenuItem>();
             var menus = GetMenus(sessionMenus);
             return new Header
             {

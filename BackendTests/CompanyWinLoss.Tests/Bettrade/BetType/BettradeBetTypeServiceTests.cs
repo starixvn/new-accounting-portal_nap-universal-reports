@@ -2,13 +2,12 @@
 using UniversalReports.CompanyWinLoss.Bettrade.BetType;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class BettradeBetTypeServiceTests 
+    public class BettradeBetTypeServiceTests
     {
         [Test]
         public void Query()

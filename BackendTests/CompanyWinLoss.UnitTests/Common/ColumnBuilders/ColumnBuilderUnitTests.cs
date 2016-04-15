@@ -6,7 +6,7 @@ using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.ColumnBuilders
 {
     [TestFixture]
-    [Category("CompanyWinLossUnitTestsColumnBuilderUnitTests")]
+    [Category("CompanyWinLossColumnBuilderUnitTests")]
     public class ColumnBuilderUnitTests
     {
         [Test]

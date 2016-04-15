@@ -2,13 +2,12 @@
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.NumberGame.Site;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Site
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class NumberGameSiteServiceTests 
+    public class NumberGameSiteServiceTests
     {
         [Test]
         public void Query()

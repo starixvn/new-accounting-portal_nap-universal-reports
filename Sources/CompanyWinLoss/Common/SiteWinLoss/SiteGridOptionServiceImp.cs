@@ -1,6 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Extensions;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
@@ -23,21 +24,12 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 
         private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
         {
-            var bodyRows = new List<GridDataRow>();
-            foreach (var item in winLoss)
-            {
-                var row = BuildDataRow(item, HAlignment.Center);
-                bodyRows.Add(row);
-            }
-
-            return bodyRows;
+            return winLoss.Select(item => BuildDataRow(item, HAlignment.Center)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
-            var footerRow = new List<GridDataRow>();
-            footerRow.Add(BuildDataRow(item, HAlignment.Right));
-            return footerRow;
+            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Right) };
         }
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)

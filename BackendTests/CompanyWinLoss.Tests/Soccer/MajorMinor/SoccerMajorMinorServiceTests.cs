@@ -1,10 +1,10 @@
-﻿namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorAndMinorSportTypes
-{
-    using Common;
-    using CompanyWinLoss.Common.Criteria;
-    using CompanyWinLoss.Soccer.MajorMinor;
-    using NUnit.Framework;
+﻿using NUnit.Framework;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Soccer.MajorMinor;
+using UniversalReports.CompanyWinLoss.Tests.Common;
 
+namespace UniversalReports.CompanyWinLoss.Tests.Soccer.MajorMinor
+{
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
     public class SoccerMajorMinorServiceTests : BasicWinLossServiceTests

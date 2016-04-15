@@ -1,6 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
@@ -29,22 +30,9 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private List<GridDataRow> BuildBodyRows(ProductWinLoss productWinLoss)
         {
-            var bodyRows = new List<GridDataRow>();
-            foreach (var product in productWinLoss.SportsbookProducts.Products)
-            {
-                bodyRows.Add(BuildProduct(product));
-            }
-
-            foreach (var product in productWinLoss.SportsbookProducts.RM)
-            {
-                bodyRows.Add(BuildProductRM(product));
-            }
-
-            foreach (var product in productWinLoss.NoneSportsbookProducts.Products)
-            {
-                bodyRows.Add(BuildProduct(product));
-            }
-
+            var bodyRows = productWinLoss.SportsbookProducts.Products.Select(BuildProduct).ToList();
+            bodyRows.AddRange(productWinLoss.SportsbookProducts.RM.Select(BuildProductRM));
+            bodyRows.AddRange(productWinLoss.NoneSportsbookProducts.Products.Select(BuildProduct));
             bodyRows.Add(BuildNonSportsTotal(productWinLoss.NoneSportsbookProducts.Total));
 
             return bodyRows;
@@ -52,7 +40,6 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private GridDataRow BuildNonSportsTotal(SiteWinLossSummary productWinLoss)
         {
-            var productName = productWinLoss.Total.Name;
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = "total-row";
             var subRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
@@ -67,7 +54,6 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private GridDataRow BuildProductRM(WinLoss winLossRM)
         {
-            var productName = winLossRM.Name;
             var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
             productDataRow.CssClass = "total-row";
             return productDataRow;
@@ -108,7 +94,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealMargin", GetFormattedMargin(item, isFooter)),
-                new Columns(columnIndex++, "VirtualMargin", GetFormattedMargin(item, isFooter))
+                new Columns(columnIndex, "VirtualMargin", GetFormattedMargin(item, isFooter))
             };
 
             return new GridDataRow { Columns = columns };
@@ -150,7 +136,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             int columnIndex = 0;
             var columns = new List<Columns>
             {
-                new Columns(columnIndex++)
+                new Columns(columnIndex)
                 {
                     Name = "Main",
                     Value = reportNote,

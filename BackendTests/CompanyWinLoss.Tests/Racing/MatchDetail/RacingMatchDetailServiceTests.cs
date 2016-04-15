@@ -1,13 +1,12 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Racing.MatchDetail;
-using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Racing.MatchDetail
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class RacingMatchDetailServiceTests 
+    public class RacingMatchDetailServiceTests
     {
         [Test]
         public void Query()

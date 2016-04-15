@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.CompanyWinLoss.VirtualSports.BetType;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
+namespace UniversalReports.CompanyWinLoss.UnitTests.Factory
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]

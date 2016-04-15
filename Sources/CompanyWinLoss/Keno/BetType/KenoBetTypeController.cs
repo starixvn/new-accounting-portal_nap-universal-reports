@@ -22,7 +22,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
         }
 
         [Route("")]
-        public IHttpActionResult Values(BetType.QueryModel queryModel)
+        public IHttpActionResult Values(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.Keno.BetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(BetType.ExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             if (ModelState.IsValid)
             {

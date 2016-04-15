@@ -1,11 +1,12 @@
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.Models;
+
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
-    using Fanex.Excel.Enums;
-    using Fanex.Excel.Models;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using UniversalReports.CompanyWinLoss.Common.Models;
-
     public class BetTypesGridOptionServiceImp : BetTypesGridOptionService
     {
         public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
@@ -70,11 +71,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)
             {
-                foreach (var item in winLossSummary.SiteWinLossSummaries)
-                {
-                    var row = BuildSportDataRow(item, HAlignment.Left);
-                    bodyRows.Add(row);
-                }
+                bodyRows.AddRange(winLossSummary.SiteWinLossSummaries.Select(item => BuildSportDataRow(item, HAlignment.Left)));
 
                 var totalRow = BuildDataRow(winLossSummary.Total, HAlignment.Right);
                 bodyRows.Add(totalRow);
@@ -124,7 +121,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealMargin", GetFormattedMargin(item)),
-                new Columns(columnIndex++, "VirtualMargin", GetFormattedMargin(item))
+                new Columns(columnIndex, "VirtualMargin", GetFormattedMargin(item))
             };
 
             return new GridDataRow { Columns = columns };

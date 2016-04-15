@@ -1,8 +1,8 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.BetType
-{
-    using System;
-    using UniversalReports.MVC.Validation;
+﻿using System;
+using UniversalReports.MVC.Validation;
 
+namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+{
     public class QueryModel
     {
         public DateTime StartDate { get; set; }

@@ -19,7 +19,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
         {
             // Arrange   
             var expectedNumberGameBetTypeWinLossSummary = CreateExpectedNumberGameBetTypeWinLossSummary();
-            var commonCalculationService = new CommonServices.CalculationServiceImp();
             var calculationService = new CommonServices.CalculationServiceImp();
             var rawWinLossService = Substitute.For<CommonServices.RawWinLossService>();
             var fakeData = CreateFakeRawWinLoss();

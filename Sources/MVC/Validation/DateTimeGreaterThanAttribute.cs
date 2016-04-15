@@ -6,26 +6,17 @@ namespace UniversalReports.MVC.Validation
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class DateTimeGreaterThanAttribute : ValidationAttribute
     {
-        private readonly string _dateFromFieldName;
+        private readonly string dateFromFieldName;
 
         public DateTimeGreaterThanAttribute(string dateFromFieldName)
             : base(string.Empty)
         {
-            _dateFromFieldName = dateFromFieldName;
+            this.dateFromFieldName = dateFromFieldName;
         }
 
-        public string DateFromFieldName
-        {
-            get
-            {
-                return _dateFromFieldName;
-            }
-        }
+        public string DateFromFieldName => dateFromFieldName;
 
-        public override string FormatErrorMessage(string name)
-        {
-            return "End date can't be less than start date";
-        }
+        public override string FormatErrorMessage(string name) => "End date can't be less than start date";
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -38,7 +29,7 @@ namespace UniversalReports.MVC.Validation
 
         private bool IsValidationContext(ValidationContext validationContext)
         {
-            var property = validationContext.ObjectType.GetProperty(_dateFromFieldName);
+            var property = validationContext.ObjectType.GetProperty(dateFromFieldName);
             return property != null;
         }
 
@@ -51,7 +42,7 @@ namespace UniversalReports.MVC.Validation
 
         private DateTime GetDateFrom(ValidationContext context)
         {
-            var property = context.ObjectType.GetProperty(_dateFromFieldName);
+            var property = context.ObjectType.GetProperty(dateFromFieldName);
             return (DateTime)property.GetValue(context.ObjectInstance, null);
         }
     }

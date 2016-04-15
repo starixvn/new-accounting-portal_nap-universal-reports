@@ -8,7 +8,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
-namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
+namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BasicWinLoss
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
         public void Query_ReturnRightBasicWinLossSummary()
         {
             // Arrange   
-            var expected = CreateExpectedBasicWinLossSummary();
+            var expected = CreateExpected();
             var fakeData = CreateFakeRawData();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
@@ -33,7 +33,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             Assert.True(equal);
         }
 
-        private BasicWinLossModel CreateExpectedBasicWinLossSummary()
+        private BasicWinLossModel CreateExpected()
         {
             var expectedSummaries = CreateExpectedSummaries();
             var expectedGrandTotal = CreateExpectedGrandTotal();
@@ -41,7 +41,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             return new BasicWinLossModel
             {
                 SiteWinLossSummaries = expectedSummaries,
-                GrandTotal = expectedGrandTotal
+                GrandTotal = expectedGrandTotal,
+                RM = CreateExpectedRM()
             };
         }
 
@@ -97,6 +98,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
                 Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 100, 100, 1800, 2000, 1000m / 1800, 1200m / 2000),
                 Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 100, 100, 1980, 2200, 1100m / 1980, 1320m / 2200),
                 Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200)
+            };
+        }
+
+        private List<WinLoss> CreateExpectedRM()
+        {
+            return new List<WinLoss>
+            {
+                WinLossFactory.CreateWinLoss(0, "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000),
+                WinLossFactory.CreateWinLoss(0, "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100)
             };
         }
 

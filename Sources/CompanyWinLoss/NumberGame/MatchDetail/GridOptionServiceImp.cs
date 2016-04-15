@@ -74,7 +74,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "RealMargin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
+                new Columns(columnIndex, "RealMargin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
             };
 
             return new GridDataRow { Columns = columns };
@@ -94,9 +94,7 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
 
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
-            var footerRow = new List<GridDataRow>();
-            footerRow.Add(BuildDataRow(item, HAlignment.Right));
-            return footerRow;
+            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Right) };
         }
     }
 }

@@ -3,7 +3,7 @@ using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
 using UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail;
 
-namespace UniversalReports.CompanyWinLoss.Tests.MetricGamingSportsbook.MatchDetail
+namespace UniversalReports.CompanyWinLoss.Tests.Sportsbook.MatchDetail
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]

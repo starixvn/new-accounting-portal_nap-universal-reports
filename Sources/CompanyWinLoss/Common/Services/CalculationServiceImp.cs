@@ -154,7 +154,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
         public IEnumerable<WinLoss> CalculateRM(IEnumerable<RawWinLoss> rawWinLosses)
         {
             return rawWinLosses.Where(r => r.GroupName == "RM")
-                .Select(r => FromRawWinLossByRowName(r));
+                .Select(FromRawWinLossByRowName);
         }
     }
 }

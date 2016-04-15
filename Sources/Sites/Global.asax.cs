@@ -8,7 +8,7 @@ using System.Web.SessionState;
 
 namespace UniversalReports.Sites
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {

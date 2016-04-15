@@ -8,9 +8,9 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
     [RoutePrefix("api/company-win-loss/racing/match-detail")]
     public class RacingDetailController : ApiController
     {
-        private Service winlossService;
+        private readonly Service winlossService;
 
-        private GridOptionService gridOptionService;
+        private readonly GridOptionService gridOptionService;
 
         public RacingDetailController(Service winlossService, GridOptionService gridOptionService)
         {

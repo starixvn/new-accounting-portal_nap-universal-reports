@@ -23,12 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
 
         private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagueWinLoss)
         {
-            List<List<GridDataRow>> gridDataRows = new List<List<GridDataRow>>();
-            foreach (var league in leagueWinLoss)
-            {
-                var leagueRows = BuildLeagueDataRows(league);
-                gridDataRows.Add(leagueRows);
-            }
+            var gridDataRows = leagueWinLoss.Select(BuildLeagueDataRows).ToList();
 
             return gridDataRows.SelectMany(x => x).ToList();
         }
@@ -37,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
         {
             var dataRows = new List<GridDataRow>();
             var leagueNameRow = BuildLeagueNameRow(league.LeagueName);
-            var matchRows = league.Matches.Select(r => BuidMatchRow(r));
+            var matchRows = league.Matches.Select(BuidMatchRow);
 
             dataRows.Add(leagueNameRow);
             dataRows.AddRange(matchRows);
@@ -57,7 +52,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailServices
             var colummns = new List<Columns>
                {
                     new Columns { ColumnIndex = columnIndex++, Name = "MatchCode", Value = string.Empty },
-                    new Columns { ColumnIndex = columnIndex++, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 13, Bold = true, CellAlignment = HAlignment.Left }
+                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 13, Bold = true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns };

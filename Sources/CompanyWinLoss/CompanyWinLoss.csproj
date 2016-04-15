@@ -176,6 +176,10 @@
     <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\QueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\MetricGamingMatchDetailController.cs" />
+    <Compile Include="MetricGaming\Site\Criteria.cs" />
+    <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
+    <Compile Include="MetricGaming\Site\QueryModel.cs" />
     <Compile Include="Products\NoneSportsbookWinloss.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />

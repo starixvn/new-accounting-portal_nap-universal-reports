@@ -1,12 +1,12 @@
-﻿namespace UniversalReports.CompanyWinLoss.Soccer.BetType
-{
-    using Common.BasicWinLoss;
-    using Common.ColumnBuilders;
-    using System.Web.Http;
-    using UniversalReports.CompanyWinLoss.Common;
-    using UniversalReports.CompanyWinLoss.Factory;
-    using UniversalReports.MVC.Results;
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.MVC.Results;
 
+namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+{
     [RoutePrefix("api/company-win-loss/soccer/bet-type")]
     public class SoccerBetTypeController : ApiController
     {

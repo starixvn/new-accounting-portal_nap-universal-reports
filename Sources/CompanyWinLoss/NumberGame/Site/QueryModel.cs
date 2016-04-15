@@ -15,7 +15,6 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
         public int BetType { get; set; }
 
         public bool IsLive { get; set; }
-
         public string Site { get; set; }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
 {
-    using UniversalReports.CompanyWinLoss.Common.Criteria;
-
     public class Criteria : WinLossCriteria
     {
         public int IsLive { get; set; }
