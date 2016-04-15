@@ -5,11 +5,11 @@
         .module('app.companyWinlossApp')
         .controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
 
-    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeLiveService'];
-    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeLiveService) {
+    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService'];
+    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService) {
         var pane = $scope.pane;
-        var defaultGetTitle = pane.getTitle;
-        var otherSportsLiveNonLiveService = pane.service;
+        var getProductTitle = sportTypeService.getTitle;
+        var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var sportTypeGridElement = angular.element(gridElements[0]);
@@ -43,12 +43,12 @@
                     pane.compileLinks();
                 }
             };
-            sportTypeLiveService.getData(pane.data).then(function (data) {
+            sportTypeService.getData(pane.data).then(function (data) {
                 createLinksForSportType(data);
                 renderGridForSportType(data);
                 compileLinks();
             });
-            otherSportsLiveNonLiveService.getData(pane.data).then(function (data) {
+            pane.service.getData(pane.data).then(function (data) {
                 createLinksForLiveNonLive(data);
                 renderGridForLiveNonLive(data);
                 compileLinks();
@@ -56,7 +56,7 @@
         }
 
         function renderGridForSportType(data) {
-            pane.getTitle = defaultGetTitle;
+            pane.service.getTitle = getProductTitle;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -80,7 +80,7 @@
         }
 
         function renderGridForLiveNonLive(data) {
-            pane.getTitle = getTitleWhenLiveNonLive;
+            pane.service.getTitle = getProductLiveNonLiveTitle;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -93,10 +93,6 @@
             liveNonLiveGridElement.fanexGrid(data);
         }
 
-        function getTitleWhenLiveNonLive(isLast) {
-            return isLast ? pane.data.productName + ' Live/Non-Live Win/Loss Report' : pane.data.productName;
-        }
-
         function createLinksForLiveNonLive(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var row = data.bodyRows[i];
@@ -107,9 +103,9 @@
         }
 
         function exportExcel() {
-            pane.getTitle = defaultGetTitle;
+            pane.service.getTitle = getProductTitle;
             var sportTypeTitle = tab.generateBreadcrumbText();
-            pane.getTitle = getTitleWhenLiveNonLive;
+            pane.service.getTitle = getProductLiveNonLiveTitle;
             var liveNonLiveTitle = tab.generateBreadcrumbText();
             otherSportsLiveNonLiveService.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }

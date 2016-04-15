@@ -3,21 +3,15 @@
 
     angular
         .module('app.companyWinlossApp')
-        .controller('SportTypeLiveController', SportTypeLiveController);
+        .controller('SportsbookSportTypeController', SportsbookSportTypeController);
 
-    SportTypeLiveController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function SportTypeLiveController($scope, $element, fanexGridService) {
+    SportsbookSportTypeController.$inject = ['$scope', '$element', 'fanexGridService'];
+    function SportsbookSportTypeController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
-        pane.getTitle = getTitle;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
-
-        function getTitle(isLast) {
-            var title = pane.data.productName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '"';
-            return isLast ? title + ' Product Win/Loss Report' : title;
-        }
 
         function generateBetType(sportType, sportTypeName, isLive) {
             var data = {

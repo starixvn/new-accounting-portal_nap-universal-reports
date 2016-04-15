@@ -3,11 +3,12 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('matchDetailLiveService', matchDetailLiveService);
+        .factory('sportsbookSiteService', sportsbookSiteService);
 
-    matchDetailLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function matchDetailLiveService($http, httpResponseService, companyWinlossService) {
+    sportsbookSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function sportsbookSiteService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
+            getTitle: titleService.getSiteTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -17,11 +18,13 @@
             var httpData = {
                 sportType: data.sportType,
                 betType: data.betType,
+                site: data.site,
                 startDate: data.startDate,
                 endDate: data.endDate,
+                isHedge: data.isHedge,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+            var url = 'api/company-win-loss/sportsbook/site';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -32,11 +35,13 @@
                 title: title,
                 sportType: data.sportType,
                 betType: data.betType,
+                site: data.site,
                 startDate: data.startDate,
                 endDate: data.endDate,
+                isHedge: data.isHedge,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+            var url = 'api/company-win-loss/sportsbook/site/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

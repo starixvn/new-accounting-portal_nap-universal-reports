@@ -3,11 +3,12 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('otherSportsSiteService', otherSportsSiteService);
+        .factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
 
-    otherSportsSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function otherSportsSiteService($http, httpResponseService, companyWinlossService) {
+    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'titleService'];
+    function sportsbookMatchDetailService($http, httpResponseService, titleService) {
         var service = {
+            getTitle: titleService.getMatchDetailTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -15,15 +16,13 @@
 
         function getData(data) {
             var httpData = {
+                isLive: data.isLive,
                 sportType: data.sportType,
                 betType: data.betType,
-                site: data.site,
                 startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
+                endDate: data.endDate
             };
-            var url = 'api/company-win-loss/sportsbook/site';
+            var url = 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -32,15 +31,13 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
+                isLive: data.isLive,
                 sportType: data.sportType,
                 betType: data.betType,
-                site: data.site,
                 startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
+                endDate: data.endDate
             };
-            var url = 'api/company-win-loss/sportsbook/site/excel';
+            var url = 'api/company-win-loss/sportsbook/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

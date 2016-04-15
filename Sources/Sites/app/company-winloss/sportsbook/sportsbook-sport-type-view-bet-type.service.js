@@ -3,25 +3,26 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
+        .factory('sportsbookSportTypeViewBetTypeService', sportsbookSportTypeViewBetTypeService);
 
-    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService'];
-    function sportsbookMatchDetailService($http, httpResponseService) {
+    sportsbookSportTypeViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function sportsbookSportTypeViewBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
+            getTitle: titleService.getSportTypeTitle,
             getData: getData,
             exportExcel: exportExcel
         };
+
         return service;
 
         function getData(data) {
             var httpData = {
-                isLive: data.isLive,
-                sportType: data.sportType,
-                betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                sportType: data.sportType,
+                isLive: data.isLive
             };
-            var url = 'api/company-win-loss/sportsbook/match-detail';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -30,13 +31,12 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                isLive: data.isLive,
-                sportType: data.sportType,
-                betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                sportType: data.sportType,
+                isLive: data.isLive
             };
-            var url = 'api/company-win-loss/sportsbook/match-detail/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

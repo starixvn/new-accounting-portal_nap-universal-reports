@@ -4,12 +4,12 @@
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'betTypeLiveService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, betTypeLiveService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService) {
         var pane = $scope.pane;
-        var metricGamingLiveNonLiveService = pane.service;
-        var defaultGetTitle = pane.getTitle;
+        var getProductTitle = productViewBetTypeService.getTitle;
+        var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
@@ -43,21 +43,21 @@
                     pane.compileLinks();
                 }
             };
-            betTypeLiveService.getData(pane.data).then(function (data) {
+            productViewBetTypeService.getData(pane.data).then(function (data) {
                 createLinksForBetType(data);
                 renderGridForBetType(data);
                 compileLinks();
             });
 
-            metricGamingLiveNonLiveService.getData(pane.data).then(function (data) {
+            pane.service.getData(pane.data).then(function (data) {
                 createLinksForLiveNonLive(data);
-                renderForLiveNonLive(data);
+                renderGridForLiveNonLive(data);
                 compileLinks();
             });
         }
 
         function renderGridForBetType(data) {
-            pane.getTitle = defaultGetTitle;
+            pane.service.getTitle = getProductTitle;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -71,8 +71,8 @@
             betTypeGridElement.fanexGrid(data);
         }
 
-        function renderForLiveNonLive(data) {
-            pane.getTitle = getTitleWhenLiveNonLive;
+        function renderGridForLiveNonLive(data) {
+            pane.service.getTitle = getProductLiveNonLiveTitle;
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
@@ -83,10 +83,6 @@
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
             data.defaultCollapseAllGroups = true;
             liveNonLiveGridElement.fanexGrid(data);
-        }
-
-        function getTitleWhenLiveNonLive(isLast) {
-            return isLast ? pane.data.productName + ' Live/Non-Live Win/Loss Report' : pane.data.productName;
         }
 
         function createLinksForBetType(data) {
@@ -109,12 +105,11 @@
         }
 
         function exportExcel() {
-            pane.getTitle = defaultGetTitle;
+            pane.service.getTitle = getProductTitle;
             var sportTypeTitle = tab.generateBreadcrumbText();
-            pane.getTitle = getTitleWhenLiveNonLive;
+            pane.service.getTitle = getProductLiveNonLiveTitle;
             var liveNonLiveTitle = tab.generateBreadcrumbText();
             metricGamingLiveNonLiveService.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
-
 })(angular, undefined);

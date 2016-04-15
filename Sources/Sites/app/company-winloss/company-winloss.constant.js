@@ -37,13 +37,13 @@
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'ProductViewBetTypeLiveController',
-                service: 'betTypeLiveService'
+                controller: 'BetTypeController',
+                service: 'sportsbookProductViewBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookMatchDetailController',
-                service: 'matchDetailLiveService'
+                controller: 'MatchDetailController',
+                service: 'metricGamingMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -60,23 +60,23 @@
             },
             sportType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeLiveController',
-                service: 'sportTypeLiveService'
+                controller: 'SportsbookSportTypeController',
+                service: 'sportsbookSportTypeService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeViewBetTypeController',
-                service: 'betTypeLiveService'
+                controller: 'BetTypeController',
+                service: 'sportsbookSportTypeViewBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookMatchDetailController',
+                controller: 'MatchDetailController',
                 service: 'sportsbookMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'OtherSportsSiteController',
-                service: 'otherSportsSiteService'
+                controller: 'SiteController',
+                service: 'sportsbookSiteService'
             }
         },
         'Number Game': {

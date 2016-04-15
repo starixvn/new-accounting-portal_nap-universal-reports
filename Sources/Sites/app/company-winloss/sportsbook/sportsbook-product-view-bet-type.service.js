@@ -3,11 +3,12 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('sportTypeLiveService', sportTypeLiveService);
+        .factory('sportsbookProductViewBetTypeService', sportsbookProductViewBetTypeService);
 
-    sportTypeLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function sportTypeLiveService($http, httpResponseService, companyWinlossService) {
+    sportsbookProductViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
+    function sportsbookProductViewBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
         var service = {
+            getTitle: liveTitleService.getProductTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -18,9 +19,10 @@
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
+                sportType: data.sportType,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -31,9 +33,10 @@
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
+                sportType: data.sportType,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
