@@ -7,7 +7,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.Site
 {
-    [RoutePrefix("api/company-win-loss/sportsbook/site")]
+    [RoutePrefix("api/company-win-loss/metric-gaming-superlive/site")]
     public class MetricGamingSiteController : ApiController
     {
         private readonly SiteService winlossService;

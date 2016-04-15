@@ -44,6 +44,11 @@
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SportsbookMatchDetailController',
                 service: 'matchDetailLiveService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'OtherSportsSiteController',
+                service: 'metricGamingSiteService'
             }
         },
         'Other Sports': {

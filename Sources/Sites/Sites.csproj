@@ -237,6 +237,7 @@
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-live-non-live.controller.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-live-non-live.service.js" />
     <Content Include="app\company-winloss\common\sport-type-live.controller.js" />
+    <Content Include="app\company-winloss\metric-gaming\metric-gaming-site.service.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.service.js" />
     <Content Include="app\company-winloss\common\sport-type-live.service.js" />
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.controller.js" />

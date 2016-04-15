@@ -117,6 +117,8 @@
     <Setting Key="CompanyWinLoss-MetricGaming-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-MetricGaming-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-MetricGaming-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-MetricGaming-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-MetricGaming-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Sportsbook">
     <Setting Key="CompanyWinLoss-Sportsbook-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
