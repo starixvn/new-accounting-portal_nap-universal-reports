@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Soccer.BetType;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {

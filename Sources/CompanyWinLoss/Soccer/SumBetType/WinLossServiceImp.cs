@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
-using UniversalReports.CompanyWinLoss.Soccer.BetType;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
 {
@@ -14,11 +8,11 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
     {
         private readonly RawWinLossService rawWinLossService;
 
-        private readonly CalculationService calculationService;
+        private readonly BetType.CalculationService calculationService;
 
         public WinLossServiceImp(
             RawWinLossService rawWinLossService,
-            CalculationService calculationService)
+            BetType.CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;
@@ -29,8 +23,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
             var rawWinLosses = rawWinLossService.Query(criteria);
 
             var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var mainTotal = CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
-            var otherTotal = CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
+            var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
+            var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
@@ -42,22 +36,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
                 GrandTotal = grandTotal,
                 RM = allRMData.ToList()
             };
-        }
-
-        private WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
-        {
-            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
-            var total = calculationService.CalculateSumWinLoss(sumTitle, mainRawWinLosses);
-
-            return total;
-        }
-
-        private WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
-        {
-            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
-            var total = calculationService.CalculateSumWinLoss(sumTitle, otherRawWinLosses);
-
-            return total;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BetType
 {
     public class WinLossSummaryByBetTypeGroup
     {

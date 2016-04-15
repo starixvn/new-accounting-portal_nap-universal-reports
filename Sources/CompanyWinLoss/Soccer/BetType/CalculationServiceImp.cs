@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.Models;
+
+namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+{
+    public class CalculationServiceImp : Common.Services.CalculationServiceImp, CalculationService
+    {
+        public List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
+            var winLosses = from @group in groups
+                            let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupId == @group.Id && r.GroupName == @group.Name).ToArray()
+                            select CalculateSiteWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
+            var winLossesByBetTypeGroup = CalculateSiteWinLossSummaryByBetTypeGroup(winLosses);
+
+            return winLossesByBetTypeGroup;
+        }
+
+        public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+            var total = CalculateSumWinLoss(sumTitle, mainRawWinLosses);
+
+            return total;
+        }
+
+        public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+            var total = CalculateSumWinLoss(sumTitle, otherRawWinLosses);
+
+            return total;
+        }
+       
+        private List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
+        {
+            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id));
+            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id));
+            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
+            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
+
+            List<WinLossSummaryByBetTypeGroup> winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
+            winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);
+            winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup2);
+            winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup3);
+            winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup4);
+
+            return winLossesByGroupList;
+        }
+
+        private List<WinLossSummaryByBetTypeGroup> CreateWinLossByGroupList(
+            List<WinLossSummaryByBetTypeGroup> winLossesByGroupList,
+            IEnumerable<SiteWinLossSummary> winLossesGroup)
+        {
+            if (winLossesGroup.Any())
+            {
+                winLossesByGroupList.Add(CreateWinLossSummaryByBetTypeGroup(winLossesGroup));
+            }
+
+            return winLossesByGroupList;
+        }
+
+        private WinLossSummaryByBetTypeGroup CreateWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLossesGroup)
+        {
+            return new WinLossSummaryByBetTypeGroup
+            {
+                SiteWinLossSummaries = winLossesGroup.ToList(),
+                Total = CalculateSumWinLoss("TOTAL", winLossesGroup.Select(r => r.Total))
+            };
+        }
+
+        private WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<WinLoss> winLosses)
+        {
+            var totalWinLoss = CalculateSum(winLosses);
+            totalWinLoss.Name = sumTitle;
+
+            return totalWinLoss;
+        }
+
+        private WinLoss CalculateSum(IEnumerable<WinLoss> winLosses)
+        {
+            if (!winLosses.Any())
+            {
+                return new WinLoss();
+            }
+
+            var winLossSum = new WinLoss
+            {
+                Commission = winLosses.Sum(r => r.Commission),
+                MemberWinLoss = winLosses.Sum(r => r.MemberWinLoss),
+                RealIncome = winLosses.Sum(r => r.RealIncome),
+                RealTurnover = winLosses.Sum(r => r.RealTurnover),
+                SMAWinLoss = winLosses.Sum(r => r.SMAWinLoss),
+                VirtualIncome = winLosses.Sum(r => r.VirtualIncome),
+                VirtualTurnover = winLosses.Sum(r => r.VirtualTurnover),
+                VarianceIncome = winLosses.Sum(r => r.VarianceIncome),
+                ExtraPT = winLosses.Sum(r => r.ExtraPT),
+                AfterExtraPT = winLosses.Sum(r => r.AfterExtraPT)
+            };
+            winLossSum.RealMargin = CalculateMargin(winLossSum.RealTurnover, winLossSum.RealIncome);
+            winLossSum.VirtualMargin = CalculateMargin(winLossSum.VirtualTurnover, winLossSum.VirtualIncome);
+
+            return winLossSum;
+        }
+    }
+}
