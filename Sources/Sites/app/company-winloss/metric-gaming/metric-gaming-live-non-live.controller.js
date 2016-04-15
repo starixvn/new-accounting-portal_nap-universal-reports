@@ -17,6 +17,7 @@
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.generateMatchDetail = generateMatchDetail;
+        $scope.generateSite = generateSite;
 
         function generateBetType(isLive) {
             var data = {
@@ -33,6 +34,17 @@
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
+        }
+
+        function generateSite(betType, betTypeName, site, isHegde) {
+            var data = {
+                betType: betType,
+                betTypeName: betTypeName,
+                site: site,
+                isHegde: isHegde
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('site', data);
         }
 
         function generate() {
@@ -86,12 +98,18 @@
         }
 
         function createLinksForBetType(data) {
-            var betType;
+            var betTypeId;
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
-                betType = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betType + ',\'' + betType.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                var isHegde = betTypeName.match("hegde") ? true : false;
+                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                    var siteRow = data.bodyRows[i].SubRows[j];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\',' + isHegde + ')">' + siteName + '</a>';
+                }
             }
         }
 

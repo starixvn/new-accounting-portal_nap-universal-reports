@@ -5,9 +5,10 @@
         .module('app.companyWinlossApp')
         .factory('metricGamingSiteService', metricGamingSiteService);
 
-    metricGamingSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function metricGamingSiteService($http, httpResponseService, companyWinlossService) {
+    metricGamingSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function metricGamingSiteService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
+            getTitle: titleService.getSiteTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -21,7 +22,7 @@
                 endDate: data.endDate,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + 'site';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -36,7 +37,7 @@
                 endDate: data.endDate,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/site/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
