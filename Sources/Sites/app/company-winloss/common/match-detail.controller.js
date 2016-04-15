@@ -8,9 +8,14 @@
     MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
     function MatchDetailController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
+        pane.getTitle = getTitle;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
+
+        function getTitle() {
+            return data.betTypeName + ' Product Win/Loss Report';
+        }
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {

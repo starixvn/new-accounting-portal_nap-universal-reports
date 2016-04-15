@@ -5,9 +5,10 @@
         .module('app.companyWinlossApp')
         .factory('sportTypeService', sportTypeService);
 
-    sportTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function sportTypeService($http, httpResponseService, companyWinlossService) {
+    sportTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function sportTypeService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
+            getTitle: titleService.getProductTitle,
             getData: getData,
             exportExcel: exportExcel
         };

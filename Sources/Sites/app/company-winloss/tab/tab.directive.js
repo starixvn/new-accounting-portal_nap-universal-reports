@@ -89,7 +89,7 @@
                 for (var i = 0; i < this.panes.length; i++) {
                     var pane = this.panes[i];
                     var isLast = i === this.panes.length - 1;
-                    var title = pane.getTitle(isLast);
+                    var title = pane.service.getTitle(pane.data, isLast);
                     list.push(title);
                 }
 
@@ -116,7 +116,6 @@
             this.show = show;
             this.compile = compile;
             this.compileLinks = compileLinks;
-            this.getTitle = getTitle;
             this.getFileName = getFileName;
 
             if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
@@ -136,33 +135,6 @@
             function show() {
                 var gridElement = this.$element.find('.freegrid');
                 gridElement.fanexGrid('resizeGrid');
-            }
-
-            function getTitle(isLast) {
-                var previousPane = tab.getPreviousPane(this);
-                if (previousPane === null) {
-                    return isLast ? 'Product Win/Loss Report' : 'Main';
-                }
-
-                var data = this.data;
-                switch (previousPane.level) {
-                    case 'product':
-                        return data.productName + (isLast ? ' Product Win/Loss Report' : '');
-
-                    case 'thirdPartyProduct':
-                        return data.thirdPartyProductName + (isLast ? ' Product Win/Loss Report' : '');
-
-                    case 'sportType':
-                        return data.sportTypeName + (isLast ? ' Product Win/Loss Report' : '');
-
-                    case 'betType':
-                        if (this.level === 'site') {
-                            return data.betTypeName + ' | Product Win/Loss By ' + data.site + ' Site';
-                        }
-                        else {
-                            return data.betTypeName + (isLast ? ' Product Win/Loss Report' : '');
-                        }
-                }
             }
 
             function getFileName() {

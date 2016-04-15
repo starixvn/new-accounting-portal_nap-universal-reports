@@ -30,11 +30,6 @@
             });
         }
 
-        function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
-        }
-
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var sportTypeRow = data.bodyRows[i];
@@ -56,6 +51,11 @@
             data.defaultCollapseAllGroups = true;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
+        }
+
+        function exportExcel() {
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
 })(angular);

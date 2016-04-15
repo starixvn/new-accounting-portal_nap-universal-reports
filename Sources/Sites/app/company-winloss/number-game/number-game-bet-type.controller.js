@@ -8,7 +8,6 @@
     NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService'];
     function NumberGameBetTypeController($scope, $element, fanexGridService) {
         var pane = $scope.pane;
-        pane.getTitle = getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
@@ -16,12 +15,6 @@
         $scope.generate = generate;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.generateSite = generateSite;
-
-        function getTitle(isLast) {
-            return isLast
-                ? pane.data.productName + ' "' + (pane.data.isLive ? 'Live' : 'Non-Live') + '" Product Win/Loss Report'
-                : pane.data.productName;
-        }
 
         function generateMatchDetail(betType, betTypeName, isLive) {
             var data = {

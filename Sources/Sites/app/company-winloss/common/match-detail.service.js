@@ -5,9 +5,10 @@
         .module('app.companyWinlossApp')
         .factory('matchDetailService', matchDetailService);
 
-    matchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService'];
-    function matchDetailService($http, httpResponseService, companyWinlossService) {
+    matchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function matchDetailService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
+            getTitle: titleService.getMatchDetailTitle,
             getData: getData,
             exportExcel: exportExcel
         };

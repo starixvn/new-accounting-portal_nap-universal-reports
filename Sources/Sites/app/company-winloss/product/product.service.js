@@ -5,9 +5,10 @@
         .module('app.companyWinlossApp')
         .factory('productService', productService);
 
-    productService.$inject = ['$http', 'httpResponseService'];
-    function productService($http, httpResponseService) {
+    productService.$inject = ['$http', 'httpResponseService', 'titleService'];
+    function productService($http, httpResponseService, titleService) {
         var service = {
+            getTitle: titleService.getMainTitle,
             getData: getData,
             exportExcel: exportExcel
         };

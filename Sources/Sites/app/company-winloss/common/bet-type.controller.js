@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('BetTypeController', BetTypeController);
 
-    BetTypeController.$inject = ['$injector', '$scope', '$element', 'companyWinlossService', 'fanexGridService'];
-    function BetTypeController($injector, $scope, $element, companyWinlossService, fanexGridService) {
+    BetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService'];
+    function BetTypeController($scope, $element, companyWinlossService, fanexGridService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
