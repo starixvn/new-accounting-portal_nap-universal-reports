@@ -15,14 +15,16 @@
 
         pane.data.isMajor = (pane.data.betTypeNameMajorMinor == "Soccer-Major Bet Types") ? true : false;
 
-        function getTitleWhenMajorMinor() {
-            return pane.data.productName + ' MAJOR/MINOR BET TYPES';
+        function getTitle() {
+            var majorMinor = (pane.data.isMajor) ? "-MAJOR" : "-MINOR";
+
+            return pane.data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
         }
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
                 createLinksForMajorMinor(data);
-                pane.getTitle = getTitleWhenMajorMinor;
+                pane.getTitle = getTitle;
                 renderGrid(majorMinorGridElement, data);
                 pane.compileLinks();
             });

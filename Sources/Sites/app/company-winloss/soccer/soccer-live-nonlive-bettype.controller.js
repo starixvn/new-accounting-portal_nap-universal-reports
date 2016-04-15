@@ -16,7 +16,10 @@
         pane.data.isMajor = (pane.data.betTypeNameMajorMinor == "Soccer-Major Bet Types") ? true : false;
 
         function getTitleWhenMajorMinor() {
-            return pane.data.productName + ' MAJOR/MINOR BET TYPES';
+            var majorMinor = pane.data.isMajor ? "-MAJOR" : "-MINOR";
+            var liveNonLive = pane.data.isLive ? '"LIVE"' : '"NON-LIVE"';
+
+            return pane.data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
         }
 
         function generate() {

@@ -17,7 +17,9 @@
         pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
 
         function getTitleWhenMajorMinor() {
-            return pane.data.productName + ' MAJOR/MINOR BET TYPES';
+            var liveNonLive = pane.data.isLive ? "LIVE" : "NON-LIVE";
+
+            return pane.data.productName + ' ' + liveNonLive;
         }
 
         function generate() {

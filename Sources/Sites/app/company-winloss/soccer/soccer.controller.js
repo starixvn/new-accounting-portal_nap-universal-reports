@@ -18,12 +18,16 @@
 
 		pane.data.isLive = 2; // live and nonlive
 		
-		function getTitleWhenMajorMinor() {
-		    return pane.data.productName + ' MAJOR/MINOR BET TYPES';
+		function getTitleWhenMajorMinor(isLast) {
+		    return isLast ?
+                pane.data.productName + ' MAJOR/MINOR BET TYPES' :
+                pane.data.productName;
 		}
 
-	    function getTitleWhenLiveNonLive() {
-	        return pane.data.productName + ' LIVE/NON-LIVE';
+	    function getTitleWhenLiveNonLive(isLast) {
+	        return isLast ?
+                pane.data.productName + ' LIVE/NON-LIVE' :
+                pane.data.productName;
 	    }
 
 		function generate() {
