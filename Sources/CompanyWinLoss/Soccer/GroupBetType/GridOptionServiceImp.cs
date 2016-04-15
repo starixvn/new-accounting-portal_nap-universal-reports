@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
-    public class BetTypesGridOptionServiceImp : BetTypesGridOptionService
+    public class GridOptionServiceImp : GridOptionService
     {
         public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
         {
@@ -82,12 +82,17 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
         private List<GridDataRow> BuildFooter(WinLossModel winLoss)
         {
-            return new List<GridDataRow>
+            var footer = new List<GridDataRow>
             {
                 BuildDataRow(winLoss.MainTotal, HAlignment.Right),
                 BuildDataRow(winLoss.OtherTotal, HAlignment.Right),
                 BuildSportDataRow(winLoss.GrandTotal, HAlignment.Right)
             };
+
+            var allRMRows = winLoss.RM.Select(r => BuildDataRow(r, HAlignment.Right));
+            footer.AddRange(allRMRows);
+
+            return footer;
         }
 
         private GridDataRow BuildSportDataRow(SiteWinLossSummary item, HAlignment alignment)

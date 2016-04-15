@@ -47,7 +47,7 @@ namespace UniversalReports.CompanyWinLoss.Tests
             Instance.Register<RacingCode.MatchDetail.Service, RacingCode.MatchDetail.ServiceImp>(Lifestyle.Transient);
             Instance.Register<RacingCode.MatchDetail.GridOptionService, RacingCode.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
             Instance.Register<GroupBetTypes.WinLossService, GroupBetTypes.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<GroupBetTypes.BetTypesGridOptionService, GroupBetTypes.BetTypesGridOptionServiceImp>(Lifestyle.Transient);
+            Instance.Register<GroupBetTypes.GridOptionService, GroupBetTypes.GridOptionServiceImp>(Lifestyle.Transient);
 
             Instance.Verify();
         }

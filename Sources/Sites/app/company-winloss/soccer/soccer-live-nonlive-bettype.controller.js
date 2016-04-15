@@ -17,7 +17,7 @@
 
         function getTitleWhenMajorMinor() {
             var majorMinor = pane.data.isMajor ? "-MAJOR" : "-MINOR";
-            var liveNonLive = pane.data.isLive ? '"LIVE"' : '"NON-LIVE"';
+            var liveNonLive = (pane.data.isLive == 1) ? '"LIVE"' : '"NON-LIVE"';
 
             return pane.data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
         }

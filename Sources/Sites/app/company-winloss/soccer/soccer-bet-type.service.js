@@ -21,8 +21,18 @@
                 isLive: data.isLive,
                 isMajor: data.isMajor
             };
+
+            var url = "api/company-win-loss/soccer/bettype";
+            if (data.isMajor && data.isLive == 2)
+            {
+                url = "api/company-win-loss/soccer/sum-bettype";
+            }
+            else if (data.isMajor && data.isLive == 0)
+            {
+                url = "api/company-win-loss/soccer/group-bettype";
+            }
             
-            return $http.post('api/company-win-loss/soccer/group-bettype', httpData)
+            return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -36,7 +46,7 @@
                 isLive: data.isLive,
                 isMajor: data.isMajor
             };
-            return $http.post('api/company-win-loss/soccer/group-bettype/excel', httpData, { responseType: "arraybuffer" })
+            return $http.post('api/company-win-loss/soccer/sum-bettype/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

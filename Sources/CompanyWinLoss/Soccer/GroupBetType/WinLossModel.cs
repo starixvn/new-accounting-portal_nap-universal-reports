@@ -12,5 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
         public WinLoss MainTotal { get; set; }
 
         public WinLoss OtherTotal { get; set; }
+
+        public List<WinLoss> RM { get; set; }
     }
 }

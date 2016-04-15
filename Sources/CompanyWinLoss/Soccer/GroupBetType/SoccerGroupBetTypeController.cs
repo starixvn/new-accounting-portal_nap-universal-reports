@@ -10,9 +10,9 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
     public class SoccerGroupBetTypeController : ApiController
     {
         private readonly WinLossService winlossService;
-        private readonly BetTypesGridOptionService gridOptionService;
+        private readonly GridOptionService gridOptionService;
 
-        public SoccerGroupBetTypeController(WinLossService winlossService, BetTypesGridOptionService gridOptionService)
+        public SoccerGroupBetTypeController(WinLossService winlossService, GridOptionService gridOptionService)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

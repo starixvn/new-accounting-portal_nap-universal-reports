@@ -4,6 +4,7 @@ using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Soccer.BetType;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
@@ -28,14 +29,16 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             var betTypeWinLosses = CalculateSiteWinLossSummary(rawWinLosses);
             var mainTotal = CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
             var otherTotal = CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
+            var allRMData = calculationService.CalculateRM(rawWinLosses);
 
             return new WinLossModel
             {
                 SiteWinLossSummaries = betTypeWinLosses,
                 MainTotal = mainTotal,
                 OtherTotal = otherTotal,
-                GrandTotal = grandTotal
+                GrandTotal = grandTotal,
+                RM = allRMData.ToList()
             };
         }
 
@@ -52,10 +55,10 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
         private List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
         {
-            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup1), r.Total.Id));
-            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup2), r.Total.Id));
-            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.BetTypeGroup3), r.Total.Id));
-            var winLossesGroup4 = winLosses.Where(r => !SoccerBetTypeGroupConstants.BetTypeGroup123().Contains(r.Total.Id));
+            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id));
+            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id));
+            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
+            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
 
             List<WinLossSummaryByBetTypeGroup> winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);
@@ -123,7 +126,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
         public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.MainBetTypes), r.GroupId));
+            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
             var total = calculationService.CalculateSumWinLoss(sumTitle, mainRawWinLosses);
 
             return total;
@@ -131,7 +134,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
         public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(SoccerBetTypeGroupConstants.MainBetTypes), r.GroupId));
+            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
             var total = calculationService.CalculateSumWinLoss(sumTitle, otherRawWinLosses);
 
             return total;

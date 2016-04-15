@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BetType
 {
-    public class SoccerBetTypeGroupConstants
+    public class GroupConstants
     {
         public enum BetTypeGroup1
         {

@@ -17,13 +17,12 @@
         pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
 
         function getTitleWhenMajorMinor() {
-            var liveNonLive = pane.data.isLive ? "LIVE" : "NON-LIVE";
+            var liveNonLive = (pane.data.isLive == 1) ? "LIVE" : "NON-LIVE";
 
             return pane.data.productName + ' ' + liveNonLive;
         }
 
         function generate() {
-            pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
             pane.service.getData(pane.data).then(function (data) {
                 createLinksForMajorMinor(data);
                 pane.getTitle = getTitleWhenMajorMinor;
