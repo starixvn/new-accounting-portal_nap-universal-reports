@@ -66,7 +66,9 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             return winLossesByGroupList;
         }
 
-        private List<WinLossSummaryByBetTypeGroup> CreateWinLossByGroupList(List<WinLossSummaryByBetTypeGroup> winLossesByGroupList, IEnumerable<SiteWinLossSummary> winLossesGroup)
+        private List<WinLossSummaryByBetTypeGroup> CreateWinLossByGroupList(
+            List<WinLossSummaryByBetTypeGroup> winLossesByGroupList,
+            IEnumerable<SiteWinLossSummary> winLossesGroup)
         {
             if (winLossesGroup.Count() > 0)
             {
@@ -134,6 +136,5 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
             return total;
         }
-
     }
 }
