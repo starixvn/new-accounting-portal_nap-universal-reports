@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             this.columnBuilder = columnBuilder;
         }
 
-        public GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
+        public GridOptions BuildFullGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
         {
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = FullHeaderBuilder.BuildColumns(mainColumnText, mainColumnWidth);
@@ -47,7 +47,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             return gridOptions;
         }
 
-        public GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
+        public GridOptions BuildVirtualGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
         {
             RemoveBodyAndFooterColumn(gridOptions, AfterExtraPTIndex, ExtraPTIndex);
             gridOptions.CustomizeHeader = true;
@@ -57,7 +57,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             return gridOptions;
         }
 
-        public GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
+        public GridOptions BuildExtraPTGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.CustomizeHeader = true;
@@ -67,7 +67,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             return gridOptions;
         }
 
-        public GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 150)
+        public GridOptions BuildBasicGridOptions(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.CustomizeHeader = false;

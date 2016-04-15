@@ -1,12 +1,13 @@
 ﻿using Fanex.Data.Configuration;
 using NUnit.Framework;
 
-namespace UniversalReports.CompanyWinLoss.Tests.Common
+namespace UniversalReports.CompanyWinLoss.Tests
 {
-    public abstract class BaseSetupServiceTests
+    [SetUpFixture]
+    public class CompanyWinLossSetUpFixture
     {
         [OneTimeSetUp]
-        public void SetUp()
+        public void RunBeforeAnyTests()
         {
             DbSettingProviderManager.Current.Start();
         }

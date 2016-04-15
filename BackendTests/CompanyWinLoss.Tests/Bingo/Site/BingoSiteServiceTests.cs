@@ -7,16 +7,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bingo.Site
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class BingoSiteServiceTests : BaseSiteServiceTests
+    public class BingoSiteServiceTests : SiteServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {
-            var balanceUpRange = GetBalanceUpRange();
-
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
                 Site = "Deposit"
             };
         }

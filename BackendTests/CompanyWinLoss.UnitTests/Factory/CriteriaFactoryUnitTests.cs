@@ -39,11 +39,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             return new DateTime(2010, 1, day);
         }
 
-        private bool AreCriteriaEqual(Criteria first, Criteria second)
+        private bool AreCriteriaEqual(Criteria expected, Criteria model)
         {
-            return first.StartDate == second.StartDate
-                && first.EndDate == second.EndDate
-                && first.SportType == second.SportType;
+            return expected.StartDate == model.StartDate
+                && expected.EndDate == model.EndDate
+                && expected.SportType == model.SportType;
         }
     }
 }

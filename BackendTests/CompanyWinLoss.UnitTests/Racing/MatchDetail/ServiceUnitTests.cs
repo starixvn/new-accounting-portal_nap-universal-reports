@@ -87,25 +87,25 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Racing.MatchDetail
             return WinLossFactory.CreateWinLoss(0, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200);
         }
 
-        private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
+        private bool AreTwoMatchDetailWinLossEqual(WinLossModel expected, WinLossModel model)
         {
-            if (first.Leagues.Count != second.Leagues.Count)
+            if (expected.Leagues.Count != model.Leagues.Count)
             {
                 return false;
             }
 
-            if (!Comparison.AreEqual(first.Total, second.Total))
+            if (!Comparison.AreEqual(expected.Total, model.Total))
             {
                 return false;
             }
 
-            return !first.Leagues.Where((t, i) => !AreTwoLeagueWinLossEqual(t, second.Leagues[i])).Any();
+            return !expected.Leagues.Where((t, i) => !AreTwoLeagueWinLossEqual(t, model.Leagues[i])).Any();
         }
 
-        private bool AreTwoLeagueWinLossEqual(LeagueWinLoss first, LeagueWinLoss second)
+        private bool AreTwoLeagueWinLossEqual(LeagueWinLoss expected, LeagueWinLoss model)
         {
-            return first.Name == second.Name
-                && Comparison.AreEqual(first.Races, second.Races);
+            return expected.Name == model.Name
+                && Comparison.AreEqual(expected.Races, model.Races);
         }
     }
 }

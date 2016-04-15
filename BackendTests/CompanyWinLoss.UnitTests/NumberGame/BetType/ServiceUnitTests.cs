@@ -94,12 +94,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             };
         }
 
-        private bool AreTwoNumberGameBetTypeWinLossSummaryEqual(WinLossModel first, WinLossModel second)
+        private bool AreTwoNumberGameBetTypeWinLossSummaryEqual(WinLossModel expected, WinLossModel model)
         {
-            return Comparison.AreEqual(first.LiveGrandTotal, second.LiveGrandTotal)
-                && Comparison.AreEqual(first.NonLiveGrandTotal, second.NonLiveGrandTotal)
-                && Comparison.AreEqual(first.Live, second.Live)
-                && Comparison.AreEqual(first.NonLive, second.NonLive);
+            return Comparison.AreEqual(expected.LiveGrandTotal, model.LiveGrandTotal)
+                && Comparison.AreEqual(expected.NonLiveGrandTotal, model.NonLiveGrandTotal)
+                && Comparison.AreEqual(expected.Live, model.Live)
+                && Comparison.AreEqual(expected.NonLive, model.NonLive);
         }
     }
 }

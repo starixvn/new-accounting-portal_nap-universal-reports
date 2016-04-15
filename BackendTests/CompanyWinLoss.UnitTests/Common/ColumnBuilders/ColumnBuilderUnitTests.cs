@@ -109,7 +109,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.ColumnBuilders
         }
 
         [Test]
-        public void Remove_RowWithMergedColumn_IndexInSecondMergedRange_MergeColNumberIsChanged()
+        public void Remove_RowWithMergedColumn_IndexInmodelMergedRange_MergeColNumberIsChanged()
         {
             // Arrange
             var columns = CreateRowWithMergedColumn();

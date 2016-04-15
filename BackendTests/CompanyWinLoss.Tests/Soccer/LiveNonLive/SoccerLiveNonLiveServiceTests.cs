@@ -7,15 +7,14 @@
 
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class SoccerLiveNonLiveServiceTests : BaseBasicWinLossServiceTests
+    public class SoccerLiveNonLiveServiceTests : BasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {
-            var balanceUpRange = GetBalanceUpRange();
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1)
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1)
             };
         }
     }

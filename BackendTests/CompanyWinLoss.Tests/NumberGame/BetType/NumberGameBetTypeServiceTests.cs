@@ -1,55 +1,31 @@
-﻿using Fanex.Data.Repository;
-using NUnit.Framework;
-using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.NumberGame.BetType;
-using UniversalReports.CompanyWinLoss.Tests.Common;
-using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class NumberGameBetTypeServiceTests : BaseServiceTests
+    public class NumberGameBetTypeServiceTests
     {
         [Test]
         public void Query()
         {
             // Arrange
             var criteria = CreateCriteria();
-            var service = CreateService();
+            var service = SimpleInjectorContainer.Instance.GetInstance<Service>();
 
             // Act
             service.Query(criteria);
         }
 
-        private ServiceImp CreateService()
+        protected WinLossCriteria CreateCriteria()
         {
-            var rawWinLossService = CreateNumberGameRawService();
-            var commonCalculationService = new CommonServices.CalculationServiceImp();
-            var calculationService = new CommonServices.CalculationServiceImp();
-            return new ServiceImp(rawWinLossService, calculationService);
-        }
-
-        protected override WinLossCriteria CreateCriteria()
-        {
-            var balanceUpRange = GetBalanceUpRange();
-
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1)
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1)
             };
-        }
-
-        protected virtual CommonServices.RawWinLossService CreateNumberGameRawService()
-        {
-            var dynamicRepository = new DynamicRepository();
-            var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
-            var balanceUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
-
-            var balanceUpSummationService = new BalanceUpSummationServiceImp();
-            return new CommonServices.RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
         }
     }
 }

@@ -7,16 +7,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.Racing.SportType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class RacingSportTypeServiceTests : BaseBasicWinLossServiceTests
+    public class RacingSportTypeServiceTests : BasicWinLossServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {
-            var balanceUpRange = GetBalanceUpRange();
-
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1)
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1)
             };
         }
     }

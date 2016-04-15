@@ -10,7 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
             "SP2100:CodeLineMustNotBeLongerThan",
             Justification = "Reviewed. Suppression is OK here.")]
-        public static List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 150)
+        public static List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 200)
         {
             return new List<HeaderColumns>
             {
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
             };
         }
 
-        public static List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 150)
+        public static List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 200)
         {
             var columns = new List<HeaderColumns>
             {

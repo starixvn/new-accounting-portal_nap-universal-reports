@@ -15,13 +15,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
     public class BasicWinLossServiceUnitTest
     {
         [Test]
-        public void Query_ReturnRightBetTypeWinLossSummary()
+        public void Query_ReturnRightBasicWinLossSummary()
         {
             // Arrange   
-            var expectedBetTypeWinLossSummary = CreateExpectedBetTypeWinLossSummary();
+            var expected = CreateExpectedBasicWinLossSummary();
+            var fakeData = CreateFakeRawData();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            var fakeData = CreateFakeRawData();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
@@ -29,11 +29,11 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreEqual(expectedBetTypeWinLossSummary, result);
+            var equal = AreEqual(expected, result);
             Assert.True(equal);
         }
 
-        private BasicWinLossModel CreateExpectedBetTypeWinLossSummary()
+        private BasicWinLossModel CreateExpectedBasicWinLossSummary()
         {
             var expectedSummaries = CreateExpectedSummaries();
             var expectedGrandTotal = CreateExpectedGrandTotal();
@@ -96,14 +96,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             {
                 Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 100, 100, 1800, 2000, 1000m / 1800, 1200m / 2000),
                 Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 100, 100, 1980, 2200, 1100m / 1980, 1320m / 2200),
-                Total = WinLossFactory.CreateWinLoss(1, "All Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200)
+                Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200)
             };
         }
 
-        private bool AreEqual(BasicWinLossModel first, BasicWinLossModel second)
+        private bool AreEqual(BasicWinLossModel expected, BasicWinLossModel model)
         {
-            return Comparison.AreEqual(first.SiteWinLossSummaries, second.SiteWinLossSummaries)
-                && Comparison.AreEqual(first.GrandTotal, second.GrandTotal);
+            return Comparison.AreEqual(expected.SiteWinLossSummaries, model.SiteWinLossSummaries)
+                && Comparison.AreEqual(expected.GrandTotal, model.GrandTotal)
+                && Comparison.AreEqual(expected.RM, model.RM);
         }
     }
 }

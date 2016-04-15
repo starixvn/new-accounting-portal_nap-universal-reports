@@ -7,16 +7,14 @@ namespace UniversalReports.CompanyWinLoss.Tests.Keno.Site
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class KenoSiteServiceTests : BaseSiteServiceTests
+    public class KenoSiteServiceTests : SiteServiceTests
     {
         protected override WinLossCriteria CreateCriteria()
         {
-            var balanceUpRange = GetBalanceUpRange();
-
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
                 BetType = 1501,
                 Site = "Credit"
             };

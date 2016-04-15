@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreTwoMatchDetailWinLossEqual(expectedMatchDetailWinLoss, result);
+            var equal = AreEqual(expectedMatchDetailWinLoss, result);
             Assert.True(equal);
         }
 
@@ -87,25 +87,25 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.MatchDetail
             return WinLossFactory.CreateWinLoss(0, string.Empty, 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200);
         }
 
-        private bool AreTwoMatchDetailWinLossEqual(WinLossModel first, WinLossModel second)
+        private bool AreEqual(WinLossModel expected, WinLossModel model)
         {
-            if (first.Leagues.Count != second.Leagues.Count)
+            if (expected.Leagues.Count != model.Leagues.Count)
             {
                 return false;
             }
 
-            if (!Comparison.AreEqual(first.Total, second.Total))
+            if (!Comparison.AreEqual(expected.Total, model.Total))
             {
                 return false;
             }
 
-            return !first.Leagues.Where((t, i) => !AreEqual(t, second.Leagues[i])).Any();
+            return !expected.Leagues.Where((t, i) => !AreEqual(t, model.Leagues[i])).Any();
         }
 
-        private bool AreEqual(LeagueWinLoss first, LeagueWinLoss second)
+        private bool AreEqual(LeagueWinLoss expected, LeagueWinLoss model)
         {
-            return first.Name == second.Name
-                && Comparison.AreEqual(first.Matches, second.Matches);
+            return expected.Name == model.Name
+                && Comparison.AreEqual(expected.Matches, model.Matches);
         }
     }
 }

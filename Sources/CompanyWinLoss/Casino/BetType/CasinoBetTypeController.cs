@@ -14,7 +14,10 @@ namespace UniversalReports.CompanyWinLoss.Casino.BetType
         private readonly BasicGridOptionService gridOptionService;
         private readonly GridOptionBuilder gridOptionBuilder;
 
-        public CasinoBetTypeController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
+        public CasinoBetTypeController(
+            BasicWinLossService winlossService,
+            BasicGridOptionService gridOptionService,
+            GridOptionBuilder gridOptionBuilder)
         {
             this.winlossService = winlossService;
             this.gridOptionService = gridOptionService;

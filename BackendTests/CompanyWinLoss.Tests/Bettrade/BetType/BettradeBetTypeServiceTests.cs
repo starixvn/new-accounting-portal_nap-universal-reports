@@ -2,41 +2,31 @@
 using UniversalReports.CompanyWinLoss.Bettrade.BetType;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Tests.Common;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
 {
     [TestFixture]
     [Category("CompanyWinLossIntegrationTests")]
-    public class BettradeBetTypeServiceTests : BaseServiceTests
+    public class BettradeBetTypeServiceTests 
     {
         [Test]
         public void Query()
         {
             // Arrange
             var criteria = CreateCriteria();
-            var service = CreateService();
+            var service = SimpleInjectorContainer.Instance.GetInstance<BasicWinLossService>();
 
             // Act
             service.Query(criteria);
         }
 
-        private BasicWinLossServiceImp CreateService()
+        protected WinLossCriteria CreateCriteria()
         {
-            var rawWinLossService = CreateRawWinLossService();
-            var calculationService = new CalculationServiceImp();
-            return new BasicWinLossServiceImp(rawWinLossService, calculationService);
-        }
-
-        protected override WinLossCriteria CreateCriteria()
-        {
-            var balanceUpRange = GetBalanceUpRange();
-
             return new Criteria
             {
-                StartDate = balanceUpRange.BalanceUpDate.AddDays(-1),
-                EndDate = balanceUpRange.MoveBetsDate.AddDays(1),
+                StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
             };
         }
     }
