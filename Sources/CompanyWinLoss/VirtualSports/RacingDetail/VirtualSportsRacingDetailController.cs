@@ -1,50 +1,30 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
 {
     [RoutePrefix("api/company-win-loss/virtual-sports/racing-match-detail")]
-    public class VirtualSportsRacingDetailController : ApiController
+    public class VirtualSportsRacingDetailController : MatchDetailByCodeController
     {
-        private readonly Service winlossService;
-
-        private readonly GridOptionService gridOptionService;
-
-        public VirtualSportsRacingDetailController(Service winlossService, GridOptionService gridOptionService)
+        public VirtualSportsRacingDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
+            : base(service, builder, decorator)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
         }
 
         [Route("")]
-        public IHttpActionResult RacingDetail(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-
-                return Json(gridOptions);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Excel(criteria, queryModel.Title);
         }
     }
 }

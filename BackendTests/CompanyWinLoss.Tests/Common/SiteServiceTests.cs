@@ -13,7 +13,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Common
         {
             // Arrange
             var criteria = CreateCriteria();
-            var service = SimpleInjectorContainer.Instance.GetInstance<SiteService>();
+            var service = SimpleInjectorContainer.Instance.GetInstance<WinLossService>();
 
             // Act
             service.Query(criteria);

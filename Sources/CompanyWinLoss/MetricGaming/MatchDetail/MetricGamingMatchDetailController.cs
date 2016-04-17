@@ -1,61 +1,30 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
-using UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
+using UniversalReports.CompanyWinLoss.Common.MatchDetail;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
 {
     [RoutePrefix("api/company-win-loss/metric-gaming-superlive/match-detail")]
-    public class MetricGamingMatchDetailController : ApiController
+    public class MetricGamingMatchDetailController : MatchDetailController
     {
-        private readonly MatchDetailWinLossService winlossService;
-
-        private readonly MatchDetailGridOptionService gridOptionService;
-
-        private readonly GridOptionBuilder gridOptionBuilder;
-
-        public MetricGamingMatchDetailController(
-            MatchDetailWinLossService winlossService,
-            MatchDetailGridOptionService gridOptionService,
-            GridOptionBuilder gridOptionBuilder)
+        public MetricGamingMatchDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorFull decorator)
+            : base(service, builder, decorator)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
-            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
-        public IHttpActionResult MatchDetail(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-                gridOptionBuilder.BuildFullMatchDetailOptions(gridOptions);
-
-                return Json(gridOptions);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-                gridOptionBuilder.BuildFullMatchDetailOptions(gridOptions);
-
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Excel(criteria, queryModel.Title);
         }
     }
 }

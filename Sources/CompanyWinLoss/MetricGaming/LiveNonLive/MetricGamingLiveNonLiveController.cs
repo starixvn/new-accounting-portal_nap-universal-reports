@@ -10,33 +10,21 @@ using UniversalReports.MVC.Results;
 namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
 {
     [RoutePrefix("api/company-win-loss/metric-gaming-superlive/live-none-live")]
-    public class MetricGamingLiveNonLiveController : ApiController
+    public class MetricGamingLiveNonLiveController : BasicWinLossController
     {
-        private readonly BasicWinLossService winlossService;
-        private readonly BasicGridOptionService gridOptionService;
-        private readonly GridOptionBuilder gridOptionBuilder;
-
-        public MetricGamingLiveNonLiveController(BasicWinLossService winlossService, BasicGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
+        public MetricGamingLiveNonLiveController(
+            BasicWinLossService service,
+            BasicGridOptionBuilder builder,
+            GridOptionColumnDecoratorVirtual decorator)
+        : base(service, builder, decorator)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
-            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
-        public IHttpActionResult LiveNonLive(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, "Live/Non-Live");
-
-                return Json(gridOptions);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria, "Live/Non-Live");
         }
 
         [Route("excel")]
@@ -45,14 +33,10 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
             if (ModelState.IsValid)
             {
                 var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
-                var betTypeWinlosses = winlossService.Query(betTypeCriteria);
-                var betTypeGridOptions = gridOptionService.FromWinLossModel(betTypeWinlosses, queryModel.BetTypeTitle);
-                betTypeGridOptions = gridOptionBuilder.BuildVirtualGridOptions(betTypeGridOptions, "Bet Type");
+                var betTypeGridOptions = GetGridOptions(betTypeCriteria, "Bet Type", queryModel.BetTypeTitle);
 
                 var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var liveNonLiveWinlosses = winlossService.Query(liveNonLiveCriteria);
-                var liveNonLiveGridOptions = gridOptionService.FromWinLossModel(liveNonLiveWinlosses, queryModel.LiveNonLiveTitle);
-                betTypeGridOptions = gridOptionBuilder.BuildVirtualGridOptions(betTypeGridOptions, "Live/Non-Live");
+                var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
 
                 return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
             }

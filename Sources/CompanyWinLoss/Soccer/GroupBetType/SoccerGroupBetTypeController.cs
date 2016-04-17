@@ -9,23 +9,23 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
     [RoutePrefix("api/company-win-loss/soccer/group-bettype")]
     public class SoccerGroupBetTypeController : ApiController
     {
-        private readonly WinLossService winlossService;
-        private readonly GridOptionService gridOptionService;
+        private readonly WinLossService service;
+        private readonly GridOptionBuilder builder;
 
-        public SoccerGroupBetTypeController(WinLossService winlossService, GridOptionService gridOptionService)
+        public SoccerGroupBetTypeController(WinLossService service, GridOptionBuilder builder)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
+            this.service = service;
+            this.builder = builder;
         }
 
         [Route("")]
-        public IHttpActionResult SportType(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
+                var winlosses = service.Query(criteria);
+                var gridOptions = builder.Build(winlosses, string.Empty);
 
                 return Json(gridOptions);
             }
@@ -39,8 +39,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             if (ModelState.IsValid)
             {
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
+                var winlosses = service.Query(criteria);
+                var gridOptions = builder.Build(winlosses, queryModel.Title);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

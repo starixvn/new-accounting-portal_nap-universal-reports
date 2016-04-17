@@ -6,11 +6,10 @@ using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using ColumnBuilders = UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using GroupBetTypes = UniversalReports.CompanyWinLoss.Soccer.GroupBetType;
-using MatchDetailServices = UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
+using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using NumberGameCode = UniversalReports.CompanyWinLoss.NumberGame;
-using RacingCode = UniversalReports.CompanyWinLoss.Racing;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
-using VirtualSportsCode = UniversalReports.CompanyWinLoss.VirtualSports;
 
 namespace UniversalReports.CompanyWinLoss.Tests
 {
@@ -26,28 +25,29 @@ namespace UniversalReports.CompanyWinLoss.Tests
             Instance.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             Instance.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             Instance.Register<CommonServices.RemotingRefService, RemotingRefServiceFake>(Lifestyle.Transient);
-            Instance.Register<SiteWinLoss.SiteService, SiteWinLoss.SiteServiceImp>(Lifestyle.Transient);
-            Instance.Register<SiteWinLoss.SiteGridOptionService, SiteWinLoss.SiteGridOptionServiceImp>(Lifestyle.Transient);
+            Instance.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
+            Instance.Register<SiteWinLoss.GridOptionBuilder, SiteWinLoss.GridOptionBuilderImp>(Lifestyle.Transient);
             Instance.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<BasicWinLoss.BasicGridOptionService, BasicWinLoss.BasicGridOptionServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailServices.MatchDetailBalanceUpSummationService, MatchDetailServices.MatchDetailBalanceUpSummationServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailServices.MatchDetailCalculationService, MatchDetailServices.MatchDetailCalculationServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailServices.MatchDetailRawWinLossService, MatchDetailServices.MatchDetailRawWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailServices.MatchDetailWinLossService, MatchDetailServices.MatchDetailWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailServices.MatchDetailGridOptionService, MatchDetailServices.MatchDetailGridOptionServiceImp>(Lifestyle.Transient);
-            Instance.Register<ColumnBuilders.GridOptionBuilder, ColumnBuilders.GridOptionBuilderImp>(Lifestyle.Transient);
-            Instance.Register<ColumnBuilders.ColumnBuilder, ColumnBuilders.ColumnBuilderImp>(Lifestyle.Transient);
+            Instance.Register<BasicWinLoss.BasicGridOptionBuilder, BasicWinLoss.BasicGridOptionBuilderImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetail.BalanceUpSummationService, MatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetail.GridOptionBuilder, MatchDetail.GridOptionBuilderImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetailByCode.GridOptionBuilder, MatchDetailByCode.GridOptionBuilderImp>(Lifestyle.Transient);
+            Instance.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.GridOptionColumnDecoratorBasic, ColumnBuilders.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.GridOptionColumnDecoratorFull, ColumnBuilders.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.GridOptionColumnDecoratorVirtual, ColumnBuilders.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.GridOptionColumnDecoratorExtraPT, ColumnBuilders.GridOptionColumnDecoratorExtraPT>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.MatchGridOptionColumnDecoratorBasic, ColumnBuilders.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.MatchGridOptionColumnDecoratorFull, ColumnBuilders.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            Instance.Register<ColumnBuilders.GridOptionColumnRemoval, ColumnBuilders.GridOptionColumnRemovalImp>(Lifestyle.Transient);
             Instance.Register<NumberGameCode.BetType.Service, NumberGameCode.BetType.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<NumberGameCode.MatchDetail.Service, NumberGameCode.MatchDetail.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<NumberGameCode.MatchDetail.GridOptionService, NumberGameCode.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
             Instance.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<CompanyWinLoss.Products.GridOptionService, CompanyWinLoss.Products.GridOptionServiceImp>(Lifestyle.Transient);
-            Instance.Register<VirtualSportsCode.RacingDetail.Service, VirtualSportsCode.RacingDetail.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<VirtualSportsCode.RacingDetail.GridOptionService, VirtualSportsCode.RacingDetail.GridOptionServiceImp>(Lifestyle.Transient);
-            Instance.Register<RacingCode.MatchDetail.Service, RacingCode.MatchDetail.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<RacingCode.MatchDetail.GridOptionService, RacingCode.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
+            Instance.Register<CompanyWinLoss.Products.GridOptionBuilder, CompanyWinLoss.Products.GridOptionBuilderImp>(Lifestyle.Transient);
             Instance.Register<GroupBetTypes.WinLossService, GroupBetTypes.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<GroupBetTypes.GridOptionService, GroupBetTypes.GridOptionServiceImp>(Lifestyle.Transient);
+            Instance.Register<GroupBetTypes.GridOptionBuilder, GroupBetTypes.GridOptionBuilderImp>(Lifestyle.Transient);
 
             Instance.Verify();
         }

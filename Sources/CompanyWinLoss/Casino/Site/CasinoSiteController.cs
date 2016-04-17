@@ -1,56 +1,30 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Casino.Site
 {
     [RoutePrefix("api/company-win-loss/casino/site")]
-    public class CasinoSiteController : ApiController
+    public class CasinoSiteController : SiteWinLossController
     {
-        private readonly SiteService winlossService;
-        private readonly SiteGridOptionService gridOptionService;
-        private readonly GridOptionBuilder gridOptionBuilder;
-
-        public CasinoSiteController(SiteService winlossService, SiteGridOptionService gridOptionService, GridOptionBuilder gridOptionBuilder)
+        public CasinoSiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecoratorBasic decorator)
+        : base(service, builder, decorator)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
-            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
-        public IHttpActionResult Site(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Site);
-                gridOptions = gridOptionBuilder.BuildBasicGridOptions(gridOptions, queryModel.Site);
-
-                return Json(gridOptions);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria, queryModel.Site);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-                gridOptions = gridOptionBuilder.BuildBasicGridOptions(gridOptions, queryModel.Site);
-
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Excel(criteria, queryModel.Site, queryModel.Title);
         }
     }
 }

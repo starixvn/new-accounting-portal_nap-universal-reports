@@ -6,13 +6,11 @@ using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using ColumnBuilders = UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
-using MatchDetailServices = UniversalReports.CompanyWinLoss.Common.MatchDetailServices;
+using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
-using Racing = UniversalReports.CompanyWinLoss.Racing;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
-using VirtualSports = UniversalReports.CompanyWinLoss.VirtualSports;
 
 namespace UniversalReports.Sites
 {
@@ -39,30 +37,24 @@ namespace UniversalReports.Sites
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
-            container.Register<SiteWinLoss.SiteService, SiteWinLoss.SiteServiceImp>(Lifestyle.Transient);
-            container.Register<SiteWinLoss.SiteGridOptionService, SiteWinLoss.SiteGridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.GridOptionBuilder, SiteWinLoss.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<BasicWinLoss.BasicGridOptionService, BasicWinLoss.BasicGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailServices.MatchDetailBalanceUpSummationService, MatchDetailServices.MatchDetailBalanceUpSummationServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailServices.MatchDetailCalculationService, MatchDetailServices.MatchDetailCalculationServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailServices.MatchDetailRawWinLossService, MatchDetailServices.MatchDetailRawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailServices.MatchDetailWinLossService, MatchDetailServices.MatchDetailWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailServices.MatchDetailGridOptionService, MatchDetailServices.MatchDetailGridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<ColumnBuilders.GridOptionBuilder, ColumnBuilders.GridOptionBuilderImp>(Lifestyle.Transient);
-            container.Register<ColumnBuilders.ColumnBuilder, ColumnBuilders.ColumnBuilderImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicGridOptionBuilder, BasicWinLoss.BasicGridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.BalanceUpSummationService, MatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.GridOptionBuilder, MatchDetail.GridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetailByCode.GridOptionBuilder, MatchDetailByCode.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<NumberGame.BetType.Service, NumberGame.BetType.ServiceImp>(Lifestyle.Transient);
-            container.Register<NumberGame.MatchDetail.Service, NumberGame.MatchDetail.ServiceImp>(Lifestyle.Transient);
-            container.Register<NumberGame.MatchDetail.GridOptionService, NumberGame.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Products.GridOptionService, CompanyWinLoss.Products.GridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.RacingDetail.Service, VirtualSports.RacingDetail.ServiceImp>(Lifestyle.Transient);
-            container.Register<VirtualSports.RacingDetail.GridOptionService, VirtualSports.RacingDetail.GridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<Racing.MatchDetail.Service, Racing.MatchDetail.ServiceImp>(Lifestyle.Transient);
-            container.Register<Racing.MatchDetail.GridOptionService, Racing.MatchDetail.GridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Products.GridOptionBuilder, CompanyWinLoss.Products.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Soccer.GroupBetType.WinLossService, CompanyWinLoss.Soccer.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Soccer.SumBetType.WinLossService, CompanyWinLoss.Soccer.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.GroupBetType.GridOptionService, CompanyWinLoss.Soccer.GroupBetType.GridOptionServiceImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.SumBetType.GridOptionService, CompanyWinLoss.Soccer.SumBetType.GridOptionServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Soccer.GroupBetType.GridOptionBuilder, CompanyWinLoss.Soccer.GroupBetType.GridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Soccer.SumBetType.GridOptionBuilder, CompanyWinLoss.Soccer.SumBetType.GridOptionBuilderImp>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

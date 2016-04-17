@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using UniversalReports.CompanyWinLoss.Racing.MatchDetail;
 
 namespace UniversalReports.CompanyWinLoss.Tests.Racing.MatchDetail
@@ -13,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Racing.MatchDetail
         {
             // Arrange
             var criteria = CreateCriteria();
-            var service = SimpleInjectorContainer.Instance.GetInstance<Service>();
+            var service = SimpleInjectorContainer.Instance.GetInstance<WinLossService>();
 
             // Act
             service.Query(criteria);

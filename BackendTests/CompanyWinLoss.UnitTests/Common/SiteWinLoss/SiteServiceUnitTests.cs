@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.SiteWinLoss
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act 
-            var service = new SiteServiceImp(rawWinLossService, calculationService);
+            var service = new WinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert

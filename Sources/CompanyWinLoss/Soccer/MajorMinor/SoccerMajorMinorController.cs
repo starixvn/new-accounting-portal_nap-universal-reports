@@ -1,59 +1,33 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
 {
     [RoutePrefix("api/company-win-loss/soccer/major-minor")]
-    public class SoccerMajorMinorController : ApiController
+    public class SoccerMajorMinorController : BasicWinLossController
     {
-        private readonly BasicWinLossService winlossService;
-        private readonly BasicGridOptionService gridOptionService;
-        private readonly GridOptionBuilder gridOptionBuilder;
-
         public SoccerMajorMinorController(
-            BasicWinLossService winlossService,
-            BasicGridOptionService gridOptionService,
-            GridOptionBuilder gridOptionBuilder)
+            BasicWinLossService service,
+            BasicGridOptionBuilder builder,
+            GridOptionColumnDecoratorVirtual decorator)
+        : base(service, builder, decorator)
         {
-            this.winlossService = winlossService;
-            this.gridOptionService = gridOptionService;
-            this.gridOptionBuilder = gridOptionBuilder;
         }
 
         [Route("")]
-        public IHttpActionResult SportType(QueryModel queryModel)
+        public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, string.Empty);
-                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, "Major/Minor", 170);
-
-                return Json(gridOptions);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria, "Major/Minor");
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = winlossService.Query(criteria);
-                var gridOptions = gridOptionService.FromWinLossModel(winlosses, queryModel.Title);
-                gridOptions = gridOptionBuilder.BuildVirtualGridOptions(gridOptions, "Major/Minor");
-
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Excel(criteria, "Major/Minor", queryModel.Title);
         }
     }
 }
