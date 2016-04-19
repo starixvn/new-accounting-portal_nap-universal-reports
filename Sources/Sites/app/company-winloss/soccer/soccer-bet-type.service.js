@@ -17,18 +17,17 @@
 
         function getTitle(data, isLast) {
             var majorMinor = (data.isMajor) ? "-MAJOR" : "-MINOR";
-            if (data.isLive == 2)
-            {
+            if (data.isLive == 2) {
                 return data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
             }
             else {
                 var liveNonLive = (data.isLive == 1) ? '"LIVE"' : '"NON-LIVE"';
                 return data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
             }
-            
         }
 
         function getData(data) {
+            var isMajor = data.betTypeNameMajorMinor == "Soccer-Major Bet Types" ? true : false;
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
@@ -37,15 +36,13 @@
             };
 
             var url = "api/company-win-loss/soccer/bettype";
-            if (data.isMajor && data.isLive == 2)
-            {
+            if (data.isMajor && data.isLive == 2) {
                 url = "api/company-win-loss/soccer/sum-bettype";
             }
-            else if (data.isMajor && data.isLive == 0)
-            {
+            else if (data.isMajor && data.isLive == 0) {
                 url = "api/company-win-loss/soccer/group-bettype";
             }
-            
+
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
