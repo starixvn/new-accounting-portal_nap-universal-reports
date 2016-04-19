@@ -41,10 +41,9 @@
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(liveTitle, nonLiveTitle, data, fileName) {
+        function exportExcel(title, data, fileName) {
             var httpData = {
-                liveTitle: liveTitle,
-                nonLiveTitle: nonLiveTitle,
+                title: title,
                 startDate: data.startDate,
                 endDate: data.endDate
             };

@@ -27,7 +27,7 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
-                showExcelButton: false,
+                showExcelButton: true,
                 exportExcelFunction: exportExcel
             };
 
@@ -55,12 +55,8 @@
         }
 
         function exportExcel() {
-            pane.data.isLive = true;
-            var liveTitle = tab.generateBreadcrumbText();
-            pane.data.isLive = false;
-            var noneLiveTitle = tab.generateBreadcrumbText();
-            delete (pane.data.isLive);
-            pane.service.exportExcel(liveTitle, noneLiveTitle, pane.data, pane.getFileName());
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);

@@ -34,34 +34,41 @@
                 isLive: data.isLive,
                 isMajor: data.isMajor
             };
-
-            var url = "api/company-win-loss/soccer/bettype";
-            if (data.isMajor && data.isLive == 2) {
-                url = "api/company-win-loss/soccer/sum-bettype";
-            }
-            else if (data.isMajor && data.isLive == 0) {
-                url = "api/company-win-loss/soccer/group-bettype";
-            }
-
+            var url = buildUrl(data.isLive, data.isMajor);
+            
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(liveTitle, nonLiveTitle, data, fileName) {
+        function exportExcel(title, data, fileName) {
             var httpData = {
-                liveTitle: liveTitle,
-                nonLiveTitle: nonLiveTitle,
+                title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
                 isLive: data.isLive,
                 isMajor: data.isMajor
             };
-            return $http.post('api/company-win-loss/soccer/sum-bettype/excel', httpData, { responseType: "arraybuffer" })
+            var url = buildUrl(data.isLive, data.isMajor) + '/excel';
+
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function buildUrl(isLive, isMajor)
+        {
+            var url = "api/company-win-loss/soccer/bettype";
+            if (isMajor && isLive == 2) {
+                url = "api/company-win-loss/soccer/sum-bettype";
+            }
+            else if (isMajor && isLive == 0) {
+                url = "api/company-win-loss/soccer/group-bettype";
+            }
+
+            return url;
         }
     }
 })(angular);
