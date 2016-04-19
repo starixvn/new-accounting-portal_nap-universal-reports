@@ -132,24 +132,6 @@
                 service: 'siteService'
             }
         },
-        'Cockfighting': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'productViewBetTypeService'
-            },
-            matchDetail: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
-                service: 'matchDetailService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
         'Colossus Bets': {
             product: 'betType',
             betType: {

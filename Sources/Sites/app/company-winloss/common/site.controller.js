@@ -6,7 +6,7 @@
         .controller('SiteController', SiteController);
 
     SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-    function SiteController($injector, $scope, $element, fanexGridService) {
+    function SiteController($injector, $scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');

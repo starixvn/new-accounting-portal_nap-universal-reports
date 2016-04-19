@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
 
-    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService'];
-    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService) {
+    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService', 'showHideColumnService'];
+    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService, showHideColumnService) {
         var pane = $scope.pane;
         var getProductTitle = sportTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
@@ -36,22 +36,25 @@
         }
 
         function generate() {
-            var count = 0;
-            var compileLinks = function () {
-                count++;
-                if (count === 2) {
-                    pane.compileLinks();
+            var sportTypeGridOptions,
+                liveNonLiveGridOptions;
+            var renderAll = function () {
+                if (angular.isDefined(sportTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
+                    showHideColumnService.build($scope, [sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
+                    createLinksForSportType(sportTypeGridOptions);
+                    renderGridForSportType(sportTypeGridOptions);
+                    createLinksForLiveNonLive(liveNonLiveGridOptions);
+                    renderGridForLiveNonLive(liveNonLiveGridOptions);
+                    pane.compileAll();
                 }
             };
             sportTypeService.getData(pane.data).then(function (data) {
-                createLinksForSportType(data);
-                renderGridForSportType(data);
-                compileLinks();
+                sportTypeGridOptions = data;
+                renderAll();
             });
             pane.service.getData(pane.data).then(function (data) {
-                createLinksForLiveNonLive(data);
-                renderGridForLiveNonLive(data);
-                compileLinks();
+                liveNonLiveGridOptions = data;
+                renderAll();
             });
         }
 
@@ -61,7 +64,8 @@
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;
@@ -107,7 +111,7 @@
             var sportTypeTitle = tab.generateBreadcrumbText();
             pane.service.getTitle = getProductLiveNonLiveTitle;
             var liveNonLiveTitle = tab.generateBreadcrumbText();
-            otherSportsLiveNonLiveService.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+            pane.service.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);

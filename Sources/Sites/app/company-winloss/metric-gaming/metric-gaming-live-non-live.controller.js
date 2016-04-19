@@ -4,9 +4,9 @@
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService', 'showHideColumnService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, showHideColumnService) {
         var pane = $scope.pane;
         var getProductTitle = productViewBetTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
@@ -48,23 +48,27 @@
         }
 
         function generate() {
-            var count = 0;
-            var compileLinks = function () {
-                count++;
-                if (count === 2) {
-                    pane.compileLinks();
+            var betTypeGridOptions,
+                liveNonLiveGridOptions;
+            var renderAll = function () {
+                if (angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
+                    showHideColumnService.build($scope, [betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
+                    createLinksForBetType(betTypeGridOptions);
+                    renderGridForBetType(betTypeGridOptions);
+                    createLinksForLiveNonLive(liveNonLiveGridOptions);
+                    renderGridForLiveNonLive(liveNonLiveGridOptions);
+                    pane.compileAll();
                 }
             };
+
             productViewBetTypeService.getData(pane.data).then(function (data) {
-                createLinksForBetType(data);
-                renderGridForBetType(data);
-                compileLinks();
+                betTypeGridOptions = data;
+                renderAll();
             });
 
             pane.service.getData(pane.data).then(function (data) {
-                createLinksForLiveNonLive(data);
-                renderGridForLiveNonLive(data);
-                compileLinks();
+                liveNonLiveGridOptions = data;
+                renderAll();
             });
         }
 
@@ -74,7 +78,8 @@
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;

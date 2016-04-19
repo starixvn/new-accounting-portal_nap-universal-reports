@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('NumberGameBetTypeController', NumberGameBetTypeController);
 
-    NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function NumberGameBetTypeController($scope, $element, fanexGridService) {
+    NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+    function NumberGameBetTypeController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
@@ -39,6 +39,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                showHideColumnService.build($scope, [liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
                 pane.data.isLive = true;
                 createLinks(data.Live, true);
                 renderGrid(liveGridElement, data.Live, true);
@@ -46,7 +47,7 @@
                 createLinks(data.NonLive, false);
                 renderGrid(nonliveGridElement, data.NonLive, false);
                 delete (pane.data.isLive);
-                pane.compileLinks();
+                pane.compileAll();
             });
         }
 
@@ -57,6 +58,9 @@
                 showExcelButton: !isLive,
                 exportExcelFunction: exportExcel
             };
+            if (!isLive) {
+                titleInfo.customButtons = showHideColumnService.customButtonHtml;
+            }
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);

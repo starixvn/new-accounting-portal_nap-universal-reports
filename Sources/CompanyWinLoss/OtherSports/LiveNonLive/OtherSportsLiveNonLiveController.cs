@@ -33,7 +33,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
             if (ModelState.IsValid)
             {
                 var sportTypeCriteria = CriteriaFactory.Transform<SportType.Criteria>(queryModel);
-                var sportTypeGridOptions = GetGridOptions(sportTypeCriteria, "Sport Type");
+                var sportTypeGridOptions = GetGridOptions(sportTypeCriteria, "Sport Type", queryModel.SportTypeTitle);
 
                 var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
