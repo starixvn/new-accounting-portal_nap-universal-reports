@@ -1,0 +1,20 @@
+﻿using System;
+using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.MVC.Validation;
+
+namespace UniversalReports.CompanyWinLoss.Soccer.SportType
+{
+    public class ExcelQueryModel
+    {
+        public string MajorMinorTitle { get; set; }
+
+        public string LiveNonLiveTitle { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        [DateTimeGreaterThan("StartDate")]
+        public DateTime EndDate { get; set; }
+
+        public int IsLive { get; set; } = Constants.LiveDefault;
+    }
+}

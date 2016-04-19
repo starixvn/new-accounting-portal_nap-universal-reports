@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('SoccerController', SoccerController);
 
-    SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService'];
-    function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService) {
+    SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService'];
+    function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var getTitleWhenMajorMinor = pane.service.getTitle;
@@ -26,12 +26,15 @@
             var renderAll = function () {
                 if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
                     showHideColumnService.build($scope, [majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
-                    pane.service.getTitle = getTitleWhenMajorMinor;
+                    
                     createLinksForMajorMinor(majorMinorGridOptions);
                     renderGrid(majorMinorGridElement, majorMinorGridOptions);
+
                     pane.service.getTitle = getTitleWhenLiveNonLive;
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
                     renderGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
+                    pane.service.getTitle = getTitleWhenMajorMinor;
+
                     pane.compileAll();
                 }
             };
@@ -55,6 +58,7 @@
             };
             if (gridElement === majorMinorGridElement) {
                 titleInfo.customButtons = showHideColumnService.customButtonHtml;
+                titleInfo.showExcelButton = true;
             }
 
             data.titleInfo = titleInfo;
@@ -97,13 +101,14 @@
             tab.goForward('soccerLiveNonLive', data);
         }
 
-        function exportExcel() {
-            pane.data.isLive = true;
-            var liveTitle = tab.generateBreadcrumbText();
-            pane.data.isLive = false;
-            var noneLiveTitle = tab.generateBreadcrumbText();
-            delete (pane.data.isLive);
-            pane.service.exportExcel(liveTitle, noneLiveTitle, pane.data, pane.getFileName());
+        function exportExcel() {            
+            var majorMinorTitle = tab.generateBreadcrumbText();
+
+            pane.service.getTitle = getTitleWhenLiveNonLive;
+            var liveNonLiveTitle = tab.generateBreadcrumbText();
+            pane.service.getTitle = getTitleWhenMajorMinor;
+
+            soccerSportTypeService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);
