@@ -27,7 +27,7 @@
     <Setting Key="CompanyWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>    
   </Function>
   <Function Name="Live Casino">
-    <Setting Key="CompanyWinLoss-LiveCasino-ThirdPartyProduct-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-LiveCasino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-LiveCasino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-LiveCasino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
@@ -36,7 +36,7 @@
     <Setting Key="CompanyWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
  <Function Name="Casino">
-    <Setting Key="CompanyWinLoss-Casino-ThirdPartyProduct-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Casino_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
