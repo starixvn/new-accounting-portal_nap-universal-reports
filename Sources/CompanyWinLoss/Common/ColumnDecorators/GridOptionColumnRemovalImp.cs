@@ -1,7 +1,7 @@
 ﻿using Fanex.Excel.Models;
 using System.Collections.Generic;
 
-namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
+namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 {
     public class GridOptionColumnRemovalImp : GridOptionColumnRemoval
     {

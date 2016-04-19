@@ -3,16 +3,17 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
+namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 {
-    public class GridOptionColumnDecoratorFull : GridOptionColumnDecoratorBase, GridOptionColumnDecorator
+    public class GridOptionColumnDecoratorVirtual : GridOptionColumnDecoratorBase, GridOptionColumnDecorator
     {
-        public GridOptionColumnDecoratorFull(GridOptionColumnRemoval columnRemoval) : base(columnRemoval)
+        public GridOptionColumnDecoratorVirtual(GridOptionColumnRemoval columnRemoval) : base(columnRemoval)
         {
         }
 
         public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
         {
+            RemoveBodyAndFooterColumn(gridOptions, AfterExtraPTIndex, ExtraPTIndex);
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildColumns(mainColumnText, mainColumnWidth);
             gridOptions.GroupHeaderRows = BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
@@ -34,8 +35,6 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
                 new HeaderColumns { HeaderText = "Variance", Width = 120, Name = "VarianceIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Extra PT", Width = 120, Name = "ExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "After Extra PT", Width = 120, Name = "AfterExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Real", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Virtual", Width = 120, Name = "VirtualMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
@@ -51,7 +50,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 120 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 120 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 120 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 5, Width = 120 },
+                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 3, Width = 120 },
                 new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 120 },
                 new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 120 }
             };

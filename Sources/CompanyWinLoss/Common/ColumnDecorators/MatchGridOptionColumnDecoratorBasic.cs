@@ -3,7 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace UniversalReports.CompanyWinLoss.Common.ColumnBuilders
+namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 {
     public class MatchGridOptionColumnDecoratorBasic : GridOptionColumnDecoratorBase, MatchGridOptionColumnDecorator
     {

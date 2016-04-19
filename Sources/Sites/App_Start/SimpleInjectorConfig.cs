@@ -7,11 +7,12 @@ using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
+using Decorator = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
-
+using Soccer = UniversalReports.CompanyWinLoss.Soccer;
 namespace UniversalReports.Sites
 {
     public static class SimpleInjectorConfig
@@ -51,10 +52,21 @@ namespace UniversalReports.Sites
             container.Register<NumberGame.BetType.Service, NumberGame.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Products.GridOptionBuilder, CompanyWinLoss.Products.GridOptionBuilderImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.GroupBetType.WinLossService, CompanyWinLoss.Soccer.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.SumBetType.WinLossService, CompanyWinLoss.Soccer.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.GroupBetType.GridOptionBuilder, CompanyWinLoss.Soccer.GroupBetType.GridOptionBuilderImp>(Lifestyle.Transient);
-            container.Register<CompanyWinLoss.Soccer.SumBetType.GridOptionBuilder, CompanyWinLoss.Soccer.SumBetType.GridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccer.GroupBetType.WinLossService, Soccer.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<Soccer.SumBetType.WinLossService, Soccer.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<Soccer.GroupBetType.GridOptionBuilder, Soccer.GroupBetType.GridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccer.SumBetType.GridOptionBuilder, Soccer.SumBetType.GridOptionBuilderImp>(Lifestyle.Transient);
+
+            container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
+
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

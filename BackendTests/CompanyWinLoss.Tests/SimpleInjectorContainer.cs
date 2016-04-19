@@ -3,7 +3,7 @@ using SimpleInjector;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Tests.Dependencies;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
-using ColumnBuilders = UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using ColumnBuilders = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using GroupBetTypes = UniversalReports.CompanyWinLoss.Soccer.GroupBetType;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;

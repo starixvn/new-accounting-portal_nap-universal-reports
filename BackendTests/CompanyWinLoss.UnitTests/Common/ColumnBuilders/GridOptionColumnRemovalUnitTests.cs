@@ -1,7 +1,7 @@
 ﻿using Fanex.Excel.Models;
 using NUnit.Framework;
 using System.Collections.Generic;
-using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.ColumnBuilders
 {

@@ -1,6 +1,6 @@
 ﻿using Fanex.Excel.Models;
 using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common.ColumnBuilders;
+using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.MVC.Results;
 
