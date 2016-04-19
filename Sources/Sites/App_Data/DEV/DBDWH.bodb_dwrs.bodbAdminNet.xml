@@ -48,11 +48,6 @@
     <Setting Key="CompanyWinLoss-Bingo-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Bingo-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
-  <Function Name="Cockfighting">
-    <Setting Key="CompanyWinLoss-Cockfighting-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Cockfighting-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Cockfighting-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-  </Function>
   <Function Name="Soccer">
     <Setting Key="CompanyWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>

@@ -94,9 +94,6 @@
     <Compile Include="Casino\BetType\CasinoBetTypeServiceTests.cs" />
     <Compile Include="Casino\Site\CasinoSiteServiceTests.cs" />
     <Compile Include="Casino\Product\CasinoProductServiceTests.cs" />
-    <Compile Include="Cockfighting\BetType\CockfightingBetTypeServiceTests.cs" />
-    <Compile Include="Cockfighting\MatchDetail\CockfightingMatchDetailServiceTests.cs" />
-    <Compile Include="Cockfighting\Site\CockfightingSiteServiceTests.cs" />
     <Compile Include="ColossusBets\BetType\ColossusBetsBetTypeServiceTests.cs" />
     <Compile Include="ColossusBets\Site\ColossusBetsSiteServiceTests.cs" />
     <Compile Include="Common\BasicWinLossServiceTests.cs" />
