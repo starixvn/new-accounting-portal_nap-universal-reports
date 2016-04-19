@@ -56,6 +56,7 @@ namespace UniversalReports.Sites
             container.Register<Soccer.SumBetType.WinLossService, Soccer.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<Soccer.GroupBetType.GridOptionBuilder, Soccer.GroupBetType.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<Soccer.SumBetType.GridOptionBuilder, Soccer.SumBetType.GridOptionBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccer.BetType.CalculationService, Soccer.BetType.CalculationServiceImp>(Lifestyle.Transient);
 
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
