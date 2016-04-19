@@ -8,7 +8,6 @@
     SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
     function SiteController($injector, $scope, $element, fanexGridService) {
         var pane = $scope.pane;
-        pane.getTitle = getTitle;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;

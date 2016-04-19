@@ -9,6 +9,8 @@
 	function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService) {
 		var pane = $scope.pane;
 		var tab = $scope.tab;
+		var getTitleWhenMajorMinor = pane.service.getTitle;
+		var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
 		var gridElements = $element.find('.freegrid');
 		var majorMinorGridElement = angular.element(gridElements[0]);
 		var liveNonLiveGridElement = angular.element(gridElements[1]);
@@ -18,18 +20,6 @@
 
 		pane.data.isLive = 2; // live and nonlive
 		
-		function getTitleWhenMajorMinor(isLast) {
-		    return isLast ?
-                pane.data.productName + ' MAJOR/MINOR BET TYPES' :
-                pane.data.productName;
-		}
-
-	    function getTitleWhenLiveNonLive(isLast) {
-	        return isLast ?
-                pane.data.productName + ' LIVE/NON-LIVE' :
-                pane.data.productName;
-	    }
-
 		function generate() {
             var count = 0;
             var compileLinks = function () {
@@ -41,16 +31,16 @@
 
             pane.service.getData(pane.data).then(function (data) {
 			    createLinksForMajorMinor(data);
-                pane.getTitle = getTitleWhenMajorMinor;
-				renderGrid(majorMinorGridElement, data);
+                renderGrid(majorMinorGridElement, data);
 				compileLinks();
 			});
 
 			soccerLiveNonLiveService.getData(pane.data).then(function (data) {
 			    createLinksForLiveNonLive(data);
-                pane.getTitle = getTitleWhenLiveNonLive;
+			    pane.service.getTitle = getTitleWhenLiveNonLive;
 				renderGrid(liveNonLiveGridElement, data);
-			    compileLinks();
+				compileLinks();
+				pane.service.getTitle = getTitleWhenMajorMinor;
 			});
 		}
 
@@ -77,7 +67,7 @@
 		}
 
 		function generateSoccerBetTypePane(betTypeNameMajorMinor) {
-            var data = {
+		    var data = {
                 betTypeNameMajorMinor: betTypeNameMajorMinor
 		    };
             angular.extend(data, pane.data);

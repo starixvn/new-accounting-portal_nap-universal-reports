@@ -8,11 +8,25 @@
     soccerBetTypeService.$inject = ['$http', 'httpResponseService'];
     function soccerBetTypeService($http, httpResponseService) {
         var service = {
+            getTitle: getTitle,
             getData: getData,
             exportExcel: exportExcel
         };
 
         return service;
+
+        function getTitle(data, isLast) {
+            var majorMinor = (data.isMajor) ? "-MAJOR" : "-MINOR";
+            if (data.isLive == 2)
+            {
+                return data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
+            }
+            else {
+                var liveNonLive = (data.isLive == 1) ? '"LIVE"' : '"NON-LIVE"';
+                return data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
+            }
+            
+        }
 
         function getData(data) {
             var httpData = {

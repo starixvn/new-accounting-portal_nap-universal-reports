@@ -8,11 +8,26 @@
     soccerMajorMinorService.$inject = ['$http', 'httpResponseService'];
     function soccerMajorMinorService($http, httpResponseService) {
         var service = {
+            getTitle: getTitleWhenMajorMinor,
             getData: getData,
             exportExcel: exportExcel
         };
 
         return service;
+
+        function getTitleWhenMajorMinor(data, isLast) {
+            if (data.isLive == 2)
+            {
+                return isLast ?
+                    data.productName + ' MAJOR/MINOR BET TYPES' :
+                    data.productName;
+            }
+            else {
+                var liveNonLive = (data.isLive == 1) ? "LIVE" : "NON-LIVE";
+
+                return data.productName + ' ' + liveNonLive;
+            }
+        }
 
         function getData(data) {
             var httpData = {

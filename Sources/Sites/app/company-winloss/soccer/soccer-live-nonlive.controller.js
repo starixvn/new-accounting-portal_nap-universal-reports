@@ -13,19 +13,12 @@
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
         $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
-
+        
         pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
-
-        function getTitleWhenMajorMinor() {
-            var liveNonLive = (pane.data.isLive == 1) ? "LIVE" : "NON-LIVE";
-
-            return pane.data.productName + ' ' + liveNonLive;
-        }
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
                 createLinksForMajorMinor(data);
-                pane.getTitle = getTitleWhenMajorMinor;
                 renderGrid(majorMinorGridElement, data);
                 pane.compileLinks();
             });
@@ -54,7 +47,7 @@
         }
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-            var data = {
+           var data = {
                 betTypeNameMajorMinor: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);

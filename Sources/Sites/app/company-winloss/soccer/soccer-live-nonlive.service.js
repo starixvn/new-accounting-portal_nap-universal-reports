@@ -8,11 +8,20 @@
     soccerLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
     function soccerLiveNonLiveService($http, httpResponseService) {
         var service = {
+            getTitle: getTitleWhenLiveNonLive,
             getData: getData,
             exportExcel: exportExcel
         };
 
         return service;
+
+
+        function getTitleWhenLiveNonLive(data, isLast) {
+            return isLast ?
+                data.productName + ' LIVE/NON-LIVE' :
+                data.productName;
+        }
+
 
         function getData(data) {
             var httpData = {
