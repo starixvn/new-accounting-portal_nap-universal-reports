@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('SportTypeController', SportTypeController);
 
-    SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
-    function SportTypeController($injector, $scope, $element, fanexGridService) {
+    SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+    function SportTypeController($injector, $scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -24,9 +24,10 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                showHideColumnService.build($scope, gridElement, data);
                 createLinks(data);
                 renderGrid(data);
-                pane.compileLinks();
+                pane.compileAll();
             });
         }
 
@@ -44,7 +45,8 @@
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;

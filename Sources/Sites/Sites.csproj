@@ -221,6 +221,7 @@
     <Content Include="app\company-winloss\breadcrumb\live-title.service.js" />
     <Content Include="app\company-winloss\breadcrumb\title.service.js" />
     <Content Include="app\company-winloss\common\product-view-bet-type.service.js" />
+    <Content Include="app\company-winloss\grid\show-hide-column.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
     <Content Include="app\company-winloss\parlay\parlay-bet-type.controller.js" />
     <Content Include="app\company-winloss\parlay\parlay-bet-type.service.js" />
@@ -251,6 +252,8 @@
     <Content Include="app\company-winloss\soccer\soccer-live-nonlive.service.js" />
     <Content Include="app\company-winloss\soccer\soccer-bettype.controller.js" />
     <Content Include="app\company-winloss\soccer\soccer-major-minor.service.js" />
+    <Content Include="app\company-winloss\tab\tab.service.js" />
+    <Content Include="app\company-winloss\tab\pane.service.js" />
     <Content Include="app\company-winloss\tab\tab.directive.html" />
     <Content Include="app\company-winloss\tab\pane.directive.js" />
     <Content Include="app\company-winloss\tab\tab.directive.js" />

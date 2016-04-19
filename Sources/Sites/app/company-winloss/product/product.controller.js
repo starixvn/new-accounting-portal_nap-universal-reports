@@ -5,27 +5,13 @@
         .module('app.companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting'];
-    function ProductController($element, $scope, fanexGridService, templateSetting) {
-        var enableHiddenColumns = false;
-        var hiddenColumns = [1, 2];
-        var gridOptions;
+    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting', 'showHideColumnService'];
+    function ProductController($element, $scope, fanexGridService, templateSetting, showHideColumnService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateProduct = generateProduct;
-        $scope.showHideColumns = showHideColumns;
-
-        function showHideColumns() {
-            if (enableHiddenColumns) {
-                gridElement.fanexGrid("hideColumns", gridOptions, hiddenColumns);
-            } else {
-                gridElement.fanexGrid("hideColumns", gridOptions, []);
-            }
-            enableHiddenColumns = !enableHiddenColumns;
-            pane.compileLinks();
-        }
 
         function generateProduct(productName) {
             var data = {
@@ -38,10 +24,10 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                gridOptions = data;
+                showHideColumnService.build($scope, gridElement, data);
                 createLinks(data);
                 renderGrid(data);
-                pane.compile();
+                pane.compileAll();
             });
         }
 
@@ -51,13 +37,11 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: '<input type="button" class="btn-show-hide nap-component" title="Show/Hide" data-ng-click="showHideColumns()" />'
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;
             data.defaultCollapseAllGroups = true;
-            data.hiddenColumns = hiddenColumns;
-            data.enableHiddenColumns = enableHiddenColumns;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }

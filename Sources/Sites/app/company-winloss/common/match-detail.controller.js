@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('MatchDetailController', MatchDetailController);
 
-    MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function MatchDetailController($scope, $element, fanexGridService) {
+    MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+    function MatchDetailController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -14,8 +14,9 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                showHideColumnService.build($scope, gridElement, data);
                 renderGrid(data);
-                pane.compileLinks();
+                pane.compileAll();
             });
         }
 
@@ -23,7 +24,8 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;

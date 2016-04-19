@@ -5,21 +5,18 @@
         .module('app.companyWinlossApp')
         .controller('SiteController', SiteController);
 
-    SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
+    SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function SiteController($injector, $scope, $element, fanexGridService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
 
-        function getTitle() {
-            return data.betTypeName + ' | Product Win/Loss By ' + data.site + ' Site';
-        }
-
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                showHideColumnService.build($scope, gridElement, data);
                 renderGrid(data);
-                pane.compileLinks();
+                pane.compileAll();
             });
         }
 
@@ -27,7 +24,8 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnService.customButtonHtml
             };
 
             data.titleInfo = titleInfo;
