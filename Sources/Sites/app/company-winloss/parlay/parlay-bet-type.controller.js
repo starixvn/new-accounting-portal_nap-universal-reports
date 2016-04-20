@@ -28,7 +28,7 @@
         }
 
         function viewMixParlayWindow() {
-            var url = '/WinLoss/DailyMixParlayWinLoss_2hLink/Index?reportDate=' + pane.data.startDate.format('MM/DD/YYYY') + '&SportId=' + parlaySportType + '&IsRedirect=true&BetType=' + mixParlayBetType;
+            var url = '/WinLoss/DailyMixParlayWinLoss_2hLink/Index?startDate=' + pane.data.startDate.format('MM/DD/YYYY') + '&endDate=' + pane.data.endDate.format('MM/DD/YYYY') + '&SportId=' + parlaySportType + '&IsRedirect=true&BetType=' + mixParlayBetType;
             url = legacyService.resolveUrl(url);
             location.href = url;
         }

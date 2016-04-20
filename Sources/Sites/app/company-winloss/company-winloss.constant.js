@@ -90,7 +90,7 @@
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
+                controller: 'SportsbookMatchDetailController',
                 service: 'sportsbookMatchDetailService'
             },
             site: {

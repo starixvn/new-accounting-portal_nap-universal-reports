@@ -7,16 +7,19 @@
 
     showHideColumnService.$inject = ['$log'];
     function showHideColumnService($log) {
-        var enableHiddenColumns = false;
-        var hiddenColumns = [1, 2];
+        var defaultOptions = {
+            enableHiddenColumns: false,
+            hiddenColumns: [1, 2]
+        };
         var customButtonHtml = '<input type="button" class="btn-show-hide nap-component" title="Show/Hide" data-ng-click="showHideColumns()" />';
         var service = {
             customButtonHtml: customButtonHtml,
             build: build
         };
-        return service
+        return service;
 
-        function build($scope, listOfGridElements, listOfGridOptions) {
+        function build($scope, listOfGridElements, listOfGridOptions, options) {
+            options = angular.extend({}, defaultOptions, options);
             if (!angular.isArray(listOfGridElements)) {
                 listOfGridElements = [listOfGridElements];
             }
@@ -30,22 +33,22 @@
             $scope.showHideColumns = showHideColumns;
             for (var i = 0; i < listOfGridOptions.length; i++) {
                 var gridOptions = listOfGridOptions[i];
-                gridOptions.hiddenColumns = hiddenColumns;
-                gridOptions.enableHiddenColumns = enableHiddenColumns;
+                gridOptions.hiddenColumns = options.hiddenColumns;
+                gridOptions.enableHiddenColumns = options.enableHiddenColumns;
             }
 
             function showHideColumns() {
                 for (var i = 0; i < listOfGridOptions.length; i++) {
                     var gridElement = listOfGridElements[i];
                     var gridOptions = listOfGridOptions[i];
-                    if (enableHiddenColumns) {
-                        gridElement.fanexGrid("hideColumns", gridOptions, hiddenColumns);
+                    if (options.enableHiddenColumns) {
+                        gridElement.fanexGrid("hideColumns", gridOptions, options.hiddenColumns);
                     } else {
                         gridElement.fanexGrid("hideColumns", gridOptions, []);
                     }
                 }
 
-                enableHiddenColumns = !enableHiddenColumns;
+                options.enableHiddenColumns = !options.enableHiddenColumns;
                 $scope.pane.compileLinks();
             }
         }

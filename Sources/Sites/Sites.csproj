@@ -228,6 +228,7 @@
     <Content Include="app\company-winloss\parlay\parlay-bet-type.service.js" />
     <Content Include="app\company-winloss\parlay\parlay-site.service.js" />
     <Content Include="app\company-winloss\soccer\soccer-sport-type.service.js" />
+    <Content Include="app\company-winloss\sportsbook\sportsbook-match-detail.controller.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-product-view-bet-type.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-match-detail.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-sport-type-view-bet-type.service.js" />
