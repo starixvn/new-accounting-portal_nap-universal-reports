@@ -11,27 +11,24 @@
             scope: {},
             templateUrl: 'app/components/header/header.directive.html',
             replace: true,
-            controller: ['headerService', 'config', controller],
+            controller: controller,
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
+    }
 
-        function controller(headerService, config) {
-            /*jshint validthis: true */
-            var vm = this;
-            vm.userProfileUrl = resolveUrl('/UserControl/User/UserProfile');
-            vm.changePasswordUrl = resolveUrl('/UserControl/User/ChangePassword');
-            vm.logOutUrl = resolveUrl('/UserLogin/Login/LogOut');
+    controller.$inject = ['headerService', 'legacyService'];
+    function controller(headerService, legacyService) {
+        /*jshint validthis: true */
+        var vm = this;
+        vm.userProfileUrl = legacyService.resolveUrl('/UserControl/User/UserProfile');
+        vm.changePasswordUrl = legacyService.resolveUrl('/UserControl/User/ChangePassword');
+        vm.logOutUrl = legacyService.resolveUrl('/UserLogin/Login/LogOut');
 
-            headerService.getData().then(function (data) {
-                vm.username = data.Username;
-                vm.menus = headerService.getCompiledMenu(data.Menus);
-            });
-
-            function resolveUrl(url) {
-                return config.legacyPath + url;
-            }
-        }
+        headerService.getData().then(function (data) {
+            vm.username = data.Username;
+            vm.menus = headerService.getCompiledMenu(data.Menus);
+        });
     }
 })(angular);

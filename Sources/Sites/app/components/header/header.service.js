@@ -5,8 +5,8 @@
         .module('app.core')
         .factory('headerService', headerService);
 
-    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService', 'config'];
-    function headerService($http, universalMenus, httpResponseService, config) {
+    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService', 'legacyService'];
+    function headerService($http, universalMenus, httpResponseService, legacyService) {
         var service = {
             getData: getData,
             getCompiledMenu: getCompiledMenu,
@@ -44,7 +44,7 @@
                 }
             }
 
-            return config.legacyPath + url;
+            return legacyService.resolveUrl(url);
         }
     }
 })(angular);

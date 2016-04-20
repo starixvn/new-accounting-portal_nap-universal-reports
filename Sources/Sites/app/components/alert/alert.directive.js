@@ -11,27 +11,28 @@
             scope: {},
             templateUrl: 'app/components/alert/alert.directive.html',
             replace: true,
-            controller: ['$scope', controller],
+            controller: controller,
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
+    }
 
-        function controller($scope) {
-            var vm = this;
+    controller.$inject = ['$scope'];
+    function controller($scope) {
+        var vm = this;
+        vm.isShow = false;
+        vm.close = function () {
             vm.isShow = false;
-            vm.close = function () {
-                vm.isShow = false;
-            };
+        };
 
-            $scope.$on('alert-show', function (event, message) {
-                vm.message = message;
-                vm.isShow = true;
-            });
+        $scope.$on('alert-show', function (event, message) {
+            vm.message = message;
+            vm.isShow = true;
+        });
 
-            $scope.$on('alert-hide', function () {
-                vm.isShow = false;
-            });
-        }
+        $scope.$on('alert-hide', function () {
+            vm.isShow = false;
+        });
     }
 })(angular);

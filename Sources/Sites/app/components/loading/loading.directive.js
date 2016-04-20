@@ -11,23 +11,24 @@
             scope: {},
             template: '<div class="loading-container" data-ng-show="vm.isLoading"><div class="block-overlay"></div><div class="block-loading"></div></div>',
             replace: true,
-            controller: ['$scope', controller],
+            controller: controller,
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
+    }
 
-        function controller($scope) {
-            var vm = this;
+    controller.$inject = ['$scope'];
+    function controller($scope) {
+        var vm = this;
+        vm.isLoading = false;
+
+        $scope.$on('loading-started', function () {
+            vm.isLoading = true;
+        });
+
+        $scope.$on('loading-complete', function () {
             vm.isLoading = false;
-
-            $scope.$on('loading-started', function () {
-                vm.isLoading = true;
-            });
-
-            $scope.$on('loading-complete', function () {
-                vm.isLoading = false;
-            });
-        }
+        });
     }
 })(angular);

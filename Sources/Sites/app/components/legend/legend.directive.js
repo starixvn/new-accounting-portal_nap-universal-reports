@@ -12,17 +12,18 @@
                 menuId: '='
             },
             replace: true,
-            controller: ['$element', 'legendService', controller],
+            controller: controller,
             controllerAs: 'vm',
             bindToController: true
         };
         return directive;
+    }
 
-        function controller($element, legendService) {
-            var vm = this;
-            legendService.getData(vm.menuId).then(function (data) {
-                $element.html(data.Content);
-            });
-        }
+    controller.$inject = ['$element', 'legendService'];
+    function controller($element, legendService) {
+        var vm = this;
+        legendService.getData(vm.menuId).then(function (data) {
+            $element.html(data.Content);
+        });
     }
 })(angular);

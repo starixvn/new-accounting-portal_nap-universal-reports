@@ -215,6 +215,7 @@
   <ItemGroup>
     <Content Include="app\app.min.js" />
     <Content Include="app\common.min.js" />
+    <Content Include="app\common\legacy.service.js" />
     <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-win-loss.min.js" />
     <Content Include="app\company-winloss\app.js" />
@@ -280,7 +281,7 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-sportsbook-detail.service.js" />
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.service.js" />
     <Content Include="app\components\click\click.directive.js" />
-    <Content Include="app\legacy-scripts\check-in.js" />
+    <Content Include="app\common\check-in.js" />
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>
