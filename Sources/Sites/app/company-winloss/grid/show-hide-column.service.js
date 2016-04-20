@@ -11,7 +11,7 @@
             enableHiddenColumns: false,
             hiddenColumns: [1, 2]
         };
-        var customButtonHtml = '<input type="button" class="btn-show-hide nap-component" title="Show/Hide" data-ng-click="showHideColumns()" />';
+        var customButtonHtml = '<input type="button" class="btExpand customized collapsed nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
         var service = {
             customButtonHtml: customButtonHtml,
             build: build
@@ -37,7 +37,8 @@
                 gridOptions.enableHiddenColumns = options.enableHiddenColumns;
             }
 
-            function showHideColumns() {
+            function showHideColumns($event) {
+                var target = angular.element($event.target);
                 for (var i = 0; i < listOfGridOptions.length; i++) {
                     var gridElement = listOfGridElements[i];
                     var gridOptions = listOfGridOptions[i];
@@ -49,6 +50,11 @@
                 }
 
                 options.enableHiddenColumns = !options.enableHiddenColumns;
+                if (options.enableHiddenColumns) {
+                    target.removeClass('collapsed').addClass('expanded');
+                } else {
+                    target.removeClass('expanded').addClass('collapsed');
+                }
                 $scope.pane.compileLinks();
             }
         }
