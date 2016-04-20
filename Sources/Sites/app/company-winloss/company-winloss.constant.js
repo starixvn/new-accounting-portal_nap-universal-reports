@@ -34,7 +34,7 @@
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
+                controller: 'SportsbookMatchDetailController',
                 service: 'sportsbookMatchDetailService'
             },
             site: {
@@ -62,7 +62,7 @@
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
+                controller: 'SportsbookSiteController',
                 service: 'metricGamingSiteService'
             }
         },

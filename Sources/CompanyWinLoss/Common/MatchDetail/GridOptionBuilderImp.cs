@@ -59,7 +59,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             int columnIndex = 0;
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode),
+                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = item.MatchCode },
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-"),
                 new Columns(columnIndex++, "Away", item.AwayName),

@@ -29,13 +29,16 @@
 
         function configHttp() {
             $httpProvider.interceptors.push(templateInterceptor);
-            function templateInterceptor() {
+            templateInterceptor.$inject = ['$templateCache'];
+            function templateInterceptor($templateCache) {
                 return {
                     request: function (c) {
                         var url = c.url;
-                        var subString = url.substring(0, 4);
-                        if (subString.toLowerCase() !== 'http') {
-                            c.url = config.rootUrl + '/' + url;
+                        if ($templateCache.get(url) === undefined) {
+                            var subString = url.substring(0, 4);
+                            if (subString.toLowerCase() !== 'http') {
+                                c.url = config.rootUrl + '/' + url;
+                            }
                         }
 
                         return c;

@@ -5,14 +5,27 @@
         .module('app.companyWinlossApp')
         .factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
 
-    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'titleService'];
-    function sportsbookMatchDetailService($http, httpResponseService, titleService) {
+    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'titleService', 'legacyService'];
+    function sportsbookMatchDetailService($http, httpResponseService, titleService, legacyService) {
         var service = {
             getTitle: titleService.getMatchDetailTitle,
+            getMatchInformation: getMatchInformation,
             getData: getData,
             exportExcel: exportExcel
         };
         return service;
+
+        function getMatchInformation(data) {
+            var httpData = {
+                matchId: data.matchId,
+                betType: data.betType
+            };
+
+            var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
+            return $http.post(url, httpData)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
 
         function getData(data) {
             var httpData = {
@@ -23,7 +36,7 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            
+
             var url = 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)

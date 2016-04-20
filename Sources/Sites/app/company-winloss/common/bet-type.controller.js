@@ -43,13 +43,12 @@
         }
 
         function createLinks(data) {
-            var betTypeId;
             var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
             var hasDetailDrilldown = angular.isDefined(template);
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
-                betTypeId = betTypeRow.Columns[0].CustomAttr;
+                var betTypeId = betTypeRow.Columns[0].CustomAttr;
                 if (hasDetailDrilldown) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }
