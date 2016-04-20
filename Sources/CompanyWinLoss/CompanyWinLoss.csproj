@@ -162,6 +162,7 @@
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
+    <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
     <Compile Include="MetricGaming\BetType\Criteria.cs" />
     <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
@@ -179,11 +180,17 @@
     <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
+    <Compile Include="Parlay\SiteService\GridOptionBuilderSite.cs" />
+    <Compile Include="Parlay\SiteService\GridOptionBuilderSiteImp.cs" />
+    <Compile Include="Parlay\SiteService\SiteServiceImp.cs" />
+    <Compile Include="Parlay\SiteService\SiteModel.cs" />
+    <Compile Include="Parlay\SiteService\SiteServiceController.cs" />
+    <Compile Include="Parlay\SiteService\SiteWinLossService.cs" />
     <Compile Include="Products\NoneSportsbookWinloss.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
-    <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
+    <Compile Include="Parlay\SiteService\SiteParlayModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpService.cs" />

@@ -11,8 +11,10 @@ using Decorator = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using NumberGames = UniversalReports.CompanyWinLoss.NumberGame;
+using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
+using Soccer = UniversalReports.CompanyWinLoss.Soccer;
 namespace UniversalReports.Sites
 {
     public static class SimpleInjectorConfig
@@ -57,6 +59,8 @@ namespace UniversalReports.Sites
             container.Register<Soccers.GroupBetType.GridOptionBuilder, Soccers.GroupBetType.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<Soccers.SumBetType.GridOptionBuilder, Soccers.SumBetType.GridOptionBuilderImp>(Lifestyle.Transient);
             container.Register<Soccers.BetType.CalculationService, Soccers.BetType.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Parlay.SiteService.SiteWinLossService, CompanyWinLoss.Parlay.SiteService.SiteServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Parlay.SiteService.GridOptionBuilderSite, CompanyWinLoss.Parlay.SiteService.GridOptionBuilderSiteImp>(Lifestyle.Transient);
 
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);

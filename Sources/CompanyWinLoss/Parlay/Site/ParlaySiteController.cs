@@ -1,14 +1,15 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
-using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
+//using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.CompanyWinLoss.Parlay.SiteService;
 
 namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
     [RoutePrefix("api/company-win-loss/parlay/site")]
-    public class ParlaySiteController : SiteWinLossController
+    public class ParlaySiteController : SiteServiceController
     {
-        public ParlaySiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public ParlaySiteController(SiteWinLossService service, GridOptionBuilderSite builder, GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {
         }
