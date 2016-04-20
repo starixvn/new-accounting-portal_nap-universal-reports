@@ -52,7 +52,7 @@
             };
             angular.extend(data, pane.data);
 
-            tab.goForward('soccerLiveNonLiveBetType', data);
+            tab.goForward('soccerBetType', data);
         }        
 
         function exportExcel() {

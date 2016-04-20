@@ -27,14 +27,16 @@
         }
 
         function getData(data) {
-            var isMajor = data.betTypeNameMajorMinor == "Soccer-Major Bet Types" ? true : false;
+            var isMajor = buildMajorFlag(data);
+            var isLive = data.isLive;
+
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
-                isLive: data.isLive,
-                isMajor: data.isMajor
+                isLive: isLive,
+                isMajor: isMajor
             };
-            var url = buildUrl(data.isLive, data.isMajor);
+            var url = buildUrl(isLive, isMajor);
             
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
@@ -42,20 +44,28 @@
         }
 
         function exportExcel(title, data, fileName) {
+            var isMajor = buildMajorFlag(data);
+            var isLive = data.isLive;
+
             var httpData = {
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                isLive: data.isLive,
-                isMajor: data.isMajor
+                isLive: isLive,
+                isMajor: isMajor
             };
-            var url = buildUrl(data.isLive, data.isMajor) + '/excel';
+            var url = buildUrl(isLive, isMajor) + '/excel';
 
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function buildMajorFlag(data)
+        {
+            return data.betTypeNameMajorMinor == "Soccer-Major Bet Types" ? true : false;
         }
 
         function buildUrl(isLive, isMajor)

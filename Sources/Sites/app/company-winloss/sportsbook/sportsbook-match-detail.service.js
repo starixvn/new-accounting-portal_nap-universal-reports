@@ -17,11 +17,13 @@
         function getData(data) {
             var httpData = {
                 isLive: data.isLive,
+                isHedge: data.isHedge,
                 sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
+            
             var url = 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
@@ -32,6 +34,7 @@
             var httpData = {
                 title: title,
                 isLive: data.isLive,
+                isHedge: data.isHedge,
                 sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,

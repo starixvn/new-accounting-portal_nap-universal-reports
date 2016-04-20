@@ -250,7 +250,7 @@
     <Content Include="app\company-winloss\other-sports\other-sports-live-non-live.controller.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-site.service.js" />
     <Content Include="app\company-winloss\soccer\soccer-bet-type.service.js" />
-    <Content Include="app\company-winloss\soccer\soccer-live-nonlive-bettype.controller.js" />
+    <Content Include="app\company-winloss\soccer\soccer-bet-type.controller.js" />
     <Content Include="app\company-winloss\soccer\soccer-live-nonlive.controller.js" />
     <Content Include="app\company-winloss\soccer\soccer-live-nonlive.service.js" />
     <Content Include="app\company-winloss\soccer\soccer-major-minor.service.js" />

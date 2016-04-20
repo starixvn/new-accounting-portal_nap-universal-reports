@@ -29,23 +29,18 @@
             },
             soccerBetType: { // child of soccer
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'soccerBetTypeService'
-            },
-            soccerLiveNonLiveBetType: { // child of soccerLiveNonLive
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SoccerLiveNonLiveBetTypeController',
+                controller: 'SoccerBetTypeController',
                 service: 'soccerBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'MatchDetailController',
-                service: 'soccerMatchDetailService'
+                service: 'sportsbookMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SiteController',
-                service: 'soccerSiteService'
+                service: 'sportsbookSiteService'
             }
         },
         'Metric Gaming - Superlive': {
