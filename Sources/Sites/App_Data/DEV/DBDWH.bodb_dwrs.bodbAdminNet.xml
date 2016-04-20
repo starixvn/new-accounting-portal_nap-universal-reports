@@ -53,4 +53,8 @@
     <Setting Key="CompanyWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
+  <Function Name="Sportsbook">
+    <Setting Key="CompanyWinLoss-Sportsbook-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>

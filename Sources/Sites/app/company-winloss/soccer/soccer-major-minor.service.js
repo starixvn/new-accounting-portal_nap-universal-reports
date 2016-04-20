@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('soccerMajorMinorService', soccerMajorMinorService);
 
-    soccerMajorMinorService.$inject = ['$http', 'httpResponseService'];
-    function soccerMajorMinorService($http, httpResponseService) {
+    soccerMajorMinorService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
+    function soccerMajorMinorService($http, httpResponseService, soccerConstants) {
         var service = {
             getTitle: getTitleWhenMajorMinor,
             getData: getData,
@@ -16,14 +16,14 @@
         return service;
 
         function getTitleWhenMajorMinor(data, isLast) {
-            if (data.isLive == 2)
+            if (data.isLive == soccerConstants.LiveNonLive)
             {
                 return isLast ?
                     data.productName + ' MAJOR/MINOR BET TYPES' :
                     data.productName;
             }
             else {
-                var liveNonLive = (data.isLive == 1) ? "LIVE" : "NON-LIVE";
+                var liveNonLive = (data.isLive == soccerConstants.Live) ? "LIVE" : "NON-LIVE";
 
                 return data.productName + ' ' + liveNonLive;
             }

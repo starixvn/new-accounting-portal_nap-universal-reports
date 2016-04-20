@@ -5,16 +5,15 @@
         .module('app.companyWinlossApp')
         .controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 
-    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService'];
-    function SoccerLiveNonLiveController($scope, $element, fanexGridService) {
+    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants'];
+    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerConstants) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
-        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
-        
-        pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? 0 : 1;
+        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;        
+        pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? soccerConstants.NonLive : soccerConstants.Live;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {

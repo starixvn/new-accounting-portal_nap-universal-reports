@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('SoccerController', SoccerController);
 
-    SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService'];
-    function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService) {
+    SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService', 'soccerConstants'];
+    function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService, soccerConstants) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var getTitleWhenMajorMinor = pane.service.getTitle;
@@ -17,9 +17,8 @@
         $scope.generate = generate;
         $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
         $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
-
-        pane.data.isLive = 2; // live and nonlive
-
+        pane.data.isLive = soccerConstants.LiveNonLive;
+        
         function generate() {
             var majorMinorGridOptions,
                 liveNonLiveGridOptions;

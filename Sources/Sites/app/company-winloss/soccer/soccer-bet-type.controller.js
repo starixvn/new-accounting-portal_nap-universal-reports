@@ -5,21 +5,20 @@
         .module('app.companyWinlossApp')
         .controller('SoccerBetTypeController', SoccerBetTypeController);
 
-    SoccerBetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService'];
-    function SoccerBetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService) {
+    SoccerBetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService', 'soccerConstants'];
+    function SoccerBetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService, soccerConstants) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
-        var soccerSportType = 1;
-
+        
         function buildIsHedge(betTypeName)
         {
             var isHedge = false;
 
-            if (betTypeName && betTypeName.indexOf("(hedge") > -1)
+            if (betTypeName && betTypeName.indexOf("(hedge)") > -1)
             {
                 isHedge = true;
             }
@@ -33,7 +32,7 @@
                 betTypeName: betTypeName,
                 site: site,
                 isHedge: buildIsHedge(betTypeName),
-                sportType: soccerSportType
+                sportType: soccerConstants.SoccerSportType
             };
             angular.extend(data, pane.data);
             tab.goForward('site', data);
@@ -44,7 +43,7 @@
                 betType: betType,
                 betTypeName: betTypeName,
                 isHedge: buildIsHedge(betTypeName),
-                sportType: soccerSportType
+                sportType: soccerConstants.SoccerSportType
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);

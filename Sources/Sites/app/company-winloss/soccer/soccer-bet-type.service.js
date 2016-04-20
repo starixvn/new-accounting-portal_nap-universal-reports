@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('soccerBetTypeService', soccerBetTypeService);
 
-    soccerBetTypeService.$inject = ['$http', 'httpResponseService'];
-    function soccerBetTypeService($http, httpResponseService) {
+    soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
+    function soccerBetTypeService($http, httpResponseService, soccerConstants) {
         var service = {
             getTitle: getTitle,
             getData: getData,
@@ -16,12 +16,12 @@
         return service;
 
         function getTitle(data, isLast) {
-            var majorMinor = (data.isMajor) ? "-MAJOR" : "-MINOR";
-            if (data.isLive == 2) {
+            var majorMinor = buildMajorFlag(data) ? "-MAJOR" : "-MINOR";
+            if (data.isLive == soccerConstants.LiveNonLive) {
                 return data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
             }
             else {
-                var liveNonLive = (data.isLive == 1) ? '"LIVE"' : '"NON-LIVE"';
+                var liveNonLive = (data.isLive == soccerConstants.Live) ? '"LIVE"' : '"NON-LIVE"';
                 return data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
             }
         }
@@ -71,10 +71,10 @@
         function buildUrl(isLive, isMajor)
         {
             var url = "api/company-win-loss/soccer/bettype";
-            if (isMajor && isLive == 2) {
+            if (isMajor && isLive == soccerConstants.LiveNonLive) {
                 url = "api/company-win-loss/soccer/sum-bettype";
             }
-            else if (isMajor && isLive == 0) {
+            else if (isMajor && isLive == soccerConstants.NonLive) {
                 url = "api/company-win-loss/soccer/group-bettype";
             }
 
