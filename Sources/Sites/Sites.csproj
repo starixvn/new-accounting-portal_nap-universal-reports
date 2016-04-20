@@ -375,6 +375,7 @@
       <DependentUpon>Web.config.tt</DependentUpon>
     </None>
     <None Include="App_Configuration\Web.PRO.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
     </None>
     <None Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
