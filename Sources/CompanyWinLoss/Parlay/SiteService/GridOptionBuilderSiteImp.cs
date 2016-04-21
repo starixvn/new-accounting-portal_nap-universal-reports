@@ -31,7 +31,9 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
                 var total = BuildDataRow(group.Total, HAlignment.Center);
                 total.CssClass = "total-row";
                 sitesResult.Add(total);
+                sitesResult.Add(new GridDataRow());
             }
+
             return sitesResult;
         }
 

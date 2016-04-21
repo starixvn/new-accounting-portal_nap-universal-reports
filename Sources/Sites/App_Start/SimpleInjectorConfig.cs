@@ -11,10 +11,8 @@ using Decorator = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCode;
 using NumberGames = UniversalReports.CompanyWinLoss.NumberGame;
-using NumberGame = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
-using Soccer = UniversalReports.CompanyWinLoss.Soccer;
 namespace UniversalReports.Sites
 {
     public static class SimpleInjectorConfig

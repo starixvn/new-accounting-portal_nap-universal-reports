@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
-//using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.CompanyWinLoss.Parlay.SiteService;
 
