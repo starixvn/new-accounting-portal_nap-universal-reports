@@ -40,7 +40,11 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
             var footer = new List<GridDataRow> { row, creditRow, depositRow };
 
-            if (allRMRows != null) { footer.AddRange(allRMRows); }
+            if (allRMRows != null)
+            {
+                footer.AddRange(allRMRows);
+            }
+
             return footer;
         }
 

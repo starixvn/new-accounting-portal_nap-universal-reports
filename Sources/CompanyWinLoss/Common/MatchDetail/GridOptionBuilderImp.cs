@@ -10,15 +10,26 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
     {
         public GridOptions Build(WinLossModel winloss, string title)
         {
-            return new GridOptions
+            var gridOptions = new GridOptions
             {
                 ShowTitle = true,
                 TitleInfoText = title,
                 TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),
-                ShowFooter = true
+                ShowFooter = true,
+                ShowPager = true,
+                PagerOption = new PagerOption
+                {
+                    ItemsPerPage = 50,
+                    CurrentPage = 0,
+                    ItemsPerPageArray = new List<int> { 50, 100, 200, 500 }
+                }
             };
+
+            gridOptions.PagerOption.TotalItem = gridOptions.BodyRows.Count;
+
+            return gridOptions;
         }
 
         private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagueWinLoss)
