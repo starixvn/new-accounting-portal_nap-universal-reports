@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         {
         }
 
-        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
+        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 180)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.CustomizeHeader = false;
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
             "SP2100:CodeLineMustNotBeLongerThan",
             Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 200)
+        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>
             {
@@ -38,7 +38,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             };
         }
 
-        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 200)
+        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {

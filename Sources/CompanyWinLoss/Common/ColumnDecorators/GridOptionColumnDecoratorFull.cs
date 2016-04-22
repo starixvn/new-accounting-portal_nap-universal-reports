@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         {
         }
 
-        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
+        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 180)
         {
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildColumns(mainColumnText, mainColumnWidth);
@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
             "SP2100:CodeLineMustNotBeLongerThan",
             Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 200)
+        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>
             {
@@ -43,7 +43,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             };
         }
 
-        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 200)
+        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {
@@ -51,9 +51,9 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 100 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", MergeColNumber = 5, Width = 100 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover", MergeColNumber = 2, Width = 100 },
-                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin", MergeColNumber = 2, Width = 100 }
+                new HeaderColumns { HeaderText = "Company Income", Name = "VirtualIncome", MergeColNumber = 5, Width = 100 },
+                new HeaderColumns { HeaderText = "Company Turnover", Name = "VirtualTurnover", MergeColNumber = 2, Width = 100 },
+                new HeaderColumns { HeaderText = "Margin", Name = "VirtualMargin", MergeColNumber = 2, Width = 100 }
             };
 
             var groupHeader = new GroupHeaderRows { Columns = columns };

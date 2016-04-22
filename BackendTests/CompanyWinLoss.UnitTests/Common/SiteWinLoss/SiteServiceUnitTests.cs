@@ -42,7 +42,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.SiteWinLoss
                 WinLossFactory.CreateWinLoss(0, "Site 4", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100)
             };
 
-            var total = WinLossFactory.CreateWinLoss(0, "Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200);
+            var total = WinLossFactory.CreateWinLoss(0, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200);
 
             return new SiteWinLossModel
             {

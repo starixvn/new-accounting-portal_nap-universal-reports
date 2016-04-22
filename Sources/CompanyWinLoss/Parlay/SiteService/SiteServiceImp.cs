@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
                         let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupName == @group.Name).ToArray()
                         select CalculationSiteTotal(@group.Name, rawGroupWinLosses);
 
-            var grandTotal = calculationService.CalculateSumWinLoss("Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new SiteParlayModel
             {

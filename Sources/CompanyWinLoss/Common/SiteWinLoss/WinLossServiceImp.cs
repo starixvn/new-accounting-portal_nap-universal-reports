@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
             var rawWinLosses = rawWinLossService.Query(criteria);
 
             var siteWinLosses = rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r));
-            var grandTotal = calculationService.CalculateSumWinLoss("Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new SiteWinLossModel
             {

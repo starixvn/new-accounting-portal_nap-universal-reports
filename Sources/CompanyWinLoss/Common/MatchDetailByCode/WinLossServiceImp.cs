@@ -39,7 +39,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
         {
             var rawLeagueWinLosses = rawWinLosses.Where(r => r.GroupName == league);
             var matchWinLosses = rawLeagueWinLosses.Select(m => calculationService.FromRawWinLossByRowName(m));
-            var total = calculationService.CalculateSumWinLoss("Total", rawLeagueWinLosses);
+            var total = calculationService.CalculateSumWinLoss(string.Empty, rawLeagueWinLosses);
             return new LeagueWinLoss
             {
                 Name = league,

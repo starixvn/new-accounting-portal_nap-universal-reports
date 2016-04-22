@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         {
         }
 
-        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 200)
+        public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 180)
         {
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.CustomizeHeader = true;
@@ -24,11 +24,11 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
             "SP2100:CodeLineMustNotBeLongerThan",
             Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 200)
+        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Width = 100, Name = "Main", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
+                new HeaderColumns { HeaderText = mainColumnText, Width = mainColumnWidth, Name = "Main", CellAlignment = HAlignment.Center, ShowCollapseExpand = true },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 100, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 100, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 100, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
@@ -40,11 +40,11 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             };
         }
 
-        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 200)
+        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Name = "Main", MergeRowNumber = 2, Width = 100 },
+                new HeaderColumns { HeaderText = mainColumnText, Name = "Main", MergeRowNumber = 2, Width = mainColumnWidth },
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 100 },
