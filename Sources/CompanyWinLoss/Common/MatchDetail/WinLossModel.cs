@@ -8,6 +8,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         public WinLoss Total { get; set; }
 
-        public List<WinLoss> RM { get; set; }
+        public List<WinLoss> RM { get; set; } = new List<WinLoss>();
     }
 }

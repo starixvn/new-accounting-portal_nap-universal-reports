@@ -46,7 +46,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
             var groupHeader = new GroupHeaderRows { Columns = columns };
             return new List<GroupHeaderRows> { groupHeader };
         }
-       
+
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
          "SP2100:CodeLineMustNotBeLongerThan",
          Justification = "Reviewed. Suppression is OK here.")]
@@ -72,9 +72,11 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
             return new GridDataRow { Columns = columns };
         }
 
-        protected GridDataRow BuildSportDataRow(SiteWinLossSummary item, HAlignment alignment)
+        protected GridDataRow BuildBetTypeDataRow(SiteWinLossSummary item, HAlignment alignment)
         {
             var row = BuildDataRow(item.Total, alignment);
+            row.RowType = RowType.ParentLevelOne;
+
             row.SubRows = new List<GridDataRow>
             {
                 BuildDataRow(item.Credit, HAlignment.Right),
@@ -95,7 +97,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
             {
                 BuildDataRow(mainTotal, HAlignment.Right),
                 BuildDataRow(otherTotal, HAlignment.Right),
-                BuildSportDataRow(grandTotal, HAlignment.Right)
+                BuildBetTypeDataRow(grandTotal, HAlignment.Right)
             };
 
             var allRMRows = rM.Select(r => BuildDataRow(r, HAlignment.Right));

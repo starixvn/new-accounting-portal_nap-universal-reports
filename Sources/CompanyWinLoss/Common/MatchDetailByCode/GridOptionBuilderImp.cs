@@ -81,7 +81,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
                 Columns = new List<Columns>
                 {
                     new Columns { ColumnIndex = 0, Name = "MatchCode", Value = leagueName, MergeColNumber = 7, CssClass = "league-header" }
-                }
+                },
+                RowType = RowType.ParentLevelOne
             };
         }
 

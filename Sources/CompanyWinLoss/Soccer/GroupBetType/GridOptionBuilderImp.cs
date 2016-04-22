@@ -32,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)
             {
-                bodyRows.AddRange(winLossSummary.SiteWinLossSummaries.Select(item => BuildSportDataRow(item, HAlignment.Left)));
+                bodyRows.AddRange(winLossSummary.SiteWinLossSummaries.Select(item => BuildBetTypeDataRow(item, HAlignment.Left)));
 
                 var totalRow = BuildDataRow(winLossSummary.Total, HAlignment.Right);
                 bodyRows.Add(totalRow);

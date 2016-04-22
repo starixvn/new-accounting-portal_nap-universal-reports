@@ -4,9 +4,9 @@
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService', 'showHideColumnService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService', 'metricGamingLiveNonLiveService', 'showHideColumnService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, showHideColumnService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, metricGamingLiveNonLiveService, showHideColumnService) {
         var pane = $scope.pane;
         var getProductTitle = productViewBetTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;

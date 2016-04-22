@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class GridOptionBuilderImp : GridOptionBuilder
     {
-        public GridOptions Build(ProductWinLoss winLoss, string title, bool hasNode)
+        public GridOptions Build(ProductWinLoss winLoss, string title)
         {
             return new GridOptions
             {
@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
                 BodyRows = BuildBodyRows(winLoss),
-                FooterRows = BuildFooter(winLoss.GrandTotal, hasNode),
+                FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
                 ShowFooter = true,
@@ -35,16 +35,46 @@ namespace UniversalReports.CompanyWinLoss.Products
             return bodyRows;
         }
 
+        private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
+        {
+            var productName = productWinLoss.Total.Name;
+            var isSportsbook = productName.Contains("Sportsbook");
+            var rowCssClass = isSportsbook ? "total-row" : string.Empty;
+            var isTotal = productName.Contains("Total");
+
+            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
+            productDataRow.CssClass = rowCssClass;
+            productDataRow.RowType = isTotal ? RowType.SubTotal : RowType.ParentLevelOne;
+            productDataRow.CustomAttr = isSportsbook ? null : "product";
+
+            var creditRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
+            creditRow.CssClass = rowCssClass;
+            creditRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
+            productDataRow.SubRows.Add(creditRow);
+
+            var depositRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
+            depositRow.CssClass = rowCssClass;
+            depositRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
+            productDataRow.SubRows.Add(depositRow);
+
+            return productDataRow;
+        }
+
         private GridDataRow BuildNonSportsTotal(SiteWinLossSummary productWinLoss)
         {
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = "total-row";
-            var subRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
-            subRow.CssClass = "total-row";
-            productDataRow.SubRows.Add(subRow);
-            subRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
-            subRow.CssClass = "total-row";
-            productDataRow.SubRows.Add(subRow);
+            productDataRow.RowType = RowType.SubTotal;
+
+            var creditRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
+            creditRow.CssClass = "total-row";
+            creditRow.RowType = RowType.SubTotal;
+            productDataRow.SubRows.Add(creditRow);
+
+            var depositRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
+            depositRow.CssClass = "total-row";
+            depositRow.RowType = RowType.SubTotal;
+            productDataRow.SubRows.Add(depositRow);
 
             return productDataRow;
         }
@@ -53,24 +83,7 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
             productDataRow.CssClass = "total-row";
-            return productDataRow;
-        }
-
-        private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
-        {
-            var productName = productWinLoss.Total.Name;
-            var isSportsbook = productName.Contains("Sportsbook");
-            var rowCssClass = isSportsbook ? "total-row" : string.Empty;
-            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
-            productDataRow.CssClass = rowCssClass;
-            productDataRow.CustomAttr = isSportsbook ? null : "product";
-            var subRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
-            subRow.CssClass = rowCssClass;
-            productDataRow.SubRows.Add(subRow);
-            subRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
-            subRow.CssClass = rowCssClass;
-            productDataRow.SubRows.Add(subRow);
-
+            productDataRow.RowType = RowType.SubTotal;
             return productDataRow;
         }
 
@@ -97,21 +110,14 @@ namespace UniversalReports.CompanyWinLoss.Products
             return new GridDataRow { Columns = columns };
         }
 
-        private List<GridDataRow> BuildFooter(SiteWinLossSummary item, bool hasNode)
+        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
         {
-            var list = new List<GridDataRow>
+            return new List<GridDataRow>
             {
                 BuildDataRow(item.Total, HAlignment.Right, true),
                 BuildDataRow(item.Credit, HAlignment.Right, true),
                 BuildDataRow(item.Deposit, HAlignment.Right, true)
             };
-
-            if (hasNode)
-            {
-                list.Add(BuildNoteRow());
-            }
-
-            return list;
         }
 
         private object GetFormattedMargin(WinLoss item, bool isFooter)
@@ -124,26 +130,6 @@ namespace UniversalReports.CompanyWinLoss.Products
             {
                 return item.RealMargin == 0 ? "N/A" : (object)item.RealMargin;
             }
-        }
-
-        private GridDataRow BuildNoteRow()
-        {
-            var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
-                             "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
-            int columnIndex = 0;
-            var columns = new List<Columns>
-            {
-                new Columns(columnIndex)
-                {
-                    Name = "Main",
-                    Value = reportNote,
-                    MergeColNumber = 13,
-                    CellAlignment = HAlignment.Left,
-                    TDClass = "grand-total-note"
-                }
-            };
-
-            return new GridDataRow { Columns = columns };
         }
     }
 }

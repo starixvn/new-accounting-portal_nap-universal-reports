@@ -4,6 +4,6 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public interface GridOptionBuilder
     {
-        GridOptions Build(ProductWinLoss winLoss, string title, bool hasNode);
+        GridOptions Build(ProductWinLoss winLoss, string title);
     }
 }

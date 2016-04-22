@@ -28,11 +28,11 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         protected GridOptionColumnDecorator Decorator { get; }
 
-        protected IHttpActionResult Json(WinLossCriteria criteria, string mainColumnText)
+        protected IHttpActionResult Json(WinLossCriteria criteria, string mainColumnText, int mainColumnWidth = 180)
         {
             if (ModelState.IsValid)
             {
-                var gridOptions = GetGridOptions(criteria, mainColumnText);
+                var gridOptions = GetGridOptions(criteria, mainColumnText, string.Empty, mainColumnWidth);
                 return Json(gridOptions);
             }
 
@@ -40,22 +40,22 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         }
 
         [Route("excel")]
-        protected IHttpActionResult Excel(WinLossCriteria criteria, string mainColumnText, string title)
+        protected IHttpActionResult Excel(WinLossCriteria criteria, string mainColumnText, string title, int mainColumnWidth = 180)
         {
             if (ModelState.IsValid)
             {
-                var gridOptions = GetGridOptions(criteria, mainColumnText, title);
+                var gridOptions = GetGridOptions(criteria, mainColumnText, title, mainColumnWidth);
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
             return null;
         }
 
-        protected GridOptions GetGridOptions(WinLossCriteria criteria, string mainColumnText, string title = "")
+        protected GridOptions GetGridOptions(WinLossCriteria criteria, string mainColumnText, string title = "", int mainColumnWidth = 180)
         {
             var winlosses = Service.Query(criteria);
             var gridOptions = Builder.Build(winlosses, title);
-            return Decorator.Build(gridOptions, mainColumnText);
+            return Decorator.Build(gridOptions, mainColumnText, mainColumnWidth);
         }
     }
 }
