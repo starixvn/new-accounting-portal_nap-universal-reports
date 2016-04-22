@@ -344,6 +344,7 @@
     <Content Include="Content\images\header\user.png" />
     <Content Include="Content\images\loading\loading.gif" />
     <Content Include="Content\images\header\logo.png" />
+    <Content Include="Content\matchdetail.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />

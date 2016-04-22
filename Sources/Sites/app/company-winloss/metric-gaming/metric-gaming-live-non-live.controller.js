@@ -83,7 +83,7 @@
             };
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
+            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
             data.defaultCollapseAllGroups = true;
             betTypeGridElement.fanexGrid(data);
         }
@@ -97,7 +97,7 @@
             };
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
+            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
             data.defaultCollapseAllGroups = true;
             liveNonLiveGridElement.fanexGrid(data);
         }

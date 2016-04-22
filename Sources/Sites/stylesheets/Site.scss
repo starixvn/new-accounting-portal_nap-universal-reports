@@ -613,3 +613,14 @@ header {
         }
     }
 }
+
+.modal-match-information{
+    outline: 0px;
+    z-index: 1036;
+    position: absolute;
+    height: auto;
+    width: 770px;
+    top: 106px;
+    left: 185px;
+    display: block;
+}

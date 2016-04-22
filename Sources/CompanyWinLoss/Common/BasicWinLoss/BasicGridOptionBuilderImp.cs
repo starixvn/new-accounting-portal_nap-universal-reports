@@ -36,11 +36,11 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             var row = BuildDataRow(model.GrandTotal.Total, HAlignment.Right);
             var creditRow = BuildDataRow(model.GrandTotal.Credit, HAlignment.Right);
             var depositRow = BuildDataRow(model.GrandTotal.Deposit, HAlignment.Right);
-            var allRMRows = model.RM.Select(r => BuildDataRow(r, HAlignment.Right));
+            var allRMRows = model.RM != null ? model.RM.Select(r => BuildDataRow(r, HAlignment.Right)) : null;
 
             var footer = new List<GridDataRow> { row, creditRow, depositRow };
 
-            footer.AddRange(allRMRows);
+            if (allRMRows != null) { footer.AddRange(allRMRows); }
             return footer;
         }
 

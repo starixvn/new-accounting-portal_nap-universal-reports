@@ -61,7 +61,7 @@
             }
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.defaultCollapseAllGroups = true;
             gridElement.fanexGrid(data);
         }

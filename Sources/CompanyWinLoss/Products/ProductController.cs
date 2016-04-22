@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = service.Query(criteria);
                 var gridOptions = builder.Build(winlosses, "Main", true);
-                gridOptions = decorator.Build(gridOptions, "Products", 170);
+                gridOptions = decorator.Build(gridOptions, "Products", 180);
 
                 return Json(gridOptions);
             }
@@ -45,6 +45,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
                 var winlosses = service.Query(criteria);
                 var gridOptions = builder.Build(winlosses, queryModel.Title, false);
+                gridOptions = decorator.Build(gridOptions, "Products", 180);
                 return new FanexExcelResult(gridOptions, Common.Constants.SheetName);
             }
 
