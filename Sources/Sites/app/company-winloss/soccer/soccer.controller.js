@@ -56,13 +56,12 @@
                 exportExcelFunction: exportExcel
             };
             if (gridElement === majorMinorGridElement) {
-                titleInfo.customButtons = showHideColumnService.customButtonHtml;
+                titleInfo.customButtons = showHideColumnService.getButtonHtml();
                 titleInfo.showExcelButton = true;
             }
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            data.defaultCollapseAllGroups = true;
             gridElement.fanexGrid(data);
         }
 

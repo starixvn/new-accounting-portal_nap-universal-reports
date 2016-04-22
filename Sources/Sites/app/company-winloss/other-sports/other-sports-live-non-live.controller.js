@@ -65,12 +65,11 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.customButtonHtml
+                customButtons: showHideColumnService.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
-            data.defaultCollapseAllGroups = true;
             sportTypeGridElement.fanexGrid(data);
         }
 
@@ -93,7 +92,6 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
-            data.defaultCollapseAllGroups = true;
             liveNonLiveGridElement.fanexGrid(data);
         }
 

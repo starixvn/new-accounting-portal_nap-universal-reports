@@ -64,7 +64,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.customButtonHtml
+                customButtons: showHideColumnService.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

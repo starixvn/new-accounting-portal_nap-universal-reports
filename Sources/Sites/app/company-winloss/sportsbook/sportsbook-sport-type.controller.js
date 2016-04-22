@@ -38,12 +38,11 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.customButtonHtml
+                customButtons: showHideColumnService.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            data.defaultCollapseAllGroups = true;
             gridElement.fanexGrid(data);
         }
 
