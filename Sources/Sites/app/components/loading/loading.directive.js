@@ -22,13 +22,16 @@
     function controller($scope) {
         var vm = this;
         vm.isLoading = false;
+        vm.loadingCounter = 0;
 
         $scope.$on('loading-started', function () {
-            vm.isLoading = true;
+            vm.loadingCounter ++;
+            vm.isLoading = vm.loadingCounter > 0;
         });
 
         $scope.$on('loading-complete', function () {
-            vm.isLoading = false;
+            vm.loadingCounter--;
+            vm.isLoading = vm.loadingCounter > 0;
         });
     }
 })(angular);
