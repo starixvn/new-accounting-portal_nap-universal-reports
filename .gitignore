@@ -36,3 +36,5 @@ Fanex.Oneyed.WebService/*.xml
 _Chutzpah*
 /Sources/Sites/node_modules
 *.orig
+/Sources/Sites/stylesheets/Site.css.map
+/Sources/Sites/stylesheets/Site.css

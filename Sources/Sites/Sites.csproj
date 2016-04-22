@@ -344,7 +344,7 @@
     <Content Include="Content\images\header\user.png" />
     <Content Include="Content\images\loading\loading.gif" />
     <Content Include="Content\images\header\logo.png" />
-    <Content Include="Content\matchdetail.css" />
+    <Content Include="Content\scoreInformations.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
@@ -1322,6 +1322,7 @@
     <Content Include="stylesheets\bootstrap\mixins\_hide-text.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="stylesheets\scoreInformation.scss" />
     <None Include="stylesheets\bootstrap\_variables.scss" />
     <None Include="stylesheets\bootstrap\_wells.scss" />
     <None Include="stylesheets\Site.scss" />
