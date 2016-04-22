@@ -22,7 +22,7 @@
         return service;
 
         function getSiteText(site) {
-            return '| Product Win/Loss By ' + site + ' Site';
+            return '| Product Win/Loss By ' + (site == undefined ? "ALL" : site) + ' Site';
         }
 
         function getMainTitle(data, isLast) {
