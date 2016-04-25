@@ -1,10 +1,16 @@
-﻿namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
+﻿using System;
+
+namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 {
     public class RawWinLoss
     {
         public int MatchId { get; set; }
 
         public string MatchCode { get; set; }
+
+        public DateTime EventDate { get; set; }
+
+        public int SportType { get; set; }
 
         public bool IsNeutral { get; set; }
 

@@ -22,8 +22,10 @@
             });
         }
 
-        function viewMatchInformation(matchId, leagueName) {
+        function viewMatchInformation(sportType, matchId, eventDate, leagueName) {
+            pane.data.sportType = sportType;
             pane.data.matchId = matchId;
+            pane.data.eventDate = eventDate;
             pane.service.getMatchInformation(pane.data).then(function (data) {
                 showPopup(data, leagueName);
             });
@@ -53,10 +55,10 @@
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var bodyRow = data.bodyRows[i];
-                var matchId = bodyRow.Columns[0].CustomAttr;
-                if (matchId) {
+                var customAttr = bodyRow.Columns[0].CustomAttr;
+                if (customAttr) {
                     var matchName = bodyRow.Columns[0].Value;
-                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(\'' + matchId + '\')">' + matchName + '</a>';
+                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
                 }
             }
         }

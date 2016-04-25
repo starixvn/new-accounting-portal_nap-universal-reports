@@ -97,7 +97,9 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
             {
                 BuildDataRow(mainTotal, HAlignment.Right),
                 BuildDataRow(otherTotal, HAlignment.Right),
-                BuildBetTypeDataRow(grandTotal, HAlignment.Right)
+                BuildDataRow(grandTotal.Total, HAlignment.Right),
+                BuildDataRow(grandTotal.Credit, HAlignment.Right),
+                BuildDataRow(grandTotal.Deposit, HAlignment.Right)
             };
 
             var allRMRows = rM.Select(r => BuildDataRow(r, HAlignment.Right));

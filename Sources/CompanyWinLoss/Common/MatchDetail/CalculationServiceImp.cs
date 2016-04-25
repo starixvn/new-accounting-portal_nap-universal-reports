@@ -19,6 +19,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             {
                 MatchId = rawWinLoss.MatchId,
                 MatchCode = rawWinLoss.MatchCode,
+                EventDate = rawWinLoss.EventDate,
+                SportType = rawWinLoss.SportType,
                 IsNeutral = rawWinLoss.IsNeutral,
                 HomeId = rawWinLoss.HomeId,
                 AwayId = rawWinLoss.AwayId,
@@ -35,7 +37,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
                 RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
-                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover),
+                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover)
             };
         }
 

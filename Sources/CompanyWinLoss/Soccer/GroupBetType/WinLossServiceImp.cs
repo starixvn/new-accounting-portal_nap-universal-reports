@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             var betTypeWinLosses = calculationService.CalculateSiteWinLossSummaryGroups(rawWinLosses);
             var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
             var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("All Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
             return new WinLossModel

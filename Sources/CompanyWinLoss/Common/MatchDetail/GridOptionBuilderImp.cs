@@ -1,6 +1,7 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Extensions;
 
@@ -44,7 +45,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
         {
             var dataRows = new List<GridDataRow>();
             var leagueNameRow = BuildLeagueNameRow(league.LeagueName);
-            var matchRows = league.Matches.Select(BuidMatchRow);
+            var matchRows = league.Matches.Select(m => BuidMatchRow(m, league.LeagueName));
 
             dataRows.Add(leagueNameRow);
             dataRows.AddRange(matchRows);
@@ -66,12 +67,16 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
         }
 
-        private GridDataRow BuidMatchRow(WinLoss item)
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2100:CodeLineMustNotBeLongerThan",
+          Justification = "Reviewed. Suppression is OK here.")]
+        private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
             int columnIndex = 0;
+            var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = item.MatchCode, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
+                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = customAttributes, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },

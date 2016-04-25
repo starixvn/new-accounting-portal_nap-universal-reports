@@ -18,7 +18,9 @@
         function getMatchInformation(data) {
             var httpData = {
                 matchId: data.matchId,
-                betType: data.betType
+                betType: data.betType,
+                sportType: data.sportType,
+                reportDate: data.eventDate
             };
 
             var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');

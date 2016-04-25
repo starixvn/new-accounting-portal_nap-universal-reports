@@ -9,11 +9,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
         {
             var allSources = sources.SelectMany(s => s);
             return allSources
-                .GroupBy(l => new { l.MatchId, l.MatchCode, l.IsNeutral, l.HomeId, l.AwayId, l.LeagueId, l.HomeName, l.AwayName })
+                .GroupBy(l => new { l.MatchId, l.MatchCode, l.EventDate, l.SportType, l.IsNeutral, l.HomeId, l.AwayId, l.LeagueId, l.HomeName, l.AwayName })
                 .Select(g => new RawWinLoss
                 {
                     MatchId = g.Key.MatchId,
                     MatchCode = g.Key.MatchCode,
+                    EventDate = g.Key.EventDate,
+                    SportType = g.Key.SportType,
                     IsNeutral = g.Key.IsNeutral,
                     HomeId = g.Key.HomeId,
                     AwayId = g.Key.AwayId,
