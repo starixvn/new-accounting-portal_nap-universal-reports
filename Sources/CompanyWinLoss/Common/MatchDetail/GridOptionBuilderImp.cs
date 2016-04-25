@@ -61,7 +61,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 14, CellAlignment = HAlignment.Left }
+                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 14, Bold= true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
@@ -76,7 +76,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = customAttributes, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
+                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = item.MatchCode,Bold = true, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },
