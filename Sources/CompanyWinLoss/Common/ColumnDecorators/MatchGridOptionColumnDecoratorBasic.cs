@@ -29,9 +29,6 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             return new List<HeaderColumns>
             {
                 new HeaderColumns { HeaderText = "Code", Width = 120, Name = "MatchCode", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 200, Name = "Home", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 20, Name = "VS", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = string.Empty, Width = 200, Name = "Away", CellAlignment = HAlignment.Center },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 100, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 100, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 100, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
@@ -46,7 +43,6 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             var columns = new List<HeaderColumns>
             {
                 new HeaderColumns { HeaderText = "Code", Name = "MatchCode", Width = 120 },
-                new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 430, MergeColNumber = 3 },
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 100 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 100 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 100 },

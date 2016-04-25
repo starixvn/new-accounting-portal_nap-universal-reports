@@ -30,6 +30,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             if (ModelState.IsValid)
             {
                 var gridOptions = GetGridOptions(criteria, string.Empty);
+                gridOptions = Decorator.Build(gridOptions);
 
                 return Json(gridOptions);
             }
