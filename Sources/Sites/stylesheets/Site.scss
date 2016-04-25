@@ -317,6 +317,19 @@ h1, h2, h3, h4, h5, h6 {
             font-weight: bold;
         }
 
+        .league-match-header {
+            text-align: left;
+            font-weight: bold;            
+            td{
+                background-color: #E2FFFF;
+            }
+        }
+
+        .league-match-code {
+            text-align: center;
+            font-weight: bold;
+        }
+
         .grand-total-note {
             background: white !important;
             font-weight: bold;
@@ -615,7 +628,7 @@ header {
     }
 }
 
-.modal-match-information{
+.modal-match-information {
     outline: 0px;
     z-index: 1036;
     position: absolute;

@@ -14,11 +14,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             {
                 ShowTitle = true,
                 TitleInfoText = title,
-                TitleType = TitleType.TwoLineBlue,
+                TitleType = TitleType.OneLineBlue,
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),
                 ShowFooter = true,
                 ShowPager = true,
+                ShowDistinctRow = false,
                 PagerOption = new PagerOption
                 {
                     ItemsPerPage = 50,
@@ -59,10 +60,10 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 14, Bold = true, CellAlignment = HAlignment.Left }
+                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 14, CellAlignment = HAlignment.Left }
                };
 
-            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne };
+            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
         }
 
         private GridDataRow BuidMatchRow(WinLoss item)
@@ -70,7 +71,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             int columnIndex = 0;
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = item.MatchCode, CellAlignment = HAlignment.Center },
+                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = item.MatchCode, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },
@@ -86,7 +87,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
 
-            return new GridDataRow { Columns = colummns };
+            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne };
         }
 
         private List<GridDataRow> BuildFooter(WinLossModel model)

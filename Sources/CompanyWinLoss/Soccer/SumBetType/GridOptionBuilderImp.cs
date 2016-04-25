@@ -26,7 +26,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
                 ShowDistinctRow = false
             };
         }
-        
+
         private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
         {
             var bodyRows = new List<GridDataRow>();

@@ -6022,6 +6022,14 @@ h1, h2, h3, h4, h5, h6 {
   .grid-boundary .freegrid .league-header {
     text-align: left;
     font-weight: bold; }
+  .grid-boundary .freegrid .league-match-header {
+    text-align: left;
+    font-weight: bold; }
+    .grid-boundary .freegrid .league-match-header td {
+      background-color: #E2FFFF; }
+  .grid-boundary .freegrid .league-match-code {
+    text-align: center;
+    font-weight: bold; }
   .grid-boundary .freegrid .grand-total-note {
     background: white !important;
     font-weight: bold;
