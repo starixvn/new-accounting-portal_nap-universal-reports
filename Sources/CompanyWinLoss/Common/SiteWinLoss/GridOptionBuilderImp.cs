@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
-            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Right) };
+            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Center) };
         }
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)

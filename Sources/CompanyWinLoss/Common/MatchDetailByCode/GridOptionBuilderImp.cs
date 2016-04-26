@@ -68,14 +68,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         private GridDataRow BuildLeagueNameRow(string leagueName)
         {
-            return new GridDataRow
-            {
-                Columns = new List<Columns>
-                {
-                    new Columns { ColumnIndex = 0, Name = "MatchCode", Value = leagueName, MergeColNumber = 7, CssClass = "league-header" }
-                },
-                RowType = RowType.ParentLevelOne
-            };
+            int columnIndex = 0;
+            var colummns = new List<Columns>
+               {
+                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 7, Bold = true, CellAlignment = HAlignment.Left }
+               };
+
+            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
         }
 
         private List<GridDataRow> BuildFooter(WinLoss item)
