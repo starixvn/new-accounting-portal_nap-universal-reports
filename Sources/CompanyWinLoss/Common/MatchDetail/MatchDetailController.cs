@@ -44,7 +44,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             if (ModelState.IsValid)
             {
                 var gridOptions = GetGridOptions(criteria, title);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 

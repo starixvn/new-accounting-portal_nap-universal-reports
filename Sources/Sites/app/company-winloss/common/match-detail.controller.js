@@ -14,7 +14,8 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                var options = pane.data.sportType == 180 ? { hiddenColumns: [4, 5] } : { hiddenColumns: [1, 2] };
+                showHideColumnService.build($scope, gridElement, data, options);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -29,7 +30,16 @@
             };
 
             data.titleInfo = titleInfo;
+            data.showPager = true;
+            data.pagerOption = {
+                itemsPerPage: 50,
+                currentPage: 0,
+                itemsPerPageArray: [50, 100, 200, 500],
+                totalItem: data.bodyRows.length
+            };
+
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.headerColumnHeight = 10;
             gridElement.fanexGrid(data);
         }
 

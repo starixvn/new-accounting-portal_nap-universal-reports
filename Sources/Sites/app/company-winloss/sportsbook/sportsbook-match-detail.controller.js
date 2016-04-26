@@ -72,6 +72,13 @@
             };
 
             data.titleInfo = titleInfo;
+            data.showPager = true;
+            data.pagerOption = {
+                itemsPerPage: 50,
+                currentPage: 0,
+                itemsPerPageArray: [50, 100, 200, 500],
+                totalItem: data.bodyRows.length
+            };
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }

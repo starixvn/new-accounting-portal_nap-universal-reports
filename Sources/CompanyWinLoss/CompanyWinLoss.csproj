@@ -128,6 +128,7 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorExtraPT.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBasic.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorByCode.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorBasic.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorFull.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorVirtual.cs" />

@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.MatchDetail
     [RoutePrefix("api/company-win-loss/racing/match-detail")]
     public class RacingDetailController : MatchDetailByCodeController
     {
-        public RacingDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
+        public RacingDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorByCode decorator)
             : base(service, builder, decorator)
         {
         }

@@ -66,9 +66,10 @@ namespace UniversalReports.Sites
             container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
             container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
             container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
 
 
             // This is an extension method from the integration package.

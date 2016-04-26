@@ -19,17 +19,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),
                 ShowFooter = true,
-                ShowPager = true,
-                ShowDistinctRow = false,
-                PagerOption = new PagerOption
-                {
-                    ItemsPerPage = 50,
-                    CurrentPage = 0,
-                    ItemsPerPageArray = new List<int> { 50, 100, 200, 500 }
-                }
+                ShowDistinctRow = false
             };
-
-            gridOptions.PagerOption.TotalItem = gridOptions.BodyRows.Count;
 
             return gridOptions;
         }

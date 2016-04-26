@@ -30,8 +30,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             if (ModelState.IsValid)
             {
                 var gridOptions = GetGridOptions(criteria, string.Empty);
-                gridOptions = Decorator.Build(gridOptions);
-
                 return Json(gridOptions);
             }
 
@@ -43,8 +41,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             if (ModelState.IsValid)
             {
                 var gridOptions = GetGridOptions(criteria, title);
-                gridOptions = Decorator.Build(gridOptions);
-
                 return new FanexExcelResult(gridOptions, Constants.SheetName);
             }
 
@@ -54,7 +50,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
         protected GridOptions GetGridOptions(WinLossCriteria criteria, string title)
         {
             var winlosses = Service.Query(criteria);
-            return Builder.Build(winlosses, title);
+            var gridOptions = Builder.Build(winlosses, title);
+
+            return Decorator.Build(gridOptions);
         }
     }
 }
