@@ -56,7 +56,7 @@
     <pages controlRenderingCompatibilityVersion="4.0" />
     <compilation debug="<#= site.DebugMode #>" targetFramework="4.6"/>
     <#
-        if(site.Environment == SiteEnvironment.DEV)
+        if(site.Environment == SiteEnvironment.DEV){
     #>
     <authentication mode="None">
       <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/NAP-REPORTS"/>
@@ -64,7 +64,7 @@
     <authorization>
       <allow users="*" />
     </authorization>
-    <# else{ #>
+    <#} else{ #>
     <authentication mode="Forms">
       <forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/NAP-REPORTS"/>
     </authentication>
