@@ -1,14 +1,16 @@
-/* Author: Nexcel -  2016-03-11 */
-(function () {
+/* Author: Nexcel -  2016-04-26 */
+(function (angular) {
     'use strict';
 
     angular
         .module('app.core', [
+            'ui.bootstrap',
             'ngRoute',
+            'ngSanitize',
             'angularMoment'
         ]);
-})();
-(function () {
+})(angular);
+(function (angular, moment) {
     'use strict';
 
     angular
@@ -26,7 +28,7 @@
                 legacyPath: napConfig.LegacyPath,
                 today: today,
                 yesterday: yesterday
-            }
+            };
         })())
         .constant('formatStrings', {
             INT_NUMBER: '0,0',
@@ -46,8 +48,8 @@
             PERCENT_NUMBER: '0%'
         })
         .constant('universalMenus', ['/UniversalReports/CompanyWinLoss']);
-})();
-(function () {
+})(angular, moment);
+(function (angular) {
     'use strict';
 
     angular
@@ -78,18 +80,21 @@
 
         function configHttp() {
             $httpProvider.interceptors.push(templateInterceptor);
-            function templateInterceptor() {
+            templateInterceptor.$inject = ['$templateCache'];
+            function templateInterceptor($templateCache) {
                 return {
                     request: function (c) {
                         var url = c.url;
-                        var subString = url.substring(0, 4);
-                        if (subString.toLowerCase() !== 'http') {
-                            c.url = config.rootUrl + '/' + url;
+                        if ($templateCache.get(url) === undefined) {
+                            var subString = url.substring(0, 4);
+                            if (subString.toLowerCase() !== 'http') {
+                                c.url = config.rootUrl + '/' + url;
+                            }
                         }
 
                         return c;
                     }
-                }
+                };
             }
 
             $httpProvider.interceptors.push(loadingInterceptor);
@@ -111,4 +116,4 @@
             }
         }
     }
-})();
+})(angular);
