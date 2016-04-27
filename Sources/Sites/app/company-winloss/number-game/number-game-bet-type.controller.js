@@ -41,10 +41,16 @@
             pane.service.getData(pane.data).then(function (data) {
                 showHideColumnService.build($scope, [liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
                 pane.data.isLive = true;
-                createLinks(data.Live, true);
+                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                    createLinks(data.Live, true);
+                }
                 renderGrid(liveGridElement, data.Live, true);
+
                 pane.data.isLive = false;
-                createLinks(data.NonLive, false);
+                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                    createLinks(data.NonLive, false);
+                }
+                
                 renderGrid(nonliveGridElement, data.NonLive, false);
                 delete (pane.data.isLive);
                 pane.compileAll();
@@ -65,6 +71,10 @@
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
+        }
+
+        function isDateRangeInThreeDays(startDate, endDate) {
+            return endDate.diff(startDate, 'days') <= 3;
         }
 
         function createLinks(data, isLive) {

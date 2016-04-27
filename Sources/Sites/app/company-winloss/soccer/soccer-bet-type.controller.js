@@ -52,10 +52,18 @@
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
                 showHideColumnService.build($scope, gridElement, data);
-                createLinks(data);
+
+                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                    createLinks(data);
+                }
+                
                 renderGrid(data);
                 pane.compileAll();
             });
+        }
+
+        function isDateRangeInThreeDays(startDate, endDate) {
+            return endDate.diff(startDate, 'days') <= 3;
         }
 
         function createLinks(data) {
