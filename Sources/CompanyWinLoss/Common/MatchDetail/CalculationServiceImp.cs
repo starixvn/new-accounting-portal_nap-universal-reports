@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 IsNeutral = rawWinLoss.IsNeutral,
                 HomeId = rawWinLoss.HomeId,
                 AwayId = rawWinLoss.AwayId,
-                HomeName = refService.GetTeamName(rawWinLoss.HomeId, rawWinLoss.HomeName),
+                HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral),
                 AwayName = refService.GetTeamName(rawWinLoss.AwayId, rawWinLoss.AwayName),
                 LeagueId = rawWinLoss.LeagueId,
                 LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId),
@@ -39,6 +39,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
                 VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover)
             };
+        }
+
+        private string GetHomeName(int teamId, bool isNeutral)
+        {
+            return refService.GetTeamName(teamId, string.Empty)
+                + (isNeutral ? " (N)" : string.Empty);
         }
 
         public decimal CalculateMargin(decimal income, decimal turnover)
