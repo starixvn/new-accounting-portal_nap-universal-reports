@@ -7,7 +7,7 @@
   <Function Name="CompanyWinLoss-NumberGame">
     <Setting Key="CompanyWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>   
+    <Setting Key="CompanyWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="VirtualSports">
     <Setting Key="CompanyWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -24,7 +24,7 @@
     <Setting Key="CompanyWinLoss-Racing-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Racing-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>    
+    <Setting Key="CompanyWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Live Casino">
     <Setting Key="CompanyWinLoss-LiveCasino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_LiveCasino_ThirdPartyProduct_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -48,11 +48,6 @@
     <Setting Key="CompanyWinLoss-Bingo-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Bingo-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bingo_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
-  <Function Name="Cockfighting">
-    <Setting Key="CompanyWinLoss-Cockfighting-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Cockfighting-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="CompanyWinLoss-Cockfighting-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Cockfighting_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-  </Function>
   <Function Name="Sportsbook">
     <Setting Key="CompanyWinLoss-Sportsbook-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -68,7 +63,7 @@
     <Setting Key="CompanyWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
-  
+
   <Function Name="MetricGaming">
     <Setting Key="CompanyWinLoss-MetricGaming-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-MetricGaming-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
