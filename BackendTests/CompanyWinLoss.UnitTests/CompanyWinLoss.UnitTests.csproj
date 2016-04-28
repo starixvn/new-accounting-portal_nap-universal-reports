@@ -103,6 +103,9 @@
     <Compile Include="NumberGame\BetType\NumberGameWinLossFactory.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
+    <Compile Include="Soccer\SoccerWinLossFactory.cs" />
+    <Compile Include="Soccer\SumBetType\ServiceUnitTest.cs" />
     <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
     <Compile Include="TestUtility\Comparison.cs" />
     <Compile Include="TestUtility\WinLossFactory.cs" />
