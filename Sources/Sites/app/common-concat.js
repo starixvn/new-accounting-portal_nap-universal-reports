@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-04-27 */
+/* Author: Nexcel -  2016-05-05 */
 (function ($) {
     'use strict';
 

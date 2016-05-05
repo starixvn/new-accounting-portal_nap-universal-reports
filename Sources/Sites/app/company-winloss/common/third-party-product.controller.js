@@ -8,8 +8,10 @@
     ThirdPartyProductController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function ThirdPartyProductController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
@@ -24,7 +26,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -46,7 +48,7 @@
                 showExcelButton: true,
                 showCollapseExpandButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

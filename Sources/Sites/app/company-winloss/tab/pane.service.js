@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService'];
-    function napPane($log, $compile, $injector, companyWinlossService) {
+    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
+    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
         function Pane(level, data) {
             this.level = level;
             this.data = data;
@@ -16,7 +16,9 @@
             this.show = show;
             this.compileAll = compileAll;
             this.compileLinks = compileLinks;
+            this.compileDrilldown = compileDrilldown;
             this.getFileName = getFileName;
+            this.showHideColumnOptions = showHideColumnService.defaultOptions;
 
             if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
                 $log.error('Invalid pane');
@@ -51,6 +53,11 @@
                 var elements = this.$element.find('.drill-down');
                 $compile(elements)(this.$scope);
                 elements = this.$element.find('.breadcrumb');
+                $compile(elements)(this.$scope);
+            }
+
+            function compileDrilldown() {
+                var elements = this.$element.find('.drill-down');
                 $compile(elements)(this.$scope);
             }
         }

@@ -8,12 +8,14 @@
     SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService', 'soccerConstants'];
     function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService, soccerConstants) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var getTitleWhenMajorMinor = pane.service.getTitle;
         var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
         $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
@@ -24,7 +26,7 @@
                 liveNonLiveGridOptions;
             var renderAll = function () {
                 if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnService.build($scope, [majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
+                    showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
                     
                     createLinksForMajorMinor(majorMinorGridOptions);
                     renderGrid(majorMinorGridElement, majorMinorGridOptions);
@@ -56,7 +58,7 @@
                 exportExcelFunction: exportExcel
             };
             if (gridElement === majorMinorGridElement) {
-                titleInfo.customButtons = showHideColumnService.getButtonHtml();
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
                 titleInfo.showExcelButton = true;
             }
 

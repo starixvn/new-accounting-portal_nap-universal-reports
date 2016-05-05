@@ -8,12 +8,14 @@
 
     function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, metricGamingLiveNonLiveService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var getProductTitle = productViewBetTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.generateMatchDetail = generateMatchDetail;
@@ -52,7 +54,7 @@
                 liveNonLiveGridOptions;
             var renderAll = function () {
                 if (angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnService.build($scope, [betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
+                    showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
                     createLinksForBetType(betTypeGridOptions);
                     renderGridForBetType(betTypeGridOptions);
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
@@ -79,7 +81,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

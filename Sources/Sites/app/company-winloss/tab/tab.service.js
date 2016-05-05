@@ -41,8 +41,13 @@
             }
 
             function goBack(index) {
-                this.panes = this.panes.slice(0, index + 1);
                 var activePane = this.getActivePane();
+                this.panes = this.panes.slice(0, index + 1);
+                var newActivePane = this.getActivePane();
+                newActivePane.showHideColumnOptions = activePane.showHideColumnOptions;
+                if (angular.isFunction(newActivePane.$scope.show)) {
+                    newActivePane.$scope.show();
+                }
                 var dateRange = {
                     startDate: activePane.data.startDate,
                     endDate: activePane.data.endDate
@@ -51,7 +56,9 @@
             }
 
             function goForward(level, data) {
+                var activePane = this.getActivePane();
                 var pane = new Pane(level, data);
+                pane.showHideColumnOptions = activePane.showHideColumnOptions;
                 this.addPane(pane);
             }
 

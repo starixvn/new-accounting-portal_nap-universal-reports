@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-04-27 */
+/* Author: Nexcel -  2016-05-05 */
 (function (angular) {
     'use strict';
 
@@ -486,8 +486,10 @@
     BetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService'];
     function BetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
@@ -513,7 +515,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
 
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
@@ -553,7 +555,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -577,14 +579,20 @@
     MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function MatchDetailController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                var options = pane.data.sportType == 180 ? { hiddenColumns: [4, 5] } : { hiddenColumns: [1, 2] };
-                showHideColumnService.build($scope, gridElement, data, options);
+                if (pane.data.sportType === 180) {
+                    showHideColumnBuilder.updateOptions({ hiddenColumns: [4, 5] });
+                } else {
+                    showHideColumnBuilder.updateOptions({ hiddenColumns: [1, 2] });
+                }
+                showHideColumnBuilder.build(gridElement, data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -595,7 +603,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -716,13 +724,15 @@
     SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function SiteController($injector, $scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -733,7 +743,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -849,8 +859,10 @@
     SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function SportTypeController($injector, $scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
@@ -865,7 +877,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -887,7 +899,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.customButtonHtml
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -1000,8 +1012,10 @@
     ThirdPartyProductController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function ThirdPartyProductController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
@@ -1016,7 +1030,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -1038,7 +1052,7 @@
                 showExcelButton: true,
                 showCollapseExpandButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -1205,72 +1219,85 @@
         .module('app.companyWinlossApp')
         .factory('showHideColumnService', showHideColumnService);
 
-    showHideColumnService.$inject = ['$log'];
-    function showHideColumnService($log) {
-        // some notes for fanex grid: enableHiddenColumns = false -> hiddenColumns is affected
-        // if hidding columns, then also collapsing tree items
-        // so: defaultCollapseAllGroups = !enableHiddenColumns
-        // however, defaultCollapseAllGroups is meaningless when using function 'hideColumns' and its value must be true
-        var defaultOptions = {
-            enableHiddenColumns: false, // default is hidding columns
+    showHideColumnService.$inject = ['$log', '$timeout'];
+    function showHideColumnService($log, $timeout) {
+        Builder.defaultOptions = {
+            enableHiddenColumns: true, // default is hidding columns
             hiddenColumns: [1, 2] // default hidden column indexes
         };
-        var service = {
-            getButtonHtml: getButtonHtml,
-            build: build
-        };
-        return service;
+        function Builder(pane) {
+            var options = pane.showHideColumnOptions;
+            this.getButtonHtml = getButtonHtml;
+            this.build = build;
+            this.toggle = toggle;
+            this.updateOptions = updateOptions;
 
-        function getButtonHtml() {
-            var buttonClass = defaultOptions.enableHiddenColumns ? 'expanded' : 'collapsed';
-            return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
-        }
-
-        function build($scope, listOfGridElements, listOfGridOptions, options) {
-            options = angular.extend({}, defaultOptions, options);
-            if (!angular.isArray(listOfGridElements)) {
-                listOfGridElements = [listOfGridElements];
-            }
-            if (!angular.isArray(listOfGridOptions)) {
-                listOfGridOptions = [listOfGridOptions];
-            }
-            if (listOfGridElements.length !== listOfGridOptions.length) {
-                $log.error('Invalid parameters');
+            function toggle() {
+                var showHideButton = pane.$element.find('.btExpand').first();
+                var isCollapsed = showHideButton.hasClass('collapsed');
+                if (isCollapsed !== options.enableHiddenColumns) {
+                    options.enableHiddenColumns = !options.enableHiddenColumns;
+                    $timeout(function () {
+                        showHideButton.trigger('click');
+                    });
+                }
             }
 
-            $scope.showHideColumns = showHideColumns;
-            for (var i = 0; i < listOfGridOptions.length; i++) {
-                var gridOptions = listOfGridOptions[i];
-                gridOptions.hiddenColumns = options.hiddenColumns;
-                gridOptions.enableHiddenColumns = options.enableHiddenColumns;
-                gridOptions.defaultCollapseAllGroups = !gridOptions.enableHiddenColumns;
+            function updateOptions(newOptions) {
+                pane.showHideColumnOptions = angular.extend(options, newOptions);
             }
 
-            function showHideColumns($event) {
-                // togging enableHiddenColumns
-                options.enableHiddenColumns = !options.enableHiddenColumns;
+            function getButtonHtml() {
+                var buttonClass = !options.enableHiddenColumns ? 'expanded' : 'collapsed';
+                return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
+            }
+
+            function build(listOfGridElements, listOfGridOptions) {
+                if (!angular.isArray(listOfGridElements)) {
+                    listOfGridElements = [listOfGridElements];
+                }
+                if (!angular.isArray(listOfGridOptions)) {
+                    listOfGridOptions = [listOfGridOptions];
+                }
+                if (listOfGridElements.length !== listOfGridOptions.length) {
+                    $log.error('Invalid parameters');
+                    return;
+                }
+
+                pane.$scope.showHideColumns = showHideColumns;
                 for (var i = 0; i < listOfGridOptions.length; i++) {
-                    var gridElement = listOfGridElements[i];
                     var gridOptions = listOfGridOptions[i];
-                    gridOptions.enableHiddenColumns = options.enableHiddenColumns;
-                    gridOptions.defaultCollapseAllGroups = true;
-                    if (gridOptions.enableHiddenColumns) {
-                        gridElement.fanexGrid("hideColumns", gridOptions, []);
+                    gridOptions.hiddenColumns = options.hiddenColumns;
+                    gridOptions.enableHiddenColumns = !options.enableHiddenColumns;
+                    gridOptions.defaultCollapseAllGroups = !gridOptions.enableHiddenColumns;
+                }
+
+                function showHideColumns($event) {
+                    options.enableHiddenColumns = !options.enableHiddenColumns;
+                    for (var i = 0; i < listOfGridOptions.length; i++) {
+                        var gridElement = listOfGridElements[i];
+                        var gridOptions = listOfGridOptions[i];
+                        gridOptions.enableHiddenColumns = options.enableHiddenColumns;
+                        gridOptions.defaultCollapseAllGroups = true;
+                        if (gridOptions.enableHiddenColumns) {
+                            gridElement.fanexGrid("hideColumns", gridOptions, options.hiddenColumns);
+                        } else {
+                            gridElement.fanexGrid("hideColumns", gridOptions, []);
+                        }
+                    }
+
+                    pane.compileDrilldown();
+                    var target = angular.element($event.target);
+                    if (!options.enableHiddenColumns) {
+                        target.removeClass('collapsed').addClass('expanded');
                     } else {
-                        gridElement.fanexGrid("hideColumns", gridOptions, options.hiddenColumns);
+                        target.removeClass('expanded').addClass('collapsed');
                     }
                 }
-
-                $scope.pane.compileLinks();
-                var target = angular.element($event.target);
-                if (options.enableHiddenColumns) {
-                    target.removeClass('collapsed').addClass('expanded');
-                } else {
-                    target.removeClass('expanded').addClass('collapsed');
-                }
-                defaultOptions.enableHiddenColumns = options.enableHiddenColumns;
             }
-        }
+        };
+
+        return Builder;
     }
 })(angular);
 (function (angular, undefined) {
@@ -1283,12 +1310,14 @@
 
     function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, metricGamingLiveNonLiveService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var getProductTitle = productViewBetTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.generateMatchDetail = generateMatchDetail;
@@ -1327,7 +1356,7 @@
                 liveNonLiveGridOptions;
             var renderAll = function () {
                 if (angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnService.build($scope, [betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
+                    showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
                     createLinksForBetType(betTypeGridOptions);
                     renderGridForBetType(betTypeGridOptions);
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
@@ -1354,7 +1383,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -1559,10 +1588,12 @@
     NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function NumberGameBetTypeController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.generateSite = generateSite;
@@ -1590,7 +1621,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, [liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
+                showHideColumnBuilder.build([liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
                 pane.data.isLive = true;
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data.Live, true);
@@ -1616,7 +1647,7 @@
                 exportExcelFunction: exportExcel
             };
             if (!isLive) {
-                titleInfo.customButtons = showHideColumnService.getButtonHtml();
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
             }
 
             data.titleInfo = titleInfo;
@@ -1807,12 +1838,14 @@
     OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService', 'showHideColumnService'];
     function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var getProductTitle = sportTypeService.getTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var sportTypeGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.generateSportType = generateSportType;
@@ -1839,7 +1872,7 @@
                 liveNonLiveGridOptions;
             var renderAll = function () {
                 if (angular.isDefined(sportTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnService.build($scope, [sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
+                    showHideColumnBuilder.build([sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
                     createLinksForSportType(sportTypeGridOptions);
                     renderGridForSportType(sportTypeGridOptions);
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
@@ -1864,7 +1897,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -1966,11 +1999,13 @@
     ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];
     function ParlayBetTypeController($scope, $element, fanexGridService, showHideColumnService, legacyService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var parlaySportType = 9;
         var systemParlayBetType = 29;
         var mixParlayBetType = 9;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.viewMixParlayWindow = viewMixParlayWindow;
@@ -1993,7 +2028,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -2024,7 +2059,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -2138,8 +2173,10 @@
     ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting', 'showHideColumnService'];
     function ProductController($element, $scope, fanexGridService, templateSetting, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateProduct = generateProduct;
 
@@ -2155,7 +2192,7 @@
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
                 updateFooterData(data);
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -2168,7 +2205,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -2270,8 +2307,10 @@
     SoccerBetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService', 'soccerConstants'];
     function SoccerBetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService, soccerConstants) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
@@ -2313,7 +2352,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
 
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
@@ -2357,7 +2396,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -2676,12 +2715,14 @@
     SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService', 'soccerConstants'];
     function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService, soccerConstants) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var getTitleWhenMajorMinor = pane.service.getTitle;
         var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
         $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
@@ -2692,7 +2733,7 @@
                 liveNonLiveGridOptions;
             var renderAll = function () {
                 if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnService.build($scope, [majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
+                    showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
                     
                     createLinksForMajorMinor(majorMinorGridOptions);
                     renderGrid(majorMinorGridElement, majorMinorGridOptions);
@@ -2724,7 +2765,7 @@
                 exportExcelFunction: exportExcel
             };
             if (gridElement === majorMinorGridElement) {
-                titleInfo.customButtons = showHideColumnService.getButtonHtml();
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
                 titleInfo.showExcelButton = true;
             }
 
@@ -2788,14 +2829,17 @@
     SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', '$uibModal', '$uibModalStack'];
     function SportsbookMatchDetailController($scope, $element, fanexGridService, showHideColumnService, $uibModal, $uibModalStack) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
+        showHideColumnBuilder.updateOptions({ hiddenColumns: [4, 5] });
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.viewMatchInformation = viewMatchInformation;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data, { hiddenColumns: [4, 5] });
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -2838,7 +2882,7 @@
                 var customAttr = bodyRow.Columns[0].CustomAttr;
                 if (customAttr) {
                     var matchName = bodyRow.Columns[0].Value;
-                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
+                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(\'' + customAttr + '\')">' + matchName + '</a>';
                 }
             }
         }
@@ -2848,7 +2892,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -3091,8 +3135,10 @@
     SportsbookSportTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function SportsbookSportTypeController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
@@ -3108,7 +3154,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -3121,7 +3167,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -3242,8 +3288,8 @@
         .module('app.companyWinlossApp')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService'];
-    function napPane($log, $compile, $injector, companyWinlossService) {
+    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
+    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
         function Pane(level, data) {
             this.level = level;
             this.data = data;
@@ -3253,7 +3299,9 @@
             this.show = show;
             this.compileAll = compileAll;
             this.compileLinks = compileLinks;
+            this.compileDrilldown = compileDrilldown;
             this.getFileName = getFileName;
+            this.showHideColumnOptions = showHideColumnService.defaultOptions;
 
             if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
                 $log.error('Invalid pane');
@@ -3288,6 +3336,11 @@
                 var elements = this.$element.find('.drill-down');
                 $compile(elements)(this.$scope);
                 elements = this.$element.find('.breadcrumb');
+                $compile(elements)(this.$scope);
+            }
+
+            function compileDrilldown() {
+                var elements = this.$element.find('.drill-down');
                 $compile(elements)(this.$scope);
             }
         }
@@ -3378,8 +3431,13 @@
             }
 
             function goBack(index) {
-                this.panes = this.panes.slice(0, index + 1);
                 var activePane = this.getActivePane();
+                this.panes = this.panes.slice(0, index + 1);
+                var newActivePane = this.getActivePane();
+                newActivePane.showHideColumnOptions = activePane.showHideColumnOptions;
+                if (angular.isFunction(newActivePane.$scope.show)) {
+                    newActivePane.$scope.show();
+                }
                 var dateRange = {
                     startDate: activePane.data.startDate,
                     endDate: activePane.data.endDate
@@ -3388,7 +3446,9 @@
             }
 
             function goForward(level, data) {
+                var activePane = this.getActivePane();
                 var pane = new Pane(level, data);
+                pane.showHideColumnOptions = activePane.showHideColumnOptions;
                 this.addPane(pane);
             }
 

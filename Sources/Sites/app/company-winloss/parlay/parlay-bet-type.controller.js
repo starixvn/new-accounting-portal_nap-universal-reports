@@ -8,11 +8,13 @@
     ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];
     function ParlayBetTypeController($scope, $element, fanexGridService, showHideColumnService, legacyService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var parlaySportType = 9;
         var systemParlayBetType = 29;
         var mixParlayBetType = 9;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.viewMixParlayWindow = viewMixParlayWindow;
@@ -35,7 +37,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -66,7 +68,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

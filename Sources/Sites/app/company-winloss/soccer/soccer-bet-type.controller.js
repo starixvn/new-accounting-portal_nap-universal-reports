@@ -8,8 +8,10 @@
     SoccerBetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService', 'soccerConstants'];
     function SoccerBetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService, soccerConstants) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
@@ -51,7 +53,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data);
+                showHideColumnBuilder.build(gridElement, data);
 
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
@@ -95,7 +97,7 @@
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

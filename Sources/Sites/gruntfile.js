@@ -1,4 +1,4 @@
-//S1:
+﻿//S1:
 module.exports = function (grunt) {
     'use strict';
 

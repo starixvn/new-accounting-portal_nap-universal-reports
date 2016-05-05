@@ -8,10 +8,12 @@
     NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function NumberGameBetTypeController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var nonliveGridElement = angular.element(gridElements[0]);
         var liveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.generateSite = generateSite;
@@ -39,7 +41,7 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, [liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
+                showHideColumnBuilder.build([liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
                 pane.data.isLive = true;
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data.Live, true);
@@ -65,7 +67,7 @@
                 exportExcelFunction: exportExcel
             };
             if (!isLive) {
-                titleInfo.customButtons = showHideColumnService.getButtonHtml();
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
             }
 
             data.titleInfo = titleInfo;

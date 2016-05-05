@@ -8,14 +8,17 @@
     SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', '$uibModal', '$uibModalStack'];
     function SportsbookMatchDetailController($scope, $element, fanexGridService, showHideColumnService, $uibModal, $uibModalStack) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
+        showHideColumnBuilder.updateOptions({ hiddenColumns: [4, 5] });
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.viewMatchInformation = viewMatchInformation;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnService.build($scope, gridElement, data, { hiddenColumns: [4, 5] });
+                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -58,7 +61,7 @@
                 var customAttr = bodyRow.Columns[0].CustomAttr;
                 if (customAttr) {
                     var matchName = bodyRow.Columns[0].Value;
-                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
+                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(\'' + customAttr + '\')">' + matchName + '</a>';
                 }
             }
         }
@@ -68,7 +71,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;

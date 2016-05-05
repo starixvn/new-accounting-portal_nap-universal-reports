@@ -8,14 +8,20 @@
     MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
     function MatchDetailController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                var options = pane.data.sportType == 180 ? { hiddenColumns: [4, 5] } : { hiddenColumns: [1, 2] };
-                showHideColumnService.build($scope, gridElement, data, options);
+                if (pane.data.sportType === 180) {
+                    showHideColumnBuilder.updateOptions({ hiddenColumns: [4, 5] });
+                } else {
+                    showHideColumnBuilder.updateOptions({ hiddenColumns: [1, 2] });
+                }
+                showHideColumnBuilder.build(gridElement, data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -26,7 +32,7 @@
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
-                customButtons: showHideColumnService.getButtonHtml()
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
