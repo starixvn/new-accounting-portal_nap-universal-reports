@@ -14,7 +14,8 @@ namespace UniversalReports.CompanyWinLoss.Tests.Casino.Product
             return new Criteria
             {
                 StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
-                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1)
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
+                CasinoType = 1
             };
         }
     }

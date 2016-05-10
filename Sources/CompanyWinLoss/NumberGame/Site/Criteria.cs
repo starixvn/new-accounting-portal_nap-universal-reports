@@ -5,8 +5,6 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
 {
     public class Criteria : WinLossCriteria
     {
-        public int SportType { get; set; }
-
         public int BetType { get; set; }
 
         public bool IsLive { get; set; }
@@ -17,7 +15,6 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
         {
             var newCriteria = new Criteria
             {
-                SportType = SportType,
                 BetType = BetType,
                 IsLive = IsLive,
                 Site = Site

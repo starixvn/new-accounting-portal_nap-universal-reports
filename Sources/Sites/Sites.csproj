@@ -222,6 +222,9 @@
     <Content Include="app\company-winloss\breadcrumb\live-title.service.js" />
     <Content Include="app\company-winloss\breadcrumb\title.service.js" />
     <Content Include="app\company-winloss\common\product-view-bet-type.service.js" />
+    <Content Include="app\company-winloss\casino\casino-product-view-bet-type.service.js" />
+    <Content Include="app\company-winloss\casino\casino-product.controller.js" />
+    <Content Include="app\company-winloss\casino\casino-product.service.js" />
     <Content Include="app\company-winloss\grid\show-hide-column.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
     <Content Include="app\company-winloss\parlay\parlay-bet-type.controller.js" />
@@ -234,13 +237,10 @@
     <Content Include="app\company-winloss\sportsbook\sportsbook-product-view-bet-type.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-match-detail.service.js" />
     <Content Include="app\company-winloss\sportsbook\sportsbook-sport-type-view-bet-type.service.js" />
-    <Content Include="app\company-winloss\common\third-party-product-view-bet-type.service.js" />
-    <Content Include="app\company-winloss\common\third-party-product.service.js" />
     <Content Include="app\common\http-response.service.js" />
     <Content Include="app\company-winloss\common\match-detail.service.js" />
     <Content Include="app\company-winloss\common\site.service.js" />
     <Content Include="app\company-winloss\common\sport-type-view-bet-type.service.js" />
-    <Content Include="app\company-winloss\common\third-party-product.controller.js" />
     <Content Include="app\company-winloss\common\sport-type.service.js" />
     <Content Include="app\company-winloss\common\match-detail.controller.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-live-non-live.controller.js" />
@@ -285,6 +285,7 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.service.js" />
     <Content Include="app\components\click\click.directive.js" />
     <Content Include="app\common\check-in.js" />
+    <Content Include="app\universal\universal-bet-type.service.js" />
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>
@@ -304,33 +305,13 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\LOCAL\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\LOCAL\DBAGE.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\MNL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\PRO\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\UAT\DBACC.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\UAT\DBAGE.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\UAT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\LOCAL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -396,16 +377,6 @@
     <Content Include="app\components\alert\alert.directive.js" />
     <Content Include="app\components\loading\loading.directive.js" />
     <Content Include="app\company-winloss\product\product.service.js" />
-    <Content Include="App_Data\LOCAL\DBACC.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\LOCAL\DBAGE.bodb02.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\LOCAL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
@@ -1429,6 +1400,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\MNL\" />
+    <Folder Include="App_Data\PRO\" />
+    <Folder Include="App_Data\UAT\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

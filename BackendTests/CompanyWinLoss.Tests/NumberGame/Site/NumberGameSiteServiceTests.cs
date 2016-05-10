@@ -28,7 +28,6 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.Site
                 EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
                 BetType = 81,
                 IsLive = true,
-                SportType = 161,
                 Site = "Credit"
             };
         }

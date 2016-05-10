@@ -151,16 +151,16 @@
             }
         },
         'Live Casino': {
-            product: 'thirdPartyProduct',
-            thirdPartyProduct: {
+            product: 'casinoProduct',
+            casinoProduct: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'ThirdPartyProductController',
-                service: 'thirdPartyProductService'
+                controller: 'CasinoProductController',
+                service: 'casinoProductService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'thirdPartyProductViewBetTypeService'
+                service: 'CasinoProductViewBetTypeService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -169,16 +169,16 @@
             }
         },
         'Casino': {
-            product: 'thirdPartyProduct',
-            thirdPartyProduct: {
+            product: 'casinoProduct',
+            casinoProduct: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'ThirdPartyProductController',
-                service: 'thirdPartyProductService'
+                controller: 'CasinoProductController',
+                service: 'casinoProductService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'thirdPartyProductViewBetTypeService'
+                service: 'CasinoProductViewBetTypeService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',

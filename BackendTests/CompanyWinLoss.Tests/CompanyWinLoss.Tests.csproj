@@ -88,25 +88,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bettrade\BetType\BettradeBetTypeServiceTests.cs" />
-    <Compile Include="Bettrade\Site\BettradeSiteServiceTests.cs" />
-    <Compile Include="Bingo\BetType\BingoBetTypeServiceTests.cs" />
-    <Compile Include="Bingo\Site\BingoSiteServiceTests.cs" />
+    <Compile Include="Universal\BetType\UniversalBetTypeServiceTests.cs" />
+    <Compile Include="Universal\Site\UniversalSiteServiceTests.cs" />
     <Compile Include="Casino\BetType\CasinoBetTypeServiceTests.cs" />
     <Compile Include="Casino\Site\CasinoSiteServiceTests.cs" />
     <Compile Include="Casino\Product\CasinoProductServiceTests.cs" />
-    <Compile Include="ColossusBets\BetType\ColossusBetsBetTypeServiceTests.cs" />
-    <Compile Include="ColossusBets\Site\ColossusBetsSiteServiceTests.cs" />
     <Compile Include="Common\BasicWinLossServiceTests.cs" />
     <Compile Include="Common\SiteServiceTests.cs" />
     <Compile Include="Common\CommonBalanceUpServiceTests.cs" />
     <Compile Include="CompanyWinLossParameters.cs" />
     <Compile Include="CompanyWinLossSetUpFixture.cs" />
     <Compile Include="Dependencies\RemotingRefServiceFake.cs" />
-    <Compile Include="Keno\BetType\KenoBetTypeServiceTests.cs" />
-    <Compile Include="Keno\Site\KenoSiteServiceTests.cs" />
-    <Compile Include="LiveCasino\BetType\LiveCasinoBetTypeServiceTests.cs" />
-    <Compile Include="LiveCasino\Site\LiveCasinoSiteServiceTests.cs" />
-    <Compile Include="LiveCasino\Product\LiveCasinoProductServiceTests.cs" />
     <Compile Include="MetricGaming\BetType\MetricGamingBetTypeServiceTests.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveServiceTests.cs" />
     <Compile Include="MetricGaming\MatchDetail\MetricGamingMatchDetailServiceTests.cs" />

@@ -27,8 +27,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.NumberGame.MatchDetail
                 StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
                 EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
                 BetType = 81,
-                IsLive = true,
-                SportType = 161
+                IsLive = true
             };
         }
     }

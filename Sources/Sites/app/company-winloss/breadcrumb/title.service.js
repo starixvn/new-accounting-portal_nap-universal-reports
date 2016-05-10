@@ -14,7 +14,7 @@
             getMainTitle: getMainTitle,
             getProductTitle: getProductTitle,
             getProductLiveNonLiveTitle: getProductLiveNonLiveTitle,
-            getThirdPartyProductTitle: getThirdPartyProductTitle,
+            getCasinoProductTitle: getCasinoProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSiteTitle: getSiteTitle,
             getMatchDetailTitle: getMatchDetailTitle
@@ -37,8 +37,8 @@
             return isLast ? data.productName + ' Live/Non-Live ' + winLossReport : data.productName;
         }
 
-        function getThirdPartyProductTitle(data, isLast) {
-            return isLast ? data.thirdPartyProductName + ' ' + productWinLossReport : data.thirdPartyProductName;
+        function getCasinoProductTitle(data, isLast) {
+            return isLast ? data.casinoProductName : data.productName + ' ' + productWinLossReport;
         }
 
         function getSportTypeTitle(data, isLast) {
