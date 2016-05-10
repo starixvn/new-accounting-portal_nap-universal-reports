@@ -5,8 +5,8 @@
         .module('app.companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'templateSetting', 'showHideColumnService'];
-    function ProductController($element, $scope, fanexGridService, templateSetting, showHideColumnService) {
+    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'companyWinlossService', 'showHideColumnService'];
+    function ProductController($element, $scope, fanexGridService, companyWinlossService, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
@@ -20,7 +20,7 @@
                 productName: productName
             };
             angular.extend(data, pane.data);
-            var level = templateSetting[productName]['product'];
+            var level = companyWinlossService.getTemplateSetting(productName)['product'];
             tab.goForward(level, data);
         }
 

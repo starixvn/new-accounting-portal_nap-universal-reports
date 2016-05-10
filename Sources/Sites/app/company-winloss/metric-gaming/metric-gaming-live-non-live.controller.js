@@ -4,12 +4,12 @@
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'productViewBetTypeService', 'metricGamingLiveNonLiveService', 'showHideColumnService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingBetTypeService', 'metricGamingLiveNonLiveService', 'showHideColumnService', 'titleService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, productViewBetTypeService, metricGamingLiveNonLiveService, showHideColumnService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingBetTypeService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
-        var getProductTitle = productViewBetTypeService.getTitle;
+        var getProductTitle = titleService.getProductTitle;
         var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
@@ -63,7 +63,7 @@
                 }
             };
 
-            productViewBetTypeService.getData(pane.data).then(function (data) {
+            metricGamingBetTypeService.getData(pane.data).then(function (data) {
                 betTypeGridOptions = data;
                 renderAll();
             });

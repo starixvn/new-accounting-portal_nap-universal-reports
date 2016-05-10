@@ -5,16 +5,26 @@
         .module('app.companyWinlossApp')
         .service('companyWinlossService', companyWinlossService);
 
-    companyWinlossService.$inject = ['templateSetting'];
-    function companyWinlossService(templateSetting) {
+    companyWinlossService.$inject = ['templateSetting', 'universalSettings'];
+    function companyWinlossService(templateSetting, universalSettings) {
         var service = {
             getTemplate: getTemplate,
+            getTemplateSetting: getTemplateSetting,
             resolveProductPath: resolveProductPath
         };
         return service;
 
         function resolveProductPath(productName) {
             return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
+        }
+
+        function getTemplateSetting(productName) {
+            var productSetting = templateSetting[productName];
+            if (!angular.isUndefined(productSetting)) {
+                return productSetting;
+            }
+
+            return universalSettings.settings;
         }
 
         function getTemplate(data, type) {
@@ -26,7 +36,7 @@
                 };
             }
 
-            var productSetting = templateSetting[data.productName];
+            var productSetting = getTemplateSetting(data.productName);
             if (angular.isUndefined(productSetting)) {
                 return undefined;
             }

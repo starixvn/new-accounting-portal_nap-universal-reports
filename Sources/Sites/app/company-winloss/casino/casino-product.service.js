@@ -31,7 +31,8 @@
             var httpData = {
                 title: title,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                casinoType: data.productName == 'Casino' ? 1 : 2
             };
 
             var url = 'api/company-win-loss/casino/product/excel';

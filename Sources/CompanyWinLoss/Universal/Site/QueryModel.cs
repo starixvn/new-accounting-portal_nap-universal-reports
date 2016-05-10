@@ -11,5 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Universal.Site
         public DateTime EndDate { get; set; }
 
         public string Site { get; set; }
+
+        public int BetType { get; set; }
     }
 }

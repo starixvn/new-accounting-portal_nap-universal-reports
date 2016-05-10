@@ -38,7 +38,7 @@
         }
 
         function getCasinoProductTitle(data, isLast) {
-            return isLast ? data.casinoProductName : data.productName + ' ' + productWinLossReport;
+            return isLast ? data.casinoProductName + ' ' + productWinLossReport : data.casinoProductName;
         }
 
         function getSportTypeTitle(data, isLast) {

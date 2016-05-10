@@ -216,17 +216,17 @@
     <Content Include="app\app.min.js" />
     <Content Include="app\common.min.js" />
     <Content Include="app\common\legacy.service.js" />
-    <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-win-loss.min.js" />
+    <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-winloss\app.js" />
     <Content Include="app\company-winloss\breadcrumb\live-title.service.js" />
     <Content Include="app\company-winloss\breadcrumb\title.service.js" />
-    <Content Include="app\company-winloss\common\product-view-bet-type.service.js" />
-    <Content Include="app\company-winloss\casino\casino-product-view-bet-type.service.js" />
+    <Content Include="app\company-winloss\casino\casino-bet-type.service.js" />
     <Content Include="app\company-winloss\casino\casino-product.controller.js" />
     <Content Include="app\company-winloss\casino\casino-product.service.js" />
     <Content Include="app\company-winloss\grid\show-hide-column.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
+    <Content Include="app\company-winloss\metric-gaming\metric-gaming-bet-type.service.js" />
     <Content Include="app\company-winloss\parlay\parlay-bet-type.controller.js" />
     <Content Include="app\company-winloss\parlay\parlay-bet-type.service.js" />
     <Content Include="app\company-winloss\parlay\parlay-site.service.js" />
@@ -261,6 +261,8 @@
     <Content Include="app\company-winloss\tab\tab.directive.html" />
     <Content Include="app\company-winloss\tab\pane.directive.js" />
     <Content Include="app\company-winloss\tab\tab.directive.js" />
+    <Content Include="app\company-winloss\universal\universal-site.service.js" />
+    <Content Include="app\company-winloss\universal\universal-bet-type.service.js" />
     <Content Include="app\components\legend\legend.directive.js" />
     <Content Include="app\components\legend\legend.service.js" />
     <Content Include="app\components\header\header.service.js" />
@@ -285,7 +287,6 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.service.js" />
     <Content Include="app\components\click\click.directive.js" />
     <Content Include="app\common\check-in.js" />
-    <Content Include="app\universal\universal-bet-type.service.js" />
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>

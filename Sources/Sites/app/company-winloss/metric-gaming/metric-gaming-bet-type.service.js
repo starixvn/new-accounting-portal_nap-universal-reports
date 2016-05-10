@@ -3,12 +3,12 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('CasinoProductViewBetTypeService', CasinoProductViewBetTypeService);
+        .factory('metricGamingBetTypeService', metricGamingBetTypeService);
 
-    CasinoProductViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function CasinoProductViewBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
+    metricGamingBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function metricGamingBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
-            getTitle: titleService.getCasinoProductTitle,
+            getTitle: titleService.getProductTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -16,11 +16,9 @@
 
         function getData(data) {
             var httpData = {
-                productId: data.casinoProductId,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
@@ -30,12 +28,10 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                productId: data.productId,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/product/excel';
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

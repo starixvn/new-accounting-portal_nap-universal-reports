@@ -2,19 +2,6 @@
     'use strict';
 
     var templateSetting = {
-        'Parlay': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'ParlayBetTypeController',
-                service: 'parlayBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'parlaySiteService'
-            }
-        },
         'Soccer': {
             product: 'soccer',
             soccer: {
@@ -94,6 +81,55 @@
                 service: 'sportsbookSiteService'
             }
         },
+        'Parlay': {
+            product: 'betType',
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'ParlayBetTypeController',
+                service: 'parlayBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'parlaySiteService'
+            }
+        },
+        'Live Casino': {
+            product: 'casinoProduct',
+            casinoProduct: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CasinoProductController',
+                service: 'casinoProductService'
+            },
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'CasinoBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'siteService'
+            }
+        },
+        'Casino': {
+            product: 'casinoProduct',
+            casinoProduct: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'CasinoProductController',
+                service: 'casinoProductService'
+            },
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'CasinoBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'siteService'
+            }
+        },
         'Number Game': {
             product: 'betType',
             betType: {
@@ -137,55 +173,8 @@
                 service: 'siteService'
             }
         },
-        'Colossus Bets': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'productViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
-        'Live Casino': {
-            product: 'casinoProduct',
-            casinoProduct: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoProductController',
-                service: 'casinoProductService'
-            },
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'CasinoProductViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
-        'Casino': {
-            product: 'casinoProduct',
-            casinoProduct: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoProductController',
-                service: 'casinoProductService'
-            },
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'CasinoProductViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
+
+
         'Racing': {
             product: 'sportType',
             sportType: {
@@ -208,49 +197,34 @@
                 controller: 'SiteController',
                 service: 'siteService'
             }
-        },
-        'Keno': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'productViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
-        'Bettrade': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'productViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        },
-        'Bingo': {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'productViewBetTypeService'
-            },
-            site: {
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
         }
     };
-
+    var universalSettings = {
+        products: {
+            "Bettrade": 0,
+            "Bingo": 7,
+            "Keno": 8,
+            "Colossus Bets": 15
+        },
+        settings: {
+            product: 'betType',
+            betType: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'universalBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'universalSiteService'
+            }
+        },
+        getProductId: function (productName) {
+            return universalSettings.products[productName];
+        }
+    };
     angular
         .module('app.companyWinlossApp')
-        .constant('templateSetting', templateSetting);
+        .constant('templateSetting', templateSetting)
+        .constant('universalSettings', universalSettings);
 })(angular);

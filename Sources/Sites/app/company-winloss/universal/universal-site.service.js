@@ -1,15 +1,14 @@
-﻿
-(function (angular) {
+﻿(function (angular) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
-        .factory('universalBetTypeService', universalBetTypeService);
+        .factory('universalSiteService', universalSiteService);
 
-    universalBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function universalBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
+    universalSiteService.$inject = ['$http', 'httpResponseService', 'titleService'];
+    function universalSiteService($http, httpResponseService, titleService) {
         var service = {
-            getTitle: titleService.getProductTitle,
+            getTitle: titleService.getSiteTitle,
             getData: getData,
             exportExcel: exportExcel
         };
@@ -17,10 +16,12 @@
 
         function getData(data) {
             var httpData = {
+                betType: data.betType,
+                site: data.site,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/universal/bet-type';
+            var url = 'api/company-win-loss/universal/site';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -29,10 +30,12 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
+                betType: data.betType,
+                site: data.site,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/universal/bet-type/excel';
+            var url = 'api/company-win-loss/universal/site/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
