@@ -29,10 +29,8 @@
       Environment="<#=site.EnvironmentSettings#>"
       EnableDirectLogin="0"
       SiteId="<#=site.SiteIdSettings#>"
-      UMAddress="<#=site.UMAddress#>"
-      EnableCheckUM="<#=site.EnableCheckUM#>"
       UnauthorizeUrl="~/Common/SessionExpired"
-      EnableReCheckin="<#=site.EnableReCheckin#>"
+      EnableReCheckin="false"
       HubUrl="<#=site.HubUrl#>">
         <Domain>
             <#=site.AuthorizeDomain#>

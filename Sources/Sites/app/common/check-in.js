@@ -15,10 +15,13 @@
                 if (result.IsKickedOut === "1") {
                     alert('Another session has been logged in or your session is expired. Forced to logout!');
                     window.location.href = legacyService.resolveUrl('/UserLogin/Login/LogOut');
-                } else if (result.IsKickedOut === "-1") {
+                }
+            }).fail(function (request, textStatus, error) {
+                var result = $.parseJSON(request.responseText);
+                if (result.code == 999999) {
                     window.location.href = legacyService.resolveUrl('/UserLogin/Common/Offline');
                 }
-            });
+            });;
         }
     }
 })(jQuery);

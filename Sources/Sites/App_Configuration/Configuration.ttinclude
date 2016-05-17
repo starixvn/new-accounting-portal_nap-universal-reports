@@ -164,25 +164,6 @@
             }
         }
 
-        public string EnableReCheckin
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                    case SiteEnvironment.MNL:
-                    case SiteEnvironment.UAT:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-                        return "true";
-
-                    default:
-                        return "false";
-                }
-            }
-        }
-
         public string HubUrl
         {
             get
