@@ -27,25 +27,41 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private List<GridDataRow> BuildBodyRows(ProductWinLoss productWinLoss)
         {
-            var bodyRows = productWinLoss.SportsbookProducts.Products.Select(BuildProduct).ToList();
-            bodyRows.AddRange(productWinLoss.SportsbookProducts.RM.Select(BuildProductRM));
-            bodyRows.AddRange(productWinLoss.NoneSportsbookProducts.Products.Select(BuildProduct));
-            bodyRows.Add(BuildNonSportsTotal(productWinLoss.NoneSportsbookProducts.Total));
+            var sportsbookRows = BuildProductGroup(productWinLoss.Sportsbook);
+            var sportsbookRMRows = BuildSportsbookRMRows(productWinLoss.RM);
+            var nonSportsbookRows = BuildProductGroup(productWinLoss.NonSportsbook);
+
+            var bodyRows = new List<GridDataRow>();
+            bodyRows.AddRange(sportsbookRows);
+            bodyRows.AddRange(sportsbookRMRows);
+            bodyRows.AddRange(nonSportsbookRows);
 
             return bodyRows;
         }
 
-        private GridDataRow BuildProduct(SiteWinLossSummary productWinLoss)
+        private List<GridDataRow> BuildProductGroup(ProductGroupWinLoss productGroupWinLoss)
+        {
+            var bodyRows = productGroupWinLoss
+                .Products
+                .Select(r => BuildSiteWinLossSummary(r, false))
+                .ToList();
+            var totalRow = BuildSiteWinLossSummary(productGroupWinLoss.Total, true);
+
+            var rows = new List<GridDataRow>(bodyRows);
+            rows.Add(totalRow);
+
+            return rows;
+        }
+
+        private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary productWinLoss, bool isTotal)
         {
             var productName = productWinLoss.Total.Name;
-            var isSportsbook = productName.Contains("Sportsbook");
-            var rowCssClass = isSportsbook ? "total-row" : string.Empty;
-            var isTotal = productName.Contains("Total");
+            var rowCssClass = isTotal ? "total-row" : string.Empty;
 
             var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
             productDataRow.CssClass = rowCssClass;
             productDataRow.RowType = isTotal ? RowType.SubTotal : RowType.ParentLevelOne;
-            productDataRow.CustomAttr = isSportsbook ? null : "product";
+            productDataRow.CustomAttr = isTotal ? null : "product";
 
             var creditRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
             creditRow.CssClass = rowCssClass;
@@ -60,31 +76,18 @@ namespace UniversalReports.CompanyWinLoss.Products
             return productDataRow;
         }
 
-        private GridDataRow BuildNonSportsTotal(SiteWinLossSummary productWinLoss)
+        private List<GridDataRow> BuildSportsbookRMRows(List<WinLoss> winLosses)
         {
-            var productDataRow = BuildDataRow(productWinLoss.Total, HAlignment.Left, false);
-            productDataRow.CssClass = "total-row";
-            productDataRow.RowType = RowType.SubTotal;
+            var rows = winLosses
+                .Select(w => BuildDataRow(w, HAlignment.Right, false))
+                .ToList();
+            rows.ForEach(r =>
+            {
+                r.RowType = RowType.SubTotal;
+                r.CssClass = "total-row";
+            });
 
-            var creditRow = BuildDataRow(productWinLoss.Credit, HAlignment.Right, false);
-            creditRow.CssClass = "total-row";
-            creditRow.RowType = RowType.SubTotal;
-            productDataRow.SubRows.Add(creditRow);
-
-            var depositRow = BuildDataRow(productWinLoss.Deposit, HAlignment.Right, false);
-            depositRow.CssClass = "total-row";
-            depositRow.RowType = RowType.SubTotal;
-            productDataRow.SubRows.Add(depositRow);
-
-            return productDataRow;
-        }
-
-        private GridDataRow BuildProductRM(WinLoss winLossRM)
-        {
-            var productDataRow = BuildDataRow(winLossRM, HAlignment.Right, false);
-            productDataRow.CssClass = "total-row";
-            productDataRow.RowType = RowType.SubTotal;
-            return productDataRow;
+            return rows;
         }
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, bool isFooter)

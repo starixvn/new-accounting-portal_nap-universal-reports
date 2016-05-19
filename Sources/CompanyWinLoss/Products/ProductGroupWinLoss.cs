@@ -3,10 +3,10 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
-    public class SportsbookWinLoss
+    public class ProductGroupWinLoss
     {
         public List<SiteWinLossSummary> Products { get; set; }
 
-        public List<WinLoss> RM { get; set; } = new List<WinLoss>();
+        public SiteWinLossSummary Total { get; set; }
     }
 }

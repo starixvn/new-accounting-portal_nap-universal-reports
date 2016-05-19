@@ -2,7 +2,6 @@
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
-using UniversalReports.CompanyWinLoss.Products;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
 {
@@ -36,13 +35,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
             return expected.GroupId == model.GroupId &&
                 expected.GroupName == model.GroupName &&
                 expected.RowName == model.RowName &&
-                    expected.MemberWinLoss == model.MemberWinLoss &&
-                    expected.SMAWinLoss == model.SMAWinLoss &&
-                    expected.Commission == model.Commission &&
-                    expected.RealIncome == model.RealIncome &&
-                    expected.VirtualIncome == model.VirtualIncome &&
-                    expected.RealTurnover == model.RealTurnover &&
-                    expected.VirtualTurnover == model.VirtualTurnover;
+                expected.MemberWinLoss == model.MemberWinLoss &&
+                expected.SMAWinLoss == model.SMAWinLoss &&
+                expected.Commission == model.Commission &&
+                expected.RealIncome == model.RealIncome &&
+                expected.VirtualIncome == model.VirtualIncome &&
+                expected.RealTurnover == model.RealTurnover &&
+                expected.VirtualTurnover == model.VirtualTurnover;
         }
 
         internal static bool AreEqual(List<WinLoss> expected, List<WinLoss> model)
@@ -63,25 +62,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
             }
 
             return !expected.Where((t, i) => !AreEqual(t, model[i])).Any();
-        }
-
-        internal static bool AreEqual(ProductWinLoss expected, ProductWinLoss model)
-        {
-            return AreEqual(expected.SportsbookProducts, model.SportsbookProducts)
-                && AreEqual(expected.NoneSportsbookProducts, model.NoneSportsbookProducts)
-                && AreEqual(expected.GrandTotal, model.GrandTotal);
-        }
-
-        internal static bool AreEqual(SportsbookWinLoss expected, SportsbookWinLoss model)
-        {
-            return AreEqual(expected.Products, model.Products)
-                && AreEqual(expected.RM, model.RM);
-        }
-
-        internal static bool AreEqual(NoneSportsbookWinloss expected, NoneSportsbookWinloss model)
-        {
-            return AreEqual(expected.Products, model.Products)
-                && AreEqual(expected.Total, model.Total);
         }
 
         internal static bool AreEqual(SiteWinLossModel expected, SiteWinLossModel model)

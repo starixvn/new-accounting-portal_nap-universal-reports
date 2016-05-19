@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
         internal static RawWinLoss CreateRawWinLoss(
             int groupId,
            string groupName,
-           string site,
+           string rowName,
            decimal memberWinLoss,
            decimal smaWinLoss,
            decimal commission,
@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
             {
                 GroupId = groupId,
                 GroupName = groupName,
-                RowName = site,
+                RowName = rowName,
                 MemberWinLoss = memberWinLoss,
                 SMAWinLoss = smaWinLoss,
                 Commission = commission,

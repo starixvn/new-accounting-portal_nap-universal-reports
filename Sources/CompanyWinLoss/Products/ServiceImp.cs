@@ -20,48 +20,40 @@ namespace UniversalReports.CompanyWinLoss.Products
             this.calculationService = calculationService;
         }
 
-        public virtual ProductWinLoss Query(WinLossCriteria criteria)
+        public ProductWinLoss Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
             var rawSportsbookProducts = rawWinLosses.Where(r => Constants.NameSportsbook.Contains(r.GroupName));
+            var rawNonSportsbookProducts = rawWinLosses.Where(r => !Constants.NameSportsbook.Contains(r.GroupName) && r.GroupName != Constants.RM);
+            var rawRMWinLosses = rawWinLosses.Where(r => r.GroupName == Constants.RM);
 
-            var rawNonSportsbookProducts = (from r in rawWinLosses
-                                            where !Constants.NameSportsbook.Contains(r.GroupName)
-                                            select r).ToList();
-            var rawSportsGrandTotal = (from r in rawWinLosses
-                                       where !Constants.NamesExclude.Contains(r.GroupName)
-                                       select r).ToList();
+            var sportsbookProducts = GetProductGroup(rawSportsbookProducts, "Sportsbook Total");
+            var nonSportsbookProducts = GetProductGroup(rawNonSportsbookProducts, "Non-Sports Total");
+            var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+
             return new ProductWinLoss
             {
-                GrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawSportsGrandTotal),
-                NoneSportsbookProducts = GetNoneSportbookProducts(rawNonSportsbookProducts),
-                SportsbookProducts = GetSportsbookProducts(rawSportsbookProducts)
+                Sportsbook = sportsbookProducts,
+                RM = sportsbookRMWinLosses,
+                NonSportsbook = nonSportsbookProducts,
+                GrandTotal = grandTotal
             };
         }
 
-        public virtual SportsbookWinLoss GetSportsbookProducts(IEnumerable<RawWinLoss> rawWinLosses)
+        public ProductGroupWinLoss GetProductGroup(IEnumerable<RawWinLoss> rawWinLosses, string groupName)
         {
-            var rawProducts = rawWinLosses.Where(r => r.GroupName != "RM").ToList();
-            var products = calculationService.CalculateSiteWinLossSummary(rawProducts);
-            var rM = rawWinLosses.Where(r => r.GroupName == "RM").ToList();
-            return new SportsbookWinLoss
+            var products = calculationService.CalculateSiteWinLossSummary(rawWinLosses).ToList();
+            var total = calculationService.CalculateSumWinLossSummary(groupName, rawWinLosses);
+            return new ProductGroupWinLoss
             {
-                Products = products.ToList(),
-                RM = CalculateSportsbookDetail(rM)
+                Products = products,
+                Total = total
             };
         }
 
-        public virtual NoneSportsbookWinloss GetNoneSportbookProducts(IEnumerable<RawWinLoss> rawWinLosses)
-        {
-            return new NoneSportsbookWinloss
-            {
-                Products = calculationService.CalculateSiteWinLossSummary(rawWinLosses).ToList(),
-                Total = calculationService.CalculateSumWinLossSummary("Non-Sports Total", rawWinLosses)
-            };
-        }
-
-        public virtual List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses)
+        public List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
         {
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
         }

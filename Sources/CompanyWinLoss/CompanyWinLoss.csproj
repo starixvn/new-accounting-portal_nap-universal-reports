@@ -167,7 +167,6 @@
     <Compile Include="Parlay\SiteService\SiteModel.cs" />
     <Compile Include="Parlay\SiteService\SiteServiceController.cs" />
     <Compile Include="Parlay\SiteService\SiteWinLossService.cs" />
-    <Compile Include="Products\NoneSportsbookWinloss.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\RawWinLoss.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
@@ -213,7 +212,8 @@
     <Compile Include="Parlay\Site\ParlaySiteController.cs" />
     <Compile Include="Parlay\Site\QueryModel.cs" />
     <Compile Include="Products\Constants.cs" />
-    <Compile Include="Products\SportsbookWinLoss.cs" />
+    <Compile Include="Products\Service.cs" />
+    <Compile Include="Products\ProductGroupWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="NumberGame\BetType\ExcelQueryModel.cs" />
@@ -237,7 +237,6 @@
     <Compile Include="Products\ProductController.cs" />
     <Compile Include="Products\Criteria.cs" />
     <Compile Include="Products\QueryModel.cs" />
-    <Compile Include="Products\Service.cs" />
     <Compile Include="Products\ServiceImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racing\BetType\Criteria.cs" />

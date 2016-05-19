@@ -1,12 +1,15 @@
-﻿using UniversalReports.CompanyWinLoss.Common.Models;
+﻿using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.Models;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
     public class ProductWinLoss
     {
-        public SportsbookWinLoss SportsbookProducts { get; set; }
+        public ProductGroupWinLoss Sportsbook { get; set; }
 
-        public NoneSportsbookWinloss NoneSportsbookProducts { get; set; }
+        public List<WinLoss> RM { get; set; } = new List<WinLoss>();
+
+        public ProductGroupWinLoss NonSportsbook { get; set; }
 
         public SiteWinLossSummary GrandTotal { get; set; }
     }

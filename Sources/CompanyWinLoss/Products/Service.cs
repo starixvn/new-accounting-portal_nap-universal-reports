@@ -6,8 +6,10 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public interface Service
     {
-        ProductWinLoss Query(WinLossCriteria criteria);
+        List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses);
 
-        List<WinLoss> CalculateSportsbookDetail(IEnumerable<RawWinLoss> rawWinLosses);
+        ProductGroupWinLoss GetProductGroup(IEnumerable<RawWinLoss> rawWinLosses, string groupName);
+
+        ProductWinLoss Query(WinLossCriteria criteria);
     }
 }
