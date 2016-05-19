@@ -61,7 +61,7 @@
                 var customAttr = bodyRow.Columns[0].CustomAttr;
                 if (customAttr) {
                     var matchName = bodyRow.Columns[0].Value;
-                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(\'' + customAttr + '\')">' + matchName + '</a>';
+                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
                 }
             }
         }
