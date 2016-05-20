@@ -85,6 +85,8 @@
     <Setting Key="CompanyWinLoss-Sportsbook-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="CompanyWinLoss-Sportsbook-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Sportsbook-Outright-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Sportsbook-Outright-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Parlay">
     <Setting Key="CompanyWinLoss-Parlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay" DbName="DBACC.bodb02.bodbAdminNet"></Setting>

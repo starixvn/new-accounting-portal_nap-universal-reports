@@ -39,7 +39,9 @@
                 endDate: data.endDate
             };
 
-            var url = 'api/company-win-loss/sportsbook/match-detail';
+            var url = data.betType == 10
+                ? 'api/company-win-loss/sportsbook/outright-match-detail'
+                : 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -55,7 +57,10 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/sportsbook/match-detail/excel';
+
+            var url = data.betType == 10
+                ? 'api/company-win-loss/sportsbook/outright-match-detail/excel'
+                : 'api/company-win-loss/sportsbook/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

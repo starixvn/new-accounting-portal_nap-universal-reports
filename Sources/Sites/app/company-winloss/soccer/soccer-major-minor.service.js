@@ -15,12 +15,10 @@
 
         return service;
 
-        function getTitleWhenMajorMinor(data, isLast) {
+        function getTitleWhenMajorMinor(data) {
             if (data.isLive == soccerConstants.LiveNonLive)
             {
-                return isLast ?
-                    data.productName + ' MAJOR/MINOR BET TYPES' :
-                    data.productName;
+                return data.productName;
             }
             else {
                 var liveNonLive = (data.isLive == soccerConstants.Live) ? "LIVE" : "NON-LIVE";

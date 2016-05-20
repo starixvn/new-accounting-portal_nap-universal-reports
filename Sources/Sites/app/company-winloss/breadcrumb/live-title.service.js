@@ -7,7 +7,6 @@
 
     liveTitleService.$inject = [];
     function liveTitleService() {
-        var productWinLossReport = 'Product Win/Loss Report';
 
         var service = {
             getProductTitle: getProductTitle,
@@ -22,19 +21,15 @@
         }
 
         function getSiteText(site) {
-            return '| Product Win/Loss By ' + site + ' Site';
+            return site + ' Site';
         }
 
-        function getProductTitle(data, isLast) {
-            return isLast
-                ? data.productName + getLiveText(data.isLive) + productWinLossReport
-                : data.productName + getLiveText(data.isLive);
+        function getProductTitle(data) {
+            return data.productName + getLiveText(data.isLive);
         }
 
-        function getSportTypeTitle(data, isLast) {
-            return isLast
-                ? data.sportTypeName + getLiveText(data.isLive) + productWinLossReport
-                : data.sportTypeName + getLiveText(data.isLive);
+        function getSportTypeTitle(data) {
+            return data.sportTypeName + getLiveText(data.isLive);
         }
 
         function getSiteTitle(data) {
@@ -42,7 +37,7 @@
         }
 
         function getMatchDetailTitle(data) {
-            return data.betTypeName + getLiveText(data.isLive) + productWinLossReport;
+            return data.betTypeName + getLiveText(data.isLive) ;
         }
     }
 })(angular);

@@ -23,6 +23,10 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 
         protected const int RealMarginIndex = 12;
 
+        protected const int MatchDetailVSIndex = 2;
+
+        protected const int MatchDetailAwayIndex = 3;
+
         protected const int MatchDetailVarianceIndex = 7;
 
         protected const int MatchDetailVirtualIncomeIndex = 8;

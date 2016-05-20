@@ -15,12 +15,14 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
-            var newCriteria = new Criteria();
+            var newCriteria = new Criteria
+            {
+                SportType = SportType,
+                BetType = BetType,
+                IsLive = IsLive,
+                IsHedge = IsHedge
+            };
             newCriteria.Update(source);
-            newCriteria.SportType = SportType;
-            newCriteria.BetType = BetType;
-            newCriteria.IsLive = IsLive;
-            newCriteria.IsHedge = IsHedge;
 
             return newCriteria;
         }

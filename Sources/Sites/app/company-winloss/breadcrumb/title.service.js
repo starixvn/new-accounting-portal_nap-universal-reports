@@ -7,8 +7,7 @@
 
     titleService.$inject = [];
     function titleService() {
-        var winLossReport = 'Win/Loss Report';
-        var productWinLossReport = 'Product ' + winLossReport;
+        var productWinLossReport = 'Product Win/Loss Report' ;
 
         var service = {
             getMainTitle: getMainTitle,
@@ -22,27 +21,27 @@
         return service;
 
         function getSiteText(site) {
-            return '| Product Win/Loss By ' + (site == undefined ? "ALL" : site) + ' Site';
+            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
         }
 
-        function getMainTitle(data, isLast) {
-            return isLast ? productWinLossReport : 'Main';
+        function getMainTitle(data) {
+            return 'Main';
         }
 
-        function getProductTitle(data, isLast) {
-            return isLast ? data.productName + ' ' + productWinLossReport : data.productName;
+        function getProductTitle(data) {
+            return data.productName;
         }
 
         function getProductLiveNonLiveTitle(data, isLast) {
-            return isLast ? data.productName + ' Live/Non-Live ' + winLossReport : data.productName;
+            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
         }
 
-        function getCasinoProductTitle(data, isLast) {
-            return isLast ? data.casinoProductName + ' ' + productWinLossReport : data.casinoProductName;
+        function getCasinoProductTitle(data) {
+            return data.casinoProductName;
         }
 
-        function getSportTypeTitle(data, isLast) {
-            return isLast ? data.sportTypeName + ' ' + productWinLossReport : data.sportTypeName;
+        function getSportTypeTitle(data) {
+            return data.sportTypeName;
         }
 
         function getSiteTitle(data) {
@@ -50,7 +49,7 @@
         }
 
         function getMatchDetailTitle(data) {
-            return data.betTypeName + ' ' + productWinLossReport;
+            return data.betTypeName;
         }
     }
 })(angular);

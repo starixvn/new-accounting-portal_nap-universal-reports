@@ -15,14 +15,14 @@
 
         return service;
 
-        function getTitle(data, isLast) {
+        function getTitle(data) {
             var majorMinor = buildMajorFlag(data) ? "-MAJOR" : "-MINOR";
             if (data.isLive == soccerConstants.LiveNonLive) {
-                return data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
+                return data.productName + majorMinor + ' BET TYPES';
             }
             else {
                 var liveNonLive = (data.isLive == soccerConstants.Live) ? '"LIVE"' : '"NON-LIVE"';
-                return data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
+                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
             }
         }
 

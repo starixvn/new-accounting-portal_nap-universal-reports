@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bettrade\BetType\BettradeBetTypeServiceTests.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\SportsbookOutrightMatchDetailServiceTests.cs" />
     <Compile Include="Universal\BetType\UniversalBetTypeServiceTests.cs" />
     <Compile Include="Universal\Site\UniversalSiteServiceTests.cs" />
     <Compile Include="Casino\BetType\CasinoBetTypeServiceTests.cs" />

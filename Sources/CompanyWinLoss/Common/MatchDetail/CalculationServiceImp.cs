@@ -56,7 +56,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
         {
             return rawWinLoss.Where(x => x.LeagueId > 0 && x.MatchId > 0)
                 .GroupBy(x => x.LeagueId)
-                .Select(x => CalculateLeague(x, x.Key));
+                .Select(x => CalculateLeague(x, x.Key))
+                .OrderBy(x => x.LeagueName);
         }
 
         public LeagueWinLoss CalculateLeague(IEnumerable<RawWinLoss> rawWinLoss, int leagueId)
@@ -64,7 +65,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             var leagueTotal = CalculateSumWinLoss(rawWinLoss);
             leagueTotal.LeagueId = leagueId;
             leagueTotal.LeagueName = refService.GetLeagueName(leagueId);
-            var matches = rawWinLoss.Select(FromRawWinLoss);
+            var matches = rawWinLoss.Select(FromRawWinLoss)
+                .OrderBy(m => m.MatchCode)
+                .ThenBy(m => m.HomeName);
 
             return new LeagueWinLoss
             {

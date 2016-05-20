@@ -1,4 +1,4 @@
-/* Author: Nexcel -  2016-05-19 */
+/* Author: Nexcel -  2016-05-20 */
 (function (angular) {
     'use strict';
 
@@ -365,7 +365,6 @@
 
     liveTitleService.$inject = [];
     function liveTitleService() {
-        var productWinLossReport = 'Product Win/Loss Report';
 
         var service = {
             getProductTitle: getProductTitle,
@@ -380,19 +379,15 @@
         }
 
         function getSiteText(site) {
-            return '| Product Win/Loss By ' + site + ' Site';
+            return site + ' Site';
         }
 
-        function getProductTitle(data, isLast) {
-            return isLast
-                ? data.productName + getLiveText(data.isLive) + productWinLossReport
-                : data.productName + getLiveText(data.isLive);
+        function getProductTitle(data) {
+            return data.productName + getLiveText(data.isLive);
         }
 
-        function getSportTypeTitle(data, isLast) {
-            return isLast
-                ? data.sportTypeName + getLiveText(data.isLive) + productWinLossReport
-                : data.sportTypeName + getLiveText(data.isLive);
+        function getSportTypeTitle(data) {
+            return data.sportTypeName + getLiveText(data.isLive);
         }
 
         function getSiteTitle(data) {
@@ -400,7 +395,7 @@
         }
 
         function getMatchDetailTitle(data) {
-            return data.betTypeName + getLiveText(data.isLive) + productWinLossReport;
+            return data.betTypeName + getLiveText(data.isLive) ;
         }
     }
 })(angular);
@@ -413,8 +408,7 @@
 
     titleService.$inject = [];
     function titleService() {
-        var winLossReport = 'Win/Loss Report';
-        var productWinLossReport = 'Product ' + winLossReport;
+        var productWinLossReport = 'Product Win/Loss Report' ;
 
         var service = {
             getMainTitle: getMainTitle,
@@ -428,27 +422,27 @@
         return service;
 
         function getSiteText(site) {
-            return '| Product Win/Loss By ' + (site == undefined ? "ALL" : site) + ' Site';
+            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
         }
 
-        function getMainTitle(data, isLast) {
-            return isLast ? productWinLossReport : 'Main';
+        function getMainTitle(data) {
+            return 'Main';
         }
 
-        function getProductTitle(data, isLast) {
-            return isLast ? data.productName + ' ' + productWinLossReport : data.productName;
+        function getProductTitle(data) {
+            return data.productName;
         }
 
         function getProductLiveNonLiveTitle(data, isLast) {
-            return isLast ? data.productName + ' Live/Non-Live ' + winLossReport : data.productName;
+            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
         }
 
-        function getCasinoProductTitle(data, isLast) {
-            return isLast ? data.casinoProductName + ' ' + productWinLossReport : data.casinoProductName;
+        function getCasinoProductTitle(data) {
+            return data.casinoProductName;
         }
 
-        function getSportTypeTitle(data, isLast) {
-            return isLast ? data.sportTypeName + ' ' + productWinLossReport : data.sportTypeName;
+        function getSportTypeTitle(data) {
+            return data.sportTypeName;
         }
 
         function getSiteTitle(data) {
@@ -456,7 +450,7 @@
         }
 
         function getMatchDetailTitle(data) {
-            return data.betTypeName + ' ' + productWinLossReport;
+            return data.betTypeName;
         }
     }
 })(angular);
@@ -2413,14 +2407,14 @@
 
         return service;
 
-        function getTitle(data, isLast) {
+        function getTitle(data) {
             var majorMinor = buildMajorFlag(data) ? "-MAJOR" : "-MINOR";
             if (data.isLive == soccerConstants.LiveNonLive) {
-                return data.productName + majorMinor + ' BET TYPES PRODUCT WIN/LOSS REPORT';
+                return data.productName + majorMinor + ' BET TYPES';
             }
             else {
                 var liveNonLive = (data.isLive == soccerConstants.Live) ? '"LIVE"' : '"NON-LIVE"';
-                return data.productName + majorMinor + " BET TYPES " + liveNonLive + " PRODUCT WIN/LOSS REPORT";
+                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
             }
         }
 
@@ -2607,12 +2601,10 @@
 
         return service;
 
-        function getTitleWhenMajorMinor(data, isLast) {
+        function getTitleWhenMajorMinor(data) {
             if (data.isLive == soccerConstants.LiveNonLive)
             {
-                return isLast ?
-                    data.productName + ' MAJOR/MINOR BET TYPES' :
-                    data.productName;
+                return data.productName;
             }
             else {
                 var liveNonLive = (data.isLive == soccerConstants.Live) ? "LIVE" : "NON-LIVE";
@@ -2940,7 +2932,9 @@
                 endDate: data.endDate
             };
 
-            var url = 'api/company-win-loss/sportsbook/match-detail';
+            var url = data.betType == 10
+                ? 'api/company-win-loss/sportsbook/outright-match-detail'
+                : 'api/company-win-loss/sportsbook/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -2956,7 +2950,10 @@
                 startDate: data.startDate,
                 endDate: data.endDate
             };
-            var url = 'api/company-win-loss/sportsbook/match-detail/excel';
+
+            var url = data.betType == 10
+                ? 'api/company-win-loss/sportsbook/outright-match-detail/excel'
+                : 'api/company-win-loss/sportsbook/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

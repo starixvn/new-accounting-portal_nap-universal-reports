@@ -116,6 +116,7 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorExtraPT.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBasic.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorOutright.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorByCode.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorBasic.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorFull.cs" />
@@ -286,6 +287,10 @@
     <Compile Include="Soccer\SumBetType\WinLossModel.cs" />
     <Compile Include="Soccer\SumBetType\WinLossService.cs" />
     <Compile Include="Soccer\SumBetType\WinLossServiceImp.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\Criteria.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\QueryModel.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\SportsbookOutrightMatchDetailController.cs" />
     <Compile Include="Sportsbook\Site\Criteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
