@@ -320,18 +320,17 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\images\date-picker\calendar.png" />
-    <Content Include="Content\images\filter\legend-information-hover.png" />
-    <Content Include="Content\images\filter\legend-information.png" />
-    <Content Include="Content\images\filter\note-collapse.png" />
-    <Content Include="Content\images\filter\note-expand.png" />
-    <Content Include="Content\images\header\bgmenu-more.png" />
-    <Content Include="Content\images\header\small-arrow-down.png" />
-    <Content Include="Content\images\header\user.png" />
-    <Content Include="Content\images\loading\loading.gif" />
-    <Content Include="Content\images\header\logo.png" />
-    <Content Include="Content\scoreInformations.css" />
-    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="stylesheets\images\date-picker\calendar.png" />
+    <Content Include="stylesheets\images\filter\legend-information-hover.png" />
+    <Content Include="stylesheets\images\filter\legend-information.png" />
+    <Content Include="stylesheets\images\filter\note-collapse.png" />
+    <Content Include="stylesheets\images\filter\note-expand.png" />
+    <Content Include="stylesheets\images\goal-icon.png" />
+    <Content Include="stylesheets\images\header\bgmenu-more.png" />
+    <Content Include="stylesheets\images\header\small-arrow-down.png" />
+    <Content Include="stylesheets\images\header\user.png" />
+    <Content Include="stylesheets\images\loading\loading.gif" />
+    <Content Include="stylesheets\images\header\logo.png" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
@@ -1306,6 +1305,13 @@
     <Content Include="stylesheets\company-winloss.min.css">
       <DependentUpon>company-winloss.css</DependentUpon>
     </Content>
+    <Content Include="stylesheets\images\show-hide.png" />
+    <Content Include="stylesheets\scoreInformation.css">
+      <DependentUpon>scoreInformation.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\scoreInformation.min.css">
+      <DependentUpon>scoreInformation.css</DependentUpon>
+    </Content>
     <Content Include="stylesheets\scoreInformation.scss" />
     <None Include="stylesheets\bootstrap\_variables.scss" />
     <None Include="stylesheets\bootstrap\_wells.scss" />
@@ -1377,6 +1383,12 @@
     <Content Include="Scripts\numeral\languages\uk-UA.min.js" />
     <Content Include="Scripts\numeral\numeral.js" />
     <Content Include="Scripts\numeral\numeral.min.js" />
+    <Content Include="stylesheets\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
@@ -1399,7 +1411,6 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\company-winloss\company-winloss.html" />
-    <Content Include="Content\Site.css" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj">
