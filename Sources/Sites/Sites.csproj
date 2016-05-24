@@ -371,6 +371,10 @@
     <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="app\app.constant.js" />
     <Content Include="app\common\fanex-grid.service.js" />
@@ -1296,9 +1300,16 @@
     <Content Include="stylesheets\bootstrap\mixins\_hide-text.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="stylesheets\company-winloss.css">
+      <DependentUpon>company-winloss.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\company-winloss.min.css">
+      <DependentUpon>company-winloss.css</DependentUpon>
+    </Content>
     <Content Include="stylesheets\scoreInformation.scss" />
     <None Include="stylesheets\bootstrap\_variables.scss" />
     <None Include="stylesheets\bootstrap\_wells.scss" />
+    <Content Include="stylesheets\company-winloss.scss" />
     <None Include="stylesheets\Site.scss" />
     <Content Include="Scripts\jquery.nexDatePicker.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.en-US.js" />
