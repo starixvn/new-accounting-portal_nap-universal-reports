@@ -17,6 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
                 IsLive = IsLive
             };
             newCriteria.Update(source);
+
             return newCriteria;
         }
 

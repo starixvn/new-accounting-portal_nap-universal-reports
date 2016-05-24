@@ -38,3 +38,4 @@ _Chutzpah*
 *.orig
 /Sources/Sites/stylesheets/Site.css.map
 /Sources/Sites/stylesheets/Site.css
+OpenCover/*

@@ -18,6 +18,6 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.Site
 
         public string Site { get; set; }
 
-        private int IsLive { get; set; } = Constants.LiveDefault;
+        public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

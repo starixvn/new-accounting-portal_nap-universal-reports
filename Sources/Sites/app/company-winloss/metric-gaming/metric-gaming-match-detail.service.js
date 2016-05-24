@@ -17,7 +17,7 @@
 
         function getData(data) {
             var httpData = {
-                isLive: data.isLive,
+                isLive: data.isLive == undefined ? 2 : data.isLive,
                 sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,

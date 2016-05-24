@@ -13,11 +13,13 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.Site
 
         public override WinLossCriteria Clone(BalanceUpSource source)
         {
-            var newCriteria = new Criteria();
+            var newCriteria = new Criteria
+            {
+                BetType = BetType,
+                Site = Site,
+                IsLive = IsLive
+            };
             newCriteria.Update(source);
-            newCriteria.BetType = BetType;
-            newCriteria.Site = Site;
-            newCriteria.IsLive = IsLive;
 
             return newCriteria;
         }

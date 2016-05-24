@@ -15,6 +15,11 @@
         return service;
 
         function resolveProductPath(productName) {
+            if (productName == 'Live Casino' || productName == 'Casino')
+            {
+                return 'casino';
+            }
+
             return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
         }
 

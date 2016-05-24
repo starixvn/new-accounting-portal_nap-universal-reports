@@ -20,7 +20,7 @@
                 site: data.site,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                isLive: data.isLive
+                isLive: data.isLive == undefined ? 2 : data.isLive
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
             return $http.post(url, httpData)
