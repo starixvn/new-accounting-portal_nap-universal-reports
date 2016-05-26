@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         protected BasicWinLossController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecorator decorator)
         {
             Service = service;
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         protected BasicWinLossService Service { get; }
 
-        protected BasicGridOptionBuilder Builder { get; }
+        protected BasicGridOptionsBuilder Builder { get; }
 
         protected GridOptionColumnDecorator Decorator { get; }
 

@@ -7,7 +7,7 @@ using UniversalReports.CompanyWinLoss.Common.Extensions;
 
 namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 {
-    public class GridOptionBuilderImp : GridOptionBuilder
+    public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         public GridOptions Build(WinLossModel winloss, string title)
         {

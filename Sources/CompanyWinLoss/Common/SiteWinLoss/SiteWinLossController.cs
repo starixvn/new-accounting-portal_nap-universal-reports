@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
         {
         }
 
-        protected SiteWinLossController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecorator decorator)
+        protected SiteWinLossController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecorator decorator)
         {
             Service = service;
             Builder = builder;
@@ -20,7 +20,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 
         private WinLossService Service { get; }
 
-        private GridOptionBuilder Builder { get; }
+        private GridOptionsBuilder Builder { get; }
 
         private GridOptionColumnDecorator Decorator { get; }
 

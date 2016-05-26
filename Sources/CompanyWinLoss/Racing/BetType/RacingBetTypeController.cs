@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
     [RoutePrefix("api/company-win-loss/racing/bet-type")]
     public class RacingBetTypeController : BasicWinLossController
     {
-        public RacingBetTypeController(BasicWinLossService service, BasicGridOptionBuilder builder, GridOptionColumnDecoratorBasic decorator)
+        public RacingBetTypeController(BasicWinLossService service, BasicGridOptionsBuilder builder, GridOptionColumnDecoratorBasic decorator)
          : base(service, builder, decorator)
         {
         }

@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
     {
         public MetricGamingLiveNonLiveController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {

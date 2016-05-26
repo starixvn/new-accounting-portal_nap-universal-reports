@@ -10,7 +10,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.BetType
     {
         public VirtualSportsBetTypeController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorBasic decorator)
          : base(service, builder, decorator)
         {

@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.VirtualSports.RacingDetail
     [RoutePrefix("api/company-win-loss/virtual-sports/racing-match-detail")]
     public class VirtualSportsRacingDetailController : MatchDetailByCodeController
     {
-        public VirtualSportsRacingDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorByCode decorator)
+        public VirtualSportsRacingDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorByCode decorator)
             : base(service, builder, decorator)
         {
         }

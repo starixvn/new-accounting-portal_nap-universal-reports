@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         protected MatchDetailController(
             WinLossService service,
-            GridOptionBuilder builder,
+            GridOptionsBuilder builder,
             MatchGridOptionColumnDecorator decorator)
         {
             this.Service = service;
@@ -24,7 +24,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         private WinLossService Service { get; }
 
-        private GridOptionBuilder Builder { get; }
+        private GridOptionsBuilder Builder { get; }
 
         private MatchGridOptionColumnDecorator Decorator { get; }
 

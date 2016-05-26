@@ -13,10 +13,10 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
     public class NumberGameBetTypeController : ApiController
     {
         private readonly Service service;
-        private readonly BasicGridOptionBuilder builder;
+        private readonly BasicGridOptionsBuilder builder;
         private readonly GridOptionColumnDecorator decorator;
 
-        public NumberGameBetTypeController(Service service, BasicGridOptionBuilder builder, GridOptionColumnDecorator decorator)
+        public NumberGameBetTypeController(Service service, BasicGridOptionsBuilder builder, GridOptionColumnDecorator decorator)
         {
             this.service = service;
             this.builder = builder;

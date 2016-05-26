@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
         {
         }
 
-        protected MatchDetailByCodeController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecorator decorator)
+        protected MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
         {
             this.Service = service;
             this.Builder = builder;
@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         protected WinLossService Service { get; }
 
-        protected GridOptionBuilder Builder { get; }
+        protected GridOptionsBuilder Builder { get; }
 
         protected MatchGridOptionColumnDecorator Decorator { get; }
 

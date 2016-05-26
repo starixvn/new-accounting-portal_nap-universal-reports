@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
 {
-    public interface GridOptionBuilder
+    public interface GridOptionsBuilder
     {
         GridOptions FromWinLossModel(WinLossModel winLoss, string title);
     }

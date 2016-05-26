@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
     {
         public OtherSportsLiveNonLiveController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {

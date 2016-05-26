@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Universal.Site
     [RoutePrefix("api/company-win-loss/universal/site")]
     public class UniversalSiteController : SiteWinLossController
     {
-        public UniversalSiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecoratorBasic decorator)
+        public UniversalSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorBasic decorator)
         : base(service, builder, decorator)
         {
         }

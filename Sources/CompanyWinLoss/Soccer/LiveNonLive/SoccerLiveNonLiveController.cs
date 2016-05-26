@@ -10,7 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLive
     {
         public SoccerLiveNonLiveController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {

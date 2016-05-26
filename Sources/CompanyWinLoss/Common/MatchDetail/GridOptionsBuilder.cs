@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 {
-    public interface GridOptionBuilder
+    public interface GridOptionsBuilder
     {
         GridOptions Build(WinLossModel winLoss, string title);
     }

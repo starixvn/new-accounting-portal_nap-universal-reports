@@ -4,15 +4,15 @@ using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
-namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
+namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
-    public class SiteServiceImp : SiteWinLossService
+    public class WinLossServiceImp : WinLossService
     {
         private readonly RawWinLossService rawWinLossService;
 
         private readonly CalculationService calculationService;
 
-        public SiteServiceImp(
+        public WinLossServiceImp(
             RawWinLossService rawWinLossService,
             CalculationService calculationService)
         {

@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
     [RoutePrefix("api/company-win-loss/sportsbook/site")]
     public class SportsbookSiteController : SiteWinLossController
     {
-        public SportsbookSiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecoratorFull decorator)
+        public SportsbookSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {
         }

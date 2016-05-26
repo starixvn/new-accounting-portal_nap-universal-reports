@@ -1,30 +1,57 @@
 ﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.CompanyWinLoss.Parlay.SiteService;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
     [RoutePrefix("api/company-win-loss/parlay/site")]
-    public class ParlaySiteController : SiteServiceController
+    public class ParlaySiteController : ApiController
     {
-        public ParlaySiteController(SiteWinLossService service, GridOptionBuilderSite builder, GridOptionColumnDecoratorVirtual decorator)
-        : base(service, builder, decorator)
+        private WinLossService service;
+
+        private GridOptionsBuilder builder;
+
+        private GridOptionColumnDecorator decorator;
+
+        public ParlaySiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorBasic decorator)
         {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
 
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Json(criteria, queryModel.Site);
+            if (ModelState.IsValid)
+            {
+                var winlosses = service.Query(criteria);
+                var gridOptions = builder.Build(winlosses, string.Empty);
+                gridOptions = decorator.Build(gridOptions, queryModel.Site);
+
+                return Json(gridOptions);
+            }
+
+            return null;
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Excel(criteria, queryModel.Site, queryModel.Title);
+            if (ModelState.IsValid)
+            {
+                var winlosses = service.Query(criteria);
+                var gridOptions = builder.Build(winlosses, queryModel.Title);
+                gridOptions = decorator.Build(gridOptions, queryModel.Site);
+
+                return new FanexExcelResult(gridOptions, Constants.SheetName);
+            }
+
+            return null;
         }
     }
 }

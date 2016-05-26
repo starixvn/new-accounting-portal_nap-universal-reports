@@ -10,7 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
     {
         public SoccerMajorMinorController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {

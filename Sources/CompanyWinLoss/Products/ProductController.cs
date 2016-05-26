@@ -10,11 +10,11 @@ namespace UniversalReports.CompanyWinLoss.Products
     {
         private readonly Service service;
 
-        private readonly GridOptionBuilder builder;
+        private readonly GridOptionsBuilder builder;
 
         private readonly GridOptionColumnDecoratorFull decorator;
 
-        public ProductController(Service service, GridOptionBuilder builder, GridOptionColumnDecoratorFull decorator)
+        public ProductController(Service service, GridOptionsBuilder builder, GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;

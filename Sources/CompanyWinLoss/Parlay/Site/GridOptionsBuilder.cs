@@ -1,8 +1,8 @@
 ﻿using Fanex.Excel.Models;
 
-namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
+namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
-    public interface GridOptionBuilderSite
+    public interface GridOptionsBuilder
     {
         GridOptions Build(SiteParlayModel winLoss, string title);
     }

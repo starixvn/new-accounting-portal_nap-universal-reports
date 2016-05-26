@@ -40,3 +40,4 @@ _Chutzpah*
 /Sources/Sites/stylesheets/Site.css
 OpenCover/*
 Sources/Sites/compilerconfig.json*
+Sources/Sites/app/*concat.js

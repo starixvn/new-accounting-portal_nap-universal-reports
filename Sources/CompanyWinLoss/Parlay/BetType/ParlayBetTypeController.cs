@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
     [RoutePrefix("api/company-win-loss/parlay/bet-type")]
     public class ParlayBetTypeController : BasicWinLossController
     {
-        public ParlayBetTypeController(BasicWinLossService service, BasicGridOptionBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public ParlayBetTypeController(BasicWinLossService service, BasicGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
          : base(service, builder, decorator)
         {
         }

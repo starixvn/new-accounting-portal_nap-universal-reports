@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
+namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
-    public class SiteModel
+    public class SiteParlayModel
     {
-        public List<WinLoss> Sites { get; set; }
+        public List<SiteModel> Sites { get; set; }
 
         public WinLoss Total { get; set; }
     }

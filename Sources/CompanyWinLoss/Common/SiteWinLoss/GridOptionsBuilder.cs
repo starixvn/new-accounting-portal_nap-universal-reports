@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 {
-    public interface GridOptionBuilder
+    public interface GridOptionsBuilder
     {
         GridOptions Build(SiteWinLossModel winLoss, string title);
     }

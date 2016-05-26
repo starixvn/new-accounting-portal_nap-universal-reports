@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
-    public interface GridOptionBuilder
+    public interface GridOptionsBuilder
     {
         GridOptions Build(ProductWinLoss winLoss, string title);
     }

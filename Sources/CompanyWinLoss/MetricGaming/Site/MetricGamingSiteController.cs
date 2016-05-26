@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.Site
     [RoutePrefix("api/company-win-loss/metric-gaming-superlive/site")]
     public class MetricGamingSiteController : SiteWinLossController
     {
-        public MetricGamingSiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecorator decorator)
+        public MetricGamingSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
             : base(service, builder, decorator)
         {
         }

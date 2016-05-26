@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SportType
     {
         public SoccerSportTypeController(
            BasicWinLossService service,
-           BasicGridOptionBuilder builder,
+           BasicGridOptionsBuilder builder,
            GridOptionColumnDecoratorVirtual decorator)
         : base(service, builder, decorator)
         {

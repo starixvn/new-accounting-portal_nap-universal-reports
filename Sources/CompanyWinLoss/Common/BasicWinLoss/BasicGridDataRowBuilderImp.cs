@@ -1,43 +1,24 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using UniversalReports.CompanyWinLoss.Common.Extensions;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
+namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
-    public class GridOptionBuilderImp : GridOptionBuilder
+    public class BasicGridDataRowBuilderImp : BasicGridDataRowBuilder
     {
-        public GridOptions Build(SiteWinLossModel winLoss, string title)
-        {
-            return new GridOptions
-            {
-                ShowTitle = true,
-                TitleInfoText = title,
-                TitleType = TitleType.TwoLineBlue,
-                BodyRows = BuildBodyRows(winLoss.Sites),
-                FooterRows = BuildFooter(winLoss.Total),
-                ShowFooter = true
-            };
-        }
-
-        private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
-        {
-            return winLoss.Select(item => BuildDataRow(item, HAlignment.Center)).ToList();
-        }
-
-        private List<GridDataRow> BuildFooter(WinLoss item)
-        {
-            return new List<GridDataRow> { BuildDataRow(item, HAlignment.Center) };
-        }
-
-        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+        "SP2100:CodeLineMustNotBeLongerThan",
+        Justification = "Reviewed. Suppression is OK here.")]
+        public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
             int columnIndex = 0;
+            var customAttributes = $"{item.Id}";
             var columns = new List<Columns>
             {
-                new Columns(columnIndex++, "Main", item.Name, alignment),
+                new Columns { ColumnIndex = columnIndex++, Name = "Main", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = customAttributes, CellAlignment = alignment },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),

@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
-    public interface BasicGridOptionBuilder
+    public interface BasicGridOptionsBuilder
     {
         GridOptions Build(BasicWinLossModel winLoss, string title);
     }

@@ -2,7 +2,7 @@
 {
     using Fanex.Excel.Models;
 
-    public interface GridOptionBuilder
+    public interface GridOptionsBuilder
     {
         GridOptions Build(WinLossModel winLoss, string title);
     }

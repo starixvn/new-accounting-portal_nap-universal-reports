@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
     [RoutePrefix("api/company-win-loss/metric-gaming-superlive/match-detail")]
     public class MetricGamingMatchDetailController : MatchDetailController
     {
-        public MetricGamingMatchDetailController(WinLossService service, GridOptionBuilder builder, MatchGridOptionColumnDecoratorFull decorator)
+        public MetricGamingMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorFull decorator)
             : base(service, builder, decorator)
         {
         }

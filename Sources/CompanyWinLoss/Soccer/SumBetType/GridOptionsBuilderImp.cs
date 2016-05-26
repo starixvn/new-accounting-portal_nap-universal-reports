@@ -1,14 +1,20 @@
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Linq;
+using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Soccer.BetType;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
+namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
 {
-    public class GridOptionBuilderImp : BaseGridOptions, GridOptionBuilder
+    public class GridOptionsBuilderImp : BaseGridOptionsBuilder, GridOptionsBuilder
     {
-        public GridOptions Build(WinLossModel winLoss, string title)
+        public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
+           : base(gridDataRowBuilder)
+        {
+        }
+
+        public GridOptions FromWinLossModel(WinLossModel winLoss, string title)
         {
             return new GridOptions
             {
@@ -16,8 +22,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title,
-                Columns = BuildHeader(),
-                GroupHeaderRows = BuildGroupHeaderRows(),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss.MainTotal, winLoss.OtherTotal, winLoss.GrandTotal, winLoss.RM),
                 ShowFooter = true,
@@ -27,15 +31,13 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             };
         }
 
-        protected List<GridDataRow> BuildBodyRows(List<WinLossSummaryByBetTypeGroup> winLoss)
+        private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
-            foreach (var winLossSummary in winLoss)
+            foreach (var item in winLoss)
             {
-                bodyRows.AddRange(winLossSummary.SiteWinLossSummaries.Select(item => BuildBetTypeDataRow(item, HAlignment.Left)));
-
-                var totalRow = BuildDataRow(winLossSummary.Total, HAlignment.Right);
-                bodyRows.Add(totalRow);
+                var row = BuildBetTypeDataRow(item, HAlignment.Left);
+                bodyRows.Add(row);
             }
 
             return bodyRows;

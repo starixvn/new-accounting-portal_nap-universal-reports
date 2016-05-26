@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Casino.Site
     [RoutePrefix("api/company-win-loss/casino/site")]
     public class CasinoSiteController : SiteWinLossController
     {
-        public CasinoSiteController(WinLossService service, GridOptionBuilder builder, GridOptionColumnDecoratorBasic decorator)
+        public CasinoSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorBasic decorator)
         : base(service, builder, decorator)
         {
         }

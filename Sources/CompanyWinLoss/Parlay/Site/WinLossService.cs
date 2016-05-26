@@ -1,8 +1,8 @@
 ﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
-namespace UniversalReports.CompanyWinLoss.Parlay.SiteService
+namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
-    public interface SiteWinLossService
+    public interface WinLossService
     {
         SiteParlayModel Query(WinLossCriteria criteria);
     }

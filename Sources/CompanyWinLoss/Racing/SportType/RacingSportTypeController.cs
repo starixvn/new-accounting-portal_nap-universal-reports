@@ -10,7 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Racing.SportType
     {
         public RacingSportTypeController(
             BasicWinLossService service,
-            BasicGridOptionBuilder builder,
+            BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorBasic decorator)
          : base(service, builder, decorator)
         {
