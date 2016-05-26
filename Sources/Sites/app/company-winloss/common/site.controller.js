@@ -5,18 +5,15 @@
         .module('app.companyWinlossApp')
         .controller('SiteController', SiteController);
 
-    SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-    function SiteController($injector, $scope, $element, fanexGridService, showHideColumnService) {
+    SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
+    function SiteController($injector, $scope, $element, fanexGridService) {
         var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -26,8 +23,7 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel,
-                customButtons: showHideColumnBuilder.getButtonHtml()
+                exportExcelFunction: exportExcel
             };
 
             data.titleInfo = titleInfo;

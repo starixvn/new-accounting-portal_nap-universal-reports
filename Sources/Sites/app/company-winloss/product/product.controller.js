@@ -5,10 +5,10 @@
         .module('app.companyWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'companyWinlossService', 'showHideColumnService'];
-    function ProductController($element, $scope, fanexGridService, companyWinlossService, showHideColumnService) {
+    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'companyWinlossService', 'productShowHideColumnService'];
+    function ProductController($element, $scope, fanexGridService, companyWinlossService, productShowHideColumnService) {
         var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
+        var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.show = showHideColumnBuilder.toggle;
@@ -69,7 +69,6 @@
             }
 
             function appendNote(data) {
-
                 var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
                                  "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
 

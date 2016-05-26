@@ -5,36 +5,38 @@
         .module('app.companyWinlossApp')
         .factory('showHideColumnService', showHideColumnService);
 
-    showHideColumnService.$inject = ['$log', '$timeout'];
-    function showHideColumnService($log, $timeout) {
-        Builder.defaultOptions = {
-            enableHiddenColumns: true, // default is hidding columns
-            hiddenColumns: [1, 2] // default hidden column indexes
-        };
+    showHideColumnService.$inject = ['$log', '$timeout', 'productShowHideColumnService'];
+    function showHideColumnService($log, $timeout, productShowHideColumnService) {
         function Builder(pane) {
-            var options = pane.showHideColumnOptions;
+            var defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
             this.getButtonHtml = getButtonHtml;
             this.build = build;
             this.toggle = toggle;
-            this.updateOptions = updateOptions;
+
+            function raiseDefaultClick() {
+                var buttons = pane.$element.find('.btExpand');
+                var customButton = buttons.first();
+                if (defaultCollapseAllGroups) {
+                    customButton.removeClass('collapsed').addClass('expanded');
+                } else {
+                    customButton.removeClass('expanded').addClass('collapsed');
+                }
+
+                var defaultButtons = buttons.not(':eq(0)');
+                $timeout(function () {
+                    defaultButtons.trigger('click');
+                });
+            }
 
             function toggle() {
-                var showHideButton = pane.$element.find('.btExpand').first();
-                var isCollapsed = showHideButton.hasClass('collapsed');
-                if (isCollapsed !== options.enableHiddenColumns) {
-                    options.enableHiddenColumns = !options.enableHiddenColumns;
-                    $timeout(function () {
-                        showHideButton.trigger('click');
-                    });
+                if (defaultCollapseAllGroups != productShowHideColumnService.defaultCollapseAllGroups) {
+                    defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
+                    raiseDefaultClick();
                 }
             }
 
-            function updateOptions(newOptions) {
-                pane.showHideColumnOptions = angular.extend(options, newOptions);
-            }
-
             function getButtonHtml() {
-                var buttonClass = !options.enableHiddenColumns ? 'expanded' : 'collapsed';
+                var buttonClass = !defaultCollapseAllGroups ? 'expanded' : 'collapsed';
                 return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
             }
 
@@ -53,32 +55,13 @@
                 pane.$scope.showHideColumns = showHideColumns;
                 for (var i = 0; i < listOfGridOptions.length; i++) {
                     var gridOptions = listOfGridOptions[i];
-                    gridOptions.hiddenColumns = options.hiddenColumns;
-                    gridOptions.enableHiddenColumns = !options.enableHiddenColumns;
-                    gridOptions.defaultCollapseAllGroups = !gridOptions.enableHiddenColumns;
+                    gridOptions.defaultCollapseAllGroups = defaultCollapseAllGroups;
                 }
 
                 function showHideColumns($event) {
-                    options.enableHiddenColumns = !options.enableHiddenColumns;
-                    for (var i = 0; i < listOfGridOptions.length; i++) {
-                        var gridElement = listOfGridElements[i];
-                        var gridOptions = listOfGridOptions[i];
-                        gridOptions.enableHiddenColumns = options.enableHiddenColumns;
-                        gridOptions.defaultCollapseAllGroups = true;
-                        if (gridOptions.enableHiddenColumns) {
-                            gridElement.fanexGrid("hideColumns", gridOptions, options.hiddenColumns);
-                        } else {
-                            gridElement.fanexGrid("hideColumns", gridOptions, []);
-                        }
-                    }
-
-                    pane.compileDrilldown();
-                    var target = angular.element($event.target);
-                    if (!options.enableHiddenColumns) {
-                        target.removeClass('collapsed').addClass('expanded');
-                    } else {
-                        target.removeClass('expanded').addClass('collapsed');
-                    }
+                    defaultCollapseAllGroups = !defaultCollapseAllGroups;
+                    productShowHideColumnService.defaultCollapseAllGroups = defaultCollapseAllGroups;
+                    raiseDefaultClick();
                 }
             }
         };

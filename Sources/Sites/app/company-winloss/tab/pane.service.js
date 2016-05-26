@@ -18,7 +18,6 @@
             this.compileLinks = compileLinks;
             this.compileDrilldown = compileDrilldown;
             this.getFileName = getFileName;
-            this.showHideColumnOptions = showHideColumnService.defaultOptions;
 
             if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
                 $log.error('Invalid pane');

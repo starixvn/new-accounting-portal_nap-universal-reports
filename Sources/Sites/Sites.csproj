@@ -228,6 +228,7 @@
     <Content Include="app\company-winloss\casino\casino-bet-type.service.js" />
     <Content Include="app\company-winloss\casino\casino-product.controller.js" />
     <Content Include="app\company-winloss\casino\casino-product.service.js" />
+    <Content Include="app\company-winloss\grid\product-show-hide-column.service.js" />
     <Content Include="app\company-winloss\grid\show-hide-column.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-match-detail.service.js" />
     <Content Include="app\company-winloss\metric-gaming\metric-gaming-bet-type.service.js" />

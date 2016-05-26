@@ -5,20 +5,16 @@
         .module('app.companyWinlossApp')
         .controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
 
-    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', '$uibModal', '$uibModalStack'];
-    function SportsbookMatchDetailController($scope, $element, fanexGridService, showHideColumnService, $uibModal, $uibModalStack) {
+    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
+    function SportsbookMatchDetailController($scope, $element, fanexGridService, $uibModal, $uibModalStack) {
         var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
-        showHideColumnBuilder.updateOptions({ hiddenColumns: [4, 5] });
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.viewMatchInformation = viewMatchInformation;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -70,8 +66,7 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel,
-                customButtons: showHideColumnBuilder.getButtonHtml()
+                exportExcelFunction: exportExcel
             };
 
             data.titleInfo = titleInfo;
