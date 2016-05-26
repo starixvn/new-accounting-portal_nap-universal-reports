@@ -71,7 +71,8 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             int columnIndex = 0;
             var colummns = new List<Columns>
                {
-                    new Columns { ColumnIndex = columnIndex, Name = "MatchCode", Value = leagueName, MergeColNumber = 7, Bold = true, CellAlignment = HAlignment.Left }
+                    new Columns(columnIndex++, "MatchCode", string.Empty),
+                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 6, Bold = true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
