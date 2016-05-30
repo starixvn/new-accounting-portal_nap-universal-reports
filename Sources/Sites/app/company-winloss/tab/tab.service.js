@@ -48,8 +48,8 @@
                     newActivePane.$scope.show();
                 }
                 var dateRange = {
-                    startDate: activePane.data.startDate,
-                    endDate: activePane.data.endDate
+                    startDate: this.panes[index].data.startDate,
+                    endDate: this.panes[index].data.endDate
                 };
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }
