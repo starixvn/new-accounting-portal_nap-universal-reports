@@ -340,9 +340,9 @@
     <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MVC\MVC.csproj">
+    <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
-      <Name>MVC</Name>
+      <Name>UniversalReports.MVC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

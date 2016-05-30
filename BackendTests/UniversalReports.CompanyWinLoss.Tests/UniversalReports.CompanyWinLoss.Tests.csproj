@@ -151,9 +151,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\Sources\CompanyWinLoss\CompanyWinLoss.csproj">
+    <ProjectReference Include="..\..\Sources\UniversalReports.CompanyWinLoss\UniversalReports.CompanyWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
-      <Name>CompanyWinLoss</Name>
+      <Name>UniversalReports.CompanyWinLoss</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

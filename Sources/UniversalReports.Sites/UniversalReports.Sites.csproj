@@ -1413,17 +1413,17 @@
     <Content Include="app\company-winloss\company-winloss.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj">
+    <ProjectReference Include="..\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>
-      <Name>Application</Name>
+      <Name>UniversalReports.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CompanyWinLoss\CompanyWinLoss.csproj">
+    <ProjectReference Include="..\UniversalReports.CompanyWinLoss\UniversalReports.CompanyWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
-      <Name>CompanyWinLoss</Name>
+      <Name>UniversalReports.CompanyWinLoss</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MVC\MVC.csproj">
+    <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
-      <Name>MVC</Name>
+      <Name>UniversalReports.MVC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
