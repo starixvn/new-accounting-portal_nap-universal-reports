@@ -370,10 +370,6 @@
     <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <Content Include="app\app.constant.js" />
     <Content Include="app\common\fanex-grid.service.js" />
@@ -386,7 +382,6 @@
     <Content Include="app\components\loading\loading.directive.js" />
     <Content Include="app\company-winloss\product\product.service.js" />
     <Content Include="Global.asax" />
-    <Content Include="gruntfile.js" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
     <Content Include="javascripts\bootstrap.min.js" />

@@ -30,6 +30,8 @@ namespace UniversalReports.Sites
         {
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
+            container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
+
             container.Register<ICurrentSession, CurrentSession>(Lifestyle.Transient);
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
             container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
@@ -37,7 +39,6 @@ namespace UniversalReports.Sites
             container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);

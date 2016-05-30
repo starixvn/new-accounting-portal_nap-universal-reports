@@ -17,49 +17,54 @@ namespace UniversalReports.CompanyWinLoss.Tests
     {
         static SimpleInjectorContainer()
         {
-            Instance = new Container();
+            var container = new Container();
+            container.Register<CommonServices.RemotingRefService, RemotingRefServiceFake>(Lifestyle.Transient);
 
-            Instance.Register<CommonServices.RemotingRefService, RemotingRefServiceFake>(Lifestyle.Transient);
+            container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
+            container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
+            container.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.BalanceUpSummationService, MatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<NumberGames.BetType.Service, NumberGames.BetType.ServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Products.GridOptionsBuilder, CompanyWinLoss.Products.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<Soccers.BetType.CalculationService, Soccers.BetType.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Parlay.Site.WinLossService, CompanyWinLoss.Parlay.Site.WinLossServiceImp>(Lifestyle.Transient);
+            container.Register<CompanyWinLoss.Parlay.Site.GridOptionsBuilder, CompanyWinLoss.Parlay.Site.GridOptionsBuilderImp>(Lifestyle.Transient);
 
-            Instance.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
-            Instance.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
-            Instance.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
-            Instance.Register<BalanceUpSummationService, BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            Instance.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
-            Instance.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetail.BalanceUpSummationService, MatchDetail.BalanceUpSummationServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<NumberGames.BetType.Service, NumberGames.BetType.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<CompanyWinLoss.Products.Service, CompanyWinLoss.Products.ServiceImp>(Lifestyle.Transient);
-            Instance.Register<CompanyWinLoss.Products.GridOptionsBuilder, CompanyWinLoss.Products.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
-            Instance.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
-            Instance.Register<Soccers.BetType.CalculationService, Soccers.BetType.CalculationServiceImp>(Lifestyle.Transient);
-
-            Instance.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            Instance.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            Instance.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>(Lifestyle.Transient);
-            Instance.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
-            Instance.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
-            Instance.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>(Lifestyle.Transient);
-            Instance.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
-            Instance.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
-            Instance.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
-            Instance.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
+            container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
-            Instance.Verify();
+            container.Verify();
+
+            Instance = container;
         }
 
         public static Container Instance { get; }
