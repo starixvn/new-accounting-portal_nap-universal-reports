@@ -1,6 +1,7 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
 using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using UniversalReports.CompanyWinLoss.VirtualSports.BetType;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Factory
@@ -31,19 +32,12 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Factory
             var criteria = CriteriaFactory.Transform<Criteria>(model);
 
             // Assert
-            Assert.True(AreCriteriaEqual(expectedCriteria, criteria));
+            Comparison.AreEqual(expectedCriteria, criteria);
         }
 
         private DateTime CreateDateTime(int day)
         {
             return new DateTime(2010, 1, day);
-        }
-
-        private bool AreCriteriaEqual(Criteria expected, Criteria model)
-        {
-            return expected.StartDate == model.StartDate
-                && expected.EndDate == model.EndDate
-                && expected.SportType == model.SportType;
         }
     }
 }

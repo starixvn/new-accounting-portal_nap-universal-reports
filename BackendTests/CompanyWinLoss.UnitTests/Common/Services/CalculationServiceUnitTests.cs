@@ -52,17 +52,16 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = calculationService.FromRawWinLossByRowName(rawWinLoss);
 
             // Assert
-            var equal = Comparison.AreEqual(expectedWinLoss, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedWinLoss, result);
         }
 
         [Test]
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
-            var expectedSum = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 100, 100, 100, 1890, 2100);
-            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 100, 100, 900, 1000);
-            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 100, 100, 100, 990, 1100);
+            var expectedSum = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 210, 230, 21, 1050, 1260, 200, 0, 0, 1890, 2100);
+            var deposit1 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 100, 110, 10, 500, 600, 100, 0, 0, 900, 1000);
+            var deposit2 = WinLossFactory.CreateRawWinLoss(1, "Casino", "Deposit", 110, 120, 11, 550, 660, 100, 0, 0, 990, 1100);
 
             var winlosses = new[] { deposit1, deposit2 };
 
@@ -71,27 +70,25 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = calculationService.CalculateSum(winlosses);
 
             // Assert
-            var areEqual1 = Comparison.AreEqual(expectedSum, result);
-            Assert.True(areEqual1);
+            Comparison.AreEqual(expectedSum, result);
         }
 
         [Test]
         public void CalculateSumWinLoss_ReturnsRightTotalValue()
         {
             // Arrange
-            var expectedTotal = WinLossFactory.CreateWinLoss(1, "Group 1", 210, 410, 30, 610, 810, -200, 100, 100, 2100, 2500, 610m / 2100, 810m / 2500);
+            var expectedTotal = WinLossFactory.CreateWinLoss(1, "Group 1", 210, 410, 30, 610, 810, -200, 0, 0, 2100, 2500, 610m / 2100, 810m / 2500);
             var calculationService = new CalculationServiceImp();
 
             // Act
-            var deposit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 100, 200, 10, 300, 400, -100, 100, 100, 1000, 1200);
-            var credit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 110, 210, 20, 310, 410, -100, 100, 100, 1100, 1300);
+            var deposit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Deposit", 100, 200, 10, 300, 400, -100, 0, 0, 1000, 1200);
+            var credit = WinLossFactory.CreateRawWinLoss(1, "Group 1", "Credit", 110, 210, 20, 310, 410, -100, 0, 0, 1100, 1300);
             var rawWinLosses = new List<RawWinLoss> { deposit, credit };
 
             var result = calculationService.CalculateSumWinLoss("Group 1", rawWinLosses);
 
             // Assert
-            var areEqual = Comparison.AreEqual(expectedTotal, result);
-            Assert.True(areEqual);
+            Comparison.AreEqual(expectedTotal, result);
         }
 
         [Test]
@@ -106,17 +103,16 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            var equal = Comparison.AreEqual(expectedGrandTotal, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedGrandTotal, result);
         }
 
         private SiteWinLossSummary CreateExpectedGrandTotal()
         {
             return new SiteWinLossSummary
             {
-                Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 100, 100, 1800, 2000, 1000m / 1800, 1200m / 2000),
-                Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 100, 100, 1980, 2200, 1100m / 1980, 1320m / 2200),
-                Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 100, 100, 3780, 4200, 2100m / 3780, 2520m / 4200)
+                Credit = WinLossFactory.CreateWinLoss(1, "Credit", 200, 220, 20, 1000, 1200, -200, 0, 0, 1800, 2000, 1000m / 1800, 1200m / 2000),
+                Deposit = WinLossFactory.CreateWinLoss(1, "Deposit", 220, 240, 22, 1100, 1320, -220, 0, 0, 1980, 2200, 1100m / 1980, 1320m / 2200),
+                Total = WinLossFactory.CreateWinLoss(1, "Grand Total", 420, 460, 42, 2100, 2520, -420, 0, 0, 3780, 4200, 2100m / 3780, 2520m / 4200)
             };
         }
 
@@ -133,8 +129,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 
         private List<RawWinLoss> CreateFakeRawGroupWinLoss(int groupId, string groupName)
         {
-            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000);
-            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100);
+            var creditWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Credit", 100, 110, 10, 500, 600, -100, 0, 0, 900, 1000);
+            var depositWinLoss = WinLossFactory.CreateRawWinLoss(groupId, groupName, "Deposit", 110, 120, 11, 550, 660, -110, 0, 0, 990, 1100);
 
             return new List<RawWinLoss> { creditWinLoss, depositWinLoss };
         }
@@ -143,8 +139,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
         {
             return new List<RawWinLoss>
             {
-                WinLossFactory.CreateRawWinLoss(0, "RM", "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000),
-                WinLossFactory.CreateRawWinLoss(0, "RM", "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100)
+                WinLossFactory.CreateRawWinLoss(0, "RM", "8RM", 100, 110, 10, 500, 600, -100, 0, 0, 900, 1000),
+                WinLossFactory.CreateRawWinLoss(0, "RM", "BARM", 110, 120, 11, 550, 660, -110, 0, 0, 990, 1100)
             };
         }
 
@@ -160,8 +156,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            var equal = Comparison.AreEqual(expectedGrandTotal, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedGrandTotal, result);
         }
 
         private SiteWinLossSummary CreateEmptyTotalWinLoss()
@@ -185,9 +180,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
-            var equal = Comparison.AreEqual(expectedGroup, result);
-
-            Assert.True(equal);
+            Comparison.AreEqual(expectedGroup, result);
         }
 
         private SiteWinLossSummary CreateEmptySiteWinLoss()
@@ -212,10 +205,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
             // Assert
-            var equal1 = Comparison.AreEqual(expectedGroups[0], result[0]);
-            var equal2 = Comparison.AreEqual(expectedGroups[1], result[1]);
-            Assert.True(equal1);
-            Assert.True(equal2);
+            Comparison.AreEqual(expectedGroups, result);
         }
 
         private List<SiteWinLossSummary> CreateExpectedGroups()
@@ -228,9 +218,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
 
         private SiteWinLossSummary CreateExpectedGroup(int groupId, string groupName)
         {
-            var creditWinLoss = WinLossFactory.CreateWinLoss(groupId, "Credit", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000);
-            var depositWinLoss = WinLossFactory.CreateWinLoss(groupId, "Deposit", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100);
-            var totalWinLoss = WinLossFactory.CreateWinLoss(groupId, groupName, 210, 230, 21, 1050, 1260, -210, 100, 100, 1890, 2100, 1050m / 1890, 1260m / 2100);
+            var creditWinLoss = WinLossFactory.CreateWinLoss(groupId, "Credit", 100, 110, 10, 500, 600, -100, 0, 0, 900, 1000, 500m / 900, 600m / 1000);
+            var depositWinLoss = WinLossFactory.CreateWinLoss(groupId, "Deposit", 110, 120, 11, 550, 660, -110, 0, 0, 990, 1100, 550m / 990, 660m / 1100);
+            var totalWinLoss = WinLossFactory.CreateWinLoss(groupId, groupName, 210, 230, 21, 1050, 1260, -210, 0, 0, 1890, 2100, 1050m / 1890, 1260m / 2100);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
         }
@@ -247,16 +237,15 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateRM(fakeData).ToList();
 
             // Assert
-            var equal = Comparison.AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         public List<WinLoss> CreateExpectedRM()
         {
             return new List<WinLoss>
             {
-                WinLossFactory.CreateWinLoss(0, "8RM", 100, 110, 10, 500, 600, -100, 100, 100, 900, 1000, 500m / 900, 600m / 1000),
-                WinLossFactory.CreateWinLoss(0, "BARM", 110, 120, 11, 550, 660, -110, 100, 100, 990, 1100, 550m / 990, 660m / 1100)
+                WinLossFactory.CreateWinLoss(0, "8RM", 100, 110, 10, 500, 600, -100, 0, 0, 900, 1000, 500m / 900, 600m / 1000),
+                WinLossFactory.CreateWinLoss(0, "BARM", 110, 120, 11, 550, 660, -110, 0, 0, 990, 1100, 550m / 990, 660m / 1100)
             };
         }
     }

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
@@ -15,7 +16,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         public void CalulationMargin_Shoud_Return_Zero_When_Turnover_Is_Zero()
         {
             // Arrange
-            const int Zero = 0;
+            const decimal Zero = 0.0m;
             const int AnyIncome = 100;
             var refService = Substitute.For<CommonServices.RemotingRefService>();
             var calculationService = new CalculationServiceImp(refService);
@@ -24,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMargin(AnyIncome, Zero);
 
             // Assert
-            Assert.AreEqual(Zero, result);
+            Comparison.AreEqual(Zero, result);
         }
 
         [Test]
@@ -58,8 +59,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.FromRawWinLoss(rawWinLoss);
 
             // Assert
-            var equal = WinLossComparison.AreEqual(result, expectedWinLoss);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedWinLoss, result);
         }
 
         [Test]
@@ -75,8 +75,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateSumWinLoss(rawWinLoss);
 
             // Assert
-            var equal = WinLossComparison.AreEqual(result, expectedWinLossTotal);
-            Assert.True(equal);
+            Comparison.AreEqual(result, expectedWinLossTotal);
         }
 
         [Test]
@@ -96,8 +95,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateLeagues(fakeData).ToList();
 
             // Assert
-            var equal = WinLossComparison.AreEqual(expectedList, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedList, result);
         }
 
         [Test]
@@ -117,8 +115,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateLeague(fakeLeague, AnyLeagueId);
 
             // Assert
-            var equal = WinLossComparison.AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeData()
@@ -164,8 +161,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateRM(fakeLeague).ToList();
 
             // Assert
-            var equal = WinLossComparison.AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private List<WinLoss> CreateExpectedRM()
@@ -207,8 +203,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMatches(fakeData).ToList();
 
             // Assert
-            var equal = WinLossComparison.AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private List<WinLoss> CreateExpectedMatches()

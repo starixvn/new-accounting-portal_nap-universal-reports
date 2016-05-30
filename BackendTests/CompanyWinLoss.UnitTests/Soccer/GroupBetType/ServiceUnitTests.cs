@@ -15,25 +15,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
     public class ServiceUnitTests
     {
         [Test]
-        public void CalculateSum_ReturnRight()
-        {
-            //// Arrange
-            var expectedCaculateSum = CreateExpectedCaculateSum();
-            var fakeData = CreateFakeRawWinLoss();
-            var calculatorService = new CompanyWinLoss.Soccer.BetType.CalculationServiceImp();
-            var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
-
-            //// Act
-            var service = new WinLossServiceImp(rawWinLossService, calculatorService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
-
-            //// Assert
-            var equal = AreTwoSoccerBetTypeWinLossSummaryEqual(expectedCaculateSum, result);
-            Assert.True(equal);
-        }
-
-        [Test]
         public void CalculateSiteWinLossSummary_ReturnRight()
         {
             //// Arrange
@@ -49,8 +30,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             //// Assert
-            var equal = AreTwoCalculateSiteWinLossSummaryEqual(expectedSummary.SiteWinLossSummaries[0], result.SiteWinLossSummaries[0]);
-            Assert.True(equal);
+            Comparison.AreEqual(expectedSummary.SiteWinLossSummaries[0], result.SiteWinLossSummaries[0]);
         }
 
         public WinLossModel CreateExpectedSummary()
@@ -93,23 +73,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
             };
         }
 
-        public WinLossModel CreateExpectedCaculateSum()
-        {
-            var mainTotal = WinLossFactory.CreateWinLoss(1, "Main Bet Types Total", 20, 20, 20, 20, 20, 20, 0, 0, 20, 20, 20m / 20, 20m / 20);
-            var otherTotal = WinLossFactory.CreateWinLoss(0, "Other Bet Types Total", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            List<WinLoss> rM = new List<WinLoss>();
-            rM.Add(WinLossFactory.CreateWinLoss(1, "Deposit", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-            var grandTotal = CreateExpectedGrandTotal();
-            return new WinLossModel
-            {
-                SiteWinLossSummaries = null,
-                GrandTotal = grandTotal,
-                MainTotal = mainTotal,
-                OtherTotal = otherTotal,
-                RM = rM
-            };
-        }
-
         public SiteWinLossSummary CreateExpectedGrandTotal()
         {
             var credit = WinLossFactory.CreateWinLoss(1, "Credit", 10, 10, 10, 10, 10, 10, 0, 0, 10, 10, 1, 1);
@@ -131,20 +94,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
             result.Add(SoccerWinLossFactory.CreateRawWinLoss(1, "BetType 1", "Deposit", true, 10, 10, 10, 10, 10, 10, 10, 10));
             result.Add(SoccerWinLossFactory.CreateRawWinLoss(1, "RM", "Deposit", true, 0, 0, 0, 0, 0, 0, 0, 0));
             return result;
-        }
-
-        private bool AreTwoSoccerBetTypeWinLossSummaryEqual(WinLossModel expected, WinLossModel model)
-        {
-            return Comparison.AreEqual(expected.OtherTotal, model.OtherTotal)
-                && Comparison.AreEqual(expected.MainTotal, model.MainTotal)
-                && Comparison.AreEqual(expected.GrandTotal, model.GrandTotal)
-                && Comparison.AreEqual(expected.RM, model.RM);
-        }
-
-        private bool AreTwoCalculateSiteWinLossSummaryEqual(WinLossSummaryByBetTypeGroup expected, WinLossSummaryByBetTypeGroup model)
-        {
-            return Comparison.AreEqual(expected.SiteWinLossSummaries, model.SiteWinLossSummaries)
-                && Comparison.AreEqual(expected.Total, model.Total);
         }
     }
 }

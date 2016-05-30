@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
 {
@@ -33,11 +34,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
             // Assert
-            var areEqual1 = WinLossComparison.AreEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparison.AreEqual(expectedSum[1], result[1]);
-
-            Assert.True(areEqual1);
-            Assert.True(areEqual2);
+            Comparison.AreEqual(expectedSum, result);
         }
 
         [Test]
@@ -62,12 +59,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var balanceUpSummationService = new BalanceUpSummationServiceImp();
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
-            // Assert
-            var areEqual1 = WinLossComparison.AreEqual(expectedSum[0], result[0]);
-            var areEqual2 = WinLossComparison.AreEqual(expectedSum[1], result[1]);
-
-            Assert.True(areEqual1);
-            Assert.True(areEqual2);
+            //// Assert
+            Comparison.AreEqual(expectedSum, result);
         }
     }
 }

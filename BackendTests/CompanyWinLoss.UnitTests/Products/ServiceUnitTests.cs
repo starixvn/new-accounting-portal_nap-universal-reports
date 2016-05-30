@@ -28,9 +28,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.Query(criteria);
 
             // Assert
-            var equal = AreEqual(expected, result);
-
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeData()
@@ -100,8 +98,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.GetProductGroup(fakeData, "Non-Sports Total");
 
             // Assert
-            var equal = AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeProductRawData(int productId, string productName)
@@ -131,20 +128,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var totalWinLoss = WinLossFactory.CreateWinLoss(productId, productName, 210, 230, 21, 1050, 1260, -210, 110, 940, 1890, 2100, 1050m / 1890, 1260m / 2100);
 
             return new SiteWinLossSummary { Credit = creditWinLoss, Deposit = depositWinLoss, Total = totalWinLoss };
-        }
-
-        private bool AreEqual(ProductWinLoss expected, ProductWinLoss model)
-        {
-            return AreEqual(expected.Sportsbook, model.Sportsbook)
-                && AreEqual(expected.NonSportsbook, model.NonSportsbook)
-                && Comparison.AreEqual(expected.RM, model.RM)
-                && Comparison.AreEqual(expected.GrandTotal, model.GrandTotal);
-        }
-
-        private bool AreEqual(ProductGroupWinLoss expected, ProductGroupWinLoss model)
-        {
-            return Comparison.AreEqual(expected.Products, model.Products)
-                && Comparison.AreEqual(expected.Total, model.Total);
         }
     }
 }

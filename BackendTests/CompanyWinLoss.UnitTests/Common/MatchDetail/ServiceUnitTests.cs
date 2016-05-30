@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
 using commonServices = UniversalReports.CompanyWinLoss.Common.Services;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
@@ -30,8 +31,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            var equal = AreEqual(expected, result);
-            Assert.True(equal);
+            Comparison.AreEqual(expected, result);
         }
 
         private WinLossModel CreateExpectedWinLossModel()
@@ -66,13 +66,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         {
             var rm = WinLossFactory.CreateWinLoss(0, 0, 0, 100, 10, 200, 400, 0.5m);
             return new List<WinLoss> { rm };
-        }
-
-        private bool AreEqual(WinLossModel expected, WinLossModel model)
-        {
-            return WinLossComparison.AreEqual(expected.Total, model.Total)
-                && WinLossComparison.AreEqual(expected.Leagues, model.Leagues)
-                && WinLossComparison.AreEqual(expected.RM, model.RM);
         }
     }
 }

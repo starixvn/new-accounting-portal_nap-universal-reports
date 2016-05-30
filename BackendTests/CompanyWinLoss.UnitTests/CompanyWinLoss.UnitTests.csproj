@@ -90,7 +90,6 @@
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\RawWinLossServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\ServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetail\WinLossComparison.cs" />
     <Compile Include="Common\MatchDetail\WinLossFactory.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.cs" />

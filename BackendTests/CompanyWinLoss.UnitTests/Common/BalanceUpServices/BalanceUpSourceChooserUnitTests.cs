@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
+using System;
+using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
