@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMargin(AnyIncome, Zero);
 
             // Assert
-            Comparison.AreEqual(Zero, result);
+            ComparisonExtension.AreEqual(Zero, result);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.FromRawWinLoss(rawWinLoss);
 
             // Assert
-            Comparison.AreEqual(expectedWinLoss, result);
+            ComparisonExtension.AreEqual(expectedWinLoss, result);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateSumWinLoss(rawWinLoss);
 
             // Assert
-            Comparison.AreEqual(result, expectedWinLossTotal);
+            ComparisonExtension.AreEqual(result, expectedWinLossTotal);
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateLeagues(fakeData).ToList();
 
             // Assert
-            Comparison.AreEqual(expectedList, result);
+            ComparisonExtension.AreEqual(expectedList, result);
         }
 
         [Test]
@@ -115,7 +115,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateLeague(fakeLeague, AnyLeagueId);
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeData()
@@ -161,7 +161,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateRM(fakeLeague).ToList();
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private List<WinLoss> CreateExpectedRM()
@@ -203,7 +203,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMatches(fakeData).ToList();
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private List<WinLoss> CreateExpectedMatches()

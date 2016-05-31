@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.Query(criteria);
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeData()
@@ -98,7 +98,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var result = service.GetProductGroup(fakeData, "Non-Sports Total");
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private List<RawWinLoss> CreateFakeProductRawData(int productId, string productName)

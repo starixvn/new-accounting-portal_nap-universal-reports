@@ -36,5 +36,9 @@
                 activePane.generate();
             }
         });
+
+        $scope.$on('nap-filter-switch', function (event) {
+            tab.panes = [];
+        });
     }
 })(angular);

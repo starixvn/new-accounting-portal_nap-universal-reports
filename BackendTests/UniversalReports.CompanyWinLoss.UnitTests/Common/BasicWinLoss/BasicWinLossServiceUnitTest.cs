@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BasicWinLoss
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private BasicWinLossModel CreateExpected()

@@ -36,7 +36,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
             var result = FakeData();
 
             //// Assert
-            Comparison.AreEqual(expectedCaculateSum.OtherTotal, result.OtherTotal);
+            ComparisonExtension.AreEqual(expectedCaculateSum.OtherTotal, result.OtherTotal);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
             var result = FakeData();
 
             //// Assert
-            Comparison.AreEqual(expectedCaculateSum.MainTotal, result.MainTotal);
+            ComparisonExtension.AreEqual(expectedCaculateSum.MainTotal, result.MainTotal);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
             var result = FakeData();
 
             //// Assert
-            Comparison.AreEqual(expectedCaculateSum.GrandTotal, result.GrandTotal);
+            ComparisonExtension.AreEqual(expectedCaculateSum.GrandTotal, result.GrandTotal);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
             var result = FakeData();
 
             //// Assert
-            Comparison.AreEqual(expectedCaculateSum.RM, result.RM);
+            ComparisonExtension.AreEqual(expectedCaculateSum.RM, result.RM);
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             //// Assert
-            Comparison.AreEqual(expectedCalculateSiteWinLossSummary.SiteWinLossSummaries, result.SiteWinLossSummaries);
+            ComparisonExtension.AreEqual(expectedCalculateSiteWinLossSummary.SiteWinLossSummaries, result.SiteWinLossSummaries);
         }
 
         public WinLossModel CreateExpectedSummary()

@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.SiteWinLoss
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            Comparison.AreEqual(expectedSiteWinLoss, result);
+            ComparisonExtension.AreEqual(expectedSiteWinLoss, result);
         }
 
         private SiteWinLossModel CreateExpectedSiteWinLoss()

@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.NumberGame.BetType
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            Comparison.AreEqual(expectedNumberGameBetTypeWinLossSummary, result);
+            ComparisonExtension.AreEqual(expectedNumberGameBetTypeWinLossSummary, result);
         }
 
         private WinLossModel CreateExpectedNumberGameBetTypeWinLossSummary()

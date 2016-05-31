@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         private WinLossModel CreateExpectedWinLossModel()

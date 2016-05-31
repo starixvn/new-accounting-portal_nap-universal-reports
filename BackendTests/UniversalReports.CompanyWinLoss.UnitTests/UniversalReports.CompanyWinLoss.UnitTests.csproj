@@ -105,8 +105,8 @@
     <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
     <Compile Include="Soccer\SoccerWinLossFactory.cs" />
     <Compile Include="Soccer\SumBetType\ServiceUnitTest.cs" />
+    <Compile Include="TestUtility\ComparisonExtension.cs" />
     <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
-    <Compile Include="TestUtility\Comparison.cs" />
     <Compile Include="TestUtility\WinLossFactory.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.cs" />
   </ItemGroup>

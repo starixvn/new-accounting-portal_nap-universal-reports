@@ -30,7 +30,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             //// Assert
-            Comparison.AreEqual(expectedSummary.SiteWinLossSummaries[0], result.SiteWinLossSummaries[0]);
+            ComparisonExtension.AreEqual(expectedSummary.SiteWinLossSummaries[0], result.SiteWinLossSummaries[0]);
         }
 
         public WinLossModel CreateExpectedSummary()

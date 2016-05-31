@@ -35,7 +35,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
             // Assert
-            Comparison.AreEqual(expectedSum, result);
+            ComparisonExtension.AreEqual(expectedSum, result);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
             var result = balanceUpSummationService.CalculateSum(winlosses).ToList();
 
             // Assert
-            Comparison.AreEqual(expectedSum, result);
+            ComparisonExtension.AreEqual(expectedSum, result);
         }
     }
 }

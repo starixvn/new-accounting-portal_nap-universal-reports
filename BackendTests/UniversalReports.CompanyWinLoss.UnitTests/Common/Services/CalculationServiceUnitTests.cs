@@ -52,7 +52,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = calculationService.FromRawWinLossByRowName(rawWinLoss);
 
             // Assert
-            Comparison.AreEqual(expectedWinLoss, result);
+            ComparisonExtension.AreEqual(expectedWinLoss, result);
         }
 
         [Test]
@@ -70,7 +70,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = calculationService.CalculateSum(winlosses);
 
             // Assert
-            Comparison.AreEqual(expectedSum, result);
+            ComparisonExtension.AreEqual(expectedSum, result);
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = calculationService.CalculateSumWinLoss("Group 1", rawWinLosses);
 
             // Assert
-            Comparison.AreEqual(expectedTotal, result);
+            ComparisonExtension.AreEqual(expectedTotal, result);
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            Comparison.AreEqual(expectedGrandTotal, result);
+            ComparisonExtension.AreEqual(expectedGrandTotal, result);
         }
 
         private SiteWinLossSummary CreateExpectedGrandTotal()
@@ -156,7 +156,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
             // Assert
-            Comparison.AreEqual(expectedGrandTotal, result);
+            ComparisonExtension.AreEqual(expectedGrandTotal, result);
         }
 
         private SiteWinLossSummary CreateEmptyTotalWinLoss()
@@ -180,7 +180,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", new List<RawWinLoss>());
 
             // Assert
-            Comparison.AreEqual(expectedGroup, result);
+            ComparisonExtension.AreEqual(expectedGroup, result);
         }
 
         private SiteWinLossSummary CreateEmptySiteWinLoss()
@@ -205,7 +205,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
             // Assert
-            Comparison.AreEqual(expectedGroups, result);
+            ComparisonExtension.AreEqual(expectedGroups, result);
         }
 
         private List<SiteWinLossSummary> CreateExpectedGroups()
@@ -237,7 +237,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
             var result = service.CalculateRM(fakeData).ToList();
 
             // Assert
-            Comparison.AreEqual(expected, result);
+            ComparisonExtension.AreEqual(expected, result);
         }
 
         public List<WinLoss> CreateExpectedRM()
