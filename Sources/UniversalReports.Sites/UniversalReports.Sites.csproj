@@ -217,9 +217,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.min.js" />
-    <Content Include="app\common.min.js" />
+    <Content Include="app\common.js" />
+    <Content Include="app\common.min.js">
+      <DependentUpon>common.js</DependentUpon>
+    </Content>
     <Content Include="app\common\legacy.service.js" />
+    <Content Include="app\company-win-loss.js" />
+    <Content Include="app\company-win-loss.min.js">
+      <DependentUpon>company-win-loss.js</DependentUpon>
+    </Content>
     <Content Include="app\company-winloss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\company-winloss\app.js" />
     <Content Include="app\company-winloss\breadcrumb\live-title.service.js" />
@@ -291,6 +297,10 @@
     <Content Include="app\company-winloss\virtual-sports\virtual-sports-racing-detail.service.js" />
     <Content Include="app\components\click\click.directive.js" />
     <Content Include="app\common\check-in.js" />
+    <Content Include="app\main-app.js" />
+    <Content Include="app\main-app.min.js">
+      <DependentUpon>main-app.js</DependentUpon>
+    </Content>
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>
@@ -320,6 +330,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="bundleconfig.json" />
     <Content Include="stylesheets\images\date-picker\calendar.png" />
     <Content Include="stylesheets\images\filter\legend-information-hover.png" />
     <Content Include="stylesheets\images\filter\legend-information.png" />
