@@ -1100,23 +1100,25 @@
 
         function viewNormalMode() {
             vm.normalMode = true;
+            $rootScope.$broadcast('nap-filter-switch');
         }
 
         function viewHistoryMode() {
             vm.normalMode = false;
+            $rootScope.$broadcast('nap-filter-switch');
         }
 
         function createDateRange() {
-            if (vm.normalMode) {
+            if(vm.normalMode) {
                 return {
-                    startDate: vm.date,
-                    endDate: vm.date
-                };
+                        startDate: vm.date,
+                        endDate: vm.date
+                    };
             } else {
                 return {
-                    startDate: vm.startDate,
-                    endDate: vm.endDate
-                };
+                        startDate: vm.startDate,
+                        endDate: vm.endDate
+                    };
             }
         }
 
@@ -1125,7 +1127,7 @@
         }
 
         function reloadDateRange() {
-            if (vm.dateRange.startDate === vm.dateRange.endDate) {
+            if(vm.dateRange.startDate === vm.dateRange.endDate) {
                 vm.normalMode = true;
                 vm.date = vm.dateRange.startDate;
             } else {
@@ -1139,8 +1141,8 @@
             vm.dateRange = dateRange;
             reloadDateRange();
         }
-    }
-})(angular);
+        }
+        }) (angular);
 (function (angular) {
     'use strict';
 
@@ -3418,6 +3420,10 @@
                 angular.extend(activePane.data, data);
                 activePane.generate();
             }
+        });
+
+        $scope.$on('nap-filter-switch', function (event) {
+            tab.panes = [];
         });
     }
 })(angular);

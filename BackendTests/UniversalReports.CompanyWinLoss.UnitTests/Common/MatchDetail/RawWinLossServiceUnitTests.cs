@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Newtonsoft.Json;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -22,9 +23,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
-            var twoSources = CreateBalanceUpSources();
+            var fakeSources = Utility.TestDataLoader.Load<List<BalanceUp.BalanceUpSource>>("data-1-fakeSources");
             var balanceUpSourceChooser = Substitute.For<BalanceUp.BalanceUpSourceChooser>();
-            balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(twoSources);
+            balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(fakeSources);
 
             var service = new RawWinLossServiceImp(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
 
@@ -36,25 +37,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             dynamicRepository.Received(2).Fetch<RawWinLoss>(Arg.Any<WinLossCriteria>());
         }
 
-        private IEnumerable<BalanceUp.BalanceUpSource> CreateBalanceUpSources()
-        {
-            return new List<BalanceUp.BalanceUpSource>
-            {
-                CreateBalanceUpSource(1, 5, "BetTrans14"),
-                CreateBalanceUpSource(6, 8, "BetTrans")
-            };
-        }
-
-        private BalanceUp.BalanceUpSource CreateBalanceUpSource(int dayStart, int dayEnd, string source)
-        {
-            return new BalanceUp.BalanceUpSource
-            {
-                StartDate = new DateTime(2015, 01, dayStart),
-                EndDate = new DateTime(2015, 01, dayEnd),
-                Source = source
-            };
-        }
-
         [Test]
         public void Query_TwoSources_CallCalculationServiceWithTwoDimensionArray()
         {
@@ -62,13 +44,13 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             var balanceUpSummationService = Substitute.For<BalanceUpSummationService>();
 
-            var sources = CreateBalanceUpSources();
+            var fakeSources = Utility.TestDataLoader.Load<List<BalanceUp.BalanceUpSource>>("data-1-fakeSources");
             var balanceUpSourceChooser = Substitute.For<BalanceUp.BalanceUpSourceChooser>();
-            balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(sources);
+            balanceUpSourceChooser.Determine(DateTime.Today, DateTime.Today).Returns(fakeSources);
 
             var service = Substitute.ForPartsOf<RawWinLossServiceImp>(dynamicRepository, balanceUpSummationService, balanceUpSourceChooser);
-            var fakeWinLoss = CreateFakeRawWinLosses();
-            service.QueryBySource(Arg.Any<BalanceUp.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeWinLoss);
+            var fakeData = Utility.TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            service.QueryBySource(Arg.Any<BalanceUp.BalanceUpSource>(), Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act
             var criteria = new Utility.FakeWinLossCriteria { StartDate = DateTime.Today, EndDate = DateTime.Today };
@@ -76,14 +58,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
 
             // Assert
             balanceUpSummationService.Received().CalculateSum(Arg.Is<IEnumerable<IEnumerable<RawWinLoss>>>(x => x.Count() == 2));
-        }
-
-        private List<RawWinLoss> CreateFakeRawWinLosses()
-        {
-            var match1 = WinLossFactory.CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
-            var match2 = WinLossFactory.CreateRawWinLoss(2, 2, 2, 200, 20, 400, 800);
-
-            return new List<RawWinLoss> { match1, match2 };
-        }
+        }        
     }
 }

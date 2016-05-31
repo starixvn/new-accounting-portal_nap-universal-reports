@@ -32,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Factory
             var criteria = CriteriaFactory.Transform<Criteria>(model);
 
             // Assert
-            ComparisonExtension.AreEqual(expectedCriteria, criteria);
+            ComparisonAssert.AreEqual(expectedCriteria, criteria);
         }
 
         private DateTime CreateDateTime(int day)

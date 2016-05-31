@@ -1,0 +1,42 @@
+[
+  {
+    "MatchId": 1,
+    "MatchCode": "",
+    "EventDate": "0001-01-01T00:00:00",
+    "SportType": 0,
+    "IsNeutral": false,
+    "HomeId": 1,
+    "AwayId": 1,
+    "HomeName": "",
+    "AwayName": "",
+    "LeagueId": 1,
+    "MemberWinLoss": 150.0,
+    "SMAWinLoss": 150.0,
+    "Commission": 15.0,
+    "RealIncome": 300.0,
+    "VirtualIncome": 300.0,
+    "VarianceIncome": 0.0,
+    "RealTurnover": 300.0,
+    "VirtualTurnover": 300.0
+  },
+  {
+    "MatchId": 2,
+    "MatchCode": "",
+    "EventDate": "0001-01-01T00:00:00",
+    "SportType": 0,
+    "IsNeutral": false,
+    "HomeId": 2,
+    "AwayId": 2,
+    "HomeName": "",
+    "AwayName": "",
+    "LeagueId": 2,
+    "MemberWinLoss": 100.0,
+    "SMAWinLoss": 100.0,
+    "Commission": 10.0,
+    "RealIncome": 200.0,
+    "VirtualIncome": 200.0,
+    "VarianceIncome": 0.0,
+    "RealTurnover": 200.0,
+    "VirtualTurnover": 200.0
+  }
+]

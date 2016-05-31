@@ -12,6 +12,16 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
     [Category("CompanyWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
+        private CommonServices.RemotingRefService remotingRefService;
+
+        [OneTimeSetUp]
+        public void SetUp()
+        {
+            remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
+            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
+            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+        }
+
         [Test]
         public void CalulationMargin_Shoud_Return_Zero_When_Turnover_Is_Zero()
         {
@@ -25,7 +35,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMargin(AnyIncome, Zero);
 
             // Assert
-            ComparisonExtension.AreEqual(Zero, result);
+            ComparisonAssert.AreEqual(Zero, result);
         }
 
         [Test]
@@ -47,47 +57,38 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         public void FromRawWinLoss_Should_Return_Right_WinLoss()
         {
             // Arrange
-            var rawWinLoss = WinLossFactory.CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
-            var expectedWinLoss = WinLossFactory.CreateWinLoss(1, 1, 1, 100, 10, 200, 400, 0.5m);
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
-            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+            var fakeData = TestDataLoader.Load<RawWinLoss>("data-1-fakeData");
+            var expected = TestDataLoader.Load<WinLoss>("data-1-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
-            // Act
-            var result = calculationService.FromRawWinLoss(rawWinLoss);
-
             // Assert
-            ComparisonExtension.AreEqual(expectedWinLoss, result);
+            var result = calculationService.FromRawWinLoss(fakeData);
+            ComparisonAssert.AreEqual(expected, result);
         }
 
         [Test]
         public void CalculateSumWinLoss_Should_Return_Right_RawWinLoss_Sum()
         {
             // Arrange
-            var rawWinLoss = WinLossFactory.CreateFakeRawWinLoss();
-            var expectedWinLossTotal = WinLossFactory.CreateWinLoss(0, 0, 0, 1000, 100, 2000, 4000, 0.5m);
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-2-fakeData");
+            var expected = TestDataLoader.Load<WinLoss>("data-2-expected");
+
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateSumWinLoss(rawWinLoss);
+            var result = calculationService.CalculateSumWinLoss(fakeData);
 
             // Assert
-            ComparisonExtension.AreEqual(result, expectedWinLossTotal);
+            ComparisonAssert.AreEqual(result, expected);
         }
 
         [Test]
         public void CalculationLeagues_Should_Return_Right_Leagues()
         {
             // Arrange
-            var fakeData = CreateFakeData();
-            var expected = CreateExpectedLeagueWinLoss();
-            var expectedList = new List<LeagueWinLoss> { expected };
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
-            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-3-fakeData");
+            var expected = TestDataLoader.Load<List<LeagueWinLoss>>("data-3-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -95,7 +96,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateLeagues(fakeData).ToList();
 
             // Assert
-            ComparisonExtension.AreEqual(expectedList, result);
+            ComparisonAssert.AreEqual(expected, result);
         }
 
         [Test]
@@ -103,99 +104,40 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         {
             // Arrange
             const int AnyLeagueId = 1;
-            var fakeLeague = CreateFakeData().Where(m => m.LeagueId > 0);
-            var expected = CreateExpectedLeagueWinLoss();
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
-            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-4-fakeData");
+            var expected = TestDataLoader.Load<LeagueWinLoss>("data-4-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateLeague(fakeLeague, AnyLeagueId);
+            var result = calculationService.CalculateLeague(fakeData, AnyLeagueId);
 
             // Assert
-            ComparisonExtension.AreEqual(expected, result);
-        }
-
-        private List<RawWinLoss> CreateFakeData()
-        {
-            var match1 = WinLossFactory.CreateRawWinLoss(1, 1, 1, 100, 10, 200, 400);
-            var match2 = WinLossFactory.CreateRawWinLoss(2, 2, 1, 200, 20, 400, 800);
-            var matchRM = WinLossFactory.CreateRawWinLoss(0, 0, 0, 200, 20, 400, 800);
-
-            return new List<RawWinLoss> { match1, match2, matchRM };
-        }
-
-        private LeagueWinLoss CreateExpectedLeagueWinLoss()
-        {
-            var matches = new List<WinLoss>
-            {
-                WinLossFactory.CreateWinLoss(1, 1, 1, 100, 10, 200, 400, 0.5m),
-                WinLossFactory.CreateWinLoss(2, 2, 1, 200, 20, 400, 800, 0.5m)
-            };
-
-            var total = WinLossFactory.CreateWinLoss(0, 0, 1, 300, 30, 600, 1200, 0.5m);
-
-            return new LeagueWinLoss
-            {
-                LeagueName = string.Empty,
-                Matches = matches,
-                Total = total
-            };
+            ComparisonAssert.AreEqual(expected, result);
         }
 
         [Test]
         public void CalculateRM_ShouldReturnRight_RM()
         {
             // Arrange
-            var fakeLeague = CreateFakeData();
-            var expected = CreateExpectedRM();
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
-            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-5-fakeData");
+            var expected = TestDataLoader.Load<List<WinLoss>>("data-5-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateRM(fakeLeague).ToList();
+            var result = calculationService.CalculateRM(fakeData).ToList();
 
             // Assert
-            ComparisonExtension.AreEqual(expected, result);
-        }
-
-        private List<WinLoss> CreateExpectedRM()
-        {
-            var winLoss = new WinLoss
-            {
-                MatchCode = string.Empty,
-                AwayName = string.Empty,
-                HomeName = string.Empty,
-                LeagueName = string.Empty,
-                MemberWinLoss = 200,
-                SMAWinLoss = 200,
-                Commission = 20,
-                RealIncome = 400,
-                VirtualIncome = 400,
-                RealTurnover = 800,
-                VirtualTurnover = 800,
-                RealMargin = 0.5m,
-                VarianceIncome = 0,
-                VirtualMargin = 0.5m
-            };
-
-            return new List<WinLoss> { winLoss };
+            ComparisonAssert.AreEqual(expected, result);
         }
 
         [Test]
         public void CalculateMatches_ShouldReturnRightMatches()
         {
             // Arrange
-            var fakeData = CreateFakeData();
-            var expected = CreateExpectedMatches();
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
-            remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-6-fakeData");
+            var expected = TestDataLoader.Load<List<WinLoss>>("data-6-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -203,15 +145,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             var result = calculationService.CalculateMatches(fakeData).ToList();
 
             // Assert
-            ComparisonExtension.AreEqual(expected, result);
-        }
-
-        private List<WinLoss> CreateExpectedMatches()
-        {
-            var match1 = WinLossFactory.CreateWinLoss(1, 1, 1, 100, 10, 200, 400, 0.5m);
-            var match2 = WinLossFactory.CreateWinLoss(2, 2, 1, 200, 20, 400, 800, 0.5m);
-
-            return new List<WinLoss> { match1, match2 };
+            ComparisonAssert.AreEqual(expected, result);
         }
     }
 }

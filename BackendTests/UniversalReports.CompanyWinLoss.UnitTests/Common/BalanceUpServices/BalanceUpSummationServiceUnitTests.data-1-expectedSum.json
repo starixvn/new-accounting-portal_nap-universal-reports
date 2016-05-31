@@ -1,0 +1,34 @@
+[
+  {
+    "GroupName": "Casino",
+    "GroupId": 1,
+    "RowName": "Deposit",
+    "IsLive": false,
+    "MemberWinLoss": 210.0,
+    "SMAWinLoss": 230.0,
+    "Commission": 21.0,
+    "RealIncome": 1050.0,
+    "VirtualIncome": 1260.0,
+    "VarianceIncome": 200.0,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 1890.0,
+    "VirtualTurnover": 2100.0
+  },
+  {
+    "GroupName": "Casino",
+    "GroupId": 1,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": 210.0,
+    "SMAWinLoss": 230.0,
+    "Commission": 21.0,
+    "RealIncome": 1050.0,
+    "VirtualIncome": 1260.0,
+    "VarianceIncome": 200.0,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 1890.0,
+    "VirtualTurnover": 2100.0
+  }
+]
