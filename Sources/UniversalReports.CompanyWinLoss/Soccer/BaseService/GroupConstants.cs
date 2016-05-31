@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 {
     public class GroupConstants
     {

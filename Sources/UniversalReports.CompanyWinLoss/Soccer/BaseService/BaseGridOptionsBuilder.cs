@@ -5,7 +5,7 @@ using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 {
     public class BaseGridOptionsBuilder
     {

@@ -3,7 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.Soccer.BetType;
+using UniversalReports.CompanyWinLoss.Soccer.BaseService;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 {
     public class CalculationServiceImp : Common.Services.CalculationServiceImp, CalculationService
     {
@@ -33,13 +33,13 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
 
             return total;
         }
-       
+
         private List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
         {
-            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id));
-            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id));
-            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
-            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
+            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id)).OrderBy(r => r.Total.Name);
+            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id)).OrderBy(r => r.Total.Name);
+            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id)).OrderBy(r => r.Total.Name);
+            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id)).OrderBy(r => r.Total.Name);
 
             List<WinLossSummaryByBetTypeGroup> winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);

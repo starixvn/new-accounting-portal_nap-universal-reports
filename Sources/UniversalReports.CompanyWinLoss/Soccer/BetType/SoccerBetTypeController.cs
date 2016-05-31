@@ -20,7 +20,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BetType
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Json(criteria, "Bet Type");
+            return Json(criteria, "Bet Type", 210);
         }
 
         [Route("excel")]

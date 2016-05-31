@@ -8,11 +8,11 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
     {
         private readonly RawWinLossService rawWinLossService;
 
-        private readonly BetType.CalculationService calculationService;
+        private readonly BaseService.CalculationService calculationService;
 
         public WinLossServiceImp(
             RawWinLossService rawWinLossService,
-            BetType.CalculationService calculationService)
+            BaseService.CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;

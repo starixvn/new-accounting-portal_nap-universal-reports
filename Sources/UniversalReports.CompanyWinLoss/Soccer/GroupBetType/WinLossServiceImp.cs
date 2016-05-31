@@ -8,11 +8,11 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
     {
         private readonly RawWinLossService rawWinLossService;
 
-        private readonly BetType.CalculationService calculationService;
+        private readonly BaseService.CalculationService calculationService;
 
         public WinLossServiceImp(
             RawWinLossService rawWinLossService,
-            BetType.CalculationService calculationService)
+            BaseService.CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;
@@ -21,11 +21,12 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
         public WinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
+            var nonRMRawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
 
-            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummaryGroups(rawWinLosses);
-            var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
-            var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummaryGroups(nonRMRawWinLosses);
+            var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", nonRMRawWinLosses);
+            var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", nonRMRawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", nonRMRawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
             return new WinLossModel

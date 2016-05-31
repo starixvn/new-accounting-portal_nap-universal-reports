@@ -58,7 +58,7 @@ namespace UniversalReports.Sites
             container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<Soccers.BetType.CalculationService, Soccers.BetType.CalculationServiceImp>(Lifestyle.Transient);
+            container.Register<Soccers.BaseService.CalculationService, Soccers.BaseService.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Parlay.Site.WinLossService, CompanyWinLoss.Parlay.Site.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<CompanyWinLoss.Parlay.Site.GridOptionsBuilder, CompanyWinLoss.Parlay.Site.GridOptionsBuilderImp>(Lifestyle.Transient);
 

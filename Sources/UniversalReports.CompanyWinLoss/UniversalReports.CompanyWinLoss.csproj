@@ -257,9 +257,9 @@
     <Compile Include="Racing\SportType\ExcelQueryModel.cs" />
     <Compile Include="Racing\SportType\QueryModel.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
-    <Compile Include="Soccer\BetType\BaseGridOptionsBuilder.cs" />
-    <Compile Include="Soccer\BetType\CalculationService.cs" />
-    <Compile Include="Soccer\BetType\CalculationServiceImp.cs" />
+    <Compile Include="Soccer\BaseService\BaseGridOptionsBuilder.cs" />
+    <Compile Include="Soccer\BaseService\CalculationService.cs" />
+    <Compile Include="Soccer\BaseService\CalculationServiceImp.cs" />
     <Compile Include="Soccer\BetType\Criteria.cs" />
     <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\BetType\QueryModel.cs" />
@@ -274,12 +274,12 @@
     <Compile Include="Soccer\MajorMinor\SoccerMajorMinorController.cs" />
     <Compile Include="Soccer\GroupBetType\GridOptionsBuilder.cs" />
     <Compile Include="Soccer\GroupBetType\GridOptionsBuilderImp.cs" />
-    <Compile Include="Soccer\BetType\GroupConstants.cs" />
+    <Compile Include="Soccer\BaseService\GroupConstants.cs" />
     <Compile Include="Soccer\GroupBetType\SoccerGroupBetTypeController.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossModel.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossService.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossServiceImp.cs" />
-    <Compile Include="Soccer\BetType\WinLossSummaryByGroup.cs" />
+    <Compile Include="Soccer\BaseService\WinLossSummaryByBetTypeGroup.cs" />
     <Compile Include="Soccer\SportType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\SportType\SoccerSportTypeController.cs" />
     <Compile Include="Soccer\SumBetType\GridOptionsBuilder.cs" />

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.BetType
+namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 {
     public interface CalculationService : Common.Services.CalculationService
     {

@@ -22,13 +22,13 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
+            var siteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
             return new BasicWinLossModel
             {
-                SiteWinLossSummaries = betTypeWinLosses.ToList(),
+                SiteWinLossSummaries = siteWinLossSummaries.OrderBy(s => s.Total.Name).ToList(),
                 RM = allRMData.ToList(),
                 GrandTotal = grandTotal
             };

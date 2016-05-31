@@ -6,7 +6,7 @@ using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Soccer.SumBetType;
 using UniversalReports.CompanyWinLoss.UnitTests.TestUtility;
-using CalculationServiceImp = UniversalReports.CompanyWinLoss.Soccer.BetType.CalculationServiceImp;
+using CalculationServiceImp = UniversalReports.CompanyWinLoss.Soccer.BaseService.CalculationServiceImp;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
 {
