@@ -40,7 +40,5 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
             // Assert
             ComparisonAssert.AreEqual(expectedSum, result);
         }
-
-
     }
 }

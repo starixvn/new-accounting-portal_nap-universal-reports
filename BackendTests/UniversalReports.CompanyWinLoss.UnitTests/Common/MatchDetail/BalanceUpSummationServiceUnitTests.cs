@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
             ComparisonAssert.AreEqual(expectedSum, result);
         }
 
-        [Test()]
+        [Test]
         public void CalculateSum_TwoArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
