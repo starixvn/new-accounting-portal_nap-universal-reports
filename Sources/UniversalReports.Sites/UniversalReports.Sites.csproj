@@ -1407,6 +1407,7 @@
     </Content>
     <Content Include="Views\CompanyWinLoss\Index.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Common\SessionExpired.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
