@@ -82,6 +82,7 @@
         }
 
         function updateDateRange(dateRange) {
+            vm.normalMode = dateRange.normalMode;
             if (vm.normalMode) {
                 vm.date = vm.dateRange.startDate;
             } else {
