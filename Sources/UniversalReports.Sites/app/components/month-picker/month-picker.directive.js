@@ -11,7 +11,8 @@
             templateUrl: 'app/components/month-picker/month-picker.directive.html',
             scope: {
                 startDate: '=',
-                endDate: '='
+                endDate: '=',
+                maxDate: '='
             },
             replace: true,
             controller: controller,
@@ -28,7 +29,7 @@
         var monthOfMinDate = minDate.month();
         var yearOfMinDate = minDate.year();
         var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');
-        var maxDate = moment.utc(vm.maxDate);        
+        var maxDate = moment.utc(vm.maxDate);
         var monthOfMaxDate = maxDate.month();
         var yearOfMaxDate = maxDate.year();
         var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');

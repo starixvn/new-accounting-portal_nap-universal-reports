@@ -47,9 +47,12 @@
                 if (angular.isFunction(newActivePane.$scope.show)) {
                     newActivePane.$scope.show();
                 }
+
+                activePane = this.panes[index];
                 var dateRange = {
-                    startDate: this.panes[index].data.startDate,
-                    endDate: this.panes[index].data.endDate
+                    normalMode: activePane.data.normalMode,
+                    startDate: activePane.data.startDate,
+                    endDate: activePane.data.endDate
                 };
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }
