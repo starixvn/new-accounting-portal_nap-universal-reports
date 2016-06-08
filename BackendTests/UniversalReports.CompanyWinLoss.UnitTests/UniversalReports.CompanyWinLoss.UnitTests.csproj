@@ -98,7 +98,7 @@
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
-    <Compile Include="Soccer\SumBetType\ServiceUnitTest.cs" />
+    <Compile Include="Soccer\SumBetType\ServiceUnitTests.cs" />
     <Compile Include="TestUtility\ComparisonAssert.cs" />
     <Compile Include="TestUtility\TestDataLoader.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.cs" />
@@ -228,8 +228,12 @@
     </None>
     <None Include="Soccer\GroupBetType\ServiceUnitTests.data-1-expected.json" />
     <None Include="Soccer\GroupBetType\ServiceUnitTests.data-1-fakeData.json" />
-    <None Include="Soccer\SumBetType\ServiceUnitTest.data-1-expected.json" />
-    <None Include="Soccer\SumBetType\ServiceUnitTest.data-1-fakeData.json" />
+    <None Include="Soccer\SumBetType\ServiceUnitTests.data-1-expected.json">
+      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    </None>
+    <None Include="Soccer\SumBetType\ServiceUnitTests.data-1-fakeData.json">
+      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\UniversalReports.CompanyWinLoss\UniversalReports.CompanyWinLoss.csproj">

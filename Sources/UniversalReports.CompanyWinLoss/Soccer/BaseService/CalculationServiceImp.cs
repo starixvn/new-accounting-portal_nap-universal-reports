@@ -20,18 +20,25 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 
         public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var mainRawWinLosses = rawWinLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
-            var total = CalculateSumWinLoss(sumTitle, mainRawWinLosses);
-
-            return total;
+            var mainRawWinLosses = rawWinLosses
+                .Where(r => !r.GroupName.Contains("(hedge)"))
+                .Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+            return CalculateSumWinLoss(sumTitle, mainRawWinLosses);
         }
 
         public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
-            var otherRawWinLosses = rawWinLosses.Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
-            var total = CalculateSumWinLoss(sumTitle, otherRawWinLosses);
+            var otherRawWinLosses = rawWinLosses
+                .Where(r => !r.GroupName.Contains("(hedge)"))
+                .Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+            return CalculateSumWinLoss(sumTitle, otherRawWinLosses);
+        }
 
-            return total;
+        public WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            var hedgeRawWinLosses = rawWinLosses
+                .Where(r => r.GroupName.Contains("(hedge)"));
+            return CalculateSumWinLoss(sumTitle, hedgeRawWinLosses);
         }
 
         private List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
@@ -39,7 +46,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
             var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id));
             var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id));
             var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
-            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id)).OrderBy(r => r.Total.Name);
+            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
 
             List<WinLossSummaryByBetTypeGroup> winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);

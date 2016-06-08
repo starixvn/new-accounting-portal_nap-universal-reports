@@ -13,6 +13,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
 
         public WinLoss OtherTotal { get; set; }
 
+        public WinLoss HedgeTotal { get; set; }
+
         public List<WinLoss> RM { get; set; } = new List<WinLoss>();
     }
 }

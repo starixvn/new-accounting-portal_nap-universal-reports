@@ -25,6 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
             var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
             var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
             var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
+            var hedgeTotal = calculationService.CalculateHedgeSumWinLossSummary("Hedge Total", rawWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
@@ -34,6 +35,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
                 MainTotal = mainTotal,
                 OtherTotal = otherTotal,
                 GrandTotal = grandTotal,
+                HedgeTotal = hedgeTotal,
                 RM = allRMData.ToList()
             };
         }

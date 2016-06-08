@@ -1075,16 +1075,14 @@
         vm.yesterdayClicked = yesterdayClicked;
         vm.viewNormalMode = viewNormalMode;
         vm.viewHistoryMode = viewHistoryMode;
-        vm.dateRange = createDateRange();
         vm.getDateRange = getDateRange;
-        vm.reloadDateRange = reloadDateRange;
         vm.updateDateRange = updateDateRange;
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
         });
 
         function generate() {
-            vm.dateRange = createDateRange();
+            vm.dateRange = getDateRange();
             $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
         }
 
@@ -1108,41 +1106,33 @@
             $rootScope.$broadcast('nap-filter-switch');
         }
 
-        function createDateRange() {
-            if(vm.normalMode) {
-                return {
-                        startDate: vm.date,
-                        endDate: vm.date
-                    };
-            } else {
-                return {
-                        startDate: vm.startDate,
-                        endDate: vm.endDate
-                    };
-            }
-        }
-
         function getDateRange() {
-            return vm.dateRange;
-        }
-
-        function reloadDateRange() {
-            if(vm.dateRange.startDate === vm.dateRange.endDate) {
-                vm.normalMode = true;
-                vm.date = vm.dateRange.startDate;
+            if (vm.normalMode) {
+                return {
+                    normalMode: vm.normalMode,
+                    startDate: vm.date,
+                    endDate: vm.date
+                };
             } else {
-                vm.normalMode = false;
-                vm.startDate = vm.dateRange.startDate;
-                vm.endDate = vm.dateRange.endDate;
+                return {
+                    normalMode: vm.normalMode,
+                    startDate: vm.startDate,
+                    endDate: vm.endDate
+                };
             }
         }
 
         function updateDateRange(dateRange) {
-            vm.dateRange = dateRange;
-            reloadDateRange();
+            vm.normalMode = dateRange.normalMode;
+            if (vm.normalMode) {
+                vm.date = vm.dateRange.startDate;
+            } else {
+                vm.startDate = vm.dateRange.startDate;
+                vm.endDate = vm.dateRange.endDate;
+            }
         }
-        }
-        }) (angular);
+    }
+})(angular);
 (function (angular) {
     'use strict';
 
@@ -3480,9 +3470,12 @@
                 if (angular.isFunction(newActivePane.$scope.show)) {
                     newActivePane.$scope.show();
                 }
+
+                activePane = this.panes[index];
                 var dateRange = {
-                    startDate: this.panes[index].data.startDate,
-                    endDate: this.panes[index].data.endDate
+                    normalMode: activePane.data.normalMode,
+                    startDate: activePane.data.startDate,
+                    endDate: activePane.data.endDate
                 };
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }

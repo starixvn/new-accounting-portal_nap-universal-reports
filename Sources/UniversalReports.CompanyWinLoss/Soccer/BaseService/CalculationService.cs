@@ -10,5 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
         WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
 
         WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+
+        WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
     }
 }

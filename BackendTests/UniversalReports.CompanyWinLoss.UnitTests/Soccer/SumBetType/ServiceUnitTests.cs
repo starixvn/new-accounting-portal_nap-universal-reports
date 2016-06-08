@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.SumBetType
 {
     [TestFixture]
     [Category("CompanyWinLossUnitTests")]
-    public class ServiceUnitTest
+    public class ServiceUnitTests
     {
         [Test]
         public void Query_ReturnRightResult()

@@ -6,6 +6,14 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
 {
     public class GroupConstants
     {
+        public enum MainBetTypes
+        {
+            Handicap = 1,
+            FirstHandicap = 7,
+            OverUnder2 = 3,
+            FirstOverUnder = 8
+        }
+
         public enum BetTypeGroup1
         {
             Handicap = 1,
@@ -33,14 +41,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
             First1X2BetType = 15,
             FirstDoubleChange = 151,
             FirstMyanmarHandicap = 303
-        }
-
-        public enum MainBetTypes
-        {
-            Handicap = 1,
-            FirstHandicap = 7,
-            OverUnder2 = 3,
-            FirstOverUnder = 8
         }
 
         public static List<int> BetTypeGroup123()

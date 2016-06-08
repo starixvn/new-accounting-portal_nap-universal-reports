@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using Newtonsoft.Json;
+using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
@@ -28,6 +29,9 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Soccer.GroupBetType
             // Act
             var service = new WinLossServiceImp(rawWinLossService, calculatorService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
+
+            var json = JsonConvert.SerializeObject(result, Formatting.Indented);
+            System.IO.File.WriteAllText(@"D:\ServiceUnitTests.data-1-expected.json", json);
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);
