@@ -42,6 +42,7 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
+                isLive: data.isLive,
                 startDate: data.startDate,
                 endDate: data.endDate
             };
