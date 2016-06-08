@@ -7,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Criteria
     public class WinLossCriteria : CriteriaBase
     {
         [SpParam(Ignored = true)]
-        public bool NormalMode { get; set; }
+        public bool NormalMode { get; set; } = true;
 
         public virtual DateTime StartDate { get; set; }
 
