@@ -1,8 +1,8 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 using System;
-using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
 {
@@ -17,131 +17,91 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.BalanceUpServices
         };
 
         [Test]
-        public void Determine_StartDateAfterMoveBetsDate_ReturnsOneSource()
+        public void Determine_NormalMode_StartDateAfterMoveBetsDate_ReturnsBetTransSource()
         {
             // Arrange
-            var startDate = new DateTime(2015, 10, 01);
-            var endDate = new DateTime(2015, 11, 01);
+            var criteria = new WinLossCriteria
+            {
+                NormalMode = true,
+                StartDate = new DateTime(2015, 10, 01),
+                EndDate = new DateTime(2015, 11, 01)
+            };
+
             var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(BalanceUpRange);
             var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
+            var result = balancerUpSourceChooser.Determine(criteria);
 
             // Assert
-            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual("BetTrans", result);
         }
 
         [Test]
-        public void Determine_StartDateBetweenBalanceUpRange_EndDateAfterMoveBetsDate_ReturnsTwoSources()
+        public void Determine_NormalMode_StartDateBetweenBalanceUpRange_ReturnsBetTrans14Source()
         {
             // Arrange
-            var startDate = new DateTime(2015, 07, 01);
-            var endDate = new DateTime(2015, 11, 01);
+            var criteria = new WinLossCriteria
+            {
+                NormalMode = true,
+                StartDate = new DateTime(2015, 07, 01),
+                EndDate = new DateTime(2015, 11, 01)
+            };
 
             var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(BalanceUpRange);
             var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
+            var result = balancerUpSourceChooser.Determine(criteria);
 
             // Assert
-            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual("BetTrans14", result);
         }
 
         [Test]
-        public void Determine_StartDateBetweenBalanceUpRange_EndDateBeforeMoveBetsDate_ReturnsOneSource()
+        public void Determine_NormalMode_StartDateBeforeBalanceUpRange_ReturnsWarehouseSource()
         {
             // Arrange
-            var startDate = new DateTime(2015, 07, 01);
-            var endDate = new DateTime(2015, 08, 01);
+            var criteria = new WinLossCriteria
+            {
+                NormalMode = true,
+                StartDate = new DateTime(2015, 05, 01),
+                EndDate = new DateTime(2015, 08, 01)
+            };
 
             var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(BalanceUpRange);
             var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
+            var result = balancerUpSourceChooser.Determine(criteria);
 
             // Assert
-            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual("Warehouse", result);
         }
 
         [Test]
-        public void Determine_StartDateBeforeBalanceUpDate_EndDateAfterMoveBetsDate_ReturnThreeSources()
+        public void Determine_HistoryMode_ReturnWarehouseSource()
         {
             // Arrange
-            var startDate = new DateTime(2015, 03, 01);
-            var endDate = new DateTime(2015, 11, 01);
+            var criteria = new WinLossCriteria
+            {
+                NormalMode = false,
+                StartDate = new DateTime(2015, 03, 01),
+                EndDate = new DateTime(2015, 11, 01)
+            };
 
             var balanceUpService = Substitute.For<BalanceUpService>();
             balanceUpService.Query().Returns(BalanceUpRange);
             var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
 
             // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
+            var result = balancerUpSourceChooser.Determine(criteria);
 
             // Assert          
-            Assert.AreEqual(3, result.Count());
-        }
-
-        [Test]
-        public void Determine_StartDateBeforeBalanceUpDate_EndDateBetweenBalanceUpDRange_ReturnTwoSources()
-        {
-            // Arrange
-            var startDate = new DateTime(2015, 03, 01);
-            var endDate = new DateTime(2015, 08, 01);
-
-            var balanceUpService = Substitute.For<BalanceUpService>();
-            balanceUpService.Query().Returns(BalanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
-
-            // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
-
-            // Assert          
-            Assert.AreEqual(2, result.Count());
-        }
-
-        [Test]
-        public void Determine_StartDateAndEndDateBeforeBalanceUpDate_ReturnOneSource()
-        {
-            // Arrange
-            var startDate = new DateTime(2015, 03, 01);
-            var endDate = new DateTime(2015, 04, 01);
-
-            var balanceUpService = Substitute.For<BalanceUpService>();
-            balanceUpService.Query().Returns(BalanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
-
-            // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate);
-
-            // Assert          
-            Assert.AreEqual(1, result.Count());
-        }
-
-        [Test]
-        public void Determine_StartDateAndEndDateBetweenBalanceUpDateAndMoveBetsDate_ReturnOneSource()
-        {
-            // Arrange
-            var startDate = new DateTime(2015, 07, 01);
-            var endDate = new DateTime(2015, 07, 01);
-
-            var balanceUpService = Substitute.For<BalanceUpService>();
-            balanceUpService.Query().Returns(BalanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
-
-            // Act
-            var result = balancerUpSourceChooser.Determine(startDate, endDate)
-                                                .ToList();
-
-            // Assert          
-            Assert.AreEqual(1, result.Count);
-            Assert.AreEqual(startDate, result[0].StartDate);
-            Assert.AreEqual(endDate, result[0].EndDate);
+            Assert.AreEqual("Warehouse", result);
         }
     }
 }

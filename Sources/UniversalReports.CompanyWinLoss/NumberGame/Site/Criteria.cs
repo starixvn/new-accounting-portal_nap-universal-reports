@@ -1,5 +1,4 @@
-﻿using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.NumberGame.Site
 {
@@ -10,20 +9,6 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.Site
         public bool IsLive { get; set; }
 
         public string Site { get; set; }
-
-        public override WinLossCriteria Clone(BalanceUpSource source)
-        {
-            var newCriteria = new Criteria
-            {
-                BetType = BetType,
-                IsLive = IsLive,
-                Site = Site
-            };
-
-            newCriteria.Update(source);
-
-            return newCriteria;
-        }
 
         public override string GetSettingKey()
         {

@@ -85,16 +85,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\ColumnBuilders\GridOptionColumnRemovalUnitTests.cs" />
-    <Compile Include="Common\MatchDetail\BalanceUpSummationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetail\RawWinLossServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\Services\CommonBalanceUpServiceTests.cs" />
-    <Compile Include="Common\Services\RawServiceUnitTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
@@ -103,28 +99,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
     <Compile Include="Soccer\SumBetType\ServiceUnitTest.cs" />
-    <Compile Include="TestUtility\FakeWinLossCriteria.cs" />
     <Compile Include="TestUtility\ComparisonAssert.cs" />
     <Compile Include="TestUtility\TestDataLoader.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common\MatchDetail\BalanceUpSummationServiceUnitTests.data-1-expectedSum.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\MatchDetail\BalanceUpSummationServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\MatchDetail\BalanceUpSummationServiceUnitTests.data-2-expectedSum.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\MatchDetail\BalanceUpSummationServiceUnitTests.data-2-fakeData.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
     <None Include="app.config" />
-    <Content Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.data-1-expectedSum.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
     <None Include="Common\MatchDetail\CalculationServiceUnitTests.data-1-expected.json">
       <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
     </None>
@@ -160,12 +140,6 @@
     </None>
     <None Include="Common\MatchDetail\CalculationServiceUnitTests.data-6-fakeData.json">
       <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\MatchDetail\RawWinLossServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>RawWinLossServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\MatchDetail\RawWinLossServiceUnitTests.data-1-fakeSources.json">
-      <DependentUpon>RawWinLossServiceUnitTests.cs</DependentUpon>
     </None>
     <None Include="Common\MatchDetail\ServiceUnitTests.data-1-expected.json">
       <DependentUpon>ServiceUnitTests.cs</DependentUpon>
@@ -221,12 +195,6 @@
     <None Include="Common\Services\CalculationServiceUnitTests.data-8-fakeData.json">
       <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
     </None>
-    <None Include="Common\Services\RawServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>RawServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\RawServiceUnitTests.data-1-fakeSources.json">
-      <DependentUpon>RawServiceUnitTests.cs</DependentUpon>
-    </None>
     <None Include="Common\SiteWinLoss\SiteServiceUnitTests.data-1-expected.json">
       <DependentUpon>SiteServiceUnitTests.cs</DependentUpon>
     </None>
@@ -240,15 +208,6 @@
       <DependentUpon>ServiceUnitTests.cs</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <Content Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.data-2-expectedSum.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\BalanceUpServices\BalanceUpSummationServiceUnitTests.data-2-fakeData.json">
-      <DependentUpon>BalanceUpSummationServiceUnitTests.cs</DependentUpon>
-    </Content>
     <Content Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.data-1-expected.json">
       <DependentUpon>BasicWinLossServiceUnitTest.cs</DependentUpon>
     </Content>

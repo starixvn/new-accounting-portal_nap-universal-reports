@@ -1,5 +1,4 @@
 ﻿using UniversalReports.CompanyWinLoss.Common;
-using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
@@ -15,22 +14,6 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.Site
         public int IsLive { get; set; } = Constants.LiveDefault;
 
         public bool IsHedge { get; set; }
-
-        public override WinLossCriteria Clone(BalanceUpSource source)
-        {
-            var newCriteria = new Criteria
-            {
-                SportType = SportType,
-                BetType = BetType,
-                Site = Site,
-                IsLive = IsLive,
-                IsHedge = IsHedge
-            };
-
-            newCriteria.Update(source);
-
-            return newCriteria;
-        }
 
         public override string GetSettingKey()
         {

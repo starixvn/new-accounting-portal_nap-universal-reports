@@ -1,6 +1,7 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
 using UniversalReports.CompanyWinLoss.Products;
@@ -19,7 +20,7 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Products
             var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
             var expected = TestDataLoader.Load<ProductWinLoss>("data-1-expected");
 
-            var criteria = new FakeWinLossCriteria();
+            var criteria = new WinLossCriteria();
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(criteria).Returns(fakeData);

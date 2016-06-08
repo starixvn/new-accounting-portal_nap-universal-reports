@@ -4,8 +4,11 @@ using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.CompanyWinLoss.Common.Criteria
 {
-    public abstract class WinLossCriteria : CriteriaBase
+    public class WinLossCriteria : CriteriaBase
     {
+        [SpParam(Ignored = true)]
+        public bool NormalMode { get; set; }
+
         public virtual DateTime StartDate { get; set; }
 
         public virtual DateTime EndDate { get; set; }
@@ -17,8 +20,6 @@ namespace UniversalReports.CompanyWinLoss.Common.Criteria
         {
             return true;
         }
-
-        public abstract WinLossCriteria Clone(BalanceUpSource source);
 
         protected virtual void Update(BalanceUpSource source)
         {

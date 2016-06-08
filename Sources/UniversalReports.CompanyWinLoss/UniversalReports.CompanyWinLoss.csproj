@@ -179,8 +179,6 @@
     <Compile Include="Common\BalanceUpServices\BalanceUpServiceImp.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserImp.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpSummationService.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpSummationServiceImp.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceImp.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
@@ -316,8 +314,6 @@
     <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailController.cs" />
     <Compile Include="VirtualSports\Site\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\Site\VirtualSportsSiteController.cs" />
-    <Compile Include="Common\MatchDetail\BalanceUpSummationService.cs" />
-    <Compile Include="Common\MatchDetail\BalanceUpSummationServiceImp.cs" />
     <Compile Include="Common\MatchDetail\CalculationService.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceImp.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\Criteria.cs" />

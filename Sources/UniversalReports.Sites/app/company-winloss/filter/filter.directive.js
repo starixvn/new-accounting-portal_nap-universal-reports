@@ -28,7 +28,7 @@
         vm.yesterday = config.yesterday;
         vm.date = config.today;
         vm.startDate = moment.utc(config.today).startOf('month');
-        vm.endDate = config.today;
+        vm.endDate = config.yesterday;
         vm.generate = generate;
         vm.todayClicked = todayClicked;
         vm.yesterdayClicked = yesterdayClicked;

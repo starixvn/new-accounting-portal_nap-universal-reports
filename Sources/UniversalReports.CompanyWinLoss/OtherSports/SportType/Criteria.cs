@@ -1,5 +1,4 @@
 ﻿using UniversalReports.CompanyWinLoss.Common;
-using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.OtherSports.SportType
@@ -7,14 +6,6 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.SportType
     public class Criteria : WinLossCriteria
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
-
-        public override WinLossCriteria Clone(BalanceUpSource source)
-        {
-            var newCriteria = new Criteria { IsLive = IsLive };
-            newCriteria.Update(source);
-
-            return newCriteria;
-        }
 
         public override string GetSettingKey()
         {
