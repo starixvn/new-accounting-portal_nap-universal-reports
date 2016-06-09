@@ -18,7 +18,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             RemoveBodyAndFooterColumn(
                 gridOptions,
                 MatchDetailAwayIndex,
-                MatchDetailVSIndex);
+                MatchDetailVsIndex);
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildColumns();
             gridOptions.GroupHeaderRows = BuildGroupHeaderRows();

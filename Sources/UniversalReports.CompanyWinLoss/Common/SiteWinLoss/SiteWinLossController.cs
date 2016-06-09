@@ -26,30 +26,20 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 
         protected IHttpActionResult Json(WinLossCriteria criteria, string site)
         {
-            if (ModelState.IsValid)
-            {
-                var winlosses = Service.Query(criteria);
-                var gridOptions = Builder.Build(winlosses, string.Empty);
-                gridOptions = Decorator.Build(gridOptions, site);
+            var winlosses = Service.Query(criteria);
+            var gridOptions = Builder.Build(winlosses, string.Empty);
+            gridOptions = Decorator.Build(gridOptions, site);
 
-                return Json(gridOptions);
-            }
-
-            return null;
+            return Json(gridOptions);
         }
 
         protected IHttpActionResult Excel(WinLossCriteria criteria, string site, string title)
         {
-            if (ModelState.IsValid)
-            {
-                var winlosses = Service.Query(criteria);
-                var gridOptions = Builder.Build(winlosses, title);
-                gridOptions = Decorator.Build(gridOptions, site);
+            var winlosses = Service.Query(criteria);
+            var gridOptions = Builder.Build(winlosses, title);
+            gridOptions = Decorator.Build(gridOptions, site);
 
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
     }
 }

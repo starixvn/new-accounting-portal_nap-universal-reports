@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
@@ -22,14 +23,16 @@ namespace UniversalReports.CompanyWinLoss.Factory
             return @instance;
         }
 
-        private static void SetPropertyValue(object settingObject, object gettingObject, PropertyInfo settingProperty, PropertyInfo[] gettingProperties)
+        private static void SetPropertyValue(object settingObject, object gettingObject, PropertyInfo settingProperty, IEnumerable<PropertyInfo> gettingProperties)
         {
             var gettingProperty = gettingProperties.SingleOrDefault(p => p.Name == settingProperty.Name);
-            if (gettingProperty != null)
+            if (gettingProperty == null)
             {
-                var value = gettingProperty.GetValue(gettingObject);
-                settingProperty.SetValue(settingObject, value);
+                return;
             }
+
+            var value = gettingProperty.GetValue(gettingObject);
+            settingProperty.SetValue(settingObject, value);
         }
     }
 }

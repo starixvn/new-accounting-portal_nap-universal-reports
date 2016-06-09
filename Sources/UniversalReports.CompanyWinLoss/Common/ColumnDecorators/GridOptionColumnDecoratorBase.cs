@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 
         protected const int RealMarginIndex = 12;
 
-        protected const int MatchDetailVSIndex = 2;
+        protected const int MatchDetailVsIndex = 2;
 
         protected const int MatchDetailAwayIndex = 3;
 
@@ -41,7 +41,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
 
         protected GridOptionColumnDecoratorBase(GridOptionColumnRemoval columnRemoval)
         {
-            this.ColumnRemoval = columnRemoval;
+            ColumnRemoval = columnRemoval;
         }
 
         protected GridOptionColumnRemoval ColumnRemoval { get; }
@@ -73,12 +73,14 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
         protected void RemoveColumn(GridDataRow row, int index)
         {
             ColumnRemoval.RemoveColumn(row.Columns, index);
-            if (row.SubRows != null)
+            if (row.SubRows == null)
             {
-                foreach (var subRow in row.SubRows)
-                {
-                    RemoveColumn(subRow, index);
-                }
+                return;
+            }
+
+            foreach (var subRow in row.SubRows)
+            {
+                RemoveColumn(subRow, index);
             }
         }
     }

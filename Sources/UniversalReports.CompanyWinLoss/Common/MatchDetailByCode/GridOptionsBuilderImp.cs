@@ -24,16 +24,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             return gridOptions;
         }
 
-        private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagues)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<LeagueWinLoss> leagues)
         {
-            var bodyRows = new List<GridDataRow>();
-            foreach (var league in leagues)
-            {
-                var rows = BuildLeagues(league);
-                bodyRows.AddRange(rows);
-            }
-
-            return bodyRows;
+            return leagues
+                .Select(BuildLeagues)
+                .SelectMany(t => t)
+                .ToList();
         }
 
         private List<GridDataRow> BuildLeagues(LeagueWinLoss league)
@@ -51,7 +47,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
-            int columnIndex = 0;
+            var columnIndex = 0;
             var columns = new List<Columns>
             {
                 new Columns(columnIndex++, "MatchCode", item.Name, alignment),
@@ -68,7 +64,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         private GridDataRow BuildLeagueNameRow(string leagueName)
         {
-            int columnIndex = 0;
+            var columnIndex = 0;
             var colummns = new List<Columns>
                {
                     new Columns(columnIndex++, "MatchCode", string.Empty),

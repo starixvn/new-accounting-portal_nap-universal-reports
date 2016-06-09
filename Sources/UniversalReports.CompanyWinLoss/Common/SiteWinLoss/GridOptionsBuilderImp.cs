@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        private BasicGridDataRowBuilder gridDataRowBuilder;
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -29,14 +29,17 @@ namespace UniversalReports.CompanyWinLoss.Common.SiteWinLoss
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
         {
-            return winLoss.Select(item => gridDataRowBuilder.BuildDataRow(item, HAlignment.Center)).ToList();
+            return winLoss
+                .Select(item => gridDataRowBuilder.BuildDataRow(item, HAlignment.Center))
+                .ToList();
         }
 
         private List<GridDataRow> BuildFooter(WinLoss item)
         {
-            return new List<GridDataRow> { gridDataRowBuilder.BuildDataRow(item, HAlignment.Center) };
+            var row = gridDataRowBuilder.BuildDataRow(item, HAlignment.Center);
+            return new List<GridDataRow> { row };
         }
     }
 }

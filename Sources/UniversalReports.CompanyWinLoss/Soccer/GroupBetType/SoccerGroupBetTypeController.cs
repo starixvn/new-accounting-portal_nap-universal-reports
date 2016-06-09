@@ -24,33 +24,23 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, string.Empty);
-                gridOptions = decorator.Build(gridOptions, "Bet Type", 180);
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, string.Empty);
+            gridOptions = decorator.Build(gridOptions, "Bet Type");
 
-                return Json(gridOptions);
-            }
-
-            return null;
+            return Json(gridOptions);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, queryModel.Title);
-                gridOptions = decorator.Build(gridOptions, "Bet Type", 180);
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, queryModel.Title);
+            gridOptions = decorator.Build(gridOptions, "Bet Type");
 
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
     }
 }

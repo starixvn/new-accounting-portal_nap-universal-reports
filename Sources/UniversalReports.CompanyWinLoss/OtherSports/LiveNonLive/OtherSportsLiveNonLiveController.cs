@@ -30,18 +30,13 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var sportTypeCriteria = CriteriaFactory.Transform<SportType.Criteria>(queryModel);
-                var sportTypeGridOptions = GetGridOptions(sportTypeCriteria, "Sport Type", queryModel.SportTypeTitle);
+            var sportTypeCriteria = CriteriaFactory.Transform<SportType.Criteria>(queryModel);
+            var sportTypeGridOptions = GetGridOptions(sportTypeCriteria, "Sport Type", queryModel.SportTypeTitle);
 
-                var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
+            var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
 
-                return new FanexExcelResult(new List<GridOptions> { sportTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(new List<GridOptions> { sportTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
         }
     }
 }

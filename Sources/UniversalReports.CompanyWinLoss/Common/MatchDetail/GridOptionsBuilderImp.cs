@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             return gridOptions;
         }
 
-        private List<GridDataRow> BuildBodyRows(List<LeagueWinLoss> leagueWinLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<LeagueWinLoss> leagueWinLoss)
         {
             var gridDataRows = leagueWinLoss.Select(BuildLeagueDataRows).ToList();
 
@@ -49,26 +49,45 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         private GridDataRow BuildLeagueNameRow(string leagueName)
         {
-            int columnIndex = 0;
+            var columnIndex = 0;
             var colummns = new List<Columns>
             {
                 new Columns(columnIndex++, "MatchCode", string.Empty),
-                new Columns { ColumnIndex = columnIndex, Name = "Home", Value = leagueName, MergeColNumber = 13, Bold = true, CellAlignment = HAlignment.Left }
+                new Columns
+                {
+                    ColumnIndex = columnIndex,
+                    Name = "Home",
+                    Value = leagueName,
+                    MergeColNumber = 13,
+                    Bold = true,
+                    CellAlignment = HAlignment.Left
+                }
             };
 
-            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };
+            return new GridDataRow
+            {
+                Columns = colummns,
+                RowType = RowType.ParentLevelOne,
+                CssClass = "league-match-header"
+            };
         }
 
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
-          "SP2100:CodeLineMustNotBeLongerThan",
-          Justification = "Reviewed. Suppression is OK here.")]
+            "SP2100:CodeLineMustNotBeLongerThan",
+            Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
-            int columnIndex = 0;
+            var columnIndex = 0;
             var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode) { CustomAttributes = customAttributes, Bold = true, CssClass = "league-match-code", CellAlignment = HAlignment.Center },
+                new Columns(columnIndex++, "MatchCode", item.MatchCode)
+                {
+                    CustomAttributes = customAttributes,
+                    Bold = true,
+                    CssClass = "league-match-code",
+                    CellAlignment = HAlignment.Center
+                },
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },
@@ -100,11 +119,17 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         private GridDataRow BuildTotalRow(WinLoss item, string totalText)
         {
-            int startColumnIndex = 0;
-            int columnIndex = 4;
+            var columnIndex = 4;
             var colummns = new List<Columns>
             {
-                new Columns { ColumnIndex = startColumnIndex, Name = "MatchCode", Value = totalText, MergeColNumber = 4, CellAlignment = HAlignment.Right },
+                new Columns
+                {
+                    ColumnIndex = 0,
+                    Name = "MatchCode",
+                    Value = totalText,
+                    MergeColNumber = 4,
+                    CellAlignment = HAlignment.Right
+                },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),

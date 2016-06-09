@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        private BasicGridDataRowBuilder gridDataRowBuilder;
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -29,9 +29,9 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
             };
         }
 
-        private List<GridDataRow> BuildSites(List<SiteModel> sites)
+        private List<GridDataRow> BuildSites(IEnumerable<SiteModel> sites)
         {
-            List<GridDataRow> sitesResult = new List<GridDataRow>();
+            var sitesResult = new List<GridDataRow>();
             foreach (var group in sites)
             {
                 sitesResult.AddRange(BuildBodyRows(group.Sites).ToList());
@@ -44,7 +44,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
             return sitesResult;
         }
 
-        private List<GridDataRow> BuildBodyRows(List<WinLoss> winLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
         {
             return winLoss.Select(item => gridDataRowBuilder.BuildDataRow(item, HAlignment.Center)).ToList();
         }

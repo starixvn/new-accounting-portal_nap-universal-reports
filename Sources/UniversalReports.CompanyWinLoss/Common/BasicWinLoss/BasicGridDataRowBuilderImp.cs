@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         Justification = "Reviewed. Suppression is OK here.")]
         public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
-            int columnIndex = 0;
+            var columnIndex = 0;
             var customAttributes = $"{item.Id}";
             var columns = new List<Columns>
             {

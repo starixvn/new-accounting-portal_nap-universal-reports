@@ -48,7 +48,7 @@ namespace UniversalReports.Application.Header
                                .ToList();
         }
 
-        private List<Menu> GetChildrenMenus(IList<MenuItem> menus, int parentMenuId)
+        private List<Menu> GetChildrenMenus(IEnumerable<MenuItem> menus, int parentMenuId)
         {
             return menus.Where(x => x.Parent?.Id == parentMenuId)
                         .OrderBy(m => m.DisplayOrder)

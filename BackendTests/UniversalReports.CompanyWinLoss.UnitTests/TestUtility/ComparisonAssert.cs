@@ -7,8 +7,8 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.TestUtility
     {
         internal static void AreEqual(object expected, object actual)
         {
-            string expectedJson = JsonConvert.SerializeObject(expected);
-            string actualJson = JsonConvert.SerializeObject(actual);
+            var expectedJson = JsonConvert.SerializeObject(expected);
+            var actualJson = JsonConvert.SerializeObject(actual);
 
             Assert.AreEqual(expectedJson, actualJson);
         }

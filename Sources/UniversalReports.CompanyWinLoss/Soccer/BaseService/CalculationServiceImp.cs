@@ -48,7 +48,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
             var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
             var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
 
-            List<WinLossSummaryByBetTypeGroup> winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
+            var winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup2);
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup3);

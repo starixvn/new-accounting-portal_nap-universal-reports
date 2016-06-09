@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
@@ -30,10 +29,10 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
 
             // Act
             var service = new WinLossServiceImp(rawService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());            
+            var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);
-        }        
+        }
     }
 }

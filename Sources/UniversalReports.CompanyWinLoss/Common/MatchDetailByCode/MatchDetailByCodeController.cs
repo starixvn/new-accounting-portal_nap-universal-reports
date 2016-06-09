@@ -14,9 +14,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         protected MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
         {
-            this.Service = service;
-            this.Builder = builder;
-            this.Decorator = decorator;
+            Service = service;
+            Builder = builder;
+            Decorator = decorator;
         }
 
         protected WinLossService Service { get; }
@@ -27,24 +27,14 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
 
         public IHttpActionResult Json(WinLossCriteria criteria)
         {
-            if (ModelState.IsValid)
-            {
-                var gridOptions = GetGridOptions(criteria, string.Empty);
-                return Json(gridOptions);
-            }
-
-            return null;
+            var gridOptions = GetGridOptions(criteria, string.Empty);
+            return Json(gridOptions);
         }
 
         protected IHttpActionResult Excel(WinLossCriteria criteria, string title)
         {
-            if (ModelState.IsValid)
-            {
-                var gridOptions = GetGridOptions(criteria, title);
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var gridOptions = GetGridOptions(criteria, title);
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
 
         protected GridOptions GetGridOptions(WinLossCriteria criteria, string title)

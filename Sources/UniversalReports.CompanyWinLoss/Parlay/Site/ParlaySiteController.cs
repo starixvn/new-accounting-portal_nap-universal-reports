@@ -9,11 +9,11 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
     [RoutePrefix("api/company-win-loss/parlay/site")]
     public class ParlaySiteController : ApiController
     {
-        private WinLossService service;
+        private readonly WinLossService service;
 
-        private GridOptionsBuilder builder;
+        private readonly GridOptionsBuilder builder;
 
-        private GridOptionColumnDecorator decorator;
+        private readonly GridOptionColumnDecorator decorator;
 
         public ParlaySiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorBasic decorator)
         {
@@ -26,32 +26,22 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            if (ModelState.IsValid)
-            {
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, string.Empty);
-                gridOptions = decorator.Build(gridOptions, queryModel.Site);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, string.Empty);
+            gridOptions = decorator.Build(gridOptions, queryModel.Site);
 
-                return Json(gridOptions);
-            }
-
-            return null;
+            return Json(gridOptions);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            if (ModelState.IsValid)
-            {
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, queryModel.Title);
-                gridOptions = decorator.Build(gridOptions, queryModel.Site);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, queryModel.Title);
+            gridOptions = decorator.Build(gridOptions, queryModel.Site);
 
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
     }
 }

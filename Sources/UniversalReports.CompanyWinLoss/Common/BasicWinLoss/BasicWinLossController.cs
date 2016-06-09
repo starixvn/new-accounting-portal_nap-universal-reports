@@ -30,25 +30,15 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         protected IHttpActionResult Json(WinLossCriteria criteria, string mainColumnText, int mainColumnWidth = 180)
         {
-            if (ModelState.IsValid)
-            {
-                var gridOptions = GetGridOptions(criteria, mainColumnText, string.Empty, mainColumnWidth);
-                return Json(gridOptions);
-            }
-
-            return null;
+            var gridOptions = GetGridOptions(criteria, mainColumnText, string.Empty, mainColumnWidth);
+            return Json(gridOptions);
         }
 
         [Route("excel")]
         protected IHttpActionResult Excel(WinLossCriteria criteria, string mainColumnText, string title, int mainColumnWidth = 180)
         {
-            if (ModelState.IsValid)
-            {
-                var gridOptions = GetGridOptions(criteria, mainColumnText, title, mainColumnWidth);
-                return new FanexExcelResult(gridOptions, Constants.SheetName);
-            }
-
-            return null;
+            var gridOptions = GetGridOptions(criteria, mainColumnText, title, mainColumnWidth);
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
 
         protected GridOptions GetGridOptions(WinLossCriteria criteria, string mainColumnText, string title = "", int mainColumnWidth = 180)

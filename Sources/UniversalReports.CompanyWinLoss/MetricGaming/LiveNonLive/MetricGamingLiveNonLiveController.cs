@@ -30,18 +30,13 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.LiveNonLive
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
-                var betTypeGridOptions = GetGridOptions(betTypeCriteria, "Bet Type", queryModel.BetTypeTitle, 200);
+            var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
+            var betTypeGridOptions = GetGridOptions(betTypeCriteria, "Bet Type", queryModel.BetTypeTitle, 200);
 
-                var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle, 200);
+            var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle, 200);
 
-                return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
         }
     }
 }

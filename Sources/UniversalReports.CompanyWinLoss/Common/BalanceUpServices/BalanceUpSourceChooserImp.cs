@@ -33,14 +33,10 @@ namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
             {
                 return BetTrans;
             }
-            else if (date >= balanceUpRange.BalanceUpDate)
-            {
-                return BetTrans14;
-            }
-            else
-            {
-                return Warehouse;
-            }
+
+            return date >= balanceUpRange.BalanceUpDate
+                ? BetTrans14
+                : Warehouse;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Bettrade.BetType
             return new Criteria
             {
                 StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1),
-                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1),
+                EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1)
             };
         }
     }

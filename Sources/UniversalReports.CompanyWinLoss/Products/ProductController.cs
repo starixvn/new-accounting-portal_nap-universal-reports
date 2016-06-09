@@ -24,32 +24,22 @@ namespace UniversalReports.CompanyWinLoss.Products
         [Route("")]
         public IHttpActionResult Values(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, "Main");
-                gridOptions = decorator.Build(gridOptions, "Products", 180);
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, "Main");
+            gridOptions = decorator.Build(gridOptions, "Products");
 
-                return Json(gridOptions);
-            }
-
-            return null;
+            return Json(gridOptions);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
-            {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var gridOptions = builder.Build(winlosses, queryModel.Title);
-                gridOptions = decorator.Build(gridOptions, "Products", 180);
-                return new FanexExcelResult(gridOptions, Common.Constants.SheetName);
-            }
-
-            return null;
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, queryModel.Title);
+            gridOptions = decorator.Build(gridOptions, "Products");
+            return new FanexExcelResult(gridOptions, Common.Constants.SheetName);
         }
     }
 }

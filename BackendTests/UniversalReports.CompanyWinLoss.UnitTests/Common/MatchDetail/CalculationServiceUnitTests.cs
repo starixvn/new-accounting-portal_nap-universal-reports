@@ -43,7 +43,6 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         {
             // Arrange
             const decimal ExpectedMargin = 0.5m;
-            var remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act

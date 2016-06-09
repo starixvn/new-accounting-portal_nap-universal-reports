@@ -26,64 +26,54 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            if (ModelState.IsValid)
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var liveBetTypeWinLoss = new BasicWinLossModel
             {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var liveBetTypeWinLoss = new BasicWinLossModel
-                {
-                    SiteWinLossSummaries = winlosses.Live,
-                    GrandTotal = winlosses.LiveGrandTotal,
-                    RM = new List<Common.Models.WinLoss>()
-                };
+                SiteWinLossSummaries = winlosses.Live,
+                GrandTotal = winlosses.LiveGrandTotal,
+                RM = new List<Common.Models.WinLoss>()
+            };
 
-                var liveGridOptions = builder.Build(liveBetTypeWinLoss, string.Empty);
-                liveGridOptions = decorator.Build(liveGridOptions, "Bet Type");
+            var liveGridOptions = builder.Build(liveBetTypeWinLoss, string.Empty);
+            liveGridOptions = decorator.Build(liveGridOptions, "Bet Type");
 
-                var nonLiveBetTypeWinLoss = new BasicWinLossModel
-                {
-                    SiteWinLossSummaries = winlosses.NonLive,
-                    GrandTotal = winlosses.NonLiveGrandTotal,
-                    RM = new List<Common.Models.WinLoss>()
-                };
+            var nonLiveBetTypeWinLoss = new BasicWinLossModel
+            {
+                SiteWinLossSummaries = winlosses.NonLive,
+                GrandTotal = winlosses.NonLiveGrandTotal,
+                RM = new List<Common.Models.WinLoss>()
+            };
 
-                var nonLiveGridOptions = builder.Build(nonLiveBetTypeWinLoss, string.Empty);
-                nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
+            var nonLiveGridOptions = builder.Build(nonLiveBetTypeWinLoss, string.Empty);
+            nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
 
-                return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
-            }
-
-            return null;
+            return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            if (ModelState.IsValid)
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var liveBetTypeWinLoss = new BasicWinLossModel
             {
-                var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-                var winlosses = service.Query(criteria);
-                var liveBetTypeWinLoss = new BasicWinLossModel
-                {
-                    SiteWinLossSummaries = winlosses.Live,
-                    GrandTotal = winlosses.LiveGrandTotal
-                };
-                var liveGridOptions = builder.Build(liveBetTypeWinLoss, queryModel.LiveTitle);
-                liveGridOptions = decorator.Build(liveGridOptions, "Bet Type");
+                SiteWinLossSummaries = winlosses.Live,
+                GrandTotal = winlosses.LiveGrandTotal
+            };
+            var liveGridOptions = builder.Build(liveBetTypeWinLoss, queryModel.LiveTitle);
+            liveGridOptions = decorator.Build(liveGridOptions, "Bet Type");
 
-                var nonLiveBetTypeWinLoss = new BasicWinLossModel
-                {
-                    SiteWinLossSummaries = winlosses.NonLive,
-                    GrandTotal = winlosses.NonLiveGrandTotal
-                };
+            var nonLiveBetTypeWinLoss = new BasicWinLossModel
+            {
+                SiteWinLossSummaries = winlosses.NonLive,
+                GrandTotal = winlosses.NonLiveGrandTotal
+            };
 
-                var nonLiveGridOptions = builder.Build(nonLiveBetTypeWinLoss, queryModel.NonLiveTitle);
-                nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
+            var nonLiveGridOptions = builder.Build(nonLiveBetTypeWinLoss, queryModel.NonLiveTitle);
+            nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
 
-                return new FanexExcelResult(new List<GridOptions> { nonLiveGridOptions, liveGridOptions }, Constants.SheetName);
-            }
-
-            return null;
+            return new FanexExcelResult(new List<GridOptions> { nonLiveGridOptions, liveGridOptions }, Constants.SheetName);
         }
     }
 }

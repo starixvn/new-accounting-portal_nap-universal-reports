@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Products
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        private BasicGridDataRowBuilder gridDataRowBuilder;
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -55,15 +55,11 @@ namespace UniversalReports.CompanyWinLoss.Products
                 .ToList();
             var totalRow = BuildSiteWinLossSummary(productGroupWinLoss.Total, true);
 
-            var rows = new List<GridDataRow>(bodyRows);
-            rows.Add(totalRow);
-
-            return rows;
+            return new List<GridDataRow>(bodyRows) { totalRow };
         }
 
         private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary productWinLoss, bool isTotal)
         {
-            var productName = productWinLoss.Total.Name;
             var rowCssClass = isTotal ? "total-row" : string.Empty;
 
             var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left);
@@ -84,7 +80,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             return productDataRow;
         }
 
-        private List<GridDataRow> BuildSportsbookRMRows(List<WinLoss> winLosses)
+        private List<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
                 .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))

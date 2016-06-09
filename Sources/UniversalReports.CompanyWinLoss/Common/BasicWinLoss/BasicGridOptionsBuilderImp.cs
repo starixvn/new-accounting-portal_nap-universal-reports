@@ -8,7 +8,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
     public class BasicGridOptionsBuilderImp : BasicGridOptionsBuilder
     {
-        private BasicGridDataRowBuilder gridDataRowBuilder;
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public BasicGridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<SiteWinLossSummary> winLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<SiteWinLossSummary> winLoss)
         {
             return winLoss.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
         }
