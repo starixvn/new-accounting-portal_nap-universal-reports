@@ -20,14 +20,14 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Json(criteria, "Bet Type", 200);
+            return Json(criteria, "Bet Type", 220);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Excel(criteria, "Bet Type", queryModel.Title, 200);
+            return Excel(criteria, "Bet Type", queryModel.Title, 220);
         }
     }
 }
