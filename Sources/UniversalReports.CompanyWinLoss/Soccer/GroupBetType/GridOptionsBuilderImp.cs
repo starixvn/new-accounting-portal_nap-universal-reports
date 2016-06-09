@@ -37,9 +37,13 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)
             {
-                bodyRows.AddRange(winLossSummary.SiteWinLossSummaries.Select(item => BuildBetTypeDataRow(item, HAlignment.Left)));
-
+                var rows = winLossSummary
+                    .SiteWinLossSummaries
+                    .Select(item => BuildBetTypeDataRow(item, HAlignment.Left));
                 var totalRow = GridDataRowBuilder.BuildDataRow(winLossSummary.Total, HAlignment.Right);
+                totalRow.RowType = RowType.SubTotal;
+                totalRow.CssClass = "total-row";
+                bodyRows.AddRange(rows);
                 bodyRows.Add(totalRow);
             }
 
@@ -62,7 +66,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
             return rows
                 .Where(r => r.RealTurnover != 0 || r.VirtualTurnover != 0)
                 .Select(r => GridDataRowBuilder.BuildDataRow(r, HAlignment.Right))
-                       .ToList();
+                .ToList();
         }
     }
 }
