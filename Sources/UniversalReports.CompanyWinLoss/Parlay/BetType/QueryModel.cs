@@ -9,5 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.BetType
 
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
+
+        public bool NormalMode { get; set; } = true;
     }
 }

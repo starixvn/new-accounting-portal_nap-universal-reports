@@ -14,6 +14,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

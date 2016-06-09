@@ -10,6 +10,8 @@ namespace UniversalReports.CompanyWinLoss.Casino.Site
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public int BetType { get; set; }
 
         public string Site { get; set; }

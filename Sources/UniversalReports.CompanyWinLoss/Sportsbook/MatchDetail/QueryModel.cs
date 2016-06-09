@@ -13,6 +13,8 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         [Required]
         public int SportType { get; set; }
 

@@ -15,6 +15,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SportType
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

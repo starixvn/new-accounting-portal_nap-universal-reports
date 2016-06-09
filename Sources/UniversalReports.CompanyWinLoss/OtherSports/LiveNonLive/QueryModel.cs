@@ -12,5 +12,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.LiveNonLive
         [Required]
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
+
+        public bool NormalMode { get; set; } = true;
     }
 }

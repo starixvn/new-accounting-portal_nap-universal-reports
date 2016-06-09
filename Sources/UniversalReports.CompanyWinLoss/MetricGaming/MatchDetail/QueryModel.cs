@@ -13,6 +13,8 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         [Required]
         public int BetType { get; set; }
     }

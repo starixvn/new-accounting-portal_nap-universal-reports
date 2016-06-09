@@ -17,7 +17,8 @@
         function getData(data) {
             var httpData = {
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             return $http.post('api/company-win-loss/product', httpData)
                 .then(httpResponseService.getDataComplete)

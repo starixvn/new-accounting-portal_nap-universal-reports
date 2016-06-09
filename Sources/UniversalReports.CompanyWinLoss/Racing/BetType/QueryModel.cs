@@ -10,6 +10,8 @@ namespace UniversalReports.CompanyWinLoss.Racing.BetType
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public int SportType { get; set; }
     }
 }

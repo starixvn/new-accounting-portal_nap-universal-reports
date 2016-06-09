@@ -10,6 +10,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public int IsLive { get; set; }
     }
 }

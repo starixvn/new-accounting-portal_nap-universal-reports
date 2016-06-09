@@ -14,6 +14,8 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
         [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
+        public bool NormalMode { get; set; } = true;
+
         public string Site { get; set; } = Constants.SiteDefault;
     }
 }
