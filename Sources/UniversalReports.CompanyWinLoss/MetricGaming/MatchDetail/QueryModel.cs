@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
@@ -17,5 +18,7 @@ namespace UniversalReports.CompanyWinLoss.MetricGaming.MatchDetail
 
         [Required]
         public int BetType { get; set; }
+
+        public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }
