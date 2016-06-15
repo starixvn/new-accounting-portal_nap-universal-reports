@@ -1,4 +1,5 @@
 ﻿using Fanex.Excel.Models;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
@@ -48,7 +49,18 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.BetType
             var nonLiveGridOptions = builder.Build(nonLiveBetTypeWinLoss, string.Empty);
             nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
 
-            return Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
+            var result = Json(new { Live = liveGridOptions, NonLive = nonLiveGridOptions });
+            var fileName = queryModel.GetType().FullName;
+            var criteriaFileName = "D:\\" + fileName + "-queryModel.json";
+            var liveresultFileName = "D:\\" + fileName + "-expected-live.json";
+            var nonliveresultFileName = "D:\\" + fileName + "-expected-non-live.json";
+            var json = JsonConvert.SerializeObject(queryModel, Formatting.Indented);
+            System.IO.File.WriteAllText(criteriaFileName, json);
+            json = JsonConvert.SerializeObject(liveGridOptions, Formatting.Indented);
+            System.IO.File.WriteAllText(liveresultFileName, json);
+            json = JsonConvert.SerializeObject(nonLiveGridOptions, Formatting.Indented);
+            System.IO.File.WriteAllText(nonliveresultFileName, json);
+            return result;
         }
 
         [Route("excel")]

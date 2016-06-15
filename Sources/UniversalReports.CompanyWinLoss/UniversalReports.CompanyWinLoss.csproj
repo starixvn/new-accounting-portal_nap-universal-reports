@@ -248,7 +248,7 @@
     <Compile Include="Racing\BetType\QueryModel.cs" />
     <Compile Include="Racing\BetType\RacingBetTypeController.cs" />
     <Compile Include="Racing\MatchDetail\ExcelQueryModel.cs" />
-    <Compile Include="Racing\MatchDetail\RacingDetailController.cs" />
+    <Compile Include="Racing\MatchDetail\RacingMatchDetailController.cs" />
     <Compile Include="Racing\Site\Criteria.cs" />
     <Compile Include="Racing\Site\ExcelQueryModel.cs" />
     <Compile Include="Racing\Site\QueryModel.cs" />

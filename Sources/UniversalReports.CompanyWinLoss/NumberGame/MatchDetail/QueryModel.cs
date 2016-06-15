@@ -12,8 +12,6 @@ namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
 
         public bool NormalMode { get; set; } = true;
 
-        public int SportType { get; set; }
-
         public int BetType { get; set; }
 
         public bool IsLive { get; set; }

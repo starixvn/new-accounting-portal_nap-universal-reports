@@ -23,7 +23,15 @@ namespace UniversalReports.Sites
             using (var container = new Container())
             {
                 Register(container);
+                Container = container;
             }
+        }
+
+        public static Container Container;
+
+        static SimpleInjectorConfig()
+        {
+            Register();
         }
 
         private static void Register(Container container)
