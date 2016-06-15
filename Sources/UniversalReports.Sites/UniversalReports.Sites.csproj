@@ -113,23 +113,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RemotingRef.1.0.0.8\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.1.3\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.1.5\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.3\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.5\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.1.3\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.1.5\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -331,83 +331,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="bundleconfig.json" />
-    <Content Include="stylesheets\images\date-picker\calendar.png" />
-    <Content Include="stylesheets\images\filter\legend-information-hover.png" />
-    <Content Include="stylesheets\images\filter\legend-information.png" />
-    <Content Include="stylesheets\images\filter\note-collapse.png" />
-    <Content Include="stylesheets\images\filter\note-expand.png" />
-    <Content Include="stylesheets\images\goal-icon.png" />
-    <Content Include="stylesheets\images\header\bgmenu-more.png" />
-    <Content Include="stylesheets\images\header\small-arrow-down.png" />
-    <Content Include="stylesheets\images\header\user.png" />
-    <Content Include="stylesheets\images\loading\loading.gif" />
-    <Content Include="stylesheets\images\header\logo.png" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
-    <Content Include="App_Configuration\Configuration.ttinclude" />
-    <Content Include="App_Configuration\DEV\Web.AppSettings.config" />
-    <Content Include="App_Configuration\DEV\Web.ConnectionString.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Configuration\MASTER\Web.AppSettings.config" />
-    <Content Include="App_Configuration\MASTER\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\LOCAL\Web.AppSettings.config" />
-    <Content Include="App_Configuration\LOCAL\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\MNL\Web.AppSettings.config" />
-    <Content Include="App_Configuration\MNL\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\PRO\Web.AppSettings.config" />
-    <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
-    <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
-    <Content Include="app\company-winloss\soccer\soccer.controller.js" />
-    <Content Include="App_Configuration\Web.DEV.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.LOCAL.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.MASTER.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.MNL.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.PRO.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Configuration\Web.UAT.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
-    <None Include="packages.config" />
-    <Content Include="app\app.constant.js" />
-    <Content Include="app\common\fanex-grid.service.js" />
-    <Content Include="app\common\logger.service.js" />
-    <Content Include="app\company-winloss\company-winloss.controller.js" />
-    <Content Include="app\company-winloss\filter\filter.directive.html" />
-    <Content Include="app\company-winloss\product\product.controller.js" />
-    <Content Include="app\components\alert\alert.directive.html" />
-    <Content Include="app\components\alert\alert.directive.js" />
-    <Content Include="app\components\loading\loading.directive.js" />
-    <Content Include="app\company-winloss\product\product.service.js" />
-    <Content Include="Global.asax" />
-    <Content Include="javascripts\bootstrap-sprockets.js" />
-    <Content Include="javascripts\bootstrap.js" />
-    <Content Include="javascripts\bootstrap.min.js" />
-    <Content Include="javascripts\bootstrap\affix.js" />
-    <Content Include="javascripts\bootstrap\alert.js" />
-    <Content Include="javascripts\bootstrap\button.js" />
-    <Content Include="javascripts\bootstrap\carousel.js" />
-    <Content Include="javascripts\bootstrap\collapse.js" />
-    <Content Include="javascripts\bootstrap\dropdown.js" />
-    <Content Include="javascripts\bootstrap\modal.js" />
-    <Content Include="javascripts\bootstrap\popover.js" />
-    <Content Include="javascripts\bootstrap\scrollspy.js" />
-    <Content Include="javascripts\bootstrap\tab.js" />
-    <Content Include="javascripts\bootstrap\tooltip.js" />
-    <Content Include="javascripts\bootstrap\transition.js" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -422,14 +346,8 @@
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-moment.js" />
-    <Content Include="Scripts\angular-moment.min.js" />
-    <Content Include="Scripts\angular-moment.min.js.map" />
-    <Content Include="app\app.config.js" />
-    <Content Include="app\components\date-picker\date-picker.directive.html" />
-    <Content Include="app\components\date-picker\date-picker.directive.js" />
-    <Content Include="app\components\month-picker\month-picker.directive.html" />
-    <Content Include="app\components\month-picker\month-picker.directive.js" />
+    <Content Include="Scripts\angular-parse-ext.js" />
+    <Content Include="Scripts\angular-parse-ext.min.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -444,12 +362,6 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\Blob.js" />
-    <Content Include="Scripts\Fanex.Grid.css" />
-    <Content Include="Scripts\Fanex.Grid.js" />
-    <Content Include="Scripts\Fanex.Pagination.css" />
-    <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -1194,6 +1106,104 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="stylesheets\images\date-picker\calendar.png" />
+    <Content Include="stylesheets\images\filter\legend-information-hover.png" />
+    <Content Include="stylesheets\images\filter\legend-information.png" />
+    <Content Include="stylesheets\images\filter\note-collapse.png" />
+    <Content Include="stylesheets\images\filter\note-expand.png" />
+    <Content Include="stylesheets\images\goal-icon.png" />
+    <Content Include="stylesheets\images\header\bgmenu-more.png" />
+    <Content Include="stylesheets\images\header\small-arrow-down.png" />
+    <Content Include="stylesheets\images\header\user.png" />
+    <Content Include="stylesheets\images\loading\loading.gif" />
+    <Content Include="stylesheets\images\header\logo.png" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Configuration\Configuration.ttinclude" />
+    <Content Include="App_Configuration\DEV\Web.AppSettings.config" />
+    <Content Include="App_Configuration\DEV\Web.ConnectionString.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Configuration\MASTER\Web.AppSettings.config" />
+    <Content Include="App_Configuration\MASTER\Web.ConnectionString.config" />
+    <Content Include="App_Configuration\LOCAL\Web.AppSettings.config" />
+    <Content Include="App_Configuration\LOCAL\Web.ConnectionString.config" />
+    <Content Include="App_Configuration\MNL\Web.AppSettings.config" />
+    <Content Include="App_Configuration\MNL\Web.ConnectionString.config" />
+    <Content Include="App_Configuration\PRO\Web.AppSettings.config" />
+    <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
+    <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
+    <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
+    <Content Include="app\company-winloss\soccer\soccer.controller.js" />
+    <Content Include="App_Configuration\Web.DEV.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.LOCAL.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.MASTER.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.MNL.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.PRO.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.UAT.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="app\app.constant.js" />
+    <Content Include="app\common\fanex-grid.service.js" />
+    <Content Include="app\common\logger.service.js" />
+    <Content Include="app\company-winloss\company-winloss.controller.js" />
+    <Content Include="app\company-winloss\filter\filter.directive.html" />
+    <Content Include="app\company-winloss\product\product.controller.js" />
+    <Content Include="app\components\alert\alert.directive.html" />
+    <Content Include="app\components\alert\alert.directive.js" />
+    <Content Include="app\components\loading\loading.directive.js" />
+    <Content Include="app\company-winloss\product\product.service.js" />
+    <Content Include="Global.asax" />
+    <Content Include="javascripts\bootstrap-sprockets.js" />
+    <Content Include="javascripts\bootstrap.js" />
+    <Content Include="javascripts\bootstrap.min.js" />
+    <Content Include="javascripts\bootstrap\affix.js" />
+    <Content Include="javascripts\bootstrap\alert.js" />
+    <Content Include="javascripts\bootstrap\button.js" />
+    <Content Include="javascripts\bootstrap\carousel.js" />
+    <Content Include="javascripts\bootstrap\collapse.js" />
+    <Content Include="javascripts\bootstrap\dropdown.js" />
+    <Content Include="javascripts\bootstrap\modal.js" />
+    <Content Include="javascripts\bootstrap\popover.js" />
+    <Content Include="javascripts\bootstrap\scrollspy.js" />
+    <Content Include="javascripts\bootstrap\tab.js" />
+    <Content Include="javascripts\bootstrap\tooltip.js" />
+    <Content Include="javascripts\bootstrap\transition.js" />
+    <Content Include="Scripts\angular-moment.js" />
+    <Content Include="Scripts\angular-moment.min.js" />
+    <Content Include="Scripts\angular-moment.min.js.map" />
+    <Content Include="app\app.config.js" />
+    <Content Include="app\components\date-picker\date-picker.directive.html" />
+    <Content Include="app\components\date-picker\date-picker.directive.js" />
+    <Content Include="app\components\month-picker\month-picker.directive.html" />
+    <Content Include="app\components\month-picker\month-picker.directive.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Blob.js" />
+    <Content Include="Scripts\Fanex.Grid.css" />
+    <Content Include="Scripts\Fanex.Grid.js" />
+    <Content Include="Scripts\Fanex.Pagination.css" />
+    <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="Scripts\images\back-icon.png" />
     <Content Include="Scripts\images\check-box.png" />
     <Content Include="Scripts\images\collapse-icon.png" />
@@ -1207,35 +1217,24 @@
     <Content Include="Scripts\images\sort-icon-new.png" />
     <Content Include="Scripts\images\sort-icon-new3.png" />
     <Content Include="Scripts\images\sort-icon.png" />
+    <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
+    <None Include="Properties\PublishProfiles\IIS.pubxml" />
+    <None Include="Properties\PublishProfiles\xx.pubxml" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-parse-ext.min.js.map" />
     <Content Include="Scripts\angular-messages.min.js.map" />
     <Content Include="Scripts\angular-message-format.min.js.map" />
     <Content Include="Scripts\angular-loader.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
-    <None Include="Properties\PublishProfiles\IIS.pubxml" />
-    <None Include="Properties\PublishProfiles\xx.pubxml" />
-    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.0.js" />
-    <Content Include="Scripts\jquery-2.2.0.min.js" />
-    <Content Include="Scripts\jquery-2.2.0.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
     <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <Content Include="Scripts\version.json" />
