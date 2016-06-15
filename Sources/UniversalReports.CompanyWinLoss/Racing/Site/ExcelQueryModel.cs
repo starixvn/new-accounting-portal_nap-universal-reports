@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace UniversalReports.CompanyWinLoss.Racing.Site
+﻿namespace UniversalReports.CompanyWinLoss.Racing.Site
 {
     public class ExcelQueryModel : QueryModel
     {
-        [Required]
         public string Title { get; set; }
     }
 }

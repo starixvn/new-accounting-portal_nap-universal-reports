@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
+﻿namespace UniversalReports.CompanyWinLoss.NumberGame.MatchDetail
 {
     public class ExcelQueryModel : QueryModel
     {
-        [Required]
         public string Title { get; set; }
     }
 }

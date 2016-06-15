@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
@@ -7,7 +6,6 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 {
     public class QueryModel
     {
-        [Required]
         public DateTime StartDate { get; set; }
 
         [DateTimeGreaterThan("StartDate")]
@@ -15,10 +13,8 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public bool NormalMode { get; set; } = true;
 
-        [Required]
         public int SportType { get; set; }
 
-        [Required]
         public int BetType { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;

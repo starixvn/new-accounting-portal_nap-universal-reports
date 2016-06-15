@@ -10,15 +10,15 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 {
     public class RawWinLossDynamicRepositoryTests
     {
+        private static ICriteria[] criteriaList = CreateTestCases();
+
         [Test]
-        [TestCaseSource("CriteriaList")]
+        [TestCaseSource("criteriaList")]
         public void Fetch_Successful(ICriteria criteria)
         {
             var repository = new DynamicRepository();
             repository.Fetch<RawWinLoss>(criteria);
         }
-
-        static ICriteria[] CriteriaList = CreateTestCases();
 
         private static ICriteria[] CreateTestCases()
         {
@@ -157,6 +157,5 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
                 .SelectMany(l => l)
                 .ToArray();
         }
-
     }
 }
