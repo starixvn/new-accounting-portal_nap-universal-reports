@@ -3,7 +3,7 @@ using NUnit.Framework;
 using System.Diagnostics.CodeAnalysis;
 using System.Web.Http.Results;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests.Controllers
+namespace UniversalReports.CompanyWinLoss.Tests.Controllers
 {
     public class GridOptionsWithRawWinLossControllerTests : BaseControllerTests
     {

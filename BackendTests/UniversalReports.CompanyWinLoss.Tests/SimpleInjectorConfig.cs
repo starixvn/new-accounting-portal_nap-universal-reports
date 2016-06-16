@@ -10,7 +10,7 @@ using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCo
 using NumberGames = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
-namespace UniversalReports.CompanyWinLoss.ControllersTests
+namespace UniversalReports.CompanyWinLoss.Tests
 {
     public class SimpleInjectorConfig
     {

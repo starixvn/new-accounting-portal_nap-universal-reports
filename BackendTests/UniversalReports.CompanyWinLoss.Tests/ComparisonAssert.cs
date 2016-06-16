@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests
+namespace UniversalReports.CompanyWinLoss.Tests
 {
     internal class ComparisonAssert
     {

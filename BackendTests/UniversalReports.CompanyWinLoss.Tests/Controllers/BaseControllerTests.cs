@@ -6,7 +6,7 @@ using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using UniversalReports.CompanyWinLoss.Common.Models;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests.Controllers
+namespace UniversalReports.CompanyWinLoss.Tests.Controllers
 {
     public abstract class BaseControllerTests
     {

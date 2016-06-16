@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Web.Http.Results;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests.Controllers
+namespace UniversalReports.CompanyWinLoss.Tests.Controllers
 {
     public class GridOptionsWithMatchRawWinLossControllerTests : BaseControllerTests
     {

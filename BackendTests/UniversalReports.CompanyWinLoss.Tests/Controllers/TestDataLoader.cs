@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.CompilerServices;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests.Controllers
+namespace UniversalReports.CompanyWinLoss.Tests.Controllers
 {
     internal class TestDataLoader
     {

@@ -3,11 +3,11 @@ using Fanex.Data.Repository;
 using System;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
-namespace UniversalReports.CompanyWinLoss.DatabaseTests
+namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 {
-    public class CompanyWinLossParameters
+    public class RepositoryContext
     {
-        static CompanyWinLossParameters()
+        static RepositoryContext()
         {
             DbSettingProviderManager.Current.Start();
 

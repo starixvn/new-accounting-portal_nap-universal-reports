@@ -5,7 +5,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
-using UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility;
 
 namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 {

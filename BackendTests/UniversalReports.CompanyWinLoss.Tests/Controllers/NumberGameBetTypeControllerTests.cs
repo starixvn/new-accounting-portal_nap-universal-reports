@@ -2,7 +2,7 @@
 using System.Web.Http.Results;
 using UniversalReports.CompanyWinLoss.NumberGame.BetType;
 
-namespace UniversalReports.CompanyWinLoss.ControllersTests.Controllers
+namespace UniversalReports.CompanyWinLoss.Tests.Controllers
 {
     public class NumberGameBetTypeControllerTests : BaseControllerTests
     {

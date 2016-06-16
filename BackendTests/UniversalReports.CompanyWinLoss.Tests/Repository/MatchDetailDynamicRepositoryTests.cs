@@ -3,7 +3,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
-using UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility;
 
 namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 {

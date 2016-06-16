@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 
-namespace UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility
+namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 {
     public static class WinLossCriteriaFactory
     {
@@ -14,8 +14,8 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility
         public static ICriteria CreateBetTransCriteria(WinLossCriteria criteria)
         {
             criteria.Source = BetTrans;
-            criteria.StartDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1);
-            criteria.EndDate = CompanyWinLossParameters.MoveBetsDate.AddDays(1);
+            criteria.StartDate = RepositoryContext.MoveBetsDate.AddDays(1);
+            criteria.EndDate = RepositoryContext.MoveBetsDate.AddDays(1);
 
             return criteria;
         }
@@ -23,8 +23,8 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility
         public static ICriteria CreateBetTrans14Criteria(WinLossCriteria criteria)
         {
             criteria.Source = BetTrans14;
-            criteria.StartDate = CompanyWinLossParameters.BalanceUpDate;
-            criteria.EndDate = CompanyWinLossParameters.MoveBetsDate;
+            criteria.StartDate = RepositoryContext.BalanceUpDate;
+            criteria.EndDate = RepositoryContext.MoveBetsDate;
 
             return criteria;
         }
@@ -32,8 +32,8 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.TestUtility
         public static ICriteria CreateWarehouseCriteria(WinLossCriteria criteria)
         {
             criteria.Source = Warehouse;
-            criteria.StartDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1);
-            criteria.EndDate = CompanyWinLossParameters.BalanceUpDate.AddDays(-1);
+            criteria.StartDate = RepositoryContext.BalanceUpDate.AddDays(-1);
+            criteria.EndDate = RepositoryContext.BalanceUpDate.AddDays(-1);
 
             return criteria;
         }
