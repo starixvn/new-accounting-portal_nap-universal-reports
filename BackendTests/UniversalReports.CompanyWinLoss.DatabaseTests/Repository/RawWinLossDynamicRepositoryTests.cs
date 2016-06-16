@@ -1,6 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
@@ -20,6 +21,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
             repository.Fetch<RawWinLoss>(criteria);
         }
 
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         private static ICriteria[] CreateTestCases()
         {
             var betTradeBetTypeCriteria = new CompanyWinLoss.Bettrade.BetType.Criteria();

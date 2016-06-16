@@ -1,0 +1,18 @@
+[
+  {
+    "GroupName": "Metric Gaming - Superlive Live",
+    "GroupId": 1,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": -33.3200,
+    "SMAWinLoss": 20.3310,
+    "Commission": 0.0971,
+    "RealIncome": -12.8919,
+    "VirtualIncome": -12.8919,
+    "VarianceIncome": 0.0000,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 25.6640,
+    "VirtualTurnover": 25.6640
+  }
+]

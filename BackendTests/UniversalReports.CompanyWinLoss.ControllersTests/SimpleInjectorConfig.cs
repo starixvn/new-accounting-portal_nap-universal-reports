@@ -12,31 +12,24 @@ using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
 namespace UniversalReports.CompanyWinLoss.ControllersTests
 {
-    public static class SimpleInjectorConfig
+    public class SimpleInjectorConfig
     {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
-        public static void Register()
+        public SimpleInjectorConfig(IDynamicRepository repository)
         {
-            using (var container = new Container())
+            Container = new Container();
+            Register(Container, repository);
+        }
+
+        public Container Container { get; set; }
+
+        private static void Register(Container container, IDynamicRepository repository)
+        {
+            container.Register<IDynamicRepository>(() =>
             {
-                Register(container);
-                Container = container;
-            }
-        }
-
-        public static Container Container;
-
-        static SimpleInjectorConfig()
-        {
-            Register();
-        }
-
-        private static void Register(Container container)
-        {
-
+                return repository;
+            });
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
-
-            container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
             container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);

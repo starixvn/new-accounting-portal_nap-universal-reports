@@ -1,9 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Web.Http;
+﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Factory;
-using UniversalReports.CompanyWinLoss.Soccer.BetType;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
@@ -32,16 +30,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.SumBetType
             var gridOptions = builder.FromWinLossModel(winlosses, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
 
-            var result = Json(gridOptions);
-
-            var fileName = queryModel.GetType().FullName;
-            var criteriaFileName = "D:\\" + fileName + "-queryModel.json";
-            var resultFileName = "D:\\" + fileName + "-expected.json";
-            var json = JsonConvert.SerializeObject(queryModel, Formatting.Indented);
-            System.IO.File.WriteAllText(criteriaFileName, json);
-            json = JsonConvert.SerializeObject((result as System.Web.Http.Results.JsonResult<Fanex.Excel.Models.GridOptions>).Content, Formatting.Indented);
-            System.IO.File.WriteAllText(resultFileName, json);
-            return result;
+            return Json(gridOptions);
         }
 
         [Route("excel")]
