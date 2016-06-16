@@ -5,7 +5,10 @@
             .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
             .TotalMilliseconds),
         RootUrl = Url.Content("~").TrimEnd(new[] { '/' }),
-        LegacyPath = ViewBag.LegacyPath
+        LegacyPath = ViewBag.LegacyPath,
+        BalanceUp = Convert.ToInt64(ViewBag.BalanceUp.BalanceUpDate
+            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
+            .TotalMilliseconds)
     };
 
     var isDebuggingEnabled = HttpContext.Current.IsDebuggingEnabled;
@@ -41,7 +44,7 @@
         var napConfig = @Html.Raw(Json.Encode(napConfig));
     </script>
     <script src="~/Scripts/Blob.js"></script>
-    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
     <script src="~/Scripts/moment.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>

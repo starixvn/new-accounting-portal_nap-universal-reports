@@ -2064,17 +2064,23 @@
             });
         }
 
+        function checkvalidLinks() {
+            var balanceday = moment(napConfig.BalanceUp);
+            return pane.data.startDate.isSameOrAfter(balanceday);
+        }
+
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = parseInt(betTypeRow.Columns[0].CustomAttr);
-                if (betTypeId === systemParlayBetType) {
+
+                if ((betTypeId === systemParlayBetType) && (checkvalidLinks == true)) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'ALL\')">' + betTypeName + '</a>';
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
                         var siteName = siteRow.Columns[0].Value;
-                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'' + siteName+ '\')">' + siteName + '</a>';
+                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'' + siteName + '\')">' + siteName + '</a>';
                     }
                 } else if (betTypeId === mixParlayBetType) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMixParlayWindow()">' + betTypeName + '</a>';
@@ -2887,7 +2893,7 @@
                 betTypeName: pane.data.betTypeName,
                 leagueName: leagueName,
                 traderName: traderName,
-                liveName: pane.data.isLive ? "Live!" : "Non-Live!",
+                liveName: getLiveName(pane.data.isLive),
                 matchInformation: data.MatchInformation,
                 closePopup: closePopup
             });
@@ -2897,6 +2903,20 @@
                 scope: newScope
             });
         }
+
+        function getLiveName(data) {
+
+            if (data == undefined) {
+                return " ";
+            }
+            else if (data == false) {
+                return "Non-Live!"
+            }
+            else {
+                return "Live!";
+            }
+        }
+
         function closePopup() {
             $uibModalStack.dismissAll("Close");
         }

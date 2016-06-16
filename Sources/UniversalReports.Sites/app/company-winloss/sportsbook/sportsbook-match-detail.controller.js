@@ -38,7 +38,7 @@
                 betTypeName: pane.data.betTypeName,
                 leagueName: leagueName,
                 traderName: traderName,
-                liveName: pane.data.isLive ? "Live!" : "Non-Live!",
+                liveName: getLiveName(pane.data.isLive),
                 matchInformation: data.MatchInformation,
                 closePopup: closePopup
             });
@@ -48,6 +48,20 @@
                 scope: newScope
             });
         }
+
+        function getLiveName(data) {
+
+            if (data == undefined) {
+                return " ";
+            }
+            else if (data == false) {
+                return "Non-Live!"
+            }
+            else {
+                return "Live!";
+            }
+        }
+
         function closePopup() {
             $uibModalStack.dismissAll("Close");
         }

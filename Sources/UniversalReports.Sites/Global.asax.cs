@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
+using UniversalReports.Sites.App_Start;
 
 namespace UniversalReports.Sites
 {
@@ -19,6 +20,7 @@ namespace UniversalReports.Sites
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             DbSettingProviderManager.Current.Start();
             SimpleInjectorConfig.Register();
+            SimpleInjectorMVCConfig.Initialize();
         }
 
         protected void Application_PostAuthorizeRequest()
