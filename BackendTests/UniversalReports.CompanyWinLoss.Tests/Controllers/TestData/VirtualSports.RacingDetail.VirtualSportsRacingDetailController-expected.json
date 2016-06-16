@@ -291,7 +291,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": 0.71666666666666667,
+          "Value": 0.7167,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1127,7 +1127,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": -0.43001872978035083,
+          "Value": -0.43,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1205,7 +1205,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": -0.43001872978035083,
+          "Value": -0.43,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

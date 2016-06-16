@@ -14,7 +14,7 @@
         "AfterExtraPT": 940.0,
         "RealTurnover": 1890.0,
         "VirtualTurnover": 2100.0,
-        "RealMargin": 0.5555555555555555555555555556,
+        "RealMargin": 0.5556,
         "VirtualMargin": 0.6
       },
       "Credit": {
@@ -30,7 +30,7 @@
         "AfterExtraPT": 450.0,
         "RealTurnover": 900.0,
         "VirtualTurnover": 1000.0,
-        "RealMargin": 0.5555555555555555555555555556,
+        "RealMargin": 0.5556,
         "VirtualMargin": 0.6
       },
       "Deposit": {
@@ -46,7 +46,7 @@
         "AfterExtraPT": 490.0,
         "RealTurnover": 990.0,
         "VirtualTurnover": 1100.0,
-        "RealMargin": 0.5555555555555555555555555556,
+        "RealMargin": 0.5556,
         "VirtualMargin": 0.6
       }
     }
@@ -65,7 +65,7 @@
       "AfterExtraPT": 940.0,
       "RealTurnover": 1890.0,
       "VirtualTurnover": 2100.0,
-      "RealMargin": 0.5555555555555555555555555556,
+      "RealMargin": 0.5556,
       "VirtualMargin": 0.6
     },
     "Credit": {
@@ -81,7 +81,7 @@
       "AfterExtraPT": 450.0,
       "RealTurnover": 900.0,
       "VirtualTurnover": 1000.0,
-      "RealMargin": 0.5555555555555555555555555556,
+      "RealMargin": 0.5556,
       "VirtualMargin": 0.6
     },
     "Deposit": {
@@ -97,7 +97,7 @@
       "AfterExtraPT": 490.0,
       "RealTurnover": 990.0,
       "VirtualTurnover": 1100.0,
-      "RealMargin": 0.5555555555555555555555555556,
+      "RealMargin": 0.5556,
       "VirtualMargin": 0.6
     }
   }

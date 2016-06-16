@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Services;
 
@@ -49,7 +50,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         public decimal CalculateMargin(decimal income, decimal turnover)
         {
-            return turnover > 0 ? income / turnover : 0;
+            return turnover > 0 ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero) : 0;
         }
 
         public IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<RawWinLoss> rawWinLoss)
