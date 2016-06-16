@@ -2,7 +2,7 @@
 using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.SportType
+namespace UniversalReports.CompanyWinLoss.Soccer.SoccerMajorMinorLiveNonLiveCompoundController
 {
     public class ExcelQueryModel
     {
