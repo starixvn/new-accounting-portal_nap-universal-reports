@@ -51,14 +51,14 @@
 
         function getLiveName(data) {
 
-            if (data == undefined) {
-                return " ";
+            if (data == 1) {
+                return "Live!";
             }
-            else if (data == false) {
+            else if (data == 0) {
                 return "Non-Live!"
             }
             else {
-                return "Live!";
+                return " ";
             }
         }
 
