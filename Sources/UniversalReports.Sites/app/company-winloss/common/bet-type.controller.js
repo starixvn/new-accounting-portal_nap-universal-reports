@@ -42,7 +42,7 @@
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
                 }
-                
+
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -59,15 +59,18 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                if (hasDetailDrilldown) {
+                var enableLink = (pane.data.sportType == 50 && betTypeName == "Total") ? false : true;
+                if (hasDetailDrilldown && enableLink == true) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }
-
-                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                    var siteRow = data.bodyRows[i].SubRows[j];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                if (enableLink == true) {
+                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                        var siteRow = data.bodyRows[i].SubRows[j];
+                        var siteName = siteRow.Columns[0].Value;
+                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                    }
                 }
+
             }
         }
 

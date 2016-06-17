@@ -158,6 +158,16 @@
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
     <Compile Include="NumberGame\BetType\JsonResultModel.cs" />
+    <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
+    <Compile Include="OtherSports\NewCricket\Criteria.cs" />
+    <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\NewCricket\GridOptionsBuilder.cs" />
+    <Compile Include="OtherSports\NewCricket\GridOptionsBuilderImp.cs" />
+    <Compile Include="OtherSports\NewCricket\OtherSportNewCricketController.cs" />
+    <Compile Include="OtherSports\NewCricket\QueryModel.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossModel.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossService.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossServiceImp.cs" />
     <Compile Include="Parlay\Site\GridOptionsBuilder.cs" />
     <Compile Include="Parlay\Site\GridOptionsBuilderImp.cs" />
     <Compile Include="Parlay\Site\SiteModel.cs" />

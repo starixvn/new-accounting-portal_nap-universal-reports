@@ -11,6 +11,8 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
 
+        SiteWinLossSummary CalculateChargedCommision(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+
         WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
 
         IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses);

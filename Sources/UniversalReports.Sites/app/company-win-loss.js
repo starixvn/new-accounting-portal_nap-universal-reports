@@ -658,7 +658,7 @@
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
                 }
-                
+
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -675,15 +675,18 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                if (hasDetailDrilldown) {
+                var enableLink = (pane.data.sportType == 50 && betTypeName == "Total") ? false : true;
+                if (hasDetailDrilldown && enableLink == true) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }
-
-                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                    var siteRow = data.bodyRows[i].SubRows[j];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                if (enableLink == true) {
+                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                        var siteRow = data.bodyRows[i].SubRows[j];
+                        var siteName = siteRow.Columns[0].Value;
+                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                    }
                 }
+
             }
         }
 
@@ -2074,8 +2077,9 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = parseInt(betTypeRow.Columns[0].CustomAttr);
+                var isEnableLink = checkvalidLinks();
 
-                if ((betTypeId === systemParlayBetType) && (checkvalidLinks == true)) {
+                if ((betTypeId === systemParlayBetType) && (isEnableLink == true)) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'ALL\')">' + betTypeName + '</a>';
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
@@ -3153,7 +3157,7 @@
                 sportType: data.sportType,
                 isLive: data.isLive == undefined ? 2 : data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            var url = getUrl(data);
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -3167,12 +3171,23 @@
                 sportType: data.sportType,
                 isLive: data.isLive
             };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+            var url = getUrl(data) + '/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+        
+        function getUrl(data) {
+            var url = null;
+            if (data.sportType == 50) {
+                url = 'api/company-win-loss/other-sports/new-cricket/bet-type';
+            }
+            else {
+                url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            }
+            return url;
         }
     }
 })(angular);

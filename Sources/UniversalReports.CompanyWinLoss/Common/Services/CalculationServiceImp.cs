@@ -93,6 +93,19 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
             return grandTotal;
         }
 
+        public virtual SiteWinLossSummary CalculateChargedCommision(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        {
+            rawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM" && r.GroupId != 500);
+            var grandTotal = new SiteWinLossSummary
+            {
+                Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
+                Deposit = SumDepositGrandTotalWinLoss(rawWinLosses),
+                Total = CalculateSumWinLoss(sumTitle, rawWinLosses)
+            };
+
+            return grandTotal;
+        }
+
         private WinLoss SumCreditGrandTotalWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
         {
             var creditData = rawWinLosses.Where(r => r.RowName == "Credit");
