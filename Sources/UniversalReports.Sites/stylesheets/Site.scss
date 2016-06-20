@@ -313,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
 
-        .cricket-charged-commission , .cricket-non-charged-com-total { 
+        .cricket-charged-commission { 
             & > td {
                 border-top: 1px solid #ff6600;
                 background: none repeat scroll 0 0 #dce2bc;
@@ -321,7 +321,12 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
         .cricket-non-charged-com-total{
-            color: #4F4F4F;
+            & > td {
+                color: #4F4F4F;
+                border-top: 1px solid #ff6600;
+                background: none repeat scroll 0 0 #dce2bc;
+                background-color: #dce2bc;
+            }
         }
 
         .league-header {

@@ -6031,12 +6031,15 @@ h1, h2, h3, h4, h5, h6 {
   .grid-boundary .freegrid .total-row > td {
     font-weight: bold;
     background-color: #f4f4be; }
-  .grid-boundary .freegrid .cricket-charged-commission > td, .grid-boundary .freegrid .cricket-non-charged-com-total > td {
+  .grid-boundary .freegrid .cricket-charged-commission > td {
     border-top: 1px solid #ff6600;
     background: none repeat scroll 0 0 #dce2bc;
     background-color: #dce2bc; }
-  .grid-boundary .freegrid .cricket-non-charged-com-total {
-    color: #4F4F4F; }
+  .grid-boundary .freegrid .cricket-non-charged-com-total > td {
+    color: #4F4F4F;
+    border-top: 1px solid #ff6600;
+    background: none repeat scroll 0 0 #dce2bc;
+    background-color: #dce2bc; }
   .grid-boundary .freegrid .league-header {
     text-align: left;
     font-weight: bold; }
