@@ -95,6 +95,7 @@
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
     <Compile Include="NumberGame\BetType\ServiceUnitTests.cs" />
     <Compile Include="NumberGame\BetType\NumberGameWinLossFactory.cs" />
+    <Compile Include="OtherSports\NewCricket\ServiceUnitTests.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
