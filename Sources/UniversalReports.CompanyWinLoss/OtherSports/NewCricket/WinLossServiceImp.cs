@@ -21,14 +21,9 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
         public WinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
-            var rawWinLossChargedCom = from r in rawWinLosses
-                                       where r.GroupId == betTypeChargedCom
-                                       select r;
-            var rawWinLossNonChargedCom = from r in rawWinLosses
-                                          where r.GroupId != betTypeChargedCom
-                                          select r;
-            var winLossChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossChargedCom);
-            var siteWinLossNonChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossNonChargedCom);
+            var rawWinLossFilter = rawWinLosses.GroupBy(item => item.GroupId == betTypeChargedCom).ToList();
+            var winLossChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossFilter.First());
+            var siteWinLossNonChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossFilter.Last());
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
 
             return new WinLossModel
