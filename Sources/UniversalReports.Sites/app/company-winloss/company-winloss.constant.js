@@ -3,20 +3,20 @@
 
     var templateSetting = {
         'Soccer': {
-            product: 'soccer',
-            soccer: {
+            product: 'soccerLiveNonLive',
+            soccerLiveNonLive: {
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
-                controller: 'SoccerController',
-                service: 'soccerMajorMinorService'
-            },
-            soccerLiveNonLive: { // child of soccer
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SoccerLiveNonLiveController',
+                service: 'soccerLiveNonLiveService'
+            },
+            soccerMajorMinor: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SoccerMajorMinorController',
                 service: 'soccerMajorMinorService'
             },
-            soccerBetType: { // child of soccer
+            soccerBetType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SoccerBetTypeController',
+                controller: 'BetTypeController',
                 service: 'soccerBetTypeService'
             },
             matchDetail: {
@@ -40,17 +40,17 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportsbookProductViewBetTypeService'
+                service: 'sportsbookBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SportsbookMatchDetailController',
-                service: 'metricGamingMatchDetailService'
+                service: 'sportsbookMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SiteController',
-                service: 'metricGamingSiteService'
+                service: 'sportsbookSiteService'
             }
         },
         'Other Sports': {
@@ -62,13 +62,13 @@
             },
             sportType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookSportTypeController',
-                service: 'sportsbookSportTypeService'
+                controller: 'SportTypeController',
+                service: 'otherSportsSportTypeService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportsbookSportTypeViewBetTypeService'
+                service: 'sportsbookBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -158,7 +158,7 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportTypeViewBetTypeService'
+                service: 'betTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -185,7 +185,7 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportTypeViewBetTypeService'
+                service: 'betTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',

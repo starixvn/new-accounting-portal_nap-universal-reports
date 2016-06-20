@@ -2,6 +2,8 @@
 {
     public class ExcelQueryModel : QueryModel
     {
-        public string Title { get; set; }
+        public string MajorMinorTitle { get; set; }
+
+        public string LiveNonLiveTitle { get; set; }
     }
 }

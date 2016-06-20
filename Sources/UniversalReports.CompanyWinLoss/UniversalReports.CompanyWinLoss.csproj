@@ -285,8 +285,6 @@
     <Compile Include="Soccer\GroupBetType\WinLossService.cs" />
     <Compile Include="Soccer\GroupBetType\WinLossServiceImp.cs" />
     <Compile Include="Soccer\BaseService\WinLossSummaryByBetTypeGroup.cs" />
-    <Compile Include="Soccer\MajorMinorLiveNonLiveCompound\ExcelQueryModel.cs" />
-    <Compile Include="Soccer\MajorMinorLiveNonLiveCompound\SoccerMajorMinorLiveNonLiveCompoundController.cs" />
     <Compile Include="Soccer\SumBetType\Criteria.cs" />
     <Compile Include="Soccer\SumBetType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\SumBetType\GridOptionsBuilder.cs" />
@@ -360,7 +358,9 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Soccer\MainExcel\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

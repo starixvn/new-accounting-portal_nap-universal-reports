@@ -7,12 +7,12 @@ using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
-namespace UniversalReports.CompanyWinLoss.Soccer.SoccerMajorMinorLiveNonLiveCompoundController
+namespace UniversalReports.CompanyWinLoss.Soccer.MainExcel
 {
     [RoutePrefix("api/company-win-loss/soccer/sporttype")]
-    public class SoccerMajorMinorLiveNonLiveCompoundController : BasicWinLossController
+    public class SoccerMainExcelController : BasicWinLossController
     {
-        public SoccerMajorMinorLiveNonLiveCompoundController(
+        public SoccerMainExcelController(
            BasicWinLossService service,
            BasicGridOptionsBuilder builder,
            GridOptionColumnDecoratorVirtual decorator)

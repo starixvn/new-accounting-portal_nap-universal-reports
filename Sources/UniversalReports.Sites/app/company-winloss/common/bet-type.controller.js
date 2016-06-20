@@ -20,7 +20,8 @@
             var data = {
                 betType: betType,
                 betTypeName: betTypeName,
-                site: site
+                site: site,
+                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
             };
             angular.extend(data, pane.data);
             tab.goForward('site', data);
@@ -29,7 +30,8 @@
         function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
@@ -59,11 +61,12 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                var enableLink = (pane.data.sportType == 50 && betTypeName == "Total") ? false : true;
-                if (hasDetailDrilldown && enableLink == true) {
+                var isTotalOfCricket = pane.data.sportType == 50 && betTypeName == "Total";
+                var enableLink = !isTotalOfCricket && betTypeRow.SubRows;
+                if (enableLink && hasDetailDrilldown) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }
-                if (enableLink == true) {
+                if (enableLink) {
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
                         var siteName = siteRow.Columns[0].Value;

@@ -19,7 +19,6 @@
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType
             };
@@ -34,7 +33,6 @@
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType
             };

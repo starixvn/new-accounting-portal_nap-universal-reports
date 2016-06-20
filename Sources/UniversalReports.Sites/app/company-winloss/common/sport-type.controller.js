@@ -15,10 +15,11 @@
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
-        function generateBetType(sportType, sportTypeName) {
+        function generateBetType(sportType, sportTypeName, isLive) {
             var data = {
                 sportType: sportType,
-                sportTypeName: sportTypeName
+                sportTypeName: sportTypeName,
+                isLive: isLive
             };
             angular.extend(data, pane.data);
             tab.goForward('betType', data);

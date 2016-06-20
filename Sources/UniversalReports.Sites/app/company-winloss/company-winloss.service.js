@@ -10,17 +10,20 @@
         var service = {
             getTemplate: getTemplate,
             getTemplateSetting: getTemplateSetting,
-            resolveProductPath: resolveProductPath
+            resolveProductPath: resolveProductPath,
+            resolveServiceUrl: resolveServiceUrl
         };
         return service;
 
         function resolveProductPath(productName) {
-            if (productName == 'Live Casino' || productName == 'Casino')
-            {
+            if (productName == 'Live Casino' || productName == 'Casino') {
                 return 'casino';
             }
-
             return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
+        }
+
+        function resolveServiceUrl(productName, suffix) {
+            return 'api/company-win-loss/' + resolveProductPath(data.productName) + '/' + suffix;
         }
 
         function getTemplateSetting(productName) {

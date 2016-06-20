@@ -11,20 +11,20 @@
 
     var templateSetting = {
         'Soccer': {
-            product: 'soccer',
-            soccer: {
+            product: 'soccerLiveNonLive',
+            soccerLiveNonLive: {
                 templateUrl: 'app/company-winloss/shared/two-fanex-grid-with-title.html',
-                controller: 'SoccerController',
-                service: 'soccerMajorMinorService'
-            },
-            soccerLiveNonLive: { // child of soccer
-                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SoccerLiveNonLiveController',
+                service: 'soccerLiveNonLiveService'
+            },
+            soccerMajorMinor: {
+                templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
+                controller: 'SoccerMajorMinorController',
                 service: 'soccerMajorMinorService'
             },
-            soccerBetType: { // child of soccer
+            soccerBetType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SoccerBetTypeController',
+                controller: 'BetTypeController',
                 service: 'soccerBetTypeService'
             },
             matchDetail: {
@@ -48,17 +48,17 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportsbookProductViewBetTypeService'
+                service: 'sportsbookBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SportsbookMatchDetailController',
-                service: 'metricGamingMatchDetailService'
+                service: 'sportsbookMatchDetailService'
             },
             site: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'SiteController',
-                service: 'metricGamingSiteService'
+                service: 'sportsbookSiteService'
             }
         },
         'Other Sports': {
@@ -70,13 +70,13 @@
             },
             sportType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookSportTypeController',
-                service: 'sportsbookSportTypeService'
+                controller: 'SportTypeController',
+                service: 'otherSportsSportTypeService'
             },
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportsbookSportTypeViewBetTypeService'
+                service: 'sportsbookBetTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -166,7 +166,7 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportTypeViewBetTypeService'
+                service: 'betTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -193,7 +193,7 @@
             betType: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
                 controller: 'BetTypeController',
-                service: 'sportTypeViewBetTypeService'
+                service: 'betTypeService'
             },
             matchDetail: {
                 templateUrl: 'app/company-winloss/shared/fanex-grid-with-title.html',
@@ -261,17 +261,20 @@
         var service = {
             getTemplate: getTemplate,
             getTemplateSetting: getTemplateSetting,
-            resolveProductPath: resolveProductPath
+            resolveProductPath: resolveProductPath,
+            resolveServiceUrl: resolveServiceUrl
         };
         return service;
 
         function resolveProductPath(productName) {
-            if (productName == 'Live Casino' || productName == 'Casino')
-            {
+            if (productName == 'Live Casino' || productName == 'Casino') {
                 return 'casino';
             }
-
             return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
+        }
+
+        function resolveServiceUrl(productName, suffix) {
+            return 'api/company-win-loss/' + resolveProductPath(data.productName) + '/' + suffix;
         }
 
         function getTemplateSetting(productName) {
@@ -636,7 +639,8 @@
             var data = {
                 betType: betType,
                 betTypeName: betTypeName,
-                site: site
+                site: site,
+                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
             };
             angular.extend(data, pane.data);
             tab.goForward('site', data);
@@ -645,7 +649,8 @@
         function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
@@ -675,11 +680,12 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                var enableLink = (pane.data.sportType == 50 && betTypeName == "Total") ? false : true;
-                if (hasDetailDrilldown && enableLink == true) {
+                var isTotalOfCricket = pane.data.sportType == 50 && betTypeName == "Total";
+                var enableLink = !isTotalOfCricket && betTypeRow.SubRows;
+                if (enableLink && hasDetailDrilldown) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }
-                if (enableLink == true) {
+                if (enableLink) {
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
                         var siteName = siteRow.Columns[0].Value;
@@ -707,6 +713,43 @@
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
+        }
+    }
+})(angular);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('betTypeService', betTypeService);
+
+    betTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function betTypeService($http, httpResponseService, companyWinlossService, titleService) {
+        var service = {
+            getTitle: titleService.getSportTypeTitle,
+            getData: getData,
+            exportExcel: exportExcel
+        };
+        return service;
+
+        function getData(data) {           
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            return $http.post(url, data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(title, data, fileName) {
+            var httpData = {
+                title: title
+            };
+            angular.extend(httpData, data);
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, fileName);
+                })
+                .catch(httpResponseService.getDataFailed);
         }
     }
 })(angular);
@@ -896,50 +939,6 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('sportTypeViewBetTypeService', sportTypeViewBetTypeService);
-
-    sportTypeViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function sportTypeViewBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
-        var service = {
-            getTitle: titleService.getSportTypeTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                sportType: data.sportType,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                sportType: data.sportType,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
         .controller('SportTypeController', SportTypeController);
 
     SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
@@ -952,10 +951,11 @@
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
 
-        function generateBetType(sportType, sportTypeName) {
+        function generateBetType(sportType, sportTypeName, isLive) {
             var data = {
                 sportType: sportType,
-                sportTypeName: sportTypeName
+                sportTypeName: sportTypeName,
+                isLive: isLive
             };
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -1016,23 +1016,18 @@
         };
         return service;
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
+        function getData(data) {           
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type';
-            return $http.post(url, httpData)
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title
             };
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
@@ -1290,57 +1285,15 @@
         return Builder;
     }
 })(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('metricGamingBetTypeService', metricGamingBetTypeService);
-
-    metricGamingBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function metricGamingBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
-        var service = {
-            getTitle: titleService.getProductTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
 (function (angular, undefined) {
     'use strict';
 
     angular
         .module('app.companyWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingBetTypeService', 'metricGamingLiveNonLiveService', 'showHideColumnService', 'titleService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingLiveNonLiveService', 'showHideColumnService', 'titleService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingBetTypeService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var getProductTitle = titleService.getProductTitle;
@@ -1397,7 +1350,7 @@
                 }
             };
 
-            metricGamingBetTypeService.getData(pane.data).then(function (data) {
+            pane.service.getBetTypeData(pane.data).then(function (data) {
                 betTypeGridOptions = data;
                 renderAll();
             });
@@ -1482,19 +1435,23 @@
         var service = {
             getTitle: titleService.getProductLiveNonLiveTitle,
             getData: getData,
+            getBetTypeData: getBetTypeData,
             exportExcel: exportExcel
         }
         return service;
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
+        function getData(data) {            
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
-            return $http.post(url, httpData)
+            return $http.post(url, data)
                     .then(httpResponseService.getDataComplete)
                     .catch(httpResponseService.getDataFailed);
+        }
+
+        function getBetTypeData(data) {
+            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            return $http.post(url, data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(betTypeTitle, liveNonLiveTitle, data, fileName) {
@@ -1510,103 +1467,6 @@
                             httpResponseService.saveExcelFile(response.data, fileName);
                         })
                         .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('metricGamingMatchDetailService', metricGamingMatchDetailService);
-
-    metricGamingMatchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'sportsbookMatchDetailService'];
-    function metricGamingMatchDetailService($http, httpResponseService, companyWinlossService, titleService, sportsbookMatchDetailService) {
-        var service = {
-            getTitle: titleService.getMatchDetailTitle,
-            getMatchInformation: sportsbookMatchDetailService.getMatchInformation,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                isLive: data.isLive == undefined ? 2 : data.isLive,
-                sportType: data.sportType,
-                betType: data.betType,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                isLive: data.isLive,
-                sportType: data.sportType,
-                betType: data.betType,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('metricGamingSiteService', metricGamingSiteService);
-
-    metricGamingSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function metricGamingSiteService($http, httpResponseService, companyWinlossService, titleService) {
-        var service = {
-            getTitle: titleService.getSiteTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive == undefined ? 2 : data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/site/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
         }
     }
 })(angular);
@@ -1782,7 +1642,6 @@
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType
             };
@@ -1797,7 +1656,6 @@
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType
             };
@@ -1830,7 +1688,6 @@
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType,
                 site: data.site
@@ -1846,7 +1703,6 @@
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                sportType: 161,
                 isLive: data.isLive,
                 betType: data.betType,
                 site: data.site
@@ -2019,6 +1875,25 @@
                 })
                 .catch(httpResponseService.getDataFailed);
         }
+    }
+})(angular);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('otherSportsSportTypeService', otherSportsSportTypeService);
+
+    otherSportsSportTypeService.$inject = ['$http', 'liveTitleService', 'sportTypeService'];
+    function otherSportsSportTypeService($http, liveTitleService, sportTypeService) {
+        var service = {
+            getTitle: liveTitleService.getProductTitle,
+            getData: sportTypeService.getData,
+            exportExcel: sportTypeService.exportExcel
+        };
+
+        return service;
+
     }
 })(angular);
 (function (angular) {
@@ -2341,119 +2216,6 @@
 
     angular
         .module('app.companyWinlossApp')
-        .controller('SoccerBetTypeController', SoccerBetTypeController);
-
-    SoccerBetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService', 'soccerConstants'];
-    function SoccerBetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService, soccerConstants) {
-        var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
-        var tab = $scope.tab;
-        var gridElement = $element.find('.freegrid');
-        $scope.show = showHideColumnBuilder.toggle;
-        $scope.generate = generate;
-        $scope.generateSite = generateSite;
-        $scope.generateMatchDetail = generateMatchDetail;
-        
-        function buildIsHedge(betTypeName)
-        {
-            var isHedge = false;
-
-            if (betTypeName && betTypeName.indexOf("(hedge)") > -1)
-            {
-                isHedge = true;
-            }
-
-            return isHedge;
-        }
-
-        function generateSite(betType, betTypeName, site) {
-            var data = {
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site,
-                isHedge: buildIsHedge(betTypeName),
-                sportType: soccerConstants.SoccerSportType
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('site', data);
-        }
-
-        function generateMatchDetail(betType, betTypeName) {
-            var data = {
-                betType: betType,
-                betTypeName: betTypeName,
-                isHedge: buildIsHedge(betTypeName),
-                sportType: soccerConstants.SoccerSportType
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('matchDetail', data);
-        }
-
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
-
-                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-                    createLinks(data);
-                }
-                
-                renderGrid(data);
-                pane.compileAll();
-            });
-        }
-
-        function isDateRangeInThreeDays(startDate, endDate) {
-            return endDate.diff(startDate, 'days') <= 3;
-        }
-
-        function createLinks(data) {
-            var betTypeId;
-            var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
-            var hasDetailDrilldown = angular.isDefined(template);
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeName = betTypeRow.Columns[0].Value;
-                betTypeId = betTypeRow.Columns[0].CustomAttr;
-
-                if (betTypeRow.SubRows) {
-                    if (hasDetailDrilldown) {
-                        betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
-                    }
-
-                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                        var siteRow = data.bodyRows[i].SubRows[j];
-                        var siteName = siteRow.Columns[0].Value;
-                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
-                    }
-                }
-            }
-        }
-
-        function renderGrid(data) {
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showCollapseExpandButton: true,
-                showExcelButton: true,
-                exportExcelFunction: exportExcel,
-                customButtons: showHideColumnBuilder.getButtonHtml()
-            };
-
-            data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            gridElement.fanexGrid(data);
-        }
-
-        function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
         .factory('soccerBetTypeService', soccerBetTypeService);
 
     soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
@@ -2481,14 +2243,12 @@
             var isMajor = buildMajorFlag(data);
             var isLive = data.isLive;
 
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: isLive,
+            var httpData = {               
                 isMajor: isMajor
             };
-            var url = buildUrl(isLive, isMajor);
-            
+            angular.extend(httpData, data);
+
+            var url = buildUrl(isLive, isMajor);            
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -2499,12 +2259,11 @@
             var isLive = data.isLive;
 
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: isLive,
+                title: title,               
                 isMajor: isMajor
             };
+            angular.extend(httpData, data);
+
             var url = buildUrl(isLive, isMajor) + '/excel';
 
             return $http.post(url, httpData, { responseType: "arraybuffer" })
@@ -2540,8 +2299,174 @@
         .module('app.companyWinlossApp')
         .controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 
-    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants'];
-    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerConstants) {
+    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];
+    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerConstants) {
+        var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
+        var tab = $scope.tab;
+        var getTitleWhenMajorMinor = pane.service.getTitle;
+        var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
+        var gridElements = $element.find('.freegrid');
+        var majorMinorGridElement = angular.element(gridElements[0]);
+        var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
+        $scope.generate = generate;
+        $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
+        $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
+        pane.data.isLive = soccerConstants.LiveNonLive;
+
+        function generate() {
+            var majorMinorGridOptions,
+                liveNonLiveGridOptions;
+            var renderAll = function () {
+                if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
+                    showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
+
+                    createLinksForMajorMinor(majorMinorGridOptions);
+                    renderGrid(majorMinorGridElement, majorMinorGridOptions);
+
+                    pane.service.getTitle = getTitleWhenLiveNonLive;
+                    createLinksForLiveNonLive(liveNonLiveGridOptions);
+                    renderGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
+                    pane.service.getTitle = getTitleWhenMajorMinor;
+
+                    pane.compileAll();
+                }
+            };
+            pane.service.getData(pane.data).then(function (data) {
+                liveNonLiveGridOptions = data;
+                renderAll(); 
+            });
+
+            pane.service.getMajorMinorData(pane.data).then(function (data) {
+                majorMinorGridOptions = data;
+                renderAll();
+            });
+        }
+
+        function renderGrid(gridElement, data) {
+            var titleInfo = {
+                text: tab.generateBreadcrumbHtml(),
+                showCollapseExpandButton: true,
+                showExcelButton: false,
+                exportExcelFunction: exportExcel
+            };
+            if (gridElement === majorMinorGridElement) {
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
+                titleInfo.showExcelButton = true;
+            }
+
+            data.titleInfo = titleInfo;
+            gridElement.fanexGrid(data);
+        }
+
+        function createLinksForMajorMinor(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+            }
+        }
+
+        function generateSoccerBetTypePane(betTypeNameMajorMinor) {
+            var data = {
+                betTypeNameMajorMinor: betTypeNameMajorMinor
+            };
+            angular.extend(data, pane.data);
+
+            tab.goForward('soccerBetType', data);
+        }
+
+        function createLinksForLiveNonLive(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var soccerLiveNonLive = betTypeRow.Columns[0].Value;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
+            }
+        }
+
+        function generateSoccerLiveNonLivePane(soccerLiveNonLive) {
+            var data = {
+                soccerLiveNonLive: soccerLiveNonLive
+            };
+            angular.extend(data, pane.data);
+
+            tab.goForward('soccerMajorMinor', data);
+        }
+
+        function exportExcel() {
+            var majorMinorTitle = tab.generateBreadcrumbText();
+
+            pane.service.getTitle = getTitleWhenLiveNonLive;
+            var liveNonLiveTitle = tab.generateBreadcrumbText();
+            pane.service.getTitle = getTitleWhenMajorMinor;
+
+            soccerMainExcelService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+        }
+    }
+})(angular, undefined);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .factory('soccerLiveNonLiveService', soccerLiveNonLiveService);
+
+    soccerLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
+    function soccerLiveNonLiveService($http, httpResponseService) {
+        var service = {
+            getTitle: getTitleWhenLiveNonLive,
+            getData: getData,
+            getMajorMinorData: getMajorMinorData,
+            exportExcel: exportExcel
+        };
+
+        return service;
+
+
+        function getTitleWhenLiveNonLive(data, isLast) {
+            return isLast ?
+                data.productName + ' LIVE/NON-LIVE' :
+                data.productName;
+        }
+
+
+        function getData(data) {
+            return $http.post('api/company-win-loss/soccer/live-nonlive', data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function getMajorMinorData(data) {
+            return $http.post('api/company-win-loss/soccer/major-minor', data)
+                            .then(httpResponseService.getDataComplete)
+                            .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(majorMinorTitle, liveNonLiveTitle, data, fileName) {
+            var httpData = {
+                majorMinorTitle: majorMinorTitle,
+                liveNonLiveTitle: liveNonLiveTitle,
+                startDate: data.startDate,
+                endDate: data.endDate
+            };
+            return $http.post('api/company-win-loss/soccer/live-nonlive/excel', httpData, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, fileName);
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})(angular);
+(function (angular, undefined) {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('SoccerMajorMinorController', SoccerMajorMinorController);
+
+    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants'];
+    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
@@ -2599,55 +2524,6 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('soccerLiveNonLiveService', soccerLiveNonLiveService);
-
-    soccerLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
-    function soccerLiveNonLiveService($http, httpResponseService) {
-        var service = {
-            getTitle: getTitleWhenLiveNonLive,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-
-        return service;
-
-
-        function getTitleWhenLiveNonLive(data, isLast) {
-            return isLast ?
-                data.productName + ' LIVE/NON-LIVE' :
-                data.productName;
-        }
-
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            return $http.post('api/company-win-loss/soccer/live-nonlive', httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            return $http.post('api/company-win-loss/soccer/live-nonlive/excel', httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
         .factory('soccerMajorMinorService', soccerMajorMinorService);
 
     soccerMajorMinorService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
@@ -2672,56 +2548,18 @@
             }
         }
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive
-            };
-            
-            return $http.post('api/company-win-loss/soccer/major-minor', httpData)
+        function getData(data) {            
+            return $http.post('api/company-win-loss/soccer/major-minor', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                isLive: data.isLive,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title
             };
+            angular.extend(httpData, data);
             return $http.post('api/company-win-loss/soccer/major-minor/excel', httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('soccerSportTypeService', soccerSportTypeService);
-
-    soccerSportTypeService.$inject = ['$http', 'httpResponseService'];
-    function soccerSportTypeService($http, httpResponseService) {
-        var service = {
-            exportExcel: exportExcel
-        };
-
-        return service;
-
-        function exportExcel(majorMinorTitle, liveNonLiveTitle, data, fileName) {
-            var httpData = {
-                majorMinorTitle: majorMinorTitle,
-                liveNonLiveTitle: liveNonLiveTitle,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            return $http.post('api/company-win-loss/soccer/sporttype/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
@@ -2743,120 +2581,61 @@
         .module('app.companyWinlossApp')
         .constant('soccerConstants', soccerConstants);
 })(angular);
-(function (angular, undefined) {
+(function (angular) {
     'use strict';
-
+    var cricketProductId = 50;
     angular
         .module('app.companyWinlossApp')
-        .controller('SoccerController', SoccerController);
+        .factory('sportsbookBetTypeService', sportsbookBetTypeService);
 
-    SoccerController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerSportTypeService', 'soccerConstants'];
-    function SoccerController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerSportTypeService, soccerConstants) {
-        var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
-        var tab = $scope.tab;
-        var getTitleWhenMajorMinor = pane.service.getTitle;
-        var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
-        var gridElements = $element.find('.freegrid');
-        var majorMinorGridElement = angular.element(gridElements[0]);
-        var liveNonLiveGridElement = angular.element(gridElements[1]);
-        $scope.show = showHideColumnBuilder.toggle;
-        $scope.generate = generate;
-        $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
-        $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
-        pane.data.isLive = soccerConstants.LiveNonLive;
-        
-        function generate() {
-            var majorMinorGridOptions,
-                liveNonLiveGridOptions;
-            var renderAll = function () {
-                if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
-                    
-                    createLinksForMajorMinor(majorMinorGridOptions);
-                    renderGrid(majorMinorGridElement, majorMinorGridOptions);
+    sportsbookBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'liveTitleService'];
+    function sportsbookBetTypeService($http, httpResponseService, companyWinlossService, titleService, liveTitleService) {
+        var service = {
+            getTitle: getTitle,
+            getData: getData,
+            exportExcel: exportExcel
+        };
 
-                    pane.service.getTitle = getTitleWhenLiveNonLive;
-                    createLinksForLiveNonLive(liveNonLiveGridOptions);
-                    renderGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
-                    pane.service.getTitle = getTitleWhenMajorMinor;
+        return service;
 
-                    pane.compileAll();
-                }
+        function getData(data) {
+            var url = getUrl(data);
+            return $http.post(url, data)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(title, data, fileName) {
+            var httpData = {
+                title: title
             };
-            pane.service.getData(pane.data).then(function (data) {
-                majorMinorGridOptions = data;
-                renderAll();
-            });
-
-            soccerLiveNonLiveService.getData(pane.data).then(function (data) {
-                liveNonLiveGridOptions = data;
-                renderAll();
-            });
+            angular.extend(httpData, data);
+            var url = getUrl(data) + '/excel';
+            return $http.post(url, httpData, {
+                responseType: "arraybuffer"
+            })
+            .then(function (response) {
+                httpResponseService.saveExcelFile(response.data, fileName);
+            })
+            .catch(httpResponseService.getDataFailed);
         }
 
-        function renderGrid(gridElement, data) {
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showCollapseExpandButton: true,
-                showExcelButton: false,
-                exportExcelFunction: exportExcel
-            };
-            if (gridElement === majorMinorGridElement) {
-                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
-                titleInfo.showExcelButton = true;
-            }
-
-            data.titleInfo = titleInfo;
-            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            gridElement.fanexGrid(data);
+        function getUrl(data) {
+            return data.sportType == cricketProductId
+                ? 'api/company-win-loss/other-sports/new-cricket/bet-type'
+                : 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
         }
 
-        function createLinksForMajorMinor(data) {
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
-            }
-        }
-
-        function generateSoccerBetTypePane(betTypeNameMajorMinor) {
-            var data = {
-                betTypeNameMajorMinor: betTypeNameMajorMinor
-            };
-            angular.extend(data, pane.data);
-
-            tab.goForward('soccerBetType', data);
-        }
-
-        function createLinksForLiveNonLive(data) {
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var soccerLiveNonLive = betTypeRow.Columns[0].Value;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
-            }
-        }
-
-        function generateSoccerLiveNonLivePane(soccerLiveNonLive) {
-            var data = {
-                soccerLiveNonLive: soccerLiveNonLive
-            };
-            angular.extend(data, pane.data);
-
-            tab.goForward('soccerLiveNonLive', data);
-        }
-
-        function exportExcel() {            
-            var majorMinorTitle = tab.generateBreadcrumbText();
-
-            pane.service.getTitle = getTitleWhenLiveNonLive;
-            var liveNonLiveTitle = tab.generateBreadcrumbText();
-            pane.service.getTitle = getTitleWhenMajorMinor;
-
-            soccerSportTypeService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+        function getTitle(data) {
+            var sportType = titleService.getSportTypeTitle(data);
+            var liveTitle = liveTitleService.getProductTitle(data);
+            var viewingFromSportType = sportType !== undefined;
+            return viewingFromSportType
+                        ? sportType
+                        : liveTitle;
         }
     }
-})(angular, undefined);
+})(angular);
 (function (angular) {
     'use strict';
 
@@ -3004,80 +2783,34 @@
                 endDate: data.endDate
             };
 
-            var url = data.betType == 10
+            var url = getServiceUrl(data.betType, data.productName);
+            return $http.post(url, httpData)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(title, data, fileName) {
+            var httpData = {
+                title: title
+            };
+            angular.extend(httpData, data);
+            var url = getServiceUrl(data.betType, data.productName) + '/excel';
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, fileName);
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function getServiceUrl(betType, productName) {
+            if (productName === 'Metric Gaming - Superlive') {
+                return 'api/company-win-loss/metric-gaming-superlive/match-detail';
+            }
+            else {
+                return betType === 10
                 ? 'api/company-win-loss/sportsbook/outright-match-detail'
-                : 'api/company-win-loss/sportsbook/match-detail';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                isLive: data.isLive,
-                isHedge: data.isHedge,
-                sportType: data.sportType,
-                betType: data.betType,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-
-            var url = data.betType == 10
-                ? 'api/company-win-loss/sportsbook/outright-match-detail/excel'
-                : 'api/company-win-loss/sportsbook/match-detail/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('sportsbookProductViewBetTypeService', sportsbookProductViewBetTypeService);
-
-    sportsbookProductViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-    function sportsbookProductViewBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
-        var service = {
-            getTitle: liveTitleService.getProductTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
+                    : 'api/company-win-loss/sportsbook/match-detail';
+            }
         }
     }
 })(angular);
@@ -3098,206 +2831,30 @@
         return service;
 
         function getData(data) {
-            var httpData = {
-                sportType: data.sportType,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/sportsbook/site';
-            return $http.post(url, httpData)
+            var url = getServiceUrl(data.productName);
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                sportType: data.sportType,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
+                title: title
             };
-            var url = 'api/company-win-loss/sportsbook/site/excel';
+            angular.extend(httpData, data);
+            var url = getServiceUrl(data.productName) + '/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
         }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
 
-    angular
-        .module('app.companyWinlossApp')
-        .factory('sportsbookSportTypeViewBetTypeService', sportsbookSportTypeViewBetTypeService);
+        function getServiceUrl(productName) {
+            return productName === 'Metric Gaming - Superlive'
+            ? 'api/company-win-loss/metric-gaming-superlive/site'
+                : 'api/company-win-loss/sportsbook/site';
 
-    sportsbookSportTypeViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function sportsbookSportTypeViewBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
-        var service = {
-            getTitle: titleService.getSportTypeTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive == undefined ? 2 : data.isLive
-            };
-            var url = getUrl(data);
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive
-            };
-            var url = getUrl(data) + '/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-        
-        function getUrl(data) {
-            var url = null;
-            if (data.sportType == 50) {
-                url = 'api/company-win-loss/other-sports/new-cricket/bet-type';
-            }
-            else {
-                url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
-            }
-            return url;
-        }
-    }
-})(angular);
-(function (angular, undefined) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .controller('SportsbookSportTypeController', SportsbookSportTypeController);
-
-    SportsbookSportTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-    function SportsbookSportTypeController($scope, $element, fanexGridService, showHideColumnService) {
-        var pane = $scope.pane;
-        var showHideColumnBuilder = new showHideColumnService(pane);
-        var tab = $scope.tab;
-        var gridElement = $element.find('.freegrid');
-        $scope.show = showHideColumnBuilder.toggle;
-        $scope.generate = generate;
-        $scope.generateBetType = generateBetType;
-
-        function generateBetType(sportType, sportTypeName, isLive) {
-            var data = {
-                sportType: sportType,
-                sportTypeName: sportTypeName,
-                isLive: isLive
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('betType', data);
-        }
-
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
-                createLinks(data);
-                renderGrid(data);
-                pane.compileAll();
-            });
-        }
-
-        function renderGrid(data) {
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showCollapseExpandButton: true,
-                showExcelButton: true,
-                exportExcelFunction: exportExcel,
-                customButtons: showHideColumnBuilder.getButtonHtml()
-            };
-
-            data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            gridElement.fanexGrid(data);
-        }
-
-        function createLinks(data) {
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var sportTypeRow = data.bodyRows[i];
-                var sportTypeName = sportTypeRow.Columns[0].Value;
-                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
-            }
-        }
-
-        function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
-        }
-    }
-})(angular, undefined);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
-        .factory('sportsbookSportTypeService', sportsbookSportTypeService);
-
-    sportsbookSportTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-    function sportsbookSportTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
-        var service = {
-            getTitle: liveTitleService.getProductTitle,
-            getData: getData,
-            exportExcel: exportExcel
-        };
-
-        return service;
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
         }
     }
 })(angular);

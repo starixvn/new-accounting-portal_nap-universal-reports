@@ -27,25 +27,17 @@
             }
         }
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: data.isLive
-            };
-            
-            return $http.post('api/company-win-loss/soccer/major-minor', httpData)
+        function getData(data) {            
+            return $http.post('api/company-win-loss/soccer/major-minor', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                isLive: data.isLive,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title
             };
+            angular.extend(httpData, data);
             return $http.post('api/company-win-loss/soccer/major-minor/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

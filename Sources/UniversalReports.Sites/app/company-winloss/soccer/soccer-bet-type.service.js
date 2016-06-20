@@ -30,14 +30,12 @@
             var isMajor = buildMajorFlag(data);
             var isLive = data.isLive;
 
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: isLive,
+            var httpData = {               
                 isMajor: isMajor
             };
-            var url = buildUrl(isLive, isMajor);
-            
+            angular.extend(httpData, data);
+
+            var url = buildUrl(isLive, isMajor);            
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -48,12 +46,11 @@
             var isLive = data.isLive;
 
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isLive: isLive,
+                title: title,               
                 isMajor: isMajor
             };
+            angular.extend(httpData, data);
+
             var url = buildUrl(isLive, isMajor) + '/excel';
 
             return $http.post(url, httpData, { responseType: "arraybuffer" })

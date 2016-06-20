@@ -15,38 +15,30 @@
         return service;
 
         function getData(data) {
-            var httpData = {
-                sportType: data.sportType,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
-            };
-            var url = 'api/company-win-loss/sportsbook/site';
-            return $http.post(url, httpData)
+            var url = getServiceUrl(data.productName);
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                sportType: data.sportType,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                isHedge: data.isHedge,
-                isLive: data.isLive
+                title: title
             };
-            var url = 'api/company-win-loss/sportsbook/site/excel';
+            angular.extend(httpData, data);
+            var url = getServiceUrl(data.productName) + '/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function getServiceUrl(productName) {
+            return productName === 'Metric Gaming - Superlive'
+            ? 'api/company-win-loss/metric-gaming-superlive/site'
+                : 'api/company-win-loss/sportsbook/site';
+
         }
     }
 })(angular);

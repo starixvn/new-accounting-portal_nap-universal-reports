@@ -10,6 +10,7 @@
         var service = {
             getTitle: getTitleWhenLiveNonLive,
             getData: getData,
+            getMajorMinorData: getMajorMinorData,
             exportExcel: exportExcel
         };
 
@@ -24,18 +25,21 @@
 
 
         function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            return $http.post('api/company-win-loss/soccer/live-nonlive', httpData)
+            return $http.post('api/company-win-loss/soccer/live-nonlive', data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
-        function exportExcel(title, data, fileName) {
+        function getMajorMinorData(data) {
+            return $http.post('api/company-win-loss/soccer/major-minor', data)
+                            .then(httpResponseService.getDataComplete)
+                            .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(majorMinorTitle, liveNonLiveTitle, data, fileName) {
             var httpData = {
-                title: title,
+                majorMinorTitle: majorMinorTitle,
+                liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
                 endDate: data.endDate
             };

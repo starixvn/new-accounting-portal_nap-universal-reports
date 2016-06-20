@@ -5,21 +5,48 @@
         .module('app.companyWinlossApp')
         .controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 
-    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants'];
-    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerConstants) {
+    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];
+    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerConstants) {
         var pane = $scope.pane;
+        var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
+        var getTitleWhenMajorMinor = pane.service.getTitle;
+        var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
+        var liveNonLiveGridElement = angular.element(gridElements[1]);
+        $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
-        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;        
-        pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? soccerConstants.NonLive : soccerConstants.Live;
+        $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
+        $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
+        pane.data.isLive = soccerConstants.LiveNonLive;
 
         function generate() {
+            var majorMinorGridOptions,
+                liveNonLiveGridOptions;
+            var renderAll = function () {
+                if (angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
+                    showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
+
+                    createLinksForMajorMinor(majorMinorGridOptions);
+                    renderGrid(majorMinorGridElement, majorMinorGridOptions);
+
+                    pane.service.getTitle = getTitleWhenLiveNonLive;
+                    createLinksForLiveNonLive(liveNonLiveGridOptions);
+                    renderGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
+                    pane.service.getTitle = getTitleWhenMajorMinor;
+
+                    pane.compileAll();
+                }
+            };
             pane.service.getData(pane.data).then(function (data) {
-                createLinksForMajorMinor(data);
-                renderGrid(majorMinorGridElement, data);
-                pane.compileLinks();
+                liveNonLiveGridOptions = data;
+                renderAll(); 
+            });
+
+            pane.service.getMajorMinorData(pane.data).then(function (data) {
+                majorMinorGridOptions = data;
+                renderAll();
             });
         }
 
@@ -27,12 +54,15 @@
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
-                showExcelButton: true,
+                showExcelButton: false,
                 exportExcelFunction: exportExcel
             };
+            if (gridElement === majorMinorGridElement) {
+                titleInfo.customButtons = showHideColumnBuilder.getButtonHtml();
+                titleInfo.showExcelButton = true;
+            }
 
             data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             gridElement.fanexGrid(data);
         }
 
@@ -40,22 +70,44 @@
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var betTypeRow = data.bodyRows[i];
                 var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
             }
         }
 
-        function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-           var data = {
+        function generateSoccerBetTypePane(betTypeNameMajorMinor) {
+            var data = {
                 betTypeNameMajorMinor: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 
             tab.goForward('soccerBetType', data);
-        }        
+        }
+
+        function createLinksForLiveNonLive(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var betTypeRow = data.bodyRows[i];
+                var soccerLiveNonLive = betTypeRow.Columns[0].Value;
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
+            }
+        }
+
+        function generateSoccerLiveNonLivePane(soccerLiveNonLive) {
+            var data = {
+                soccerLiveNonLive: soccerLiveNonLive
+            };
+            angular.extend(data, pane.data);
+
+            tab.goForward('soccerMajorMinor', data);
+        }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            var majorMinorTitle = tab.generateBreadcrumbText();
+
+            pane.service.getTitle = getTitleWhenLiveNonLive;
+            var liveNonLiveTitle = tab.generateBreadcrumbText();
+            pane.service.getTitle = getTitleWhenMajorMinor;
+
+            soccerMainExcelService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);

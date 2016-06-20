@@ -39,9 +39,7 @@
                 endDate: data.endDate
             };
 
-            var url = data.betType == 10
-                ? 'api/company-win-loss/sportsbook/outright-match-detail'
-                : 'api/company-win-loss/sportsbook/match-detail';
+            var url = getServiceUrl(data.betType, data.productName);
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -49,23 +47,26 @@
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                isLive: data.isLive,
-                isHedge: data.isHedge,
-                sportType: data.sportType,
-                betType: data.betType,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title
             };
-
-            var url = data.betType == 10
-                ? 'api/company-win-loss/sportsbook/outright-match-detail/excel'
-                : 'api/company-win-loss/sportsbook/match-detail/excel';
+            angular.extend(httpData, data);
+            var url = getServiceUrl(data.betType, data.productName) + '/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })
                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function getServiceUrl(betType, productName) {
+            if (productName === 'Metric Gaming - Superlive') {
+                return 'api/company-win-loss/metric-gaming-superlive/match-detail';
+            }
+            else {
+                return betType === 10
+                ? 'api/company-win-loss/sportsbook/outright-match-detail'
+                    : 'api/company-win-loss/sportsbook/match-detail';
+            }
         }
     }
 })(angular);

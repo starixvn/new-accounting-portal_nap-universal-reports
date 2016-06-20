@@ -3,39 +3,29 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('sportsbookProductViewBetTypeService', sportsbookProductViewBetTypeService);
+        .factory('betTypeService', betTypeService);
 
-    sportsbookProductViewBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-    function sportsbookProductViewBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
+    betTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
+    function betTypeService($http, httpResponseService, companyWinlossService, titleService) {
         var service = {
-            getTitle: liveTitleService.getProductTitle,
+            getTitle: titleService.getSportTypeTitle,
             getData: getData,
             exportExcel: exportExcel
         };
-
         return service;
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive
-            };
+        function getData(data) {           
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
-            return $http.post(url, httpData)
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                sportType: data.sportType,
-                isLive: data.isLive
+                title: title
             };
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {

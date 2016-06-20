@@ -14,23 +14,18 @@
         };
         return service;
 
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
+        function getData(data) {           
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type';
-            return $http.post(url, httpData)
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title
             };
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
