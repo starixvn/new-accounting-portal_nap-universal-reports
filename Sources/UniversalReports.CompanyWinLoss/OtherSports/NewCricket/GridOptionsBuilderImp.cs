@@ -73,7 +73,6 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
 
         private GridDataRow BuildCharegCommission(SiteWinLossSummary item, HAlignment alignment)
         {
-
             var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
             row.RowType = RowType.SubTotal;
             row.CssClass = "cricket-charged-commission";

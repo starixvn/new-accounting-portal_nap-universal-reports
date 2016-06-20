@@ -1,7 +1,9 @@
 ﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Factory;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
 {
@@ -37,7 +39,12 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            return Excel(criteria, "Bet Type", queryModel.Title);
+            var winLoss = service.Query(criteria);
+            var gridOptions = builder.Build(winLoss, string.Empty);
+            gridOptions = decorator.Build(gridOptions, "Bet Type");
+            gridOptions.TitleInfoText = queryModel.Title;
+
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
     }
 }
