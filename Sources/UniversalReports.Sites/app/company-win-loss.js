@@ -1128,10 +1128,10 @@
         function updateDateRange(dateRange) {
             vm.normalMode = dateRange.normalMode;
             if (vm.normalMode) {
-                vm.date = vm.dateRange.startDate;
+                vm.date = dateRange.startDate;
             } else {
-                vm.startDate = vm.dateRange.startDate;
-                vm.endDate = vm.dateRange.endDate;
+                vm.startDate = dateRange.startDate;
+                vm.endDate = dateRange.endDate;
             }
         }
     }
