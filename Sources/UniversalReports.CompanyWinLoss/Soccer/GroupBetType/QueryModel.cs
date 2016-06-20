@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
@@ -14,6 +15,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 
         public bool IsMajor { get; set; }
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

@@ -1,4 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
 {
@@ -6,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
     {
         public bool IsMajor { get; set; }
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
 
         public override string GetSettingKey()
         {

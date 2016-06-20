@@ -1,4 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
 {
@@ -6,7 +7,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.BetType
     {
         public int SportType { get; set; }
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
 
         public override string GetSettingKey()
         {

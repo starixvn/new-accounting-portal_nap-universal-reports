@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
@@ -12,6 +13,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
 
         public bool NormalMode { get; set; } = true;
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
     }
 }

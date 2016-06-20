@@ -1,4 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Common.Criteria;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 {
@@ -8,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public int BetType { get; set; }
 
-        public int IsLive { get; set; }
+        public int IsLive { get; set; } = Constants.LiveDefault;
 
         public bool IsHedge { get; set; }
 
