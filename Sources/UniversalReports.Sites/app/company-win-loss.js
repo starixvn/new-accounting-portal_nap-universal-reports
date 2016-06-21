@@ -377,7 +377,7 @@
             getProductTitle: getProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSiteTitle: getSiteTitle,
-            getProductNumberGameTitle : getProductNumberGameTitle,
+            getProductNumberGameTitle: getProductNumberGameTitle,
             getMatchDetailTitle: getMatchDetailTitle
         };
         return service;
@@ -387,7 +387,7 @@
         }
 
         function getSiteText(site) {
-            return site + ' Site';
+            return '| ' + site + ' Site';
         }
 
         function getProductTitle(data) {
@@ -1676,10 +1676,10 @@
         .module('app.companyWinlossApp')
         .factory('numberGameSiteService', numberGameSiteService);
 
-    numberGameSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function numberGameSiteService($http, httpResponseService, companyWinlossService, titleService) {
+    numberGameSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
+    function numberGameSiteService($http, httpResponseService, companyWinlossService, liveTitleService) {
         var service = {
-            getTitle: titleService.getSiteTitle,
+            getTitle: liveTitleService.getSiteTitle,
             getData: getData,
             exportExcel: exportExcel
         };

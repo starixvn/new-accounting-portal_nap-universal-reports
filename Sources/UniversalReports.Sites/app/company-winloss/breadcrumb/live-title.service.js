@@ -12,7 +12,7 @@
             getProductTitle: getProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSiteTitle: getSiteTitle,
-            getProductNumberGameTitle : getProductNumberGameTitle,
+            getProductNumberGameTitle: getProductNumberGameTitle,
             getMatchDetailTitle: getMatchDetailTitle
         };
         return service;
@@ -22,7 +22,7 @@
         }
 
         function getSiteText(site) {
-            return site + ' Site';
+            return '| ' + site + ' Site';
         }
 
         function getProductTitle(data) {
