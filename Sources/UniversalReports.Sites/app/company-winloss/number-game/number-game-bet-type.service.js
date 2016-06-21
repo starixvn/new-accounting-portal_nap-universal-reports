@@ -8,7 +8,7 @@
     numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
     function numberGameBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
         var service = {
-            getTitle: liveTitleService.getProductTitle,
+            getTitle: liveTitleService.getProductNumberGameTitle,
             getData: getData,
             exportExcel: exportExcel
         };

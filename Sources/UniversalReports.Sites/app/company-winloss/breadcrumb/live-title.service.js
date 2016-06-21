@@ -12,6 +12,7 @@
             getProductTitle: getProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSiteTitle: getSiteTitle,
+            getProductNumberGameTitle : getProductNumberGameTitle,
             getMatchDetailTitle: getMatchDetailTitle
         };
         return service;
@@ -28,6 +29,10 @@
             return data.productName + getLiveText(data.isLive);
         }
 
+        function getProductNumberGameTitle(data) {
+            return data.isLive == undefined ? data.productName : data.productName + getLiveText(data.isLive);
+        }
+
         function getSportTypeTitle(data) {
             return data.sportTypeName + getLiveText(data.isLive);
         }
@@ -37,7 +42,7 @@
         }
 
         function getMatchDetailTitle(data) {
-            return data.betTypeName + getLiveText(data.isLive) ;
+            return data.betTypeName + getLiveText(data.isLive);
         }
     }
 })(angular);
