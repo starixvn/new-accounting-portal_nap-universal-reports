@@ -479,11 +479,9 @@
 
         function getData(data) {
             var httpData = {
-                productId: data.casinoProductId,
-                startDate: data.startDate,
-                endDate: data.endDate
+                productId: data.casinoProductId
             };
-
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
@@ -493,11 +491,9 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                productId: data.casinoProductId,
-                startDate: data.startDate,
-                endDate: data.endDate
+                productId: data.casinoProductId               
             };
-
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
@@ -680,8 +676,8 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                var isTotalOfCricket = pane.data.sportType == 50 && betTypeName == "Total";
-                var enableLink = !isTotalOfCricket && betTypeRow.SubRows;
+                var isTotalRow = betTypeName == "Total";
+                var enableLink = !isTotalRow && betTypeRow.SubRows;
                 if (enableLink && hasDetailDrilldown) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }

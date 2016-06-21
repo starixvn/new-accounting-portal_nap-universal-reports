@@ -61,8 +61,8 @@
                 var betTypeRow = data.bodyRows[i];
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                var isTotalOfCricket = pane.data.sportType == 50 && betTypeName == "Total";
-                var enableLink = !isTotalOfCricket && betTypeRow.SubRows;
+                var isTotalRow = betTypeName == "Total";
+                var enableLink = !isTotalRow && betTypeRow.SubRows;
                 if (enableLink && hasDetailDrilldown) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
                 }

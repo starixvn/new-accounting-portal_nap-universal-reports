@@ -30,7 +30,6 @@ namespace UniversalReports.CompanyWinLoss.Soccer.LiveNonLive
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-
             var majorMinorCriteria = CriteriaFactory.Transform<MajorMinor.Criteria>(queryModel);
             var majorMinorGridOptions = GetGridOptions(majorMinorCriteria, "Sport Type", queryModel.MajorMinorTitle);
 

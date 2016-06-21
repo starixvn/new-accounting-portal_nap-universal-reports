@@ -16,11 +16,9 @@
 
         function getData(data) {
             var httpData = {
-                productId: data.casinoProductId,
-                startDate: data.startDate,
-                endDate: data.endDate
+                productId: data.casinoProductId
             };
-
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
@@ -30,11 +28,9 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                productId: data.casinoProductId,
-                startDate: data.startDate,
-                endDate: data.endDate
+                productId: data.casinoProductId               
             };
-
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
