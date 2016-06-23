@@ -15,7 +15,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             {
                 ShowTitle = true,
                 TitleInfoText = title,
-                TitleType = TitleType.OneLineBlue,
+                TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),
                 ShowFooter = true,
@@ -103,7 +103,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
                 new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
 
-            return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne };
+            return new GridDataRow { Columns = colummns, RowType = RowType.Normal };
         }
 
         private List<GridDataRow> BuildFooter(WinLossModel model)
