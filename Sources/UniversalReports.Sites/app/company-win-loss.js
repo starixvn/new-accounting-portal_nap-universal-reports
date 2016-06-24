@@ -2401,7 +2401,7 @@
             var liveNonLiveTitle = tab.generateBreadcrumbText();
             pane.service.getTitle = getTitleWhenMajorMinor;
 
-            soccerMainExcelService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+            soccerLiveNonLiveService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }
     }
 })(angular, undefined);
