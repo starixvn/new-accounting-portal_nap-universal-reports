@@ -13,7 +13,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public bool NormalMode { get; set; } = true;
 
-        public int SportType { get; set; }
+        public int SportType { get; set; } = Constants.SportTypeSoccer;
 
         public int BetType { get; set; }
 

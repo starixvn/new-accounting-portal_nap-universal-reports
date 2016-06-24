@@ -9,5 +9,7 @@
         public const int SystemParlayBetType = 29;
 
         public const string SiteDefault = "ALL";
+
+        public const int SportTypeSoccer = 1;
     }
 }
