@@ -9,6 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
         private static string[] controllerList = CreateTestCases();
 
         [TestCaseSource("controllerList")]
+        [Category("ControllersTests")]
         public void Json_Successful(string controllerName)
         {
             var queryModel = GetQueryModel(controllerName);

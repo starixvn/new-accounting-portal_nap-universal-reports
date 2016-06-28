@@ -26,7 +26,7 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
           "SP2100:CodeLineMustNotBeLongerThan",
           Justification = "Reviewed. Suppression is OK here.")]
         protected List<HeaderColumns> BuildColumns()

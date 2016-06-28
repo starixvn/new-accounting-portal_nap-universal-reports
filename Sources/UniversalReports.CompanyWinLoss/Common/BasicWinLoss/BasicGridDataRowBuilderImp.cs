@@ -9,7 +9,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
     public class BasicGridDataRowBuilderImp : BasicGridDataRowBuilder
     {
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
         "SP2100:CodeLineMustNotBeLongerThan",
         Justification = "Reviewed. Suppression is OK here.")]
         public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)

@@ -10,6 +10,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
         private static string[] controllerList = CreateTestCases();
 
         [TestCaseSource("controllerList")]
+        [Category("ControllersTests")]
         public void Json_Successful(string controllerName)
         {
             var queryModel = GetQueryModel(controllerName);
@@ -61,7 +62,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
             };
         }
 
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         internal object GetQueryModel(string controllerName)
         {
             switch (controllerName)

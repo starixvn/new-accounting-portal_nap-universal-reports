@@ -7,6 +7,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
     public class NumberGameBetTypeControllerTests : BaseControllerTests
     {
         [Test]
+        [Category("ControllersTests")]
         public void Json_Successful()
         {
             const string ControllerName = "NumberGame.BetType.NumberGameBetTypeController";

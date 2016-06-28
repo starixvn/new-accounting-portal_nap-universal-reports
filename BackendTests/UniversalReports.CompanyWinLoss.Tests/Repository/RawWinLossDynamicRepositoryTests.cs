@@ -13,6 +13,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
         private static ICriteria[] criteriaList = CreateTestCases();
 
         [Test]
+        [Category("RepositoryTests")]
         [TestCaseSource("criteriaList")]
         public void Fetch_Successful(ICriteria criteria)
         {
@@ -20,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
             repository.Fetch<RawWinLoss>(criteria);
         }
 
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         private static ICriteria[] CreateTestCases()
         {
             var betTradeBetTypeCriteria = new CompanyWinLoss.Bettrade.BetType.Criteria();

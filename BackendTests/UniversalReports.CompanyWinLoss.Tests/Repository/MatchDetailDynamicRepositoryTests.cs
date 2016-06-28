@@ -12,6 +12,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
 
         [Test]
         [TestCaseSource("criteriaList")]
+        [Category("RepositoryTests")]
         public void Fetch_Successful(ICriteria criteria)
         {
             var repository = new DynamicRepository();

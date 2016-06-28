@@ -3136,12 +3136,11 @@
         }
 
         function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
+            var httpData = {                
                 productId: universalSettings.getProductId(data.productName)
             };
-            var url = getServiceUrl(data) + '/bet-type';
+            angular.extend(httpData, data);
+            var url = getServiceUrl(httpData) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -3149,11 +3148,10 @@
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
+                title: title,                
                 productId: universalSettings.getProductId(data.productName)
             };
+            angular.extend(httpData, httpData);
             var url = getServiceUrl(data) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
@@ -3180,26 +3178,17 @@
         return service;
 
         function getData(data) {
-            var httpData = {
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
             var url = 'api/company-win-loss/universal/site';
-            return $http.post(url, httpData)
+            return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title,
-                betType: data.betType,
-                site: data.site,
-                startDate: data.startDate,
-                endDate: data.endDate
+                title: title                
             };
+            angular.extend(httpData, data);
             var url = 'api/company-win-loss/universal/site/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {

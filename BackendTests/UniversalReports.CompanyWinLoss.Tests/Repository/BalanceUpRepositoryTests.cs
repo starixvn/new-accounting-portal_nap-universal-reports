@@ -7,6 +7,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
     public class BalanceUpRepositoryTests
     {
         [Test]
+        [Category("RepositoryTests")]
         public void Get_Successful()
         {
             var repository = new DynamicRepository();
