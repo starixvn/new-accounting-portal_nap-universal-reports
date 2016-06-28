@@ -5,13 +5,13 @@
         .module('app.companyWinlossApp')
         .controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 
-    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];
-    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerLiveNonLiveService, showHideColumnService, soccerConstants) {
+    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerMajorMinorService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];
+    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerMajorMinorService, soccerLiveNonLiveService, showHideColumnService, soccerConstants) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
-        var getTitleWhenMajorMinor = pane.service.getTitle;
-        var getTitleWhenLiveNonLive = soccerLiveNonLiveService.getTitle;
+        var getTitleWhenMajorMinor = soccerMajorMinorService.getTitle;
+        var getTitleWhenLiveNonLive = pane.service.getTitle;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         var liveNonLiveGridElement = angular.element(gridElements[1]);
@@ -29,19 +29,19 @@
                     showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
 
                     createLinksForMajorMinor(majorMinorGridOptions);
+                    pane.service.getTitle = getTitleWhenMajorMinor;
                     renderGrid(majorMinorGridElement, majorMinorGridOptions);
 
-                    pane.service.getTitle = getTitleWhenLiveNonLive;
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
+                    pane.service.getTitle = getTitleWhenLiveNonLive;
                     renderGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
-                    pane.service.getTitle = getTitleWhenMajorMinor;
 
                     pane.compileAll();
                 }
             };
             pane.service.getData(pane.data).then(function (data) {
                 liveNonLiveGridOptions = data;
-                renderAll(); 
+                renderAll();
             });
 
             pane.service.getMajorMinorData(pane.data).then(function (data) {
@@ -101,11 +101,13 @@
         }
 
         function exportExcel() {
+
+            pane.service.getTitle = getTitleWhenMajorMinor;
             var majorMinorTitle = tab.generateBreadcrumbText();
 
             pane.service.getTitle = getTitleWhenLiveNonLive;
             var liveNonLiveTitle = tab.generateBreadcrumbText();
-            pane.service.getTitle = getTitleWhenMajorMinor;
+            
 
             soccerLiveNonLiveService.exportExcel(majorMinorTitle, liveNonLiveTitle, pane.data, pane.getFileName());
         }

@@ -18,7 +18,7 @@
         function getTitleWhenMajorMinor(data) {
             if (data.isLive == soccerConstants.LiveNonLive)
             {
-                return data.productName;
+                return data.productName + ' ' + "MAJOR/MINOR";
             }
             else {
                 var liveNonLive = (data.isLive == soccerConstants.Live) ? "LIVE" : "NON-LIVE";
