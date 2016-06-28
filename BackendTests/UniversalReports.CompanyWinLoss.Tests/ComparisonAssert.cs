@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
-using System.IO;
 
 namespace UniversalReports.CompanyWinLoss.Tests
 {
@@ -18,7 +17,6 @@ namespace UniversalReports.CompanyWinLoss.Tests
         {
             var actualJson = JsonConvert.SerializeObject(actual, Formatting.Indented);
 
-            File.WriteAllText(@"D:\out.json", actualJson);
             Assert.AreEqual(expectedJson, actualJson);
         }
     }
