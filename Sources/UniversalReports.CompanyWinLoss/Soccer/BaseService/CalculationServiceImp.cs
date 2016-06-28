@@ -29,7 +29,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
         public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
         {
             var otherRawWinLosses = rawWinLosses
-                .Where(r => !r.GroupName.Contains("(hedge)"))
+                .Where(r => !r.GroupName.Contains("(hedge)") && r.GroupName != "RM")
                 .Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
             return CalculateSumWinLoss(sumTitle, otherRawWinLosses);
         }
