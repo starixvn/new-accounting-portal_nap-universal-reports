@@ -50,7 +50,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         public decimal CalculateMargin(decimal income, decimal turnover)
         {
-            return turnover > 0 ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero) : 0;
+            return turnover != 0 ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero) : 0;
         }
 
         public IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<RawWinLoss> rawWinLoss)
