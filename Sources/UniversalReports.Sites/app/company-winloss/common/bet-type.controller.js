@@ -51,7 +51,7 @@
         }
 
         function isDateRangeInThreeDays(startDate, endDate) {
-            return endDate.diff(startDate, 'days') <= 3;
+            return endDate.diff(startDate, 'days') < 3;
         }
 
         function createLinks(data) {

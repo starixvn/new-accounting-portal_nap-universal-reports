@@ -671,7 +671,7 @@
         }
 
         function isDateRangeInThreeDays(startDate, endDate) {
-            return endDate.diff(startDate, 'days') <= 3;
+            return endDate.diff(startDate, 'days') < 3;
         }
 
         function createLinks(data) {
@@ -1342,7 +1342,9 @@
             var renderAll = function () {
                 if (angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
                     showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
-                    createLinksForBetType(betTypeGridOptions);
+                    if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                        createLinksForBetType(betTypeGridOptions);
+                    }
                     renderGridForBetType(betTypeGridOptions);
                     createLinksForLiveNonLive(liveNonLiveGridOptions);
                     renderGridForLiveNonLive(liveNonLiveGridOptions);
@@ -1374,6 +1376,10 @@
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
             betTypeGridElement.fanexGrid(data);
+        }
+
+        function isDateRangeInThreeDays(startDate, endDate) {
+            return endDate.diff(startDate, 'days') < 3;
         }
 
         function renderGridForLiveNonLive(data) {
