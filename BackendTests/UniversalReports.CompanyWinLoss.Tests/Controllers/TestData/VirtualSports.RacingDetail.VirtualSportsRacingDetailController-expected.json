@@ -1067,7 +1067,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1136,7 +1136,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     }
   ],
@@ -1145,7 +1145,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Grand Total",
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

@@ -28,7 +28,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
             return new BasicWinLossModel
             {
-                SiteWinLossSummaries = siteWinLossSummaries.OrderBy(s => s.Total.Name).ToList(),
+                SiteWinLossSummaries = siteWinLossSummaries.ToList(),
                 RM = allRMData.ToList(),
                 GrandTotal = grandTotal
             };

@@ -882,7 +882,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "MergeColNumber": 4,
           "CssClass": null,
           "CustomAttr": null,
@@ -952,7 +952,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     }
   ],

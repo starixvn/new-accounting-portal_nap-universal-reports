@@ -512,7 +512,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "MergeColNumber": 2,
           "CssClass": null,
           "CustomAttr": null,
@@ -622,7 +622,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     },
     {
@@ -911,7 +911,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "MergeColNumber": 2,
           "CssClass": null,
           "CustomAttr": null,
@@ -1021,7 +1021,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     },
     {
@@ -1183,7 +1183,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "MergeColNumber": 2,
           "CssClass": null,
           "CustomAttr": null,
@@ -1293,7 +1293,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     },
     {
@@ -1455,7 +1455,7 @@
       "Columns": [
         {
           "Name": "MatchCode",
-          "Value": "",
+          "Value": "Total",
           "MergeColNumber": 2,
           "CssClass": null,
           "CustomAttr": null,
@@ -1565,7 +1565,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
+      "CssClass": "total-row subTotal",
       "CustomAttr": null
     }
   ],
