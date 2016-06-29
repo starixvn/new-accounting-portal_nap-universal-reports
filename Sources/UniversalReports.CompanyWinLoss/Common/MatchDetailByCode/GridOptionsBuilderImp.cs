@@ -36,7 +36,10 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
         {
             var leagueNameRow = BuildLeagueNameRow(league.Name);
             var matchRows = league.Matches.Select(m => BuildDataRow(m, HAlignment.Center));
+            league.Total.Name = league.Total.Name == string.Empty ? "Total" : league.Total.Name;
             var totalRows = BuildDataRow(league.Total, HAlignment.Right);
+            totalRows.CssClass = "total-row";
+            totalRows.RowType = RowType.SubTotal;
 
             var rows = new List<GridDataRow> { leagueNameRow };
             rows.AddRange(matchRows);

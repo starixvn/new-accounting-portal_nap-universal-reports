@@ -27,7 +27,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             var leagues = rawWinLosses.Select(l => l.GroupName).Distinct();
             var leagueWinLosses = leagues.Select(l => CalculateLeagueWinLoss(l, rawWinLosses))
                                          .OrderBy(l => l.Name);
-            var grandTotal = calculationService.CalculateSumWinLoss(string.Empty, rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new WinLossModel
             {
