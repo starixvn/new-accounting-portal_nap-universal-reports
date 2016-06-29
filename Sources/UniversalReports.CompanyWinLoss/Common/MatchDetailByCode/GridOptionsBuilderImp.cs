@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 BodyRows = BuildBodyRows(winLoss.Leagues),
                 FooterRows = BuildFooter(winLoss.Total),
                 ShowFooter = true,

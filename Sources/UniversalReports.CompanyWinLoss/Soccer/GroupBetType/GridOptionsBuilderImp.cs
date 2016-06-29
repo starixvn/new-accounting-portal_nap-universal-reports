@@ -22,7 +22,7 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,

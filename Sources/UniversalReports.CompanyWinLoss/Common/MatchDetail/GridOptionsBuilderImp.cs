@@ -14,7 +14,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             var gridOptions = new GridOptions
             {
                 ShowTitle = true,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildBodyRows(winloss.Leagues),
                 FooterRows = BuildFooter(winloss),

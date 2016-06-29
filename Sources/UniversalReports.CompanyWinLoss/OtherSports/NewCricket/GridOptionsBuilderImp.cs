@@ -26,7 +26,7 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,

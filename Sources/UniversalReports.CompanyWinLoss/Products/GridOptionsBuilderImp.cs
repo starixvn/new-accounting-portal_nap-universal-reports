@@ -23,7 +23,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowHighlightRow = false,

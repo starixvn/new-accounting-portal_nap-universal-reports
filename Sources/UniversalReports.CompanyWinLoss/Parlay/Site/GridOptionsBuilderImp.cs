@@ -21,7 +21,7 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
             return new GridOptions
             {
                 ShowTitle = true,
-                TitleInfoText = title,
+                TitleInfoText = title.ToUpper(),
                 TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildSites(winLoss.Sites),
                 FooterRows = BuildFooter(winLoss.Total),
