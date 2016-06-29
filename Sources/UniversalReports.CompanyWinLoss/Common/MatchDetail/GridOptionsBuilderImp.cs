@@ -41,7 +41,9 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             dataRows.Add(leagueNameRow);
             dataRows.AddRange(matchRows);
 
-            var leagueTotalRow = BuildTotalRow(league.Total, string.Empty);
+            var leagueTotalRow = BuildTotalRow(league.Total, "Total");
+            leagueTotalRow.CssClass = "total-row";
+            leagueTotalRow.RowType = RowType.SubTotal;
             dataRows.Add(leagueTotalRow);
 
             return dataRows;
