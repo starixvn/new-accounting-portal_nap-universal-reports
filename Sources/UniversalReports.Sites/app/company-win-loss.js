@@ -3157,7 +3157,7 @@
                 title: title,                
                 productId: universalSettings.getProductId(data.productName)
             };
-            angular.extend(httpData, httpData);
+            angular.extend(httpData, data);
             var url = getServiceUrl(data) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
