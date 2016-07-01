@@ -32,7 +32,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var nonSportsbookProducts = GetProductGroup(rawNonSportsbookProducts, "Non-Sports Total");
             var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
-
+            grandTotal = CalculateGrandTotal(grandTotal, sportsbookRMWinLosses);
             return new ProductWinLoss
             {
                 Sportsbook = sportsbookProducts,
@@ -56,6 +56,34 @@ namespace UniversalReports.CompanyWinLoss.Products
         public List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
         {
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
+        }
+
+        public SiteWinLossSummary CalculateGrandTotal(SiteWinLossSummary siteWinLoss, List<WinLoss> rawWinLoss)
+        {
+            var rawEightRM = rawWinLoss.Where(r => r.Name.Contains("8RM"));
+            var rawBARM = rawWinLoss.Where(r => r.Name.Contains("BARM"));
+            siteWinLoss.Credit = CalculateGrandTotalProduct(rawEightRM, siteWinLoss.Credit);
+            siteWinLoss.Deposit = CalculateGrandTotalProduct(rawBARM, siteWinLoss.Deposit);
+            siteWinLoss.Total = CalculateGrandTotalProduct(rawWinLoss, siteWinLoss.Total);
+
+            return siteWinLoss;
+        }
+
+        public WinLoss CalculateGrandTotalProduct(IEnumerable<WinLoss> rawWinLoss, WinLoss winLoss)
+        {
+            foreach (var item in rawWinLoss)
+            {
+                winLoss.MemberWinLoss += item.MemberWinLoss;
+                winLoss.SMAWinLoss += item.SMAWinLoss;
+                winLoss.Commission += item.Commission;
+                winLoss.VarianceIncome += item.VarianceIncome;
+                winLoss.VirtualIncome += item.VirtualIncome;
+                winLoss.RealIncome += item.RealIncome;
+                winLoss.AfterExtraPT += item.AfterExtraPT;
+                winLoss.ExtraPT += item.ExtraPT;
+            }
+
+            return winLoss;
         }
     }
 }
