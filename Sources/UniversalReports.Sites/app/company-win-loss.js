@@ -2111,7 +2111,6 @@
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
-                updateFooterData(data);
                 showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
@@ -2144,32 +2143,6 @@
             }
         }
 
-        function updateFooterData(data) {
-            trimNote(data);
-            appendNote(data);
-
-            function trimNote(data) {
-                var footerRows = data.footerRows;
-                footerRows.splice(3, footerRows.length - 3);
-            }
-
-            function appendNote(data) {
-                var reportNote = "* Sportsbook Total: Sportsbook Live + Sportsbook Non-Live + Parlay + Outright" +
-                                 "<br/>* Grand Total: Sportsbook Total + Number Game + Live Casino + Casino + Virtual Sports + Keno + Racing +  Bingo + Bettrade + Colossus Bets";
-
-                var noteRow = {
-                    Columns: [{
-                        Name: "Main",
-                        Value: reportNote,
-                        MergeColNumber: 13,
-                        CellAlign: "left",
-                        TdClass: "grand-total-note"
-                    }]
-                };
-
-                data.footerRows.push(noteRow);
-            }
-        }
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
