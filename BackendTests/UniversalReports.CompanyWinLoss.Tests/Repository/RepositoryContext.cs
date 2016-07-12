@@ -1,5 +1,5 @@
 ﻿using Fanex.Data.Configuration;
-using Fanex.Data.Repository;
+using Fanex.Respository;
 using System;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 
@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
         {
             DbSettingProviderManager.Current.Start();
 
-            var repository = new DynamicRepository();
+            var repository = new SimpleRepositoryImp();
             var balanceUpService = new BalanceUpServiceImp(repository);
             var balanceUpRange = balanceUpService.Query();
             BalanceUpDate = balanceUpRange.BalanceUpDate;

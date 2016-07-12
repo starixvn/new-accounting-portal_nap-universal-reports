@@ -1,5 +1,5 @@
 ﻿using Fanex.Caching;
-using Fanex.Data.Repository;
+using Fanex.Respository;
 
 namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
 {
@@ -7,11 +7,11 @@ namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
     {
         private const string BalanceUpRangeCacheKey = "BalanceUpRangeCacheKey";
 
-        private readonly IDynamicRepository repository;
+        private readonly SimpleRepository repository;
 
         private readonly ICache cacheService = CacheService.CreateInstance(CacheType.MemoryCache);
 
-        public BalanceUpServiceImp(IDynamicRepository repository)
+        public BalanceUpServiceImp(SimpleRepository repository)
         {
             this.repository = repository;
         }

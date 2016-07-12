@@ -3,7 +3,7 @@
 namespace UniversalReports.Sites.App_Start
 {
     using CompanyWinLoss.Common.BalanceUpServices;
-    using Fanex.Data.Repository;
+    using Fanex.Respository;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -28,7 +28,7 @@ namespace UniversalReports.Sites.App_Start
 
         private static void InitializeContainer(Container container)
         {
-            container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Scoped);
+            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Scoped);
             container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Scoped);
         }
     }

@@ -1,4 +1,4 @@
-﻿using Fanex.Data.Repository;
+﻿using Fanex.Respository;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
@@ -8,12 +8,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 {
     public class RawWinLossServiceImp : RawWinLossService
     {
-        private readonly IDynamicRepository repository;
+        private readonly SimpleRepository repository;
 
         private readonly BalanceUpSourceChooser balanceUpSourceChooser;
 
         public RawWinLossServiceImp(
-            IDynamicRepository repository,
+            SimpleRepository repository,
             BalanceUpSourceChooser balanceUpSourceChooser)
         {
             this.repository = repository;

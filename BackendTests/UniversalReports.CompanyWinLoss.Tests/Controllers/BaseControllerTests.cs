@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Fanex.Respository;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
                 BalanceUpDate = new DateTime(2016, 01, 01),
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
-            var repository = Substitute.For<IDynamicRepository>();
+            var repository = Substitute.For<SimpleRepository>();
             repository.Fetch<RawWinLoss>(Arg.Any<ICriteria>())
                       .Returns(fakeData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
@@ -39,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Tests.Controllers
                 BalanceUpDate = new DateTime(2016, 01, 01),
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
-            var repository = Substitute.For<IDynamicRepository>();
+            var repository = Substitute.For<SimpleRepository>();
             repository.Fetch<Common.MatchDetail.RawWinLoss>(Arg.Any<ICriteria>())
                       .Returns(fakeData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
