@@ -55,7 +55,13 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         public List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
         {
-            return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
+            var winlosses = new List<RawWinLoss>();
+            winlosses.AddRange(rawWinLosses.Where(r => r.RowName == "Soccer 8RM"));
+            winlosses.AddRange(rawWinLosses.Where(r => r.RowName == "Soccer BARM"));
+            winlosses.AddRange(rawWinLosses.Where(r => r.RowName == "Other Sports 8RM"));
+            winlosses.AddRange(rawWinLosses.Where(r => r.RowName == "Other Sports BARM"));
+
+            return winlosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
         }
 
         public SiteWinLossSummary CalculateGrandTotal(SiteWinLossSummary siteWinLoss, List<WinLoss> rawWinLoss)

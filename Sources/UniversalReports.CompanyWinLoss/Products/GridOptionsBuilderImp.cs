@@ -68,7 +68,7 @@ namespace UniversalReports.CompanyWinLoss.Products
                 {
                     ColumnIndex = 1,
                     Name = "Main",
-                    Value = "",
+                    Value = string.Empty,
                     MergeColNumber = 13
                 }
             };
