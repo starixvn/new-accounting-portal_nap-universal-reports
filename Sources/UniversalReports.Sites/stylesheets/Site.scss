@@ -285,6 +285,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.scroll-y {
+    border-top-width: 3px !important;
+}
+
 .grid-boundary {
     .freegrid {
         font-size: 0.85em;
@@ -313,14 +317,15 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
 
-        .cricket-charged-commission { 
+        .cricket-charged-commission {
             & > td {
                 border-top: 1px solid #ff6600;
                 background: none repeat scroll 0 0 #dce2bc;
                 background-color: #dce2bc;
             }
         }
-        .cricket-non-charged-com-total{
+
+        .cricket-non-charged-com-total {
             & > td {
                 color: #4F4F4F;
                 border-top: 1px solid #ff6600;

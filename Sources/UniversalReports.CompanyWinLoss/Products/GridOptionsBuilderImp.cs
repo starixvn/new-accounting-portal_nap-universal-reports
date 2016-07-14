@@ -42,7 +42,9 @@ namespace UniversalReports.CompanyWinLoss.Products
             var bodyRows = new List<GridDataRow>();
             bodyRows.AddRange(sportsbookRows);
             bodyRows.AddRange(sportsbookRMRows);
+            bodyRows.Add(EmptyRow());
             bodyRows.AddRange(nonSportsbookRows);
+            bodyRows.Add(EmptyRow());
 
             return bodyRows;
         }
@@ -56,6 +58,27 @@ namespace UniversalReports.CompanyWinLoss.Products
             var totalRow = BuildSiteWinLossSummary(productGroupWinLoss.Total, true);
 
             return new List<GridDataRow>(bodyRows) { totalRow };
+        }
+
+        private GridDataRow EmptyRow()
+        {
+            var colummns = new List<Columns>
+            {
+                new Columns
+                {
+                    ColumnIndex = 1,
+                    Name = "Main",
+                    Value = "",
+                    MergeColNumber = 13
+                }
+            };
+
+            return new GridDataRow
+            {
+                Columns = colummns,
+                RowType = RowType.Normal,
+                CssClass = string.Empty
+            };
         }
 
         private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary productWinLoss, bool isTotal)
