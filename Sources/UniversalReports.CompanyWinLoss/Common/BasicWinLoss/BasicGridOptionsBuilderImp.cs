@@ -51,11 +51,12 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 
         private GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)
         {
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
+            var nonExtraPT = !Casino.Constants.SportsNonExtraPT.Contains(item.Total.Name);
+            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment, nonExtraPT);
             row.RowType = RowType.ParentLevelOne;
 
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
+            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right, nonExtraPT);
+            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right, nonExtraPT);
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
