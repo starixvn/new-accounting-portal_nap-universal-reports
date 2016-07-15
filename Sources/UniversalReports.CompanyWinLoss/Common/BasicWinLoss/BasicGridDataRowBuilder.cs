@@ -6,6 +6,6 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
 {
     public interface BasicGridDataRowBuilder
     {
-        GridDataRow BuildDataRow(WinLoss item, HAlignment alignment);
+        GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, bool hasExtraPT = true);
     }
 }

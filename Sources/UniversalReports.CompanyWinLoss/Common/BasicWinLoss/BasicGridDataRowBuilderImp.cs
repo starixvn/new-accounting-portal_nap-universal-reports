@@ -12,7 +12,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
         "SP2100:CodeLineMustNotBeLongerThan",
         Justification = "Reviewed. Suppression is OK here.")]
-        public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
+        public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, bool hasExtraPT = true)
         {
             var columnIndex = 0;
             var customAttributes = $"{item.Id}";
@@ -25,7 +25,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
                 new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
-                new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
+                new Columns(columnIndex++, "ExtraPT", item.ExcelExtraPT(hasExtraPT)),
                 new Columns(columnIndex++, "AfterExtraPT", item.AfterExtraPT),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),

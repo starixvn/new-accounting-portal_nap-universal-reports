@@ -84,18 +84,19 @@ namespace UniversalReports.CompanyWinLoss.Products
         private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary productWinLoss, bool isTotal)
         {
             var rowCssClass = isTotal ? "total-row" : string.Empty;
+            var nonExtraPT = Constants.ProductsExtraPT.Contains(productWinLoss.Total.Name);
 
-            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left);
+            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left, nonExtraPT);
             productDataRow.CssClass = rowCssClass;
             productDataRow.RowType = isTotal ? RowType.SubTotal : RowType.ParentLevelOne;
             productDataRow.CustomAttr = isTotal ? null : "product";
 
-            var creditRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Credit, HAlignment.Right);
+            var creditRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Credit, HAlignment.Right, nonExtraPT);
             creditRow.CssClass = rowCssClass;
             creditRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
             productDataRow.SubRows.Add(creditRow);
 
-            var depositRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Deposit, HAlignment.Right);
+            var depositRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Deposit, HAlignment.Right, nonExtraPT);
             depositRow.CssClass = rowCssClass;
             depositRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
             productDataRow.SubRows.Add(depositRow);
@@ -106,7 +107,7 @@ namespace UniversalReports.CompanyWinLoss.Products
         private List<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
-                .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))
+                .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right, false))
                 .ToList();
             rows.ForEach(r =>
             {

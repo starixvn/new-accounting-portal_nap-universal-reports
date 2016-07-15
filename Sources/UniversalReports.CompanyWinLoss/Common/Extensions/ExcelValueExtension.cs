@@ -21,5 +21,10 @@
         {
             return item.VirtualTurnover == 0 ? "N/A" : (object)item.VirtualMargin;
         }
+
+        public static object ExcelExtraPT(this Models.WinLoss item, bool hasExtraPT = true)
+        {
+            return hasExtraPT ? (object)item.ExtraPT : "N/A";
+        }
     }
 }

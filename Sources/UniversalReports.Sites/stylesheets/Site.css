@@ -5825,6 +5825,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.231; }
 
+.freegrid .parent-level-0 td {
+  background-color: #E4F2FD !important; }
+
 .date-picker {
   width: 120px; }
   .date-picker .date-picker-input {
