@@ -25,7 +25,7 @@
         var vm = this;
         var selectedDate;
         var minDate = moment.utc([2011, 0, 1]);
-        var maxDate = moment.utc(config.yesterday);
+        var maxDate = moment.utc(config.today);
         var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');
         var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');
 
