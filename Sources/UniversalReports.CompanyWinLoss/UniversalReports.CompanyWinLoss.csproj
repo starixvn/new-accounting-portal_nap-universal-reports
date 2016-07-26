@@ -126,6 +126,7 @@
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorExtraPT.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBasic.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorSite.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorOutright.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorByCode.cs" />

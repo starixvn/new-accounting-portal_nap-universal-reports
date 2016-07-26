@@ -25,7 +25,9 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
                 TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildSites(winLoss.Sites),
                 FooterRows = BuildFooter(winLoss.Total),
-                ShowFooter = true
+                ShowFooter = true,
+                ShowHighlightRow = false,
+                ShowDistinctRow = false,
             };
         }
 
@@ -38,10 +40,31 @@ namespace UniversalReports.CompanyWinLoss.Parlay.Site
                 var total = gridDataRowBuilder.BuildDataRow(group.Total, HAlignment.Center);
                 total.CssClass = "total-row";
                 sitesResult.Add(total);
-                sitesResult.Add(new GridDataRow());
+                sitesResult.Add(EmptyRow());
             }
 
             return sitesResult;
+        }
+
+        private GridDataRow EmptyRow()
+        {
+            var colummns = new List<Columns>
+            {
+                new Columns
+                {
+                    ColumnIndex = 1,
+                    Name = "Main",
+                    Value = string.Empty,
+                    MergeColNumber = 13
+                }
+            };
+
+            return new GridDataRow
+            {
+                Columns = colummns,
+                RowType = RowType.Normal,
+                CssClass = string.Empty
+            };
         }
 
         private List<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
