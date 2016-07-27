@@ -6,6 +6,7 @@ using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using CasinoProduct = UniversalReports.CompanyWinLoss.Casino.Product;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using Decorator = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
@@ -13,6 +14,7 @@ using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCo
 using NumberGames = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
+
 namespace UniversalReports.Sites
 {
     public static class SimpleInjectorConfig
@@ -81,6 +83,8 @@ namespace UniversalReports.Sites
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(Lifestyle.Transient);
+
+            container.Register<CasinoProduct.CasinoProductGridOptionsBuilder, CasinoProduct.CasinoProductGridOptionsBuilder>(Lifestyle.Transient);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

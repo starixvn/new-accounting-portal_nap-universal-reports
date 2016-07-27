@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
-using UniversalReports.CompanyWinLoss.Common;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
+using UniversalReports.CompanyWinLoss.Configuration;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 

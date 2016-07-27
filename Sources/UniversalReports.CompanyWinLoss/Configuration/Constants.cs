@@ -1,9 +1,19 @@
 ﻿using System.Collections.Generic;
 
-namespace UniversalReports.CompanyWinLoss.Products
+namespace UniversalReports.CompanyWinLoss.Configuration
 {
     public static class Constants
     {
+        public const string SheetName = "Company Win Loss by Products";
+
+        public const int LiveDefault = 2;
+
+        public const int SystemParlayBetType = 29;
+
+        public const string SiteDefault = "ALL";
+
+        public const int SportTypeSoccer = 1;
+
         public static readonly List<string> NameSportsbook = new List<string>
         {
             "Soccer",
@@ -28,6 +38,15 @@ namespace UniversalReports.CompanyWinLoss.Products
             "Bingo",
             "Gold Deluxe",
             "Non-Sports Total"
+        };
+
+        public static readonly List<string> CasinoProductsNonExtraPT = new List<string>
+        {
+            "Microgaming - Live Casino",
+            "AG Casino",
+            "Allbet",
+            "Microgaming - RNG Casino",
+            "Macau"
         };
 
         public static readonly string RM = "RM";

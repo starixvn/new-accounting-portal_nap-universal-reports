@@ -2,6 +2,7 @@
 using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CompanyWinLoss.Common.MatchDetailByCode

@@ -3,7 +3,9 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using UniversalReports.CompanyWinLoss.Common.Extensions;
 using UniversalReports.CompanyWinLoss.Common.Models;
+using UniversalReports.CompanyWinLoss.Configuration;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {
@@ -53,9 +55,9 @@ namespace UniversalReports.CompanyWinLoss.Products
         {
             var bodyRows = productGroupWinLoss
                 .Products
-                .Select(r => BuildSiteWinLossSummary(r, false))
+                .Select(r => BuildSiteWinLossSummary(r))
                 .ToList();
-            var totalRow = BuildSiteWinLossSummary(productGroupWinLoss.Total, true);
+            var totalRow = BuildSiteWinLossSummaryForTotalRow(productGroupWinLoss.Total);
 
             return new List<GridDataRow>(bodyRows) { totalRow };
         }
@@ -81,24 +83,65 @@ namespace UniversalReports.CompanyWinLoss.Products
             };
         }
 
-        private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary productWinLoss, bool isTotal)
+        private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary winloss)
         {
-            var rowCssClass = isTotal ? "total-row" : string.Empty;
-            var nonExtraPT = Constants.ProductsExtraPT.Contains(productWinLoss.Total.Name);
+            var gridDataRow = BuildRawSiteWinLossSummary(winloss);
+            DecorateExtraPT(gridDataRow, winloss);
 
-            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left, nonExtraPT);
-            productDataRow.CssClass = rowCssClass;
-            productDataRow.RowType = isTotal ? RowType.SubTotal : RowType.ParentLevelOne;
-            productDataRow.CustomAttr = isTotal ? null : "product";
+            return gridDataRow;
+        }
 
-            var creditRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Credit, HAlignment.Right, nonExtraPT);
-            creditRow.CssClass = rowCssClass;
-            creditRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
+        private GridDataRow BuildRawSiteWinLossSummary(SiteWinLossSummary winloss)
+        {
+            var productDataRow = gridDataRowBuilder.BuildDataRow(winloss.Total, HAlignment.Left);
+            productDataRow.RowType = RowType.ParentLevelOne;
+            productDataRow.CustomAttr = "product";
+
+            var creditRow = gridDataRowBuilder.BuildDataRow(winloss.Credit, HAlignment.Right);
+            creditRow.RowType = RowType.Normal;
             productDataRow.SubRows.Add(creditRow);
 
-            var depositRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Deposit, HAlignment.Right, nonExtraPT);
-            depositRow.CssClass = rowCssClass;
-            depositRow.RowType = isTotal ? RowType.SubTotal : RowType.Normal;
+            var depositRow = gridDataRowBuilder.BuildDataRow(winloss.Deposit, HAlignment.Right);
+            depositRow.RowType = RowType.Normal;
+            productDataRow.SubRows.Add(depositRow);
+
+            return productDataRow;
+        }
+
+        private void DecorateExtraPT(GridDataRow gridDataRow, SiteWinLossSummary item)
+        {
+            var itemHasExtraPT = ItemHasExtraPT(item.Total);
+            DecorateExtraPT(gridDataRow, item.Total, itemHasExtraPT);
+            DecorateExtraPT(gridDataRow.SubRows[0], item.Credit, itemHasExtraPT);
+            DecorateExtraPT(gridDataRow.SubRows[1], item.Deposit, itemHasExtraPT);
+        }
+
+        private void DecorateExtraPT(GridDataRow gridDataRow, WinLoss item, bool itemHasExtraPT)
+        {
+            gridDataRow.Columns.First(c => c.Name == "ExtraPT").Value = item.ExcelExtraPT(itemHasExtraPT);
+        }
+
+        private bool ItemHasExtraPT(WinLoss item)
+        {
+            return Constants.ProductsExtraPT.Contains(item.Name);
+        }
+
+        private GridDataRow BuildSiteWinLossSummaryForTotalRow(SiteWinLossSummary productWinLoss)
+        {
+            const string RowCssClass = "total-row";
+            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left);
+            productDataRow.CssClass = "total-row";
+            productDataRow.RowType = RowType.SubTotal;
+            productDataRow.CustomAttr = null;
+
+            var creditRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Credit, HAlignment.Right);
+            creditRow.CssClass = RowCssClass;
+            creditRow.RowType = RowType.SubTotal;
+            productDataRow.SubRows.Add(creditRow);
+
+            var depositRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Deposit, HAlignment.Right);
+            depositRow.CssClass = RowCssClass;
+            depositRow.RowType = RowType.SubTotal;
             productDataRow.SubRows.Add(depositRow);
 
             return productDataRow;
@@ -107,7 +150,7 @@ namespace UniversalReports.CompanyWinLoss.Products
         private List<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
-                .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right, false))
+                .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))
                 .ToList();
             rows.ForEach(r =>
             {
@@ -115,7 +158,14 @@ namespace UniversalReports.CompanyWinLoss.Products
                 r.CssClass = "total-row";
             });
 
+            rows.ForEach(r => DecorateExtraPTForRMRows(r));
+
             return rows;
+        }
+
+        private void DecorateExtraPTForRMRows(GridDataRow gridDataRow)
+        {
+            gridDataRow.Columns.First(c => c.Name == "ExtraPT").Value = "N/A";
         }
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)

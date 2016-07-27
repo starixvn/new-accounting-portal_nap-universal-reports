@@ -1,5 +1,5 @@
 ﻿using System;
-using UniversalReports.CompanyWinLoss.Common;
+using UniversalReports.CompanyWinLoss.Configuration;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.MetricGaming.BetType

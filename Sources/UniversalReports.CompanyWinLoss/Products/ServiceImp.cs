@@ -3,6 +3,7 @@ using System.Linq;
 using UniversalReports.CompanyWinLoss.Common.Criteria;
 using UniversalReports.CompanyWinLoss.Common.Models;
 using UniversalReports.CompanyWinLoss.Common.Services;
+using UniversalReports.CompanyWinLoss.Configuration;
 
 namespace UniversalReports.CompanyWinLoss.Products
 {

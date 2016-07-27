@@ -1,5 +1,5 @@
-﻿using UniversalReports.CompanyWinLoss.Common;
-using UniversalReports.CompanyWinLoss.Common.Criteria;
+﻿using UniversalReports.CompanyWinLoss.Common.Criteria;
+using UniversalReports.CompanyWinLoss.Configuration;
 
 namespace UniversalReports.CompanyWinLoss.Soccer.MajorMinor
 {

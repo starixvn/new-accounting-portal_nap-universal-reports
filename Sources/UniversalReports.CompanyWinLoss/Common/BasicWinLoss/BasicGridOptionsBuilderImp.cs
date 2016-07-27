@@ -36,7 +36,7 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             return winLoss.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
         }
 
-        private List<GridDataRow> BuildFooter(BasicWinLossModel model)
+        protected virtual List<GridDataRow> BuildFooter(BasicWinLossModel model)
         {
             var row = gridDataRowBuilder.BuildDataRow(model.GrandTotal.Total, HAlignment.Right);
             var creditRow = gridDataRowBuilder.BuildDataRow(model.GrandTotal.Credit, HAlignment.Right);
@@ -49,14 +49,13 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             return footer;
         }
 
-        private GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)
+        protected virtual GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)
         {
-            var nonExtraPT = !Casino.Constants.SportsNonExtraPT.Contains(item.Total.Name);
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment, nonExtraPT);
+            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
             row.RowType = RowType.ParentLevelOne;
 
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right, nonExtraPT);
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right, nonExtraPT);
+            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
+            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);

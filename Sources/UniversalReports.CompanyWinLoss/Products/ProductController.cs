@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
+using UniversalReports.CompanyWinLoss.Configuration;
 using UniversalReports.CompanyWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
@@ -39,7 +40,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
             gridOptions = decorator.Build(gridOptions, "Products");
-            return new FanexExcelResult(gridOptions, Common.Constants.SheetName);
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
     }
 }

@@ -3,6 +3,7 @@ using Fanex.Respository;
 using SimpleInjector;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.CompanyWinLoss.Common.BasicWinLoss;
+using CasinoProduct = UniversalReports.CompanyWinLoss.Casino.Product;
 using CommonServices = UniversalReports.CompanyWinLoss.Common.Services;
 using Decorator = UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.CompanyWinLoss.Common.MatchDetail;
@@ -10,6 +11,7 @@ using MatchDetailByCode = UniversalReports.CompanyWinLoss.Common.MatchDetailByCo
 using NumberGames = UniversalReports.CompanyWinLoss.NumberGame;
 using SiteWinLoss = UniversalReports.CompanyWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.CompanyWinLoss.Soccer;
+
 namespace UniversalReports.CompanyWinLoss.Tests
 {
     public class SimpleInjectorConfig
@@ -68,7 +70,7 @@ namespace UniversalReports.CompanyWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(Lifestyle.Transient);
 
-            // This is an extension method from the integration package.
+            container.Register<CasinoProduct.CasinoProductGridOptionsBuilder, CasinoProduct.CasinoProductGridOptionsBuilder>(Lifestyle.Transient);
 
             container.Verify();
         }
