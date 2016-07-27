@@ -12,13 +12,13 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
         "SP2100:CodeLineMustNotBeLongerThan",
         Justification = "Reviewed. Suppression is OK here.")]
-        public GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, bool hasExtraPT = true)
+        public GridDataRow BuildDataRow(WinLoss item, HAlignment mainTextAlignment, bool hasExtraPT = true)
         {
             var columnIndex = 0;
             var customAttributes = $"{item.Id}";
             var columns = new List<Columns>
             {
-                new Columns { ColumnIndex = columnIndex++, Name = "Main", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = customAttributes, CellAlignment = alignment },
+                new Columns { ColumnIndex = columnIndex++, Name = "Main", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = customAttributes, CellAlignment = mainTextAlignment },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
