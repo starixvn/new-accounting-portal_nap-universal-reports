@@ -2002,7 +2002,7 @@
           "Value": "Sportsbook Total",
           "CssClass": null,
           "CustomAttr": "0",
-          "CellAlign": "left",
+          "CellAlign": "right",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -2128,7 +2128,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "total-row subTotal",
+      "CssClass": "total-row-main subTotal",
       "CustomAttr": null,
       "SubRows": [
         {
@@ -2264,7 +2264,7 @@
               "TextFont": []
             }
           ],
-          "CssClass": "total-row subTotal",
+          "CssClass": "total-row-main subTotal",
           "CustomAttr": null
         },
         {
@@ -2400,7 +2400,7 @@
               "TextFont": []
             }
           ],
-          "CssClass": "total-row subTotal",
+          "CssClass": "total-row-main subTotal",
           "CustomAttr": null
         }
       ]
@@ -5981,7 +5981,7 @@
           "Value": "Non-Sports Total",
           "CssClass": null,
           "CustomAttr": "0",
-          "CellAlign": "left",
+          "CellAlign": "right",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -6107,7 +6107,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "total-row subTotal",
+      "CssClass": "total-row-main subTotal",
       "CustomAttr": null,
       "SubRows": [
         {
@@ -6243,7 +6243,7 @@
               "TextFont": []
             }
           ],
-          "CssClass": "total-row subTotal",
+          "CssClass": "total-row-main subTotal",
           "CustomAttr": null
         },
         {
@@ -6379,7 +6379,7 @@
               "TextFont": []
             }
           ],
-          "CssClass": "total-row subTotal",
+          "CssClass": "total-row-main subTotal",
           "CustomAttr": null
         }
       ]

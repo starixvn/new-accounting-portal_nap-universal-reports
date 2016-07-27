@@ -128,9 +128,9 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private GridDataRow BuildSiteWinLossSummaryForTotalRow(SiteWinLossSummary productWinLoss)
         {
-            const string RowCssClass = "total-row";
-            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Left);
-            productDataRow.CssClass = "total-row";
+            const string RowCssClass = "total-row-main";
+            var productDataRow = gridDataRowBuilder.BuildDataRow(productWinLoss.Total, HAlignment.Right);
+            productDataRow.CssClass = RowCssClass;
             productDataRow.RowType = RowType.SubTotal;
             productDataRow.CustomAttr = null;
 

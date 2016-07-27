@@ -6037,6 +6037,12 @@ h1, h2, h3, h4, h5, h6 {
   .grid-boundary .freegrid .total-row > td {
     font-weight: bold;
     background-color: #f4f4be; }
+  .grid-boundary .freegrid .total-row-main > td {
+    font-weight: bold !important;
+    background-color: #f4f4be !important; }
+  .grid-boundary .freegrid .total-row-main .grid-collapse, .grid-boundary .freegrid .total-row-main .grid-expand {
+    display: inline-block;
+    float: left; }
   .grid-boundary .freegrid .cricket-charged-commission > td {
     border-top: 1px solid #ff6600;
     background: none repeat scroll 0 0 #dce2bc;

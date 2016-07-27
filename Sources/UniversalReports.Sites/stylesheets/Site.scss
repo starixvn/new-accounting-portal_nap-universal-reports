@@ -318,7 +318,16 @@ h1, h2, h3, h4, h5, h6 {
                 background-color: #f4f4be;
             }
         }
-
+        .total-row-main {
+            & > td {
+                font-weight: bold !important;
+                background-color: #f4f4be !important;
+            }
+            .grid-collapse, .grid-expand{
+                display: inline-block;
+                float: left;
+            }
+        }
         .cricket-charged-commission {
             & > td {
                 border-top: 1px solid #ff6600;
