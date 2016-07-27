@@ -352,7 +352,19 @@
       "CustomAttr": null
     },
     {
-      "Columns": [],
+      "Columns": [
+        {
+          "Name": "Main",
+          "Value": "",
+          "MergeColNumber": 7,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
       "CssClass": "",
       "CustomAttr": null
     },
@@ -585,7 +597,19 @@
       "CustomAttr": null
     },
     {
-      "Columns": [],
+      "Columns": [
+        {
+          "Name": "Main",
+          "Value": "",
+          "MergeColNumber": 7,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
       "CssClass": "",
       "CustomAttr": null
     },
@@ -818,7 +842,19 @@
       "CustomAttr": null
     },
     {
-      "Columns": [],
+      "Columns": [
+        {
+          "Name": "Main",
+          "Value": "",
+          "MergeColNumber": 7,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
       "CssClass": "",
       "CustomAttr": null
     }
@@ -906,8 +942,8 @@
   "TitleInfoText": "",
   "showFooter": true,
   "noDataText": "There is no data.",
-  "showDistinctRow": true,
-  "showHighlightRow": true,
+  "showDistinctRow": false,
+  "showHighlightRow": false,
   "customizeHeader": false,
   "numberOfFrozenColumn": 0,
   "showPager": false,
