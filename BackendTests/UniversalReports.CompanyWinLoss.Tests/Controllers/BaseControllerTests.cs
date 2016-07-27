@@ -1,5 +1,5 @@
 ﻿using Fanex.Data.Repository;
-using Fanex.Respository;
+using Fanex.Repository;
 using NSubstitute;
 using System;
 using System.Collections.Generic;

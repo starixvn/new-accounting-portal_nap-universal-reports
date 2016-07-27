@@ -81,8 +81,8 @@
       <HintPath>..\..\packages\Fanex.NAP.Core.2.1.0.1\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Respository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Repository.1.0.5\lib\Fanex.Respository.dll</HintPath>
+    <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Repository.1.0.7\lib\Fanex.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -120,8 +120,8 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
@@ -141,27 +141,27 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RemotingRef.1.0.0.9\lib\net40\RemotingRef.dll</HintPath>
+      <HintPath>..\..\packages\RemotingRef.1.0.0.10\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.1.5\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.2.0\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.5\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.2.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.1.5\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.2.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.3.1.5\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.2.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.3.2.1\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.1.5\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.2.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -239,7 +239,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\SimpleInjectorConfig.cs" />
+    <Compile Include="App_Start\ApplicationInjectorInitializer.cs" />
+    <Compile Include="App_Start\CompanyWinLossInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjectorAPIConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorMVCConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -363,6 +365,22 @@
     <Content Include="app\company-winloss\soccer\soccer-major-minor.controller.js" />
     <None Include="bundleconfig.json" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="javascripts\bootstrap-sprockets.js" />
+    <Content Include="javascripts\bootstrap.js" />
+    <Content Include="javascripts\bootstrap.min.js" />
+    <Content Include="javascripts\bootstrap\affix.js" />
+    <Content Include="javascripts\bootstrap\alert.js" />
+    <Content Include="javascripts\bootstrap\button.js" />
+    <Content Include="javascripts\bootstrap\carousel.js" />
+    <Content Include="javascripts\bootstrap\collapse.js" />
+    <Content Include="javascripts\bootstrap\dropdown.js" />
+    <Content Include="javascripts\bootstrap\modal.js" />
+    <Content Include="javascripts\bootstrap\popover.js" />
+    <Content Include="javascripts\bootstrap\scrollspy.js" />
+    <Content Include="javascripts\bootstrap\tab.js" />
+    <Content Include="javascripts\bootstrap\tooltip.js" />
+    <Content Include="javascripts\bootstrap\transition.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -392,7 +410,12 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-et.js" />
@@ -1137,13 +1160,16 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
-    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.3.js" />
-    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="images\.keep" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -1159,11 +1185,6 @@
     <Content Include="stylesheets\images\header\user.png" />
     <Content Include="stylesheets\images\loading\loading.gif" />
     <Content Include="stylesheets\images\header\logo.png" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
     <Content Include="App_Configuration\DEV\Web.AppSettings.config" />
     <Content Include="App_Configuration\DEV\Web.ConnectionString.config">
@@ -1209,21 +1230,6 @@
     <Content Include="app\components\loading\loading.directive.js" />
     <Content Include="app\company-winloss\product\product.service.js" />
     <Content Include="Global.asax" />
-    <Content Include="javascripts\bootstrap-sprockets.js" />
-    <Content Include="javascripts\bootstrap.js" />
-    <Content Include="javascripts\bootstrap.min.js" />
-    <Content Include="javascripts\bootstrap\affix.js" />
-    <Content Include="javascripts\bootstrap\alert.js" />
-    <Content Include="javascripts\bootstrap\button.js" />
-    <Content Include="javascripts\bootstrap\carousel.js" />
-    <Content Include="javascripts\bootstrap\collapse.js" />
-    <Content Include="javascripts\bootstrap\dropdown.js" />
-    <Content Include="javascripts\bootstrap\modal.js" />
-    <Content Include="javascripts\bootstrap\popover.js" />
-    <Content Include="javascripts\bootstrap\scrollspy.js" />
-    <Content Include="javascripts\bootstrap\tab.js" />
-    <Content Include="javascripts\bootstrap\tooltip.js" />
-    <Content Include="javascripts\bootstrap\transition.js" />
     <Content Include="Scripts\angular-moment.js" />
     <Content Include="Scripts\angular-moment.min.js" />
     <Content Include="Scripts\angular-moment.min.js.map" />
@@ -1232,7 +1238,6 @@
     <Content Include="app\components\date-picker\date-picker.directive.js" />
     <Content Include="app\components\month-picker\month-picker.directive.html" />
     <Content Include="app\components\month-picker\month-picker.directive.js" />
-    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Blob.js" />
     <Content Include="Scripts\Fanex.Grid.css" />
     <Content Include="Scripts\Fanex.Grid.js" />
@@ -1254,6 +1259,8 @@
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Properties\PublishProfiles\xx.pubxml" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -1267,17 +1274,30 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <Content Include="Scripts\jquery-2.2.3.min.map" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.0.min.map" />
     <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
-    <Content Include="Scripts\version.json" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_center-block.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_buttons.scss" />
     <None Include="stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="stylesheets\company-winloss.css">
+      <DependentUpon>company-winloss.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\company-winloss.min.css">
+      <DependentUpon>company-winloss.css</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\images\show-hide.png" />
+    <Content Include="stylesheets\scoreInformation.css">
+      <DependentUpon>scoreInformation.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\scoreInformation.min.css">
+      <DependentUpon>scoreInformation.css</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\scoreInformation.scss" />
     <Content Include="stylesheets\bootstrap\_utilities.scss" />
     <Content Include="stylesheets\bootstrap\_type.scss" />
     <Content Include="stylesheets\bootstrap\_tooltip.scss" />
@@ -1338,20 +1358,6 @@
     <Content Include="stylesheets\bootstrap\mixins\_hide-text.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
-    <Content Include="stylesheets\company-winloss.css">
-      <DependentUpon>company-winloss.scss</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\company-winloss.min.css">
-      <DependentUpon>company-winloss.css</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\images\show-hide.png" />
-    <Content Include="stylesheets\scoreInformation.css">
-      <DependentUpon>scoreInformation.scss</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\scoreInformation.min.css">
-      <DependentUpon>scoreInformation.css</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\scoreInformation.scss" />
     <None Include="stylesheets\bootstrap\_variables.scss" />
     <None Include="stylesheets\bootstrap\_wells.scss" />
     <Content Include="stylesheets\company-winloss.scss" />
@@ -1428,9 +1434,6 @@
     <Content Include="stylesheets\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
-    <Content Include="stylesheets\_bootstrap.scss" />
-    <Content Include="stylesheets\_bootstrap-sprockets.scss" />
-    <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <Content Include="stylesheets\_bootstrap-compass.scss" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -1441,6 +1444,9 @@
     <Content Include="Views\CompanyWinLoss\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Common\SessionExpired.cshtml" />
+    <Content Include="stylesheets\_bootstrap.scss" />
+    <Content Include="stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

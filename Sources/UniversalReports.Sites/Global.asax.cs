@@ -18,9 +18,8 @@ namespace UniversalReports.Sites
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            SimpleInjectorAPIConfig.Initialize();
             DbSettingProviderManager.Current.Start();
-            SimpleInjectorConfig.Register();
-            SimpleInjectorMVCConfig.Initialize();
         }
 
         protected void Application_PostAuthorizeRequest()

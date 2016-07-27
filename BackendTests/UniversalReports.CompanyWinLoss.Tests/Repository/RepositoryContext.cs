@@ -1,5 +1,5 @@
 ﻿using Fanex.Data.Configuration;
-using Fanex.Respository;
+using Fanex.Repository;
 using System;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;
 

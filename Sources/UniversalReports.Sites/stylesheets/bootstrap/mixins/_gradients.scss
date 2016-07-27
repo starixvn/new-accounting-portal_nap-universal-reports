@@ -56,9 +56,3 @@
   background-image: -o-linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
   background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
 }
-@mixin gradient-button($start-color: #486cb8, $end-color: #5a7dc1, $default-color: #5a7dc1) {
-    background: $default-color;
-    background: -webkit-linear-gradient($start-color, $end-color) $default-color; // Safari 5.1-6, Chrome 10+
-    background: -moz-linear-gradient($start-color, $end-color) $default-color; // Firefox 3.6 to 15
-    background: -o-linear-gradient($start-color, $end-color) $default-color; // Opera 12
-}

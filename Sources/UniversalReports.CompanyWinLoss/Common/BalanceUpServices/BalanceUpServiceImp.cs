@@ -1,5 +1,5 @@
 ﻿using Fanex.Caching;
-using Fanex.Respository;
+using Fanex.Repository;
 
 namespace UniversalReports.CompanyWinLoss.Common.BalanceUpServices
 {

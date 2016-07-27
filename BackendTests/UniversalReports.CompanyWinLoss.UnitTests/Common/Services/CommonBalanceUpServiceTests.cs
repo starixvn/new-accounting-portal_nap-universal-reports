@@ -1,5 +1,5 @@
 ﻿using Fanex.Data.Repository;
-using Fanex.Respository;
+using Fanex.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.CompanyWinLoss.Common.BalanceUpServices;

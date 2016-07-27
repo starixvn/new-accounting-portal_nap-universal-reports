@@ -3,7 +3,7 @@
 namespace UniversalReports.Sites.App_Start
 {
     using CompanyWinLoss.Common.BalanceUpServices;
-    using Fanex.Respository;
+    using Fanex.Repository;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
