@@ -30,11 +30,20 @@
         function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName,
-                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
+                betTypeName: betTypeName
             };
             angular.extend(data, pane.data);
+            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
+
             tab.goForward('matchDetail', data);
+
+            function getHedgeParameters(sportType, betTypeName) {
+                if (sportType && sportType > 1) {
+                    return 2;
+                }
+
+                return betTypeName && betTypeName.indexOf("(hedge)") > -1 ? 1 : 0;
+            }
         }
 
         function generate() {

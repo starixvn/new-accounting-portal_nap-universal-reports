@@ -8,6 +8,8 @@ namespace UniversalReports.CompanyWinLoss.Configuration
 
         public const int LiveDefault = 2;
 
+        public const int HedgeDefault = 2;
+
         public const int SystemParlayBetType = 29;
 
         public const string SiteDefault = "ALL";

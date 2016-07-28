@@ -11,7 +11,7 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.MatchDetail
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public bool IsHedge { get; set; }
+        public int IsHedge { get; set; } = Constants.HedgeDefault;
 
         public override string GetSettingKey()
         {

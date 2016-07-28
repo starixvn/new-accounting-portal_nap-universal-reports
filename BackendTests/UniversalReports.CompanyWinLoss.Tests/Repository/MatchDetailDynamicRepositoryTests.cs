@@ -31,7 +31,7 @@ namespace UniversalReports.CompanyWinLoss.DatabaseTests.Repository
                 BetType = 1,
                 SportType = 1,
                 IsLive = 2,
-                IsHedge = false
+                IsHedge = 2
             };
             var sportsbookOutrightMatchDetailCriteria = new CompanyWinLoss.Sportsbook.OutrightMatchDetail.Criteria
             {

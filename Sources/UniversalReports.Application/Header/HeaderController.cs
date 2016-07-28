@@ -18,7 +18,8 @@ namespace UniversalReports.Application.Header
         [Route("api/application/header")]
         public Header Index()
         {
-            if (currentSession.MenuItemList == null || currentSession.MenuItemList.Count == 0)
+            var isLocal = System.Web.HttpContext.Current.Request.IsLocal;
+            if (isLocal)
             {
                 return new Header
                 {
