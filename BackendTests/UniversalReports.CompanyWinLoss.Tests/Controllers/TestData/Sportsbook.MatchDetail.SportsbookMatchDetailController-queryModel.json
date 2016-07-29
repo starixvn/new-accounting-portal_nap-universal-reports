@@ -5,5 +5,5 @@
   "SportType": 1,
   "BetType": 1,
   "IsLive": 2,
-  "IsHedge": false
+  "IsHedge": 2
 }

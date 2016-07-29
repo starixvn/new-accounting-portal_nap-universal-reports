@@ -1578,160 +1578,162 @@
           "TextFont": []
         }
       ],
-      "CssClass": "",
-      "CustomAttr": null
-    },
-    {
-      "Columns": [
+      "CssClass": "grand-total",
+      "CustomAttr": null,
+      "SubRows": [
         {
-          "Name": "Main",
-          "Value": "Credit",
-          "CssClass": null,
-          "CustomAttr": "1205",
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
+          "Columns": [
+            {
+              "Name": "Main",
+              "Value": "Credit",
+              "CssClass": null,
+              "CustomAttr": "1205",
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "MemberWinLoss",
+              "Value": 4426.7195305,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "SMAWinLoss",
+              "Value": -3469.9466077599986,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "Commission",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealIncome",
+              "Value": 956.77292274,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealTurnover",
+              "Value": 12056.78137200001,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealMargin",
+              "Value": 0.0794,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            }
+          ],
+          "CssClass": "grand-total",
+          "CustomAttr": null
         },
         {
-          "Name": "MemberWinLoss",
-          "Value": 4426.7195305,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "SMAWinLoss",
-          "Value": -3469.9466077599986,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "Commission",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealIncome",
-          "Value": 956.77292274,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealTurnover",
-          "Value": 12056.78137200001,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealMargin",
-          "Value": 0.0794,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
+          "Columns": [
+            {
+              "Name": "Main",
+              "Value": "Deposit",
+              "CssClass": null,
+              "CustomAttr": "1205",
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "MemberWinLoss",
+              "Value": 289.70095700000019,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "SMAWinLoss",
+              "Value": -246.24581345000007,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "Commission",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealIncome",
+              "Value": 43.4551435499999,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealTurnover",
+              "Value": 979.7671650000002,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealMargin",
+              "Value": 0.0444,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            }
+          ],
+          "CssClass": "grand-total",
+          "CustomAttr": null
         }
-      ],
-      "CssClass": "",
-      "CustomAttr": null
-    },
-    {
-      "Columns": [
-        {
-          "Name": "Main",
-          "Value": "Deposit",
-          "CssClass": null,
-          "CustomAttr": "1205",
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "MemberWinLoss",
-          "Value": 289.70095700000019,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "SMAWinLoss",
-          "Value": -246.24581345000007,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "Commission",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealIncome",
-          "Value": 43.4551435499999,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealTurnover",
-          "Value": 979.7671650000002,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealMargin",
-          "Value": 0.0444,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        }
-      ],
-      "CssClass": "",
-      "CustomAttr": null
+      ]
     }
   ],
   "showTitle": true,
