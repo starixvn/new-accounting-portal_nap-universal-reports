@@ -170,20 +170,26 @@ namespace UniversalReports.CompanyWinLoss.Products
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
         {
-            var rows = new List<GridDataRow>
-            {
-                gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right),
-                gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right),
-                gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right)
-            };
+            var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
+            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
+            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
 
-            rows.ForEach(r =>
-            {
-                r.Columns.First(c => c.Name == "VirtualMargin").Value = string.Empty;
-                r.Columns.First(c => c.Name == "RealMargin").Value = string.Empty;
-            });
+            FormatTotalRow(row);
+            FormatTotalRow(creditRow);
+            FormatTotalRow(depositRow);
 
-            return rows;
+            row.SubRows.Add(creditRow);
+            row.SubRows.Add(depositRow);
+
+            return new List<GridDataRow> { row };
+        }
+
+        private GridDataRow FormatTotalRow(GridDataRow row)
+        {
+            row.CssClass = "grand-total";
+            row.Columns.First(c => c.Name == "VirtualMargin").Value = string.Empty;
+            row.Columns.First(c => c.Name == "RealMargin").Value = string.Empty;
+            return row;
         }
     }
 }

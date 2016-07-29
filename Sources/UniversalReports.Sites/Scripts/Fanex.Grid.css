@@ -315,8 +315,7 @@
     box-sizing: content-box;
 }
 
-.freegrid .row_footer table thead th, .freegrid .col_footer table thead th,
-.freegrid .row_footer table thead th, .freegrid .col_footer table thead td
+.freegrid .row_footer table thead th, .freegrid .col_footer table thead th
 {
     background: #dce2bc !important;
     background: -moz-linear-gradient(#dce2bc, #dbe1bb) #dbe1bb !important;

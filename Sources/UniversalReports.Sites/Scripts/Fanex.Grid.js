@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------
-// <copyright file="Fanex.Grid.js" company="Nexcel Solutions Vietnam">
-// Copyright (c) Nexcel Solutions Vietnam. All rights reserved.
+// <copyright file="Fanex.Grid.js" company="">
+// Copyright (c) . All rights reserved.
 // Revision:
 //          + 01/10/2014: Auto re-size column.
 //          + 01/21/2014: Supported Sort with SortType for each column.
@@ -22,6 +22,7 @@
 //          + 01/23/2015: Check pager undefined before add in show/hide columns
 //          + 03/03/2015: Update fix height for both table when auto fix height
 //          + 03/03/2015: Update fix show format number for number column, add defaultCollapseAllGroups option for collapsing all group by default
+//          + 07/28/2016: Support collapse/expand on footer
 // </copyright>
 // --------------------------------------------------------------------------
 /*jshint maxdepth:false, maxstatements:false, strict:false*/
@@ -793,8 +794,8 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             var currentCollapseExpandId = '';
             var parentRowClass = '';
             var currentMergeColsIndex = 0;
-            var trHighlightAtt = (options.showHighlightRow ? (' highlightatt="highlight-att-frozen-' + parentHighlight + '-' + rowIndex + '"') : '');
-            var trAutoFixRowAtt = (options.autoFixFrozenRowHeight ? (' autofixatt="autofix-att-frozen-' + parentHighlight + '-' + rowIndex + '"') : '');
+            var trHighlightAtt = (options.showHighlightRow ? (' highlightatt="highlight-att-frozen-' + parentHighlight + '-' + rowIndex + (isBody ? "-body" : "") + '"') : '');
+            var trAutoFixRowAtt = (options.autoFixFrozenRowHeight ? (' autofixatt="autofix-att-frozen-' + parentHighlight + '-' + rowIndex + (isBody ? "-body" : "") + '"') : '');
             var trRowIndexAttr = ' data-row-index="' + rowIndex + '" ';
             var trClass = (options.showHighlightRow ? 'highlight-row ' : '') +
                             (options.autoFixFrozenRowHeight ? 'auto-fix-row ' : '') +
@@ -886,8 +887,10 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             var currentCollapseExpandId = '';
             var parentRowClass = '';
             var currentMergeColsIndex = 0;
-            var trHighlightAtt = (options.showHighlightRow && isBody ? (' highlightatt="highlight-att-main-' + parentHighlight + '-' + rowIndex + '"') : '');
-            var trAutoFixRow = (options.autoFixFrozenRowHeight && isBody ? (' autofixatt="autofix-att-main-' + parentHighlight + '-' + rowIndex + '"') : '');
+            var trHighlightAtt = (options.showHighlightRow
+                ? (' highlightatt="highlight-att-main-' + parentHighlight + '-' + rowIndex + (isBody ? "-body" : "") + '"')
+                : '');
+            var trAutoFixRow = (options.autoFixFrozenRowHeight ? (' autofixatt="autofix-att-main-' + parentHighlight + '-' + rowIndex + (isBody ? "-body" : "") + '"') : '');
             var trRowIndexAttr = ' data-row-index="' + rowIndex + '" ';
             var trClass = (options.showHighlightRow ? 'highlight-row ' : '') +
                             (options.autoFixFrozenRowHeight ? 'auto-fix-row ' : '') +
@@ -1097,7 +1100,7 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
                             'align="' + cell.Align + '" ' + titleTooltip + cell.CustomAttr + '>');
 
             if (isCurrentColShowTree) {
-                currentCollapseExpandId = me.gridId + '_tree_' + cell.ParentHighlight;
+                currentCollapseExpandId = me.gridId + '_tree_' + cell.ParentHighlight + (isBody ? "-body" : "");
                 cellHtml.push('<span class="grid-collapse-expand grid-expand ' +
                                 currentCollapseExpandId + '-class' +
                                 '" id="' + currentCollapseExpandId + '"></span>');
@@ -1440,14 +1443,14 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             for (var rowIndex = 0; rowIndex < frozenFooterLength; rowIndex++) {
                 currentRow = options.footerRows[rowIndex];
                 var currentFrozenRow = currentFrozenRows[rowIndex];
-                footerHtml.push(me.RenderNormalRow(currentRow, 'th', false, rowIndex, '', false, ''));
-                frozenFooterHtml.push(me.RenderFrozenRow(currentFrozenRow, 'th', false, rowIndex, '', false, ''));
+                footerHtml.push(me.RenderNormalRow(currentRow, 'th', false, rowIndex, '', false, rowIndex, 0));
+                frozenFooterHtml.push(me.RenderFrozenRow(currentFrozenRow, 'th', false, rowIndex, '', false, rowIndex, 0));
             }
 
             //// Render only main Footer
             for (rowIndex = frozenFooterLength; rowIndex < footerRowsLength; rowIndex++) {
                 currentRow = options.footerRows[rowIndex];
-                footerHtml.push(me.RenderNormalRow(currentRow, 'th', false, rowIndex, '', false, ''));
+                footerHtml.push(me.RenderNormalRow(currentRow, 'th', false, rowIndex, '', false, rowIndex, 0));
             }
 
             return {
@@ -1576,7 +1579,9 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
 
             //// Bind collapse expand event
             if (options.showTree === true) {
-                me.$grid.off('click', '.parent-row > td.tr-grid-collapse-expand', null).on('click', '.parent-row > td.tr-grid-collapse-expand', function () {
+                me.$grid
+                    .off('click', '.parent-row > td.tr-grid-collapse-expand, .parent-row > th.tr-grid-collapse-expand', null)
+                    .on('click', '.parent-row > td.tr-grid-collapse-expand, .parent-row > th.tr-grid-collapse-expand', function () {
                     var $this = $(this);
                     var collapseexpandspan = $this.find('.grid-collapse-expand');
                     var isExpand = false;

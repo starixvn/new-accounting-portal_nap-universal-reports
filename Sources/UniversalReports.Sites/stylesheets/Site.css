@@ -6043,15 +6043,13 @@ h1, h2, h3, h4, h5, h6 {
   .grid-boundary .freegrid .total-row-main .grid-collapse, .grid-boundary .freegrid .total-row-main .grid-expand {
     display: inline-block;
     float: left; }
-  .grid-boundary .freegrid .cricket-charged-commission > td {
-    border-top: 1px solid #ff6600;
-    background: none repeat scroll 0 0 #dce2bc;
-    background-color: #dce2bc; }
-  .grid-boundary .freegrid .cricket-non-charged-com-total > td {
+  .grid-boundary .freegrid .cricket-charged-commission > td, .grid-boundary .freegrid .grand-total > td {
     color: #4F4F4F;
     border-top: 1px solid #ff6600;
     background: none repeat scroll 0 0 #dce2bc;
     background-color: #dce2bc; }
+  .grid-boundary .freegrid .cricket-charged-commission .grid-collapse, .grid-boundary .freegrid .cricket-charged-commission .grid-expand, .grid-boundary .freegrid .grand-total .grid-collapse, .grid-boundary .freegrid .grand-total .grid-expand {
+    float: left; }
   .grid-boundary .freegrid .league-header {
     text-align: left;
     font-weight: bold; }

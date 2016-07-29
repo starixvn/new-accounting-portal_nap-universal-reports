@@ -11,9 +11,9 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
     {
         private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
-        private readonly string cssChargedCom = "cricket-charged-commission";
+        private readonly string cssTotal = "grand-total";
 
-        private readonly string cssChargedComTotal = "cricket-non-charged-com-total";
+        private readonly string cssChargeCom = "cricket-charged-commission";
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -38,62 +38,38 @@ namespace UniversalReports.CompanyWinLoss.OtherSports.NewCricket
 
         private List<GridDataRow> BuildBodyRows(WinLossModel winLoss)
         {
-            var nonChargedCom = winLoss.SiteWinLossNonChargedCom.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
-            var total = BuildCharegCommission(winLoss.SiteWinLossChargedCom.Total, HAlignment.Right, cssChargedComTotal);
-            var chargedCom = winLoss.SiteWinLossChargedCom.Winloss.Select(item => BuildCharegCommission(item, HAlignment.Left, cssChargedCom)).ToList();
-            var bodyRows = new List<GridDataRow> { };
-            bodyRows.AddRange(nonChargedCom);
-            bodyRows.Add(total);
-            bodyRows.AddRange(chargedCom);
-            return bodyRows;
+            return winLoss.SiteWinLossNonChargedCom.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(WinLossModel model)
         {
-            var row = gridDataRowBuilder.BuildDataRow(model.GrandTotal.Total, HAlignment.Right);
-            var creditRow = gridDataRowBuilder.BuildDataRow(model.GrandTotal.Credit, HAlignment.Right);
-            var depositRow = gridDataRowBuilder.BuildDataRow(model.GrandTotal.Deposit, HAlignment.Right);
+            var total = BuildGroupDataRow(model.SiteWinLossChargedCom.Total, HAlignment.Right, cssTotal);
+            var chargedCom = model.SiteWinLossChargedCom.Winloss.Select(item => BuildGroupDataRow(item, HAlignment.Left, cssChargeCom)).ToList();
+            var grandTotal = BuildGroupDataRow(model.GrandTotal, HAlignment.Right, cssTotal);
             var allRMRows = model.RM.Select(r => gridDataRowBuilder.BuildDataRow(r, HAlignment.Right));
 
-            var footer = new List<GridDataRow> { row, creditRow, depositRow };
+            var footer = new List<GridDataRow> { total };
+            footer.AddRange(chargedCom);
+            footer.Add(grandTotal);
             footer.AddRange(allRMRows);
-
             return footer;
         }
 
-        private GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)
+        private GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment, string cssStyle = "")
         {
             var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
             row.RowType = RowType.ParentLevelOne;
+            row.CssClass = cssStyle;
 
             var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
+            creditRow.CssClass = cssStyle;
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
+            depositRow.CssClass = cssStyle;
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
 
             return row;
-        }
-
-        private GridDataRow BuildCharegCommission(SiteWinLossSummary item, HAlignment alignment, string cssStyle)
-        {
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
-            row = BuildStyleChargedCom(row, cssStyle);
-
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
-
-            row.SubRows.Add(BuildStyleChargedCom(creditRow, cssStyle));
-            row.SubRows.Add(BuildStyleChargedCom(depositRow, cssStyle));
-
-            return row;
-        }
-
-        private GridDataRow BuildStyleChargedCom(GridDataRow dataRow, string cssStyle)
-        {
-            dataRow.RowType = RowType.SubTotal;
-            dataRow.CssClass = cssStyle;
-            return dataRow;
         }
     }
 }

@@ -57,16 +57,40 @@ namespace UniversalReports.CompanyWinLoss.Soccer.GroupBetType
                 winLoss.MainTotal,
                 winLoss.OtherTotal,
                 winLoss.HedgeTotal,
-                winLoss.GrandTotal.Total,
-                winLoss.GrandTotal.Credit,
-                winLoss.GrandTotal.Deposit
             };
 
+            var footer = BuildRowsFooter(rows);
+            footer.Add(BuildGrandTotal(winLoss.GrandTotal));
+            footer.AddRange(BuildRowsFooter(winLoss.RM));
             rows.AddRange(winLoss.RM);
+
+            return footer;
+        }
+
+        private List<GridDataRow> BuildRowsFooter(List<WinLoss> rows)
+        {
             return rows
                 .Where(r => r.RealTurnover != 0 || r.VirtualTurnover != 0)
                 .Select(r => GridDataRowBuilder.BuildDataRow(r, HAlignment.Right))
                 .ToList();
+        }
+
+        private GridDataRow BuildGrandTotal(SiteWinLossSummary item)
+        {
+            var row = GridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
+            row.RowType = RowType.ParentLevelOne;
+            row.CssClass = "grand-total";
+
+            var creditRow = GridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
+            creditRow.CssClass = "grand-total";
+
+            var depositRow = GridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
+            depositRow.CssClass = "grand-total";
+
+            row.SubRows.Add(creditRow);
+            row.SubRows.Add(depositRow);
+
+            return row;
         }
     }
 }

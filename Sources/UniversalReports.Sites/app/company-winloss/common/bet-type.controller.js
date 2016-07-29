@@ -52,6 +52,9 @@
 
                 if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
                     createLinks(data);
+                    if (pane.data.sportType == 50) {
+                        createLinkChargeCom(data.footerRows);
+                    }
                 }
 
                 renderGrid(data);
@@ -63,26 +66,35 @@
             return endDate.diff(startDate, 'days') < 3;
         }
 
+        function createLinkChargeCom(data) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Columns[0].Value == "Charge Commission") {
+                    createLink(data[i]);
+                }
+            }
+        }
+
         function createLinks(data) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                createLink(data.bodyRows[i]);
+            }            
+        }
+
+        function createLink(betTypeRow) {
             var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
             var hasDetailDrilldown = angular.isDefined(template);
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var betTypeRow = data.bodyRows[i];
-                var betTypeName = betTypeRow.Columns[0].Value;
-                var betTypeId = betTypeRow.Columns[0].CustomAttr;
-                var isTotalRow = betTypeName == "Total";
-                var enableLink = !isTotalRow && betTypeRow.SubRows;
-                if (enableLink && hasDetailDrilldown) {
-                    betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
-                }
-                if (enableLink) {
-                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-                        var siteRow = data.bodyRows[i].SubRows[j];
-                        var siteName = siteRow.Columns[0].Value;
-                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
-                    }
-                }
+            var betTypeName = betTypeRow.Columns[0].Value;
+            var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
+            if (betTypeRow.SubRows && hasDetailDrilldown) {
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+            }
+            if (betTypeRow.SubRows) {
+                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
+                    var siteRow = betTypeRow.SubRows[i];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                }
             }
         }
 
