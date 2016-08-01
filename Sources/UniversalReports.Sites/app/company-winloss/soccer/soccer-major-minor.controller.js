@@ -5,21 +5,24 @@
         .module('app.companyWinlossApp')
         .controller('SoccerMajorMinorController', SoccerMajorMinorController);
 
-    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants'];
-    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants) {
+    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
+    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
         var pane = $scope.pane;
-        var tab = $scope.tab;
+        var showHideColumnBuilder = new showHideColumnService(pane);
+        var tab = $scope.tab;        
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
-        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;        
+        $scope.show = showHideColumnBuilder.toggle;
+        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
         pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? soccerConstants.NonLive : soccerConstants.Live;
 
         function generate() {
             pane.service.getData(pane.data).then(function (data) {
+                showHideColumnBuilder.build(gridElements, data);
                 createLinksForMajorMinor(data);
-                renderGrid(majorMinorGridElement, data);
-                pane.compileLinks();
+                renderGrid(gridElements, data);
+                pane.compileAll();
             });
         }
 
@@ -28,7 +31,8 @@
                 text: tab.generateBreadcrumbHtml(),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
-                exportExcelFunction: exportExcel
+                exportExcelFunction: exportExcel,
+                customButtons: showHideColumnBuilder.getButtonHtml()
             };
 
             data.titleInfo = titleInfo;
@@ -45,13 +49,13 @@
         }
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-           var data = {
+            var data = {
                 betTypeNameMajorMinor: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 
             tab.goForward('soccerBetType', data);
-        }        
+        }
 
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
