@@ -415,7 +415,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Scripts\angular.js" />
-	<Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.css" />
     <Content Include="Scripts\Fanex.Pagination.js" />
@@ -1188,7 +1188,7 @@
     <Content Include="Scripts\Language\Fanex.Gird.Lang.vi-VN.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-CN.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-TW.js" />
-	<None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
