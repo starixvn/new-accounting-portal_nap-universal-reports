@@ -46,6 +46,7 @@
     <appSettings file="<#= appSettingsFileName #>">
         <add key="webpages:Version" value="2.0.0.0" />
         <add key="webpages:Enabled" value="false" />
+		<add key="aspnet:UseHostHeaderForRequestUrl" value="True"/>
         <add key="ClientValidationEnabled" value="true" />
         <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     </appSettings>

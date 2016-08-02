@@ -20,6 +20,8 @@ namespace UniversalReports.Sites.Controllers
             var appUri = new Uri(Request.Url, Url.Content("~/"));
             var legacyPath = ConfigurationManager.AppSettings["LegacyPath"];
             var legacyUri = new Uri(appUri, legacyPath);
+
+            ViewBag.RootUrl = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath;
             ViewBag.LegacyPath = legacyUri.AbsoluteUri;
             ViewBag.BalanceUp = this.balanceUpService.Query();
 

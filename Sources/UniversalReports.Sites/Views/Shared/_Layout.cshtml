@@ -4,14 +4,12 @@
         Today = Convert.ToInt64(DateTime.Now
             .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
             .TotalMilliseconds),
-        RootUrl = Url.Content("~").TrimEnd(new[] { '/' }),
+        RootUrl = ViewBag.RootUrl,
         LegacyPath = ViewBag.LegacyPath,
         BalanceUp = Convert.ToInt64(ViewBag.BalanceUp.BalanceUpDate
             .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
             .TotalMilliseconds)
-    };
-
-    var isDebuggingEnabled = HttpContext.Current.IsDebuggingEnabled;
+    };    
 }
 
 <!DOCTYPE html>
