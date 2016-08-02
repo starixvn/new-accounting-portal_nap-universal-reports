@@ -1253,7 +1253,7 @@
             function raiseDefaultClick() {
                 var buttons = pane.$element.find('.btExpand');
                 var customButton = buttons.first();
-                if (defaultCollapseAllGroups) {
+                if (!defaultCollapseAllGroups) {
                     customButton.removeClass('collapsed').addClass('expanded');
                 } else {
                     customButton.removeClass('expanded').addClass('collapsed');
