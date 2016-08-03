@@ -254,6 +254,7 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\common.js" />
@@ -347,6 +348,7 @@
     <Content Include="App_Data\DEV\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\DEV\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
@@ -354,21 +356,25 @@
     </Content>
     <Content Include="app\company-winloss\soccer\soccer-major-minor.controller.js" />
     <None Include="bundleconfig.json" />
+    <Content Include="App_Data\LOCAL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\MNL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\PRO\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\UAT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
