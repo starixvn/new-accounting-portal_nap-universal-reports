@@ -12,32 +12,19 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.Services
     public class CalculationServiceUnitTests
     {
         [Test]
-        public void CalculateMargin_TurnoverIsZero_ReturnsZero()
+        [TestCase(12, 0, 0)]
+        [TestCase(0, 0, 0)]
+        [TestCase(0, 1000.25, 0)]
+        [TestCase(12, 100, 0.12)]
+        [TestCase(-4.99, 5.55, -0.8991)]
+        public void CalulationMargin_Shoud_Return_Right_Margin(decimal income, decimal turnover, decimal margin)
         {
             // Arrange
-            const int Zero = 0;
-            const int AnyIncome = 12312;
             var calculationService = new CalculationServiceImp();
-
-            // Act
-            var result = calculationService.CalculateMargin(Zero, AnyIncome);
+            var result = calculationService.CalculateMargin(income, turnover);
 
             // Assert
-            Assert.AreEqual(Zero, result);
-        }
-
-        [Test]
-        public void CalculateMargin_TurnoverIsNotZero_ReturnsTheDividend()
-        {
-            // Arrange
-            const decimal ExpectedDividend = 0.1m;
-            var calculationService = new CalculationServiceImp();
-
-            // Act
-            var result = calculationService.CalculateMargin(10m, 1m);
-
-            // Assert
-            Assert.AreEqual(ExpectedDividend, result);
+            Assert.AreEqual(margin, result);
         }
 
         [Test]

@@ -17,7 +17,7 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
 
         IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses);
 
-        decimal CalculateMargin(decimal turnover, decimal income);
+        decimal CalculateMargin(decimal income, decimal turnover);
 
         WinLoss CreateEmptyWinLoss(int id, string name);
 

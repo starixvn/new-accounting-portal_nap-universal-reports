@@ -645,7 +645,7 @@
             },
             {
               "Name": "VirtualMargin",
-              "Value": -0.6984,
+              "Value": -0.6985,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -655,7 +655,7 @@
             },
             {
               "Name": "RealMargin",
-              "Value": -0.6984,
+              "Value": -0.6985,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",

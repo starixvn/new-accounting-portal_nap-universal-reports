@@ -106,8 +106,8 @@ namespace UniversalReports.CompanyWinLoss.Soccer.BaseService
                 ExtraPT = winLosses.Sum(r => r.ExtraPT),
                 AfterExtraPT = winLosses.Sum(r => r.AfterExtraPT)
             };
-            winLossSum.RealMargin = CalculateMargin(winLossSum.RealTurnover, winLossSum.RealIncome);
-            winLossSum.VirtualMargin = CalculateMargin(winLossSum.VirtualTurnover, winLossSum.VirtualIncome);
+            winLossSum.RealMargin = CalculateMargin(winLossSum.RealIncome, winLossSum.RealTurnover);
+            winLossSum.VirtualMargin = CalculateMargin(winLossSum.VirtualIncome, winLossSum.VirtualTurnover);
 
             return winLossSum;
         }

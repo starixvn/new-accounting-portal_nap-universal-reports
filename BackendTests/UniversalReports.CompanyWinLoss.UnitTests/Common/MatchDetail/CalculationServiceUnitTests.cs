@@ -23,33 +23,18 @@ namespace UniversalReports.CompanyWinLoss.UnitTests.Common.MatchDetail
         }
 
         [Test]
-        public void CalulationMargin_Shoud_Return_Zero_When_Turnover_Is_Zero()
+        [TestCase(12, 0, 0)]
+        [TestCase(0, 0, 0)]
+        [TestCase(0, 1000.25, 0)]
+        [TestCase(12, 100, 0.12)]
+        [TestCase(-4.99, 5.55, -0.8991)]
+        public void CalulationMargin_Shoud_Return_Right_Margin(decimal income, decimal turnover, decimal margin)
         {
-            // Arrange
-            const decimal Zero = 0.0m;
-            const int AnyIncome = 100;
-            var refService = Substitute.For<CommonServices.RemotingRefService>();
-            var calculationService = new CalculationServiceImp(refService);
-
-            // Act
-            var result = calculationService.CalculateMargin(AnyIncome, Zero);
-
-            // Assert
-            ComparisonAssert.AreEqual(Zero, result);
-        }
-
-        [Test]
-        public void CalulationMargin_Shoud_Return_Right_Margin()
-        {
-            // Arrange
-            const decimal ExpectedMargin = 0.5m;
             var calculationService = new CalculationServiceImp(remotingRefService);
-
-            // Act
-            var result = calculationService.CalculateMargin(1m, 2m);
+            var result = calculationService.CalculateMargin(income, turnover);
 
             // Assert
-            Assert.AreEqual(ExpectedMargin, result);
+            Assert.AreEqual(margin, result);
         }
 
         [Test]

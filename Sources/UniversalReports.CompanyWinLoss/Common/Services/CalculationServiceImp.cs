@@ -36,14 +36,18 @@ namespace UniversalReports.CompanyWinLoss.Common.Services
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 ExtraPT = rawWinLoss.ExtraPT,
                 AfterExtraPT = rawWinLoss.AfterExtraPT,
-                RealMargin = CalculateMargin(rawWinLoss.RealTurnover, rawWinLoss.RealIncome),
-                VirtualMargin = CalculateMargin(rawWinLoss.VirtualTurnover, rawWinLoss.VirtualIncome)
+                RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
+                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover)
             };
         }
 
-        public decimal CalculateMargin(decimal turnover, decimal income)
+        public decimal CalculateMargin(decimal income, decimal turnover)
         {
-            return turnover != 0 ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero) : 0;
+            var roundedIncome = Math.Round(income, 2, MidpointRounding.AwayFromZero);
+            var roundedTurnover = Math.Round(turnover, 2, MidpointRounding.AwayFromZero);
+            return roundedTurnover != 0
+                ? Math.Round(roundedIncome / roundedTurnover, 4, MidpointRounding.AwayFromZero)
+                : 0;
         }
 
         public RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses)

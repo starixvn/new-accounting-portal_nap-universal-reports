@@ -4,7 +4,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 {
     public interface CalculationService
     {
-        decimal CalculateMargin(decimal turnover, decimal income);
+        decimal CalculateMargin(decimal income, decimal turnover);
 
         IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<RawWinLoss> rawWinLoss);
 
