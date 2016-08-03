@@ -9,7 +9,7 @@
     function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
-        var tab = $scope.tab;        
+        var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
@@ -50,7 +50,8 @@
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
             var data = {
-                betTypeNameMajorMinor: betTypeNameMajorMinor
+                betTypeNameMajorMinor: betTypeNameMajorMinor,
+                sportTypeName: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 

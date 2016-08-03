@@ -1331,7 +1331,8 @@
 
         function generateBetType(isLive) {
             var data = {
-                isLive: isLive
+                isLive: isLive,
+                sportTypeName: "Metric Gaming - Superlive Live"
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -1340,7 +1341,8 @@
         function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                sportTypeName: "Metric Gaming - Superlive Live"
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);
@@ -2370,7 +2372,8 @@
 
         function generateSoccerBetTypePane(betTypeNameMajorMinor) {
             var data = {
-                betTypeNameMajorMinor: betTypeNameMajorMinor
+                betTypeNameMajorMinor: betTypeNameMajorMinor,
+                sportTypeName: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 
@@ -2471,7 +2474,7 @@
     function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
-        var tab = $scope.tab;        
+        var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
@@ -2512,7 +2515,8 @@
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
             var data = {
-                betTypeNameMajorMinor: betTypeNameMajorMinor
+                betTypeNameMajorMinor: betTypeNameMajorMinor,
+                sportTypeName: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 

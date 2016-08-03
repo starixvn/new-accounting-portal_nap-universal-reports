@@ -76,7 +76,8 @@
 
         function generateSoccerBetTypePane(betTypeNameMajorMinor) {
             var data = {
-                betTypeNameMajorMinor: betTypeNameMajorMinor
+                betTypeNameMajorMinor: betTypeNameMajorMinor,
+                sportTypeName: betTypeNameMajorMinor
             };
             angular.extend(data, pane.data);
 

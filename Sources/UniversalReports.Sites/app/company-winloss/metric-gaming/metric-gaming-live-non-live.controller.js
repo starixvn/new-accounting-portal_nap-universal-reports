@@ -23,7 +23,8 @@
 
         function generateBetType(isLive) {
             var data = {
-                isLive: isLive
+                isLive: isLive,
+                sportTypeName: "Metric Gaming - Superlive Live"
             }
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
@@ -32,7 +33,8 @@
         function generateMatchDetail(betType, betTypeName) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                sportTypeName: "Metric Gaming - Superlive Live"
             };
             angular.extend(data, pane.data);
             tab.goForward('matchDetail', data);

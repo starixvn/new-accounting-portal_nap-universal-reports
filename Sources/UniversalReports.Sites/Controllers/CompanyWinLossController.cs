@@ -18,7 +18,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
         // GET: Home
-        [NapAuth(FunctionKey = FunctionKeys.CompanyWinLossByProducts, Policy = Constant.Policy.Read)]
+        //[NapAuth(FunctionKey = FunctionKeys.CompanyWinLossByProducts, Policy = Constant.Policy.Read)]
         public ActionResult Index()
         {
             var appUri = new Uri(Request.Url, Url.Content("~/"));
