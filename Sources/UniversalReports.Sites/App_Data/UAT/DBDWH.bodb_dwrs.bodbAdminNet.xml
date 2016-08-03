@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Products">
-    <Setting Key="CompanyWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="CompanyWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_xtest" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Casino">
     <Setting Key="CompanyWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
