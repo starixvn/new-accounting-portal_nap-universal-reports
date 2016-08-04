@@ -2863,7 +2863,7 @@
         },
         {
           "Name": "VirtualMargin",
-          "Value": 0.6825,
+          "Value": 0.6833,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2873,7 +2873,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": 0.6825,
+          "Value": 0.6833,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2979,7 +2979,7 @@
             },
             {
               "Name": "VirtualMargin",
-              "Value": 0.6825,
+              "Value": 0.6833,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2989,7 +2989,7 @@
             },
             {
               "Name": "RealMargin",
-              "Value": 0.6825,
+              "Value": 0.6833,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -3563,7 +3563,7 @@
         },
         {
           "Name": "VirtualMargin",
-          "Value": 0.2301,
+          "Value": 0.23,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -3573,7 +3573,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": 0.2301,
+          "Value": 0.23,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -3913,7 +3913,7 @@
         },
         {
           "Name": "VirtualMargin",
-          "Value": -0.9954,
+          "Value": -0.9958,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -3923,7 +3923,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": -0.9954,
+          "Value": -0.9958,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -4029,7 +4029,7 @@
             },
             {
               "Name": "VirtualMargin",
-              "Value": -0.9954,
+              "Value": -0.9958,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -4039,7 +4039,7 @@
             },
             {
               "Name": "RealMargin",
-              "Value": -0.9954,
+              "Value": -0.9958,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -4495,7 +4495,7 @@
             },
             {
               "Name": "VirtualMargin",
-              "Value": 0.0038,
+              "Value": 0.0033,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -4505,7 +4505,7 @@
             },
             {
               "Name": "RealMargin",
-              "Value": 0.0038,
+              "Value": 0.0033,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
