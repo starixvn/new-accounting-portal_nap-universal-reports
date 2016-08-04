@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversalReports.CompanyWinLoss.Configuration;
 using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.CompanyWinLoss.Sportsbook.OutrightMatchDetail
@@ -12,6 +13,6 @@ namespace UniversalReports.CompanyWinLoss.Sportsbook.OutrightMatchDetail
 
         public bool NormalMode { get; set; } = true;
 
-        public int SportType { get; set; }
+        public int SportType { get; set; } = Constants.SportTypeSoccer;
     }
 }
