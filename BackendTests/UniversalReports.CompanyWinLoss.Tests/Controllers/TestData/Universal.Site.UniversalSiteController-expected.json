@@ -89,7 +89,7 @@
     {
       "HeaderText": "Company Turnover",
       "ShowCollapseExpand": false,
-      "Width": 100,
+      "Width": 120,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
       "IsAbs": false,
@@ -187,7 +187,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": -0.9001,
+          "Value": -0.9,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -339,7 +339,7 @@
         },
         {
           "Name": "RealMargin",
-          "Value": -0.8947,
+          "Value": -0.9,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

@@ -90,7 +90,7 @@
       {
         "HeaderText": "Company Turnover",
         "ShowCollapseExpand": false,
-        "Width": 100,
+        "Width": 120,
         "HeaderAlign": "center",
         "FormatNumber": "0,0.00",
         "IsAbs": false,
@@ -1613,7 +1613,7 @@
       {
         "HeaderText": "Company Turnover",
         "ShowCollapseExpand": false,
-        "Width": 100,
+        "Width": 120,
         "HeaderAlign": "center",
         "FormatNumber": "0,0.00",
         "IsAbs": false,
@@ -1711,7 +1711,7 @@
           },
           {
             "Name": "RealMargin",
-            "Value": -0.0378,
+            "Value": -0.0379,
             "CssClass": null,
             "CustomAttr": null,
             "CellAlign": "right",
@@ -1787,7 +1787,7 @@
               },
               {
                 "Name": "RealMargin",
-                "Value": -0.0378,
+                "Value": -0.0379,
                 "CssClass": null,
                 "CustomAttr": null,
                 "CellAlign": "right",
@@ -3013,7 +3013,7 @@
               },
               {
                 "Name": "RealMargin",
-                "Value": -0.2212,
+                "Value": -0.2221,
                 "CssClass": null,
                 "CustomAttr": null,
                 "CellAlign": "right",
@@ -3169,7 +3169,7 @@
               },
               {
                 "Name": "RealMargin",
-                "Value": -0.2111,
+                "Value": -0.211,
                 "CssClass": null,
                 "CustomAttr": null,
                 "CellAlign": "right",
@@ -3245,7 +3245,7 @@
               },
               {
                 "Name": "RealMargin",
-                "Value": -0.3002,
+                "Value": -0.3009,
                 "CssClass": null,
                 "CustomAttr": null,
                 "CellAlign": "right",

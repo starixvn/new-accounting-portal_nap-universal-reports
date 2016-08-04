@@ -111,7 +111,6 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
         {
             var totalRow = BuildTotalRow(model.Total, "Grand Total");
             var allRMRows = model.RM.Select(r => BuildTotalRow(r, r.MatchCode));
-            totalRow.CssClass = "out-right-match-detail";
             var result = new List<GridDataRow> { totalRow };
             result.AddRange(allRMRows);
 

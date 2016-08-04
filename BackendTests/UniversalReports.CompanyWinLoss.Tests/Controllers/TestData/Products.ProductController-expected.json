@@ -2538,7 +2538,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "total-row subTotal",
+      "CssClass": "total-row-main subTotal",
       "CustomAttr": null
     },
     {
@@ -2674,7 +2674,7 @@
           "TextFont": []
         }
       ],
-      "CssClass": "total-row subTotal",
+      "CssClass": "total-row-main subTotal",
       "CustomAttr": null
     },
     {
