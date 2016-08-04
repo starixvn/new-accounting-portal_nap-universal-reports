@@ -33,7 +33,7 @@
             var httpData = {
                 isLive: data.isLive,
                 isHedge: data.isHedge,
-                sportType: data.sportType,
+                sportType: data.productName === "Soccer" ? 1 : data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
                 endDate: data.endDate

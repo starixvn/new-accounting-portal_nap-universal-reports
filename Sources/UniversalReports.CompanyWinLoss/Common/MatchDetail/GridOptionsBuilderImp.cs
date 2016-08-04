@@ -51,13 +51,12 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         private GridDataRow BuildLeagueNameRow(string leagueName)
         {
-            var columnIndex = 0;
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", string.Empty),
+                new Columns(1, "MatchCode", string.Empty),
                 new Columns
                 {
-                    ColumnIndex = columnIndex,
+                    ColumnIndex = 2,
                     Name = "Home",
                     Value = leagueName,
                     MergeColNumber = 13,
@@ -112,7 +111,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
         {
             var totalRow = BuildTotalRow(model.Total, "Grand Total");
             var allRMRows = model.RM.Select(r => BuildTotalRow(r, r.MatchCode));
-
+            totalRow.CssClass = "out-right-match-detail";
             var result = new List<GridDataRow> { totalRow };
             result.AddRange(allRMRows);
 
@@ -126,7 +125,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             {
                 new Columns
                 {
-                    ColumnIndex = 0,
+                    ColumnIndex = columnIndex++,
                     Name = "MatchCode",
                     Value = totalText,
                     MergeColNumber = 4,

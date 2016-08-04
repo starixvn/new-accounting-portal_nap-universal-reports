@@ -363,14 +363,20 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         .league-match-header {
-            text-align: left;
+            .table-cell {
+                text-align: left;
+            }
             font-weight: bold;
-
+            align-content:
             td {
                 background-color: #E2FFFF;
             }
         }
-
+        .out-right-match-detail{
+            .table-cell{
+                float: right;
+            }
+        }
         .league-match-code {
             text-align: center;
             font-weight: bold;
