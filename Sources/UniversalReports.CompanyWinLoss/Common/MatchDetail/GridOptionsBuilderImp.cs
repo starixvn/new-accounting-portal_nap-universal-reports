@@ -51,12 +51,13 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
 
         private GridDataRow BuildLeagueNameRow(string leagueName)
         {
+            var columnIndex = 0;
             var colummns = new List<Columns>
             {
-                new Columns(1, "MatchCode", string.Empty),
+                new Columns(columnIndex++, "MatchCode", string.Empty),
                 new Columns
                 {
-                    ColumnIndex = 2,
+                    ColumnIndex = columnIndex,
                     Name = "Home",
                     Value = leagueName,
                     MergeColNumber = 13,
@@ -124,7 +125,7 @@ namespace UniversalReports.CompanyWinLoss.Common.MatchDetail
             {
                 new Columns
                 {
-                    ColumnIndex = columnIndex++,
+                    ColumnIndex = 0,
                     Name = "MatchCode",
                     Value = totalText,
                     MergeColNumber = 4,
