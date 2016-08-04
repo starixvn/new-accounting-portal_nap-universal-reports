@@ -77,6 +77,10 @@
       <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.NAP.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.NAP.Core.2.1.0.1\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
@@ -355,6 +359,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\company-winloss\soccer\soccer-major-minor.controller.js" />
+    <None Include="App_Configuration\SIT\Web.AppSettings.config" />
+    <None Include="App_Configuration\SIT\Web.ConnectionString.config" />
     <None Include="bundleconfig.json" />
     <Content Include="App_Data\LOCAL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
@@ -363,6 +369,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\MNL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
+    <Content Include="App_Data\SIT\DBACC.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\SIT\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\SIT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\SIT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBDWH.bodb_dwrs.bodbAdminNet.xml">

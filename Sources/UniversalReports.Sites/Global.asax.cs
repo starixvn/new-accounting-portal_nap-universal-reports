@@ -1,4 +1,8 @@
 ﻿using Fanex.Data.Configuration;
+using Fanex.Logging;
+using System;
+using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -41,6 +45,36 @@ namespace UniversalReports.Sites
             var theRuntime = runtimeInfo.GetValue(null);
 
             appNameInfo.SetValue(theRuntime, ApplicationName);
+        }
+
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
+            "SP2101:MethodMustNotContainMoreLinesThan",
+            Justification = "Reviewed. Suppression is OK here.")]
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError().GetBaseException();
+
+            if (exception is HttpException)
+            {
+                return;
+            }
+
+            var message = exception.Message +
+                "\r\nType: " + exception.GetType().ToString() +
+                "\r\nSource: " + exception.Source +
+                "\r\nDomain: " + HttpContext.Current.Request.Headers["Host"] +
+                "\r\nQuery String: " + Request.QueryString.ToString() +
+                "\r\nTarget Site: " + exception.TargetSite +
+                "\r\nStack Trace: " + exception.StackTrace;
+
+            if (exception is SqlException)
+            {
+                message += "\r\nProcedure: " + ((SqlException)exception).Procedure +
+                    "\r\nLine Number: " + ((SqlException)exception).LineNumber +
+                    "\r\nServer: " + ((SqlException)exception).Server;
+            }
+
+            LogService.Error(message);
         }
     }
 }

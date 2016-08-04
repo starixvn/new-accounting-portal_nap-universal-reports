@@ -34,6 +34,7 @@
         LOCAL,
         MASTER,
         UAT,
+		SIT,
         MNL,
         PRO
     }
@@ -54,6 +55,7 @@
 
                     case SiteEnvironment.MNL:
                     case SiteEnvironment.UAT:
+					case SiteEnvironment.SIT:
                     case SiteEnvironment.DEV:
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
@@ -75,6 +77,7 @@
                         return "false";
                     case SiteEnvironment.MNL:
                     case SiteEnvironment.UAT:
+					case SiteEnvironment.SIT:
                     case SiteEnvironment.DEV:
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
@@ -95,8 +98,8 @@
                     case SiteEnvironment.PRO:
                     case SiteEnvironment.MNL:
                         return "LIVE";
-
                     case SiteEnvironment.UAT:
+					case SiteEnvironment.SIT:
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.DEV:
                     case SiteEnvironment.MASTER:
@@ -117,6 +120,7 @@
                     case SiteEnvironment.PRO:
                     case SiteEnvironment.MNL:
                     case SiteEnvironment.UAT:
+					case SiteEnvironment.SIT:
                         return "4";
                     default:
                         return "3";
@@ -135,7 +139,9 @@
                     case SiteEnvironment.MNL:
                         return "tcp://10.2.96.1:8990/UMControllerInterface";
                     case SiteEnvironment.UAT:
-                        return "tcp://10.40.40.150:8990/UMControllerInterface";					
+                        return "tcp://10.40.40.150:8990/UMControllerInterface";	
+					case SiteEnvironment.SIT:
+						return "http://172.16.4.106:8889/api";				
                     default:
                         return string.Empty;
                 }
@@ -152,7 +158,8 @@
                     case SiteEnvironment.MNL:
                         return "true";
 
-                    case SiteEnvironment.UAT:  
+                    case SiteEnvironment.UAT: 
+					case SiteEnvironment.SIT: 
                     case SiteEnvironment.DEV:                  
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
@@ -177,7 +184,8 @@
 
                     case SiteEnvironment.UAT:
                         return "http://58.86.55.10/NapSpecialDelete/UserLogin/login";
-
+					case SiteEnvironment.SIT:
+						return "";
                     case SiteEnvironment.DEV:
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
@@ -201,7 +209,8 @@
                         return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
                     case SiteEnvironment.UAT:
                         return "stateConnectionString=\"tcpip=127.0.0.1:42424\"";
-
+					 case SiteEnvironment.SIT:
+						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
                         return string.Empty;
                 }
@@ -221,7 +230,8 @@
 
                     case SiteEnvironment.UAT:
                         return "<add Name=\"58.86.55.10\" Path=\"/AccReport\"></add>";
-
+					case SiteEnvironment.SIT:
+						return "";
                     case SiteEnvironment.DEV:
                     case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
@@ -245,7 +255,8 @@
 
                     case SiteEnvironment.UAT:
                         return "~/App_Data/UAT/";
-
+					case SiteEnvironment.SIT:
+                        return "~/App_Data/SIT/";
                     case SiteEnvironment.DEV:
                         return "~/App_Data/DEV/";
                     case SiteEnvironment.LOCAL:
@@ -258,6 +269,65 @@
                 }
             }
         }
+
+		public string FanexLogMSMQ
+		{
+			get
+            {
+				switch(Environment)
+                {
+					case SiteEnvironment.LOCAL:
+					case SiteEnvironment.DEV:
+                        return @"FormatName:DIRECT=tcp://10.18.200.124/private$/entlib";
+						
+					case SiteEnvironment.UAT:
+                        return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";
+
+                    case SiteEnvironment.PRO:
+                        return @"FormatName:DIRECT=http://10.40.40.127/msmq/Private$/entlib";
+
+					case SiteEnvironment.SIT:
+                        return @"FormatName:DIRECT=tcp://172.16.4.106/private$/entlib";
+
+                    case SiteEnvironment.MNL:
+                        return @"FormatName:DIRECT=tcp://10.2.98.3/private$/entlib";
+
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+		 public string FanexLogCategory
+        {
+            get
+            {
+                switch(Environment)
+                {
+					case SiteEnvironment.LOCAL:
+					case SiteEnvironment.DEV:
+                        return "NAP-Report-LOCAL";
+
+					case SiteEnvironment.UAT:
+                        return "NAP-Report-UAT";
+
+                    case SiteEnvironment.PRO:
+						return "NAP-Report";
+					
+					case SiteEnvironment.SIT:
+						return "NAP-Report-SIT";
+
+                    case SiteEnvironment.MNL:
+                        return "NAP-Report";
+
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        
+		
 
         #endregion End for Webconfig file
     }

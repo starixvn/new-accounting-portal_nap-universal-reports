@@ -24,6 +24,7 @@
     <configSections>
         <section name="Fanex.Data.DbSettingProvider" type="Fanex.Data.Configuration.DbSettingProviderConfigurationSection, Fanex.Data" />
         <section name="NapSettings" type="Fanex.NAP.Core.Configuration.NapSettings, Fanex.NAP.Core" />
+		<section name="Fanex.Logging" type="Fanex.Logging.Configuration.LoggingSettings, Fanex.Logging" />
     </configSections>
     <NapSettings
       Environment="<#=site.EnvironmentSettings#>"
@@ -42,6 +43,7 @@
                 resourcePath="<#=site.SPName#>" enableWatching="0" />
         </providers>
     </Fanex.Data.DbSettingProvider>
+	<Fanex.Logging msmqPath="<#=site.FanexLogMSMQ#>" defaultCategory="<#=site.FanexLogCategory#>" />
     <connectionStrings configSource="<#= connectionStringFileName #>"/>
     <appSettings file="<#= appSettingsFileName #>">
         <add key="webpages:Version" value="2.0.0.0" />
