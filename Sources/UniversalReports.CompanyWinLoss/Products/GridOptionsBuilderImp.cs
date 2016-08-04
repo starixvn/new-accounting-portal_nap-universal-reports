@@ -155,7 +155,7 @@ namespace UniversalReports.CompanyWinLoss.Products
             rows.ForEach(r =>
             {
                 r.RowType = RowType.SubTotal;
-                r.CssClass = "total-row";
+                r.CssClass = "total-row-main";
             });
 
             rows.ForEach(r => DecorateExtraPTForRMRows(r));

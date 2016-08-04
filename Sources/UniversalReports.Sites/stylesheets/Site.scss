@@ -294,7 +294,9 @@ h1, h2, h3, h4, h5, h6 {
 .grid-boundary {
     .freegrid {
         font-size: 0.85em;
-
+        .grid-fixed-table {
+            width: 100% !important;
+        }
         .parent-row {
             td {
                 color: black;
@@ -322,6 +324,7 @@ h1, h2, h3, h4, h5, h6 {
             & > td {
                 font-weight: bold !important;
                 background-color: #f4f4be !important;
+                color: black !important;
             }
             .grid-collapse, .grid-expand{
                 display: inline-block;
@@ -331,14 +334,28 @@ h1, h2, h3, h4, h5, h6 {
 
         .cricket-charged-commission,.grand-total {
             & > td {
-                color: #4F4F4F;
                 border-top: 1px solid #ff6600;
                 background: none repeat scroll 0 0 #dce2bc;
                 background-color: #dce2bc;
+                font-weight: bold !important;
+                color: black !important;
             }
             .grid-collapse,.grid-expand{
                 float: left;
             }
+            .free-grid-td-0 {
+                .table-cell{
+                    float: right !important;
+                }
+            }            
+        }
+        .grand-total{
+            .tr-grid-collapse-expand{
+                color: black !important;
+            }
+        }
+        .col_footer table thead th {
+            color: black !important;
         }
                 
         .league-header {

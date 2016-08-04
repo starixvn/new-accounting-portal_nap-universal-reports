@@ -45,7 +45,6 @@ namespace UniversalReports.CompanyWinLoss.Common.BasicWinLoss
             footer.AddRange(allRMRows);
 
             return footer;
-
         }
 
         protected virtual GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)

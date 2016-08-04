@@ -23,6 +23,7 @@
 //          + 03/03/2015: Update fix height for both table when auto fix height
 //          + 03/03/2015: Update fix show format number for number column, add defaultCollapseAllGroups option for collapsing all group by default
 //          + 07/28/2016: Support collapse/expand on footer
+//          + 08/04/2016: Use bottomBorderWidth to calculate top for footer
 // </copyright>
 // --------------------------------------------------------------------------
 /*jshint maxdepth:false, maxstatements:false, strict:false*/
@@ -2061,7 +2062,7 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             if (isShowFooter) {
                 o.find(".free-cell-bottom-right").css("height", (freezeFooterHeight + (isScrollX ? bar : 0) + 1) + "px");
             }
-            freeCellBottom.css("top", (gridHeight - pagerHeight - freezeFooterHeight - bar) + "px");
+            freeCellBottom.css("top", (gridHeight - pagerHeight - freezeFooterHeight - bar - 1) + "px");
             if (me.Options && me.Options.shouldVirtualScroller) {
                 o.find(".scrollbar-y-content").css("height", me.Options.totalHeight + "px");
             }
@@ -2093,12 +2094,12 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             }
 
             rowFooterContainer.css({
-                "top": (gridHeight - pagerHeight - freezeFooterHeight - bar + 1 - extraPosition) + "px",
+                "top": (gridHeight - pagerHeight - freezeFooterHeight - bar - options.bottomBorderWidth - extraPosition) + "px",
                 "border-top-width": options.bottomBorderWidth + "px"
             });
             colFooterContainer.css({
                 "width": gridWidth + "px",
-                "top": (gridHeight - pagerHeight - freezeFooterHeight - bar + 1 - extraPosition) + "px",
+                "top": (gridHeight - pagerHeight - freezeFooterHeight - bar - options.bottomBorderWidth - extraPosition) + "px",
                 "border-top-width": options.bottomBorderWidth + "px"
             });
             //pager.css("top", (gridHeight - pagerHeight - (isScrollX ? -(isShowFooter ? 0 : 1) : bar) - (isShowFooter ? 1 : 1)) + "px");

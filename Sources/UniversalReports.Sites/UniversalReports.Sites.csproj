@@ -427,6 +427,7 @@
     </None>
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Fanex.Grid.css" />
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.css" />
     <Content Include="Scripts\Fanex.Pagination.js" />
@@ -1179,6 +1180,7 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\images\back-icon.png" />
     <Content Include="Scripts\images\check-box.png" />
     <Content Include="Scripts\images\collapse-icon.png" />
@@ -1192,6 +1194,10 @@
     <Content Include="Scripts\images\sort-icon-new.png" />
     <Content Include="Scripts\images\sort-icon-new3.png" />
     <Content Include="Scripts\images\sort-icon.png" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.en-US.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.ja-JP.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.ko-KR.js" />
@@ -1199,11 +1205,6 @@
     <Content Include="Scripts\Language\Fanex.Gird.Lang.vi-VN.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-CN.js" />
     <Content Include="Scripts\Language\Fanex.Gird.Lang.zh-TW.js" />
-    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.0.js" />
-    <Content Include="Scripts\jquery-3.1.0.min.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -1276,7 +1277,6 @@
     <Content Include="app\components\month-picker\month-picker.directive.html" />
     <Content Include="app\components\month-picker\month-picker.directive.js" />
     <Content Include="Scripts\Blob.js" />
-    <Content Include="Scripts\Fanex.Grid.css" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Properties\PublishProfiles\xx.pubxml" />

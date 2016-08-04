@@ -16,4 +16,4 @@
   @return "<%- asset_path("#{$file}") %>";
 }
 
-$bootstrap-sass-asset-helper: true;
+$bootstrap-sass-asset-helper: false;
