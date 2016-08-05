@@ -1849,6 +1849,7 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
+            data.bottomBorderWidth = 3;
             liveNonLiveGridElement.fanexGrid(data);
         }
 
