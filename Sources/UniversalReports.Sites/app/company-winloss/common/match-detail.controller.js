@@ -37,6 +37,7 @@
 
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.headerColumnHeight = 10;
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 

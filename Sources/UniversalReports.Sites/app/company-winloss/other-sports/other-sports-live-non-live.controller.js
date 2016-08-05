@@ -72,6 +72,7 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
+            data.bottomBorderWidth = 3;
             sportTypeGridElement.fanexGrid(data);
         }
 

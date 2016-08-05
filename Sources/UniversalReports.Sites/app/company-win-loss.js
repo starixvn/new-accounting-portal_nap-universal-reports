@@ -563,6 +563,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -729,6 +730,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -814,6 +816,7 @@
 
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.headerColumnHeight = 10;
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -899,6 +902,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -1012,6 +1016,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -1398,6 +1403,7 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
+            data.bottomBorderWidth = 3;
             betTypeGridElement.fanexGrid(data);
         }
 
@@ -1573,6 +1579,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -1819,6 +1826,7 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
+            data.bottomBorderWidth = 3;
             sportTypeGridElement.fanexGrid(data);
         }
 
@@ -2007,6 +2015,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -2152,6 +2161,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -2359,6 +2369,7 @@
             }
 
             data.titleInfo = titleInfo;
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -2502,6 +2513,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
@@ -2743,6 +2755,7 @@
                 }
             };
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 

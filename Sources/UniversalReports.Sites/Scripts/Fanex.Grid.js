@@ -2062,7 +2062,7 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
             if (isShowFooter) {
                 o.find(".free-cell-bottom-right").css("height", (freezeFooterHeight + (isScrollX ? bar : 0) + 1) + "px");
             }
-            freeCellBottom.css("top", (gridHeight - pagerHeight - freezeFooterHeight - bar - 1) + "px");
+            freeCellBottom.css("top", (gridHeight - pagerHeight - freezeFooterHeight - bar) + "px");
             if (me.Options && me.Options.shouldVirtualScroller) {
                 o.find(".scrollbar-y-content").css("height", me.Options.totalHeight + "px");
             }

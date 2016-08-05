@@ -235,8 +235,7 @@ table.fn-rs thead th {
   border-right: 1px solid #cbc9ca;
   font-weight: normal;
   vertical-align: middle;
-  text-align: center;
-  color: #FFF !important; }
+  text-align: center; }
 
 table.fn-rs thead th.cl-title {
   color: #1d3968;

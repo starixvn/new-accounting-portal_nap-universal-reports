@@ -90,6 +90,7 @@
 
             data.titleInfo = titleInfo;
             //data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
+            data.bottomBorderWidth = 3;
             betTypeGridElement.fanexGrid(data);
         }
 

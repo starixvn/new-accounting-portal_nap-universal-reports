@@ -54,6 +54,7 @@
 
             data.titleInfo = titleInfo;
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 

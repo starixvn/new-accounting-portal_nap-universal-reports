@@ -63,6 +63,7 @@
             }
 
             data.titleInfo = titleInfo;
+            data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
 
