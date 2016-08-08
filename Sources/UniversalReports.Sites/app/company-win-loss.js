@@ -2278,7 +2278,8 @@
             var isLive = data.isLive;
 
             var httpData = {               
-                isMajor: isMajor
+                isMajor: isMajor,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
 
@@ -2294,7 +2295,8 @@
 
             var httpData = {
                 title: title,               
-                isMajor: isMajor
+                isMajor: isMajor,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
 
@@ -2826,7 +2828,8 @@
                 sportType:data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
 
             var url = getServiceUrl(data.betType, data.productName);
@@ -2837,7 +2840,8 @@
 
         function exportExcel(title, data, fileName) {
             var httpData = {
-                title: title
+                title: title,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
             var url = getServiceUrl(data.betType, data.productName) + '/excel';

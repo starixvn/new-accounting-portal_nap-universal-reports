@@ -31,7 +31,8 @@
             var isLive = data.isLive;
 
             var httpData = {               
-                isMajor: isMajor
+                isMajor: isMajor,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
 
@@ -47,7 +48,8 @@
 
             var httpData = {
                 title: title,               
-                isMajor: isMajor
+                isMajor: isMajor,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
 
