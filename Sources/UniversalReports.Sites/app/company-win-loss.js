@@ -851,7 +851,8 @@
                 sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
@@ -865,7 +866,8 @@
                 sportType: data.sportType,
                 betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
