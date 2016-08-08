@@ -1893,7 +1893,8 @@
         function getData(data) {
             var httpData = {
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live';
             return $http.post(url, httpData)
@@ -1906,7 +1907,8 @@
                 sportTypeTitle: sportTypeTitle,
                 liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
