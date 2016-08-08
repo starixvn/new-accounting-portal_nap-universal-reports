@@ -41,7 +41,8 @@
                 majorMinorTitle: majorMinorTitle,
                 liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             return $http.post('api/company-win-loss/soccer/live-nonlive/excel', httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
