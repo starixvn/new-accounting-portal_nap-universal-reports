@@ -18,7 +18,9 @@
         function getData(data) {            
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
             var httpData = {
-                normalMode: data.normalMode
+                normalMode: data.normalMode,
+                startDate: data.startDate,
+                endDate: data.endDate
             };
             return $http.post(url, httpData)
                     .then(httpResponseService.getDataComplete)
