@@ -57,11 +57,13 @@
 
         function viewNormalMode() {
             vm.normalMode = true;
+            $('.filter-note').css('display', 'block');
             $rootScope.$broadcast('nap-filter-switch');
         }
 
         function viewHistoryMode() {
             vm.normalMode = false;
+            $('.filter-note').css('display', 'none');
             $rootScope.$broadcast('nap-filter-switch');
         }
 
