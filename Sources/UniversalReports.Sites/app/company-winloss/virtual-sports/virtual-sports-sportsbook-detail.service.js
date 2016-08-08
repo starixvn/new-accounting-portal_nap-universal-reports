@@ -19,7 +19,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 sportType: data.sportType,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
             return $http.post(url, httpData)
@@ -33,7 +34,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 sportType: data.sportType,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
