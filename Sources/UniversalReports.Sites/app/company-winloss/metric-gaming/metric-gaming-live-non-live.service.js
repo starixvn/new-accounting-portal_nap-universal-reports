@@ -17,7 +17,10 @@
 
         function getData(data) {            
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
-            return $http.post(url, data)
+            var httpData = {
+                normalMode: data.normalMode
+            };
+            return $http.post(url, httpData)
                     .then(httpResponseService.getDataComplete)
                     .catch(httpResponseService.getDataFailed);
         }
@@ -34,7 +37,8 @@
                 betTypeTitle: betTypeTitle,
                 liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })

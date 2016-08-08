@@ -20,7 +20,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 isLive: data.isLive,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
@@ -34,7 +35,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 isLive: data.isLive,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })

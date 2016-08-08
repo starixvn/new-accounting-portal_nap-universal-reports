@@ -16,7 +16,8 @@
 
         function getData(data) {
             var httpData = {
-                productId: data.casinoProductId
+                productId: data.casinoProductId,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type';
@@ -28,7 +29,8 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                productId: data.casinoProductId               
+                productId: data.casinoProductId,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type/excel';

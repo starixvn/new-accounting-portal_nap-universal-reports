@@ -484,7 +484,8 @@
 
         function getData(data) {
             var httpData = {
-                productId: data.casinoProductId
+                productId: data.casinoProductId,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type';
@@ -496,7 +497,8 @@
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                productId: data.casinoProductId               
+                productId: data.casinoProductId,
+                normalMode: data.normalMode
             };
             angular.extend(httpData, data);
             var url = 'api/company-win-loss/casino/bet-type/excel';
@@ -593,7 +595,8 @@
             var httpData = {
                 startDate: data.startDate,
                 endDate: data.endDate,
-                casinoType: data.productName == 'Casino' ? 1 : 2
+                casinoType: data.productName == 'Casino' ? 1 : 2,
+                normalMode: data.normalMode
             };
 
             var url = 'api/company-win-loss/casino/product';
@@ -607,7 +610,8 @@
                 title: title,
                 startDate: data.startDate,
                 endDate: data.endDate,
-                casinoType: data.productName == 'Casino' ? 1 : 2
+                casinoType: data.productName == 'Casino' ? 1 : 2,
+                normalMode: data.normalMode
             };
 
             var url = 'api/company-win-loss/casino/product/excel';
@@ -1479,7 +1483,10 @@
 
         function getData(data) {            
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
-            return $http.post(url, data)
+            var httpData = {
+                normalMode: data.normalMode
+            };
+            return $http.post(url, httpData)
                     .then(httpResponseService.getDataComplete)
                     .catch(httpResponseService.getDataFailed);
         }
@@ -1496,7 +1503,8 @@
                 betTypeTitle: betTypeTitle,
                 liveNonLiveTitle: liveNonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
@@ -1635,7 +1643,8 @@
         function getData(data) {
             var httpData = {
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
@@ -1648,7 +1657,8 @@
                 liveTitle: liveTitle,
                 nonLiveTitle: nonLiveTitle,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
@@ -1681,7 +1691,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 isLive: data.isLive,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
@@ -1695,7 +1706,8 @@
                 startDate: data.startDate,
                 endDate: data.endDate,
                 isLive: data.isLive,
-                betType: data.betType
+                betType: data.betType,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
@@ -2050,7 +2062,8 @@
             var httpData = {
                 betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
@@ -2063,7 +2076,8 @@
                 title: title,
                 betType: data.betType,
                 startDate: data.startDate,
-                endDate: data.endDate
+                endDate: data.endDate,
+                normalMode: data.normalMode
             };
             var url = 'api/company-win-loss/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
