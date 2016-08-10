@@ -55,8 +55,7 @@
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = parseInt(betTypeRow.Columns[0].CustomAttr);
                 var isEnableLink = checkvalidLinks();
-
-                if ((betTypeId === systemParlayBetType) && (isEnableLink == true)) {
+                if ((betTypeId === systemParlayBetType) && (isEnableLink == true) && (pane.data.normalMode == true)) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'ALL\')">' + betTypeName + '</a>';
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
