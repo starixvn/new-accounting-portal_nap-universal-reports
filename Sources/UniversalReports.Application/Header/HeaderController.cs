@@ -42,6 +42,7 @@ namespace UniversalReports.Application.Header
                                .OrderBy(m => m.DisplayOrder)
                                .Select(m => new Menu
                                {
+                                   Id = m.Id,
                                    Name = m.Name,
                                    Link = m.Url,
                                    Children = GetChildrenMenus(menus, m.Id)
@@ -55,6 +56,7 @@ namespace UniversalReports.Application.Header
                         .OrderBy(m => m.DisplayOrder)
                         .Select(m => new Menu
                         {
+                            Id = m.Id,
                             Name = m.Name,
                             Link = m.Url
                         })
