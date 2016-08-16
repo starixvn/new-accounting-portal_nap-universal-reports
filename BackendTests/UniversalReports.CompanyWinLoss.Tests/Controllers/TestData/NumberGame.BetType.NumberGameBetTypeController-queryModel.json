@@ -70,7 +70,7 @@
         "TextFont": []
       },
       {
-        "HeaderText": "Company Income",
+        "HeaderText": "House Income",
         "ShowCollapseExpand": false,
         "Width": 100,
         "HeaderAlign": "center",
@@ -88,7 +88,7 @@
         "TextFont": []
       },
       {
-        "HeaderText": "Company Turnover",
+        "HeaderText": "House Turnover",
         "ShowCollapseExpand": false,
         "Width": 120,
         "HeaderAlign": "center",
@@ -1593,7 +1593,7 @@
         "TextFont": []
       },
       {
-        "HeaderText": "Company Income",
+        "HeaderText": "House Income",
         "ShowCollapseExpand": false,
         "Width": 100,
         "HeaderAlign": "center",
@@ -1611,7 +1611,7 @@
         "TextFont": []
       },
       {
-        "HeaderText": "Company Turnover",
+        "HeaderText": "House Turnover",
         "ShowCollapseExpand": false,
         "Width": 120,
         "HeaderAlign": "center",

@@ -72,7 +72,7 @@ namespace UniversalReports.Application.Header
                 Children = new List<Menu>
                 {
                     new Menu { Link = "/Main/DailyWinLoss2h/Index", Name = "Daily Win Loss (2h)" },
-                    new Menu { Link = "/UniversalReports/CompanyWinLoss", Name = "Company Win Loss By Products" }
+                    new Menu { Link = "/UniversalReports/HouseWinLossByProducts", Name = "House Win Loss by Products" }
                 }
             };
 

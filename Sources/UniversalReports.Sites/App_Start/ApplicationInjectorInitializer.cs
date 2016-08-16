@@ -1,7 +1,7 @@
 using Fanex.NAP.Core.Web.Session;
 using SimpleInjector;
 
-namespace UniversalReports.Sites.App_Start
+namespace UniversalReports.Sites
 {
     internal static class ApplicationInjectorInitializer
     {

@@ -35,5 +35,5 @@
             MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
             PERCENT_NUMBER: '0%'
         })
-        .constant('universalMenus', ['/UniversalReports/CompanyWinLoss']);
+        .constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts']);
 })(angular, moment);

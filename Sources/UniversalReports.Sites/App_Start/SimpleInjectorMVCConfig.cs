@@ -1,15 +1,16 @@
-[assembly: WebActivator.PostApplicationStartMethod(typeof(UniversalReports.Sites.App_Start.SimpleInjectorMVCConfig), "Initialize")]
+using Fanex.Repository;
+using SimpleInjector;
+using SimpleInjector.Integration.Web;
+using SimpleInjector.Integration.Web.Mvc;
+using System.Reflection;
+using System.Web.Mvc;
+using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using UniversalReports.Sites;
 
-namespace UniversalReports.Sites.App_Start
+[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMVCConfig), "Initialize")]
+
+namespace UniversalReports.Sites
 {
-    using CompanyWinLoss.Common.BalanceUpServices;
-    using Fanex.Repository;
-    using SimpleInjector;
-    using SimpleInjector.Integration.Web;
-    using SimpleInjector.Integration.Web.Mvc;
-    using System.Reflection;
-    using System.Web.Mvc;
-
     public static class SimpleInjectorMVCConfig
     {
         public static void Initialize()

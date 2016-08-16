@@ -8,7 +8,7 @@
     "inputFiles": ["app/common/*.js", "app/components/*.js", "app/components/**/*.js"]
   },
   {
-    "outputFileName": "app/company-win-loss.js",
-    "inputFiles": ["app/company-winloss/*.js", "app/company-winloss/**/*.js"]
+    "outputFileName": "app/house-win-loss-by-products.js",
+    "inputFiles": ["app/house-win-loss/*.js", "app/house-win-loss/**/*.js"]
   }
 ]

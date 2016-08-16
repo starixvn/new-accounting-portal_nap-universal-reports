@@ -31,8 +31,8 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 120, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 120, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 120, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Company Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "House Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "House Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Margin", Width = 120, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
             };
         }
@@ -45,8 +45,8 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 120 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 120 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 120 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "RealIncome", Width = 120 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "RealTurnover",  Width = 120 },
+                new HeaderColumns { HeaderText = "House Income", Name = "RealIncome", Width = 120 },
+                new HeaderColumns { HeaderText = "House Turnover", Name = "RealTurnover",  Width = 120 },
                 new HeaderColumns { HeaderText = "Margin", Name = "RealMargin",  Width = 120 }
             };
 

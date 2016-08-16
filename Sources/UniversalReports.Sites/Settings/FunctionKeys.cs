@@ -2,6 +2,6 @@
 {
     public static class FunctionKeys
     {
-        public const string CompanyWinLossByProducts = "CompanyWinLossbyProducts";
+        public const string HouseWinLossByProducts = "HouseWinLossbyProducts";
     }
 }

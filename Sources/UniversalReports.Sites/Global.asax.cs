@@ -9,7 +9,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
-using UniversalReports.Sites.App_Start;
 
 namespace UniversalReports.Sites
 {
@@ -22,7 +21,7 @@ namespace UniversalReports.Sites
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            SimpleInjectorAPIConfig.Initialize();
+            SimpleInjectorApiConfig.Initialize();
             DbSettingProviderManager.Current.Start();
         }
 
@@ -41,7 +40,8 @@ namespace UniversalReports.Sites
 
             // Change the Application Name in runtime.
             var runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
-            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
+            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId",
+                BindingFlags.Instance | BindingFlags.NonPublic);
             var theRuntime = runtimeInfo.GetValue(null);
 
             appNameInfo.SetValue(theRuntime, ApplicationName);
@@ -60,18 +60,19 @@ namespace UniversalReports.Sites
             }
 
             var message = exception.Message +
-                "\r\nType: " + exception.GetType().ToString() +
-                "\r\nSource: " + exception.Source +
-                "\r\nDomain: " + HttpContext.Current.Request.Headers["Host"] +
-                "\r\nQuery String: " + Request.QueryString.ToString() +
-                "\r\nTarget Site: " + exception.TargetSite +
-                "\r\nStack Trace: " + exception.StackTrace;
+                          "\r\nType: " + exception.GetType() +
+                          "\r\nSource: " + exception.Source +
+                          "\r\nDomain: " + HttpContext.Current.Request.Headers["Host"] +
+                          "\r\nQuery String: " + Request.QueryString +
+                          "\r\nTarget Site: " + exception.TargetSite +
+                          "\r\nStack Trace: " + exception.StackTrace;
 
-            if (exception is SqlException)
+            var sqlException = exception as SqlException;
+            if (sqlException != null)
             {
-                message += "\r\nProcedure: " + ((SqlException)exception).Procedure +
-                    "\r\nLine Number: " + ((SqlException)exception).LineNumber +
-                    "\r\nServer: " + ((SqlException)exception).Server;
+                message += "\r\nProcedure: " + sqlException.Procedure +
+                           "\r\nLine Number: " + sqlException.LineNumber +
+                           "\r\nServer: " + sqlException.Server;
             }
 
             LogService.Error(message);

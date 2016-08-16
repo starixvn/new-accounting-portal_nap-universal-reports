@@ -2,9 +2,9 @@
 using SimpleInjector.Integration.WebApi;
 using System.Web.Http;
 
-namespace UniversalReports.Sites.App_Start
+namespace UniversalReports.Sites
 {
-    internal class SimpleInjectorAPIConfig
+    internal class SimpleInjectorApiConfig
     {
         internal static void Initialize()
         {
@@ -12,7 +12,7 @@ namespace UniversalReports.Sites.App_Start
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
             ApplicationInjectorInitializer.InitializeContainer(container);
-            CompanyWinLossInjectorInitializer.InitializeContainer(container);
+            HouseWinLossInjectorInitializer.InitializeContainer(container);
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

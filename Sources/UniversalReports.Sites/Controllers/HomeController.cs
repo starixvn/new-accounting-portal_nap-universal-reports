@@ -7,7 +7,7 @@ namespace UniversalReports.Sites.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "CompanyWinLoss");
+            return RedirectToAction("Index", "HouseWinLossByProducts");
         }
     }
 }

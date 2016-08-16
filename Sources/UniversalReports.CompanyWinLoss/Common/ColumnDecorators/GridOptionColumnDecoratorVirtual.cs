@@ -50,8 +50,8 @@ namespace UniversalReports.CompanyWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss", MergeRowNumber = 2, Width = 100 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission", MergeRowNumber = 2, Width = 100 },
-                new HeaderColumns { HeaderText = "Company Income", Name = "VarianceIncome", MergeColNumber = 3, Width = 300 },
-                new HeaderColumns { HeaderText = "Company Turnover", Name = "VirtualTurnover", MergeColNumber = 2, Width = 200 },
+                new HeaderColumns { HeaderText = "House Income", Name = "VarianceIncome", MergeColNumber = 3, Width = 300 },
+                new HeaderColumns { HeaderText = "House Turnover", Name = "VirtualTurnover", MergeColNumber = 2, Width = 200 },
                 new HeaderColumns { HeaderText = "Margin", Name = "VirtualMargin", MergeColNumber = 2, Width = 200 }
             };
 

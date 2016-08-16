@@ -13,7 +13,7 @@
         function configRouting() {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'app/company-winloss/company-winloss.html',
+                    templateUrl: 'app/house-win-loss/house-win-loss.html',
                     controller: 'CompanyWinlossController',
                     controllerAs: 'vm'
                 })
