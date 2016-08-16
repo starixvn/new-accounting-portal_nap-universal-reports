@@ -14,7 +14,7 @@
             $routeProvider
                 .when('/', {
                     templateUrl: 'app/house-win-loss/house-win-loss.html',
-                    controller: 'CompanyWinlossController',
+                    controller: 'HouseWinlossController',
                     controllerAs: 'vm'
                 })
                 .when('/about', {

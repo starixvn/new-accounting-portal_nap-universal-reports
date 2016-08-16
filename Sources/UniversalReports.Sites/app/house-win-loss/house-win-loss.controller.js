@@ -3,10 +3,10 @@
 
     angular
         .module('app.companyWinlossApp')
-        .controller('CompanyWinlossController', CompanyWinlossController);
+        .controller('HouseWinlossController', HouseWinlossController);
 
-    CompanyWinlossController.$inject = [];
-    function CompanyWinlossController() {
+    HouseWinlossController.$inject = [];
+    function HouseWinlossController() {
         var vm = this;
         vm.panes = [];
     }
