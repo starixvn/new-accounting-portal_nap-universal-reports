@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Product">
-    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Casino">
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_Product" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
@@ -19,8 +19,10 @@
     <Setting Key="HouseWinLoss-Universal-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>  
   <Function Name="Bettrade">
-    <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="NumberGame">
     <Setting Key="HouseWinLoss-NumberGame-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
@@ -55,12 +57,12 @@
     <Setting Key="HouseWinLoss-Racing-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>     
   <Function Name="Soccer">
-    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-Major-Minor-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-Major-Minor-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-Major-Minor-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-Major-Minor-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="MetricGaming">
     <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
@@ -73,12 +75,12 @@
     <Setting Key="HouseWinLoss-MetricGaming-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="OtherSports">
-    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_14_uat1" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Sportsbook">
     <Setting Key="HouseWinLoss-Sportsbook-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site" DbName="DBACC.bodb02.bodbAdminNet"></Setting>

@@ -278,6 +278,7 @@
     <Content Include="app\house-win-loss.min.js">
       <DependentUpon>house-win-loss.js</DependentUpon>
     </Content>
+    <Content Include="app\house-win-loss\bettrade\bettrade-bet-type.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\app.js" />
     <Content Include="app\house-win-loss\breadcrumb\live-title.service.js" />

@@ -133,6 +133,10 @@
     <Compile Include="Bettrade\BetType\Criteria.cs" />
     <Compile Include="Bettrade\BetType\ExcelQueryModel.cs" />
     <Compile Include="Bettrade\BetType\QueryModel.cs" />
+    <Compile Include="Bettrade\Site\Criteria.cs" />
+    <Compile Include="Bettrade\Site\ExcelQueryModel.cs" />
+    <Compile Include="Bettrade\Site\QueryModel.cs" />
+    <Compile Include="Bettrade\Site\BettradeSiteController.cs" />
     <Compile Include="Casino\BetType\Criteria.cs" />
     <Compile Include="Casino\BetType\CasinoBetTypeController.cs" />
     <Compile Include="Casino\BetType\ExcelQueryModel.cs" />
