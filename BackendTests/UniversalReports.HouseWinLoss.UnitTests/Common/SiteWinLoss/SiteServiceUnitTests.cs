@@ -1,0 +1,36 @@
+﻿using NSubstitute;
+using NUnit.Framework;
+using System.Collections.Generic;
+using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.Common.Services;
+using UniversalReports.HouseWinLoss.Common.SiteWinLoss;
+using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
+
+namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
+{
+    [TestFixture]
+    [Category("HouseWinLossUnitTests")]
+    public class SiteServiceUnitTests
+    {
+        [Test]
+        public void Query_ReturnRightSiteWinLoss()
+        {
+            // Arrange   
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            var expected = TestDataLoader.Load<SiteWinLossModel>("data-1-expected");
+
+            var calculationService = new CalculationServiceImp();
+            var rawWinLossService = Substitute.For<RawWinLossService>();
+
+            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+
+            // Act 
+            var service = new WinLossServiceImp(rawWinLossService, calculationService);
+            var result = service.Query(Arg.Any<WinLossCriteria>());
+
+            // Assert
+            ComparisonAssert.AreEqual(expected, result);
+        }
+    }
+}

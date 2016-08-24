@@ -1,0 +1,30 @@
+﻿using System.Web.Http;
+using UniversalReports.CompanyWinLoss.Common.ColumnDecorators;
+using UniversalReports.CompanyWinLoss.Common.MatchDetail;
+using UniversalReports.CompanyWinLoss.Factory;
+
+namespace UniversalReports.CompanyWinLoss.VirtualSports.SportsbookDetail
+{
+    [RoutePrefix("api/company-win-loss/virtual-sports/sportsbook-match-detail")]
+    public class VirtualSportsSportsbookDetailController : MatchDetailController
+    {
+        public VirtualSportsSportsbookDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
+            : base(service, builder, decorator)
+        {
+        }
+
+        [Route("")]
+        public IHttpActionResult Json(QueryModel queryModel)
+        {
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Json(criteria);
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
+        {
+            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            return Excel(criteria, queryModel.Title);
+        }
+    }
+}

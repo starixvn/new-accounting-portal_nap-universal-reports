@@ -1,0 +1,13 @@
+﻿(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.companyWinlossApp')
+        .controller('HouseWinlossController', HouseWinlossController);
+
+    HouseWinlossController.$inject = [];
+    function HouseWinlossController() {
+        var vm = this;
+        vm.panes = [];
+    }
+})(angular);

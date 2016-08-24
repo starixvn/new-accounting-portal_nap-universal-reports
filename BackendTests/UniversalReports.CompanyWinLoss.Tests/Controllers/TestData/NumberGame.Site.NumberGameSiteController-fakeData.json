@@ -1,0 +1,50 @@
+[
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "733333",
+    "IsLive": false,
+    "MemberWinLoss": -1047.988,
+    "SMAWinLoss": 733.5916,
+    "Commission": 0.0,
+    "RealIncome": -314.3964,
+    "VirtualIncome": 0.0,
+    "VarianceIncome": 0.0,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 1885.8,
+    "VirtualTurnover": 0.0
+  },
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "755555",
+    "IsLive": false,
+    "MemberWinLoss": -30.7662,
+    "SMAWinLoss": 24.61296,
+    "Commission": 0.0,
+    "RealIncome": -6.15324,
+    "VirtualIncome": 0.0,
+    "VarianceIncome": 0.0,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 6.15324,
+    "VirtualTurnover": 0.0
+  },
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "INDO",
+    "IsLive": false,
+    "MemberWinLoss": -669.86052,
+    "SMAWinLoss": 535.888416,
+    "Commission": 0.0,
+    "RealIncome": -133.972104,
+    "VirtualIncome": 0.0,
+    "VarianceIncome": 0.0,
+    "ExtraPT": 0.0,
+    "AfterExtraPT": 0.0,
+    "RealTurnover": 541.95456,
+    "VirtualTurnover": 0.0
+  }
+]

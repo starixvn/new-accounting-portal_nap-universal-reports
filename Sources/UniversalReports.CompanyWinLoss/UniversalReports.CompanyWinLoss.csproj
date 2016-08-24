@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D25667AF-2C4D-4DB0-A018-808E48D0AD00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniversalReports.CompanyWinLoss</RootNamespace>
+    <AssemblyName>UniversalReports.CompanyWinLoss</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fanex.Caching, Version=1.0.404.95, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Fanex.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Excel.2.2.0.3\lib\net40\Fanex.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Repository.1.0.7\lib\Fanex.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Data.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RemotingRef.1.0.0.10\lib\net40\RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.2.0\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.2.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.2.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.2.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bettrade\BetType\BettradeBetTypeController.cs" />
+    <Compile Include="Bettrade\BetType\Criteria.cs" />
+    <Compile Include="Bettrade\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Bettrade\BetType\QueryModel.cs" />
+    <Compile Include="Casino\BetType\Criteria.cs" />
+    <Compile Include="Casino\BetType\CasinoBetTypeController.cs" />
+    <Compile Include="Casino\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Casino\BetType\QueryModel.cs" />
+    <Compile Include="Casino\Product\CasinoProductGridOptionsBuilder.cs" />
+    <Compile Include="Casino\Site\Criteria.cs" />
+    <Compile Include="Casino\Site\CasinoSiteController.cs" />
+    <Compile Include="Casino\Site\ExcelQueryModel.cs" />
+    <Compile Include="Casino\Site\QueryModel.cs" />
+    <Compile Include="Casino\Product\Criteria.cs" />
+    <Compile Include="Casino\Product\CasinoProductController.cs" />
+    <Compile Include="Casino\Product\ExcelQueryModel.cs" />
+    <Compile Include="Casino\Product\QueryModel.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridDataRowBuilder.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridDataRowBuilderImp.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridOptionsBuilder.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicGridOptionsBuilderImp.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorExtraPT.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBasic.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorOutright.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorByCode.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorBasic.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorFull.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorVirtual.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnRemovalImp.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.cs" />
+    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.cs" />
+    <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
+    <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
+    <Compile Include="Common\MatchDetailByCode\GridOptionsBuilderImp.cs" />
+    <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />
+    <Compile Include="Common\MatchDetailByCode\MatchDetailByCodeController.cs" />
+    <Compile Include="Common\MatchDetailByCode\WinLossService.cs" />
+    <Compile Include="Common\MatchDetailByCode\WinLossServiceImp.cs" />
+    <Compile Include="Common\MatchDetailByCode\WinLossModel.cs" />
+    <Compile Include="Common\MatchDetail\LeagueWinLoss.cs" />
+    <Compile Include="Common\MatchDetail\WinLossService.cs" />
+    <Compile Include="Common\MatchDetail\WinLossServiceImp.cs" />
+    <Compile Include="Common\MatchDetail\MatchDetailController.cs" />
+    <Compile Include="Common\MatchDetail\WinLossModel.cs" />
+    <Compile Include="Configuration\Constants.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpCriteria.cs" />
+    <Compile Include="Common\Criteria\WinLossCriteria.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpRange.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
+    <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
+    <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
+    <Compile Include="MetricGaming\BetType\Criteria.cs" />
+    <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\BetType\MetricGamingBetTypeController.cs" />
+    <Compile Include="MetricGaming\BetType\QueryModel.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\Criteria.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveController.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\QueryModel.cs" />
+    <Compile Include="MetricGaming\MatchDetail\Criteria.cs" />
+    <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\MatchDetail\QueryModel.cs" />
+    <Compile Include="MetricGaming\MatchDetail\MetricGamingMatchDetailController.cs" />
+    <Compile Include="MetricGaming\Site\Criteria.cs" />
+    <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
+    <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
+    <Compile Include="MetricGaming\Site\QueryModel.cs" />
+    <Compile Include="NumberGame\BetType\JsonResultModel.cs" />
+    <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
+    <Compile Include="OtherSports\NewCricket\Criteria.cs" />
+    <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\NewCricket\GridOptionsBuilder.cs" />
+    <Compile Include="OtherSports\NewCricket\GridOptionsBuilderImp.cs" />
+    <Compile Include="OtherSports\NewCricket\OtherSportNewCricketController.cs" />
+    <Compile Include="OtherSports\NewCricket\QueryModel.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossModel.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossService.cs" />
+    <Compile Include="OtherSports\NewCricket\WinLossServiceImp.cs" />
+    <Compile Include="Parlay\Site\GridOptionsBuilder.cs" />
+    <Compile Include="Parlay\Site\GridOptionsBuilderImp.cs" />
+    <Compile Include="Parlay\Site\SiteModel.cs" />
+    <Compile Include="Parlay\Site\SiteParlayModel.cs" />
+    <Compile Include="Parlay\Site\WinLossServiceImp.cs" />
+    <Compile Include="Parlay\Site\WinLossService.cs" />
+    <Compile Include="Products\ProductWinLoss.cs" />
+    <Compile Include="Common\Models\RawWinLoss.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
+    <Compile Include="Common\Models\SiteWinLossSummary.cs" />
+    <Compile Include="Common\Models\WinLoss.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpService.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpServiceImp.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
+    <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserImp.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
+    <Compile Include="Common\BasicWinLoss\BasicWinLossServiceImp.cs" />
+    <Compile Include="Common\Services\CalculationService.cs" />
+    <Compile Include="Common\Services\CalculationServiceImp.cs" />
+    <Compile Include="Common\Services\RawWinLossService.cs" />
+    <Compile Include="Common\Services\RawWinLossServiceImp.cs" />
+    <Compile Include="Common\Services\RemotingRefService.cs" />
+    <Compile Include="Common\Services\RemotingRefServiceImp.cs" />
+    <Compile Include="Common\SiteWinLoss\GridOptionsBuilder.cs" />
+    <Compile Include="Common\SiteWinLoss\GridOptionsBuilderImp.cs" />
+    <Compile Include="Common\SiteWinLoss\WinLossService.cs" />
+    <Compile Include="Common\SiteWinLoss\WinLossServiceImp.cs" />
+    <Compile Include="OtherSports\BetType\Criteria.cs" />
+    <Compile Include="OtherSports\BetType\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\BetType\OtherSportsBetTypeController.cs" />
+    <Compile Include="OtherSports\BetType\QueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\Criteria.cs" />
+    <Compile Include="OtherSports\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveController.cs" />
+    <Compile Include="OtherSports\LiveNonLive\QueryModel.cs" />
+    <Compile Include="OtherSports\SportType\Criteria.cs" />
+    <Compile Include="OtherSports\SportType\ExcelQueryModel.cs" />
+    <Compile Include="OtherSports\SportType\OtherSportsSportTypeController.cs" />
+    <Compile Include="OtherSports\SportType\QueryModel.cs" />
+    <Compile Include="Parlay\BetType\Criteria.cs" />
+    <Compile Include="Parlay\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Parlay\BetType\ParlayBetTypeController.cs" />
+    <Compile Include="Parlay\BetType\QueryModel.cs" />
+    <Compile Include="Parlay\Site\Criteria.cs" />
+    <Compile Include="Parlay\Site\ExcelQueryModel.cs" />
+    <Compile Include="Parlay\Site\ParlaySiteController.cs" />
+    <Compile Include="Parlay\Site\QueryModel.cs" />
+    <Compile Include="Products\Service.cs" />
+    <Compile Include="Products\ProductGroupWinLoss.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
+    <Compile Include="Factory\CriteriaFactory.cs" />
+    <Compile Include="NumberGame\BetType\ExcelQueryModel.cs" />
+    <Compile Include="NumberGame\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="NumberGame\Site\ExcelQueryModel.cs" />
+    <Compile Include="Products\ExcelQueryModel.cs" />
+    <Compile Include="NumberGame\BetType\NumberGameBetTypeController.cs" />
+    <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />
+    <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
+    <Compile Include="NumberGame\MatchDetail\Criteria.cs" />
+    <Compile Include="NumberGame\Site\NumberGameSiteController.cs" />
+    <Compile Include="NumberGame\Site\QueryModel.cs" />
+    <Compile Include="NumberGame\Site\Criteria.cs" />
+    <Compile Include="NumberGame\BetType\Criteria.cs" />
+    <Compile Include="NumberGame\BetType\Service.cs" />
+    <Compile Include="NumberGame\BetType\ServiceImp.cs" />
+    <Compile Include="NumberGame\BetType\WinLossModel.cs" />
+    <Compile Include="NumberGame\BetType\QueryModel.cs" />
+    <Compile Include="Products\GridOptionsBuilder.cs" />
+    <Compile Include="Products\GridOptionsBuilderImp.cs" />
+    <Compile Include="Products\ProductController.cs" />
+    <Compile Include="Products\Criteria.cs" />
+    <Compile Include="Products\QueryModel.cs" />
+    <Compile Include="Products\ServiceImp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Racing\BetType\Criteria.cs" />
+    <Compile Include="Racing\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Racing\BetType\QueryModel.cs" />
+    <Compile Include="Racing\BetType\RacingBetTypeController.cs" />
+    <Compile Include="Racing\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="Racing\MatchDetail\RacingMatchDetailController.cs" />
+    <Compile Include="Racing\Site\Criteria.cs" />
+    <Compile Include="Racing\Site\ExcelQueryModel.cs" />
+    <Compile Include="Racing\Site\QueryModel.cs" />
+    <Compile Include="Racing\MatchDetail\Criteria.cs" />
+    <Compile Include="Racing\MatchDetail\QueryModel.cs" />
+    <Compile Include="Racing\Site\RacingSiteController.cs" />
+    <Compile Include="Racing\SportType\Criteria.cs" />
+    <Compile Include="Racing\SportType\ExcelQueryModel.cs" />
+    <Compile Include="Racing\SportType\QueryModel.cs" />
+    <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
+    <Compile Include="Soccer\BaseService\BaseGridOptionsBuilder.cs" />
+    <Compile Include="Soccer\BaseService\CalculationService.cs" />
+    <Compile Include="Soccer\BaseService\CalculationServiceImp.cs" />
+    <Compile Include="Soccer\BetType\Criteria.cs" />
+    <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\BetType\QueryModel.cs" />
+    <Compile Include="Soccer\BetType\SoccerBetTypeController.cs" />
+    <Compile Include="Soccer\GroupBetType\Criteria.cs" />
+    <Compile Include="Soccer\GroupBetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\GroupBetType\QueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLive\Criteria.cs" />
+    <Compile Include="Soccer\LiveNonLive\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLive\QueryModel.cs" />
+    <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveController.cs" />
+    <Compile Include="Soccer\MajorMinor\Criteria.cs" />
+    <Compile Include="Soccer\MajorMinor\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\MajorMinor\QueryModel.cs" />
+    <Compile Include="Soccer\MajorMinor\SoccerMajorMinorController.cs" />
+    <Compile Include="Soccer\GroupBetType\GridOptionsBuilder.cs" />
+    <Compile Include="Soccer\GroupBetType\GridOptionsBuilderImp.cs" />
+    <Compile Include="Soccer\BaseService\GroupConstants.cs" />
+    <Compile Include="Soccer\GroupBetType\SoccerGroupBetTypeController.cs" />
+    <Compile Include="Soccer\GroupBetType\WinLossModel.cs" />
+    <Compile Include="Soccer\GroupBetType\WinLossService.cs" />
+    <Compile Include="Soccer\GroupBetType\WinLossServiceImp.cs" />
+    <Compile Include="Soccer\BaseService\WinLossSummaryByBetTypeGroup.cs" />
+    <Compile Include="Soccer\SumBetType\Criteria.cs" />
+    <Compile Include="Soccer\SumBetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\SumBetType\GridOptionsBuilder.cs" />
+    <Compile Include="Soccer\SumBetType\GridOptionsBuilderImp.cs" />
+    <Compile Include="Soccer\SumBetType\QueryModel.cs" />
+    <Compile Include="Soccer\SumBetType\SoccerSumBetTypeController.cs" />
+    <Compile Include="Soccer\SumBetType\WinLossModel.cs" />
+    <Compile Include="Soccer\SumBetType\WinLossService.cs" />
+    <Compile Include="Soccer\SumBetType\WinLossServiceImp.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\Criteria.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\QueryModel.cs" />
+    <Compile Include="Sportsbook\OutrightMatchDetail\SportsbookOutrightMatchDetailController.cs" />
+    <Compile Include="Sportsbook\Site\Criteria.cs" />
+    <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
+    <Compile Include="Sportsbook\Site\QueryModel.cs" />
+    <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />
+    <Compile Include="Sportsbook\MatchDetail\Criteria.cs" />
+    <Compile Include="Sportsbook\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="Common\MatchDetail\GridOptionsBuilder.cs" />
+    <Compile Include="Common\MatchDetail\GridOptionsBuilderImp.cs" />
+    <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
+    <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
+    <Compile Include="Universal\BetType\UniversalBetTypeController.cs" />
+    <Compile Include="Universal\BetType\Criteria.cs" />
+    <Compile Include="Universal\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Universal\BetType\QueryModel.cs" />
+    <Compile Include="Universal\Site\UniversalSiteController.cs" />
+    <Compile Include="Universal\Site\Criteria.cs" />
+    <Compile Include="Universal\Site\ExcelQueryModel.cs" />
+    <Compile Include="Universal\Site\QueryModel.cs" />
+    <Compile Include="VirtualSports\BetType\ExcelQueryModel.cs" />
+    <Compile Include="VirtualSports\BetType\VirtualSportsBetTypeController.cs" />
+    <Compile Include="VirtualSports\RacingDetail\ExcelQueryModel.cs" />
+    <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailController.cs" />
+    <Compile Include="VirtualSports\Site\ExcelQueryModel.cs" />
+    <Compile Include="VirtualSports\Site\VirtualSportsSiteController.cs" />
+    <Compile Include="Common\MatchDetail\CalculationService.cs" />
+    <Compile Include="Common\MatchDetail\CalculationServiceImp.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\Criteria.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\ExcelQueryModel.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLossService.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\QueryModel.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLossServiceImp.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLoss.cs" />
+    <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailController.cs" />
+    <Compile Include="Common\MatchDetail\WinLoss.cs" />
+    <Compile Include="VirtualSports\RacingDetail\Criteria.cs" />
+    <Compile Include="VirtualSports\RacingDetail\QueryModel.cs" />
+    <Compile Include="VirtualSports\Site\Criteria.cs" />
+    <Compile Include="VirtualSports\Site\QueryModel.cs" />
+    <Compile Include="VirtualSports\BetType\Criteria.cs" />
+    <Compile Include="VirtualSports\BetType\QueryModel.cs" />
+    <Compile Include="VirtualSports\SportType\ExcelQueryModel.cs" />
+    <Compile Include="VirtualSports\SportType\QueryModel.cs" />
+    <Compile Include="VirtualSports\SportType\Criteria.cs" />
+    <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
+      <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
+      <Name>UniversalReports.MVC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
+      <Link>FxCopDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
+    <Folder Include="Soccer\MainExcel\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

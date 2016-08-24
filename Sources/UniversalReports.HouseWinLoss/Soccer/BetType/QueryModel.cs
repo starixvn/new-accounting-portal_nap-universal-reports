@@ -1,0 +1,20 @@
+﻿using System;
+using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.MVC.Validation;
+
+namespace UniversalReports.HouseWinLoss.Soccer.BetType
+{
+    public class QueryModel
+    {
+        public DateTime StartDate { get; set; }
+
+        [DateTimeGreaterThan("StartDate")]
+        public DateTime EndDate { get; set; }
+
+        public bool NormalMode { get; set; } = true;
+
+        public bool IsMajor { get; set; }
+
+        public int IsLive { get; set; } = Constants.LiveDefault;
+    }
+}
