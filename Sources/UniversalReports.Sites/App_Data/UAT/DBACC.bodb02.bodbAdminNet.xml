@@ -79,9 +79,9 @@
     <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
     <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   
-    <Setting Key="HouseWinLoss-Parlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Parlay-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Parlay_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-SystemParlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-SystemParlay-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_14" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Parlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay_xtest" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Parlay-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Parlay_14_xtest" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-SystemParlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_xtest" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-SystemParlay-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_14_xtest" DbName="DBACC.bodb02.bodbAdminNet"></Setting>
   </Function>
 </Functions>
