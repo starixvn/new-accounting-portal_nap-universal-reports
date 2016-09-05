@@ -181,8 +181,19 @@
                 service: 'siteService'
             }
         },
-
-
+        'Bettrade': {
+            product: 'betType',           
+            betType: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'betTypeService'
+            },
+            site: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'siteService'
+            }
+        },
         'Racing': {
             product: 'sportType',
             sportType: {
@@ -209,7 +220,6 @@
     };
     var universalSettings = {
         products: {
-            "Bettrade": 0,
             "Bingo": 7,
             "Keno": 8,
             "Colossus Bets": 15
@@ -3181,19 +3191,12 @@
         };
         return service;
 
-
-        function getServiceUrl(data) {
-            return data.productName == 'Bettrade'
-                ? 'api/house-win-loss-by-products/bettrade'
-                : 'api/house-win-loss-by-products/universal';
-        }
-
         function getData(data) {
             var httpData = {                
                 productId: universalSettings.getProductId(data.productName)
             };
             angular.extend(httpData, data);
-            var url = getServiceUrl(httpData) + '/bet-type';
+            var url = 'api/house-win-loss-by-products/universal/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -3205,7 +3208,7 @@
                 productId: universalSettings.getProductId(data.productName)
             };
             angular.extend(httpData, data);
-            var url = getServiceUrl(data) + '/bet-type/excel';
+            var url = 'api/house-win-loss-by-products/universal/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

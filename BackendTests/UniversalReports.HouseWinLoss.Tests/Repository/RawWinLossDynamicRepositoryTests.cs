@@ -3,7 +3,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using UniversalReports.HouseWinLoss.Bettrade.BetType;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -26,7 +25,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             Justification = "Reviewed. Suppression is OK here.")]
         private static ICriteria[] CreateTestCases()
         {
-            var betTradeBetTypeCriteria = new Criteria();
+            var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();
+            var betTradeSiteCriteria = new Bettrade.Site.Criteria { Site = "Deposit" };
 
             var casinoBetTypeCriteria = new Casino.BetType.Criteria { ProductId = 6 };
             var casinoProductCriteria = new Casino.Product.Criteria { CasinoType = 1 };
@@ -124,6 +124,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             var result = new List<WinLossCriteria>
             {
                 betTradeBetTypeCriteria,
+                betTradeSiteCriteria,
                 casinoBetTypeCriteria,
                 casinoProductCriteria,
                 casinoSiteCriteria,

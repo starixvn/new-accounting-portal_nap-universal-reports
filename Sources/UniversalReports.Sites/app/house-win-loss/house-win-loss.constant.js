@@ -173,8 +173,19 @@
                 service: 'siteService'
             }
         },
-
-
+        'Bettrade': {
+            product: 'betType',
+            betType: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'bettradeBetTypeService'
+            },
+            site: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'siteService'
+            }
+        },
         'Racing': {
             product: 'sportType',
             sportType: {
@@ -201,7 +212,6 @@
     };
     var universalSettings = {
         products: {
-            "Bettrade": 0,
             "Bingo": 7,
             "Keno": 8,
             "Colossus Bets": 15

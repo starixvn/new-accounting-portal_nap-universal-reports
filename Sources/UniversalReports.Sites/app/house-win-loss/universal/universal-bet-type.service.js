@@ -19,19 +19,12 @@
         };
         return service;
 
-
-        function getServiceUrl(data) {
-            return data.productName == 'Bettrade'
-                ? 'api/house-win-loss-by-products/bettrade'
-                : 'api/house-win-loss-by-products/universal';
-        }
-
         function getData(data) {
             var httpData = {                
                 productId: universalSettings.getProductId(data.productName)
             };
             angular.extend(httpData, data);
-            var url = getServiceUrl(httpData) + '/bet-type';
+            var url = 'api/house-win-loss-by-products/universal/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -43,7 +36,7 @@
                 productId: universalSettings.getProductId(data.productName)
             };
             angular.extend(httpData, data);
-            var url = getServiceUrl(data) + '/bet-type/excel';
+            var url = 'api/house-win-loss-by-products/universal/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
