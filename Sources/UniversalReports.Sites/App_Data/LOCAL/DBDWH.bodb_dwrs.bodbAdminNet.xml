@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Products">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Casino">
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -13,8 +13,8 @@
     <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>  
   <Function Name="Bettrade">
-    <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="NumberGame">
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -35,9 +35,9 @@
     <Setting Key="HouseWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Soccer">
-    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="MetricGaming">
     <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
@@ -46,9 +46,9 @@
     <Setting Key="HouseWinLoss-MetricGaming-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="OtherSports">
-    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="HouseWinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old_uat1" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="HouseWinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
   <Function Name="Sportsbook">
     <Setting Key="HouseWinLoss-Sportsbook-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
