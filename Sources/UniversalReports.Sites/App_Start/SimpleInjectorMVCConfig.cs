@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.Sites;
 
-[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMVCConfig), "Initialize")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(SimpleInjectorMVCConfig), "Initialize")]
 
 namespace UniversalReports.Sites
 {
