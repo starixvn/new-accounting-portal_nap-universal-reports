@@ -278,11 +278,7 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\common.js" />
-    <Content Include="app\common.min.js">
-      <DependentUpon>common.js</DependentUpon>
-    </Content>
-    <Content Include="app\common\legacy.service.js" />
+    <Content Include="app\root\legacy\legacy.service.js" />
     <Content Include="app\ng2-statistic\app.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\live-title.service.js" />
@@ -316,14 +312,6 @@
     <Content Include="app\ng2-statistic\tab\tab.directive.html" />
     <Content Include="app\ng2-statistic\tab\tab.directive.js" />
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
-    <Content Include="app\house-win-loss-by-products.js" />
-    <Content Include="app\house-win-loss-by-products.min.js">
-      <DependentUpon>house-win-loss-by-products.js</DependentUpon>
-    </Content>
-    <Content Include="app\house-win-loss.js" />
-    <Content Include="app\house-win-loss.min.js">
-      <DependentUpon>house-win-loss.js</DependentUpon>
-    </Content>
     <Content Include="app\house-win-loss\bettrade\bettrade-bet-type.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\app.js" />
@@ -343,7 +331,7 @@
     <Content Include="app\house-win-loss\sportsbook\sportsbook-match-information.html" />
     <Content Include="app\house-win-loss\sportsbook\sportsbook-match-detail.service.js" />
     <Content Include="app\house-win-loss\sportsbook\sportsbook-bet-type.service.js" />
-    <Content Include="app\common\http-response.service.js" />
+    <Content Include="app\root\crosscutting\http-response.service.js" />
     <Content Include="app\house-win-loss\common\match-detail.service.js" />
     <Content Include="app\house-win-loss\common\site.service.js" />
     <Content Include="app\house-win-loss\common\sport-type.service.js" />
@@ -365,11 +353,11 @@
     <Content Include="app\house-win-loss\tab\tab.directive.js" />
     <Content Include="app\house-win-loss\universal\universal-site.service.js" />
     <Content Include="app\house-win-loss\universal\universal-bet-type.service.js" />
-    <Content Include="app\components\legend\legend.directive.js" />
-    <Content Include="app\components\legend\legend.service.js" />
-    <Content Include="app\components\header\header.service.js" />
-    <Content Include="app\components\header\header.directive.html" />
-    <Content Include="app\components\header\header.directive.js" />
+    <Content Include="app\root\components\legend\legend.directive.js" />
+    <Content Include="app\root\components\legend\legend.service.js" />
+    <Content Include="app\root\components\header\header.service.js" />
+    <Content Include="app\root\components\header\header.directive.html" />
+    <Content Include="app\root\components\header\header.directive.js" />
     <Content Include="app\house-win-loss\number-game\number-game-site.service.js" />
     <Content Include="app\house-win-loss\number-game\number-game-bet-type.service.js" />
     <Content Include="app\house-win-loss\common\sport-type.controller.js" />
@@ -387,12 +375,8 @@
     <Content Include="app\house-win-loss\common\site.controller.js" />
     <Content Include="app\house-win-loss\virtual-sports\virtual-sports-sportsbook-detail.service.js" />
     <Content Include="app\house-win-loss\virtual-sports\virtual-sports-racing-detail.service.js" />
-    <Content Include="app\components\click\click.directive.js" />
-    <Content Include="app\common\check-in.js" />
-    <Content Include="app\main-app.js" />
-    <Content Include="app\main-app.min.js">
-      <DependentUpon>main-app.js</DependentUpon>
-    </Content>
+    <Content Include="app\root\components\click\click.directive.js" />
+    <Content Include="app\root\legacy\check-in.js" />
     <Content Include="App_Configuration\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.config.txt</LastGenOutput>
@@ -442,7 +426,34 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\UAT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
-    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="bundle\app.js" />
+    <Content Include="bundle\app.min.js">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\house-win-loss.css" />
+    <Content Include="bundle\house-win-loss.js" />
+    <Content Include="bundle\house-win-loss.min.css">
+      <DependentUpon>house-win-loss.css</DependentUpon>
+    </Content>
+    <Content Include="bundle\house-win-loss.min.js">
+      <DependentUpon>house-win-loss.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\lib-style.css" />
+    <Content Include="bundle\lib-style.min.css">
+      <DependentUpon>lib-style.css</DependentUpon>
+    </Content>
+    <Content Include="bundle\lib.js" />
+    <Content Include="bundle\lib.min.js">
+      <DependentUpon>lib.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\ng2-statistic-style.css" />
+    <Content Include="bundle\ng2-statistic-style.min.css">
+      <DependentUpon>ng2-statistic-style.css</DependentUpon>
+    </Content>
+    <Content Include="bundle\ng2-statistic.js" />
+    <Content Include="bundle\ng2-statistic.min.js">
+      <DependentUpon>ng2-statistic.js</DependentUpon>
+    </Content>
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
@@ -1279,17 +1290,6 @@
     <Content Include="Scripts\ThirdParties\Moment\moment.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
-    <Content Include="stylesheets\images\date-picker\calendar.png" />
-    <Content Include="stylesheets\images\filter\legend-information-hover.png" />
-    <Content Include="stylesheets\images\filter\legend-information.png" />
-    <Content Include="stylesheets\images\filter\note-collapse.png" />
-    <Content Include="stylesheets\images\filter\note-expand.png" />
-    <Content Include="stylesheets\images\goal-icon.png" />
-    <Content Include="stylesheets\images\header\bgmenu-more.png" />
-    <Content Include="stylesheets\images\header\small-arrow-down.png" />
-    <Content Include="stylesheets\images\header\user.png" />
-    <Content Include="stylesheets\images\loading\loading.gif" />
-    <Content Include="stylesheets\images\header\logo.png" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
     <Content Include="App_Configuration\DEV\Web.AppSettings.config" />
     <Content Include="App_Configuration\DEV\Web.ConnectionString.config">
@@ -1324,25 +1324,25 @@
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="app\app.constant.js" />
-    <Content Include="app\common\fanex-grid.service.js" />
-    <Content Include="app\common\logger.service.js" />
+    <Content Include="app\root\app.constant.js" />
+    <Content Include="app\root\crosscutting\fanex-grid.service.js" />
+    <Content Include="app\root\crosscutting\logger.service.js" />
     <Content Include="app\house-win-loss\house-win-loss.controller.js" />
     <Content Include="app\house-win-loss\filter\filter.directive.html" />
     <Content Include="app\house-win-loss\product\product.controller.js" />
-    <Content Include="app\components\alert\alert.directive.html" />
-    <Content Include="app\components\alert\alert.directive.js" />
-    <Content Include="app\components\loading\loading.directive.js" />
+    <Content Include="app\root\components\alert\alert.directive.html" />
+    <Content Include="app\root\components\alert\alert.directive.js" />
+    <Content Include="app\root\components\loading\loading.directive.js" />
     <Content Include="app\house-win-loss\product\product.service.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-moment.js" />
     <Content Include="Scripts\angular-moment.min.js" />
     <Content Include="Scripts\angular-moment.min.js.map" />
-    <Content Include="app\app.config.js" />
-    <Content Include="app\components\date-picker\date-picker.directive.html" />
-    <Content Include="app\components\date-picker\date-picker.directive.js" />
-    <Content Include="app\components\month-picker\month-picker.directive.html" />
-    <Content Include="app\components\month-picker\month-picker.directive.js" />
+    <Content Include="app\root\app.config.js" />
+    <Content Include="app\root\components\date-picker\date-picker.directive.html" />
+    <Content Include="app\root\components\date-picker\date-picker.directive.js" />
+    <Content Include="app\root\components\month-picker\month-picker.directive.html" />
+    <Content Include="app\root\components\month-picker\month-picker.directive.js" />
     <Content Include="Scripts\Blob.js" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
@@ -1372,20 +1372,6 @@
     <Content Include="stylesheets\bootstrap\mixins\_center-block.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_buttons.scss" />
     <None Include="stylesheets\bootstrap\mixins\_gradients.scss" />
-    <Content Include="stylesheets\house-win-loss.css">
-      <DependentUpon>house-win-loss.scss</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\house-win-loss.min.css">
-      <DependentUpon>house-win-loss.css</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\images\show-hide.png" />
-    <Content Include="stylesheets\scoreInformation.css">
-      <DependentUpon>scoreInformation.scss</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\scoreInformation.min.css">
-      <DependentUpon>scoreInformation.css</DependentUpon>
-    </Content>
-    <Content Include="stylesheets\scoreInformation.scss" />
     <Content Include="stylesheets\bootstrap\_utilities.scss" />
     <Content Include="stylesheets\bootstrap\_type.scss" />
     <Content Include="stylesheets\bootstrap\_tooltip.scss" />
@@ -1448,8 +1434,6 @@
     <Content Include="stylesheets\bootstrap\mixins\_grid-framework.scss" />
     <None Include="stylesheets\bootstrap\_variables.scss" />
     <None Include="stylesheets\bootstrap\_wells.scss" />
-    <Content Include="stylesheets\house-win-loss.scss" />
-    <None Include="stylesheets\Site.scss" />
     <Content Include="Scripts\jquery.nexDatePicker.js" />
     <Content Include="Scripts\numeral\languages.js" />
     <Content Include="Scripts\numeral\languages.min.js" />
@@ -1509,6 +1493,43 @@
     <Content Include="Scripts\numeral\languages\uk-UA.min.js" />
     <Content Include="Scripts\numeral\numeral.js" />
     <Content Include="Scripts\numeral\numeral.min.js" />
+    <Content Include="stylesheets\house-win-loss.css">
+      <DependentUpon>house-win-loss.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\house-win-loss.min.css">
+      <DependentUpon>house-win-loss.css</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\ie.css" />
+    <Content Include="stylesheets\images\1F.gif" />
+    <Content Include="stylesheets\images\1L.gif" />
+    <Content Include="stylesheets\images\date-picker\calendar.png" />
+    <Content Include="stylesheets\images\filter\legend-information-hover.png" />
+    <Content Include="stylesheets\images\filter\legend-information.png" />
+    <Content Include="stylesheets\images\filter\note-collapse.png" />
+    <Content Include="stylesheets\images\filter\note-expand.png" />
+    <Content Include="stylesheets\images\firstGoal.gif" />
+    <Content Include="stylesheets\images\goal-icon.png" />
+    <Content Include="stylesheets\images\header\bgmenu-more.png" />
+    <Content Include="stylesheets\images\header\logo.png" />
+    <Content Include="stylesheets\images\header\small-arrow-down.png" />
+    <Content Include="stylesheets\images\header\user.png" />
+    <Content Include="stylesheets\images\lastGoal.gif" />
+    <Content Include="stylesheets\images\loading\loading.gif" />
+    <Content Include="stylesheets\images\show-hide.png" />
+    <Content Include="stylesheets\ng2-statistic.css">
+      <DependentUpon>ng2-statistic.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\ng2-statistic.min.css">
+      <DependentUpon>ng2-statistic.css</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\print.css" />
+    <Content Include="stylesheets\scoreInformation.css">
+      <DependentUpon>scoreInformation.scss</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\scoreInformation.min.css">
+      <DependentUpon>scoreInformation.css</DependentUpon>
+    </Content>
+    <Content Include="stylesheets\screen.css" />
     <Content Include="stylesheets\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -1529,6 +1550,10 @@
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <Content Include="Views\NG2Statistic\Index.cshtml" />
+    <Content Include="stylesheets\house-win-loss.scss" />
+    <Content Include="stylesheets\ng2-statistic.scss" />
+    <Content Include="stylesheets\scoreInformation.scss" />
+    <Content Include="stylesheets\Site.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1537,7 +1562,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
+    <Content Include="app\root\app.js" />
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>

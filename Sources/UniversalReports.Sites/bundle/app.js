@@ -1,158 +1,117 @@
-(function ($) {
-    'use strict';
-
-    angular
-        .module('app.core')
-        .run(reCheckIn);
-
-    reCheckIn.$inject = ['$interval', 'legacyService'];
-    function reCheckIn($interval, legacyService) {
-        $interval(callback, 60000);
-
-        function callback() {
-            var url = legacyService.resolveUrl('/UserLogin/Login/ReCheckLogin');
-            $.post(url, function (result) {
-                if (result.IsKickedOut === "1") {
-                    alert('Another session has been logged in or your session is expired. Forced to logout!');
-                    window.location.href = legacyService.resolveUrl('/UserLogin/Login/LogOut');
-                }
-            }).fail(function (request, textStatus, error) {
-                var result = $.parseJSON(request.responseText);
-                if (result.code == 999999) {
-                    window.location.href = legacyService.resolveUrl('/UserLogin/Common/Offline');
-                }
-            });;
-        }
-    }
-})(jQuery);
 (function (angular) {
     'use strict';
 
     angular
-        .module('app.core')
-        .factory('fanexGridService', fanexGridService);
-
-    fanexGridService.$inject = [];
-    function fanexGridService() {
-        var service = {
-            calculateExpandHeight: calculateExpandHeight
-        };
-        return service;
-
-        function calculateExpandHeight(gridElement, hasTitle) {
-            var bonusSpacing = hasTitle ? 25 : 5;
-            var gridOffsetTop = gridElement.offset().top;
-            return gridOffsetTop + bonusSpacing;
-        }
-    }
+        .module('app.core', [
+            'ui.bootstrap',
+            'ngRoute',
+            'ngSanitize',
+            'angularMoment'
+        ]);
 })(angular);
+(function (angular, moment) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .constant('moment', moment)
+        .constant('config', (function () {
+            moment.now = function () {
+                return napConfig.Today;
+            };
+            var today = moment.utc().startOf('day');
+            var yesterday = moment(today).subtract(1, 'days');
+
+            return {
+                rootUrl: napConfig.RootUrl,
+                legacyPath: napConfig.LegacyPath,
+                today: today,
+                yesterday: yesterday
+            };
+        })())
+        .constant('formatStrings', {
+            INT_NUMBER: '0,0',
+            TWO_DECIMAL_NUMBER: '0,0.00',
+            FOUR_DECIMAL_NUMBER: '0,0.0000',
+            TWO_DECIMAL_PERCENT_NUMBER: '0,0.00%',
+            MMM_DD_YYYY_STRING: 'MMM DD, YYYY',
+            M_DD_YY_STRING: 'M dd, yy',
+            MM_DD_YYYY_WITH_SLASH_STRING: 'MM/dd/yyyy',
+            MMM_YY_STRING: 'MMM YY',
+            MMM_YY_STRING_MONTH_PICKER: 'MMM yyyy',
+            MMM_DD_YY_STRING_MONTH_PICKER: 'MMM dd, yyyy',
+            MM_DD_YYYY_WITH_SLASH_STRING_MOMENT: 'M/D/YYYY',
+            MMM_DD_YYYY_STRING_MOMENT: 'MMM D, YYYY',
+            MMM_DD_YYYY_H_M_STRING: 'MMM DD, YYYY HH:mm',
+            MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
+            PERCENT_NUMBER: '0%'
+        })
+        .constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts']);
+})(angular, moment);
 (function (angular) {
     'use strict';
 
     angular
         .module('app.core')
-        .factory('httpResponseService', httpResponseService);
+        .config(config);
 
-    httpResponseService.$inject = ['loggerService'];
-    function httpResponseService(loggerService) {
-        var service = {
-            getDataComplete: getDataComplete,
-            getDataFailed: getDataFailed,
-            saveExcelFile: saveExcelFile
-        };
+    config.$inject = ['$routeProvider', '$httpProvider', 'config'];
+    function config($routeProvider, $httpProvider, config) {
+        configRouting();
+        configHttp();
 
-        return service;
-
-        function getDataComplete(response) {
-            loggerService.hide();
-            return response.data;
+        function configRouting() {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'app/house-win-loss/house-win-loss.html',
+                    controller: 'HouseWinlossController',
+                    controllerAs: 'vm'
+                })
+                .when('/about', {
+                    templateUrl: 'app/about/about.html',
+                    controller: 'AboutController',
+                    controllerAs: 'vm'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
         }
 
-        function getDataFailed() {
-            loggerService.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
-        }
+        function configHttp() {
+            $httpProvider.interceptors.push(templateInterceptor);
+            templateInterceptor.$inject = ['$templateCache'];
+            function templateInterceptor($templateCache) {
+                return {
+                    request: function (c) {
+                        var url = c.url;
+                        if ($templateCache.get(url) === undefined) {
+                            var subString = url.substring(0, 4);
+                            if (subString.toLowerCase() !== 'http') {
+                                c.url = config.rootUrl + '/' + url;
+                            }
+                        }
 
-        function saveExcelFile(data, fileName) {
-            var contentType = 'application/vnd.ms-excel';
-            var blob = new Blob([data], { type: contentType });
-            if (navigator.appVersion.toString().indexOf('.NET') > 0) {
-                window.navigator.msSaveBlob(blob, fileName);
+                        return c;
+                    }
+                };
             }
-            else {
-                var e = document.createEvent('MouseEvents');
-                var a = document.createElement('a');
 
-                a.download = fileName;
-                a.href = window.URL.createObjectURL(blob);
-                a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
-                e.initMouseEvent('click', true, false, window,
-                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                a.dispatchEvent(e);
-            }
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.core')
-        .factory('legacyService', legacyService);
-
-    legacyService.$inject = ['config'];
-    function legacyService(config) {
-        var service = {
-            legacyPath: config.legacyPath,
-            resolveUrl: resolveUrl
-        };
-        return service;
-
-        function resolveUrl(url) {
-            return config.legacyPath + url;
-        }
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.core')
-        .factory('loggerService', loggerService);
-
-    loggerService.$inject = ['$rootScope'];
-    function loggerService($rootScope) {
-        var service = {
-            log: log,
-            hide: hide,
-            logError: logError,
-            logSuccess: logSuccess,
-            logWarning: logWarning
-        };
-        return service;
-
-        function hide() {
-            $rootScope.$broadcast('alert-hide');
-        }
-
-        function log(message) {
-            logIt(message, source, 'info');
-        }
-
-        function logWarning(message) {
-            logIt(message, 'warning');
-        }
-
-        function logSuccess(message) {
-            logIt(message, 'success');
-        }
-
-        function logError(message) {
-            logIt(message, 'error');
-        }
-
-        function logIt(message, type) {
-            if (type === 'error') {
-                $rootScope.$broadcast('alert-show', message);
+            $httpProvider.interceptors.push(loadingInterceptor);
+            loadingInterceptor.$inject = ['$q', '$rootScope'];
+            function loadingInterceptor($q, $rootScope) {
+                return {
+                    request: function (config) {
+                        $rootScope.$broadcast('loading-started');
+                        return config || $q.when(config);
+                    },
+                    response: function (response) {
+                        $rootScope.$broadcast('loading-complete');
+                        return response || $q.when(response);
+                    }, responseError: function (response) {
+                        $rootScope.$broadcast('loading-complete');
+                        return $q.reject(response);
+                    }
+                };
             }
         }
     }
@@ -168,7 +127,7 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: 'app/components/alert/alert.directive.html',
+            templateUrl: 'app/root/components/alert/alert.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -245,7 +204,7 @@
     function napDatePicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: 'app/components/date-picker/date-picker.directive.html',
+            templateUrl: 'app/root/components/date-picker/date-picker.directive.html',
             scope: {
                 ngModel: '='
             },
@@ -466,7 +425,7 @@
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: 'app/components/header/header.directive.html',
+            templateUrl: 'app/root/components/header/header.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -637,7 +596,7 @@
     function napMonthPicker() {
         var directive = {
             restrict: 'EA',
-            templateUrl: 'app/components/month-picker/month-picker.directive.html',
+            templateUrl: 'app/root/components/month-picker/month-picker.directive.html',
             scope: {
                 startDate: '=',
                 endDate: '=',
@@ -796,6 +755,165 @@
         function updateModel() {
             vm.startDate = moment.utc(startDate);
             vm.endDate = moment.utc(endDate);
+        }
+    }
+})(angular);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('fanexGridService', fanexGridService);
+
+    fanexGridService.$inject = [];
+    function fanexGridService() {
+        var service = {
+            calculateExpandHeight: calculateExpandHeight
+        };
+        return service;
+
+        function calculateExpandHeight(gridElement, hasTitle) {
+            var bonusSpacing = hasTitle ? 25 : 5;
+            var gridOffsetTop = gridElement.offset().top;
+            return gridOffsetTop + bonusSpacing;
+        }
+    }
+})(angular);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('httpResponseService', httpResponseService);
+
+    httpResponseService.$inject = ['loggerService'];
+    function httpResponseService(loggerService) {
+        var service = {
+            getDataComplete: getDataComplete,
+            getDataFailed: getDataFailed,
+            saveExcelFile: saveExcelFile
+        };
+
+        return service;
+
+        function getDataComplete(response) {
+            loggerService.hide();
+            return response.data;
+        }
+
+        function getDataFailed() {
+            loggerService.logError('Sorry, an error occurred while processing your request, please notify the administrators.');
+        }
+
+        function saveExcelFile(data, fileName) {
+            var contentType = 'application/vnd.ms-excel';
+            var blob = new Blob([data], { type: contentType });
+            if (navigator.appVersion.toString().indexOf('.NET') > 0) {
+                window.navigator.msSaveBlob(blob, fileName);
+            }
+            else {
+                var e = document.createEvent('MouseEvents');
+                var a = document.createElement('a');
+
+                a.download = fileName;
+                a.href = window.URL.createObjectURL(blob);
+                a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+                e.initMouseEvent('click', true, false, window,
+                    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                a.dispatchEvent(e);
+            }
+        }
+    }
+})(angular);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('loggerService', loggerService);
+
+    loggerService.$inject = ['$rootScope'];
+    function loggerService($rootScope) {
+        var service = {
+            log: log,
+            hide: hide,
+            logError: logError,
+            logSuccess: logSuccess,
+            logWarning: logWarning
+        };
+        return service;
+
+        function hide() {
+            $rootScope.$broadcast('alert-hide');
+        }
+
+        function log(message) {
+            logIt(message, source, 'info');
+        }
+
+        function logWarning(message) {
+            logIt(message, 'warning');
+        }
+
+        function logSuccess(message) {
+            logIt(message, 'success');
+        }
+
+        function logError(message) {
+            logIt(message, 'error');
+        }
+
+        function logIt(message, type) {
+            if (type === 'error') {
+                $rootScope.$broadcast('alert-show', message);
+            }
+        }
+    }
+})(angular);
+(function ($) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .run(reCheckIn);
+
+    reCheckIn.$inject = ['$interval', 'legacyService'];
+    function reCheckIn($interval, legacyService) {
+        $interval(callback, 60000);
+
+        function callback() {
+            var url = legacyService.resolveUrl('/UserLogin/Login/ReCheckLogin');
+            $.post(url, function (result) {
+                if (result.IsKickedOut === "1") {
+                    alert('Another session has been logged in or your session is expired. Forced to logout!');
+                    window.location.href = legacyService.resolveUrl('/UserLogin/Login/LogOut');
+                }
+            }).fail(function (request, textStatus, error) {
+                var result = $.parseJSON(request.responseText);
+                if (result.code == 999999) {
+                    window.location.href = legacyService.resolveUrl('/UserLogin/Common/Offline');
+                }
+            });;
+        }
+    }
+})(jQuery);
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .factory('legacyService', legacyService);
+
+    legacyService.$inject = ['config'];
+    function legacyService(config) {
+        var service = {
+            legacyPath: config.legacyPath,
+            resolveUrl: resolveUrl
+        };
+        return service;
+
+        function resolveUrl(url) {
+            return config.legacyPath + url;
         }
     }
 })(angular);
