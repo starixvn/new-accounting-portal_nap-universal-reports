@@ -361,23 +361,6 @@
 
     angular
         .module('app.companyWinlossApp')
-        .factory('bettradeSiteService', bettradeSiteService);
-
-    bettradeSiteService.$inject = ['$http', 'siteService', 'titleService'];
-    function bettradeSiteService($http, siteService, titleService) {
-        var service = {
-            getTitle: titleService.getSiteTitle,
-            getData: siteService.getData,
-            exportExcel: siteService.exportExcel
-        };
-        return service;
-    }
-})(angular);
-(function (angular) {
-    'use strict';
-
-    angular
-        .module('app.companyWinlossApp')
         .factory('breadcrumbService', breadcrumbService);
 
     breadcrumbService.$inject = [];
