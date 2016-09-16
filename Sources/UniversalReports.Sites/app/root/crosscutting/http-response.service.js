@@ -1,5 +1,5 @@
 import angular from "angular";
-import Blob from "Blob";
+import Blob from "blob";
 (function (angular) {
     'use strict';
 

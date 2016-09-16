@@ -1,2 +1,1200 @@
-webpackJsonp([3],{0:function(e,t,r){r(70),r(75),r(76),r(77),r(71),r(72),r(73),r(74),r(78),r(79),r(80),r(81),r(82),r(83),e.exports=r(84)},70:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){e.module("app.NG2Statistic",["app.core"])}(n["default"])},71:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(){function e(e){for(var t='<ol class="breadcrumb">',r=0;r<e.length;r++){var i=e[r],o=r===e.length-1;t+=o?'<li class="active">'+i+"</li>":'<li><a href data-ng-click="tab.goBack('+r+')">'+i+"</a></li>"}return t}function t(e){return e.join(" > ")}var r={generateHtml:e,generateText:t};return r}e.module("app.NG2Statistic").factory("breadcrumbService",t),t.$inject=[]}(n["default"])},72:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(){function e(e){return' "'+(e?"Live":"Non-Live")+'" '}function t(e){return"| "+e+" Site"}function r(t){return t.productName+e(t.isLive)}function i(t){return void 0==t.isLive?t.productName:t.productName+e(t.isLive)}function o(t){return t.sportTypeName+e(t.isLive)}function n(r){return r.betTypeName+e(r.isLive)+t(r.site)}function a(t){return t.betTypeName+e(t.isLive)}var l={getProductTitle:r,getSportTypeTitle:o,getSiteTitle:n,getProductNumberGameTitle:i,getMatchDetailTitle:a};return l}e.module("app.NG2Statistic").factory("liveTitleService",t),t.$inject=[]}(n["default"])},73:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(){function e(e){return"| "+(void 0==e?"ALL":e)+" Site"}function t(e){return"Main"}function r(e){return e.productName}function i(e,t){return t?e.productName+" Live/Non-Live ":e.productName}function o(e){return e.casinoProductName}function n(e){return e.sportTypeName}function a(t){return t.betTypeName+" "+e(t.site)}function l(e){return e.betTypeName}var s={getMainTitle:t,getProductTitle:r,getProductLiveNonLiveTitle:i,getCasinoProductTitle:o,getSportTypeTitle:n,getSiteTitle:a,getMatchDetailTitle:l};return s}e.module("app.NG2Statistic").factory("titleService",t),t.$inject=[]}(n["default"])},74:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o),a=r(2),l=i(a);!function(e){function t(){var e={restrict:"EA",scope:{},templateUrl:"app/house-win-loss/filter/filter.directive.html",replace:!0,controller:r,controllerAs:"vm",bindToController:!0};return e}function r(e,t,r){function i(){p.dateRange=c(),t.$broadcast("nap-filter-generate",p.dateRange)}function o(){p.date=p.today,p.generate()}function n(){p.date=p.yesterday,p.generate()}function a(){p.normalMode=!0,$(".filter-note").css("display","block"),t.$broadcast("nap-filter-switch")}function s(){p.normalMode=!1,$(".filter-note").css("display","none"),t.$broadcast("nap-filter-switch")}function c(){return p.normalMode?{normalMode:p.normalMode,startDate:p.date,endDate:p.date}:{normalMode:p.normalMode,startDate:p.startDate,endDate:p.endDate}}function u(e){p.normalMode=e.normalMode,p.normalMode?p.date=e.startDate:(p.startDate=e.startDate,p.endDate=e.endDate)}var p=this;p.currentLevel=0,p.normalMode=!0,p.today=r.today,p.yesterday=r.yesterday,p.date=r.today,p.startDate=l["default"].utc(r.yesterday).startOf("month"),p.endDate=l["default"].utc(r.yesterday),p.generate=i,p.todayClicked=o,p.yesterdayClicked=n,p.viewNormalMode=a,p.viewHistoryMode=s,p.getDateRange=c,p.updateDateRange=u,e.$on("nap-filter-date",function(e,t){u(t)})}e.module("app.NG2Statistic").directive("napFilter",t),r.$inject=["$scope","$rootScope","config"]}(n["default"])},75:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){var t={Soccer:{product:"soccerLiveNonLive",soccerLiveNonLive:{templateUrl:"app/house-win-loss/shared/two-fanex-grid-with-title.html",controller:"SoccerLiveNonLiveController",service:"soccerLiveNonLiveService"},soccerMajorMinor:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SoccerMajorMinorController",service:"soccerMajorMinorService"},soccerBetType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"soccerBetTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportsbookMatchDetailController",service:"sportsbookMatchDetailService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"sportsbookSiteService"}},"Metric Gaming - Superlive":{product:"liveNonLive",liveNonLive:{templateUrl:"app/house-win-loss/shared/two-fanex-grid-with-title.html",controller:"MetricGamingLiveNonLiveController",service:"metricGamingLiveNonLiveService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"sportsbookBetTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportsbookMatchDetailController",service:"sportsbookMatchDetailService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"sportsbookSiteService"}},"Other Sports":{product:"liveNonLive",liveNonLive:{templateUrl:"app/house-win-loss/shared/two-fanex-grid-with-title.html",controller:"OtherSportsLiveNonLiveController",service:"otherSportsLiveNonLiveService"},sportType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportTypeController",service:"otherSportsSportTypeService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"sportsbookBetTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportsbookMatchDetailController",service:"sportsbookMatchDetailService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"sportsbookSiteService"}},Parlay:{product:"betType",betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"ParlayBetTypeController",service:"parlayBetTypeService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"parlaySiteService"}},"Live Casino":{product:"casinoProduct",casinoProduct:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"CasinoProductController",service:"casinoProductService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"CasinoBetTypeService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"siteService"}},Casino:{product:"casinoProduct",casinoProduct:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"CasinoProductController",service:"casinoProductService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"CasinoBetTypeService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"siteService"}},"Number Game":{product:"betType",betType:{templateUrl:"app/house-win-loss/shared/two-fanex-grid-with-title.html",controller:"NumberGameBetTypeController",service:"numberGameBetTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"MatchDetailController",service:"numberGameMatchDetailService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"numberGameSiteService"}},"Virtual Sports":{product:"sportType",sportType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportTypeController",service:"sportTypeService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"betTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"MatchDetailController",service:function(e){return e.sportType>=181&&e.sportType<=185?"virtualSportsRacingDetailService":"virtualSportsSportsbookDetailService"}},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"siteService"}},Bettrade:{product:"betType",betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"bettradeBetTypeService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"siteService"}},Racing:{product:"sportType",sportType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SportTypeController",service:"sportTypeService"},betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"betTypeService"},matchDetail:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"MatchDetailController",service:"matchDetailService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"siteService"}}},r={products:{Bingo:7,Keno:8,"Colossus Bets":15},settings:{product:"betType",betType:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"BetTypeController",service:"universalBetTypeService"},site:{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"SiteController",service:"universalSiteService"}},getProductId:function(e){return r.products[e]}};e.module("app.NG2Statistic").constant("templateSetting",t).constant("universalSettings",r)}(n["default"])},76:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(){var e=this;e.panes=[]}e.module("app.NG2Statistic").controller("HouseWinlossController",t),t.$inject=[]}(n["default"])},77:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e,t){function r(r,i){function o(e){return"Live Casino"==e||"Casino"==e?"casino":e.replace(/\s+/g,"-").replace(/\-+/g,"-")}function n(e,t){return"api/house-win-loss-by-products/"+o(data.productName)+"/"+t}function a(t){var o=r[t];return e.isUndefined(o)?i.settings:o}function l(r,i){if("product"===i)return{templateUrl:"app/house-win-loss/shared/fanex-grid-with-title.html",controller:"ProductController",service:"productService"};var o=a(r.productName);if(e.isUndefined(o))return t;var n=o[i];if(e.isUndefined(n))return t;var l=n.templateUrl;e.isFunction(l)&&(l=l(r));var s=n.controller;e.isFunction(s)&&(s=s(r));var c=n.service;return e.isFunction(c)&&(c=c(r)),{templateUrl:l,controller:s,service:c}}var s={getTemplate:l,getTemplateSetting:a,resolveProductPath:o,resolveServiceUrl:n};return s}e.module("app.NG2Statistic").service("ng2StatisticService",r),r.$inject=["templateSetting","universalSettings"]}(n["default"],void 0)},78:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e,t){function r(t,r,i,o,n){function a(){p.service.getData(p.data).then(function(e){d.build(v,e),s(e),l(v,e),p.compileAll()})}function l(e,t){var r={text:h.generateBreadcrumbHtml(),showCollapseExpandButton:!0,showExcelButton:!0,exportExcelFunction:u,customButtons:d.getButtonHtml()};t.titleInfo=r,t.gridExpandHeight=i.calculateExpandHeight(e,!0),t.bottomBorderWidth=3,e.fanexGrid(t)}function s(e){for(var t=0;t<e.bodyRows.length;t++){var r=e.bodyRows[t],i=r.Columns[0].Value;r.Columns[0].Value='<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\''+i+"')\">"+i+"</a>"}}function c(t){var r={betTypeNameMajorMinor:t,sportTypeName:t};e.extend(r,p.data),h.goForward("soccerBetType",r)}function u(){var e=h.generateBreadcrumbText();p.service.exportExcel(e,p.data,p.getFileName())}var p=t.pane,d=new n(p),h=t.tab,v=r.find(".freegrid");e.element(v[0]),t.generate=a,t.show=d.toggle,t.generateSoccerLiveNonLiveBetTypePane=c,p.data.isLive="Soccer Non-Live"==p.data.soccerLiveNonLive?o.NonLive:o.Live}e.module("app.NG2Statistic").controller("SoccerMajorMinorController",r),r.$inject=["$scope","$element","fanexGridService","soccerConstants","showHideColumnService"]}(n["default"],void 0)},79:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(t,r,i){function o(e){if(e.isLive==i.LiveNonLive)return e.productName+" MAJOR/MINOR";var t=e.isLive==i.Live?"LIVE":"NON-LIVE";return e.productName+" "+t}function n(e){return t.post("api/house-win-loss-by-products/soccer/major-minor",e).then(r.getDataComplete)["catch"](r.getDataFailed)}function a(i,o,n){var a={title:i};return e.extend(a,o),t.post("api/house-win-loss-by-products/soccer/major-minor/excel",a,{responseType:"arraybuffer"}).then(function(e){r.saveExcelFile(e.data,n)})["catch"](r.getDataFailed)}var l={getTitle:o,getData:n,exportExcel:a};return l}e.module("app.NG2Statistic").factory("soccerMajorMinorService",t),t.$inject=["$http","httpResponseService","soccerConstants"]}(n["default"])},80:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){var t={NonLive:0,Live:1,LiveNonLive:2,SoccerSportType:1};e.module("app.NG2Statistic").constant("soccerConstants",t)}(n["default"])},81:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(t,r,i){function o(o,n,a,l){var s=o.pane;o.tab=l.tab,t(s.templateUrl,!0).then(function(t){var a=o.$new(!1),l=n.html(t),c=l.find(".freegrid");e.forEach(c,function(e,t){var r="grid_"+a.$id+"_"+t;$(e).attr("id",r)});var u=i(s.controller,{$scope:a,$element:l});l.data("$ngControllerController",u),r(l.contents())(a,function(e,t){s.$scope=t,s.$element=l,s.generate()})})}var n={restrict:"EA",require:"^^napTab",scope:{pane:"="},link:o};return n}e.module("app.NG2Statistic").directive("napPane",t),t.$inject=["$templateRequest","$compile","$controller"]}(n["default"])},82:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(t,r,i,o,n){function a(n,a){function l(){this.$scope.generate()}function s(){var e=this.$element.find(".freegrid");e.fanexGrid("resizeGrid")}function c(){return"House_Win_Loss_By_Products_From_"+this.data.startDate.format("DD_MM_YYYY")+"_To_"+this.data.endDate.format("DD_MM_YYYY")+".xls"}function u(){this.compileLinks();var e=this.$element.find(".nap-component");r(e)(this.$scope)}function p(){var e=this.$element.find(".drill-down");r(e)(this.$scope),e=this.$element.find(".breadcrumb"),r(e)(this.$scope)}function d(){var e=this.$element.find(".drill-down");r(e)(this.$scope)}if(this.level=n,this.data=a,this.$scope=void 0,this.$element=void 0,this.generate=l,this.show=s,this.compileAll=u,this.compileLinks=p,this.compileDrilldown=d,this.getFileName=c,e.isUndefined(this.level)||e.isUndefined(this.data))return void t.error("Invalid pane");var h=o.getTemplate(a,n);this.templateUrl=h.templateUrl,this.controller=h.controller,this.service=i.get(h.service)}return a}e.module("app.NG2Statistic").factory("napPane",t),t.$inject=["$log","$compile","$injector","ng2StatisticService","showHideColumnService"]}(n["default"])},83:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(e){var t={restrict:"EA",scope:{panes:"="},templateUrl:"app/house-win-loss/tab/tab.directive.html",controller:r,controllerAs:"vm",bindToController:!0};return t}function r(t,r,i,o){var n=new i(t.panes),a=this;a.tab=n,t.$on("nap-filter-generate",function(t,r){if(0===n.panes.length){var i=new o("product",r);n.addPane(i)}else{var a=n.getActivePane();e.extend(a.data,r),a.generate()}}),t.$on("nap-filter-switch",function(e){n.panes=[]})}e.module("app.NG2Statistic").directive("napTab",t),t.$inject=["napPane"],r.$inject=["$scope","$rootScope","napTab","napPane"]}(n["default"])},84:function(e,t,r){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=r(1),n=i(o);!function(e){function t(t,r,i){function o(o){function n(e){this.panes.push(e)}function a(){return this.panes[this.panes.length-1]}function l(e){for(var t=null,r=0;r<this.panes.length;r++){var i=this.panes[r];if(i===e)break;t=i}return t}function s(r){var i=this.getActivePane();this.panes=this.panes.slice(0,r+1);var o=this.getActivePane();e.isFunction(o.$scope.show)&&o.$scope.show(),i=this.panes[r];var n={normalMode:i.data.normalMode,startDate:i.data.startDate,endDate:i.data.endDate};t.$broadcast("nap-filter-date",n)}function c(e,t){var r=(this.getActivePane(),new i(e,t));this.addPane(r)}function u(){for(var e=[],t=0;t<this.panes.length;t++){var r=this.panes[t],i=t===this.panes.length-1,o=r.service.getTitle(r.data,i);e.push(o)}return e}function p(){var e=this.generateBreadcrumbList();return r.generateHtml(e)}function d(){var e=this.generateBreadcrumbList();return r.generateText(e)}this.panes=e.isDefined(o)?o:[],this.addPane=n,this.getActivePane=a,this.getPreviousPane=l,this.goBack=s,this.goForward=c,this.generateBreadcrumbList=u,this.generateBreadcrumbHtml=p,this.generateBreadcrumbText=d}return o}e.module("app.NG2Statistic").factory("napTab",t),t.$inject=["$rootScope","breadcrumbService","napPane"]}(n["default"])}});
+webpackJsonp([4],{
+
+/***/ 0:
+/*!***************************!*\
+  !*** multi ng2-statistic ***!
+  \***************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(/*! ./app/ng2-statistic/app.js */108);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.constant.js */109);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */110);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.service.js */111);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */112);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/live-title.service.js */113);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */114);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */115);
+	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer-major-minor.controller.js */116);
+	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer-major-minor.service.js */117);
+	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer.constant.js */118);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */119);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */120);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */121);
+	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */122);
+
+
+/***/ },
+
+/***/ 108:
+/*!**********************************!*\
+  !*** ./app/ng2-statistic/app.js ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic', ['app.core']);
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 109:
+/*!*****************************************************!*\
+  !*** ./app/ng2-statistic/ng2-statistic.constant.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    var templateSetting = {
+	        'Soccer': {
+	            product: 'soccerLiveNonLive',
+	            soccerLiveNonLive: {
+	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
+	                controller: 'SoccerLiveNonLiveController',
+	                service: 'soccerLiveNonLiveService'
+	            },
+	            soccerMajorMinor: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SoccerMajorMinorController',
+	                service: 'soccerMajorMinorService'
+	            },
+	            soccerBetType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'soccerBetTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportsbookMatchDetailController',
+	                service: 'sportsbookMatchDetailService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'sportsbookSiteService'
+	            }
+	        },
+	        'Metric Gaming - Superlive': {
+	            product: 'liveNonLive',
+	            liveNonLive: {
+	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
+	                controller: 'MetricGamingLiveNonLiveController',
+	                service: 'metricGamingLiveNonLiveService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'sportsbookBetTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportsbookMatchDetailController',
+	                service: 'sportsbookMatchDetailService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'sportsbookSiteService'
+	            }
+	        },
+	        'Other Sports': {
+	            product: 'liveNonLive',
+	            liveNonLive: {
+	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
+	                controller: 'OtherSportsLiveNonLiveController',
+	                service: 'otherSportsLiveNonLiveService'
+	            },
+	            sportType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportTypeController',
+	                service: 'otherSportsSportTypeService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'sportsbookBetTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportsbookMatchDetailController',
+	                service: 'sportsbookMatchDetailService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'sportsbookSiteService'
+	            }
+	        },
+	        'Parlay': {
+	            product: 'betType',
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'ParlayBetTypeController',
+	                service: 'parlayBetTypeService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'parlaySiteService'
+	            }
+	        },
+	        'Live Casino': {
+	            product: 'casinoProduct',
+	            casinoProduct: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'CasinoProductController',
+	                service: 'casinoProductService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'CasinoBetTypeService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'siteService'
+	            }
+	        },
+	        'Casino': {
+	            product: 'casinoProduct',
+	            casinoProduct: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'CasinoProductController',
+	                service: 'casinoProductService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'CasinoBetTypeService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'siteService'
+	            }
+	        },
+	        'Number Game': {
+	            product: 'betType',
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
+	                controller: 'NumberGameBetTypeController',
+	                service: 'numberGameBetTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'MatchDetailController',
+	                service: 'numberGameMatchDetailService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'numberGameSiteService'
+	            }
+	        },
+	        'Virtual Sports': {
+	            product: 'sportType',
+	            sportType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportTypeController',
+	                service: 'sportTypeService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'betTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'MatchDetailController',
+	                service: function service(data) {
+	                    return data.sportType >= 181 && data.sportType <= 185 ? 'virtualSportsRacingDetailService' : 'virtualSportsSportsbookDetailService';
+	                }
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'siteService'
+	            }
+	        },
+	        'Bettrade': {
+	            product: 'betType',
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'bettradeBetTypeService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'siteService'
+	            }
+	        },
+	        'Racing': {
+	            product: 'sportType',
+	            sportType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SportTypeController',
+	                service: 'sportTypeService'
+	            },
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'betTypeService'
+	            },
+	            matchDetail: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'MatchDetailController',
+	                service: 'matchDetailService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'siteService'
+	            }
+	        }
+	    };
+	    var universalSettings = {
+	        products: {
+	            "Bingo": 7,
+	            "Keno": 8,
+	            "Colossus Bets": 15
+	        },
+	        settings: {
+	            product: 'betType',
+	            betType: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'BetTypeController',
+	                service: 'universalBetTypeService'
+	            },
+	            site: {
+	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                controller: 'SiteController',
+	                service: 'universalSiteService'
+	            }
+	        },
+	        getProductId: function getProductId(productName) {
+	            return universalSettings.products[productName];
+	        }
+	    };
+	    angular.module('app.NG2Statistic').constant('templateSetting', templateSetting).constant('universalSettings', universalSettings);
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 110:
+/*!*******************************************************!*\
+  !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').controller('HouseWinlossController', HouseWinlossController);
+	
+	    HouseWinlossController.$inject = [];
+	    function HouseWinlossController() {
+	        var vm = this;
+	        vm.panes = [];
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 111:
+/*!****************************************************!*\
+  !*** ./app/ng2-statistic/ng2-statistic.service.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular, undefined) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').service('ng2StatisticService', ng2StatisticService);
+	
+	    ng2StatisticService.$inject = ['templateSetting', 'universalSettings'];
+	    function ng2StatisticService(templateSetting, universalSettings) {
+	        var service = {
+	            getTemplate: getTemplate,
+	            getTemplateSetting: getTemplateSetting,
+	            resolveProductPath: resolveProductPath,
+	            resolveServiceUrl: resolveServiceUrl
+	        };
+	        return service;
+	
+	        function resolveProductPath(productName) {
+	            if (productName == 'Live Casino' || productName == 'Casino') {
+	                return 'casino';
+	            }
+	            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
+	        }
+	
+	        function resolveServiceUrl(productName, suffix) {
+	            return 'api/house-win-loss-by-products/' + resolveProductPath(data.productName) + '/' + suffix;
+	        }
+	
+	        function getTemplateSetting(productName) {
+	            var productSetting = templateSetting[productName];
+	            if (!angular.isUndefined(productSetting)) {
+	                return productSetting;
+	            }
+	
+	            return universalSettings.settings;
+	        }
+	
+	        function getTemplate(data, type) {
+	            if (type === 'product') {
+	                return {
+	                    templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+	                    controller: 'ProductController',
+	                    service: 'productService'
+	                };
+	            }
+	
+	            var productSetting = getTemplateSetting(data.productName);
+	            if (angular.isUndefined(productSetting)) {
+	                return undefined;
+	            }
+	
+	            var template = productSetting[type];
+	            if (angular.isUndefined(template)) {
+	                return undefined;
+	            }
+	
+	            var templateUrl = template.templateUrl;
+	            if (angular.isFunction(templateUrl)) {
+	                templateUrl = templateUrl(data);
+	            }
+	
+	            var controller = template.controller;
+	            if (angular.isFunction(controller)) {
+	                controller = controller(data);
+	            }
+	
+	            var service = template.service;
+	            if (angular.isFunction(service)) {
+	                service = service(data);
+	            }
+	
+	            return {
+	                templateUrl: templateUrl,
+	                controller: controller,
+	                service: service
+	            };
+	        }
+	    }
+	})(_angular2.default, undefined);
+
+/***/ },
+
+/***/ 112:
+/*!************************************************************!*\
+  !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('breadcrumbService', breadcrumbService);
+	
+	    breadcrumbService.$inject = [];
+	    function breadcrumbService() {
+	        var service = {
+	            generateHtml: generateHtml,
+	            generateText: generateText
+	        };
+	        return service;
+	
+	        function generateHtml(list) {
+	            var html = '<ol class="breadcrumb">';
+	            for (var i = 0; i < list.length; i++) {
+	                var title = list[i];
+	                var isLast = i === list.length - 1;
+	                if (isLast) {
+	                    html += '<li class="active">' + title + '</li>';
+	                } else {
+	                    html += '<li><a href data-ng-click="tab.goBack(' + i + ')">' + title + '</a></li>';
+	                }
+	            }
+	
+	            return html;
+	        }
+	
+	        function generateText(list) {
+	            return list.join(' > ');
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 113:
+/*!************************************************************!*\
+  !*** ./app/ng2-statistic/breadcrumb/live-title.service.js ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('liveTitleService', liveTitleService);
+	
+	    liveTitleService.$inject = [];
+	    function liveTitleService() {
+	
+	        var service = {
+	            getProductTitle: getProductTitle,
+	            getSportTypeTitle: getSportTypeTitle,
+	            getSiteTitle: getSiteTitle,
+	            getProductNumberGameTitle: getProductNumberGameTitle,
+	            getMatchDetailTitle: getMatchDetailTitle
+	        };
+	        return service;
+	
+	        function getLiveText(isLive) {
+	            return ' "' + (isLive ? 'Live' : 'Non-Live') + '" ';
+	        }
+	
+	        function getSiteText(site) {
+	            return '| ' + site + ' Site';
+	        }
+	
+	        function getProductTitle(data) {
+	            return data.productName + getLiveText(data.isLive);
+	        }
+	
+	        function getProductNumberGameTitle(data) {
+	            return data.isLive == undefined ? data.productName : data.productName + getLiveText(data.isLive);
+	        }
+	
+	        function getSportTypeTitle(data) {
+	            return data.sportTypeName + getLiveText(data.isLive);
+	        }
+	
+	        function getSiteTitle(data) {
+	            return data.betTypeName + getLiveText(data.isLive) + getSiteText(data.site);
+	        }
+	
+	        function getMatchDetailTitle(data) {
+	            return data.betTypeName + getLiveText(data.isLive);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 114:
+/*!*******************************************************!*\
+  !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('titleService', titleService);
+	
+	    titleService.$inject = [];
+	    function titleService() {
+	        var productWinLossReport = 'Product Win/Loss Report';
+	
+	        var service = {
+	            getMainTitle: getMainTitle,
+	            getProductTitle: getProductTitle,
+	            getProductLiveNonLiveTitle: getProductLiveNonLiveTitle,
+	            getCasinoProductTitle: getCasinoProductTitle,
+	            getSportTypeTitle: getSportTypeTitle,
+	            getSiteTitle: getSiteTitle,
+	            getMatchDetailTitle: getMatchDetailTitle
+	        };
+	        return service;
+	
+	        function getSiteText(site) {
+	            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
+	        }
+	
+	        function getMainTitle(data) {
+	            return 'Main';
+	        }
+	
+	        function getProductTitle(data) {
+	            return data.productName;
+	        }
+	
+	        function getProductLiveNonLiveTitle(data, isLast) {
+	            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
+	        }
+	
+	        function getCasinoProductTitle(data) {
+	            return data.casinoProductName;
+	        }
+	
+	        function getSportTypeTitle(data) {
+	            return data.sportTypeName;
+	        }
+	
+	        function getSiteTitle(data) {
+	            return data.betTypeName + ' ' + getSiteText(data.site);
+	        }
+	
+	        function getMatchDetailTitle(data) {
+	            return data.betTypeName;
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 115:
+/*!******************************************************!*\
+  !*** ./app/ng2-statistic/filter/filter.directive.js ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _moment = __webpack_require__(/*! moment */ 5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').directive('napFilter', napFilter);
+	
+	    function napFilter() {
+	        var directive = {
+	            restrict: 'EA',
+	            scope: {},
+	            templateUrl: 'app/house-win-loss/filter/filter.directive.html',
+	            replace: true,
+	            controller: controller,
+	            controllerAs: 'vm',
+	            bindToController: true
+	        };
+	        return directive;
+	    }
+	
+	    controller.$inject = ['$scope', '$rootScope', 'config'];
+	    function controller($scope, $rootScope, config) {
+	        /*jshint validthis: true */
+	        var vm = this;
+	        vm.currentLevel = 0;
+	        vm.normalMode = true;
+	        vm.today = config.today;
+	        vm.yesterday = config.yesterday;
+	        vm.date = config.today;
+	        vm.startDate = _moment2.default.utc(config.yesterday).startOf('month');
+	        vm.endDate = _moment2.default.utc(config.yesterday);
+	        vm.generate = generate;
+	        vm.todayClicked = todayClicked;
+	        vm.yesterdayClicked = yesterdayClicked;
+	        vm.viewNormalMode = viewNormalMode;
+	        vm.viewHistoryMode = viewHistoryMode;
+	        vm.getDateRange = getDateRange;
+	        vm.updateDateRange = updateDateRange;
+	        $scope.$on('nap-filter-date', function (event, data) {
+	            updateDateRange(data);
+	        });
+	
+	        function generate() {
+	            vm.dateRange = getDateRange();
+	            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+	        }
+	
+	        function todayClicked() {
+	            vm.date = vm.today;
+	            vm.generate();
+	        }
+	
+	        function yesterdayClicked() {
+	            vm.date = vm.yesterday;
+	            vm.generate();
+	        }
+	
+	        function viewNormalMode() {
+	            vm.normalMode = true;
+	            $('.filter-note').css('display', 'block');
+	            $rootScope.$broadcast('nap-filter-switch');
+	        }
+	
+	        function viewHistoryMode() {
+	            vm.normalMode = false;
+	            $('.filter-note').css('display', 'none');
+	            $rootScope.$broadcast('nap-filter-switch');
+	        }
+	
+	        function getDateRange() {
+	            if (vm.normalMode) {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.date,
+	                    endDate: vm.date
+	                };
+	            } else {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.startDate,
+	                    endDate: vm.endDate
+	                };
+	            }
+	        }
+	
+	        function updateDateRange(dateRange) {
+	            vm.normalMode = dateRange.normalMode;
+	            if (vm.normalMode) {
+	                vm.date = dateRange.startDate;
+	            } else {
+	                vm.startDate = dateRange.startDate;
+	                vm.endDate = dateRange.endDate;
+	            }
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 116:
+/*!*******************************************************************!*\
+  !*** ./app/ng2-statistic/soccer/soccer-major-minor.controller.js ***!
+  \*******************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular, undefined) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').controller('SoccerMajorMinorController', SoccerMajorMinorController);
+	
+	    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
+	    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
+	        var pane = $scope.pane;
+	        var showHideColumnBuilder = new showHideColumnService(pane);
+	        var tab = $scope.tab;
+	        var gridElements = $element.find('.freegrid');
+	        var majorMinorGridElement = angular.element(gridElements[0]);
+	        $scope.generate = generate;
+	        $scope.show = showHideColumnBuilder.toggle;
+	        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
+	        pane.data.isLive = pane.data.soccerLiveNonLive == "Soccer Non-Live" ? soccerConstants.NonLive : soccerConstants.Live;
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                showHideColumnBuilder.build(gridElements, data);
+	                createLinksForMajorMinor(data);
+	                renderGrid(gridElements, data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(gridElement, data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showCollapseExpandButton: true,
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel,
+	                customButtons: showHideColumnBuilder.getButtonHtml()
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+	            data.bottomBorderWidth = 3;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function createLinksForMajorMinor(data) {
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var betTypeRow = data.bodyRows[i];
+	                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
+	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+	            }
+	        }
+	
+	        function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
+	            var data = {
+	                betTypeNameMajorMinor: betTypeNameMajorMinor,
+	                sportTypeName: betTypeNameMajorMinor
+	            };
+	            angular.extend(data, pane.data);
+	
+	            tab.goForward('soccerBetType', data);
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default, undefined);
+
+/***/ },
+
+/***/ 117:
+/*!****************************************************************!*\
+  !*** ./app/ng2-statistic/soccer/soccer-major-minor.service.js ***!
+  \****************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('soccerMajorMinorService', soccerMajorMinorService);
+	
+	    soccerMajorMinorService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
+	    function soccerMajorMinorService($http, httpResponseService, soccerConstants) {
+	        var service = {
+	            getTitle: getTitleWhenMajorMinor,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	
+	        return service;
+	
+	        function getTitleWhenMajorMinor(data) {
+	            if (data.isLive == soccerConstants.LiveNonLive) {
+	                return data.productName + ' ' + "MAJOR/MINOR";
+	            } else {
+	                var liveNonLive = data.isLive == soccerConstants.Live ? "LIVE" : "NON-LIVE";
+	
+	                return data.productName + ' ' + liveNonLive;
+	            }
+	        }
+	
+	        function getData(data) {
+	            return $http.post('api/house-win-loss-by-products/soccer/major-minor', data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title
+	            };
+	            angular.extend(httpData, data);
+	            return $http.post('api/house-win-loss-by-products/soccer/major-minor/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 118:
+/*!*****************************************************!*\
+  !*** ./app/ng2-statistic/soccer/soccer.constant.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    var soccerConstants = {
+	        NonLive: 0,
+	        Live: 1,
+	        LiveNonLive: 2,
+	        SoccerSportType: 1
+	    };
+	
+	    angular.module('app.NG2Statistic').constant('soccerConstants', soccerConstants);
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 119:
+/*!*************************************************!*\
+  !*** ./app/ng2-statistic/tab/pane.directive.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').directive('napPane', napPane);
+	
+	    napPane.$inject = ['$templateRequest', '$compile', '$controller'];
+	    function napPane($templateRequest, $compile, $controller) {
+	        var directive = {
+	            restrict: 'EA',
+	            require: '^^napTab',
+	            scope: {
+	                pane: '='
+	            },
+	            link: link
+	        };
+	        return directive;
+	
+	        function link(scope, element, attrs, tabCtrl) {
+	            var pane = scope.pane;
+	            scope.tab = tabCtrl.tab;
+	            $templateRequest(pane.templateUrl, true).then(function (response) {
+	                var templateScope = scope.$new(false);
+	                var templateElement = element.html(response);
+	                var grids = templateElement.find('.freegrid');
+	                angular.forEach(grids, function (grid, key) {
+	                    var id = 'grid_' + templateScope.$id + '_' + key;
+	                    $(grid).attr('id', id);
+	                });
+	                var templateCtrl = $controller(pane.controller, {
+	                    $scope: templateScope,
+	                    $element: templateElement
+	                });
+	
+	                templateElement.data('$ngControllerController', templateCtrl);
+	                $compile(templateElement.contents())(templateScope, function (clonedElement, scope) {
+	                    // save $scope & $element into pane
+	                    pane.$scope = scope;
+	                    pane.$element = templateElement;
+	                    pane.generate();
+	                });
+	            });
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 120:
+/*!***********************************************!*\
+  !*** ./app/ng2-statistic/tab/pane.service.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('napPane', napPane);
+	
+	    napPane.$inject = ['$log', '$compile', '$injector', 'ng2StatisticService', 'showHideColumnService'];
+	    function napPane($log, $compile, $injector, ng2StatisticService, showHideColumnService) {
+	        function Pane(level, data) {
+	            this.level = level;
+	            this.data = data;
+	            this.$scope = undefined;
+	            this.$element = undefined;
+	            this.generate = generate;
+	            this.show = show;
+	            this.compileAll = compileAll;
+	            this.compileLinks = compileLinks;
+	            this.compileDrilldown = compileDrilldown;
+	            this.getFileName = getFileName;
+	
+	            if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
+	                $log.error('Invalid pane');
+	                return;
+	            }
+	
+	            var template = ng2StatisticService.getTemplate(data, level);
+	            this.templateUrl = template.templateUrl;
+	            this.controller = template.controller;
+	            this.service = $injector.get(template.service);
+	
+	            function generate() {
+	                this.$scope.generate();
+	            }
+	
+	            function show() {
+	                var gridElement = this.$element.find('.freegrid');
+	                gridElement.fanexGrid('resizeGrid');
+	            }
+	
+	            function getFileName() {
+	                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	            }
+	
+	            function compileAll() {
+	                this.compileLinks();
+	                var elements = this.$element.find('.nap-component');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileLinks() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	                elements = this.$element.find('.breadcrumb');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileDrilldown() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	            }
+	        }
+	
+	        return Pane;
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 121:
+/*!************************************************!*\
+  !*** ./app/ng2-statistic/tab/tab.directive.js ***!
+  \************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').directive('napTab', napTab);
+	
+	    napTab.$inject = ['napPane'];
+	    function napTab(Pane) {
+	        var directive = {
+	            restrict: 'EA',
+	            scope: {
+	                panes: '='
+	            },
+	            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
+	            controller: controller,
+	            controllerAs: 'vm',
+	            bindToController: true
+	        };
+	        return directive;
+	    }
+	
+	    controller.$inject = ['$scope', '$rootScope', 'napTab', 'napPane'];
+	    function controller($scope, $rootScope, Tab, Pane) {
+	        var tab = new Tab($scope.panes);
+	        var vm = this;
+	        vm.tab = tab;
+	
+	        $scope.$on('nap-filter-generate', function (event, data) {
+	            if (tab.panes.length === 0) {
+	                var mainPane = new Pane('product', data);
+	                tab.addPane(mainPane);
+	            } else {
+	                var activePane = tab.getActivePane();
+	                angular.extend(activePane.data, data);
+	                activePane.generate();
+	            }
+	        });
+	
+	        $scope.$on('nap-filter-switch', function (event) {
+	            tab.panes = [];
+	        });
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 122:
+/*!**********************************************!*\
+  !*** ./app/ng2-statistic/tab/tab.service.js ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.NG2Statistic').factory('napTab', napTab);
+	
+	    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];
+	    function napTab($rootScope, breadcrumbService, Pane) {
+	        function Tab(panes) {
+	            this.panes = angular.isDefined(panes) ? panes : [];
+	            this.addPane = addPane;
+	            this.getActivePane = getActivePane;
+	            this.getPreviousPane = getPreviousPane;
+	            this.goBack = goBack;
+	            this.goForward = goForward;
+	            this.generateBreadcrumbList = generateBreadcrumbList;
+	            this.generateBreadcrumbHtml = generateBreadcrumbHtml;
+	            this.generateBreadcrumbText = generateBreadcrumbText;
+	
+	            function addPane(pane) {
+	                this.panes.push(pane);
+	            }
+	
+	            function getActivePane() {
+	                return this.panes[this.panes.length - 1];
+	            }
+	
+	            function getPreviousPane(pane) {
+	                var previousPane = null;
+	                for (var i = 0; i < this.panes.length; i++) {
+	                    var currentPane = this.panes[i];
+	                    if (currentPane === pane) {
+	                        break;
+	                    }
+	
+	                    previousPane = currentPane;
+	                }
+	
+	                return previousPane;
+	            }
+	
+	            function goBack(index) {
+	                var activePane = this.getActivePane();
+	                this.panes = this.panes.slice(0, index + 1);
+	                var newActivePane = this.getActivePane();
+	                if (angular.isFunction(newActivePane.$scope.show)) {
+	                    newActivePane.$scope.show();
+	                }
+	
+	                activePane = this.panes[index];
+	                var dateRange = {
+	                    normalMode: activePane.data.normalMode,
+	                    startDate: activePane.data.startDate,
+	                    endDate: activePane.data.endDate
+	                };
+	                $rootScope.$broadcast('nap-filter-date', dateRange);
+	            }
+	
+	            function goForward(level, data) {
+	                var activePane = this.getActivePane();
+	                var pane = new Pane(level, data);
+	                this.addPane(pane);
+	            }
+	
+	            function generateBreadcrumbList() {
+	                var list = [];
+	                for (var i = 0; i < this.panes.length; i++) {
+	                    var pane = this.panes[i];
+	                    var isLast = i === this.panes.length - 1;
+	                    var title = pane.service.getTitle(pane.data, isLast);
+	                    list.push(title);
+	                }
+	
+	                return list;
+	            }
+	
+	            function generateBreadcrumbHtml() {
+	                var list = this.generateBreadcrumbList();
+	                return breadcrumbService.generateHtml(list);
+	            }
+	
+	            function generateBreadcrumbText() {
+	                var list = this.generateBreadcrumbList();
+	                return breadcrumbService.generateText(list);
+	            }
+	        }
+	
+	        return Tab;
+	    }
+	})(_angular2.default);
+
+/***/ }
+
+});
 //# sourceMappingURL=ng2-statistic.chunk.js.map
