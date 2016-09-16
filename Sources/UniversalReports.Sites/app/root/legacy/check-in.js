@@ -1,3 +1,7 @@
+import angular from "angular";
+import $ from "jquery";
+import jQuery from "jquery";
+
 (function ($) {
     'use strict';
 

@@ -29,7 +29,7 @@
     <meta name="description" content="Universal Reports" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title</title>
-    <link href="~/bundle/lib-style.@(contentVersion)css" rel="stylesheet" />    
+    <link href="~/bundle/app-style.css" rel="stylesheet" />    
     @RenderSection("Styles", false)    
 </head>
 <body>
@@ -40,8 +40,8 @@
     <script type="text/javascript">
         var napConfig = @Html.Raw(Json.Encode(napConfig));
     </script>
-    <script src="~/bundle/lib.min.js"></script>
-    <script src="~/bundle/app.@(contentVersion)js"></script>
+    <script src="~/bundle/lib.chunk.js"></script>
+    <script src="~/bundle/app.chunk.js"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

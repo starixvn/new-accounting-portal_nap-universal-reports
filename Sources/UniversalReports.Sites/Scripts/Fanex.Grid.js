@@ -1,4 +1,5 @@
-﻿// --------------------------------------------------------------------------
+﻿// module "fanexgrid.js"
+// --------------------------------------------------------------------------
 // <copyright file="Fanex.Grid.js" company="">
 // Copyright (c) . All rights reserved.
 // Revision:
@@ -29,7 +30,21 @@
 /*jshint maxdepth:false, maxstatements:false, strict:false*/
 /*global fanexGridLanguage, moment,numeral*/
 
-var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
+import $ from "jquery";
+import jQuery from "jquery";
+import moment from "moment";
+import numeral from "numeral";
+
+var fanexGridLanguage = {};
+fanexGridLanguage['en-US'] = {
+    noData: 'There is no data',
+    pageSize: 'Page size',
+    goToPage: 'Go To Page',
+    pagingText: 'Displaying <b>{0}</b> to <b>{1}</b> of <b>{2}</b> item(s)'
+};
+
+var fanexGridCurrentLanguage = fanexGridLanguage['en-US'];
+export default fanexGridCurrentLanguage;
 
 (function ($) {
     //'use strict';
@@ -3419,27 +3434,6 @@ var fanexGridCurrentLanguage = fanexGridCurrentLanguage || {};
 
 })(jQuery);
 
-//// Language
-/* jshint ignore:start */
-if (typeof (fanexGridLanguage) === 'undefined') {
-    /* File Created: December 4, 2013 */
-    var fanexGridLanguage = {};
-    fanexGridLanguage['en-US'] = {
-        noData: 'There is no data',
-        pageSize: 'Page size',
-        goToPage: 'Go To Page',
-        pagingText: 'Displaying <b>{0}</b> to <b>{1}</b> of <b>{2}</b> item(s)'
-    };
-
-    var fanexGridCurrentLanguage = fanexGridLanguage['en-US'];
-}
-/* jshint ignore:end */
-// Array Remove - By John Resig (MIT Licensed)
-//Array.prototype.removeArrayItem1 = function (from, to) {
-//    var rest = this.slice((to || from) + 1 || this.length);
-//    this.length = from < 0 ? this.length + from : from;
-//    return this.push.apply(this, rest);
-//};
 
 
 

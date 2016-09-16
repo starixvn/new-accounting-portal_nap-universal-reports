@@ -1,4 +1,5 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     var soccerConstants = {

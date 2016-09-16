@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .controller('HouseWinlossController', HouseWinlossController);
 
     HouseWinlossController.$inject = [];

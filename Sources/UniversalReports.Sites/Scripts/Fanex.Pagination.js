@@ -1,4 +1,8 @@
+
 /*global fanexGridCurrentLanguage*/
+import fanexGridCurrentLanguage from "./Fanex.Grid";
+import $ from "jquery";
+import jQuery from "jquery";
 (function ($) {
     $.fn.fanexPagination = function (maxentries, opts) {
         opts = $.extend({

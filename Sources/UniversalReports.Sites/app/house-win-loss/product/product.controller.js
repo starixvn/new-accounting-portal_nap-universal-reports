@@ -1,4 +1,6 @@
-﻿(function (angular) {
+import angular from "angular";
+import numeral from "numeral";
+(function (angular) {
     'use strict';
 
     angular

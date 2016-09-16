@@ -1,8 +1,9 @@
-﻿(function (angular, undefined) {
+import angular from "angular";
+(function (angular, undefined) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .controller('SoccerMajorMinorController', SoccerMajorMinorController);
 
     SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];

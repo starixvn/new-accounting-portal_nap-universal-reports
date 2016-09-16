@@ -1,4 +1,6 @@
-﻿(function (angular, moment) {
+import angular from "angular";
+import moment from "moment";
+(function (angular, moment) {
     'use strict';
 
     angular

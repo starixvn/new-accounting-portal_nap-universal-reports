@@ -1,4 +1,5 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     var soccerConstants = {
@@ -9,6 +10,6 @@
     };
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .constant('soccerConstants', soccerConstants);
 })(angular);

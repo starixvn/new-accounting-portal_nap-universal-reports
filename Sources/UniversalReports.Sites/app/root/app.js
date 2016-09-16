@@ -1,3 +1,11 @@
+import angular from "angular";
+import "bootstrap";
+import "angular-ui-bootstrap";
+import "angular-route";
+import "angular-sanitize";
+import "angular-moment";
+
+
 (function (angular) {
     'use strict';
 

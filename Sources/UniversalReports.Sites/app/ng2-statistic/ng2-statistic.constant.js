@@ -1,4 +1,5 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     var templateSetting = {
@@ -234,7 +235,7 @@
         }
     };
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .constant('templateSetting', templateSetting)
         .constant('universalSettings', universalSettings);
 })(angular);

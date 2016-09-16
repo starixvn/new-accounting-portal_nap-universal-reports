@@ -1,8 +1,10 @@
-﻿(function (angular) {
+import angular from "angular";
+import moment from "moment";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .directive('napFilter', napFilter);
 
     function napFilter() {

@@ -278,32 +278,18 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\root\legacy\legacy.service.js" />
     <Content Include="app\ng2-statistic\app.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\live-title.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
-    <Content Include="app\ng2-statistic\common\bet-type.controller.js" />
-    <Content Include="app\ng2-statistic\common\bet-type.service.js" />
-    <Content Include="app\ng2-statistic\common\match-detail.controller.js" />
-    <Content Include="app\ng2-statistic\common\match-detail.service.js" />
-    <Content Include="app\ng2-statistic\common\site.controller.js" />
-    <Content Include="app\ng2-statistic\common\site.service.js" />
-    <Content Include="app\ng2-statistic\common\sport-type.controller.js" />
-    <Content Include="app\ng2-statistic\common\sport-type.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
-    <Content Include="app\ng2-statistic\grid\product-show-hide-column.service.js" />
-    <Content Include="app\ng2-statistic\grid\show-hide-column.service.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.constant.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.html" />
     <Content Include="app\ng2-statistic\ng2-statistic.service.js" />
     <Content Include="app\ng2-statistic\shared\fanex-grid-with-title.html" />
     <Content Include="app\ng2-statistic\shared\two-fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistic\soccer\soccer-bet-type.service.js" />
-    <Content Include="app\ng2-statistic\soccer\soccer-live-nonlive.controller.js" />
-    <Content Include="app\ng2-statistic\soccer\soccer-live-nonlive.service.js" />
     <Content Include="app\ng2-statistic\soccer\soccer-major-minor.controller.js" />
     <Content Include="app\ng2-statistic\soccer\soccer-major-minor.service.js" />
     <Content Include="app\ng2-statistic\soccer\soccer.constant.js" />
@@ -312,6 +298,7 @@
     <Content Include="app\ng2-statistic\tab\tab.directive.html" />
     <Content Include="app\ng2-statistic\tab\tab.directive.js" />
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
+    <Content Include="app\root\legacy\legacy.service.js" />
     <Content Include="app\house-win-loss\bettrade\bettrade-bet-type.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\app.js" />
@@ -398,6 +385,75 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
+    <Content Include="bundle\app.chunk.js" />
+    <Content Include="bundle\app.js" />
+    <Content Include="bundle\app.min.js">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
+    <Content Include="bundle\house-win-loss-style.chunk.js" />
+    <Content Include="bundle\house-win-loss-style.css" />
+    <Content Include="bundle\house-win-loss.chunk.js" />
+    <Content Include="bundle\house-win-loss.js" />
+    <Content Include="bundle\house-win-loss.min.js">
+      <DependentUpon>house-win-loss.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\lib-style.chunk.js" />
+    <Content Include="bundle\lib-style.css" />
+    <Content Include="bundle\lib.chunk.js" />
+    <Content Include="bundle\lib.js" />
+    <Content Include="bundle\lib.min.js">
+      <DependentUpon>lib.js</DependentUpon>
+    </Content>
+    <Content Include="bundle\ng2-statistic-style.chunk.js" />
+    <Content Include="bundle\ng2-statistic-style.css" />
+    <Content Include="bundle\ng2-statistic.chunk.js" />
+    <Content Include="bundle\ng2-statistic.js" />
+    <Content Include="bundle\ng2-statistic.min.js">
+      <DependentUpon>ng2-statistic.js</DependentUpon>
+    </Content>
+    <Content Include="content\house-win-loss.css">
+      <DependentUpon>house-win-loss.scss</DependentUpon>
+    </Content>
+    <Content Include="content\house-win-loss.min.css">
+      <DependentUpon>house-win-loss.css</DependentUpon>
+    </Content>
+    <Content Include="content\images\1F.gif" />
+    <Content Include="content\images\1L.gif" />
+    <Content Include="content\images\date-picker\calendar.png" />
+    <Content Include="content\images\filter\legend-information-hover.png" />
+    <Content Include="content\images\filter\legend-information.png" />
+    <Content Include="content\images\filter\note-collapse.png" />
+    <Content Include="content\images\filter\note-expand.png" />
+    <Content Include="content\images\firstGoal.gif" />
+    <Content Include="content\images\goal-icon.png" />
+    <Content Include="content\images\header\bgmenu-more.png" />
+    <Content Include="content\images\header\logo.png" />
+    <Content Include="content\images\header\small-arrow-down.png" />
+    <Content Include="content\images\header\user.png" />
+    <Content Include="content\images\lastGoal.gif" />
+    <Content Include="content\images\loading\loading.gif" />
+    <Content Include="content\images\show-hide.png" />
+    <Content Include="content\ng2-statistic.css">
+      <DependentUpon>ng2-statistic.scss</DependentUpon>
+    </Content>
+    <Content Include="content\ng2-statistic.min.css">
+      <DependentUpon>ng2-statistic.css</DependentUpon>
+    </Content>
+    <Content Include="content\scoreInformation.css">
+      <DependentUpon>scoreInformation.scss</DependentUpon>
+    </Content>
+    <Content Include="content\scoreInformation.min.css">
+      <DependentUpon>scoreInformation.css</DependentUpon>
+    </Content>
+    <Content Include="content\Site.css">
+      <DependentUpon>site.scss</DependentUpon>
+    </Content>
+    <Content Include="content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="javascripts\lib.js" />
+    <Content Include="webpack.config.js" />
     <None Include="App_Configuration\SIT\Web.AppSettings.config" />
     <None Include="App_Configuration\SIT\Web.ConnectionString.config" />
     <None Include="bundleconfig.json" />
@@ -426,34 +482,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\UAT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
-    <Content Include="bundle\app.js" />
-    <Content Include="bundle\app.min.js">
-      <DependentUpon>app.js</DependentUpon>
-    </Content>
-    <Content Include="bundle\house-win-loss.css" />
-    <Content Include="bundle\house-win-loss.js" />
-    <Content Include="bundle\house-win-loss.min.css">
-      <DependentUpon>house-win-loss.css</DependentUpon>
-    </Content>
-    <Content Include="bundle\house-win-loss.min.js">
-      <DependentUpon>house-win-loss.js</DependentUpon>
-    </Content>
-    <Content Include="bundle\lib-style.css" />
-    <Content Include="bundle\lib-style.min.css">
-      <DependentUpon>lib-style.css</DependentUpon>
-    </Content>
-    <Content Include="bundle\lib.js" />
-    <Content Include="bundle\lib.min.js">
-      <DependentUpon>lib.js</DependentUpon>
-    </Content>
-    <Content Include="bundle\ng2-statistic-style.css" />
-    <Content Include="bundle\ng2-statistic-style.min.css">
-      <DependentUpon>ng2-statistic-style.css</DependentUpon>
-    </Content>
-    <Content Include="bundle\ng2-statistic.js" />
-    <Content Include="bundle\ng2-statistic.min.js">
-      <DependentUpon>ng2-statistic.js</DependentUpon>
-    </Content>
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
@@ -499,6 +527,16 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="bundle\app.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.css.map" />
+    <Content Include="bundle\house-win-loss.chunk.js.map" />
+    <Content Include="bundle\lib-style.chunk.js.map" />
+    <Content Include="bundle\lib-style.css.map" />
+    <Content Include="bundle\lib.chunk.js.map" />
+    <Content Include="bundle\ng2-statistic-style.chunk.js.map" />
+    <Content Include="bundle\ng2-statistic-style.css.map" />
+    <Content Include="bundle\ng2-statistic.chunk.js.map" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -1258,6 +1296,11 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="package.json" />
+    <Content Include="content\house-win-loss.scss" />
+    <Content Include="content\ng2-statistic.scss" />
+    <Content Include="content\scoreInformation.scss" />
+    <Content Include="content\site.scss" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\images\back-icon.png" />
     <Content Include="Scripts\images\check-box.png" />
@@ -1560,6 +1603,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="webpack.config.sh" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

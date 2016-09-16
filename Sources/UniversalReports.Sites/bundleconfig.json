@@ -37,9 +37,9 @@
   {
     "outputFileName": "bundle/lib-style.css",
     "inputFiles": [
+      "stylesheets/Site.css",
       "Scripts/Fanex.Grid.css",
-      "Scripts/Fanex.Pagination.css",
-      "stylesheets/Site.css"      
+      "Scripts/Fanex.Pagination.css"
     ]
   },
   {

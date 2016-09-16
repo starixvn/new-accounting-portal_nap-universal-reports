@@ -1,12 +1,13 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.NG2Statistic')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
-    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
+    napPane.$inject = ['$log', '$compile', '$injector', 'ng2StatisticService', 'showHideColumnService'];
+    function napPane($log, $compile, $injector, ng2StatisticService, showHideColumnService) {
         function Pane(level, data) {
             this.level = level;
             this.data = data;
@@ -24,7 +25,7 @@
                 return;
             }
 
-            var template = companyWinlossService.getTemplate(data, level);
+            var template = ng2StatisticService.getTemplate(data, level);
             this.templateUrl = template.templateUrl;
             this.controller = template.controller;
             this.service = $injector.get(template.service);

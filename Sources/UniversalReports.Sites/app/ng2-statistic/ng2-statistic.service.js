@@ -1,12 +1,13 @@
-﻿(function (angular, undefined) {
+import angular from "angular";
+(function (angular, undefined) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
-        .service('companyWinlossService', companyWinlossService);
+        .module('app.NG2Statistic')
+        .service('ng2StatisticService', ng2StatisticService);
 
-    companyWinlossService.$inject = ['templateSetting', 'universalSettings'];
-    function companyWinlossService(templateSetting, universalSettings) {
+    ng2StatisticService.$inject = ['templateSetting', 'universalSettings'];
+    function ng2StatisticService(templateSetting, universalSettings) {
         var service = {
             getTemplate: getTemplate,
             getTemplateSetting: getTemplateSetting,
