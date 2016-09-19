@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.NG2Statistic', [
+        .module('app.numberGame2StatisticApp', [
             'app.core'
         ]);
 })(angular);

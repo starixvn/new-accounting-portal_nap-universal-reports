@@ -6,26 +6,62 @@ webpackJsonp([4],{
   \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/ng2-statistic/app.js */108);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.constant.js */109);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */110);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.service.js */111);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */112);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/live-title.service.js */113);
+	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */110);
+	__webpack_require__(/*! ./app/ng2-statistic/app.js */111);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */112);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */113);
 	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */114);
 	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */115);
-	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer-major-minor.controller.js */116);
-	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer-major-minor.service.js */117);
-	__webpack_require__(/*! ./app/ng2-statistic/soccer/soccer.constant.js */118);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */119);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */120);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */121);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */122);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */116);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */117);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */118);
+	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */119);
 
 
 /***/ },
 
-/***/ 108:
+/***/ 110:
+/*!*****************************************!*\
+  !*** ./app/ng2-statistic/app.config.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.core').config(config);
+	
+	    config.$inject = ['$routeProvider'];
+	    function config($routeProvider) {
+	        configRouting();
+	
+	        function configRouting() {
+	            $routeProvider.when('/', {
+	                templateUrl: 'app/ng2-statistic/ng2-statistic.html',
+	                controller: 'NG2StatisticController',
+	                controllerAs: 'vm'
+	            }).when('/about', {
+	                templateUrl: 'app/about/about.html',
+	                controller: 'AboutController',
+	                controllerAs: 'vm'
+	            }).otherwise({
+	                redirectTo: '/'
+	            });
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 111:
 /*!**********************************!*\
   !*** ./app/ng2-statistic/app.js ***!
   \**********************************/
@@ -42,266 +78,12 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic', ['app.core']);
+	    angular.module('app.numberGame2StatisticApp', ['app.core']);
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 109:
-/*!*****************************************************!*\
-  !*** ./app/ng2-statistic/ng2-statistic.constant.js ***!
-  \*****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    var templateSetting = {
-	        'Soccer': {
-	            product: 'soccerLiveNonLive',
-	            soccerLiveNonLive: {
-	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-	                controller: 'SoccerLiveNonLiveController',
-	                service: 'soccerLiveNonLiveService'
-	            },
-	            soccerMajorMinor: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SoccerMajorMinorController',
-	                service: 'soccerMajorMinorService'
-	            },
-	            soccerBetType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'soccerBetTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportsbookMatchDetailController',
-	                service: 'sportsbookMatchDetailService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'sportsbookSiteService'
-	            }
-	        },
-	        'Metric Gaming - Superlive': {
-	            product: 'liveNonLive',
-	            liveNonLive: {
-	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-	                controller: 'MetricGamingLiveNonLiveController',
-	                service: 'metricGamingLiveNonLiveService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'sportsbookBetTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportsbookMatchDetailController',
-	                service: 'sportsbookMatchDetailService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'sportsbookSiteService'
-	            }
-	        },
-	        'Other Sports': {
-	            product: 'liveNonLive',
-	            liveNonLive: {
-	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-	                controller: 'OtherSportsLiveNonLiveController',
-	                service: 'otherSportsLiveNonLiveService'
-	            },
-	            sportType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportTypeController',
-	                service: 'otherSportsSportTypeService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'sportsbookBetTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportsbookMatchDetailController',
-	                service: 'sportsbookMatchDetailService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'sportsbookSiteService'
-	            }
-	        },
-	        'Parlay': {
-	            product: 'betType',
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'ParlayBetTypeController',
-	                service: 'parlayBetTypeService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'parlaySiteService'
-	            }
-	        },
-	        'Live Casino': {
-	            product: 'casinoProduct',
-	            casinoProduct: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'CasinoProductController',
-	                service: 'casinoProductService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'CasinoBetTypeService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'siteService'
-	            }
-	        },
-	        'Casino': {
-	            product: 'casinoProduct',
-	            casinoProduct: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'CasinoProductController',
-	                service: 'casinoProductService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'CasinoBetTypeService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'siteService'
-	            }
-	        },
-	        'Number Game': {
-	            product: 'betType',
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-	                controller: 'NumberGameBetTypeController',
-	                service: 'numberGameBetTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'MatchDetailController',
-	                service: 'numberGameMatchDetailService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'numberGameSiteService'
-	            }
-	        },
-	        'Virtual Sports': {
-	            product: 'sportType',
-	            sportType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportTypeController',
-	                service: 'sportTypeService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'betTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'MatchDetailController',
-	                service: function service(data) {
-	                    return data.sportType >= 181 && data.sportType <= 185 ? 'virtualSportsRacingDetailService' : 'virtualSportsSportsbookDetailService';
-	                }
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'siteService'
-	            }
-	        },
-	        'Bettrade': {
-	            product: 'betType',
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'bettradeBetTypeService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'siteService'
-	            }
-	        },
-	        'Racing': {
-	            product: 'sportType',
-	            sportType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SportTypeController',
-	                service: 'sportTypeService'
-	            },
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'betTypeService'
-	            },
-	            matchDetail: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'MatchDetailController',
-	                service: 'matchDetailService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'siteService'
-	            }
-	        }
-	    };
-	    var universalSettings = {
-	        products: {
-	            "Bingo": 7,
-	            "Keno": 8,
-	            "Colossus Bets": 15
-	        },
-	        settings: {
-	            product: 'betType',
-	            betType: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'BetTypeController',
-	                service: 'universalBetTypeService'
-	            },
-	            site: {
-	                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                controller: 'SiteController',
-	                service: 'universalSiteService'
-	            }
-	        },
-	        getProductId: function getProductId(productName) {
-	            return universalSettings.products[productName];
-	        }
-	    };
-	    angular.module('app.NG2Statistic').constant('templateSetting', templateSetting).constant('universalSettings', universalSettings);
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 110:
+/***/ 112:
 /*!*******************************************************!*\
   !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
   \*******************************************************/
@@ -318,10 +100,10 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').controller('HouseWinlossController', HouseWinlossController);
+	    angular.module('app.numberGame2StatisticApp').controller('NG2StatisticController', NG2StatisticController);
 	
-	    HouseWinlossController.$inject = [];
-	    function HouseWinlossController() {
+	    NG2StatisticController.$inject = [];
+	    function NG2StatisticController() {
 	        var vm = this;
 	        vm.panes = [];
 	    }
@@ -329,101 +111,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 111:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/ng2-statistic.service.js ***!
-  \****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.NG2Statistic').service('ng2StatisticService', ng2StatisticService);
-	
-	    ng2StatisticService.$inject = ['templateSetting', 'universalSettings'];
-	    function ng2StatisticService(templateSetting, universalSettings) {
-	        var service = {
-	            getTemplate: getTemplate,
-	            getTemplateSetting: getTemplateSetting,
-	            resolveProductPath: resolveProductPath,
-	            resolveServiceUrl: resolveServiceUrl
-	        };
-	        return service;
-	
-	        function resolveProductPath(productName) {
-	            if (productName == 'Live Casino' || productName == 'Casino') {
-	                return 'casino';
-	            }
-	            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
-	        }
-	
-	        function resolveServiceUrl(productName, suffix) {
-	            return 'api/house-win-loss-by-products/' + resolveProductPath(data.productName) + '/' + suffix;
-	        }
-	
-	        function getTemplateSetting(productName) {
-	            var productSetting = templateSetting[productName];
-	            if (!angular.isUndefined(productSetting)) {
-	                return productSetting;
-	            }
-	
-	            return universalSettings.settings;
-	        }
-	
-	        function getTemplate(data, type) {
-	            if (type === 'product') {
-	                return {
-	                    templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-	                    controller: 'ProductController',
-	                    service: 'productService'
-	                };
-	            }
-	
-	            var productSetting = getTemplateSetting(data.productName);
-	            if (angular.isUndefined(productSetting)) {
-	                return undefined;
-	            }
-	
-	            var template = productSetting[type];
-	            if (angular.isUndefined(template)) {
-	                return undefined;
-	            }
-	
-	            var templateUrl = template.templateUrl;
-	            if (angular.isFunction(templateUrl)) {
-	                templateUrl = templateUrl(data);
-	            }
-	
-	            var controller = template.controller;
-	            if (angular.isFunction(controller)) {
-	                controller = controller(data);
-	            }
-	
-	            var service = template.service;
-	            if (angular.isFunction(service)) {
-	                service = service(data);
-	            }
-	
-	            return {
-	                templateUrl: templateUrl,
-	                controller: controller,
-	                service: service
-	            };
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-
-/***/ 112:
+/***/ 113:
 /*!************************************************************!*\
   !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
   \************************************************************/
@@ -440,7 +128,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').factory('breadcrumbService', breadcrumbService);
+	    angular.module('app.numberGame2StatisticApp').factory('breadcrumbService', breadcrumbService);
 	
 	    breadcrumbService.$inject = [];
 	    function breadcrumbService() {
@@ -473,69 +161,6 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 113:
-/*!************************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/live-title.service.js ***!
-  \************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.NG2Statistic').factory('liveTitleService', liveTitleService);
-	
-	    liveTitleService.$inject = [];
-	    function liveTitleService() {
-	
-	        var service = {
-	            getProductTitle: getProductTitle,
-	            getSportTypeTitle: getSportTypeTitle,
-	            getSiteTitle: getSiteTitle,
-	            getProductNumberGameTitle: getProductNumberGameTitle,
-	            getMatchDetailTitle: getMatchDetailTitle
-	        };
-	        return service;
-	
-	        function getLiveText(isLive) {
-	            return ' "' + (isLive ? 'Live' : 'Non-Live') + '" ';
-	        }
-	
-	        function getSiteText(site) {
-	            return '| ' + site + ' Site';
-	        }
-	
-	        function getProductTitle(data) {
-	            return data.productName + getLiveText(data.isLive);
-	        }
-	
-	        function getProductNumberGameTitle(data) {
-	            return data.isLive == undefined ? data.productName : data.productName + getLiveText(data.isLive);
-	        }
-	
-	        function getSportTypeTitle(data) {
-	            return data.sportTypeName + getLiveText(data.isLive);
-	        }
-	
-	        function getSiteTitle(data) {
-	            return data.betTypeName + getLiveText(data.isLive) + getSiteText(data.site);
-	        }
-	
-	        function getMatchDetailTitle(data) {
-	            return data.betTypeName + getLiveText(data.isLive);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
 /***/ 114:
 /*!*******************************************************!*\
   !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
@@ -553,7 +178,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').factory('titleService', titleService);
+	    angular.module('app.numberGame2StatisticApp').factory('titleService', titleService);
 	
 	    titleService.$inject = [];
 	    function titleService() {
@@ -627,13 +252,13 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').directive('napFilter', napFilter);
+	    angular.module('app.numberGame2StatisticApp').directive('napFilter', napFilter);
 	
 	    function napFilter() {
 	        var directive = {
 	            restrict: 'EA',
 	            scope: {},
-	            templateUrl: 'app/house-win-loss/filter/filter.directive.html',
+	            templateUrl: 'app/ng2-statistic/filter/filter.directive.html',
 	            replace: true,
 	            controller: controller,
 	            controllerAs: 'vm',
@@ -646,8 +271,9 @@ webpackJsonp([4],{
 	    function controller($scope, $rootScope, config) {
 	        /*jshint validthis: true */
 	        var vm = this;
+	        vm.reportType = "daily";
 	        vm.currentLevel = 0;
-	        vm.normalMode = true;
+	        vm.normalMode = false;
 	        vm.today = config.today;
 	        vm.yesterday = config.yesterday;
 	        vm.date = config.today;
@@ -659,10 +285,6 @@ webpackJsonp([4],{
 	        vm.viewNormalMode = viewNormalMode;
 	        vm.viewHistoryMode = viewHistoryMode;
 	        vm.getDateRange = getDateRange;
-	        vm.updateDateRange = updateDateRange;
-	        $scope.$on('nap-filter-date', function (event, data) {
-	            updateDateRange(data);
-	        });
 	
 	        function generate() {
 	            vm.dateRange = getDateRange();
@@ -706,190 +328,12 @@ webpackJsonp([4],{
 	                };
 	            }
 	        }
-	
-	        function updateDateRange(dateRange) {
-	            vm.normalMode = dateRange.normalMode;
-	            if (vm.normalMode) {
-	                vm.date = dateRange.startDate;
-	            } else {
-	                vm.startDate = dateRange.startDate;
-	                vm.endDate = dateRange.endDate;
-	            }
-	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
 /***/ 116:
-/*!*******************************************************************!*\
-  !*** ./app/ng2-statistic/soccer/soccer-major-minor.controller.js ***!
-  \*******************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.NG2Statistic').controller('SoccerMajorMinorController', SoccerMajorMinorController);
-	
-	    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
-	    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var gridElements = $element.find('.freegrid');
-	        var majorMinorGridElement = angular.element(gridElements[0]);
-	        $scope.generate = generate;
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
-	        pane.data.isLive = pane.data.soccerLiveNonLive == "Soccer Non-Live" ? soccerConstants.NonLive : soccerConstants.Live;
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                showHideColumnBuilder.build(gridElements, data);
-	                createLinksForMajorMinor(data);
-	                renderGrid(gridElements, data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinksForMajorMinor(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
-	            }
-	        }
-	
-	        function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-	            var data = {
-	                betTypeNameMajorMinor: betTypeNameMajorMinor,
-	                sportTypeName: betTypeNameMajorMinor
-	            };
-	            angular.extend(data, pane.data);
-	
-	            tab.goForward('soccerBetType', data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-
-/***/ 117:
-/*!****************************************************************!*\
-  !*** ./app/ng2-statistic/soccer/soccer-major-minor.service.js ***!
-  \****************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.NG2Statistic').factory('soccerMajorMinorService', soccerMajorMinorService);
-	
-	    soccerMajorMinorService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
-	    function soccerMajorMinorService($http, httpResponseService, soccerConstants) {
-	        var service = {
-	            getTitle: getTitleWhenMajorMinor,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	
-	        return service;
-	
-	        function getTitleWhenMajorMinor(data) {
-	            if (data.isLive == soccerConstants.LiveNonLive) {
-	                return data.productName + ' ' + "MAJOR/MINOR";
-	            } else {
-	                var liveNonLive = data.isLive == soccerConstants.Live ? "LIVE" : "NON-LIVE";
-	
-	                return data.productName + ' ' + liveNonLive;
-	            }
-	        }
-	
-	        function getData(data) {
-	            return $http.post('api/house-win-loss-by-products/soccer/major-minor', data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title
-	            };
-	            angular.extend(httpData, data);
-	            return $http.post('api/house-win-loss-by-products/soccer/major-minor/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 118:
-/*!*****************************************************!*\
-  !*** ./app/ng2-statistic/soccer/soccer.constant.js ***!
-  \*****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    var soccerConstants = {
-	        NonLive: 0,
-	        Live: 1,
-	        LiveNonLive: 2,
-	        SoccerSportType: 1
-	    };
-	
-	    angular.module('app.NG2Statistic').constant('soccerConstants', soccerConstants);
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 119:
 /*!*************************************************!*\
   !*** ./app/ng2-statistic/tab/pane.directive.js ***!
   \*************************************************/
@@ -906,7 +350,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').directive('napPane', napPane);
+	    angular.module('app.numberGame2StatisticApp').directive('napPane', napPane);
 	
 	    napPane.$inject = ['$templateRequest', '$compile', '$controller'];
 	    function napPane($templateRequest, $compile, $controller) {
@@ -950,7 +394,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 120:
+/***/ 117:
 /*!***********************************************!*\
   !*** ./app/ng2-statistic/tab/pane.service.js ***!
   \***********************************************/
@@ -967,13 +411,13 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').factory('napPane', napPane);
+	    angular.module('app.numberGame2StatisticApp').factory('napPane', napPane);
 	
-	    napPane.$inject = ['$log', '$compile', '$injector', 'ng2StatisticService', 'showHideColumnService'];
-	    function napPane($log, $compile, $injector, ng2StatisticService, showHideColumnService) {
-	        function Pane(level, data) {
-	            this.level = level;
-	            this.data = data;
+	    napPane.$inject = ['$log', '$compile', '$injector'];
+	    function napPane($log, $compile, $injector) {
+	        function Pane(type, isDrilldown) {
+	            this.type = type;
+	            this.isDrilldown = isDrilldown;
 	            this.$scope = undefined;
 	            this.$element = undefined;
 	            this.generate = generate;
@@ -983,15 +427,9 @@ webpackJsonp([4],{
 	            this.compileDrilldown = compileDrilldown;
 	            this.getFileName = getFileName;
 	
-	            if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
-	                $log.error('Invalid pane');
-	                return;
-	            }
-	
-	            var template = ng2StatisticService.getTemplate(data, level);
-	            this.templateUrl = template.templateUrl;
-	            this.controller = template.controller;
-	            this.service = $injector.get(template.service);
+	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
+	            this.controller = type + (isDrilldown ? "Drilldown" : "") + "Controller";
+	            this.service = $injector.get(type.toLower() + (isDrilldown ? "Drilldown" : "") + "Service");
 	
 	            function generate() {
 	                this.$scope.generate();
@@ -1003,7 +441,7 @@ webpackJsonp([4],{
 	            }
 	
 	            function getFileName() {
-	                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	                return 'NG2_Statistic_Report_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
 	            }
 	
 	            function compileAll() {
@@ -1031,7 +469,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 121:
+/***/ 118:
 /*!************************************************!*\
   !*** ./app/ng2-statistic/tab/tab.directive.js ***!
   \************************************************/
@@ -1048,7 +486,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').directive('napTab', napTab);
+	    angular.module('app.numberGame2StatisticApp').directive('napTab', napTab);
 	
 	    napTab.$inject = ['napPane'];
 	    function napTab(Pane) {
@@ -1057,7 +495,7 @@ webpackJsonp([4],{
 	            scope: {
 	                panes: '='
 	            },
-	            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
+	            templateUrl: 'app/ng2-statistic/tab/tab.directive.html',
 	            controller: controller,
 	            controllerAs: 'vm',
 	            bindToController: true
@@ -1090,7 +528,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 122:
+/***/ 119:
 /*!**********************************************!*\
   !*** ./app/ng2-statistic/tab/tab.service.js ***!
   \**********************************************/
@@ -1107,7 +545,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.NG2Statistic').factory('napTab', napTab);
+	    angular.module('app.numberGame2StatisticApp').factory('napTab', napTab);
 	
 	    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];
 	    function napTab($rootScope, breadcrumbService, Pane) {

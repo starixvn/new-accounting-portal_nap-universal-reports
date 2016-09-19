@@ -1,0 +1,25 @@
+﻿<div class="row date-range-picker">
+    <div class="col-md-1"><label>Time period</label></div>
+    <div class="col-md-2">
+        <select name="time-period" ng-model="vm.timePeriod" data-ng-change="vm.changeTimePeriod()">
+            <option value="yesterday" selected="selected">Yesterday</option>
+            <option value="current-week">Current Week</option>
+            <option value="last-week">Last Week</option>
+            <option value="current-month">Current Month</option>
+            <option value="last-month">Last Month</option>
+            <option value="since-last-month">Since Last Month</option>
+            <option value="specific-period">Specific Period</option>
+            <option value="last-3-months">Last 3 Months</option>
+            <option value="last-6-months">Last 6 Months</option>
+            <option value="last-1-year">Last 1 year</option>
+        </select>
+    </div>
+    <div class="col-md-1"><label>From Date</label></div>
+    <div class="col-md-2">
+        <nap-date-picker data-ng-model="vm.datefrom"></nap-date-picker>
+    </div>
+    <div class="col-md-1"><label>To Date</label></div>
+    <div class="col-md-2">
+        <nap-date-picker data-ng-model="vm.dateto"></nap-date-picker>
+    </div>
+</div>

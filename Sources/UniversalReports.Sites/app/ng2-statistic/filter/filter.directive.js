@@ -4,14 +4,14 @@ import moment from "moment";
     'use strict';
 
     angular
-        .module('app.NG2Statistic')
+        .module('app.numberGame2StatisticApp')
         .directive('napFilter', napFilter);
 
     function napFilter() {
         var directive = {
             restrict: 'EA',
             scope: {},
-            templateUrl: 'app/house-win-loss/filter/filter.directive.html',
+            templateUrl: 'app/ng2-statistic/filter/filter.directive.html',
             replace: true,
             controller: controller,
             controllerAs: 'vm',
@@ -24,8 +24,9 @@ import moment from "moment";
     function controller($scope, $rootScope, config) {
         /*jshint validthis: true */
         var vm = this;
+        vm.reportType="daily";
         vm.currentLevel = 0;
-        vm.normalMode = true;
+        vm.normalMode = false;
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
@@ -37,10 +38,7 @@ import moment from "moment";
         vm.viewNormalMode = viewNormalMode;
         vm.viewHistoryMode = viewHistoryMode;
         vm.getDateRange = getDateRange;
-        vm.updateDateRange = updateDateRange;
-        $scope.$on('nap-filter-date', function (event, data) {
-            updateDateRange(data);
-        });
+        
 
         function generate() {
             vm.dateRange = getDateRange();
@@ -82,16 +80,6 @@ import moment from "moment";
                     startDate: vm.startDate,
                     endDate: vm.endDate
                 };
-            }
-        }
-
-        function updateDateRange(dateRange) {
-            vm.normalMode = dateRange.normalMode;
-            if (vm.normalMode) {
-                vm.date = dateRange.startDate;
-            } else {
-                vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;
             }
         }
     }

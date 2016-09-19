@@ -5,60 +5,61 @@ webpackJsonp([2],[
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/house-win-loss/app.js */52);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.constant.js */53);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.controller.js */54);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.service.js */55);
-	__webpack_require__(/*! ./app/house-win-loss/bettrade/bettrade-bet-type.service.js */56);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/breadcrumb.service.js */57);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/live-title.service.js */58);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/title.service.js */59);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-bet-type.service.js */60);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.controller.js */61);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.service.js */62);
-	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.controller.js */63);
-	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.service.js */64);
-	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.controller.js */65);
-	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.service.js */66);
-	__webpack_require__(/*! ./app/house-win-loss/common/site.controller.js */67);
-	__webpack_require__(/*! ./app/house-win-loss/common/site.service.js */68);
-	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.controller.js */69);
-	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.service.js */70);
-	__webpack_require__(/*! ./app/house-win-loss/filter/filter.directive.js */71);
-	__webpack_require__(/*! ./app/house-win-loss/grid/product-show-hide-column.service.js */72);
-	__webpack_require__(/*! ./app/house-win-loss/grid/show-hide-column.service.js */73);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js */74);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js */75);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.controller.js */76);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.service.js */77);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-match-detail.service.js */78);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-site.service.js */79);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js */80);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js */81);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-sport-type.service.js */82);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.controller.js */83);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.service.js */84);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-site.service.js */85);
-	__webpack_require__(/*! ./app/house-win-loss/product/product.controller.js */86);
-	__webpack_require__(/*! ./app/house-win-loss/product/product.service.js */87);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-bet-type.service.js */88);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js */89);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.service.js */90);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.controller.js */91);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.service.js */92);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer.constant.js */93);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-bet-type.service.js */94);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js */95);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js */96);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-site.service.js */97);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.directive.js */98);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.service.js */99);
-	__webpack_require__(/*! ./app/house-win-loss/tab/tab.directive.js */100);
-	__webpack_require__(/*! ./app/house-win-loss/tab/tab.service.js */101);
-	__webpack_require__(/*! ./app/house-win-loss/universal/universal-bet-type.service.js */102);
-	__webpack_require__(/*! ./app/house-win-loss/universal/universal-site.service.js */103);
-	__webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js */104);
-	module.exports = __webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js */105);
+	__webpack_require__(/*! ./app/house-win-loss/app.config.js */53);
+	__webpack_require__(/*! ./app/house-win-loss/app.js */54);
+	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.constant.js */55);
+	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.controller.js */56);
+	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.service.js */57);
+	__webpack_require__(/*! ./app/house-win-loss/bettrade/bettrade-bet-type.service.js */58);
+	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/breadcrumb.service.js */59);
+	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/live-title.service.js */60);
+	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/title.service.js */61);
+	__webpack_require__(/*! ./app/house-win-loss/casino/casino-bet-type.service.js */62);
+	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.controller.js */63);
+	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.service.js */64);
+	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.controller.js */65);
+	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.service.js */66);
+	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.controller.js */67);
+	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.service.js */68);
+	__webpack_require__(/*! ./app/house-win-loss/common/site.controller.js */69);
+	__webpack_require__(/*! ./app/house-win-loss/common/site.service.js */70);
+	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.controller.js */71);
+	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.service.js */72);
+	__webpack_require__(/*! ./app/house-win-loss/filter/filter.directive.js */73);
+	__webpack_require__(/*! ./app/house-win-loss/grid/product-show-hide-column.service.js */74);
+	__webpack_require__(/*! ./app/house-win-loss/grid/show-hide-column.service.js */75);
+	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js */76);
+	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js */77);
+	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.controller.js */78);
+	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.service.js */79);
+	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-match-detail.service.js */80);
+	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-site.service.js */81);
+	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js */82);
+	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js */83);
+	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-sport-type.service.js */84);
+	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.controller.js */85);
+	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.service.js */86);
+	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-site.service.js */87);
+	__webpack_require__(/*! ./app/house-win-loss/product/product.controller.js */88);
+	__webpack_require__(/*! ./app/house-win-loss/product/product.service.js */89);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-bet-type.service.js */90);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js */91);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.service.js */92);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.controller.js */93);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.service.js */94);
+	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer.constant.js */95);
+	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-bet-type.service.js */96);
+	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js */97);
+	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js */98);
+	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-site.service.js */99);
+	__webpack_require__(/*! ./app/house-win-loss/tab/pane.directive.js */100);
+	__webpack_require__(/*! ./app/house-win-loss/tab/pane.service.js */101);
+	__webpack_require__(/*! ./app/house-win-loss/tab/tab.directive.js */102);
+	__webpack_require__(/*! ./app/house-win-loss/tab/tab.service.js */103);
+	__webpack_require__(/*! ./app/house-win-loss/universal/universal-bet-type.service.js */104);
+	__webpack_require__(/*! ./app/house-win-loss/universal/universal-site.service.js */105);
+	__webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js */106);
+	module.exports = __webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js */107);
 
 
 /***/ },
@@ -113,7 +114,48 @@ webpackJsonp([2],[
 /* 49 */,
 /* 50 */,
 /* 51 */,
-/* 52 */
+/* 52 */,
+/* 53 */
+/*!******************************************!*\
+  !*** ./app/house-win-loss/app.config.js ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.core').config(config);
+	
+	    config.$inject = ['$routeProvider'];
+	    function config($routeProvider) {
+	        configRouting();
+	
+	        function configRouting() {
+	            $routeProvider.when('/', {
+	                templateUrl: 'app/house-win-loss/house-win-loss.html',
+	                controller: 'HouseWinlossController',
+	                controllerAs: 'vm'
+	            }).when('/about', {
+	                templateUrl: 'app/about/about.html',
+	                controller: 'AboutController',
+	                controllerAs: 'vm'
+	            }).otherwise({
+	                redirectTo: '/'
+	            });
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 54 */
 /*!***********************************!*\
   !*** ./app/house-win-loss/app.js ***!
   \***********************************/
@@ -134,7 +176,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 53 */
+/* 55 */
 /*!*******************************************************!*\
   !*** ./app/house-win-loss/house-win-loss.constant.js ***!
   \*******************************************************/
@@ -387,7 +429,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 54 */
+/* 56 */
 /*!*********************************************************!*\
   !*** ./app/house-win-loss/house-win-loss.controller.js ***!
   \*********************************************************/
@@ -414,7 +456,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 55 */
+/* 57 */
 /*!******************************************************!*\
   !*** ./app/house-win-loss/house-win-loss.service.js ***!
   \******************************************************/
@@ -507,7 +549,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 56 */
+/* 58 */
 /*!******************************************************************!*\
   !*** ./app/house-win-loss/bettrade/bettrade-bet-type.service.js ***!
   \******************************************************************/
@@ -539,7 +581,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 57 */
+/* 59 */
 /*!*************************************************************!*\
   !*** ./app/house-win-loss/breadcrumb/breadcrumb.service.js ***!
   \*************************************************************/
@@ -588,7 +630,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 58 */
+/* 60 */
 /*!*************************************************************!*\
   !*** ./app/house-win-loss/breadcrumb/live-title.service.js ***!
   \*************************************************************/
@@ -650,7 +692,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 59 */
+/* 61 */
 /*!********************************************************!*\
   !*** ./app/house-win-loss/breadcrumb/title.service.js ***!
   \********************************************************/
@@ -719,7 +761,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 60 */
+/* 62 */
 /*!**************************************************************!*\
   !*** ./app/house-win-loss/casino/casino-bet-type.service.js ***!
   \**************************************************************/
@@ -773,7 +815,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 61 */
+/* 63 */
 /*!****************************************************************!*\
   !*** ./app/house-win-loss/casino/casino-product.controller.js ***!
   \****************************************************************/
@@ -852,7 +894,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 62 */
+/* 64 */
 /*!*************************************************************!*\
   !*** ./app/house-win-loss/casino/casino-product.service.js ***!
   \*************************************************************/
@@ -910,7 +952,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 63 */
+/* 65 */
 /*!**********************************************************!*\
   !*** ./app/house-win-loss/common/bet-type.controller.js ***!
   \**********************************************************/
@@ -1045,7 +1087,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 64 */
+/* 66 */
 /*!*******************************************************!*\
   !*** ./app/house-win-loss/common/bet-type.service.js ***!
   \*******************************************************/
@@ -1092,7 +1134,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 65 */
+/* 67 */
 /*!**************************************************************!*\
   !*** ./app/house-win-loss/common/match-detail.controller.js ***!
   \**************************************************************/
@@ -1155,7 +1197,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 66 */
+/* 68 */
 /*!***********************************************************!*\
   !*** ./app/house-win-loss/common/match-detail.service.js ***!
   \***********************************************************/
@@ -1213,7 +1255,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 67 */
+/* 69 */
 /*!******************************************************!*\
   !*** ./app/house-win-loss/common/site.controller.js ***!
   \******************************************************/
@@ -1267,7 +1309,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 68 */
+/* 70 */
 /*!***************************************************!*\
   !*** ./app/house-win-loss/common/site.service.js ***!
   \***************************************************/
@@ -1327,7 +1369,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 69 */
+/* 71 */
 /*!************************************************************!*\
   !*** ./app/house-win-loss/common/sport-type.controller.js ***!
   \************************************************************/
@@ -1407,7 +1449,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 70 */
+/* 72 */
 /*!*********************************************************!*\
   !*** ./app/house-win-loss/common/sport-type.service.js ***!
   \*********************************************************/
@@ -1454,7 +1496,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 71 */
+/* 73 */
 /*!*******************************************************!*\
   !*** ./app/house-win-loss/filter/filter.directive.js ***!
   \*******************************************************/
@@ -1568,7 +1610,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 72 */
+/* 74 */
 /*!*********************************************************************!*\
   !*** ./app/house-win-loss/grid/product-show-hide-column.service.js ***!
   \*********************************************************************/
@@ -1665,7 +1707,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 73 */
+/* 75 */
 /*!*************************************************************!*\
   !*** ./app/house-win-loss/grid/show-hide-column.service.js ***!
   \*************************************************************/
@@ -1750,7 +1792,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 74 */
+/* 76 */
 /*!************************************************************************************!*\
   !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js ***!
   \************************************************************************************/
@@ -1910,7 +1952,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 75 */
+/* 77 */
 /*!*********************************************************************************!*\
   !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js ***!
   \*********************************************************************************/
@@ -1971,7 +2013,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 76 */
+/* 78 */
 /*!***************************************************************************!*\
   !*** ./app/house-win-loss/number-game/number-game-bet-type.controller.js ***!
   \***************************************************************************/
@@ -2093,7 +2135,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 77 */
+/* 79 */
 /*!************************************************************************!*\
   !*** ./app/house-win-loss/number-game/number-game-bet-type.service.js ***!
   \************************************************************************/
@@ -2149,7 +2191,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 78 */
+/* 80 */
 /*!****************************************************************************!*\
   !*** ./app/house-win-loss/number-game/number-game-match-detail.service.js ***!
   \****************************************************************************/
@@ -2208,7 +2250,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 79 */
+/* 81 */
 /*!********************************************************************!*\
   !*** ./app/house-win-loss/number-game/number-game-site.service.js ***!
   \********************************************************************/
@@ -2268,7 +2310,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 80 */
+/* 82 */
 /*!**********************************************************************************!*\
   !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js ***!
   \**********************************************************************************/
@@ -2400,7 +2442,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 81 */
+/* 83 */
 /*!*******************************************************************************!*\
   !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js ***!
   \*******************************************************************************/
@@ -2456,7 +2498,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 82 */
+/* 84 */
 /*!****************************************************************************!*\
   !*** ./app/house-win-loss/other-sports/other-sports-sport-type.service.js ***!
   \****************************************************************************/
@@ -2488,7 +2530,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 83 */
+/* 85 */
 /*!*****************************************************************!*\
   !*** ./app/house-win-loss/parlay/parlay-bet-type.controller.js ***!
   \*****************************************************************/
@@ -2597,7 +2639,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 84 */
+/* 86 */
 /*!**************************************************************!*\
   !*** ./app/house-win-loss/parlay/parlay-bet-type.service.js ***!
   \**************************************************************/
@@ -2653,7 +2695,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 85 */
+/* 87 */
 /*!**********************************************************!*\
   !*** ./app/house-win-loss/parlay/parlay-site.service.js ***!
   \**********************************************************/
@@ -2709,7 +2751,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 86 */
+/* 88 */
 /*!**********************************************************!*\
   !*** ./app/house-win-loss/product/product.controller.js ***!
   \**********************************************************/
@@ -2794,7 +2836,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 87 */
+/* 89 */
 /*!*******************************************************!*\
   !*** ./app/house-win-loss/product/product.service.js ***!
   \*******************************************************/
@@ -2846,7 +2888,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 88 */
+/* 90 */
 /*!**************************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer-bet-type.service.js ***!
   \**************************************************************/
@@ -2935,7 +2977,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 89 */
+/* 91 */
 /*!*********************************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js ***!
   \*********************************************************************/
@@ -3064,7 +3106,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 90 */
+/* 92 */
 /*!******************************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer-live-nonlive.service.js ***!
   \******************************************************************/
@@ -3122,7 +3164,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 91 */
+/* 93 */
 /*!********************************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer-major-minor.controller.js ***!
   \********************************************************************/
@@ -3203,7 +3245,7 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 92 */
+/* 94 */
 /*!*****************************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer-major-minor.service.js ***!
   \*****************************************************************/
@@ -3259,7 +3301,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 93 */
+/* 95 */
 /*!******************************************************!*\
   !*** ./app/house-win-loss/soccer/soccer.constant.js ***!
   \******************************************************/
@@ -3287,7 +3329,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 94 */
+/* 96 */
 /*!**********************************************************************!*\
   !*** ./app/house-win-loss/sportsbook/sportsbook-bet-type.service.js ***!
   \**********************************************************************/
@@ -3349,7 +3391,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 95 */
+/* 97 */
 /*!*****************************************************************************!*\
   !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js ***!
   \*****************************************************************************/
@@ -3468,7 +3510,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 96 */
+/* 98 */
 /*!**************************************************************************!*\
   !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js ***!
   \**************************************************************************/
@@ -3547,7 +3589,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 97 */
+/* 99 */
 /*!******************************************************************!*\
   !*** ./app/house-win-loss/sportsbook/sportsbook-site.service.js ***!
   \******************************************************************/
@@ -3598,7 +3640,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 98 */
+/* 100 */
 /*!**************************************************!*\
   !*** ./app/house-win-loss/tab/pane.directive.js ***!
   \**************************************************/
@@ -3658,7 +3700,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 99 */
+/* 101 */
 /*!************************************************!*\
   !*** ./app/house-win-loss/tab/pane.service.js ***!
   \************************************************/
@@ -3738,7 +3780,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 100 */
+/* 102 */
 /*!*************************************************!*\
   !*** ./app/house-win-loss/tab/tab.directive.js ***!
   \*************************************************/
@@ -3796,7 +3838,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 101 */
+/* 103 */
 /*!***********************************************!*\
   !*** ./app/house-win-loss/tab/tab.service.js ***!
   \***********************************************/
@@ -3901,7 +3943,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 102 */
+/* 104 */
 /*!********************************************************************!*\
   !*** ./app/house-win-loss/universal/universal-bet-type.service.js ***!
   \********************************************************************/
@@ -3958,7 +4000,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 103 */
+/* 105 */
 /*!****************************************************************!*\
   !*** ./app/house-win-loss/universal/universal-site.service.js ***!
   \****************************************************************/
@@ -4005,7 +4047,7 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 104 */
+/* 106 */
 /*!***********************************************************************************!*\
   !*** ./app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js ***!
   \***********************************************************************************/
@@ -4063,7 +4105,7 @@ webpackJsonp([2],[
 	})();
 
 /***/ },
-/* 105 */
+/* 107 */
 /*!***************************************************************************************!*\
   !*** ./app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js ***!
   \***************************************************************************************/

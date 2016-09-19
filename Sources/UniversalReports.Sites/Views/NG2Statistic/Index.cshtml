@@ -1,88 +1,18 @@
 ﻿@{
-    ViewBag.Title = "House Win Loss by Products";
+    ViewBag.Title = "NG2 Statistic";
+    ViewBag.AngularAppName = "numberGame2StatisticApp";
+    var contentVersion = HttpContext.Current.IsDebuggingEnabled ? "" : "min.";
 }
 
 <div class="page-header">
-    Main / <span class="active">House Win Loss by Products</span>
+    Main / <span class="active">@ViewBag.Title</span>
 </div>
 <div data-ng-view></div>
 <div data-nap-alert></div>
 <div data-nap-loading></div>
 @section Styles{
-    <link href="~/stylesheets/house-win-loss.css" rel="stylesheet" />
+    <link href="~/bundle/ng2-statistic-style.css" rel="stylesheet" />
 }
 @section Scripts{
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        <script src="~/app/house-win-loss/app.js"></script>
-        <script src="~/app/house-win-loss/house-win-loss.controller.js"></script>
-        <script src="~/app/house-win-loss/house-win-loss.constant.js"></script>
-        <script src="~/app/house-win-loss/house-win-loss.service.js"></script>
-
-        <script src="~/app/house-win-loss/breadcrumb/breadcrumb.service.js"></script>
-        <script src="~/app/house-win-loss/breadcrumb/title.service.js"></script>
-        <script src="~/app/house-win-loss/breadcrumb/live-title.service.js"></script>
-        <script src="~/app/house-win-loss/filter/filter.directive.js"></script>
-        <script src="~/app/house-win-loss/grid/product-show-hide-column.service.js"></script>
-        <script src="~/app/house-win-loss/grid/show-hide-column.service.js"></script>
-        <script src="~/app/house-win-loss/tab/tab.directive.js"></script>
-        <script src="~/app/house-win-loss/tab/tab.service.js"></script>
-        <script src="~/app/house-win-loss/tab/pane.directive.js"></script>
-        <script src="~/app/house-win-loss/tab/pane.service.js"></script>
-
-        <script src="~/app/house-win-loss/product/product.controller.js"></script>
-        <script src="~/app/house-win-loss/product/product.service.js"></script>
-
-        <script src="~/app/house-win-loss/common/bet-type.controller.js"></script>
-        <script src="~/app/house-win-loss/common/bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/common/match-detail.controller.js"></script>
-        <script src="~/app/house-win-loss/common/match-detail.service.js"></script>
-        <script src="~/app/house-win-loss/common/site.controller.js"></script>
-        <script src="~/app/house-win-loss/common/site.service.js"></script>
-        <script src="~/app/house-win-loss/common/sport-type.controller.js"></script>
-        <script src="~/app/house-win-loss/common/sport-type.service.js"></script>
-
-        <script src="~/app/house-win-loss/casino/casino-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/casino/casino-product.controller.js"></script>
-        <script src="~/app/house-win-loss/casino/casino-product.service.js"></script>
-
-        <script src="~/app/house-win-loss/number-game/number-game-bet-type.controller.js"></script>
-        <script src="~/app/house-win-loss/number-game/number-game-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/number-game/number-game-match-detail.service.js"></script>
-        <script src="~/app/house-win-loss/number-game/number-game-site.service.js"></script>
-
-        <script src="~/app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js"></script>
-        <script src="~/app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js"></script>
-
-        <script src="~/app/house-win-loss/sportsbook/sportsbook-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/sportsbook/sportsbook-site.service.js"></script>
-        <script src="~/app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js"></script>
-        <script src="~/app/house-win-loss/sportsbook/sportsbook-match-detail.service.js"></script>
-
-        <script src="~/app/house-win-loss/other-sports/other-sports-live-non-live.controller.js"></script>
-        <script src="~/app/house-win-loss/other-sports/other-sports-live-non-live.service.js"></script>
-        <script src="~/app/house-win-loss/other-sports/other-sports-sport-type.service.js"></script>
-
-        <script src="~/app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js"></script>
-        <script src="~/app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js"></script>
-
-        <script src="~/app/house-win-loss/soccer/soccer-live-nonlive.controller.js"></script>
-        <script src="~/app/house-win-loss/soccer/soccer-major-minor.controller.js"></script>
-        <script src="~/app/house-win-loss/soccer/soccer-major-minor.service.js"></script>
-        <script src="~/app/house-win-loss/soccer/soccer-live-nonlive.service.js"></script>
-        <script src="~/app/house-win-loss/soccer/soccer-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/soccer/soccer.constant.js"></script>
-
-        <script src="~/app/house-win-loss/parlay/parlay-bet-type.controller.js"></script>
-        <script src="~/app/house-win-loss/parlay/parlay-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/parlay/parlay-site.service.js"></script>
-        <script src="~/app/house-win-loss/universal/universal-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/universal/universal-site.service.js"></script>
-        <script src="~/app/house-win-loss/bettrade/bettrade-bet-type.service.js"></script>
-        <script src="~/app/house-win-loss/bettrade/bettrade-site.service.js"></script>
-    }
-    else
-    {
-        <script src="~/app/house-win-loss-by-products.min.js"></script>
-    }
+    <script src="~/bundle/ng2-statistic.chunk.js"></script>
 }

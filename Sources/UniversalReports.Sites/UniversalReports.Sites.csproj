@@ -278,26 +278,23 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\ng2-statistic\app.config.js" />
     <Content Include="app\ng2-statistic\app.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
-    <Content Include="app\ng2-statistic\breadcrumb\live-title.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
-    <Content Include="app\ng2-statistic\ng2-statistic.constant.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.html" />
-    <Content Include="app\ng2-statistic\ng2-statistic.service.js" />
     <Content Include="app\ng2-statistic\shared\fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistic\shared\two-fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistic\soccer\soccer-major-minor.controller.js" />
-    <Content Include="app\ng2-statistic\soccer\soccer-major-minor.service.js" />
-    <Content Include="app\ng2-statistic\soccer\soccer.constant.js" />
     <Content Include="app\ng2-statistic\tab\pane.directive.js" />
     <Content Include="app\ng2-statistic\tab\pane.service.js" />
     <Content Include="app\ng2-statistic\tab\tab.directive.html" />
     <Content Include="app\ng2-statistic\tab\tab.directive.js" />
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
+    <Content Include="app\root\app.config.js" />
+    <Content Include="app\root\components\date-range-picker\date-range-picker.directive.html" />
+    <Content Include="app\root\components\date-range-picker\date-range-picker.directive.js" />
     <Content Include="app\root\legacy\legacy.service.js" />
     <Content Include="app\house-win-loss\bettrade\bettrade-bet-type.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
@@ -385,6 +382,17 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
+    <Content Include="bundle\app-style.chunk.js" />
+    <Content Include="bundle\app-style.css" />
+    <Content Include="bundle\app.chunk.js" />
+    <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
+    <Content Include="bundle\house-win-loss-style.chunk.js" />
+    <Content Include="bundle\house-win-loss-style.css" />
+    <Content Include="bundle\house-win-loss.chunk.js" />
+    <Content Include="bundle\lib.chunk.js" />
+    <Content Include="bundle\ng2-statistic-style.chunk.js" />
+    <Content Include="bundle\ng2-statistic-style.css" />
+    <Content Include="bundle\ng2-statistic.chunk.js" />
     <Content Include="content\house-win-loss.css">
       <DependentUpon>house-win-loss.scss</DependentUpon>
     </Content>
@@ -513,6 +521,16 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="bundle\app-style.chunk.js.map" />
+    <Content Include="bundle\app-style.css.map" />
+    <Content Include="bundle\app.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.css.map" />
+    <Content Include="bundle\house-win-loss.chunk.js.map" />
+    <Content Include="bundle\lib.chunk.js.map" />
+    <Content Include="bundle\ng2-statistic-style.chunk.js.map" />
+    <Content Include="bundle\ng2-statistic-style.css.map" />
+    <Content Include="bundle\ng2-statistic.chunk.js.map" />
     <None Include="packages.config" />
     <Content Include="app\root\app.constant.js" />
     <Content Include="app\root\crosscutting\fanex-grid.service.js" />
@@ -525,7 +543,7 @@
     <Content Include="app\root\components\loading\loading.directive.js" />
     <Content Include="app\house-win-loss\product\product.service.js" />
     <Content Include="Global.asax" />
-    <Content Include="app\root\app.config.js" />
+    <Content Include="app\house-win-loss\app.config.js" />
     <Content Include="app\root\components\date-picker\date-picker.directive.html" />
     <Content Include="app\root\components\date-picker\date-picker.directive.js" />
     <Content Include="app\root\components\month-picker\month-picker.directive.html" />
@@ -661,7 +679,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bundle\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

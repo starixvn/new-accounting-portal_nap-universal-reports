@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.NG2Statistic')
+        .module('app.numberGame2StatisticApp')
         .directive('napTab', napTab);
 
     napTab.$inject = ['napPane'];
@@ -13,7 +13,7 @@ import angular from "angular";
             scope: {
                 panes: '='
             },
-            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
+            templateUrl: 'app/ng2-statistic/tab/tab.directive.html',
             controller: controller,
             controllerAs: 'vm',
             bindToController: true

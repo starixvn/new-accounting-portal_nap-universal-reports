@@ -17,7 +17,6 @@ module.exports = {
                   "./Scripts/Fanex.Pagination.js",
                   "./app/root/app.js",
                   "./app/root/app.constant.js",
-                  "./app/root/app.config.js",
                   "./app/root/**/*.js"]),
         "app-style": ["./content/site.scss", "./scripts/Fanex.Grid.css", "./scripts/Fanex.Pagination.css"],
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js", "./app/house-win-loss/**/*.js"]),

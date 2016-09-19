@@ -13,17 +13,18 @@ webpackJsonp([0],[
 	__webpack_require__(/*! ./app/root/components/alert/alert.directive.js */34);
 	__webpack_require__(/*! ./app/root/components/click/click.directive.js */35);
 	__webpack_require__(/*! ./app/root/components/date-picker/date-picker.directive.js */36);
-	__webpack_require__(/*! ./app/root/components/header/header.directive.js */37);
-	__webpack_require__(/*! ./app/root/components/header/header.service.js */38);
-	__webpack_require__(/*! ./app/root/components/legend/legend.directive.js */39);
-	__webpack_require__(/*! ./app/root/components/legend/legend.service.js */40);
-	__webpack_require__(/*! ./app/root/components/loading/loading.directive.js */41);
-	__webpack_require__(/*! ./app/root/components/month-picker/month-picker.directive.js */42);
-	__webpack_require__(/*! ./app/root/crosscutting/fanex-grid.service.js */43);
-	__webpack_require__(/*! ./app/root/crosscutting/http-response.service.js */44);
-	__webpack_require__(/*! ./app/root/crosscutting/logger.service.js */46);
-	__webpack_require__(/*! ./app/root/legacy/check-in.js */47);
-	module.exports = __webpack_require__(/*! ./app/root/legacy/legacy.service.js */48);
+	__webpack_require__(/*! ./app/root/components/date-range-picker/date-range-picker.directive.js */37);
+	__webpack_require__(/*! ./app/root/components/header/header.directive.js */38);
+	__webpack_require__(/*! ./app/root/components/header/header.service.js */39);
+	__webpack_require__(/*! ./app/root/components/legend/legend.directive.js */40);
+	__webpack_require__(/*! ./app/root/components/legend/legend.service.js */41);
+	__webpack_require__(/*! ./app/root/components/loading/loading.directive.js */42);
+	__webpack_require__(/*! ./app/root/components/month-picker/month-picker.directive.js */43);
+	__webpack_require__(/*! ./app/root/crosscutting/fanex-grid.service.js */44);
+	__webpack_require__(/*! ./app/root/crosscutting/http-response.service.js */45);
+	__webpack_require__(/*! ./app/root/crosscutting/logger.service.js */47);
+	__webpack_require__(/*! ./app/root/legacy/check-in.js */48);
+	module.exports = __webpack_require__(/*! ./app/root/legacy/legacy.service.js */49);
 
 
 /***/ },
@@ -26363,24 +26364,9 @@ webpackJsonp([0],[
 	
 	    angular.module('app.core').config(config);
 	
-	    config.$inject = ['$routeProvider', '$httpProvider', 'config'];
-	    function config($routeProvider, $httpProvider, config) {
-	        configRouting();
+	    config.$inject = ['$httpProvider', 'config'];
+	    function config($httpProvider, config) {
 	        configHttp();
-	
-	        function configRouting() {
-	            $routeProvider.when('/', {
-	                templateUrl: 'app/house-win-loss/house-win-loss.html',
-	                controller: 'HouseWinlossController',
-	                controllerAs: 'vm'
-	            }).when('/about', {
-	                templateUrl: 'app/about/about.html',
-	                controller: 'AboutController',
-	                controllerAs: 'vm'
-	            }).otherwise({
-	                redirectTo: '/'
-	            });
-	        }
 	
 	        function configHttp() {
 	            $httpProvider.interceptors.push(templateInterceptor);
@@ -26567,8 +26553,8 @@ webpackJsonp([0],[
 	        return directive;
 	    }
 	
-	    controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
-	    function controller($scope, $element, $document, moment, config) {
+	    controller.$inject = ['$scope', '$rootScope', '$element', '$document', 'moment', 'config'];
+	    function controller($scope, $rootScope, $element, $document, moment, config) {
 	        var vm = this;
 	        var selectedDate;
 	        var minDate = moment.utc([2011, 0, 1]);
@@ -26621,6 +26607,7 @@ webpackJsonp([0],[
 	            generateViewModel();
 	            vm.text = selectedDate.format('MMM DD, YYYY');
 	            vm.ngModel = moment.utc(selectedDate);
+	            $rootScope.$broadcast('nap-date-picker-select', vm.dateRange);
 	        };
 	
 	        $scope.$on('$destroy', function () {
@@ -26768,6 +26755,114 @@ webpackJsonp([0],[
 
 /***/ },
 /* 37 */
+/*!******************************************************************************!*\
+  !*** ./app/root/components/date-range-picker/date-range-picker.directive.js ***!
+  \******************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _moment = __webpack_require__(/*! moment */ 5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.core').directive('napDateRangePicker', napDateRangePicker);
+	
+	    function napDateRangePicker() {
+	        var directive = {
+	            restrict: 'EA',
+	            templateUrl: 'app/root/components/date-range-picker/date-range-picker.directive.html',
+	            scope: {
+	                ngModel: '='
+	            },
+	            replace: true,
+	            controller: controller,
+	            controllerAs: 'vm',
+	            bindToController: true
+	        };
+	        return directive;
+	    }
+	
+	    controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
+	    function controller($scope, $element, $document, moment, config) {
+	
+	        var vm = this;
+	        var timePeriodConfiguration = getTimePeriodConfiguration(config);
+	
+	        vm.timePeriod = "yesterday";
+	        vm.changeTimePeriod = changeTimePeriod;
+	        vm.changeTimePeriod();
+	
+	        $scope.$on('nap-date-picker-select', function (event, data) {
+	            vm.timePeriod = "specific-period";
+	        });
+	
+	        function changeTimePeriod() {
+	            var configuration = timePeriodConfiguration[vm.timePeriod];
+	            vm.datefrom = configuration.datefrom;
+	            vm.dateto = configuration.dateto;
+	        };
+	
+	        function getTimePeriodConfiguration(config) {
+	            var yesterday = config.yesterday;
+	            var yesterdayConfig = {
+	                datefrom: moment.utc(yesterday),
+	                dateto: moment.utc(yesterday) };
+	            var currentWeekConfig = {
+	                datefrom: moment.utc(yesterday).startOf('week'),
+	                dateto: moment.utc(yesterday)
+	            };
+	            var lastWeekConfig = {
+	                datefrom: moment.utc(yesterday).subtract(7, 'days').startOf('week'),
+	                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week') };
+	            var currentMonthConfig = {
+	                datefrom: moment.utc(yesterday).startOf('month'),
+	                dateto: moment.utc(yesterday) };
+	            var lastMonthConfig = {
+	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	            var sinceLastMonthConfig = {
+	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
+	                dateto: moment.utc(yesterday) };
+	            var specificDateConfig = yesterdayConfig;
+	            var last3MonthsConfig = {
+	                datefrom: moment.utc(yesterday).subtract(3, 'months').startOf('month'),
+	                dateto: moment.utc(yesterday).subtract(3, 'months').endOf('month') };
+	            var last6MonthsConfig = {
+	                datefrom: moment.utc(yesterday).subtract(6, 'months').startOf('month'),
+	                dateto: moment.utc(yesterday).subtract(6, 'months').endOf('month') };
+	            var last1YearConfig = {
+	                datefrom: moment.utc(yesterday).subtract(1, 'years').startOf('month'),
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	
+	            return {
+	                "yesterday": yesterdayConfig,
+	                "current-week": currentWeekConfig,
+	                "last-week": lastWeekConfig,
+	                "current-month": currentMonthConfig,
+	                "last-month": lastMonthConfig,
+	                "since-last-month": sinceLastMonthConfig,
+	                "specific-date": specificDateConfig,
+	                "last-3-months": last3MonthsConfig,
+	                "last-6-months": last3MonthsConfig,
+	                "last-1-year": last1YearConfig
+	
+	            };
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 38 */
 /*!********************************************************!*\
   !*** ./app/root/components/header/header.directive.js ***!
   \********************************************************/
@@ -26815,7 +26910,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 38 */
+/* 39 */
 /*!******************************************************!*\
   !*** ./app/root/components/header/header.service.js ***!
   \******************************************************/
@@ -26877,7 +26972,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 39 */
+/* 40 */
 /*!********************************************************!*\
   !*** ./app/root/components/legend/legend.directive.js ***!
   \********************************************************/
@@ -26920,7 +27015,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 40 */
+/* 41 */
 /*!******************************************************!*\
   !*** ./app/root/components/legend/legend.service.js ***!
   \******************************************************/
@@ -26956,7 +27051,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 41 */
+/* 42 */
 /*!**********************************************************!*\
   !*** ./app/root/components/loading/loading.directive.js ***!
   \**********************************************************/
@@ -27007,7 +27102,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 42 */
+/* 43 */
 /*!********************************************************************!*\
   !*** ./app/root/components/month-picker/month-picker.directive.js ***!
   \********************************************************************/
@@ -27197,7 +27292,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 43 */
+/* 44 */
 /*!*****************************************************!*\
   !*** ./app/root/crosscutting/fanex-grid.service.js ***!
   \*****************************************************/
@@ -27232,7 +27327,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 44 */
+/* 45 */
 /*!********************************************************!*\
   !*** ./app/root/crosscutting/http-response.service.js ***!
   \********************************************************/
@@ -27244,7 +27339,7 @@ webpackJsonp([0],[
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _blob = __webpack_require__(/*! blob */ 45);
+	var _blob = __webpack_require__(/*! blob */ 46);
 	
 	var _blob2 = _interopRequireDefault(_blob);
 	
@@ -27294,7 +27389,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 45 */
+/* 46 */
 /*!*************************!*\
   !*** ./~/blob/index.js ***!
   \*************************/
@@ -27400,7 +27495,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 46 */
+/* 47 */
 /*!*************************************************!*\
   !*** ./app/root/crosscutting/logger.service.js ***!
   \*************************************************/
@@ -27459,7 +27554,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 47 */
+/* 48 */
 /*!*************************************!*\
   !*** ./app/root/legacy/check-in.js ***!
   \*************************************/
@@ -27504,7 +27599,7 @@ webpackJsonp([0],[
 	})(_jquery2.default);
 
 /***/ },
-/* 48 */
+/* 49 */
 /*!*******************************************!*\
   !*** ./app/root/legacy/legacy.service.js ***!
   \*******************************************/

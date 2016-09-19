@@ -6,27 +6,9 @@ import angular from "angular";
         .module('app.core')
         .config(config);
 
-    config.$inject = ['$routeProvider', '$httpProvider', 'config'];
-    function config($routeProvider, $httpProvider, config) {
-        configRouting();
+    config.$inject = ['$httpProvider', 'config'];
+    function config($httpProvider, config) {
         configHttp();
-
-        function configRouting() {
-            $routeProvider
-                .when('/', {
-                    templateUrl: 'app/house-win-loss/house-win-loss.html',
-                    controller: 'HouseWinlossController',
-                    controllerAs: 'vm'
-                })
-                .when('/about', {
-                    templateUrl: 'app/about/about.html',
-                    controller: 'AboutController',
-                    controllerAs: 'vm'
-                })
-                .otherwise({
-                    redirectTo: '/'
-                });
-        }
 
         function configHttp() {
             $httpProvider.interceptors.push(templateInterceptor);

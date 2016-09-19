@@ -1,0 +1,94 @@
+import angular from "angular";
+import moment from "moment";
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.core')
+        .directive('napDateRangePicker', napDateRangePicker);
+
+    function napDateRangePicker() {
+        var directive = {
+            restrict: 'EA',
+            templateUrl: 'app/root/components/date-range-picker/date-range-picker.directive.html',
+            scope: {
+                ngModel: '='
+            },
+            replace: true,
+            controller: controller,
+            controllerAs: 'vm',
+            bindToController: true
+        };
+        return directive;
+    }
+
+    controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
+    function controller($scope, $element, $document, moment, config) {
+        
+        var vm =    this;  
+        var timePeriodConfiguration=getTimePeriodConfiguration(config);
+
+        vm.timePeriod = "yesterday";
+        vm.changeTimePeriod =changeTimePeriod;
+        vm.changeTimePeriod();
+
+        $scope.$on('nap-date-picker-select', function (event, data) {
+            vm.timePeriod = "specific-period";
+        });
+
+        function changeTimePeriod() {
+            var configuration = timePeriodConfiguration[vm.timePeriod];
+            vm.datefrom = configuration.datefrom;
+            vm.dateto = configuration.dateto;
+        }; 
+
+
+        function getTimePeriodConfiguration(config){
+            var yesterday = config.yesterday;
+            var yesterdayConfig={ 
+                datefrom : moment.utc(yesterday) , 
+                dateto:  moment.utc(yesterday) };
+            var currentWeekConfig ={ 
+                datefrom : moment.utc(yesterday).startOf('week') ,
+                dateto: moment.utc(yesterday)
+            };
+            var lastWeekConfig= { 
+                datefrom : moment.utc(yesterday).subtract( 7, 'days').startOf('week') , 
+                dateto: moment.utc(yesterday).subtract( 7, 'days').endOf('week') };
+            var currentMonthConfig={ 
+                datefrom : moment.utc(yesterday).startOf('month') ,
+                dateto: moment.utc(yesterday) };
+            var lastMonthConfig={ 
+                datefrom : moment.utc(yesterday).subtract( 1, 'months').startOf('month') ,
+                dateto: moment.utc(yesterday).subtract( 1, 'months').endOf('month') };
+            var sinceLastMonthConfig={ 
+                datefrom : moment.utc(yesterday).subtract( 1, 'months').startOf('month') , 
+                dateto: moment.utc(yesterday) };
+            var specificDateConfig=yesterdayConfig;
+            var last3MonthsConfig={ 
+                datefrom : moment.utc(yesterday).subtract( 3, 'months').startOf('month') ,
+                dateto: moment.utc(yesterday).subtract( 3, 'months').endOf('month') };
+            var last6MonthsConfig={ 
+                datefrom : moment.utc(yesterday).subtract( 6, 'months').startOf('month') , 
+                dateto: moment.utc(yesterday).subtract( 6, 'months').endOf('month') };            
+            var last1YearConfig={ 
+                datefrom : moment.utc(yesterday).subtract( 1, 'years').startOf('month') , 
+                dateto: moment.utc(yesterday).subtract( 1, 'months').endOf('month') };
+
+            return {
+                "yesterday": yesterdayConfig,
+                "current-week": currentWeekConfig,
+                "last-week": lastWeekConfig,
+                "current-month": currentMonthConfig,
+                "last-month": lastMonthConfig,
+                "since-last-month": sinceLastMonthConfig,
+                "specific-date": specificDateConfig,
+                "last-3-months": last3MonthsConfig,
+                "last-6-months": last3MonthsConfig,
+                "last-1-year": last1YearConfig,
+
+            };            
+        }  
+    }
+    
+})(angular);

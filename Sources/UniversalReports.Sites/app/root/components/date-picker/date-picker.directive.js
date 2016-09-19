@@ -22,8 +22,8 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope', '$element', '$document', 'moment', 'config'];
-    function controller($scope, $element, $document, moment, config) {
+    controller.$inject = ['$scope','$rootScope', '$element', '$document', 'moment', 'config'];
+    function controller($scope, $rootScope, $element, $document, moment, config) {
         var vm = this;
         var selectedDate;
         var minDate = moment.utc([2011, 0, 1]);
@@ -76,6 +76,7 @@ import moment from "moment";
             generateViewModel();
             vm.text = selectedDate.format('MMM DD, YYYY');
             vm.ngModel = moment.utc(selectedDate);
+            $rootScope.$broadcast('nap-date-picker-select', vm.dateRange);
         };
 
         $scope.$on('$destroy', function () {

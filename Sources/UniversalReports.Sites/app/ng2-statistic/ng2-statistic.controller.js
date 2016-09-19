@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.NG2Statistic')
-        .controller('HouseWinlossController', HouseWinlossController);
+        .module('app.numberGame2StatisticApp')
+        .controller('NG2StatisticController', NG2StatisticController);
 
-    HouseWinlossController.$inject = [];
-    function HouseWinlossController() {
+    NG2StatisticController.$inject = [];
+    function NG2StatisticController() {
         var vm = this;
         vm.panes = [];
     }

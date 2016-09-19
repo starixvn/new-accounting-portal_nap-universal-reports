@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.NG2Statistic')
+        .module('app.numberGame2StatisticApp')
         .directive('napPane', napPane);
 
     napPane.$inject = ['$templateRequest', '$compile', '$controller'];

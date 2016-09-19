@@ -3,14 +3,14 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.NG2Statistic')
+        .module('app.numberGame2StatisticApp')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'ng2StatisticService', 'showHideColumnService'];
-    function napPane($log, $compile, $injector, ng2StatisticService, showHideColumnService) {
-        function Pane(level, data) {
-            this.level = level;
-            this.data = data;
+    napPane.$inject = ['$log', '$compile', '$injector'];
+    function napPane($log, $compile, $injector) {
+        function Pane(type, isDrilldown) {
+            this.type = type;
+            this.isDrilldown = isDrilldown;            
             this.$scope = undefined;
             this.$element = undefined;
             this.generate = generate;
@@ -20,15 +20,10 @@ import angular from "angular";
             this.compileDrilldown = compileDrilldown;
             this.getFileName = getFileName;
 
-            if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
-                $log.error('Invalid pane');
-                return;
-            }
-
-            var template = ng2StatisticService.getTemplate(data, level);
-            this.templateUrl = template.templateUrl;
-            this.controller = template.controller;
-            this.service = $injector.get(template.service);
+          
+            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
+            this.controller = type+(isDrilldown?"Drilldown":"")+"Controller";
+            this.service = $injector.get(type.toLower()+(isDrilldown?"Drilldown":"")+"Service");
 
             function generate() {
                 this.$scope.generate();
@@ -40,7 +35,7 @@ import angular from "angular";
             }
 
             function getFileName() {
-                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+                return 'NG2_Statistic_Report_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
             }
 
             function compileAll() {

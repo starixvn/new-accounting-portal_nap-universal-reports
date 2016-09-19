@@ -8,7 +8,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <div class="modal-title">House Win Loss Legend</div>
+                            <div class="modal-title">NG Statistic Legend</div>
                         </div>
                         <div class="modal-body">
                             <div data-nap-legend data-menu-id="487"></div>
@@ -18,19 +18,64 @@
             </div>
         </div>
         <form class="form-inline">
-            <div class="form-group" data-ng-show="vm.normalMode">
-                <label>Date</label>
-                <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
+            <div class="row">
+                <div class="col-md-2"><label>Search by</label></div>
+                <div class="col-md-10" data-ng-show="vm.normalMode">
+                    <label>Date</label>
+                    <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
+                </div>
+                <div class="col-md-10" data-ng-hide="vm.normalMode">
+                    <nap-date-range-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-max-date="vm.today"></nap-date-range-picker>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-10">
+                    <div class="col-md-1"><label>Sport</label></div>
+                    <div class="col-md-2">
+                        <select id="sports"></select>
+                    </div>
+                    <div class="col-md-1"><label>Username</label></div>
+                    <div class="col-md-2">
+                        <input type="text" />
+                    </div>
+                    <div class="col-md-1"><label>Currency</label></div>
+                    <div class="col-md-2">
+                        <select id="currencies"></select>
+                    </div>
+                </div>                     
+
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label>Report by</label></div>
+                <div class="col-md-10">
+                    <label>
+                        <input type="radio" ng-model="reportType" value="daily" />
+                        Daily
+                    </label>
+                    <label>
+                        <input type="radio" ng-model="reportType" value="username" />
+                        Username
+                    </label>
+                    <label>
+                        <input type="radio" ng-model="reportType" value="bettype" />
+                        Bet type
+                    </label>
+                </div>
+
+            </div>
+            <div class="row form-group" data-ng-show="vm.normalMode">                
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.todayClicked()">{{vm.today | amDateFormat:'MMM DD, YYYY'}}</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History</button>
             </div>
-            <div class="form-group"  data-ng-hide="vm.normalMode">
-                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-max-date="vm.yesterday"></nap-month-picker>
+            <div class="row form-group" data-ng-hide="vm.normalMode">
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
+                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Normal</button>
             </div>
         </form>
-    </div>     
+        
+    </div>
 </div>
