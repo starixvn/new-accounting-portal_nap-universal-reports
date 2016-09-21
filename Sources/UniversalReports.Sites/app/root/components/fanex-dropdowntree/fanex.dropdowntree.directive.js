@@ -315,7 +315,7 @@ import angular from "angular";
                             var sourceDataType = typeof scope._settings.sourceData;
 
                             function startParseData() {
-                                
+
                                 parseData();
 
                                 if (scope._settings.checkedAll === true) {
@@ -323,7 +323,7 @@ import angular from "angular";
                                 }
 
                                 scope.toggleCollapseExpanse(scope._settings.collapsedAll);
-                                
+
                             }
 
                             if (sourceDataType === "string") // url
