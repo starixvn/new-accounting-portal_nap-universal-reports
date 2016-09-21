@@ -209,6 +209,24 @@ import angular from "angular";
                 controller: 'SiteController',
                 service: 'siteService'
             }
+        },
+        'NG2': {
+            product: 'sportType',
+            sportType: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'SportTypeController',
+                service: 'sportTypeService'
+            },
+            betType: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'BetTypeController',
+                service: 'betTypeService'
+            },            
+            site: {
+                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
+                controller: 'SiteController',
+                service: 'siteService'
+            }
         }
     };
     var universalSettings = {

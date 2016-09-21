@@ -244,8 +244,14 @@
     <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-expected.json" />
     <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-fakeData.json" />
     <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-queryModel.json" />
+    <None Include="Controllers\TestData\Universal.BetTypeBySportType.UniversalBetTypeBySportTypeController-queryModel.json" />
+    <None Include="Controllers\TestData\Universal.BetTypeBySportType.UniversalBetTypeBySportTypeController-fakeData.json" />
+    <None Include="Controllers\TestData\Universal.BetTypeBySportType.UniversalBetTypeBySportTypeController-expected.json" />
+    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-expected.json" />
     <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-expected.json" />
+    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-fakeData.json" />
     <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-fakeData.json" />
+    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-queryModel.json" />
     <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-queryModel.json" />
     <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-expected.json" />
     <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-fakeData.json" />

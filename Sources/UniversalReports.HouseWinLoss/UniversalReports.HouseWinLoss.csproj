@@ -365,6 +365,14 @@
     <Compile Include="Common\MatchDetail\GridOptionsBuilderImp.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
+    <Compile Include="Universal\BetTypeBySportType\Criteria.cs" />
+    <Compile Include="Universal\BetTypeBySportType\ExcelQueryModel.cs" />
+    <Compile Include="Universal\BetTypeBySportType\QueryModel.cs" />
+    <Compile Include="Universal\BetTypeBySportType\UniversalBetTypeBySportTypeController.cs" />
+    <Compile Include="Universal\SportType\Criteria.cs" />
+    <Compile Include="Universal\SportType\ExcelQueryModel.cs" />
+    <Compile Include="Universal\SportType\QueryModel.cs" />
+    <Compile Include="Universal\SportType\UniversalSportTypeController.cs" />
     <Compile Include="Universal\BetType\UniversalBetTypeController.cs" />
     <Compile Include="Universal\BetType\Criteria.cs" />
     <Compile Include="Universal\BetType\ExcelQueryModel.cs" />

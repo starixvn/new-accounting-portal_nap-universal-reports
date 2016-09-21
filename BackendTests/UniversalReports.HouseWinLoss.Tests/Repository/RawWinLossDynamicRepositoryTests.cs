@@ -101,7 +101,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 IsLive = 2
             };
 
+            var universalSportTypeCriteria = new Universal.SportType.Criteria { ProductId = 23 };
             var universalBetTypeCriteria = new Universal.BetType.Criteria { ProductId = 7 };
+            var universalBetTypeBySportTypeCriteria = new Universal.BetTypeBySportType.Criteria { SportType = 123 };
             var universalSiteCriteria = new Universal.Site.Criteria
             {
                 Site = "Deposit",
@@ -148,7 +150,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 soccerLiveNonLiveCriteria,
                 soccerMajorMinorCriteria,
                 sportsbookSiteCriteria,
+                universalSportTypeCriteria,
                 universalBetTypeCriteria,
+                universalBetTypeBySportTypeCriteria,
                 universalSiteCriteria,
                 virtualSportsBetTypeCriteria,
                 virtualSportsSportTypeCriteria,
