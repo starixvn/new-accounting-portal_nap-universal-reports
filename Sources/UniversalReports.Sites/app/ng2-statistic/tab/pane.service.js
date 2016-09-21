@@ -36,7 +36,8 @@ import angular from "angular";
             }
 
             function getControllerName(reportType, isDrilldown) {
-                return reportType
+                var reportTypeInPascal = reportType.substring(0, 1).toUpperCase() + reportType.substring(1);
+                return reportTypeInPascal
                     + (isDrilldown ? "Drilldown" : "")
                     + "Controller";
             }

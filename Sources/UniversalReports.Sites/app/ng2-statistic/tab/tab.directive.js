@@ -28,14 +28,8 @@ import angular from "angular";
         vm.tab = tab;
 
         $scope.$on('nap-filter-generate', function (event, data) {
-            if (tab.panes.length === 0) {
-                var mainPane = new Pane('product', data);
-                tab.addPane(mainPane);
-            } else {
-                var activePane = tab.getActivePane();
-                angular.extend(activePane.data, data);
-                activePane.generate();
-            }
+            var mainPane = new Pane(data.reportType, data.isDrilldown);
+            tab.addPane(mainPane);            
         });
 
         $scope.$on('nap-filter-switch', function (event) {

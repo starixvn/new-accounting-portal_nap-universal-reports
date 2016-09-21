@@ -6,12 +6,12 @@ webpackJsonp([5],{
   \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./content/ng2-statistic.scss */125);
+	module.exports = __webpack_require__(/*! ./content/ng2-statistic.scss */127);
 
 
 /***/ },
 
-/***/ 125:
+/***/ 127:
 /*!************************************!*\
   !*** ./content/ng2-statistic.scss ***!
   \************************************/

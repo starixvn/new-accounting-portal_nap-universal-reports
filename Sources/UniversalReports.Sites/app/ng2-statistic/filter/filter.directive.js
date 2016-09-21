@@ -24,8 +24,8 @@ import moment from "moment";
     function controller($scope, $rootScope, config, filterService) {
         /*jshint validthis: true */
         var vm = this;
-        vm.minDate= moment("20130101", "YYYYMMDD");
-        vm.reportType="daily";
+        vm.minDate = moment("20130101", "YYYYMMDD");
+        vm.reportType = "daily";
         vm.currentLevel = 0;
         vm.normalMode = false;
 
@@ -36,9 +36,9 @@ import moment from "moment";
         vm.endDate = moment.utc(config.yesterday);
 
         vm.sportItems = [];
-        vm.sportSettings={
+        vm.sportSettings = {
             hasFilter: false,
-            //checkedAll: true,
+            checkedAll: true,
             sourceData: 'app/ng2-statistic/filter/sports.json',
             templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
         };
@@ -48,13 +48,13 @@ import moment from "moment";
             CollapseBranch: "Collapse/Expanse this branch",
             NoItemChecked: "Select bet type",
             ItemsSelected: "# selected",
-            NoData:"Select bet type"
+            NoData: "Select bet type"
         };
 
-        vm.currencies=[];
+        vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
-            vm.currencies= data;
-            vm.currency= 1;
+            vm.currencies = data;
+            vm.currency = 1;
         });
 
         vm.generate = generate;
@@ -62,11 +62,13 @@ import moment from "moment";
         vm.yesterdayClicked = yesterdayClicked;
         vm.viewNormalMode = viewNormalMode;
         vm.viewHistoryMode = viewHistoryMode;
-        vm.getDateRange = getDateRange;
+        vm.getReportCriteria = getReportCriteria;
+
+        vm.reportCriteria = {};
 
         function generate() {
-            vm.dateRange = getDateRange();
-            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+            vm.reportCriteria = vm.getReportCriteria();
+            $rootScope.$broadcast('nap-filter-generate', vm.reportCriteria);
         }
 
         function todayClicked() {
@@ -91,20 +93,11 @@ import moment from "moment";
             $rootScope.$broadcast('nap-filter-switch');
         }
 
-        function getDateRange() {
-            if (vm.normalMode) {
-                return {
-                    normalMode: vm.normalMode,
-                    startDate: vm.date,
-                    endDate: vm.date
-                };
-            } else {
-                return {
-                    normalMode: vm.normalMode,
-                    startDate: vm.startDate,
-                    endDate: vm.endDate
-                };
-            }
+        function getReportCriteria() {
+            return {
+                reportType: "daily",
+                isDrilldown: false
+            };
         }
     }
 })(angular);

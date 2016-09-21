@@ -11,12 +11,14 @@ webpackJsonp([4],{
 	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */116);
 	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */117);
 	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */118);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */119);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */120);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */121);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */122);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */123);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */124);
+	__webpack_require__(/*! ./app/ng2-statistic/daily/daily.controller.js */119);
+	__webpack_require__(/*! ./app/ng2-statistic/daily/daily.service.js */120);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */121);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */122);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */123);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */124);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */125);
+	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */126);
 
 
 /***/ },
@@ -233,6 +235,81 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 119:
+/*!*****************************************************!*\
+  !*** ./app/ng2-statistic/daily/daily.controller.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(/*! numeral */ 7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('DailyController', DailyController);
+	
+	    DailyController.$inject = ['$element', '$scope', 'fanexGridService'];
+	    function DailyController($element, $scope, fanexGridService) {
+	        console.log("DailyController");
+	
+	        $scope.generate = generate;
+	
+	        function generate() {
+	            console.log("DailyController-generate");
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 120:
+/*!**************************************************!*\
+  !*** ./app/ng2-statistic/daily/daily.service.js ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('dailyService', dailyService);
+	
+	    dailyService.$inject = ['$http', 'httpResponseService'];
+	    function dailyService($http, httpResponseService) {
+	        console.log("dailyService");
+	
+	        var service = {
+	            getData: getData
+	        };
+	        return service;
+	
+	        function getData() {
+	            return {
+	                fakeData: "fake"
+	            };
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 121:
 /*!******************************************************!*\
   !*** ./app/ng2-statistic/filter/filter.directive.js ***!
   \******************************************************/
@@ -286,7 +363,7 @@ webpackJsonp([4],{
 	        vm.sportItems = [];
 	        vm.sportSettings = {
 	            hasFilter: false,
-	            //checkedAll: true,
+	            checkedAll: true,
 	            sourceData: 'app/ng2-statistic/filter/sports.json',
 	            templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
 	        };
@@ -310,11 +387,13 @@ webpackJsonp([4],{
 	        vm.yesterdayClicked = yesterdayClicked;
 	        vm.viewNormalMode = viewNormalMode;
 	        vm.viewHistoryMode = viewHistoryMode;
-	        vm.getDateRange = getDateRange;
+	        vm.getReportCriteria = getReportCriteria;
+	
+	        vm.reportCriteria = {};
 	
 	        function generate() {
-	            vm.dateRange = getDateRange();
-	            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+	            vm.reportCriteria = vm.getReportCriteria();
+	            $rootScope.$broadcast('nap-filter-generate', vm.reportCriteria);
 	        }
 	
 	        function todayClicked() {
@@ -339,27 +418,18 @@ webpackJsonp([4],{
 	            $rootScope.$broadcast('nap-filter-switch');
 	        }
 	
-	        function getDateRange() {
-	            if (vm.normalMode) {
-	                return {
-	                    normalMode: vm.normalMode,
-	                    startDate: vm.date,
-	                    endDate: vm.date
-	                };
-	            } else {
-	                return {
-	                    normalMode: vm.normalMode,
-	                    startDate: vm.startDate,
-	                    endDate: vm.endDate
-	                };
-	            }
+	        function getReportCriteria() {
+	            return {
+	                reportType: "daily",
+	                isDrilldown: false
+	            };
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 120:
+/***/ 122:
 /*!****************************************************!*\
   !*** ./app/ng2-statistic/filter/filter.service.js ***!
   \****************************************************/
@@ -394,7 +464,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 121:
+/***/ 123:
 /*!*************************************************!*\
   !*** ./app/ng2-statistic/tab/pane.directive.js ***!
   \*************************************************/
@@ -455,7 +525,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 122:
+/***/ 124:
 /*!***********************************************!*\
   !*** ./app/ng2-statistic/tab/pane.service.js ***!
   \***********************************************/
@@ -502,7 +572,8 @@ webpackJsonp([4],{
 	            }
 	
 	            function getControllerName(reportType, isDrilldown) {
-	                return reportType + (isDrilldown ? "Drilldown" : "") + "Controller";
+	                var reportTypeInPascal = reportType.substring(0, 1).toUpperCase() + reportType.substring(1);
+	                return reportTypeInPascal + (isDrilldown ? "Drilldown" : "") + "Controller";
 	            }
 	
 	            function generate() {
@@ -543,7 +614,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 123:
+/***/ 125:
 /*!************************************************!*\
   !*** ./app/ng2-statistic/tab/tab.directive.js ***!
   \************************************************/
@@ -584,14 +655,8 @@ webpackJsonp([4],{
 	        vm.tab = tab;
 	
 	        $scope.$on('nap-filter-generate', function (event, data) {
-	            if (tab.panes.length === 0) {
-	                var mainPane = new Pane('product', data);
-	                tab.addPane(mainPane);
-	            } else {
-	                var activePane = tab.getActivePane();
-	                angular.extend(activePane.data, data);
-	                activePane.generate();
-	            }
+	            var mainPane = new Pane(data.reportType, data.isDrilldown);
+	            tab.addPane(mainPane);
 	        });
 	
 	        $scope.$on('nap-filter-switch', function (event) {
@@ -602,7 +667,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 124:
+/***/ 126:
 /*!**********************************************!*\
   !*** ./app/ng2-statistic/tab/tab.service.js ***!
   \**********************************************/
