@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
-    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
+    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
+    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
         function Pane(level, data) {
             this.level = level;
             this.data = data;
@@ -25,7 +25,7 @@ import angular from "angular";
                 return;
             }
 
-            var template = companyWinlossService.getTemplate(data, level);
+            var template = houseWinlossService.getTemplate(data, level);
             this.templateUrl = template.templateUrl;
             this.controller = template.controller;
             this.service = $injector.get(template.service);

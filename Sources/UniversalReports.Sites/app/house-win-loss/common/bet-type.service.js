@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('betTypeService', betTypeService);
 
-    betTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function betTypeService($http, httpResponseService, companyWinlossService, titleService) {
+    betTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+    function betTypeService($http, httpResponseService, houseWinlossService, titleService) {
         var service = {
             getTitle: titleService.getSportTypeTitle,
             getData: getData,
@@ -16,7 +16,7 @@ import angular from "angular";
         return service;
 
         function getData(data) {           
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -27,7 +27,7 @@ import angular from "angular";
                 title: title
             };
             angular.extend(httpData, data);
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

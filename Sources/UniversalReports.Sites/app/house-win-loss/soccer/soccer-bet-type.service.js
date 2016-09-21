@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('soccerBetTypeService', soccerBetTypeService);
 
     soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];

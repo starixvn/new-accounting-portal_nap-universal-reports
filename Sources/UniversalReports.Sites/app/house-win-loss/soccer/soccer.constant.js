@@ -10,6 +10,6 @@ import angular from "angular";
     };
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .constant('soccerConstants', soccerConstants);
 })(angular);

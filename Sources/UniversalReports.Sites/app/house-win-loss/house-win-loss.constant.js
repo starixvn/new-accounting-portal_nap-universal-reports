@@ -253,7 +253,7 @@ import angular from "angular";
         }
     };
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .constant('templateSetting', templateSetting)
         .constant('universalSettings', universalSettings);
 })(angular);

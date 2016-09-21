@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .directive('napPane', napPane);
 
     napPane.$inject = ['$templateRequest', '$compile', '$controller'];

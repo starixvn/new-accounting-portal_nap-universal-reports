@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
 
-    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function virtualSportsSportsbookDetailService($http, httpResponseService, companyWinlossService, titleService) {
+    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+    function virtualSportsSportsbookDetailService($http, httpResponseService, houseWinlossService, titleService) {
         var service = {
             getTitle: titleService.getMatchDetailTitle,
             getData: getData,
@@ -23,7 +23,7 @@ import angular from "angular";
                 betType: data.betType,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
             return $http.post(url, httpData)
                  .then(httpResponseService.getDataComplete)
                  .catch(httpResponseService.getDataFailed);
@@ -38,7 +38,7 @@ import angular from "angular";
                 betType: data.betType,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

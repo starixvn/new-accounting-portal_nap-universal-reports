@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('matchDetailService', matchDetailService);
 
-    matchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function matchDetailService($http, httpResponseService, companyWinlossService, titleService) {
+    matchDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+    function matchDetailService($http, httpResponseService, houseWinlossService, titleService) {
         var service = {
             getTitle: titleService.getMatchDetailTitle,
             getData: getData,
@@ -23,7 +23,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -38,7 +38,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

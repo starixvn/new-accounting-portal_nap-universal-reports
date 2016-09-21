@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('otherSportsLiveNonLiveService', otherSportsLiveNonLiveService);
 
-    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function otherSportsLiveNonLiveService($http, httpResponseService, companyWinlossService, titleService) {
+    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+    function otherSportsLiveNonLiveService($http, httpResponseService, houseWinlossService, titleService) {
         var service = {
             getTitle: titleService.getProductLiveNonLiveTitle,
             getData: getData,
@@ -22,7 +22,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-non-live';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -36,7 +36,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

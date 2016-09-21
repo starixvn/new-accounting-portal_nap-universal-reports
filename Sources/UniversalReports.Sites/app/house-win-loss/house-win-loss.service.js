@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
-        .service('companyWinlossService', companyWinlossService);
+        .module('app.houseWinlossApp')
+        .service('houseWinlossService', houseWinlossService);
 
-    companyWinlossService.$inject = ['templateSetting', 'universalSettings'];
-    function companyWinlossService(templateSetting, universalSettings) {
+    houseWinlossService.$inject = ['templateSetting', 'universalSettings'];
+    function houseWinlossService(templateSetting, universalSettings) {
         var service = {
             getTemplate: getTemplate,
             getTemplateSetting: getTemplateSetting,
@@ -17,7 +17,7 @@ import angular from "angular";
         return service;
 
         function resolveProductPath(productName) {
-            if (productName == 'Live Casino' || productName == 'Casino') {
+            if (productName === 'Live Casino' || productName === 'Casino') {
                 return 'casino';
             }
             return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');

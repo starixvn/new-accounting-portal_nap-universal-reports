@@ -4,7 +4,7 @@ import moment from "moment";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('ParlayBetTypeController', ParlayBetTypeController);
 
     ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];

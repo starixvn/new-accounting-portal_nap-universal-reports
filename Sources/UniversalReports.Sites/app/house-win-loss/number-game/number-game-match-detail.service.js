@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('numberGameMatchDetailService', numberGameMatchDetailService);
 
-    numberGameMatchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-    function numberGameMatchDetailService($http, httpResponseService, companyWinlossService, liveTitleService) {
+    numberGameMatchDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'liveTitleService'];
+    function numberGameMatchDetailService($http, httpResponseService, houseWinlossService, liveTitleService) {
         var service = {
             getTitle: liveTitleService.getMatchDetailTitle,
             getData: getData,
@@ -24,7 +24,7 @@ import angular from "angular";
                 betType: data.betType,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -39,7 +39,7 @@ import angular from "angular";
                 betType: data.betType,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

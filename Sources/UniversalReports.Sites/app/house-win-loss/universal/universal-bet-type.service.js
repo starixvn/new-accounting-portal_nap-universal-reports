@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('universalBetTypeService', universalBetTypeService);
 
-    universalBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'universalSettings'];
-    function universalBetTypeService($http, httpResponseService, companyWinlossService, titleService, universalSettings) {
+    universalBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService', 'universalSettings'];
+    function universalBetTypeService($http, httpResponseService, houseWinlossService, titleService, universalSettings) {
         var products = new Array();
         products["Bingo"] = 7;
         products["Keno"] = 8;

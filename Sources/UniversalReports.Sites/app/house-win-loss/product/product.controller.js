@@ -4,11 +4,11 @@ import numeral from "numeral";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'companyWinlossService', 'productShowHideColumnService'];
-    function ProductController($element, $scope, fanexGridService, companyWinlossService, productShowHideColumnService) {
+    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'houseWinlossService', 'productShowHideColumnService'];
+    function ProductController($element, $scope, fanexGridService, houseWinlossService, productShowHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
         var tab = $scope.tab;
@@ -22,7 +22,7 @@ import numeral from "numeral";
                 productName: productName
             };
             angular.extend(data, pane.data);
-            var level = companyWinlossService.getTemplateSetting(productName)['product'];
+            var level = houseWinlossService.getTemplateSetting(productName)['product'];
             tab.goForward(level, data);
         }
 

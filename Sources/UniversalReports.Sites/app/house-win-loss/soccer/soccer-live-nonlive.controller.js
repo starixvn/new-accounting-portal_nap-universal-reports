@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 
     SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerMajorMinorService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];

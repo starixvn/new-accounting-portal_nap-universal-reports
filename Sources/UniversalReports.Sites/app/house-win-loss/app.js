@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.companyWinlossApp', [
+        .module('app.houseWinlossApp', [
             'app.core'
         ]);
 })(angular);

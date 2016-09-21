@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
     var cricketProductId = 50;
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('sportsbookBetTypeService', sportsbookBetTypeService);
 
-    sportsbookBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'liveTitleService'];
-    function sportsbookBetTypeService($http, httpResponseService, companyWinlossService, titleService, liveTitleService) {
+    sportsbookBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService', 'liveTitleService'];
+    function sportsbookBetTypeService($http, httpResponseService, houseWinlossService, titleService, liveTitleService) {
         var service = {
             getTitle: getTitle,
             getData: getData,
@@ -41,7 +41,7 @@ import angular from "angular";
         function getUrl(data) {
             return data.sportType == cricketProductId
                 ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
-                : 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+                : 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
         }
 
         function getTitle(data) {

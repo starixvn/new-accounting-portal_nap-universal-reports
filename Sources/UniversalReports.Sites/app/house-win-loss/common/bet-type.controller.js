@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('BetTypeController', BetTypeController);
 
-    BetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService'];
-    function BetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService) {
+    BetTypeController.$inject = ['$scope', '$element', 'houseWinlossService', 'fanexGridService', 'showHideColumnService'];
+    function BetTypeController($scope, $element, houseWinlossService, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
@@ -82,7 +82,7 @@ import angular from "angular";
         }
 
         function createLink(betTypeRow) {
-            var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
+            var template = houseWinlossService.getTemplate(pane.data, 'matchDetail');
             var hasDetailDrilldown = angular.isDefined(template);
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;

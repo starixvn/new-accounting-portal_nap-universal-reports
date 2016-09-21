@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('CasinoBetTypeService', CasinoBetTypeService);
 
-    CasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function CasinoBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
+    CasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+    function CasinoBetTypeService($http, httpResponseService, houseWinlossService, titleService) {
         var service = {
             getTitle: titleService.getCasinoProductTitle,
             getData: getData,

@@ -3,11 +3,11 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('numberGameBetTypeService', numberGameBetTypeService);
 
-    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-    function numberGameBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
+    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'liveTitleService'];
+    function numberGameBetTypeService($http, httpResponseService, houseWinlossService, liveTitleService) {
         var service = {
             getTitle: liveTitleService.getProductNumberGameTitle,
             getData: getData,
@@ -22,7 +22,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -36,7 +36,7 @@ import angular from "angular";
                 endDate: data.endDate,
                 normalMode: data.normalMode
             };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);

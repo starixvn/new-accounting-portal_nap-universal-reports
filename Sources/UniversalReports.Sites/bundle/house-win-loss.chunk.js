@@ -167,7 +167,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp', ['app.core']);
+	    angular.module('app.houseWinlossApp', ['app.core']);
 	})(_angular2.default);
 
 /***/ },
@@ -417,7 +417,7 @@ webpackJsonp([2],[
 	            return universalSettings.products[productName];
 	        }
 	    };
-	    angular.module('app.companyWinlossApp').constant('templateSetting', templateSetting).constant('universalSettings', universalSettings);
+	    angular.module('app.houseWinlossApp').constant('templateSetting', templateSetting).constant('universalSettings', universalSettings);
 	})(_angular2.default);
 
 /***/ },
@@ -435,7 +435,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('HouseWinlossController', HouseWinlossController);
+	    angular.module('app.houseWinlossApp').controller('HouseWinlossController', HouseWinlossController);
 	
 	    HouseWinlossController.$inject = [];
 	    function HouseWinlossController() {
@@ -459,10 +459,10 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').service('companyWinlossService', companyWinlossService);
+	    angular.module('app.houseWinlossApp').service('houseWinlossService', houseWinlossService);
 	
-	    companyWinlossService.$inject = ['templateSetting', 'universalSettings'];
-	    function companyWinlossService(templateSetting, universalSettings) {
+	    houseWinlossService.$inject = ['templateSetting', 'universalSettings'];
+	    function houseWinlossService(templateSetting, universalSettings) {
 	        var service = {
 	            getTemplate: getTemplate,
 	            getTemplateSetting: getTemplateSetting,
@@ -549,7 +549,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('bettradeBetTypeService', bettradeBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('bettradeBetTypeService', bettradeBetTypeService);
 	
 	    bettradeBetTypeService.$inject = ['$http', 'httpResponseService', 'betTypeService', 'titleService'];
 	    function bettradeBetTypeService($http, httpResponseService, betTypeService, titleService) {
@@ -578,7 +578,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('breadcrumbService', breadcrumbService);
+	    angular.module('app.houseWinlossApp').factory('breadcrumbService', breadcrumbService);
 	
 	    breadcrumbService.$inject = [];
 	    function breadcrumbService() {
@@ -624,7 +624,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('liveTitleService', liveTitleService);
+	    angular.module('app.houseWinlossApp').factory('liveTitleService', liveTitleService);
 	
 	    liveTitleService.$inject = [];
 	    function liveTitleService() {
@@ -683,7 +683,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('titleService', titleService);
+	    angular.module('app.houseWinlossApp').factory('titleService', titleService);
 	
 	    titleService.$inject = [];
 	    function titleService() {
@@ -749,10 +749,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('CasinoBetTypeService', CasinoBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('CasinoBetTypeService', CasinoBetTypeService);
 	
-	    CasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function CasinoBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
+	    CasinoBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function CasinoBetTypeService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getCasinoProductTitle,
 	            getData: getData,
@@ -800,7 +800,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('CasinoProductController', CasinoProductController);
+	    angular.module('app.houseWinlossApp').controller('CasinoProductController', CasinoProductController);
 	
 	    CasinoProductController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
 	    function CasinoProductController($scope, $element, fanexGridService, showHideColumnService) {
@@ -876,10 +876,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('casinoProductService', casinoProductService);
+	    angular.module('app.houseWinlossApp').factory('casinoProductService', casinoProductService);
 	
-	    casinoProductService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function casinoProductService($http, httpResponseService, companyWinlossService, titleService) {
+	    casinoProductService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function casinoProductService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getProductTitle,
 	            getData: getData,
@@ -931,10 +931,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('BetTypeController', BetTypeController);
+	    angular.module('app.houseWinlossApp').controller('BetTypeController', BetTypeController);
 	
-	    BetTypeController.$inject = ['$scope', '$element', 'companyWinlossService', 'fanexGridService', 'showHideColumnService'];
-	    function BetTypeController($scope, $element, companyWinlossService, fanexGridService, showHideColumnService) {
+	    BetTypeController.$inject = ['$scope', '$element', 'houseWinlossService', 'fanexGridService', 'showHideColumnService'];
+	    function BetTypeController($scope, $element, houseWinlossService, fanexGridService, showHideColumnService) {
 	        var pane = $scope.pane;
 	        var showHideColumnBuilder = new showHideColumnService(pane);
 	        var tab = $scope.tab;
@@ -1009,7 +1009,7 @@ webpackJsonp([2],[
 	        }
 	
 	        function createLink(betTypeRow) {
-	            var template = companyWinlossService.getTemplate(pane.data, 'matchDetail');
+	            var template = houseWinlossService.getTemplate(pane.data, 'matchDetail');
 	            var hasDetailDrilldown = angular.isDefined(template);
 	            var betTypeName = betTypeRow.Columns[0].Value;
 	            var betTypeId = betTypeRow.Columns[0].CustomAttr;
@@ -1063,10 +1063,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('betTypeService', betTypeService);
+	    angular.module('app.houseWinlossApp').factory('betTypeService', betTypeService);
 	
-	    betTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function betTypeService($http, httpResponseService, companyWinlossService, titleService) {
+	    betTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function betTypeService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getSportTypeTitle,
 	            getData: getData,
@@ -1075,7 +1075,7 @@ webpackJsonp([2],[
 	        return service;
 	
 	        function getData(data) {
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
 	            return $http.post(url, data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -1084,7 +1084,7 @@ webpackJsonp([2],[
 	                title: title
 	            };
 	            angular.extend(httpData, data);
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -1107,7 +1107,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('MatchDetailController', MatchDetailController);
+	    angular.module('app.houseWinlossApp').controller('MatchDetailController', MatchDetailController);
 	
 	    MatchDetailController.$inject = ['$scope', '$element', 'fanexGridService'];
 	    function MatchDetailController($scope, $element, fanexGridService) {
@@ -1167,10 +1167,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('matchDetailService', matchDetailService);
+	    angular.module('app.houseWinlossApp').factory('matchDetailService', matchDetailService);
 	
-	    matchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function matchDetailService($http, httpResponseService, companyWinlossService, titleService) {
+	    matchDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function matchDetailService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getMatchDetailTitle,
 	            getData: getData,
@@ -1186,7 +1186,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -1199,7 +1199,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -1222,7 +1222,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('SiteController', SiteController);
+	    angular.module('app.houseWinlossApp').controller('SiteController', SiteController);
 	
 	    SiteController.$inject = ['$injector', '$scope', '$element', 'fanexGridService'];
 	    function SiteController($injector, $scope, $element, fanexGridService) {
@@ -1273,10 +1273,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('siteService', siteService);
+	    angular.module('app.houseWinlossApp').factory('siteService', siteService);
 	
-	    siteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function siteService($http, httpResponseService, companyWinlossService, titleService) {
+	    siteService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function siteService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getSiteTitle,
 	            getData: getData,
@@ -1293,7 +1293,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -1307,7 +1307,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -1330,7 +1330,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('SportTypeController', SportTypeController);
+	    angular.module('app.houseWinlossApp').controller('SportTypeController', SportTypeController);
 	
 	    SportTypeController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
 	    function SportTypeController($injector, $scope, $element, fanexGridService, showHideColumnService) {
@@ -1407,10 +1407,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('sportTypeService', sportTypeService);
+	    angular.module('app.houseWinlossApp').factory('sportTypeService', sportTypeService);
 	
-	    sportTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function sportTypeService($http, httpResponseService, companyWinlossService, titleService) {
+	    sportTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function sportTypeService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getProductTitle,
 	            getData: getData,
@@ -1419,7 +1419,7 @@ webpackJsonp([2],[
 	        return service;
 	
 	        function getData(data) {
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sport-type';
 	            return $http.post(url, data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -1428,7 +1428,7 @@ webpackJsonp([2],[
 	                title: title
 	            };
 	            angular.extend(httpData, data);
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sport-type/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -1455,7 +1455,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').directive('napFilter', napFilter);
+	    angular.module('app.houseWinlossApp').directive('napFilter', napFilter);
 	
 	    function napFilter() {
 	        var directive = {
@@ -1565,7 +1565,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').service('productShowHideColumnService', productShowHideColumnService);
+	    angular.module('app.houseWinlossApp').service('productShowHideColumnService', productShowHideColumnService);
 	
 	    productShowHideColumnService.$inject = ['$log', '$timeout'];
 	    function productShowHideColumnService($log, $timeout) {
@@ -1659,7 +1659,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('showHideColumnService', showHideColumnService);
+	    angular.module('app.houseWinlossApp').factory('showHideColumnService', showHideColumnService);
 	
 	    showHideColumnService.$inject = ['$log', '$timeout', 'productShowHideColumnService'];
 	    function showHideColumnService($log, $timeout, productShowHideColumnService) {
@@ -1741,7 +1741,7 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
+	    angular.module('app.houseWinlossApp').controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
 	    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingLiveNonLiveService', 'showHideColumnService', 'titleService'];
 	
 	    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
@@ -1898,10 +1898,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('metricGamingLiveNonLiveService', metricGamingLiveNonLiveService);
+	    angular.module('app.houseWinlossApp').factory('metricGamingLiveNonLiveService', metricGamingLiveNonLiveService);
 	
-	    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function metricGamingLiveNonLiveService($http, httpResponseService, companyWinlossService, titleService) {
+	    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function metricGamingLiveNonLiveService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getProductLiveNonLiveTitle,
 	            getData: getData,
@@ -1911,7 +1911,7 @@ webpackJsonp([2],[
 	        return service;
 	
 	        function getData(data) {
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-none-live';
 	            var httpData = {
 	                normalMode: data.normalMode,
 	                startDate: data.startDate,
@@ -1921,7 +1921,7 @@ webpackJsonp([2],[
 	        }
 	
 	        function getBetTypeData(data) {
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
 	            return $http.post(url, data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -1933,7 +1933,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -1956,7 +1956,7 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('NumberGameBetTypeController', NumberGameBetTypeController);
+	    angular.module('app.houseWinlossApp').controller('NumberGameBetTypeController', NumberGameBetTypeController);
 	
 	    NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
 	    function NumberGameBetTypeController($scope, $element, fanexGridService, showHideColumnService) {
@@ -2075,10 +2075,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('numberGameBetTypeService', numberGameBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('numberGameBetTypeService', numberGameBetTypeService);
 	
-	    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-	    function numberGameBetTypeService($http, httpResponseService, companyWinlossService, liveTitleService) {
+	    numberGameBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'liveTitleService'];
+	    function numberGameBetTypeService($http, httpResponseService, houseWinlossService, liveTitleService) {
 	        var service = {
 	            getTitle: liveTitleService.getProductNumberGameTitle,
 	            getData: getData,
@@ -2093,7 +2093,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2105,7 +2105,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2128,10 +2128,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('numberGameMatchDetailService', numberGameMatchDetailService);
+	    angular.module('app.houseWinlossApp').factory('numberGameMatchDetailService', numberGameMatchDetailService);
 	
-	    numberGameMatchDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-	    function numberGameMatchDetailService($http, httpResponseService, companyWinlossService, liveTitleService) {
+	    numberGameMatchDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'liveTitleService'];
+	    function numberGameMatchDetailService($http, httpResponseService, houseWinlossService, liveTitleService) {
 	        var service = {
 	            getTitle: liveTitleService.getMatchDetailTitle,
 	            getData: getData,
@@ -2148,7 +2148,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2161,7 +2161,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/match-detail/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2184,10 +2184,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('numberGameSiteService', numberGameSiteService);
+	    angular.module('app.houseWinlossApp').factory('numberGameSiteService', numberGameSiteService);
 	
-	    numberGameSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'liveTitleService'];
-	    function numberGameSiteService($http, httpResponseService, companyWinlossService, liveTitleService) {
+	    numberGameSiteService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'liveTitleService'];
+	    function numberGameSiteService($http, httpResponseService, houseWinlossService, liveTitleService) {
 	        var service = {
 	            getTitle: liveTitleService.getSiteTitle,
 	            getData: getData,
@@ -2204,7 +2204,7 @@ webpackJsonp([2],[
 	                site: data.site,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2218,7 +2218,7 @@ webpackJsonp([2],[
 	                site: data.site,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2241,7 +2241,7 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
+	    angular.module('app.houseWinlossApp').controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
 	
 	    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService', 'showHideColumnService'];
 	    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService, showHideColumnService) {
@@ -2370,10 +2370,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('otherSportsLiveNonLiveService', otherSportsLiveNonLiveService);
+	    angular.module('app.houseWinlossApp').factory('otherSportsLiveNonLiveService', otherSportsLiveNonLiveService);
 	
-	    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function otherSportsLiveNonLiveService($http, httpResponseService, companyWinlossService, titleService) {
+	    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function otherSportsLiveNonLiveService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getProductLiveNonLiveTitle,
 	            getData: getData,
@@ -2388,7 +2388,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-non-live';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2400,7 +2400,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2423,7 +2423,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('otherSportsSportTypeService', otherSportsSportTypeService);
+	    angular.module('app.houseWinlossApp').factory('otherSportsSportTypeService', otherSportsSportTypeService);
 	
 	    otherSportsSportTypeService.$inject = ['$http', 'liveTitleService', 'sportTypeService'];
 	    function otherSportsSportTypeService($http, liveTitleService, sportTypeService) {
@@ -2456,7 +2456,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('ParlayBetTypeController', ParlayBetTypeController);
+	    angular.module('app.houseWinlossApp').controller('ParlayBetTypeController', ParlayBetTypeController);
 	
 	    ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];
 	    function ParlayBetTypeController($scope, $element, fanexGridService, showHideColumnService, legacyService) {
@@ -2558,10 +2558,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('parlayBetTypeService', parlayBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('parlayBetTypeService', parlayBetTypeService);
 	
-	    parlayBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function parlayBetTypeService($http, httpResponseService, companyWinlossService, titleService) {
+	    parlayBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function parlayBetTypeService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getProductTitle,
 	            getData: getData,
@@ -2576,7 +2576,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2588,7 +2588,7 @@ webpackJsonp([2],[
 	                endDate: data.endDate,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2611,10 +2611,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('parlaySiteService', parlaySiteService);
+	    angular.module('app.houseWinlossApp').factory('parlaySiteService', parlaySiteService);
 	
-	    parlaySiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function parlaySiteService($http, httpResponseService, companyWinlossService, titleService) {
+	    parlaySiteService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function parlaySiteService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getSiteTitle,
 	            getData: getData,
@@ -2629,7 +2629,7 @@ webpackJsonp([2],[
 	                startDate: data.startDate,
 	                endDate: data.endDate
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -2641,7 +2641,7 @@ webpackJsonp([2],[
 	                startDate: data.startDate,
 	                endDate: data.endDate
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/site/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/site/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -2668,10 +2668,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('ProductController', ProductController);
+	    angular.module('app.houseWinlossApp').controller('ProductController', ProductController);
 	
-	    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'companyWinlossService', 'productShowHideColumnService'];
-	    function ProductController($element, $scope, fanexGridService, companyWinlossService, productShowHideColumnService) {
+	    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'houseWinlossService', 'productShowHideColumnService'];
+	    function ProductController($element, $scope, fanexGridService, houseWinlossService, productShowHideColumnService) {
 	        var pane = $scope.pane;
 	        var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
 	        var tab = $scope.tab;
@@ -2685,7 +2685,7 @@ webpackJsonp([2],[
 	                productName: productName
 	            };
 	            angular.extend(data, pane.data);
-	            var level = companyWinlossService.getTemplateSetting(productName)['product'];
+	            var level = houseWinlossService.getTemplateSetting(productName)['product'];
 	            tab.goForward(level, data);
 	        }
 	
@@ -2746,7 +2746,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('productService', productService);
+	    angular.module('app.houseWinlossApp').factory('productService', productService);
 	
 	    productService.$inject = ['$http', 'httpResponseService', 'titleService'];
 	    function productService($http, httpResponseService, titleService) {
@@ -2795,7 +2795,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('soccerBetTypeService', soccerBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('soccerBetTypeService', soccerBetTypeService);
 	
 	    soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
 	    function soccerBetTypeService($http, httpResponseService, soccerConstants) {
@@ -2881,7 +2881,7 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
+	    angular.module('app.houseWinlossApp').controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
 	
 	    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerMajorMinorService', 'soccerLiveNonLiveService', 'showHideColumnService', 'soccerConstants'];
 	    function SoccerLiveNonLiveController($scope, $element, fanexGridService, soccerMajorMinorService, soccerLiveNonLiveService, showHideColumnService, soccerConstants) {
@@ -3007,7 +3007,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('soccerLiveNonLiveService', soccerLiveNonLiveService);
+	    angular.module('app.houseWinlossApp').factory('soccerLiveNonLiveService', soccerLiveNonLiveService);
 	
 	    soccerLiveNonLiveService.$inject = ['$http', 'httpResponseService'];
 	    function soccerLiveNonLiveService($http, httpResponseService) {
@@ -3062,7 +3062,7 @@ webpackJsonp([2],[
 	(function (angular, undefined) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('SoccerMajorMinorController', SoccerMajorMinorController);
+	    angular.module('app.houseWinlossApp').controller('SoccerMajorMinorController', SoccerMajorMinorController);
 	
 	    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
 	    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
@@ -3140,7 +3140,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('soccerMajorMinorService', soccerMajorMinorService);
+	    angular.module('app.houseWinlossApp').factory('soccerMajorMinorService', soccerMajorMinorService);
 	
 	    soccerMajorMinorService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
 	    function soccerMajorMinorService($http, httpResponseService, soccerConstants) {
@@ -3200,7 +3200,7 @@ webpackJsonp([2],[
 	        SoccerSportType: 1
 	    };
 	
-	    angular.module('app.companyWinlossApp').constant('soccerConstants', soccerConstants);
+	    angular.module('app.houseWinlossApp').constant('soccerConstants', soccerConstants);
 	})(_angular2.default);
 
 /***/ },
@@ -3219,10 +3219,10 @@ webpackJsonp([2],[
 	    'use strict';
 	
 	    var cricketProductId = 50;
-	    angular.module('app.companyWinlossApp').factory('sportsbookBetTypeService', sportsbookBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('sportsbookBetTypeService', sportsbookBetTypeService);
 	
-	    sportsbookBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'liveTitleService'];
-	    function sportsbookBetTypeService($http, httpResponseService, companyWinlossService, titleService, liveTitleService) {
+	    sportsbookBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService', 'liveTitleService'];
+	    function sportsbookBetTypeService($http, httpResponseService, houseWinlossService, titleService, liveTitleService) {
 	        var service = {
 	            getTitle: getTitle,
 	            getData: getData,
@@ -3250,7 +3250,7 @@ webpackJsonp([2],[
 	        }
 	
 	        function getUrl(data) {
-	            return data.sportType == cricketProductId ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type' : 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+	            return data.sportType == cricketProductId ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type' : 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/bet-type';
 	        }
 	
 	        function getTitle(data) {
@@ -3277,7 +3277,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
+	    angular.module('app.houseWinlossApp').controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
 	
 	    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
 	    function SportsbookMatchDetailController($scope, $element, fanexGridService, $uibModal, $uibModalStack) {
@@ -3393,7 +3393,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
+	    angular.module('app.houseWinlossApp').factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
 	
 	    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'titleService', 'legacyService'];
 	    function sportsbookMatchDetailService($http, httpResponseService, titleService, legacyService) {
@@ -3469,10 +3469,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('sportsbookSiteService', sportsbookSiteService);
+	    angular.module('app.houseWinlossApp').factory('sportsbookSiteService', sportsbookSiteService);
 	
-	    sportsbookSiteService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function sportsbookSiteService($http, httpResponseService, companyWinlossService, titleService) {
+	    sportsbookSiteService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function sportsbookSiteService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getSiteTitle,
 	            getData: getData,
@@ -3517,7 +3517,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').directive('napPane', napPane);
+	    angular.module('app.houseWinlossApp').directive('napPane', napPane);
 	
 	    napPane.$inject = ['$templateRequest', '$compile', '$controller'];
 	    function napPane($templateRequest, $compile, $controller) {
@@ -3574,10 +3574,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('napPane', napPane);
+	    angular.module('app.houseWinlossApp').factory('napPane', napPane);
 	
-	    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
-	    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
+	    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
+	    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
 	        function Pane(level, data) {
 	            this.level = level;
 	            this.data = data;
@@ -3595,7 +3595,7 @@ webpackJsonp([2],[
 	                return;
 	            }
 	
-	            var template = companyWinlossService.getTemplate(data, level);
+	            var template = houseWinlossService.getTemplate(data, level);
 	            this.templateUrl = template.templateUrl;
 	            this.controller = template.controller;
 	            this.service = $injector.get(template.service);
@@ -3651,7 +3651,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').directive('napTab', napTab);
+	    angular.module('app.houseWinlossApp').directive('napTab', napTab);
 	
 	    napTab.$inject = ['napPane'];
 	    function napTab(Pane) {
@@ -3706,7 +3706,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('napTab', napTab);
+	    angular.module('app.houseWinlossApp').factory('napTab', napTab);
 	
 	    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];
 	    function napTab($rootScope, breadcrumbService, Pane) {
@@ -3808,10 +3808,10 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('universalBetTypeService', universalBetTypeService);
+	    angular.module('app.houseWinlossApp').factory('universalBetTypeService', universalBetTypeService);
 	
-	    universalBetTypeService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService', 'universalSettings'];
-	    function universalBetTypeService($http, httpResponseService, companyWinlossService, titleService, universalSettings) {
+	    universalBetTypeService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService', 'universalSettings'];
+	    function universalBetTypeService($http, httpResponseService, houseWinlossService, titleService, universalSettings) {
 	        var products = new Array();
 	        products["Bingo"] = 7;
 	        products["Keno"] = 8;
@@ -3862,7 +3862,7 @@ webpackJsonp([2],[
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.companyWinlossApp').factory('universalSiteService', universalSiteService);
+	    angular.module('app.houseWinlossApp').factory('universalSiteService', universalSiteService);
 	
 	    universalSiteService.$inject = ['$http', 'httpResponseService', 'titleService'];
 	    function universalSiteService($http, httpResponseService, titleService) {
@@ -3906,10 +3906,10 @@ webpackJsonp([2],[
 	(function () {
 	    'use strict';
 	
-	    _angular2.default.module('app.companyWinlossApp').factory('virtualSportsRacingDetailService', virtualSportsRacingDetailService);
+	    _angular2.default.module('app.houseWinlossApp').factory('virtualSportsRacingDetailService', virtualSportsRacingDetailService);
 	
-	    virtualSportsRacingDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function virtualSportsRacingDetailService($http, httpResponseService, companyWinlossService, titleService) {
+	    virtualSportsRacingDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function virtualSportsRacingDetailService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getMatchDetailTitle,
 	            getData: getData,
@@ -3925,7 +3925,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/racing-match-detail';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/racing-match-detail';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -3938,7 +3938,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/racing-match-detail/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/racing-match-detail/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);
@@ -3961,10 +3961,10 @@ webpackJsonp([2],[
 	(function () {
 	    'use strict';
 	
-	    _angular2.default.module('app.companyWinlossApp').factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
+	    _angular2.default.module('app.houseWinlossApp').factory('virtualSportsSportsbookDetailService', virtualSportsSportsbookDetailService);
 	
-	    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-	    function virtualSportsSportsbookDetailService($http, httpResponseService, companyWinlossService, titleService) {
+	    virtualSportsSportsbookDetailService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService'];
+	    function virtualSportsSportsbookDetailService($http, httpResponseService, houseWinlossService, titleService) {
 	        var service = {
 	            getTitle: titleService.getMatchDetailTitle,
 	            getData: getData,
@@ -3980,7 +3980,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail';
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
@@ -3993,7 +3993,7 @@ webpackJsonp([2],[
 	                betType: data.betType,
 	                normalMode: data.normalMode
 	            };
-	            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
+	            var url = 'api/house-win-loss-by-products/' + houseWinlossService.resolveProductPath(data.productName) + '/sportsbook-match-detail/excel';
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
 	            }).catch(httpResponseService.getDataFailed);

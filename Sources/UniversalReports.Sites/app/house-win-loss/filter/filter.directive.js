@@ -4,7 +4,7 @@ import moment from "moment";
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .directive('napFilter', napFilter);
 
     function napFilter() {
