@@ -12,7 +12,9 @@ import moment from "moment";
             restrict: 'EA',
             templateUrl: 'app/root/components/date-range-picker/date-range-picker.directive.html',
             scope: {
-                ngModel: '='
+                ngModel: '=',
+                minDate: '=',
+                maxDate: '=',
             },
             replace: true,
             controller: controller,
@@ -33,15 +35,22 @@ import moment from "moment";
         vm.changeTimePeriod();
 
         $scope.$on('nap-date-picker-select', function (event, data) {
+            
+            setDateRangeContrains(data);
             vm.timePeriod = "specific-period";
+
         });
 
         function changeTimePeriod() {
             var configuration = timePeriodConfiguration[vm.timePeriod];
             vm.datefrom = configuration.datefrom;
             vm.dateto = configuration.dateto;
-        }; 
 
+            vm.minDateFrom = vm.minDate;
+            vm.maxDateFrom = vm.dateto;
+            vm.minDateTo =vm.datefrom;
+            vm.maxDateTo = vm.maxDate;
+        };         
 
         function getTimePeriodConfiguration(config){
             var yesterday = config.yesterday;
@@ -89,6 +98,19 @@ import moment from "moment";
 
             };            
         }  
+
+        function setDateRangeContrains(data){
+            switch(data.name){
+                case "from":
+                    vm.minDateTo = data.selectedDate;
+                    break;
+                case "to":
+                    vm.maxDateFrom = data.selectedDate;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     
 })(angular);

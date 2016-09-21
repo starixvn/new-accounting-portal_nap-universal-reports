@@ -4,6 +4,7 @@
 
     angular
         .module('app.numberGame2StatisticApp', [
-            'app.core'
+            'app.core',
+            'fanex.dropdowntree'
         ]);
 })(angular);

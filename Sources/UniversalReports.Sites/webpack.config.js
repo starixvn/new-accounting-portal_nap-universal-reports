@@ -11,14 +11,19 @@ module.exports = {
     verbose: false,
     debug: false,
     entry: {
-
         "app": glob.sync([
                   "./Scripts/Fanex.Grid.js",
                   "./Scripts/Fanex.Pagination.js",
                   "./app/root/app.js",
                   "./app/root/app.constant.js",
                   "./app/root/**/*.js"]),
-        "app-style": ["./content/site.scss", "./scripts/Fanex.Grid.css", "./scripts/Fanex.Pagination.css"],
+        "app-style": glob.sync([
+            "./content/site.scss",
+            "./scripts/Fanex.Grid.css",
+            "./scripts/Fanex.Pagination.css",
+            "./app/root/**/*.scss",
+            "./app/root/**/*.less",
+            "./app/root/**/*.css"]),
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js", "./app/house-win-loss/**/*.js"]),
         "house-win-loss-style": ["./content/house-win-loss.scss", "./content/scoreInformation.scss"],
         "ng2-statistic": glob.sync(["./app/ng2-statistic/*.js", "./app/ng2-statistic/**/*.js"]),
@@ -56,6 +61,10 @@ module.exports = {
                 test: /\.scss$|\.css$/,
                 loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")
             },
+             {
+                 test: /\.less|\.css$$/,
+                 loader: extractTextPlugin.extract("style-loader", "css-loader!less-loader")
+             },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.eot$/,
                 loader: "url?limit=100000"

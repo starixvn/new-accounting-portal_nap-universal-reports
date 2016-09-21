@@ -20,25 +20,49 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope', '$rootScope', 'config'];
-    function controller($scope, $rootScope, config) {
+    controller.$inject = ['$scope', '$rootScope', 'config', 'filterService'];
+    function controller($scope, $rootScope, config, filterService) {
         /*jshint validthis: true */
         var vm = this;
+        vm.minDate= moment("20130101", "YYYYMMDD");
         vm.reportType="daily";
         vm.currentLevel = 0;
         vm.normalMode = false;
+
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
         vm.startDate = moment.utc(config.yesterday).startOf('month');
         vm.endDate = moment.utc(config.yesterday);
+
+        vm.sportItems = [];
+        vm.sportSettings={
+            hasFilter: false,
+            //checkedAll: true,
+            sourceData: 'app/ng2-statistic/filter/sports.json',
+            templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+        };
+        vm.sportTextSettings = {
+            CheckAll: "ALL",
+            CollapseExpanse: "Collapse/Expanse",
+            CollapseBranch: "Collapse/Expanse this branch",
+            NoItemChecked: "Select bet type",
+            ItemsSelected: "# selected",
+            NoData:"Select bet type"
+        };
+
+        vm.currencies=[];
+        filterService.getCurrencies().then(function (data) {
+            vm.currencies= data;
+            vm.currency= 1;
+        });
+
         vm.generate = generate;
         vm.todayClicked = todayClicked;
         vm.yesterdayClicked = yesterdayClicked;
         vm.viewNormalMode = viewNormalMode;
         vm.viewHistoryMode = viewHistoryMode;
         vm.getDateRange = getDateRange;
-        
 
         function generate() {
             vm.dateRange = getDateRange();

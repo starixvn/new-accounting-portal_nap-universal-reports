@@ -6,21 +6,22 @@ webpackJsonp([4],{
   \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */110);
-	__webpack_require__(/*! ./app/ng2-statistic/app.js */111);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */112);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */113);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */114);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */115);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */116);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */117);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */118);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */119);
+	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */114);
+	__webpack_require__(/*! ./app/ng2-statistic/app.js */115);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */116);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */117);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */118);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */119);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */120);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */121);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */122);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */123);
+	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */124);
 
 
 /***/ },
 
-/***/ 110:
+/***/ 114:
 /*!*****************************************!*\
   !*** ./app/ng2-statistic/app.config.js ***!
   \*****************************************/
@@ -61,7 +62,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 111:
+/***/ 115:
 /*!**********************************!*\
   !*** ./app/ng2-statistic/app.js ***!
   \**********************************/
@@ -78,12 +79,12 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp', ['app.core']);
+	    angular.module('app.numberGame2StatisticApp', ['app.core', 'fanex.dropdowntree']);
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 112:
+/***/ 116:
 /*!*******************************************************!*\
   !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
   \*******************************************************/
@@ -111,7 +112,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 113:
+/***/ 117:
 /*!************************************************************!*\
   !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
   \************************************************************/
@@ -161,7 +162,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 114:
+/***/ 118:
 /*!*******************************************************!*\
   !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
   \*******************************************************/
@@ -231,7 +232,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 115:
+/***/ 119:
 /*!******************************************************!*\
   !*** ./app/ng2-statistic/filter/filter.directive.js ***!
   \******************************************************/
@@ -267,18 +268,43 @@ webpackJsonp([4],{
 	        return directive;
 	    }
 	
-	    controller.$inject = ['$scope', '$rootScope', 'config'];
-	    function controller($scope, $rootScope, config) {
+	    controller.$inject = ['$scope', '$rootScope', 'config', 'filterService'];
+	    function controller($scope, $rootScope, config, filterService) {
 	        /*jshint validthis: true */
 	        var vm = this;
+	        vm.minDate = (0, _moment2.default)("20130101", "YYYYMMDD");
 	        vm.reportType = "daily";
 	        vm.currentLevel = 0;
 	        vm.normalMode = false;
+	
 	        vm.today = config.today;
 	        vm.yesterday = config.yesterday;
 	        vm.date = config.today;
 	        vm.startDate = _moment2.default.utc(config.yesterday).startOf('month');
 	        vm.endDate = _moment2.default.utc(config.yesterday);
+	
+	        vm.sportItems = [];
+	        vm.sportSettings = {
+	            hasFilter: false,
+	            //checkedAll: true,
+	            sourceData: 'app/ng2-statistic/filter/sports.json',
+	            templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+	        };
+	        vm.sportTextSettings = {
+	            CheckAll: "ALL",
+	            CollapseExpanse: "Collapse/Expanse",
+	            CollapseBranch: "Collapse/Expanse this branch",
+	            NoItemChecked: "Select bet type",
+	            ItemsSelected: "# selected",
+	            NoData: "Select bet type"
+	        };
+	
+	        vm.currencies = [];
+	        filterService.getCurrencies().then(function (data) {
+	            vm.currencies = data;
+	            vm.currency = 1;
+	        });
+	
 	        vm.generate = generate;
 	        vm.todayClicked = todayClicked;
 	        vm.yesterdayClicked = yesterdayClicked;
@@ -333,7 +359,42 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 116:
+/***/ 120:
+/*!****************************************************!*\
+  !*** ./app/ng2-statistic/filter/filter.service.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(/*! angular */ 10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('filterService', filterService);
+	
+	    filterService.$inject = ['$http', 'httpResponseService'];
+	    function filterService($http, httpResponseService) {
+	        var service = {
+	            getCurrencies: getCurrencies
+	        };
+	        return service;
+	
+	        function getCurrencies() {
+	            var url = 'app/ng2-statistic/filter/currencies.json';
+	            return $http.get(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 121:
 /*!*************************************************!*\
   !*** ./app/ng2-statistic/tab/pane.directive.js ***!
   \*************************************************/
@@ -394,7 +455,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 117:
+/***/ 122:
 /*!***********************************************!*\
   !*** ./app/ng2-statistic/tab/pane.service.js ***!
   \***********************************************/
@@ -469,7 +530,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 118:
+/***/ 123:
 /*!************************************************!*\
   !*** ./app/ng2-statistic/tab/tab.directive.js ***!
   \************************************************/
@@ -528,7 +589,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 119:
+/***/ 124:
 /*!**********************************************!*\
   !*** ./app/ng2-statistic/tab/tab.service.js ***!
   \**********************************************/

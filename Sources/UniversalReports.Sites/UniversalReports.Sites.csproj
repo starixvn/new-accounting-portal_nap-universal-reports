@@ -282,6 +282,7 @@
     <Content Include="app\ng2-statistic\app.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
+    <Content Include="app\ng2-statistic\filter\filter.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
@@ -293,8 +294,12 @@
     <Content Include="app\ng2-statistic\tab\tab.directive.js" />
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
     <Content Include="app\root\app.config.js" />
+    <None Include="app\root\components\angucomplete\angucomplete.scss" />
+    <Content Include="app\root\components\angucomplete\angucomplete.directive.js" />
     <Content Include="app\root\components\date-range-picker\date-range-picker.directive.html" />
     <Content Include="app\root\components\date-range-picker\date-range-picker.directive.js" />
+    <Content Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.js" />
+    <Content Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.template.html" />
     <Content Include="app\root\legacy\legacy.service.js" />
     <Content Include="app\house-win-loss\bettrade\bettrade-bet-type.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
@@ -435,6 +440,9 @@
     </Content>
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="webpack.config.js" />
+    <Content Include="app\ng2-statistic\filter\sports.json" />
+    <Content Include="app\ng2-statistic\filter\currencies.json" />
+    <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <None Include="App_Configuration\SIT\Web.AppSettings.config" />
     <None Include="App_Configuration\SIT\Web.ConnectionString.config" />
     <Content Include="App_Data\LOCAL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
@@ -679,6 +687,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\ng2-statistic\components\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

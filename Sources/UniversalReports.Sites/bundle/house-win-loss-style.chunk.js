@@ -6,13 +6,13 @@ webpackJsonp([3],{
   \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./content/house-win-loss.scss */108);
-	module.exports = __webpack_require__(/*! ./content/scoreInformation.scss */109);
+	__webpack_require__(/*! ./content/house-win-loss.scss */112);
+	module.exports = __webpack_require__(/*! ./content/scoreInformation.scss */113);
 
 
 /***/ },
 
-/***/ 108:
+/***/ 112:
 /*!*************************************!*\
   !*** ./content/house-win-loss.scss ***!
   \*************************************/
@@ -22,7 +22,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 109:
+/***/ 113:
 /*!***************************************!*\
   !*** ./content/scoreInformation.scss ***!
   \***************************************/

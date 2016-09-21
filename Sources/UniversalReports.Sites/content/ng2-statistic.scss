@@ -1,3 +1,137 @@
 ﻿.freegrid .grid-container .child-row div {
-     box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.form-inline {
+
+    .input-group > input[type=text], input[type=text], select {
+        width: 130px;
+        height: 26px;
+    }
+
+    div {
+        float: left;
+    }
+
+    .row {
+        margin: 3px 0;
+        clear: both;
+    }
+
+    .col-section {
+        padding-left: 40px;
+        width: 150px;
+        font-weight: bold;
+    }
+
+    .col-label {
+        width: 80px;
+        text-align: right;
+        padding-right: 5px;
+    }
+
+    .col-input {
+        width: 160px;
+    }
+
+    .col-input-full {
+        width: 800px;
+
+        ul {
+            list-style-type: none;
+            padding-left: 0px;
+
+            li {
+                float: left;
+                margin-right: 25px;
+
+                label {
+                    vertical-align: middle;
+                    font-weight: normal;
+                }
+
+                input {
+                    margin-right: 5px;
+                    float: left;
+                }
+            }
+        }
+    }
+
+    .dropdowntree {
+        .btn {
+            width: 130px;
+            border-radius: 0px;
+        }
+
+        ul li {
+            clear: both;
+            div,  input[type=text] {
+                width: 100%;
+
+                .input-group-btn{
+                    width: 15px;
+                }
+            }
+        }
+    }
+
+    .report-type-radio-group {
+        span {
+            width: 50px;
+        }
+    }
+}
+
+.well-sm {
+    float: left;
+    width: 100%;
+}
+
+@media screen and (min-width: 360px) and (max-width: 1025px) {
+    .form-inline {
+        .row {
+            width: 100%;
+        }
+
+        .col-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .col-label, .col-input {
+            width: 50%;
+            margin: 1px 0;
+        }
+
+        .col-input-full {
+            width: 100%;
+        }
+
+        .report-by {
+            .col-label {
+                width: 50%;
+            }
+
+            .col-input-full {
+                width: 50%;
+
+                ul {
+                    li {
+                        float: none;
+                    }
+                }
+            }
+        }
+
+        .col-button {
+            .col-label, .col-section {
+                display: none;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
 }

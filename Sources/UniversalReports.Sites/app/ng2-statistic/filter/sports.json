@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "S1",
+    "checked": false,
+    "children": [
+      {
+        "id": 11,
+        "name": "B1",
+        "checked": false
+
+      },
+      {
+        "id": 12,
+        "name": "B2",
+        "checked": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "S2",
+    "checked": true,
+    "children": [
+      {
+        "id": 21,
+        "name": "B3",
+        "checked": true
+      },
+      {
+        "id": 22,
+        "name": "B4",
+        "checked": true
+      },
+      {
+        "id": 23,
+        "name": "B5",
+        "checked": true
+      }
+    ]
+  }
+]

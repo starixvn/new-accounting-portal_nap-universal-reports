@@ -12,7 +12,10 @@ import moment from "moment";
             restrict: 'EA',
             templateUrl: 'app/root/components/date-picker/date-picker.directive.html',
             scope: {
-                ngModel: '='
+                ngModel: '=',
+                minDate: '=',
+                maxDate: '=',
+                pickerName: '@pickerName'
             },
             replace: true,
             controller: controller,
@@ -22,14 +25,12 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope','$rootScope', '$element', '$document', 'moment', 'config'];
-    function controller($scope, $rootScope, $element, $document, moment, config) {
+    controller.$inject = ['$scope','$rootScope', '$element', '$document', 'moment'];
+    function controller($scope, $rootScope, $element, $document, moment) {
         var vm = this;
-        var selectedDate;
-        var minDate = moment.utc([2011, 0, 1]);
-        var maxDate = moment.utc(config.today);
-        var startOfMonthOfMinDate = moment.utc(minDate).startOf('month');
-        var endOfMonthOfMaxDate = moment.utc(maxDate).endOf('month');
+        var selectedDate;        
+        var startOfMonthOfMinDate = moment.utc(vm.minDate).startOf('month');
+        var endOfMonthOfMaxDate = moment.utc(vm.maxDate).endOf('month');
 
         vm.openCalendar = function () {
             vm.isOpen = true;
@@ -76,14 +77,14 @@ import moment from "moment";
             generateViewModel();
             vm.text = selectedDate.format('MMM DD, YYYY');
             vm.ngModel = moment.utc(selectedDate);
-            $rootScope.$broadcast('nap-date-picker-select', vm.dateRange);
+            $rootScope.$broadcast('nap-date-picker-select', {selectedDate: selectedDate, name: vm.pickerName});
         };
 
         $scope.$on('$destroy', function () {
             $document.unbind('click', documentClickBind);
         });
 
-        $scope.$watch('vm.ngModel', function () {
+        $scope.$watchGroup(['vm.ngModel','vm.maxDate','vm.minDate'], function () {
             init();
         });
 
@@ -95,10 +96,10 @@ import moment from "moment";
         }
 
         function correctSelectedDate() {
-            if (selectedDate.isBefore(minDate)) {
-                selectedDate = moment(minDate);
-            } else if (selectedDate.isAfter(maxDate)) {
-                selectedDate = moment(maxDate);
+            if (selectedDate.isBefore(vm.minDate)) {
+                selectedDate = moment(vm.minDate);
+            } else if (selectedDate.isAfter(vm.maxDate)) {
+                selectedDate = moment(vm.maxDate);
             }
         }
 
@@ -154,8 +155,8 @@ import moment from "moment";
 
             function generateYearOptions() {
                 var yearOptions = [];
-                var beginYear = minDate.year();
-                var endYear = maxDate.year();
+                var beginYear = vm.minDate.year();
+                var endYear = vm.maxDate.year();
                 for (var yearNumber = beginYear; yearNumber <= endYear; yearNumber++) {
                     yearOptions.push(yearNumber);
                 }
@@ -195,7 +196,7 @@ import moment from "moment";
                             active: monthMoment.format('YYYY-MMM-DD') === selectedDate.format('YYYY-MMM-DD'),
                             past: monthMoment.isBefore(startOfMonth),
                             future: monthMoment.isAfter(endOfMonth),
-                            disabled: monthMoment.isBefore(minDate) || monthMoment.isAfter(maxDate)
+                            disabled: monthMoment.isBefore(vm.minDate) || monthMoment.isAfter(vm.maxDate)
                         };
                         week.dates.push(date);
                     }
