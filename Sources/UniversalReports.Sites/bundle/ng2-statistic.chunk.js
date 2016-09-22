@@ -1,37 +1,35 @@
 webpackJsonp([4],{
 
 /***/ 0:
-/*!***************************!*\
-  !*** multi ng2-statistic ***!
-  \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */114);
-	__webpack_require__(/*! ./app/ng2-statistic/app.js */115);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */116);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */117);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */118);
-	__webpack_require__(/*! ./app/ng2-statistic/daily/daily.controller.js */119);
-	__webpack_require__(/*! ./app/ng2-statistic/daily/daily.service.js */120);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */121);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */122);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */123);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */124);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */125);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */126);
+	__webpack_require__(114);
+	__webpack_require__(115);
+	__webpack_require__(116);
+	__webpack_require__(117);
+	__webpack_require__(118);
+	__webpack_require__(119);
+	__webpack_require__(120);
+	__webpack_require__(121);
+	__webpack_require__(122);
+	__webpack_require__(123);
+	__webpack_require__(124);
+	__webpack_require__(125);
+	__webpack_require__(126);
+	__webpack_require__(127);
+	__webpack_require__(128);
+	__webpack_require__(129);
+	module.exports = __webpack_require__(130);
 
 
 /***/ },
 
 /***/ 114:
-/*!*****************************************!*\
-  !*** ./app/ng2-statistic/app.config.js ***!
-  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -65,14 +63,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 115:
-/*!**********************************!*\
-  !*** ./app/ng2-statistic/app.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -87,14 +82,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 116:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -115,14 +107,144 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 117:
-/*!************************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
-  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('BettypeController', BettypeController);
+	
+	    BettypeController.$inject = ['$element', '$scope', 'fanexGridService'];
+	    function BettypeController($element, $scope, fanexGridService) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                createLinks(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function createLinks(data) {
+	            //for (var i = 0; i < data.bodyRows.length; i++) {
+	            //    var productRow = data.bodyRows[i];
+	            //    var customAttr = productRow.CustomAttr;
+	            //    if (customAttr === 'currency') {
+	            //        var productName = productRow.Columns[0].Value;
+	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+	            //    }
+	            //}
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 118:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('bettypeService', bettypeService);
+	
+	    bettypeService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function bettypeService($http, httpResponseService, titleService) {
+	
+	        var service = {
+	            getTitle: titleService.getReportMainTitle,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	        return service;
+	
+	        function getData(data) {
+	            var httpData = {
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            var httpDatatemp = {
+	                startDate: "2016-09-18T00:00:00.000Z",
+	                endDate: "2016-09-18T00:00:00.000Z",
+	                casinoType: 2,
+	                normalMode: true
+	            };
+	
+	            var url = 'api/ng2-statistic/report';
+	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 119:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -164,15 +286,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 118:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
-  \*******************************************************/
+/***/ 120:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -185,68 +304,52 @@ webpackJsonp([4],{
 	
 	    titleService.$inject = [];
 	    function titleService() {
-	        var productWinLossReport = 'Product Win/Loss Report';
+	        var gameStatisticReport = ' Game Statistic Report ';
 	
 	        var service = {
-	            getMainTitle: getMainTitle,
-	            getProductTitle: getProductTitle,
-	            getProductLiveNonLiveTitle: getProductLiveNonLiveTitle,
-	            getCasinoProductTitle: getCasinoProductTitle,
-	            getSportTypeTitle: getSportTypeTitle,
-	            getSiteTitle: getSiteTitle,
-	            getMatchDetailTitle: getMatchDetailTitle
+	            getGrandTotalTitle: getGrandTotalTitle,
+	            getReportMainTitle: getReportMainTitle,
+	            getReportbyCrurrencyTitle: getReportbyCrurrencyTitle
 	        };
 	        return service;
 	
-	        function getSiteText(site) {
-	            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
+	        function getReportbyTitlle(data) {
+	            switch (data.reportType) {
+	                case "daily":
+	                    return "Daily";
+	                case "username":
+	                    return "Username";
+	                case "bettype":
+	                    return "Bet Type";
+	            }
 	        }
 	
-	        function getMainTitle(data) {
-	            return 'Main';
+	        function getReportMainTitle(data) {
+	            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
 	        }
 	
-	        function getProductTitle(data) {
-	            return data.productName;
+	        function getReportbyCrurrencyTitle(data) {
+	            return getReportbyTitlle(data) + gameStatisticReport + "On" + data.startDate.format('ll');
 	        }
 	
-	        function getProductLiveNonLiveTitle(data, isLast) {
-	            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
-	        }
-	
-	        function getCasinoProductTitle(data) {
-	            return data.casinoProductName;
-	        }
-	
-	        function getSportTypeTitle(data) {
-	            return data.sportTypeName;
-	        }
-	
-	        function getSiteTitle(data) {
-	            return data.betTypeName + ' ' + getSiteText(data.site);
-	        }
-	
-	        function getMatchDetailTitle(data) {
-	            return data.betTypeName;
+	        function getGrandTotalTitle() {
+	            return "GRAND TOTAL BY CURRENCY";
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 119:
-/*!*****************************************************!*\
-  !*** ./app/ng2-statistic/daily/daily.controller.js ***!
-  \*****************************************************/
+/***/ 121:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
@@ -260,26 +363,56 @@ webpackJsonp([4],{
 	    DailyController.$inject = ['$element', '$scope', 'fanexGridService'];
 	    function DailyController($element, $scope, fanexGridService) {
 	        console.log("DailyController");
-	
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
 	        $scope.generate = generate;
 	
 	        function generate() {
-	            console.log("DailyController-generate");
+	            pane.service.getData(pane.data).then(function (data) {
+	                createLinks(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function createLinks(data) {
+	            //for (var i = 0; i < data.bodyRows.length; i++) {
+	            //    var productRow = data.bodyRows[i];
+	            //    var customAttr = productRow.CustomAttr;
+	            //    if (customAttr === 'currency') {
+	            //        var productName = productRow.Columns[0].Value;
+	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+	            //    }
+	            //}
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 120:
-/*!**************************************************!*\
-  !*** ./app/ng2-statistic/daily/daily.service.js ***!
-  \**************************************************/
+/***/ 122:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -290,38 +423,68 @@ webpackJsonp([4],{
 	
 	    angular.module('app.numberGame2StatisticApp').factory('dailyService', dailyService);
 	
-	    dailyService.$inject = ['$http', 'httpResponseService'];
-	    function dailyService($http, httpResponseService) {
+	    dailyService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function dailyService($http, httpResponseService, titleService) {
 	        console.log("dailyService");
 	
 	        var service = {
-	            getData: getData
+	            getTitle: titleService.getReportMainTitle,
+	            getData: getData,
+	            exportExcel: exportExcel
 	        };
 	        return service;
 	
-	        function getData() {
-	            return {
-	                fakeData: "fake"
+	        function getData(data) {
+	            var httpData = {
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
 	            };
+	            var httpDatatemp = {
+	                startDate: data.endDate,
+	                endDate: data.endDate,
+	                casinoType: 2,
+	                normalMode: data.normalMode
+	            };
+	
+	            var url = 'api/ng2-statistic/report';
+	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 121:
-/*!******************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.directive.js ***!
-  \******************************************************/
+/***/ 123:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -357,8 +520,9 @@ webpackJsonp([4],{
 	        vm.today = config.today;
 	        vm.yesterday = config.yesterday;
 	        vm.date = config.today;
-	        vm.startDate = _moment2.default.utc(config.yesterday).startOf('month');
+	        vm.startDate = _moment2.default.utc(config.yesterday); //.startOf('month');
 	        vm.endDate = _moment2.default.utc(config.yesterday);
+	        vm.dateto = _moment2.default.utc(config.yesterday);
 	
 	        vm.sportItems = [];
 	        vm.sportSettings = {
@@ -388,6 +552,10 @@ webpackJsonp([4],{
 	        vm.viewNormalMode = viewNormalMode;
 	        vm.viewHistoryMode = viewHistoryMode;
 	        vm.getReportCriteria = getReportCriteria;
+	        vm.updateDateRange = updateDateRange;
+	        $scope.$on('nap-filter-date', function (event, data) {
+	            updateDateRange(data);
+	        });
 	
 	        vm.reportCriteria = {};
 	
@@ -419,25 +587,55 @@ webpackJsonp([4],{
 	        }
 	
 	        function getReportCriteria() {
+	            var dateRange = getDateRange();
 	            return {
-	                reportType: "daily",
-	                isDrilldown: false
+	                reportType: vm.reportType,
+	                isDrilldown: false,
+	                normalMode: dateRange.normalMode,
+	                startDate: dateRange.startDate,
+	                endDate: dateRange.endDate,
+	                username: "",
+	                currency: vm.currency,
+	                betType: vm.sportSettings.sourceData
 	            };
+	        }
+	
+	        function getDateRange() {
+	            if (vm.normalMode) {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.date,
+	                    endDate: vm.date
+	                };
+	            } else {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.startDate,
+	                    endDate: vm.endDate
+	                };
+	            }
+	        }
+	
+	        function updateDateRange(dateRange) {
+	            vm.normalMode = dateRange.normalMode;
+	            if (vm.normalMode) {
+	                vm.date = dateRange.startDate;
+	            } else {
+	                vm.startDate = dateRange.startDate;
+	                vm.endDate = dateRange.endDate;
+	            }
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 122:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.service.js ***!
-  \****************************************************/
+/***/ 124:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -464,15 +662,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 123:
-/*!*************************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.directive.js ***!
-  \*************************************************/
+/***/ 125:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -525,15 +720,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 124:
-/*!***********************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.service.js ***!
-  \***********************************************/
+/***/ 126:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -546,11 +738,11 @@ webpackJsonp([4],{
 	
 	    napPane.$inject = ['$log', '$compile', '$injector'];
 	    function napPane($log, $compile, $injector) {
-	        function Pane(reportType, isDrilldown) {
+	        function Pane(data) {
 	
-	            this.reportType = reportType;
-	            this.isDrilldown = isDrilldown;
-	
+	            this.reportType = data.reportType;
+	            this.isDrilldown = data.isDrilldown;
+	            this.data = data;
 	            this.$scope = undefined;
 	            this.$element = undefined;
 	            this.generate = generate;
@@ -561,8 +753,8 @@ webpackJsonp([4],{
 	            this.getFileName = getFileName;
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-	            this.controller = getControllerName(reportType, isDrilldown);
-	            this.service = getService(reportType, isDrilldown);
+	            this.controller = getControllerName(data.reportType, data.isDrilldown);
+	            this.service = getService(data.reportType, data.isDrilldown);
 	
 	            function getService(reportType, isDrilldown) {
 	                var reportTypeInCamel = reportType.substring(0, 1).toLowerCase() + reportType.substring(1);
@@ -614,15 +806,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 125:
-/*!************************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.directive.js ***!
-  \************************************************/
+/***/ 127:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -655,8 +844,16 @@ webpackJsonp([4],{
 	        vm.tab = tab;
 	
 	        $scope.$on('nap-filter-generate', function (event, data) {
-	            var mainPane = new Pane(data.reportType, data.isDrilldown);
+	            var mainPane = new Pane(data);
 	            tab.addPane(mainPane);
+	            //if(tab.panes.length === 0){
+	            //    var mainPane = new Pane(data);
+	            //    tab.addPane(mainPane);
+	            //} else {
+	            //    var activePane = tab.getActivePane();
+	            //    angular.extend(activePane.data, data);
+	            //    activePane.generate();
+	            //}
 	        });
 	
 	        $scope.$on('nap-filter-switch', function (event) {
@@ -667,15 +864,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 126:
-/*!**********************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.service.js ***!
-  \**********************************************/
+/***/ 128:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -768,6 +962,139 @@ webpackJsonp([4],{
 	        }
 	
 	        return Tab;
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 129:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('UsernameController', UsernameController);
+	
+	    UsernameController.$inject = ['$element', '$scope', 'fanexGridService'];
+	    function UsernameController($element, $scope, fanexGridService) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                createLinks(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function createLinks(data) {
+	            //for (var i = 0; i < data.bodyRows.length; i++) {
+	            //    var productRow = data.bodyRows[i];
+	            //    var customAttr = productRow.CustomAttr;
+	            //    if (customAttr === 'currency') {
+	            //        var productName = productRow.Columns[0].Value;
+	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+	            //    }
+	            //}
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 130:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('usernameService', usernameService);
+	
+	    usernameService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function usernameService($http, httpResponseService, titleService) {
+	
+	        var service = {
+	            getTitle: titleService.getReportMainTitle,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	        return service;
+	
+	        function getData(data) {
+	            var httpData = {
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            var httpDatatemp = {
+	                startDate: "2016-09-18T00:00:00.000Z",
+	                endDate: "2016-09-18T00:00:00.000Z",
+	                casinoType: 2,
+	                normalMode: true
+	            };
+	
+	            var url = 'api/ng2-statistic/report';
+	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
+	        }
 	    }
 	})(_angular2.default);
 

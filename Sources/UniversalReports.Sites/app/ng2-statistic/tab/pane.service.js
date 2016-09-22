@@ -8,11 +8,11 @@ import angular from "angular";
 
     napPane.$inject = ['$log', '$compile', '$injector'];
     function napPane($log, $compile, $injector) {
-        function Pane(reportType, isDrilldown) {
+        function Pane(data) {
 
-            this.reportType = reportType;
-            this.isDrilldown = isDrilldown;
-
+            this.reportType = data.reportType;
+            this.isDrilldown = data.isDrilldown;
+            this.data = data;
             this.$scope = undefined;
             this.$element = undefined;
             this.generate = generate;
@@ -23,8 +23,8 @@ import angular from "angular";
             this.getFileName = getFileName;
 
             this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-            this.controller = getControllerName(reportType, isDrilldown);
-            this.service = getService(reportType, isDrilldown);
+            this.controller = getControllerName(data.reportType, data.isDrilldown);
+            this.service = getService(data.reportType, data.isDrilldown);
 
             function getService(reportType, isDrilldown) {
                 var reportTypeInCamel = reportType.substring(0, 1).toLowerCase() + reportType.substring(1);

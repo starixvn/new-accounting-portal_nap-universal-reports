@@ -1,65 +1,62 @@
 webpackJsonp([2],[
 /* 0 */
-/*!****************************!*\
-  !*** multi house-win-loss ***!
-  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/house-win-loss/app.config.js */57);
-	__webpack_require__(/*! ./app/house-win-loss/app.js */58);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.constant.js */59);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.controller.js */60);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.service.js */61);
-	__webpack_require__(/*! ./app/house-win-loss/bettrade/bettrade-bet-type.service.js */62);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/breadcrumb.service.js */63);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/live-title.service.js */64);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/title.service.js */65);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-bet-type.service.js */66);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.controller.js */67);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.service.js */68);
-	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.controller.js */69);
-	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.service.js */70);
-	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.controller.js */71);
-	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.service.js */72);
-	__webpack_require__(/*! ./app/house-win-loss/common/site.controller.js */73);
-	__webpack_require__(/*! ./app/house-win-loss/common/site.service.js */74);
-	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.controller.js */75);
-	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.service.js */76);
-	__webpack_require__(/*! ./app/house-win-loss/filter/filter.directive.js */77);
-	__webpack_require__(/*! ./app/house-win-loss/grid/product-show-hide-column.service.js */78);
-	__webpack_require__(/*! ./app/house-win-loss/grid/show-hide-column.service.js */79);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js */80);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js */81);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.controller.js */82);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.service.js */83);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-match-detail.service.js */84);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-site.service.js */85);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js */86);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js */87);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-sport-type.service.js */88);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.controller.js */89);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.service.js */90);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-site.service.js */91);
-	__webpack_require__(/*! ./app/house-win-loss/product/product.controller.js */92);
-	__webpack_require__(/*! ./app/house-win-loss/product/product.service.js */93);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-bet-type.service.js */94);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js */95);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.service.js */96);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.controller.js */97);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.service.js */98);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer.constant.js */99);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-bet-type.service.js */100);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js */101);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js */102);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-site.service.js */103);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.directive.js */104);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.service.js */105);
-	__webpack_require__(/*! ./app/house-win-loss/tab/tab.directive.js */106);
-	__webpack_require__(/*! ./app/house-win-loss/tab/tab.service.js */107);
-	__webpack_require__(/*! ./app/house-win-loss/universal/universal-bet-type.service.js */108);
-	__webpack_require__(/*! ./app/house-win-loss/universal/universal-site.service.js */109);
-	__webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js */110);
-	module.exports = __webpack_require__(/*! ./app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js */111);
+	__webpack_require__(57);
+	__webpack_require__(58);
+	__webpack_require__(59);
+	__webpack_require__(60);
+	__webpack_require__(61);
+	__webpack_require__(62);
+	__webpack_require__(63);
+	__webpack_require__(64);
+	__webpack_require__(65);
+	__webpack_require__(66);
+	__webpack_require__(67);
+	__webpack_require__(68);
+	__webpack_require__(69);
+	__webpack_require__(70);
+	__webpack_require__(71);
+	__webpack_require__(72);
+	__webpack_require__(73);
+	__webpack_require__(74);
+	__webpack_require__(75);
+	__webpack_require__(76);
+	__webpack_require__(77);
+	__webpack_require__(78);
+	__webpack_require__(79);
+	__webpack_require__(80);
+	__webpack_require__(81);
+	__webpack_require__(82);
+	__webpack_require__(83);
+	__webpack_require__(84);
+	__webpack_require__(85);
+	__webpack_require__(86);
+	__webpack_require__(87);
+	__webpack_require__(88);
+	__webpack_require__(89);
+	__webpack_require__(90);
+	__webpack_require__(91);
+	__webpack_require__(92);
+	__webpack_require__(93);
+	__webpack_require__(94);
+	__webpack_require__(95);
+	__webpack_require__(96);
+	__webpack_require__(97);
+	__webpack_require__(98);
+	__webpack_require__(99);
+	__webpack_require__(100);
+	__webpack_require__(101);
+	__webpack_require__(102);
+	__webpack_require__(103);
+	__webpack_require__(104);
+	__webpack_require__(105);
+	__webpack_require__(106);
+	__webpack_require__(107);
+	__webpack_require__(108);
+	__webpack_require__(109);
+	__webpack_require__(110);
+	module.exports = __webpack_require__(111);
 
 
 /***/ },
@@ -120,14 +117,11 @@ webpackJsonp([2],[
 /* 55 */,
 /* 56 */,
 /* 57 */
-/*!******************************************!*\
-  !*** ./app/house-win-loss/app.config.js ***!
-  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -160,14 +154,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 58 */
-/*!***********************************!*\
-  !*** ./app/house-win-loss/app.js ***!
-  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -181,14 +172,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 59 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.constant.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -434,14 +422,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 60 */
-/*!*********************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.controller.js ***!
-  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -461,14 +446,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 61 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.service.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -554,14 +536,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 62 */
-/*!******************************************************************!*\
-  !*** ./app/house-win-loss/bettrade/bettrade-bet-type.service.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -586,14 +565,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 63 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/breadcrumb/breadcrumb.service.js ***!
-  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -635,14 +611,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 64 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/breadcrumb/live-title.service.js ***!
-  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -697,14 +670,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 65 */
-/*!********************************************************!*\
-  !*** ./app/house-win-loss/breadcrumb/title.service.js ***!
-  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -766,14 +736,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 66 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/casino/casino-bet-type.service.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -820,14 +787,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 67 */
-/*!****************************************************************!*\
-  !*** ./app/house-win-loss/casino/casino-product.controller.js ***!
-  \****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -899,14 +863,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 68 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/casino/casino-product.service.js ***!
-  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -957,14 +918,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 69 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/common/bet-type.controller.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1092,14 +1050,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 70 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/common/bet-type.service.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1139,14 +1094,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 71 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/common/match-detail.controller.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1202,14 +1154,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 72 */
-/*!***********************************************************!*\
-  !*** ./app/house-win-loss/common/match-detail.service.js ***!
-  \***********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1260,14 +1209,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 73 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/common/site.controller.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1314,14 +1260,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 74 */
-/*!***************************************************!*\
-  !*** ./app/house-win-loss/common/site.service.js ***!
-  \***************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1374,14 +1317,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 75 */
-/*!************************************************************!*\
-  !*** ./app/house-win-loss/common/sport-type.controller.js ***!
-  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1454,14 +1394,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 76 */
-/*!*********************************************************!*\
-  !*** ./app/house-win-loss/common/sport-type.service.js ***!
-  \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1501,18 +1438,15 @@ webpackJsonp([2],[
 
 /***/ },
 /* 77 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/filter/filter.directive.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -1618,14 +1552,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 78 */
-/*!*********************************************************************!*\
-  !*** ./app/house-win-loss/grid/product-show-hide-column.service.js ***!
-  \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1715,14 +1646,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 79 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/grid/show-hide-column.service.js ***!
-  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1800,14 +1728,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 80 */
-/*!************************************************************************************!*\
-  !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js ***!
-  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1960,14 +1885,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 81 */
-/*!*********************************************************************************!*\
-  !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js ***!
-  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2021,14 +1943,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 82 */
-/*!***************************************************************************!*\
-  !*** ./app/house-win-loss/number-game/number-game-bet-type.controller.js ***!
-  \***************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2143,14 +2062,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 83 */
-/*!************************************************************************!*\
-  !*** ./app/house-win-loss/number-game/number-game-bet-type.service.js ***!
-  \************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2199,14 +2115,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 84 */
-/*!****************************************************************************!*\
-  !*** ./app/house-win-loss/number-game/number-game-match-detail.service.js ***!
-  \****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2258,14 +2171,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 85 */
-/*!********************************************************************!*\
-  !*** ./app/house-win-loss/number-game/number-game-site.service.js ***!
-  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2318,14 +2228,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 86 */
-/*!**********************************************************************************!*\
-  !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js ***!
-  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2450,14 +2357,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 87 */
-/*!*******************************************************************************!*\
-  !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js ***!
-  \*******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2506,14 +2410,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 88 */
-/*!****************************************************************************!*\
-  !*** ./app/house-win-loss/other-sports/other-sports-sport-type.service.js ***!
-  \****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2538,18 +2439,15 @@ webpackJsonp([2],[
 
 /***/ },
 /* 89 */
-/*!*****************************************************************!*\
-  !*** ./app/house-win-loss/parlay/parlay-bet-type.controller.js ***!
-  \*****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -2647,14 +2545,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 90 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/parlay/parlay-bet-type.service.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2703,14 +2598,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 91 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/parlay/parlay-site.service.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2759,18 +2651,15 @@ webpackJsonp([2],[
 
 /***/ },
 /* 92 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/product/product.controller.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
@@ -2844,14 +2733,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 93 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/product/product.service.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2896,14 +2782,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 94 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-bet-type.service.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2985,14 +2868,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 95 */
-/*!*********************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js ***!
-  \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3114,14 +2994,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 96 */
-/*!******************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-live-nonlive.service.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3172,14 +3049,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 97 */
-/*!********************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-major-minor.controller.js ***!
-  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3253,14 +3127,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 98 */
-/*!*****************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-major-minor.service.js ***!
-  \*****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3309,14 +3180,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 99 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer.constant.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3337,14 +3205,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 100 */
-/*!**********************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-bet-type.service.js ***!
-  \**********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3399,14 +3264,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 101 */
-/*!*****************************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js ***!
-  \*****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3518,14 +3380,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 102 */
-/*!**************************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js ***!
-  \**************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3597,14 +3456,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 103 */
-/*!******************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-site.service.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3648,14 +3504,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 104 */
-/*!**************************************************!*\
-  !*** ./app/house-win-loss/tab/pane.directive.js ***!
-  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3708,14 +3561,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 105 */
-/*!************************************************!*\
-  !*** ./app/house-win-loss/tab/pane.service.js ***!
-  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3788,14 +3638,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 106 */
-/*!*************************************************!*\
-  !*** ./app/house-win-loss/tab/tab.directive.js ***!
-  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3846,14 +3693,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 107 */
-/*!***********************************************!*\
-  !*** ./app/house-win-loss/tab/tab.service.js ***!
-  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -3951,14 +3795,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 108 */
-/*!********************************************************************!*\
-  !*** ./app/house-win-loss/universal/universal-bet-type.service.js ***!
-  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -4008,14 +3849,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 109 */
-/*!****************************************************************!*\
-  !*** ./app/house-win-loss/universal/universal-site.service.js ***!
-  \****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -4055,14 +3893,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 110 */
-/*!***********************************************************************************!*\
-  !*** ./app/house-win-loss/virtual-sports/virtual-sports-racing-detail.service.js ***!
-  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -4113,14 +3948,11 @@ webpackJsonp([2],[
 
 /***/ },
 /* 111 */
-/*!***************************************************************************************!*\
-  !*** ./app/house-win-loss/virtual-sports/virtual-sports-sportsbook-detail.service.js ***!
-  \***************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	

@@ -37,7 +37,7 @@ import moment from "moment";
         $scope.$on('nap-date-picker-select', function (event, data) {
             
             setDateRangeContrains(data);
-            vm.timePeriod = "specific-period";
+            vm.timePeriod = "specific-period";           
 
         });
 
@@ -48,7 +48,7 @@ import moment from "moment";
 
             vm.minDateFrom = vm.minDate;
             vm.maxDateFrom = vm.dateto;
-            vm.minDateTo =vm.datefrom;
+            vm.minDateTo = vm.datefrom;
             vm.maxDateTo = vm.maxDate;
         };         
 

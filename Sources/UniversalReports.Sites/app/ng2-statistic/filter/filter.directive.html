@@ -24,7 +24,7 @@
                 <div class="col-input" data-ng-show="vm.normalMode">
                     <nap-date-picker data-ng-model="vm.date" min-date="vm.minDate" max-date="vm.today"></nap-date-picker>
                 </div>
-                <nap-date-range-picker data-ng-hide="vm.normalMode" data-start-date="vm.startDate" data-end-date="vm.endDate" min-date="vm.minDate" max-date="vm.yesterday" "></nap-date-range-picker>
+                <nap-date-range-picker data-ng-hide="vm.normalMode" data-start-date="vm.startDate" data-end-date="vm.endDate" min-date="vm.minDate" max-date="vm.yesterday"></nap-date-range-picker>
             </div>
 
             <div class="row">
@@ -32,10 +32,9 @@
                 <div class="col-label">Sport</div>
                 <div class="col-input">
                     <dropdowntree class="dropdowntree"
-                        ng-model="vm.sportItems"
-                        settings="vm.sportSettings"
-                        text-settings="vm.sportTextSettings"
-                                  ></dropdowntree>
+                                  ng-model="vm.sportItems"
+                                  settings="vm.sportSettings"
+                                  text-settings="vm.sportTextSettings"></dropdowntree>
                 </div>
                 <div class="col-label">Username</div>
                 <div class="col-input">
@@ -44,15 +43,13 @@
                                   selectedobject="vm.user"
                                   url="app/ng2-statistic/filter/currencies.json?s="
                                   datafield="id"
-                                  titlefield="name"                                 
+                                  titlefield="name"
                                   inputclass="form-control form-control-small" />
                 </div>
                 <div class="col-label">Currency</div>
                 <div class="col-input">
                     <select ng-model="vm.currency"
-                            ng-options="currency.id as currency.name for currency in vm.currencies">
-                        
-                    </select>
+                            ng-options="currency.id as currency.name for currency in vm.currencies"></select>
 
                 </div>
 
@@ -62,7 +59,7 @@
                 <div class="col-label">&nbsp;</div>
                 <div class="col-input-full">
                     <ul>
-                        <li><label><input type="radio" ng-model="vm.reportType" value="daily" />Daily</label></li>
+                        <li><label><input type="radio" ng-model="vm.reportType" value="daily" ng-checked="true"/>Daily</label></li>
                         <li><label><input type="radio" ng-model="vm.reportType" value="username" />Username</label></li>
                         <li><label><input type="radio" ng-model="vm.reportType" value="bettype" />Bet type</label></li>
                     </ul>

@@ -8,49 +8,36 @@ import angular from "angular";
 
     titleService.$inject = [];
     function titleService() {
-        var productWinLossReport = 'Product Win/Loss Report' ;
+        var gameStatisticReport = ' Game Statistic Report ';
 
         var service = {
-            getMainTitle: getMainTitle,
-            getProductTitle: getProductTitle,
-            getProductLiveNonLiveTitle: getProductLiveNonLiveTitle,
-            getCasinoProductTitle: getCasinoProductTitle,
-            getSportTypeTitle: getSportTypeTitle,
-            getSiteTitle: getSiteTitle,
-            getMatchDetailTitle: getMatchDetailTitle
+            getGrandTotalTitle : getGrandTotalTitle,
+            getReportMainTitle : getReportMainTitle,
+            getReportbyCrurrencyTitle : getReportbyCrurrencyTitle
         };
         return service;
 
-        function getSiteText(site) {
-            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
+        function getReportbyTitlle(data){
+            switch(data.reportType){
+                case "daily":
+                    return "Daily";
+                case "username":
+                    return "Username";
+                case "bettype":
+                    return "Bet Type";
+            }
         }
 
-        function getMainTitle(data) {
-            return 'Main';
+        function getReportMainTitle(data){
+            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
         }
 
-        function getProductTitle(data) {
-            return data.productName;
+        function getReportbyCrurrencyTitle(data){
+            return getReportbyTitlle(data) + gameStatisticReport + "On" + data.startDate.format('ll');
         }
 
-        function getProductLiveNonLiveTitle(data, isLast) {
-            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
-        }
-
-        function getCasinoProductTitle(data) {
-            return data.casinoProductName;
-        }
-
-        function getSportTypeTitle(data) {
-            return data.sportTypeName;
-        }
-
-        function getSiteTitle(data) {
-            return data.betTypeName + ' ' + getSiteText(data.site);
-        }
-
-        function getMatchDetailTitle(data) {
-            return data.betTypeName;
+        function  getGrandTotalTitle(){
+            return "GRAND TOTAL BY CURRENCY";
         }
     }
 })(angular);

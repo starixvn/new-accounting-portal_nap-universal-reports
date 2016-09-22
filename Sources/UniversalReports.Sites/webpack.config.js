@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='Run - Development' />
+/// <binding />
 "use strict";
 var webpack = require('webpack');
 var path = require('path');

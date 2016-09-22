@@ -32,8 +32,9 @@ import moment from "moment";
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
-        vm.startDate = moment.utc(config.yesterday).startOf('month');
+        vm.startDate = moment.utc(config.yesterday);//.startOf('month');
         vm.endDate = moment.utc(config.yesterday);
+        vm.dateto = moment.utc(config.yesterday);
 
         vm.sportItems = [];
         vm.sportSettings = {
@@ -63,6 +64,11 @@ import moment from "moment";
         vm.viewNormalMode = viewNormalMode;
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
+        vm.updateDateRange = updateDateRange;
+        $scope.$on('nap-filter-date', function (event, data) {
+            updateDateRange(data);
+        });
+
 
         vm.reportCriteria = {};
 
@@ -94,10 +100,43 @@ import moment from "moment";
         }
 
         function getReportCriteria() {
+            var dateRange = getDateRange();
             return {
-                reportType: "daily",
-                isDrilldown: false
+                reportType: vm.reportType,
+                isDrilldown: false,
+                normalMode: dateRange.normalMode,
+                startDate: dateRange.startDate,
+                endDate: dateRange.endDate,
+                username: "",
+                currency: vm.currency,
+                betType: vm.sportSettings.sourceData
             };
+        }
+
+        function getDateRange() {
+            if (vm.normalMode) {
+                return {
+                    normalMode: vm.normalMode,
+                    startDate: vm.date,
+                    endDate: vm.date
+                };
+            } else {
+                return {
+                    normalMode: vm.normalMode,
+                    startDate: vm.startDate,
+                    endDate: vm.endDate
+                };
+            }
+        }
+
+        function updateDateRange(dateRange) {
+            vm.normalMode = dateRange.normalMode;
+            if (vm.normalMode) {
+                vm.date = dateRange.startDate;
+            } else {
+                vm.startDate = dateRange.startDate;
+                vm.endDate = dateRange.endDate;
+            }
         }
     }
 })(angular);

@@ -280,8 +280,12 @@
   <ItemGroup>
     <Content Include="app\ng2-statistic\app.config.js" />
     <Content Include="app\ng2-statistic\app.js" />
+    <Content Include="app\ng2-statistic\bettype\bettype.controller.js" />
+    <Content Include="app\ng2-statistic\bettype\bettype.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
+    <Content Include="app\ng2-statistic\daily\daily.controller.js" />
+    <Content Include="app\ng2-statistic\daily\daily.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
@@ -293,6 +297,8 @@
     <Content Include="app\ng2-statistic\tab\tab.directive.html" />
     <Content Include="app\ng2-statistic\tab\tab.directive.js" />
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
+    <Content Include="app\ng2-statistic\username\username.controller.js" />
+    <Content Include="app\ng2-statistic\username\username.service.js" />
     <Content Include="app\root\app.config.js" />
     <None Include="app\root\components\angucomplete\angucomplete.scss" />
     <Content Include="app\root\components\angucomplete\angucomplete.directive.js" />
