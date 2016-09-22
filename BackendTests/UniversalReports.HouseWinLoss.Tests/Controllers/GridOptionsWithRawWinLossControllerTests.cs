@@ -58,7 +58,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 "Sportsbook.Site.SportsbookSiteController",
                 "Universal.SportType.UniversalSportTypeController",
                 "Universal.BetType.UniversalBetTypeController",
-                "Universal.BetTypeBySportType.UniversalBetTypeBySportTypeController",
                 "Universal.Site.UniversalSiteController",
                 "VirtualSports.BetType.VirtualSportsBetTypeController",
                 "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",

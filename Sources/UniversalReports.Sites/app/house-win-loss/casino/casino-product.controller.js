@@ -15,6 +15,17 @@ import angular from "angular";
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
+        $scope.viewSetting = {};
+
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
+                showHideColumnBuilder.build(gridElement, data);
+                createLinks(data);
+                renderGrid(data);
+                pane.compileAll();
+            });
+        }
 
         function generateBetType(productId, productName) {
             var data = {
@@ -25,21 +36,12 @@ import angular from "angular";
             tab.goForward('betType', data);
         }
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
-                createLinks(data);
-                renderGrid(data);
-                pane.compileAll();
-            });
-        }
-
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var productColumn = data.bodyRows[i].Columns[0];
                 var productId = productColumn.CustomAttr;
                 var productName = productColumn.Value;
-                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
             }
         }
 
@@ -59,8 +61,7 @@ import angular from "angular";
         }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
         }
     }
 })(angular);

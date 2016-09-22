@@ -10,8 +10,6 @@ import angular from "angular";
     function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
-        var getProductTitle = titleService.getProductTitle;
-        var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var betTypeGridElement = angular.element(gridElements[0]);
@@ -21,12 +19,45 @@ import angular from "angular";
         $scope.generateBetType = generateBetType;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.generateSite = generateSite;
+        $scope.viewSetting = {};
+
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            var betTypeGridOptions,
+                liveNonLiveGridOptions;
+            pane.service.getBetTypeData(viewSetting, pane.data).then(function (data) {
+                betTypeGridOptions = data;
+                renderAll();
+            });
+
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
+                liveNonLiveGridOptions = data;
+                renderAll();
+            });
+
+            function renderAll() {
+                var isDataReady = angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions);
+                if (!isDataReady) {
+                    return;
+                }
+
+                showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
+                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                    createLinksForBetType(betTypeGridOptions);
+                }
+
+                renderGridForBetType(betTypeGridOptions);
+                createLinksForLiveNonLive(liveNonLiveGridOptions);
+                renderGridForLiveNonLive(liveNonLiveGridOptions);
+                pane.compileAll();
+            }
+        }
 
         function generateBetType(isLive) {
             var data = {
                 isLive: isLive,
                 sportTypeName: "Metric Gaming - Superlive Live"
-            }
+            };
             angular.extend(data, pane.data);
             tab.goForward('betType', data);
         }
@@ -52,37 +83,9 @@ import angular from "angular";
             tab.goForward('site', data);
         }
 
-        function generate() {
-            var betTypeGridOptions,
-                liveNonLiveGridOptions;
-            var renderAll = function () {
-                if (angular.isDefined(betTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
-                    if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-                        createLinksForBetType(betTypeGridOptions);
-                    }
-                    renderGridForBetType(betTypeGridOptions);
-                    createLinksForLiveNonLive(liveNonLiveGridOptions);
-                    renderGridForLiveNonLive(liveNonLiveGridOptions);
-                    pane.compileAll();
-                }
-            };
-
-            pane.service.getBetTypeData(pane.data).then(function (data) {
-                betTypeGridOptions = data;
-                renderAll();
-            });
-
-            pane.service.getData(pane.data).then(function (data) {
-                liveNonLiveGridOptions = data;
-                renderAll();
-            });
-        }
-
         function renderGridForBetType(data) {
-            pane.service.getTitle = getProductTitle;
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Metric Gaming - Superlive"),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
@@ -90,7 +93,6 @@ import angular from "angular";
             };
 
             data.titleInfo = titleInfo;
-            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(betTypeGridElement, true);
             data.bottomBorderWidth = 3;
             betTypeGridElement.fanexGrid(data);
         }
@@ -100,15 +102,13 @@ import angular from "angular";
         }
 
         function renderGridForLiveNonLive(data) {
-            pane.service.getTitle = getProductLiveNonLiveTitle;
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Metric Gaming - Superlive Live/Non-Live"),
                 showCollapseExpandButton: true,
                 showExcelButton: false
             };
 
             data.titleInfo = titleInfo;
-            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
             liveNonLiveGridElement.fanexGrid(data);
         }
 
@@ -119,11 +119,11 @@ import angular from "angular";
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var isHegde = betTypeName.match("hegde") ? true : false;
                 betTypeId = betTypeRow.Columns[0].CustomAttr;
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
                 for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                     var siteRow = data.bodyRows[i].SubRows[j];
                     var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\',' + isHegde + ')">' + siteName + '</a>';
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isHegde + ')">' + siteName + '</a>';
                 }
             }
         }
@@ -138,11 +138,17 @@ import angular from "angular";
         }
 
         function exportExcel() {
-            pane.service.getTitle = getProductTitle;
-            var sportTypeTitle = tab.generateBreadcrumbText();
-            pane.service.getTitle = getProductLiveNonLiveTitle;
-            var liveNonLiveTitle = tab.generateBreadcrumbText();
-            metricGamingLiveNonLiveService.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+            var betTypeTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Metric Gaming - Superlive");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Metric Gaming - Superlive Live/Non-Live");
+
+            var httpData = {};
+            angular.extend(httpData, pane.data);
+            angular.extend(httpData, {
+                betTypeTitle: betTypeTitle,
+                liveNonLiveTitle: liveNonLiveTitle
+            });
+
+            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }
     }
 })(angular, undefined);

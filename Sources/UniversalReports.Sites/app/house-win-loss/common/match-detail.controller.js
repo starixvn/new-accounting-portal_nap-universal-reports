@@ -12,9 +12,11 @@ import angular from "angular";
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
+        $scope.viewSetting = {};
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -43,8 +45,7 @@ import angular from "angular";
         }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
         }
     }
 })(angular);

@@ -1,10 +1,12 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+﻿using Fanex.Data.Repository;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Casino.BetType
 {
     public class Criteria : WinLossCriteria
     {
-        public int ProductId { get; set; }
+        [SpParam(SqlParamName = "ProductId")]
+        public int CasinoProductId { get; set; }
 
         public override string GetSettingKey()
         {

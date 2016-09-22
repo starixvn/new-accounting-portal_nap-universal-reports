@@ -79,6 +79,6 @@ import angular from "angular";
                     }
                 }
             }
-        };
+        }
     }
 })(angular);

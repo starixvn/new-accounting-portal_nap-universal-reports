@@ -1,4 +1,4 @@
-import angular from "angular";
+//import angular from "angular";
 (function (angular, undefined) {
     'use strict';
 
@@ -6,75 +6,50 @@ import angular from "angular";
         .module('app.houseWinlossApp')
         .service('houseWinlossService', houseWinlossService);
 
-    houseWinlossService.$inject = ['templateSetting', 'universalSettings'];
-    function houseWinlossService(templateSetting, universalSettings) {
+    houseWinlossService.$inject = ['templateSetting'];
+    function houseWinlossService(templateSetting) {
         var service = {
-            getTemplate: getTemplate,
-            getTemplateSetting: getTemplateSetting,
-            resolveProductPath: resolveProductPath,
-            resolveServiceUrl: resolveServiceUrl
+            getViewSetting: getViewSetting,
+            getMainView: getMainView
         };
         return service;
 
-        function resolveProductPath(productName) {
-            if (productName === 'Live Casino' || productName === 'Casino') {
-                return 'casino';
-            }
-            return productName.replace(/\s+/g, '-').replace(/\-+/g, '-');
-        }
-
-        function resolveServiceUrl(productName, suffix) {
-            return 'api/house-win-loss-by-products/' + resolveProductPath(data.productName) + '/' + suffix;
-        }
-
-        function getTemplateSetting(productName) {
+        function getMainView(productName) {
             var productSetting = templateSetting[productName];
-            if (!angular.isUndefined(productSetting)) {
-                return productSetting;
-            }
+            var isSettingCorrupted = angular.isUndefined(productSetting) || angular.isUndefined(productSetting["mainView"]);
 
-            return universalSettings.settings;
+            return isSettingCorrupted ? undefined : productSetting["mainView"];
         }
 
-        function getTemplate(data, type) {
-            if (type === 'product') {
-                return {
-                    templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                    controller: 'ProductController',
-                    service: 'productService'
-                };
-            }
+        function getViewSetting(productName, viewType, data) {
 
-            var productSetting = getTemplateSetting(data.productName);
-            if (angular.isUndefined(productSetting)) {
+            var productSetting = templateSetting[productName];
+            var isSettingCorrupted = angular.isUndefined(productSetting) || angular.isUndefined(productSetting[viewType]);
+
+            if (isSettingCorrupted) {
                 return undefined;
             }
 
-            var template = productSetting[type];
-            if (angular.isUndefined(template)) {
-                return undefined;
+            var viewSetting = productSetting[viewType];
+            
+            return compileSetting(viewSetting, data);
+        }
+
+        function compileSetting(setting, data) {
+            var compiledSetting = {};
+            for (var property in setting) {
+                if (setting.hasOwnProperty(property)) {
+                    compiledSetting[property] = resolveFunction(setting[property], data);
+                }
             }
 
-            var templateUrl = template.templateUrl;
-            if (angular.isFunction(templateUrl)) {
-                templateUrl = templateUrl(data);
-            }
+            return compiledSetting;
+        }
 
-            var controller = template.controller;
-            if (angular.isFunction(controller)) {
-                controller = controller(data);
-            }
-
-            var service = template.service;
-            if (angular.isFunction(service)) {
-                service = service(data);
-            }
-
-            return {
-                templateUrl: templateUrl,
-                controller: controller,
-                service: service
-            };
+        function resolveFunction(func, data) {
+            return angular.isFunction(func)
+            ? func(data)
+                : func;
         }
     }
 })(angular, undefined);

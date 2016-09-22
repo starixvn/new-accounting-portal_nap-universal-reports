@@ -31,10 +31,10 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var majorMinorCriteria = CriteriaFactory.Transform<MajorMinor.Criteria>(queryModel);
-            var majorMinorGridOptions = GetGridOptions(majorMinorCriteria, "Sport Type", queryModel.MajorMinorTitle);
+            var majorMinorGridOptions = GetGridOptions(majorMinorCriteria, "Major/Minor", queryModel.MajorMinorTitle);
 
             var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Sport Type", queryModel.LiveNonLiveTitle);
+            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
 
             return new FanexExcelResult(new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
                 Constants.SheetName);

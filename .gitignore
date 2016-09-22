@@ -42,3 +42,6 @@ OpenCover/*
 Sources/Sites/compilerconfig.json*
 Sources/Sites/app/*concat.js
 Sources/UniversalReports.Sites/node_modules/
+*.BASE
+*.LOCAL
+*.REMOTE

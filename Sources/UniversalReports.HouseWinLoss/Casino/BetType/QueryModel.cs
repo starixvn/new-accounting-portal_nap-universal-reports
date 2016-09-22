@@ -12,6 +12,6 @@ namespace UniversalReports.HouseWinLoss.Casino.BetType
 
         public bool NormalMode { get; set; } = true;
 
-        public int ProductId { get; set; }
+        public int CasinoProductId { get; set; }
     }
 }

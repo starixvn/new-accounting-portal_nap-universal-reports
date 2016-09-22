@@ -1,259 +1,452 @@
 import angular from "angular";
 (function (angular) {
-    'use strict';
+    "use strict";
+
+    var cricketProductId = 50;
 
     var templateSetting = {
-        'Soccer': {
-            product: 'soccerLiveNonLive',
+        "Main": {
+            mainView: "product",
+            product: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "ProductController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/product",
+                mainParameters: {},
+                getTitleFunction: "getMainTitle"
+            }
+        },
+        "Soccer": {
+            mainView: "soccerLiveNonLive",
             soccerLiveNonLive: {
-                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-                controller: 'SoccerLiveNonLiveController',
-                service: 'soccerLiveNonLiveService'
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "SoccerLiveNonLiveController",
+                service: "soccerLiveNonLiveService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/live-nonlive",
+                mainParameters: {},
+                getTitleFunction: "getSoccerLiveNonLiveTitle"
             },
             soccerMajorMinor: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SoccerMajorMinorController',
-                service: 'soccerMajorMinorService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SoccerMajorMinorController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/major-minor",
+                mainParameters: {},
+                getTitleFunction: "getSoccerMajorMinorTitle"
             },
             soccerBetType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'soccerBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: function(data){
+                    var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
+                    var isSumBetType =isMajor && data.isLive === 2;
+                    var isGroupBetType=isMajor && data.isLive === 0;
+
+                    if(isSumBetType){
+                        return "api/house-win-loss-by-products/soccer/sum-bettype";
+                    }
+                    else if(isGroupBetType){
+                        return "api/house-win-loss-by-products/soccer/group-bettype";
+                    }
+                    else{
+                        return "api/house-win-loss-by-products/soccer/bettype"; 
+                    }
+                },
+                mainParameters: function(data){
+                    var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
+                    return {
+                        isMajor: isMajor
+                    };
+                },
+                getTitleFunction: "getSoccerBetTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookMatchDetailController',
-                service: 'sportsbookMatchDetailService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportsbookMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl:function(data) {
+                    return data.betType === 10
+                        ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
+                        : 'api/house-win-loss-by-products/sportsbook/match-detail';
+                },
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'sportsbookSiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Metric Gaming - Superlive': {
-            product: 'liveNonLive',
+        "Metric Gaming - Superlive": {
+            mainView: "liveNonLive",
             liveNonLive: {
-                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-                controller: 'MetricGamingLiveNonLiveController',
-                service: 'metricGamingLiveNonLiveService'
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "MetricGamingLiveNonLiveController",
+                service: "metricGamingLiveNonLiveService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/live-none-live",
+                mainParameters: {},
+                getTitleFunction: "getProductTitleLiveNonLive"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'sportsbookBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getSportsbookBetTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookMatchDetailController',
-                service: 'sportsbookMatchDetailService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportsbookMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/match-detail",
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'sportsbookSiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/site",
+                mainParameters: {},
+                getTitleFunction:"getSiteTitle"
             }
         },
-        'Other Sports': {
-            product: 'liveNonLive',
+        "Other Sports": {
+            mainView: "liveNonLive",
             liveNonLive: {
-                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-                controller: 'OtherSportsLiveNonLiveController',
-                service: 'otherSportsLiveNonLiveService'
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "OtherSportsLiveNonLiveController",
+                service: "otherSportsLiveNonLiveService",
+                serviceBaseUrl: "api/house-win-loss-by-products/other-sports/live-non-live",
+                mainParameters: {},
+                getTitleFunction: "getProductTitleLiveNonLive"
             },
             sportType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeController',
-                service: 'otherSportsSportTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/other-sports/sport-type",
+                mainParameters: {},
+                getTitleFunction: "getProductTitleLive"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'sportsbookBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl:function(data){
+                    return data.sportType === cricketProductId
+                    ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
+                    : 'api/house-win-loss-by-products/other-sports/bet-type';
+                },
+                mainParameters: {},
+                getTitleFunction: "getSportsbookBetTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportsbookMatchDetailController',
-                service: 'sportsbookMatchDetailService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportsbookMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl:function(data) {
+                    return data.betType === 10
+                        ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
+                        : 'api/house-win-loss-by-products/sportsbook/match-detail';
+                },
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'sportsbookSiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Parlay': {
-            product: 'betType',
+        "Parlay": {
+            mainView: "betType",
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'ParlayBetTypeController',
-                service: 'parlayBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "ParlayBetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/parlay/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getProductTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'parlaySiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/parlay/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Live Casino': {
-            product: 'casinoProduct',
+        "Live Casino": {
+            mainView: "casinoProduct",
             casinoProduct: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoProductController',
-                service: 'casinoProductService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "CasinoProductController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/product",
+                mainParameters: { casinoType: 2 },
+                getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'CasinoBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/bet-type",
+                mainParameters: { casinoType: 2 },
+                getTitleFunction: "getCasinoProductTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/site",
+                mainParameters: { casinoType: 2 },
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Casino': {
-            product: 'casinoProduct',
+        "Casino": {
+            mainView: "casinoProduct",
             casinoProduct: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'CasinoProductController',
-                service: 'casinoProductService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "CasinoProductController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/product",
+                mainParameters: { casinoType: 1 },
+                getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'CasinoBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/bet-type",
+                mainParameters: { casinoType: 1 },
+                getTitleFunction: "getCasinoProductTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/casino/site",
+                mainParameters: { casinoType: 1 },
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Number Game': {
-            product: 'betType',
+        "Number Game": {
+            mainView: "betType",
             betType: {
-                templateUrl: 'app/house-win-loss/shared/two-fanex-grid-with-title.html',
-                controller: 'NumberGameBetTypeController',
-                service: 'numberGameBetTypeService'
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "NumberGameBetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/number-game/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getNumberGameBetTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
-                service: 'numberGameMatchDetailService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/number-game/match-detail",
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'numberGameSiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/number-game/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitleLive"
             }
         },
-        'Virtual Sports': {
-            product: 'sportType',
+        "Virtual Sports": {
+            mainView: "sportType",
             sportType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeController',
-                service: 'sportTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/sport-type",
+                mainParameters: {},
+                getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'betTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
-                service: function (data) {
-                    return data.sportType >= 181 && data.sportType <= 185 ? 'virtualSportsRacingDetailService' : 'virtualSportsSportsbookDetailService';
-                }
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl: function(data){
+                    return data.sportType >= 181 && data.sportType <= 185
+                           ? "api/house-win-loss-by-products/virtual-sports/racing-match-detail"
+                           : "api/house-win-loss-by-products/virtual-sports/sportsbook-match-detail";
+                },                
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Bettrade': {
-            product: 'betType',
+        "Bettrade": {
+            mainView: "betType",
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'bettradeBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/bettrade/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getProductTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/bettrade/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
             }
         },
-        'Racing': {
-            product: 'sportType',
+        "Racing": {
+            mainView: "sportType",
             sportType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeController',
-                service: 'sportTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/racing/sport-type",
+                mainParameters: {},
+                getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'betTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/racing/bet-type",
+                mainParameters: {},
+                getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'MatchDetailController',
-                service: 'matchDetailService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/racing/match-detail",
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/racing/site",
+                mainParameters: {},
+                getTitleFunction: ""
             }
         },
-        'NG2': {
-            product: 'sportType',
+        "Bingo": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 7 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 7 },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
+        "Keno": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 8 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 8 },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
+        "Colossus Bets": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 15 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 15 },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
+        "NG2": {
+            mainView: "sportType",
             sportType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SportTypeController',
-                service: 'sportTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/sport-type",
+                mainParameters: { productId: 23 },
+                getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'betTypeService'
-            },            
-            site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'siteService'
-            }
-        }
-    };
-    var universalSettings = {
-        products: {
-            "Bingo": 7,
-            "Keno": 8,
-            "Colossus Bets": 15
-        },
-        settings: {
-            product: 'betType',
-            betType: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'BetTypeController',
-                service: 'universalBetTypeService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 23 },
+                getTitleFunction: "getSportTypeTitle"
             },
             site: {
-                templateUrl: 'app/house-win-loss/shared/fanex-grid-with-title.html',
-                controller: 'SiteController',
-                service: 'universalSiteService'
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 23 },
+                getTitleFunction: "getSiteTitle"
             }
-        },
-        getProductId: function (productName) {
-            return universalSettings.products[productName];
         }
     };
     angular
-        .module('app.houseWinlossApp')
-        .constant('templateSetting', templateSetting)
-        .constant('universalSettings', universalSettings);
+        .module("app.houseWinlossApp")
+        .constant("templateSetting", templateSetting);
 })(angular);

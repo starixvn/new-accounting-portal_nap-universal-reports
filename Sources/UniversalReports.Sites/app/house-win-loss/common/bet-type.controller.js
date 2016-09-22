@@ -16,6 +16,25 @@ import angular from "angular";
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
+        $scope.viewSetting = {};
+
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
+                showHideColumnBuilder.build(gridElement, data);
+
+                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
+                    createLinks(data);
+                    if (pane.data.sportType === 50) {
+                        createLinkChargeCom(data.footerRows);
+                    }
+                }
+
+                renderGrid(data);
+                pane.compileAll();
+            });
+        }
+
 
         function generateSite(betType, betTypeName, site) {
             var data = {
@@ -47,29 +66,13 @@ import angular from "angular";
             }
         }
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
-
-                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-                    createLinks(data);
-                    if (pane.data.sportType == 50) {
-                        createLinkChargeCom(data.footerRows);
-                    }
-                }
-
-                renderGrid(data);
-                pane.compileAll();
-            });
-        }
-
         function isDateRangeInThreeDays(startDate, endDate) {
             return endDate.diff(startDate, 'days') < 3;
         }
 
         function createLinkChargeCom(data) {
             for (var i = 0; i < data.length; i++) {
-                if (data[i].Columns[0].Value == "Charge Commission") {
+                if (data[i].Columns[0].Value === "Charge Commission") {
                     createLink(data[i]);
                 }
             }
@@ -78,23 +81,23 @@ import angular from "angular";
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 createLink(data.bodyRows[i]);
-            }            
+            }
         }
 
         function createLink(betTypeRow) {
-            var template = houseWinlossService.getTemplate(pane.data, 'matchDetail');
+            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
             var hasDetailDrilldown = angular.isDefined(template);
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
             if (betTypeRow.SubRows && hasDetailDrilldown) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\')">' + betTypeName + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
             }
             if (betTypeRow.SubRows) {
                 for (var i = 0; i < betTypeRow.SubRows.length; i++) {
                     var siteRow = betTypeRow.SubRows[i];
                     var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace('\'', '\\\'') + '\',\'' + siteName.replace('\'', '\\\'') + '\')">' + siteName + '</a>';
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\')">' + siteName + '</a>';
                 }
             }
         }
@@ -115,8 +118,7 @@ import angular from "angular";
         }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
         }
     }
 })(angular);

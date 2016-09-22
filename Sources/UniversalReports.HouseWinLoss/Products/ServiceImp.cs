@@ -34,13 +34,15 @@ namespace UniversalReports.HouseWinLoss.Products
             var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
             grandTotal = CalculateGrandTotal(grandTotal, sportsbookRMWinLosses);
-            return new ProductWinLoss
+            var result = new ProductWinLoss
             {
                 Sportsbook = sportsbookProducts,
                 RM = sportsbookRMWinLosses,
                 NonSportsbook = nonSportsbookProducts,
                 GrandTotal = grandTotal
             };
+
+            return result;
         }
 
         public ProductGroupWinLoss GetProductGroup(IEnumerable<RawWinLoss> rawWinLosses, string groupName)

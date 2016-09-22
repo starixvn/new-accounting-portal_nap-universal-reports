@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();
             var betTradeSiteCriteria = new Bettrade.Site.Criteria { Site = "Deposit" };
 
-            var casinoBetTypeCriteria = new Casino.BetType.Criteria { ProductId = 6 };
+            var casinoBetTypeCriteria = new Casino.BetType.Criteria { CasinoProductId = 6 };
             var casinoProductCriteria = new Casino.Product.Criteria { CasinoType = 1 };
             var casinoSiteCriteria = new Casino.Site.Criteria
             {
@@ -103,7 +103,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
 
             var universalSportTypeCriteria = new Universal.SportType.Criteria { ProductId = 23 };
             var universalBetTypeCriteria = new Universal.BetType.Criteria { ProductId = 7 };
-            var universalBetTypeBySportTypeCriteria = new Universal.BetTypeBySportType.Criteria { SportType = 123 };
             var universalSiteCriteria = new Universal.Site.Criteria
             {
                 Site = "Deposit",
@@ -152,7 +151,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 sportsbookSiteCriteria,
                 universalSportTypeCriteria,
                 universalBetTypeCriteria,
-                universalBetTypeBySportTypeCriteria,
                 universalSiteCriteria,
                 virtualSportsBetTypeCriteria,
                 virtualSportsSportTypeCriteria,
