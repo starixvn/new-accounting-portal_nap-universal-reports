@@ -13,11 +13,23 @@ import numeral from "numeral";
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
-        $scope.generateReport = generateReport;
+        $scope.generateCurrencyReport = generateCurrencyReport;
+        $scope.generateGrandtotalReport = generateGrandtotalReport;
 
-        function generateReport(){
-            pane.data.reportType = "username";
-            generate();
+        function generateCurrencyReport(){
+            var data = { drilldownType: "Currency"}; 
+            pane.data.isDrilldown = true;
+
+            angular.extend(data, pane.data);
+            tab.goForward(data);
+        }
+
+        function generateGrandtotalReport(){
+            var data = { drilldownType: "Grandtotal"};
+            pane.data.isDrilldown = true;
+
+            angular.extend(data, pane.data);
+            tab.goForward(data);
         }
 
         function generate() {
@@ -43,7 +55,7 @@ import numeral from "numeral";
             //for (var i = 0; i < data.bodyRows.length; i++) {
             //    var productRow = data.bodyRows[i];
             //    var customAttr = productRow.CustomAttr;
-            //    if (customAttr === 'Commission') {
+            //    if (customAttr === 'Currency') {
             //        var productName = productRow.Columns[0].Value;
             //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateReport()">' + '</a>';
             //    }
@@ -52,8 +64,11 @@ import numeral from "numeral";
                 var productColumn = data.bodyRows[i].Columns[0];
                 var productId = productColumn.CustomAttr;
                 var productName = productColumn.Value;
-                productColumn.Value = '<a class="drill-down" href data-nap-click="generateReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
             }
+
+            var grandTotalColumn = data.footerRows[0].Columns[0];
+            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
         }
 
         function exportExcel(){

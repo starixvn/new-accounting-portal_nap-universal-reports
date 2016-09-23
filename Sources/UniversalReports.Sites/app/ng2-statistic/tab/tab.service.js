@@ -59,9 +59,9 @@ import angular from "angular";
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }
 
-            function goForward(level, data) {
+            function goForward(data) {
                 var activePane = this.getActivePane();
-                var pane = new Pane(level, data);
+                var pane = new Pane(data);
                 this.addPane(pane);
             }
 

@@ -290,6 +290,7 @@
     <Content Include="app\ng2-statistic\bettype\bettype.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
+    <Content Include="app\ng2-statistic\currency\currency.service.js" />
     <Content Include="app\ng2-statistic\daily\daily.controller.js" />
     <Content Include="app\ng2-statistic\daily\daily.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.service.js" />
@@ -680,7 +681,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\ng2-statistic\components\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

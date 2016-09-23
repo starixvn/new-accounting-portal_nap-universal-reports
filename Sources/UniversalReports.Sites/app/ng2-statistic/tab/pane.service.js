@@ -13,6 +13,7 @@ import angular from "angular";
             this.reportType = data.reportType;
             this.isDrilldown = data.isDrilldown;
             this.data = data;
+            var drilldownType = data.drilldownType
             this.$scope = undefined;
             this.$element = undefined;
             this.generate = generate;
@@ -28,18 +29,14 @@ import angular from "angular";
 
             function getService(reportType, isDrilldown) {
                 var reportTypeInCamel = reportType.substring(0, 1).toLowerCase() + reportType.substring(1);
-                var serviceName= reportTypeInCamel
-                + (isDrilldown ? "Drilldown" : "")
-                + "Service";
+                var serviceName= (isDrilldown ? drilldownType.toLowerCase() : reportTypeInCamel) + "Service";
 
                 return $injector.get(serviceName);
             }
 
             function getControllerName(reportType, isDrilldown) {
                 var reportTypeInPascal = reportType.substring(0, 1).toUpperCase() + reportType.substring(1);
-                return reportTypeInPascal
-                    + (isDrilldown ? "Drilldown" : "")
-                    + "Controller";
+                return (isDrilldown ? drilldownType : reportTypeInPascal) + "Controller";
             }
 
             function generate() {

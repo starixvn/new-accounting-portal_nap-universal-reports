@@ -22,8 +22,7 @@ webpackJsonp([0],[
 	__webpack_require__(46);
 	__webpack_require__(47);
 	__webpack_require__(49);
-	__webpack_require__(50);
-	module.exports = __webpack_require__(51);
+	module.exports = __webpack_require__(50);
 
 
 /***/ },
@@ -28218,48 +28217,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 50 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _jquery = __webpack_require__(2);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function ($) {
-	    'use strict';
-	
-	    _angular2.default.module('app.core').run(reCheckIn);
-	
-	    reCheckIn.$inject = ['$interval', 'legacyService'];
-	    function reCheckIn($interval, legacyService) {
-	        $interval(callback, 60000);
-	
-	        function callback() {
-	            var url = legacyService.resolveUrl('/UserLogin/Login/ReCheckLogin');
-	            $.post(url, function (result) {
-	                if (result.IsKickedOut === "1") {
-	                    alert('Another session has been logged in or your session is expired. Forced to logout!');
-	                    window.location.href = legacyService.resolveUrl('/UserLogin/Login/LogOut');
-	                }
-	            }).fail(function (request, textStatus, error) {
-	                var result = $.parseJSON(request.responseText);
-	                if (result.code == 999999) {
-	                    window.location.href = legacyService.resolveUrl('/UserLogin/Common/Offline');
-	                }
-	            });;
-	        }
-	    }
-	})(_jquery2.default);
-
-/***/ },
-/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

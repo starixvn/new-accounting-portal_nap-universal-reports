@@ -33,7 +33,7 @@ import angular from "angular";
         }
 
         function getReportbyCrurrencyTitle(data){
-            return getReportbyTitlle(data) + gameStatisticReport + "On" + data.startDate.format('ll');
+            return data.reportType + gameStatisticReport + "On " + data.startDate.format('ll');
         }
 
         function  getGrandTotalTitle(){
