@@ -8,5 +8,10 @@ namespace UniversalReports.NG2Statistic.Filter
         {
             return "NG2-Statistics-Sports";
         }
+
+        public override bool IsValid()
+        {
+            return true;
+        }
     }
 }

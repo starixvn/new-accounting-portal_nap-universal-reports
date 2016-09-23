@@ -262,6 +262,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NG2InjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\ApplicationInjectorInitializer.cs" />
     <Compile Include="App_Start\HouseWinLossInjectorInitializer.cs" />
@@ -672,6 +673,10 @@
     <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalReports.NG2Statistic\UniversalReports.NG2Statistic.csproj">
+      <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
+      <Name>UniversalReports.NG2Statistic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

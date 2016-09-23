@@ -15,6 +15,7 @@ namespace UniversalReports.Sites
 
             ApplicationInjectorInitializer.InitializeContainer(container);
             HouseWinLossInjectorInitializer.InitializeContainer(container);
+            NG2InjectorInitializer.InitializeContainer(container);
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

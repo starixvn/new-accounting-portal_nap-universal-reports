@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Functions>
+  <Function Name="NG2-Statistics">
+    <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+  </Function>
 </Functions>
