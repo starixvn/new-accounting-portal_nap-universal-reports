@@ -18,10 +18,32 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
         [Test]
         public void TestSportRepository()
         {
-            SportCriteria criteria = new SportCriteria();
+            var criteria = new SportCriteria();
             var repository = new SimpleRepositoryImp();
             var service = new ServiceImp(repository);
-            var result = service.Query(criteria);
+            var result = service.QuerySports(criteria);
+        }
+
+        [Test]
+        public void TestUserNameSuggestionRepository()
+        {
+            var criteria = new UserSearchCriteria()
+            {
+                CustId = 8,
+                UserName = "iti"
+            };
+            var repository = new SimpleRepositoryImp();
+            var service = new ServiceImp(repository);
+            var result = service.QueryUserNames(criteria);
+        }
+
+        [Test]
+        public void TestCurrenciesRepository()
+        {
+            var criteria = new CurrencyCriteria();            
+            var repository = new SimpleRepositoryImp();
+            var service = new ServiceImp(repository);
+            var result = service.QueryCurrency(criteria);
         }
     }
 }

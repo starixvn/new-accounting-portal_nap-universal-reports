@@ -19,7 +19,19 @@ namespace UniversalReports.NG2Statistic.Filter
         public IHttpActionResult Sports()
         {
             var criteria = new SportCriteria();
-            var sports = service.Query(criteria);
+            var sports = service.QuerySports(criteria);
+            return Json(sports);
+        }
+
+        [Route("usernamesuggestion")]
+        public IHttpActionResult UsernameSuggestion(string userName)
+        {
+            var criteria = new UserSearchCriteria()
+            {
+                CustId = session.UserId,
+                UserName = userName,                
+            };
+            var sports = service.QueryUserNames(criteria);
             return Json(sports);
         }
 

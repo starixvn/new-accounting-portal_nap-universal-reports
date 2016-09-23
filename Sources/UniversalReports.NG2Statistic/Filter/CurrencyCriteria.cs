@@ -8,5 +8,10 @@ namespace UniversalReports.NG2Statistic.Filter
         {
             return "NG2-Statistics-Currencies";
         }
+
+        public override bool IsValid()
+        {
+            return true;
+        }
     }
 }

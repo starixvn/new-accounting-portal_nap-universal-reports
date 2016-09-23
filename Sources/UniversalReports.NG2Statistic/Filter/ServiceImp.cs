@@ -16,7 +16,18 @@ namespace UniversalReports.NG2Statistic.Filter
             this.repository = repository;
         }
 
-        public List<Sport> Query(SportCriteria criteria)
+        public List<Entity> QueryCurrency(CurrencyCriteria criteria)
+        {
+            var currencies = repository.Fetch<Entity>(criteria)
+                .OrderBy(c => c.Name)
+                .ToList();
+            currencies.Insert(0, new Entity() { Id = 0, Name = "All" });
+            currencies.Insert(1, new Entity() { Id = -1, Name = "Base RM" });
+
+            return currencies;
+        }
+
+        public List<Sport> QuerySports(SportCriteria criteria)
         {
             var rawSports = repository.Fetch<RawSports>(criteria).ToList();
             var sportList = new List<Sport>();
@@ -45,6 +56,11 @@ namespace UniversalReports.NG2Statistic.Filter
             }
 
             return sportList;
+        }
+
+        public List<string> QueryUserNames(UserSearchCriteria criteria)
+        {
+            return repository.Fetch<string>(criteria).ToList();
         }
     }
 }

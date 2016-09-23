@@ -8,6 +8,11 @@ namespace UniversalReports.NG2Statistic.Filter
 {
     public interface Service
     {
-        List<Sport> Query(SportCriteria criteria);
+        List<Sport> QuerySports(SportCriteria criteria);
+
+        List<string> QueryUserNames(UserSearchCriteria criteria);
+
+        List<Entity> QueryCurrency(CurrencyCriteria criteria);
+        
     }
 }
