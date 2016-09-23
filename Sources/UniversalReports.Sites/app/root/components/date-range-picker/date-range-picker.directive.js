@@ -15,6 +15,8 @@ import moment from "moment";
                 ngModel: '=',
                 minDate: '=',
                 maxDate: '=',
+                startDate: '=',
+                endDate: '=',
             },
             replace: true,
             controller: controller,
@@ -37,8 +39,14 @@ import moment from "moment";
         $scope.$on('nap-date-picker-select', function (event, data) {
             
             setDateRangeContrains(data);
-            vm.timePeriod = "specific-period";           
+            vm.timePeriod = "specific-period";
+        });
 
+        $scope.$watch('vm.startDate', function () {
+            vm.datefrom = moment.utc(vm.startDate);
+        });
+        $scope.$watch('vm.endDate', function () {
+            vm.dateto = moment.utc(vm.endDate);
         });
 
         function changeTimePeriod() {
@@ -50,6 +58,9 @@ import moment from "moment";
             vm.maxDateFrom = vm.dateto;
             vm.minDateTo = vm.datefrom;
             vm.maxDateTo = vm.maxDate;
+
+            vm.startDate = vm.datefrom;
+            vm.endDate = vm.dateto;
         };         
 
         function getTimePeriodConfiguration(config){
@@ -103,9 +114,11 @@ import moment from "moment";
             switch(data.name){
                 case "from":
                     vm.minDateTo = data.selectedDate;
+                    vm.startDate = data.selectedDate;
                     break;
                 case "to":
                     vm.maxDateFrom = data.selectedDate;
+                    vm.endDate = data.selectedDate;
                     break;
                 default:
                     break;

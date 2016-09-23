@@ -27,17 +27,15 @@ import angular from "angular";
         var vm = this;
         vm.tab = tab;
 
-        $scope.$on('nap-filter-generate', function (event, data) {
-            var mainPane = new Pane(data);
-            tab.addPane(mainPane);
-            //if(tab.panes.length === 0){
-            //    var mainPane = new Pane(data);
-            //    tab.addPane(mainPane);
-            //} else {
-            //    var activePane = tab.getActivePane();
-            //    angular.extend(activePane.data, data);
-            //    activePane.generate();
-            //}
+        $scope.$on('nap-filter-generate', function (event, data) {            
+            if(tab.panes.length === 0){
+                var mainPane = new Pane(data);
+                tab.addPane(mainPane);
+            } else {
+                var activePane = tab.getActivePane();
+                angular.extend(activePane.data, data);
+                activePane.generate();
+            }
                         
         });
 

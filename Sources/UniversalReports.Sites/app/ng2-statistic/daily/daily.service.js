@@ -8,7 +8,6 @@ import angular from "angular";
 
     dailyService.$inject = ['$http', 'httpResponseService','titleService'];
     function dailyService($http, httpResponseService, titleService) {
-        console.log("dailyService");
 
         var service = {
             getTitle: titleService.getReportMainTitle,
@@ -31,7 +30,7 @@ import angular from "angular";
                 startDate: data.endDate,
                 endDate: data.endDate,
                 casinoType: 2,
-                normalMode: data.normalMode
+                normalMode: data.true
             };
 
             var url = 'api/ng2-statistic/report';
@@ -51,7 +50,15 @@ import angular from "angular";
                 username: data.username,
                 currency: data.currency
             };
-            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" })
+            var httpDatatemp = {
+                title: title,
+                startDate: data.endDate,
+                endDate: data.endDate,
+                casinoType: 2,
+                normalMode: data.true
+            };
+
+            return $http.post('api/house-win-loss-by-products/casino/product/excel', httpDatatemp, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

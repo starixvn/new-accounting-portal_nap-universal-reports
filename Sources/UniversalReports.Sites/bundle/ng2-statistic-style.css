@@ -1,6 +1,10 @@
 .freegrid .grid-container .child-row div {
   box-sizing: content-box; }
 
+.grid-boundary {
+  float: left;
+  width: 100%; }
+
 .form-inline .input-group > input[type=text], .form-inline input[type=text], .form-inline select {
   width: 130px;
   height: 26px; }

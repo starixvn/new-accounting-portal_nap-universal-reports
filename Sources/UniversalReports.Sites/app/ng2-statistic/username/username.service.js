@@ -27,8 +27,8 @@ import angular from "angular";
                 currency: data.currency
             };
             var httpDatatemp = {
-                startDate: "2016-09-18T00:00:00.000Z",
-                endDate: "2016-09-18T00:00:00.000Z",
+                startDate: data.startDate,
+                endDate: data.endDate,
                 casinoType: 2,
                 normalMode: true
             };

@@ -53,7 +53,8 @@ import angular from "angular";
                 var dateRange = {
                     normalMode: activePane.data.normalMode,
                     startDate: activePane.data.startDate,
-                    endDate: activePane.data.endDate
+                    endDate: activePane.data.endDate,
+                    reportType : activePane.data.reportType
                 };
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }

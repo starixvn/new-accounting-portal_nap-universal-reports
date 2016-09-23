@@ -9,11 +9,16 @@ import numeral from "numeral";
 
     DailyController.$inject = ['$element', '$scope', 'fanexGridService'];
     function DailyController($element, $scope, fanexGridService) {
-        console.log("DailyController");
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
+        $scope.generateReport = generateReport;
+
+        function generateReport(){
+            pane.data.reportType = "username";
+            generate();
+        }
 
         function generate() {
             pane.service.getData(pane.data).then(function(data){
@@ -38,11 +43,17 @@ import numeral from "numeral";
             //for (var i = 0; i < data.bodyRows.length; i++) {
             //    var productRow = data.bodyRows[i];
             //    var customAttr = productRow.CustomAttr;
-            //    if (customAttr === 'currency') {
+            //    if (customAttr === 'Commission') {
             //        var productName = productRow.Columns[0].Value;
-            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateReport()">' + '</a>';
             //    }
             //}
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var productColumn = data.bodyRows[i].Columns[0];
+                var productId = productColumn.CustomAttr;
+                var productName = productColumn.Value;
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+            }
         }
 
         function exportExcel(){

@@ -10,7 +10,9 @@ import moment from "moment";
     function napFilter() {
         var directive = {
             restrict: 'EA',
-            scope: {},
+            scope: {
+                ngModel: '=',
+            },
             templateUrl: 'app/ng2-statistic/filter/filter.directive.html',
             replace: true,
             controller: controller,
@@ -32,10 +34,9 @@ import moment from "moment";
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
-        vm.startDate = moment.utc(config.yesterday);//.startOf('month');
+        vm.startDate = moment.utc(config.yesterday);
         vm.endDate = moment.utc(config.yesterday);
-        vm.dateto = moment.utc(config.yesterday);
-
+        
         vm.sportItems = [];
         vm.sportSettings = {
             hasFilter: false,
@@ -65,6 +66,7 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
         vm.updateDateRange = updateDateRange;
+
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
         });
@@ -107,9 +109,9 @@ import moment from "moment";
                 normalMode: dateRange.normalMode,
                 startDate: dateRange.startDate,
                 endDate: dateRange.endDate,
-                username: "",
+                username: vm.user === "undefined" ? " " : vm.user.title,
                 currency: vm.currency,
-                betType: vm.sportSettings.sourceData
+                betType: vm.sportItems
             };
         }
 
@@ -131,11 +133,12 @@ import moment from "moment";
 
         function updateDateRange(dateRange) {
             vm.normalMode = dateRange.normalMode;
+            vm.reportType = dateRange.reportType;
             if (vm.normalMode) {
                 vm.date = dateRange.startDate;
             } else {
                 vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;
+                vm.endDate = dateRange.endDate;     
             }
         }
     }
