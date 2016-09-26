@@ -18,11 +18,10 @@ import angular from "angular";
         
         function getData(data) {
             var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
+                fromDate: data.startDate,
+                toDate: data.endDate,
                 normalMode: data.normalMode,
-                reportType: data.reportType,
-                sportbetType: data.sportbetType,
+                betType: data.betType,
                 username: data.username,
                 currency: data.currency
             };
@@ -34,7 +33,7 @@ import angular from "angular";
             };
 
             var url = 'api/ng2-statistic/report';
-            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp)
+            return $http.post('api/house-win-loss-by-products/casino/product', httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }

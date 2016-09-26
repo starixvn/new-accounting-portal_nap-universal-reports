@@ -38,12 +38,20 @@ import moment from "moment";
         vm.endDate = moment.utc(config.yesterday);
         
         vm.sportItems = [];
-        vm.sportSettings = {
-            hasFilter: false,
-            checkedAll: true,
-            sourceData: 'app/ng2-statistic/filter/sports.json',
-            templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
-        };
+        filterService.getSports().then(function(data){
+            vm.sportSettings = {
+                hasFilter: false,
+                checkedAll: true,
+                idMember: "Id",
+                nameMember: "Name",
+                selectedMember: null,
+                dataMember: null,
+                childrenMember: "Children",
+                sourceData: data,
+                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+            };
+        });       
+
         vm.sportTextSettings = {
             CheckAll: "ALL",
             CollapseExpanse: "Collapse/Expanse",
@@ -51,8 +59,8 @@ import moment from "moment";
             NoItemChecked: "Select bet type",
             ItemsSelected: "# selected",
             NoData: "Select bet type"
-        };
-
+        };          
+        
         vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
             vm.currencies = data;
@@ -109,10 +117,18 @@ import moment from "moment";
                 normalMode: dateRange.normalMode,
                 startDate: dateRange.startDate,
                 endDate: dateRange.endDate,
-                username: vm.user === "undefined" ? " " : vm.user.title,
+                username: vm.user == null ? " " : vm.user.title,
                 currency: vm.currency,
-                betType: vm.sportItems
+                betType: getBetType(vm.sportItems)
             };
+        }
+
+        function getBetType(sportItems){
+            var betTypes = "";
+            for(var i = 0; i< sportItems.length; i++){
+                betTypes = betTypes + sportItems[i].Id + ",";
+            }
+            return betTypes;
         }
 
         function getDateRange() {

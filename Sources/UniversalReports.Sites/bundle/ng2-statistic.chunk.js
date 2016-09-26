@@ -592,11 +592,10 @@ webpackJsonp([4],{
 	
 	        function getData(data) {
 	            var httpData = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
 	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
+	                betType: data.betType,
 	                username: data.username,
 	                currency: data.currency
 	            };
@@ -608,7 +607,7 @@ webpackJsonp([4],{
 	            };
 	
 	            var url = 'api/ng2-statistic/report';
-	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	            return $http.post('api/house-win-loss-by-products/casino/product', httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
 	        function exportExcel(title, data, fileName) {
@@ -690,12 +689,20 @@ webpackJsonp([4],{
 	        vm.endDate = _moment2.default.utc(config.yesterday);
 	
 	        vm.sportItems = [];
-	        vm.sportSettings = {
-	            hasFilter: false,
-	            checkedAll: true,
-	            sourceData: 'app/ng2-statistic/filter/sports.json',
-	            templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
-	        };
+	        filterService.getSports().then(function (data) {
+	            vm.sportSettings = {
+	                hasFilter: false,
+	                checkedAll: true,
+	                idMember: "Id",
+	                nameMember: "Name",
+	                selectedMember: null,
+	                dataMember: null,
+	                childrenMember: "Children",
+	                sourceData: data,
+	                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+	            };
+	        });
+	
 	        vm.sportTextSettings = {
 	            CheckAll: "ALL",
 	            CollapseExpanse: "Collapse/Expanse",
@@ -760,10 +767,18 @@ webpackJsonp([4],{
 	                normalMode: dateRange.normalMode,
 	                startDate: dateRange.startDate,
 	                endDate: dateRange.endDate,
-	                username: vm.user === "undefined" ? " " : vm.user.title,
+	                username: vm.user == null ? " " : vm.user.title,
 	                currency: vm.currency,
-	                betType: vm.sportItems
+	                betType: getBetType(vm.sportItems)
 	            };
+	        }
+	
+	        function getBetType(sportItems) {
+	            var betTypes = "";
+	            for (var i = 0; i < sportItems.length; i++) {
+	                betTypes = betTypes + sportItems[i].Id + ",";
+	            }
+	            return betTypes;
 	        }
 	
 	        function getDateRange() {
@@ -816,13 +831,20 @@ webpackJsonp([4],{
 	    filterService.$inject = ['$http', 'httpResponseService'];
 	    function filterService($http, httpResponseService) {
 	        var service = {
-	            getCurrencies: getCurrencies
+	            getCurrencies: getCurrencies,
+	            getSports: getSports
 	        };
 	        return service;
 	
 	        function getCurrencies() {
 	            var url = 'app/ng2-statistic/filter/currencies.json';
+	            //var url = 'api/ng2-statistic/filter/currencies';
 	            return $http.get(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function getSports() {
+	            var url = 'api/ng2-statistic/filter/sports';
+	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	    }
 	})(_angular2.default);

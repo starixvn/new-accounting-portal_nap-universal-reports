@@ -1,6 +1,5 @@
-﻿using Fanex.Repository;
+﻿using Fanex.NAP.Core.Web.Session;
 using System.Web.Http;
-using Fanex.NAP.Core.Web.Session;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
@@ -29,7 +28,7 @@ namespace UniversalReports.NG2Statistic.Filter
             var criteria = new UserSearchCriteria()
             {
                 CustId = session.UserId,
-                UserName = userName,                
+                UserName = userName,
             };
             var sports = service.QueryUserNames(criteria);
             return Json(sports);
@@ -38,7 +37,7 @@ namespace UniversalReports.NG2Statistic.Filter
         [Route("currencies")]
         public IHttpActionResult Currencies()
         {
-            var criteria = new CurrencyCriteria();            
+            var criteria = new CurrencyCriteria();
             //var currencies = repository.Fetch<Entity>(criteria);
             //return Json(currencies);
 
