@@ -5,10 +5,10 @@ import numeral from "numeral";
 
     angular
         .module('app.numberGame2StatisticApp')
-        .controller('DailyController', DailyController);
+        .controller('CommonController', CommonController);
 
-    DailyController.$inject = ['$element', '$scope', 'fanexGridService'];
-    function DailyController($element, $scope, fanexGridService) {
+    CommonController.$inject = ['$element', '$scope', 'fanexGridService'];
+    function CommonController($element, $scope, fanexGridService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -34,7 +34,7 @@ import numeral from "numeral";
 
         function generate() {
             pane.service.getData(pane.data).then(function(data){
-                createLinks(data);
+                checkDrilldown(data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -51,15 +51,14 @@ import numeral from "numeral";
             gridElement.fanexGrid(data);
         }
 
+        function checkDrilldown(data){
+            if(!pane.data.isDrilldown){
+                createLinks(data);
+            }
+        }
+
         function createLinks(data){
-            //for (var i = 0; i < data.bodyRows.length; i++) {
-            //    var productRow = data.bodyRows[i];
-            //    var customAttr = productRow.CustomAttr;
-            //    if (customAttr === 'Currency') {
-            //        var productName = productRow.Columns[0].Value;
-            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateReport()">' + '</a>';
-            //    }
-            //}
+            
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var productColumn = data.bodyRows[i].Columns[0];
                 var productId = productColumn.CustomAttr;

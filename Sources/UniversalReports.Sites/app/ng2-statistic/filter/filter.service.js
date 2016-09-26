@@ -15,9 +15,8 @@ import angular from "angular";
         return service;
 
         function getCurrencies() {
-            var url = 'app/ng2-statistic/filter/currencies.json';
-            //var url = 'api/ng2-statistic/filter/currencies';
-            return $http.get(url, {})
+            var url = 'api/ng2-statistic/filter/currencies';
+            return $http.post(url, {})
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }

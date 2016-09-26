@@ -4,10 +4,10 @@ import angular from "angular";
 
     angular
         .module('app.numberGame2StatisticApp')
-        .factory('dailyService', dailyService);
+        .factory('commonService', commonService);
 
-    dailyService.$inject = ['$http', 'httpResponseService','titleService'];
-    function dailyService($http, httpResponseService, titleService) {
+    commonService.$inject = ['$http', 'httpResponseService','titleService'];
+    function commonService($http, httpResponseService, titleService) {
 
         var service = {
             getTitle: titleService.getReportMainTitle,
@@ -25,15 +25,16 @@ import angular from "angular";
                 username: data.username,
                 currency: data.currency
             };
+
             var httpDatatemp = {
                 startDate: data.endDate,
                 endDate: data.endDate,
                 casinoType: 2,
                 normalMode: data.true
             };
-
-            var url = 'api/ng2-statistic/report';
-            return $http.post('api/house-win-loss-by-products/casino/product', httpData)
+            var urltemp = 'api/house-win-loss-by-products/casino/product';
+            var url = 'api/ng2-statistic/report/' + data.reportType;
+            return $http.post(urltemp, httpDatatemp)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -49,15 +50,9 @@ import angular from "angular";
                 username: data.username,
                 currency: data.currency
             };
-            var httpDatatemp = {
-                title: title,
-                startDate: data.endDate,
-                endDate: data.endDate,
-                casinoType: 2,
-                normalMode: data.true
-            };
+            var url = 'api/ng2-statistic/report/' + data.reportType + '/excel';
 
-            return $http.post('api/house-win-loss-by-products/casino/product/excel', httpDatatemp, { responseType: "arraybuffer" })
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {
                     httpResponseService.saveExcelFile(response.data, fileName);
                 })

@@ -19,11 +19,7 @@ webpackJsonp([4],{
 	__webpack_require__(91);
 	__webpack_require__(92);
 	__webpack_require__(93);
-	__webpack_require__(94);
-	__webpack_require__(95);
-	__webpack_require__(96);
-	__webpack_require__(97);
-	module.exports = __webpack_require__(98);
+	module.exports = __webpack_require__(94);
 
 
 /***/ },
@@ -113,139 +109,6 @@ webpackJsonp([4],{
 /***/ 81:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('BettypeController', BettypeController);
-	
-	    BettypeController.$inject = ['$element', '$scope', 'fanexGridService'];
-	    function BettypeController($element, $scope, fanexGridService) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinks(data) {
-	            //for (var i = 0; i < data.bodyRows.length; i++) {
-	            //    var productRow = data.bodyRows[i];
-	            //    var customAttr = productRow.CustomAttr;
-	            //    if (customAttr === 'currency') {
-	            //        var productName = productRow.Columns[0].Value;
-	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
-	            //    }
-	            //}
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 82:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').factory('bettypeService', bettypeService);
-	
-	    bettypeService.$inject = ['$http', 'httpResponseService', 'titleService'];
-	    function bettypeService($http, httpResponseService, titleService) {
-	
-	        var service = {
-	            getTitle: titleService.getReportMainTitle,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	        return service;
-	
-	        function getData(data) {
-	            var httpData = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: true
-	            };
-	
-	            var url = 'api/ng2-statistic/report';
-	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title,
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 83:
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
 	var _angular = __webpack_require__(10);
@@ -290,7 +153,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 84:
+/***/ 82:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -338,6 +201,167 @@ webpackJsonp([4],{
 	
 	        function getGrandTotalTitle() {
 	            return "GRAND TOTAL BY CURRENCY";
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 83:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('CommonController', CommonController);
+	
+	    CommonController.$inject = ['$element', '$scope', 'fanexGridService'];
+	    function CommonController($element, $scope, fanexGridService) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	        $scope.generateCurrencyReport = generateCurrencyReport;
+	        $scope.generateGrandtotalReport = generateGrandtotalReport;
+	
+	        function generateCurrencyReport() {
+	            var data = { drilldownType: "Currency" };
+	            pane.data.isDrilldown = true;
+	
+	            angular.extend(data, pane.data);
+	            tab.goForward(data);
+	        }
+	
+	        function generateGrandtotalReport() {
+	            var data = { drilldownType: "Grandtotal" };
+	            pane.data.isDrilldown = true;
+	
+	            angular.extend(data, pane.data);
+	            tab.goForward(data);
+	        }
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                checkDrilldown(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function checkDrilldown(data) {
+	            if (!pane.data.isDrilldown) {
+	                createLinks(data);
+	            }
+	        }
+	
+	        function createLinks(data) {
+	
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var productColumn = data.bodyRows[i].Columns[0];
+	                var productId = productColumn.CustomAttr;
+	                var productName = productColumn.Value;
+	                productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+	            }
+	
+	            var grandTotalColumn = data.footerRows[0].Columns[0];
+	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 84:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('commonService', commonService);
+	
+	    commonService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function commonService($http, httpResponseService, titleService) {
+	
+	        var service = {
+	            getTitle: titleService.getReportMainTitle,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	        return service;
+	
+	        function getData(data) {
+	            var httpData = {
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
+	                normalMode: data.normalMode,
+	                betType: data.betType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	
+	            var httpDatatemp = {
+	                startDate: data.endDate,
+	                endDate: data.endDate,
+	                casinoType: 2,
+	                normalMode: data.true
+	            };
+	            var urltemp = 'api/house-win-loss-by-products/casino/product';
+	            var url = 'api/ng2-statistic/report/' + data.reportType;
+	            return $http.post(urltemp, httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            var url = 'api/ng2-statistic/report/' + data.reportType + '/excel';
+	
+	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
 	        }
 	    }
 	})(_angular2.default);
@@ -480,173 +504,6 @@ webpackJsonp([4],{
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('DailyController', DailyController);
-	
-	    DailyController.$inject = ['$element', '$scope', 'fanexGridService'];
-	    function DailyController($element, $scope, fanexGridService) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	        $scope.generateCurrencyReport = generateCurrencyReport;
-	        $scope.generateGrandtotalReport = generateGrandtotalReport;
-	
-	        function generateCurrencyReport() {
-	            var data = { drilldownType: "Currency" };
-	            pane.data.isDrilldown = true;
-	
-	            angular.extend(data, pane.data);
-	            tab.goForward(data);
-	        }
-	
-	        function generateGrandtotalReport() {
-	            var data = { drilldownType: "Grandtotal" };
-	            pane.data.isDrilldown = true;
-	
-	            angular.extend(data, pane.data);
-	            tab.goForward(data);
-	        }
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinks(data) {
-	            //for (var i = 0; i < data.bodyRows.length; i++) {
-	            //    var productRow = data.bodyRows[i];
-	            //    var customAttr = productRow.CustomAttr;
-	            //    if (customAttr === 'Currency') {
-	            //        var productName = productRow.Columns[0].Value;
-	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateReport()">' + '</a>';
-	            //    }
-	            //}
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var productColumn = data.bodyRows[i].Columns[0];
-	                var productId = productColumn.CustomAttr;
-	                var productName = productColumn.Value;
-	                productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
-	            }
-	
-	            var grandTotalColumn = data.footerRows[0].Columns[0];
-	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 88:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').factory('dailyService', dailyService);
-	
-	    dailyService.$inject = ['$http', 'httpResponseService', 'titleService'];
-	    function dailyService($http, httpResponseService, titleService) {
-	
-	        var service = {
-	            getTitle: titleService.getReportMainTitle,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	        return service;
-	
-	        function getData(data) {
-	            var httpData = {
-	                fromDate: data.startDate,
-	                toDate: data.endDate,
-	                normalMode: data.normalMode,
-	                betType: data.betType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                startDate: data.endDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: data.true
-	            };
-	
-	            var url = 'api/ng2-statistic/report';
-	            return $http.post('api/house-win-loss-by-products/casino/product', httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title,
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                title: title,
-	                startDate: data.endDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: data.true
-	            };
-	
-	            return $http.post('api/house-win-loss-by-products/casino/product/excel', httpDatatemp, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 89:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
 	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
@@ -687,6 +544,7 @@ webpackJsonp([4],{
 	        vm.date = config.today;
 	        vm.startDate = _moment2.default.utc(config.yesterday);
 	        vm.endDate = _moment2.default.utc(config.yesterday);
+	        var tab = $scope.tab;
 	
 	        vm.sportItems = [];
 	        filterService.getSports().then(function (data) {
@@ -812,7 +670,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 90:
+/***/ 88:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -837,9 +695,8 @@ webpackJsonp([4],{
 	        return service;
 	
 	        function getCurrencies() {
-	            var url = 'app/ng2-statistic/filter/currencies.json';
-	            //var url = 'api/ng2-statistic/filter/currencies';
-	            return $http.get(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	            var url = 'api/ng2-statistic/filter/currencies';
+	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
 	        function getSports() {
@@ -851,7 +708,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 91:
+/***/ 89:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -905,7 +762,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 92:
+/***/ 90:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -980,7 +837,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 93:
+/***/ 91:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1038,7 +895,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 94:
+/***/ 92:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1072,20 +929,8 @@ webpackJsonp([4],{
 	            this.getFileName = getFileName;
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-	            this.controller = getControllerName(data.reportType, data.isDrilldown);
-	            this.service = getService(data.reportType, data.isDrilldown);
-	
-	            function getService(reportType, isDrilldown) {
-	                var reportTypeInCamel = reportType.substring(0, 1).toLowerCase() + reportType.substring(1);
-	                var serviceName = (isDrilldown ? drilldownType.toLowerCase() : reportTypeInCamel) + "Service";
-	
-	                return $injector.get(serviceName);
-	            }
-	
-	            function getControllerName(reportType, isDrilldown) {
-	                var reportTypeInPascal = reportType.substring(0, 1).toUpperCase() + reportType.substring(1);
-	                return (isDrilldown ? drilldownType : reportTypeInPascal) + "Controller";
-	            }
+	            this.controller = 'CommonController';
+	            this.service = $injector.get('commonService');
 	
 	            function generate() {
 	                this.$scope.generate();
@@ -1125,7 +970,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 95:
+/***/ 93:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1163,14 +1008,17 @@ webpackJsonp([4],{
 	        vm.tab = tab;
 	
 	        $scope.$on('nap-filter-generate', function (event, data) {
-	            if (tab.panes.length === 0) {
-	                var mainPane = new Pane(data);
-	                tab.addPane(mainPane);
-	            } else {
-	                var activePane = tab.getActivePane();
-	                angular.extend(activePane.data, data);
-	                activePane.generate();
-	            }
+	            //if(tab.panes.length === 0){
+	            //    var mainPane = new Pane(data);
+	            //    tab.addPane(mainPane);
+	            //} else {
+	            //    var activePane = tab.getActivePane();
+	            //    angular.extend(activePane.data, data);
+	            //    activePane.generate();
+	            //}
+	            tab.panes = [];
+	            var mainPane = new Pane(data);
+	            tab.addPane(mainPane);
 	        });
 	
 	        $scope.$on('nap-filter-switch', function (event) {
@@ -1181,7 +1029,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 96:
+/***/ 94:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1280,139 +1128,6 @@ webpackJsonp([4],{
 	        }
 	
 	        return Tab;
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 97:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('UsernameController', UsernameController);
-	
-	    UsernameController.$inject = ['$element', '$scope', 'fanexGridService'];
-	    function UsernameController($element, $scope, fanexGridService) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinks(data) {
-	            //for (var i = 0; i < data.bodyRows.length; i++) {
-	            //    var productRow = data.bodyRows[i];
-	            //    var customAttr = productRow.CustomAttr;
-	            //    if (customAttr === 'currency') {
-	            //        var productName = productRow.Columns[0].Value;
-	            //        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateCurrency(\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
-	            //    }
-	            //}
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 98:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').factory('usernameService', usernameService);
-	
-	    usernameService.$inject = ['$http', 'httpResponseService', 'titleService'];
-	    function usernameService($http, httpResponseService, titleService) {
-	
-	        var service = {
-	            getTitle: titleService.getReportMainTitle,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	        return service;
-	
-	        function getData(data) {
-	            var httpData = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: true
-	            };
-	
-	            var url = 'api/ng2-statistic/report';
-	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title,
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            return $http.post('api/ng2-statistic/report/excel', httpData, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
 	    }
 	})(_angular2.default);
 

@@ -24,21 +24,9 @@ import angular from "angular";
             this.getFileName = getFileName;
 
             this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-            this.controller = getControllerName(data.reportType, data.isDrilldown);
-            this.service = getService(data.reportType, data.isDrilldown);
-
-            function getService(reportType, isDrilldown) {
-                var reportTypeInCamel = reportType.substring(0, 1).toLowerCase() + reportType.substring(1);
-                var serviceName= (isDrilldown ? drilldownType.toLowerCase() : reportTypeInCamel) + "Service";
-
-                return $injector.get(serviceName);
-            }
-
-            function getControllerName(reportType, isDrilldown) {
-                var reportTypeInPascal = reportType.substring(0, 1).toUpperCase() + reportType.substring(1);
-                return (isDrilldown ? drilldownType : reportTypeInPascal) + "Controller";
-            }
-
+            this.controller = 'CommonController';
+            this.service = $injector.get('commonService');
+            
             function generate() {
                 this.$scope.generate();
             }

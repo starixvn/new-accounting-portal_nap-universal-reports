@@ -431,8 +431,6 @@
     </Content>
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="webpack.config.js" />
-    <Content Include="app\ng2-statistic\filter\sports.json" />
-    <Content Include="app\ng2-statistic\filter\currencies.json" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <None Include="App_Configuration\SIT\Web.AppSettings.config" />
     <None Include="App_Configuration\SIT\Web.ConnectionString.config" />

@@ -36,6 +36,7 @@ import moment from "moment";
         vm.date = config.today;
         vm.startDate = moment.utc(config.yesterday);
         vm.endDate = moment.utc(config.yesterday);
+        var tab = $scope.tab;
         
         vm.sportItems = [];
         filterService.getSports().then(function(data){
