@@ -148,6 +148,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CommonCriteria.cs" />
+    <Compile Include="Data\DataController.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
     <Compile Include="Filter\RawSports.cs" />

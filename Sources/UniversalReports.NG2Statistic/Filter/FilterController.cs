@@ -38,10 +38,8 @@ namespace UniversalReports.NG2Statistic.Filter
         public IHttpActionResult Currencies()
         {
             var criteria = new CurrencyCriteria();
-            //var currencies = repository.Fetch<Entity>(criteria);
-            //return Json(currencies);
-
-            return null;
+            var currencies = service.QueryCurrency(criteria);
+            return Json(currencies);
         }
     }
 }
