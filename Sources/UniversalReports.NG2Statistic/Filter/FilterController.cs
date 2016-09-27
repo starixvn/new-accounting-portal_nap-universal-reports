@@ -9,9 +9,10 @@ namespace UniversalReports.NG2Statistic.Filter
         private readonly Service service;
         private readonly ICurrentSession session;
 
-        public FilterController(Service service)
+        public FilterController(Service service, ICurrentSession session)
         {
             this.service = service;
+            this.session = session;
         }
 
         [Route("sports")]
@@ -23,6 +24,7 @@ namespace UniversalReports.NG2Statistic.Filter
         }
 
         [Route("usernamesuggestion")]
+        [HttpGet]
         public IHttpActionResult UsernameSuggestion(string userName)
         {
             var criteria = new UserSearchCriteria()

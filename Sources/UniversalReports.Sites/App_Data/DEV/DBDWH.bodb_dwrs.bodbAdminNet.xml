@@ -53,5 +53,6 @@
 
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
 </Functions>

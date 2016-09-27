@@ -149,7 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CommonCriteria.cs" />
+    <Compile Include="Data\Daily\DailyCriteria.cs" />
+    <Compile Include="Data\Daily\DailyModel.cs" />
+    <Compile Include="Data\Daily\DailyService.cs" />
     <Compile Include="Data\DataController.cs" />
+    <Compile Include="Data\BaseModel.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
     <Compile Include="Filter\RawSports.cs" />

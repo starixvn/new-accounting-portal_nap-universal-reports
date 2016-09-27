@@ -58,9 +58,9 @@ namespace UniversalReports.NG2Statistic.Filter
             return sportList;
         }
 
-        public List<string> QueryUserNames(UserSearchCriteria criteria)
+        public List<dynamic> QueryUserNames(UserSearchCriteria criteria)
         {
-            return repository.Fetch<string>(criteria).ToList();
+            return repository.Fetch<dynamic>(criteria).ToList();
         }
     }
 }
