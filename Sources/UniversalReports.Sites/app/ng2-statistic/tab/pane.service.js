@@ -10,10 +10,7 @@ import angular from "angular";
     function napPane($log, $compile, $injector) {
         function Pane(data) {
 
-            this.reportType = data.reportType;
-            this.isDrilldown = data.isDrilldown;
             this.data = data;
-            var drilldownType = data.drilldownType
             this.$scope = undefined;
             this.$element = undefined;
             this.generate = generate;
@@ -25,8 +22,13 @@ import angular from "angular";
 
             this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
             this.controller = 'CommonController';
-            this.service = $injector.get('commonService');
-            
+            this.service = getService(data.isDrilldown);
+
+            function getService(data){
+                var service = data == true ? "drilldownService" :"commonService";
+                 return $injector.get(service);
+            }
+
             function generate() {
                 this.$scope.generate();
             }

@@ -11,13 +11,18 @@ import angular from "angular";
         var gameStatisticReport = ' Game Statistic Report ';
 
         var service = {
-            getGrandTotalTitle : getGrandTotalTitle,
-            getReportMainTitle : getReportMainTitle,
-            getReportbyCrurrencyTitle : getReportbyCrurrencyTitle
+            getTitleDrilldown: getTitleDrilldown,
+            getReportMainTitle: getReportMainTitle
         };
         return service;
+        
+        function getTitleDrilldown(data){
+            
+            return data.drilldownType === "Currency" ? getReportbyCrurrencyTitle(data) : getGrandTotalTitle(data);
+        }
 
         function getReportbyTitlle(data){
+
             switch(data.reportType){
                 case "daily":
                     return "Daily";
@@ -29,14 +34,17 @@ import angular from "angular";
         }
 
         function getReportMainTitle(data){
+
             return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
         }
 
         function getReportbyCrurrencyTitle(data){
+
             return data.reportType + gameStatisticReport + "On " + data.startDate.format('ll');
         }
 
         function  getGrandTotalTitle(){
+
             return "GRAND TOTAL BY CURRENCY";
         }
     }

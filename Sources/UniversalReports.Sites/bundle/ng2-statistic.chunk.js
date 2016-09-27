@@ -17,7 +17,8 @@ webpackJsonp([4],{
 	__webpack_require__(89);
 	__webpack_require__(90);
 	__webpack_require__(91);
-	module.exports = __webpack_require__(92);
+	__webpack_require__(92);
+	module.exports = __webpack_require__(93);
 
 
 /***/ },
@@ -172,13 +173,18 @@ webpackJsonp([4],{
 	        var gameStatisticReport = ' Game Statistic Report ';
 	
 	        var service = {
-	            getGrandTotalTitle: getGrandTotalTitle,
-	            getReportMainTitle: getReportMainTitle,
-	            getReportbyCrurrencyTitle: getReportbyCrurrencyTitle
+	            getTitleDrilldown: getTitleDrilldown,
+	            getReportMainTitle: getReportMainTitle
 	        };
 	        return service;
 	
+	        function getTitleDrilldown(data) {
+	
+	            return data.drilldownType === "Currency" ? getReportbyCrurrencyTitle(data) : getGrandTotalTitle(data);
+	        }
+	
 	        function getReportbyTitlle(data) {
+	
 	            switch (data.reportType) {
 	                case "daily":
 	                    return "Daily";
@@ -190,14 +196,17 @@ webpackJsonp([4],{
 	        }
 	
 	        function getReportMainTitle(data) {
+	
 	            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
 	        }
 	
 	        function getReportbyCrurrencyTitle(data) {
+	
 	            return data.reportType + gameStatisticReport + "On " + data.startDate.format('ll');
 	        }
 	
 	        function getGrandTotalTitle() {
+	
 	            return "GRAND TOTAL BY CURRENCY";
 	        }
 	    }
@@ -235,18 +244,18 @@ webpackJsonp([4],{
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
 	        function generateCurrencyReport() {
-	            var data = { drilldownType: "Currency" };
-	            pane.data.isDrilldown = true;
+	            var dataQuery = pane;
+	            dataQuery.data.drilldownType = "Currency";
+	            dataQuery.data.isDrilldown = true;
 	
-	            angular.extend(data, pane.data);
-	            tab.goForward(data);
+	            tab.goForward(dataQuery.data);
 	        }
 	
 	        function generateGrandtotalReport() {
-	            var data = { drilldownType: "Grandtotal" };
-	            pane.data.isDrilldown = true;
+	            var data = pane.data;
+	            data.drilldownType = "Grandtotal";
+	            data.isDrilldown = true;
 	
-	            angular.extend(data, pane.data);
 	            tab.goForward(data);
 	        }
 	
@@ -369,6 +378,75 @@ webpackJsonp([4],{
 /***/ 85:
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('drilldownService', drilldownService);
+	
+	    drilldownService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function drilldownService($http, httpResponseService, titleService) {
+	
+	        var service = {
+	            getTitle: titleService.getTitleDrilldown,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	        return service;
+	
+	        function getData(data) {
+	            var httpData = {
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
+	                normalMode: data.normalMode,
+	                betType: data.betType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	
+	            var httpDatatemp = {
+	                startDate: "2016-09-17T00:00:00.000Z",
+	                endDate: "2016-09-17T00:00:00.000Z",
+	                casinoType: 2,
+	                normalMode: data.true
+	            };
+	            var urltemp = 'api/house-win-loss-by-products/casino/product';
+	            var url = 'api/ng2-statistic/report/' + data.reportType;
+	            return $http.post(urltemp, httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                startDate: data.startDate,
+	                endDate: data.endDate,
+	                normalMode: data.normalMode,
+	                reportType: data.reportType,
+	                sportbetType: data.sportbetType,
+	                username: data.username,
+	                currency: data.currency
+	            };
+	            var url = 'api/ng2-statistic/report/' + data.reportType + '/excel';
+	
+	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 86:
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	
 	var _angular = __webpack_require__(10);
@@ -418,17 +496,7 @@ webpackJsonp([4],{
 	
 	        vm.sportItems = [];
 	        filterService.getSports().then(function (data) {
-	            vm.sportSettings = {
-	                hasFilter: false,
-	                checkedAll: true,
-	                idMember: "Id",
-	                nameMember: "Name",
-	                selectedMember: null,
-	                dataMember: null,
-	                childrenMember: "Children",
-	                sourceData: data,
-	                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
-	            };
+	            generateDropdown(data);
 	        });
 	
 	        vm.sportTextSettings = {
@@ -442,8 +510,7 @@ webpackJsonp([4],{
 	
 	        vm.currencies = [];
 	        filterService.getCurrencies().then(function (data) {
-	            vm.currencies = data;
-	            vm.currency = 1;
+	            generateCurrency(data);
 	        });
 	
 	        vm.generate = generate;
@@ -457,6 +524,25 @@ webpackJsonp([4],{
 	        $scope.$on('nap-filter-date', function (event, data) {
 	            updateDateRange(data);
 	        });
+	
+	        function generateCurrency(data) {
+	            vm.currencies = data;
+	            vm.currency = 1;
+	        }
+	
+	        function generateDropdown(data) {
+	            vm.sportSettings = {
+	                hasFilter: false,
+	                checkedAll: true,
+	                idMember: "Id",
+	                nameMember: "Name",
+	                selectedMember: null,
+	                dataMember: null,
+	                childrenMember: "Children",
+	                sourceData: data,
+	                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+	            };
+	        }
 	
 	        vm.reportCriteria = {};
 	
@@ -478,12 +564,19 @@ webpackJsonp([4],{
 	        function viewNormalMode() {
 	            vm.normalMode = true;
 	            $('.filter-note').css('display', 'block');
-	            $rootScope.$broadcast('nap-filter-switch');
+	            resetFilter();
 	        }
 	
 	        function viewHistoryMode() {
 	            vm.normalMode = false;
 	            $('.filter-note').css('display', 'none');
+	            resetFilter();
+	        }
+	
+	        function resetFilter() {
+	            generateCurrency(vm.currencies);
+	            generateDropdown(vm.sportSettings.sourceData);
+	            vm.reportType = "daily";
 	            $rootScope.$broadcast('nap-filter-switch');
 	        }
 	
@@ -495,7 +588,7 @@ webpackJsonp([4],{
 	                normalMode: dateRange.normalMode,
 	                startDate: dateRange.startDate,
 	                endDate: dateRange.endDate,
-	                username: vm.user == null ? " " : vm.user.title,
+	                username: vm.user == null ? "" : vm.user.title,
 	                currency: vm.currency,
 	                betType: getBetType(vm.sportItems)
 	            };
@@ -540,7 +633,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 86:
+/***/ 87:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -578,7 +671,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 87:
+/***/ 88:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -632,7 +725,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 88:
+/***/ 89:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -707,7 +800,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 89:
+/***/ 90:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -765,7 +858,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 90:
+/***/ 91:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -785,10 +878,7 @@ webpackJsonp([4],{
 	    function napPane($log, $compile, $injector) {
 	        function Pane(data) {
 	
-	            this.reportType = data.reportType;
-	            this.isDrilldown = data.isDrilldown;
 	            this.data = data;
-	            var drilldownType = data.drilldownType;
 	            this.$scope = undefined;
 	            this.$element = undefined;
 	            this.generate = generate;
@@ -800,7 +890,12 @@ webpackJsonp([4],{
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
 	            this.controller = 'CommonController';
-	            this.service = $injector.get('commonService');
+	            this.service = getService(data.isDrilldown);
+	
+	            function getService(data) {
+	                var service = data == true ? "drilldownService" : "commonService";
+	                return $injector.get(service);
+	            }
 	
 	            function generate() {
 	                this.$scope.generate();
@@ -840,7 +935,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 91:
+/***/ 92:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -892,7 +987,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 92:
+/***/ 93:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

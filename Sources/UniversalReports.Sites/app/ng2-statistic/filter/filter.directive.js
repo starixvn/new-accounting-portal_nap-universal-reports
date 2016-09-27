@@ -39,17 +39,7 @@ import moment from "moment";
                
         vm.sportItems = [];
         filterService.getSports().then(function(data){
-            vm.sportSettings = {
-                hasFilter: false,
-                checkedAll: true,
-                idMember: "Id",
-                nameMember: "Name",
-                selectedMember: null,
-                dataMember: null,
-                childrenMember: "Children",
-                sourceData: data,
-                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
-            };
+            generateDropdown(data);
         });       
 
         vm.sportTextSettings = {
@@ -63,8 +53,7 @@ import moment from "moment";
         
         vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
-            vm.currencies = data;
-            vm.currency = 1;
+            generateCurrency(data)
         });
 
         vm.generate = generate;
@@ -79,6 +68,24 @@ import moment from "moment";
             updateDateRange(data);
         });
 
+        function generateCurrency(data){
+            vm.currencies = data;
+            vm.currency = 1;
+        }
+
+        function generateDropdown(data){
+            vm.sportSettings = {
+                hasFilter: false,
+                checkedAll: true,
+                idMember: "Id",
+                nameMember: "Name",
+                selectedMember: null,
+                dataMember: null,
+                childrenMember: "Children",
+                sourceData: data,
+                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
+            };
+        }
 
         vm.reportCriteria = {};
 
@@ -98,14 +105,21 @@ import moment from "moment";
         }
 
         function viewNormalMode() {
-            vm.normalMode = true;
+            vm.normalMode = true;            
             $('.filter-note').css('display', 'block');
-            $rootScope.$broadcast('nap-filter-switch');
+            resetFilter();
         }
 
         function viewHistoryMode() {
             vm.normalMode = false;
             $('.filter-note').css('display', 'none');
+            resetFilter();
+        }
+
+        function resetFilter(){
+            generateCurrency(vm.currencies);
+            generateDropdown(vm.sportSettings.sourceData);
+            vm.reportType = "daily";
             $rootScope.$broadcast('nap-filter-switch');
         }
 
@@ -117,7 +131,7 @@ import moment from "moment";
                 normalMode: dateRange.normalMode,
                 startDate: dateRange.startDate,
                 endDate: dateRange.endDate,
-                username: vm.user == null ? " " : vm.user.title,
+                username: vm.user == null ? "" : vm.user.title,
                 currency: vm.currency,
                 betType: getBetType(vm.sportItems)
             };

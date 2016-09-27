@@ -17,18 +17,18 @@ import numeral from "numeral";
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
         function generateCurrencyReport(){
-            var data = { drilldownType: "Currency"}; 
-            pane.data.isDrilldown = true;
+            var dataQuery = pane;
+            dataQuery.data.drilldownType = "Currency"; 
+            dataQuery.data.isDrilldown = true;
 
-            angular.extend(data, pane.data);
-            tab.goForward(data);
+            tab.goForward(dataQuery.data);
         }
 
         function generateGrandtotalReport(){
-            var data = { drilldownType: "Grandtotal"};
-            pane.data.isDrilldown = true;
+            var  data = pane.data;
+            data.drilldownType = "Grandtotal"; 
+            data.isDrilldown = true;
 
-            angular.extend(data, pane.data);
             tab.goForward(data);
         }
 
