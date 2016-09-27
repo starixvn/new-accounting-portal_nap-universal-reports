@@ -8,26 +8,14 @@ namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class DailyModel
     {
-        public string Name { get; set; }
+        public DailyModel()
+        {
+            Rows = new List<DailyRaw>();
+            GrandTotal = new List<DailyRaw>();
+        }
 
-        public int NoOfPlayers { get; set; }
+        public List<DailyRaw> Rows { get; set; }
 
-        public int BetCount { get; set; }
-
-        public string Currency { get; set; }
-
-        public decimal TotalBets { get; set; }
-
-        public decimal TotalWins { get; set; }
-
-        public decimal GameIncome { get; set; }
-
-        public decimal GamePayout { get; set; }
-
-        public decimal CompanyTurnover { get; set; }
-
-        public decimal CompanyComm { get; set; }
-
-        public decimal CompanyNetIncome { get; set; }
+        public List<DailyRaw> GrandTotal { get; set; }
     }
 }

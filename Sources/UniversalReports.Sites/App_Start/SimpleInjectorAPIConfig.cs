@@ -14,6 +14,7 @@ namespace UniversalReports.Sites
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
             ApplicationInjectorInitializer.InitializeContainer(container);
+            CommonInjectorInitializer.InitializeContainer(container);
             HouseWinLossInjectorInitializer.InitializeContainer(container);
             NG2InjectorInitializer.InitializeContainer(container);
 

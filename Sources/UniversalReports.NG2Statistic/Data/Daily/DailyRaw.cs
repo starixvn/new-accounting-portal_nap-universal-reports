@@ -4,19 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniversalReports.NG2Statistic.Data
+namespace UniversalReports.NG2Statistic.Data.Daily
 {
-    public class BaseModel
-    {
+    public class DailyRaw
+    {       
         public string Name { get; set; }
 
         public int NoOfPlayers { get; set; }
 
         public int BetCount { get; set; }
 
+        public int CurrencyId { get; set; }
+
         public string Currency { get; set; }
 
-        public decimal TotalBets { get; set; } 
+        public decimal TotalBets { get; set; }
 
         public decimal TotalWins { get; set; }
 
