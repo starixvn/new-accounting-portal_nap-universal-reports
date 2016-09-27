@@ -416,11 +416,6 @@ webpackJsonp([4],{
 	        vm.startDate = _moment2.default.utc(config.yesterday);
 	        vm.endDate = _moment2.default.utc(config.yesterday);
 	
-	        $scope.users = [];
-	        filterService.getUsername().then(function (data) {
-	            $scope.users = data;
-	        });
-	
 	        vm.sportItems = [];
 	        filterService.getSports().then(function (data) {
 	            vm.sportSettings = {
@@ -565,8 +560,7 @@ webpackJsonp([4],{
 	    function filterService($http, httpResponseService) {
 	        var service = {
 	            getCurrencies: getCurrencies,
-	            getSports: getSports,
-	            getUsername: getUsername
+	            getSports: getSports
 	        };
 	        return service;
 	
@@ -576,11 +570,6 @@ webpackJsonp([4],{
 	        }
 	
 	        function getSports() {
-	            var url = 'api/ng2-statistic/filter/sports';
-	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function getUsername() {
 	            var url = 'api/ng2-statistic/filter/sports';
 	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
