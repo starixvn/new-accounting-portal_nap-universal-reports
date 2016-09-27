@@ -17,9 +17,7 @@ webpackJsonp([4],{
 	__webpack_require__(89);
 	__webpack_require__(90);
 	__webpack_require__(91);
-	__webpack_require__(92);
-	__webpack_require__(93);
-	module.exports = __webpack_require__(94);
+	module.exports = __webpack_require__(92);
 
 
 /***/ },
@@ -377,133 +375,6 @@ webpackJsonp([4],{
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('CurrencyController', CurrencyController);
-	
-	    CurrencyController.$inject = ['$element', '$scope', 'fanexGridService'];
-	    function CurrencyController($element, $scope, fanexGridService) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 86:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').factory('currencyService', currencyService);
-	
-	    currencyService.$inject = ['$http', 'httpResponseService', 'titleService'];
-	    function currencyService($http, httpResponseService, titleService) {
-	
-	        var service = {
-	            getTitle: titleService.getReportbyCrurrencyTitle,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	        return service;
-	
-	        function getData(data) {
-	            var httpData = {
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                startDate: data.endDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: data.true
-	            };
-	            var url = 'api/ng2-statistic/report';
-	            return $http.post('api/house-win-loss-by-products/casino/product', httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title,
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
-	                username: data.username,
-	                currency: data.currency
-	            };
-	            var httpDatatemp = {
-	                title: title,
-	                startDate: data.endDate,
-	                endDate: data.endDate,
-	                casinoType: 2,
-	                normalMode: data.true
-	            };
-	            return $http.post('api/house-win-loss-by-products/casino/product/excel', httpDatatemp, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 87:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
 	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
@@ -544,7 +415,11 @@ webpackJsonp([4],{
 	        vm.date = config.today;
 	        vm.startDate = _moment2.default.utc(config.yesterday);
 	        vm.endDate = _moment2.default.utc(config.yesterday);
-	        var tab = $scope.tab;
+	
+	        $scope.users = [];
+	        filterService.getUsername().then(function (data) {
+	            $scope.users = data;
+	        });
 	
 	        vm.sportItems = [];
 	        filterService.getSports().then(function (data) {
@@ -670,7 +545,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 88:
+/***/ 86:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -690,7 +565,8 @@ webpackJsonp([4],{
 	    function filterService($http, httpResponseService) {
 	        var service = {
 	            getCurrencies: getCurrencies,
-	            getSports: getSports
+	            getSports: getSports,
+	            getUsername: getUsername
 	        };
 	        return service;
 	
@@ -703,12 +579,17 @@ webpackJsonp([4],{
 	            var url = 'api/ng2-statistic/filter/sports';
 	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
+	
+	        function getUsername() {
+	            var url = 'api/ng2-statistic/filter/sports';
+	            return $http.post(url, {}).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 89:
+/***/ 87:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -762,7 +643,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 90:
+/***/ 88:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -837,7 +718,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 91:
+/***/ 89:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -895,7 +776,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 92:
+/***/ 90:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -970,7 +851,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 93:
+/***/ 91:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1008,14 +889,7 @@ webpackJsonp([4],{
 	        vm.tab = tab;
 	
 	        $scope.$on('nap-filter-generate', function (event, data) {
-	            //if(tab.panes.length === 0){
-	            //    var mainPane = new Pane(data);
-	            //    tab.addPane(mainPane);
-	            //} else {
-	            //    var activePane = tab.getActivePane();
-	            //    angular.extend(activePane.data, data);
-	            //    activePane.generate();
-	            //}
+	
 	            tab.panes = [];
 	            var mainPane = new Pane(data);
 	            tab.addPane(mainPane);
@@ -1029,7 +903,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 94:
+/***/ 92:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
