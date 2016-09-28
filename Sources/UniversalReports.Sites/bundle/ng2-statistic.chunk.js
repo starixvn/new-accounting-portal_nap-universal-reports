@@ -171,10 +171,13 @@ webpackJsonp([4],{
 	        var gameStatisticReport = ' Game Statistic Report ';
 	
 	        var service = {
-	            getTitleDrilldown: getTitleDrilldown,
-	            getReportMainTitle: getReportMainTitle
+	            getTitleReport: getTitleReport
 	        };
 	        return service;
+	
+	        function getTitleReport(data) {
+	            return data.isDrilldown == true ? getTitleDrilldown(data) : getReportMainTitle(data);
+	        }
 	
 	        function getTitleDrilldown(data) {
 	
@@ -200,7 +203,7 @@ webpackJsonp([4],{
 	
 	        function getReportbyCrurrencyTitle(data) {
 	
-	            return data.reportType + gameStatisticReport + "On " + data.startDate.format('ll');
+	            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll');
 	        }
 	
 	        function getGrandTotalTitle() {
@@ -246,14 +249,14 @@ webpackJsonp([4],{
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
 	        function generateCurrencyReport(idCurrency, dateCurrency) {
-	            var dataQuery = pane;
-	            dataQuery.data.drilldownType = "Currency";
-	            dataQuery.data.currency = parseInt(idCurrency);
-	            dataQuery.data.startDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.data.endDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.data.isDrilldown = true;
+	            var dataQuery = pane.data;
+	            dataQuery.drilldownType = "Currency";
+	            dataQuery.currency = parseInt(idCurrency);
+	            dataQuery.startDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.endDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.isDrilldown = true;
 	
-	            tab.goForward(dataQuery.data);
+	            tab.goForward(dataQuery);
 	        }
 	
 	        function generateGrandtotalReport() {
@@ -331,7 +334,7 @@ webpackJsonp([4],{
 	    function commonService($http, httpResponseService, titleService) {
 	
 	        var service = {
-	            getTitle: titleService.getReportMainTitle,
+	            getTitle: titleService.getTitleReport,
 	            getData: getData,
 	            exportExcel: exportExcel
 	        };
@@ -747,6 +750,11 @@ webpackJsonp([4],{
 	        function Pane(data) {
 	
 	            this.data = data;
+	            this.startDate = data.startDate;
+	            this.drilldownType = data.drilldownType === "undefined" ? "" : data.drilldownType;
+	            this.reportType = data.reportType;
+	            this.isDrilldown = data.isDrilldown;
+	            this.endDate = data.endDate;
 	            this.$scope = undefined;
 	            this.$element = undefined;
 	            this.generate = generate;
@@ -758,12 +766,7 @@ webpackJsonp([4],{
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
 	            this.controller = 'CommonController';
-	            this.service = getService(data.isDrilldown);
-	
-	            function getService(data) {
-	                var service = data == true ? "drilldownService" : "commonService";
-	                return $injector.get(service);
-	            }
+	            this.service = $injector.get("commonService");
 	
 	            function generate() {
 	                this.$scope.generate();
@@ -775,7 +778,7 @@ webpackJsonp([4],{
 	            }
 	
 	            function getFileName() {
-	                return 'NG2_Statistic_Report_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	                return 'NG2_Statistic_Report_From_' + this.startDate.format('DD_MM_YYYY') + '_To_' + this.endDate.format('DD_MM_YYYY') + '.xls';
 	            }
 	
 	            function compileAll() {
@@ -934,7 +937,7 @@ webpackJsonp([4],{
 	                for (var i = 0; i < this.panes.length; i++) {
 	                    var pane = this.panes[i];
 	                    var isLast = i === this.panes.length - 1;
-	                    var title = pane.service.getTitle(pane.data, isLast);
+	                    var title = pane.service.getTitle(pane, isLast);
 	                    list.push(title);
 	                }
 	

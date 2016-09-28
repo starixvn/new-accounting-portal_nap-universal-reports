@@ -18,14 +18,14 @@ import moment from "moment";
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
         function generateCurrencyReport(idCurrency, dateCurrency){
-            var dataQuery = pane;
-            dataQuery.data.drilldownType = "Currency";
-            dataQuery.data.currency = parseInt(idCurrency);
-            dataQuery.data.startDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.data.endDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.data.isDrilldown = true;
+            var dataQuery = pane.data;
+            dataQuery.drilldownType = "Currency";
+            dataQuery.currency = parseInt(idCurrency);
+            dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
+            dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
+            dataQuery.isDrilldown = true;
 
-            tab.goForward(dataQuery.data);
+            tab.goForward(dataQuery);
         }
 
         function generateGrandtotalReport(){

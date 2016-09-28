@@ -10,7 +10,7 @@ import angular from "angular";
     function commonService($http, httpResponseService, titleService) {
 
         var service = {
-            getTitle: titleService.getReportMainTitle,
+            getTitle: titleService.getTitleReport,
             getData: getData,
             exportExcel: exportExcel
         };

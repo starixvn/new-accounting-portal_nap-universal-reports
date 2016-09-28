@@ -11,10 +11,13 @@ import angular from "angular";
         var gameStatisticReport = ' Game Statistic Report ';
 
         var service = {
-            getTitleDrilldown: getTitleDrilldown,
-            getReportMainTitle: getReportMainTitle
+            getTitleReport: getTitleReport
         };
         return service;
+
+        function getTitleReport(data){
+            return data.isDrilldown == true ? getTitleDrilldown(data) : getReportMainTitle(data);
+        }
         
         function getTitleDrilldown(data){
             
@@ -40,7 +43,7 @@ import angular from "angular";
 
         function getReportbyCrurrencyTitle(data){
 
-            return data.reportType + gameStatisticReport + "On " + data.startDate.format('ll');
+            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll');
         }
 
         function  getGrandTotalTitle(){

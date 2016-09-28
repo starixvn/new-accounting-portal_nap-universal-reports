@@ -70,7 +70,7 @@ import angular from "angular";
                 for (var i = 0; i < this.panes.length; i++) {
                     var pane = this.panes[i];
                     var isLast = i === this.panes.length - 1;
-                    var title = pane.service.getTitle(pane.data, isLast);
+                    var title = pane.service.getTitle(pane, isLast);
                     list.push(title);
                 }
 
