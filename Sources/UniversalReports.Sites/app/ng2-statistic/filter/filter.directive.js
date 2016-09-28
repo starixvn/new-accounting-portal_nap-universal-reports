@@ -87,10 +87,7 @@ import moment from "moment";
                 templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
             };
         }
-        $('#_dropdown').focusout(function()
-        {
-            $('.angucomplete-dropdown').hide();
-        });
+
         vm.reportCriteria = {};
 
         function generate() {
@@ -109,7 +106,9 @@ import moment from "moment";
         }
 
         function viewNormalMode() {
-            vm.normalMode = true;            
+            vm.normalMode = true;
+            vm.startDate = vm.yesterday;
+            vm.endDate = vm.yesterday;
             $('.filter-note').css('display', 'block');
             resetFilter();
         }

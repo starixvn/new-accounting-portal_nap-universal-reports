@@ -20,21 +20,15 @@ import angular from "angular";
             var httpData = {
                 fromDate: data.startDate,
                 toDate: data.endDate,
-                normalMode: data.normalMode,
                 betType: data.betType,
                 username: data.username,
-                currency: data.currency
+                currency: data.currency,
+                moveBetsDay: data.balanceUpDate,
+                isDrilldown: data.isDrilldown
             };
 
-            var httpDatatemp = {
-                startDate: "2016-09-17T00:00:00.000Z",
-                endDate: "2016-09-17T00:00:00.000Z",
-                casinoType: 2,
-                normalMode: data.true
-            };
-            var urltemp = 'api/house-win-loss-by-products/casino/product';
-            var url = 'api/ng2-statistic/report/' + data.reportType;
-            return $http.post(urltemp, httpDatatemp)
+            var url = 'api/ng2-statistic/' + data.reportType;
+            return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
@@ -42,15 +36,15 @@ import angular from "angular";
         function exportExcel(title, data, fileName) {
             var httpData = {
                 title: title,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                normalMode: data.normalMode,
-                reportType: data.reportType,
-                sportbetType: data.sportbetType,
+                fromDate: data.startDate,
+                toDate: data.endDate,
+                betType: data.betType,
                 username: data.username,
-                currency: data.currency
+                currency: data.currency,
+                moveBetsDay: data.balanceUpDate,
+                isDrilldown: data.isDrilldown
             };
-            var url = 'api/ng2-statistic/report/' + data.reportType + '/excel';
+            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
 
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {

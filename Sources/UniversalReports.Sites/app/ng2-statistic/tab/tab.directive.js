@@ -27,8 +27,7 @@ import angular from "angular";
         var vm = this;
         vm.tab = tab;
 
-        $scope.$on('nap-filter-generate', function (event, data) {            
-         
+        $scope.$on('nap-filter-generate', function (event, data) {           
             tab.panes = [];
             var mainPane = new Pane(data);
             tab.addPane(mainPane);

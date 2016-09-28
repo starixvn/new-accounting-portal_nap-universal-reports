@@ -404,35 +404,29 @@ webpackJsonp([4],{
 	            var httpData = {
 	                fromDate: data.startDate,
 	                toDate: data.endDate,
-	                normalMode: data.normalMode,
 	                betType: data.betType,
 	                username: data.username,
-	                currency: data.currency
+	                currency: data.currency,
+	                moveBetsDay: data.balanceUpDate,
+	                isDrilldown: data.isDrilldown
 	            };
 	
-	            var httpDatatemp = {
-	                startDate: "2016-09-17T00:00:00.000Z",
-	                endDate: "2016-09-17T00:00:00.000Z",
-	                casinoType: 2,
-	                normalMode: data.true
-	            };
-	            var urltemp = 'api/house-win-loss-by-products/casino/product';
-	            var url = 'api/ng2-statistic/report/' + data.reportType;
-	            return $http.post(urltemp, httpDatatemp).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	            var url = 'api/ng2-statistic/' + data.reportType;
+	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	
 	        function exportExcel(title, data, fileName) {
 	            var httpData = {
 	                title: title,
-	                startDate: data.startDate,
-	                endDate: data.endDate,
-	                normalMode: data.normalMode,
-	                reportType: data.reportType,
-	                sportbetType: data.sportbetType,
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
+	                betType: data.betType,
 	                username: data.username,
-	                currency: data.currency
+	                currency: data.currency,
+	                moveBetsDay: data.balanceUpDate,
+	                isDrilldown: data.isDrilldown
 	            };
-	            var url = 'api/ng2-statistic/report/' + data.reportType + '/excel';
+	            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
 	
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
@@ -543,9 +537,7 @@ webpackJsonp([4],{
 	                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
 	            };
 	        }
-	        $('#_dropdown').focusout(function () {
-	            $('.angucomplete-dropdown').hide();
-	        });
+	
 	        vm.reportCriteria = {};
 	
 	        function generate() {
@@ -565,6 +557,8 @@ webpackJsonp([4],{
 	
 	        function viewNormalMode() {
 	            vm.normalMode = true;
+	            vm.startDate = vm.yesterday;
+	            vm.endDate = vm.yesterday;
 	            $('.filter-note').css('display', 'block');
 	            resetFilter();
 	        }
@@ -847,7 +841,6 @@ webpackJsonp([4],{
 	        vm.tab = tab;
 	
 	        $scope.$on('nap-filter-generate', function (event, data) {
-	
 	            tab.panes = [];
 	            var mainPane = new Pane(data);
 	            tab.addPane(mainPane);
@@ -920,14 +913,14 @@ webpackJsonp([4],{
 	                    newActivePane.$scope.show();
 	                }
 	
-	                activePane = this.panes[index];
-	                var dateRange = {
-	                    normalMode: activePane.data.normalMode,
-	                    startDate: activePane.data.startDate,
-	                    endDate: activePane.data.endDate,
-	                    reportType: activePane.data.reportType
-	                };
-	                $rootScope.$broadcast('nap-filter-date', dateRange);
+	                //activePane = this.panes[index];
+	                //var dateRange = {
+	                //    normalMode: activePane.data.normalMode,
+	                //    startDate: activePane.data.startDate,
+	                //    endDate: activePane.data.endDate,
+	                //    reportType : activePane.data.reportType
+	                //};
+	                //$rootScope.$broadcast('nap-filter-date', dateRange);
 	            }
 	
 	            function goForward(data) {
