@@ -59,7 +59,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\packages\NPOI.2.1.3\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -92,6 +92,22 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.1.3\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.1.3\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.1.3\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.1.3\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -150,15 +166,24 @@
   <ItemGroup>
     <Compile Include="Data\CommonCriteria.cs" />
     <Compile Include="Data\Daily\DailyCriteria.cs" />
-    <Compile Include="Data\Daily\DailyModel.cs" />
+    <Compile Include="Data\Daily\DailyRawModel.cs" />
     <Compile Include="Data\Daily\DailyRaw.cs" />
     <Compile Include="Data\Daily\DailyService.cs" />
     <Compile Include="Data\Daily\DailyServiceImp.cs" />
+    <Compile Include="Data\Daily\DailyViewModel.cs" />
     <Compile Include="Data\Daily\GridOptionsBuilder.cs" />
     <Compile Include="Data\Daily\GridOptionsBuilderImp.cs" />
     <Compile Include="Data\Daily\DailyController.cs" />
+    <Compile Include="Data\Daily\Repository.cs" />
+    <Compile Include="Data\Daily\RepositoryImp.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalCriteria.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalModel.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalRaw.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalService.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalServiceImp.cs" />
     <Compile Include="Data\GridOptionHeaderColumn.cs" />
     <Compile Include="Data\GridOptionHeaderColumnImp.cs" />
+    <Compile Include="Data\QueryModel.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
     <Compile Include="Filter\RawSports.cs" />
@@ -175,6 +200,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\UniversalReports.Common\UniversalReports.Common.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>

@@ -5,7 +5,7 @@ namespace UniversalReports.Common.BalanceUpServices
 {
     public class BalanceUpServiceImp : BalanceUpService
     {
-        private const string BalanceUpRangeCacheKey = "BalanceUpRangeCacheKey";
+        private const string BalanceUpRangeCacheKey = "CommonBalanceUpRangeCacheKey";
 
         private readonly SimpleRepository repository;
 

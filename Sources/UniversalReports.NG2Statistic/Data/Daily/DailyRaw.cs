@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class DailyRaw
-    {       
+    {
+        public DailyRaw()
+        {
+            Rows = new List<DailyRaw>();
+        }
+
         public string Name { get; set; }
 
         public int NoOfPlayers { get; set; }
@@ -31,5 +36,9 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         public decimal CompanyComm { get; set; }
 
         public decimal CompanyNetIncome { get; set; }
+
+        public List<DailyRaw> Rows { get; set; }
+
+        public DailyRaw Total { get; set; }
     }
 }

@@ -18,20 +18,20 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         }
 
         [Route("")]
-        public IHttpActionResult Daily(DailyCriteria criteria)
-        {
-            var dailyModel = service.Query(criteria);
-            var gridOptions = builder.Build(dailyModel, criteria.Title);
+        public IHttpActionResult Daily(QueryModel queryModel)
+        {            
+            var dailyModel = service.Query(queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Date", 100);
 
             return Json(gridOptions);
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(DailyCriteria criteria)
+        public IHttpActionResult Excel(QueryModel queryModel)
         {
-            var dailyModel = service.Query(criteria);
-            var gridOptions = builder.Build(dailyModel, criteria.Title);
+            var dailyModel = service.Query(queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Date", 100);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");

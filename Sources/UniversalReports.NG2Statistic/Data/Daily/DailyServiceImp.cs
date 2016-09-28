@@ -1,58 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Fanex.Common;
 using Fanex.Data;
+using UniversalReports.Common.BalanceUpServices;
+using UniversalReports.Common.Criteria;
+using System.Linq;
 
 namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class DailyServiceImp : DailyService
     {
-        public DailyModel Query(DailyCriteria criteria)
-        {
-            DailyModel daily = new DailyModel();
-            using (ObjectDb db = new ObjectDb(criteria.GetSettingKey()))
-            {
-                db.AssignParamValues(criteria.GetSpParams());
-                var reader = db.ExecuteReader();
-                while (reader.Read())
-                {
-                    var row =  AssignData(reader);
-                    row.Name = Converter.To<DateTime>(reader["WinlostDate"]).ToString("MMM dd, yyyy");
-                    row.CurrencyId = Converter.To<int>(reader["CurrencyId"]);
-                    daily.Rows.Add(row);
-                }
+        private Repository repository;
 
-                reader.NextResult();
-                while (reader.Read())
-                {
-                    var total = AssignData(reader);
-                    total.Name = "Grand Total RM";
-                    daily.GrandTotal.Add(total);
-                }
+        public DailyServiceImp(Repository repository)
+        {
+            this.repository = repository;
+        }
+
+        public DailyRaw Query(QueryModel queryModel)
+        {
+            DailyRaw daily = new DailyRaw();
+            daily.Total = new DailyRaw();
+
+            var rawData = repository.Query(queryModel);
+            var dates = rawData.Rows.Select(s => s.Name).Distinct().ToList();
+            foreach(var date in dates)
+            {
+                var dateByDate = rawData.Rows.Where(s => s.Name == date).ToList();
+                daily.Rows.Add(new DailyRaw() { Rows = dateByDate });
             }
 
-            return daily;
-        }
+            daily.Total = rawData.Total;
 
-        private DailyRaw AssignData(IDataReader reader)
-        {
-            return new DailyRaw() 
-            {
-                NoOfPlayers = Converter.To<int>(reader["NoOfPlayers"]),
-                BetCount = Converter.To<int>(reader["BetCount"]),
-                Currency = Converter.To<string>(reader["Currency"]),                
-                TotalBets = Converter.To<decimal>(reader["TotalBets"]),
-                TotalWins = Converter.To<decimal>(reader["TotalWins"]),
-                GameIncome = Converter.To<decimal>(reader["GameIncome"]),
-                GamePayout = Converter.To<decimal>(reader["GamePayout"]),
-                CompanyTurnover = Converter.To<decimal>(reader["CompanyTurnover"]),
-                CompanyComm = Converter.To<decimal>(reader["CompanyComm"]),
-                CompanyNetIncome = Converter.To<decimal>(reader["CompanyNetIncome"]),
-            };
-        }
+            return daily;
+        }        
     }
 }

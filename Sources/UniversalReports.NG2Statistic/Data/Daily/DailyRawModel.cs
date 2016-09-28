@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.NG2Statistic.Data.Daily
 {
-    public class DailyModel
+    public class DailyRawModel
     {
-        public DailyModel()
+        public DailyRawModel()
         {
             Rows = new List<DailyRaw>();
-            GrandTotal = new List<DailyRaw>();
+            GrandTotal = new DailyRaw();
         }
 
         public List<DailyRaw> Rows { get; set; }
 
-        public List<DailyRaw> GrandTotal { get; set; }
+        public DailyRaw GrandTotal { get; set; }
     }
 }

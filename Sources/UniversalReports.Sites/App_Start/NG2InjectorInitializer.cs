@@ -10,9 +10,10 @@ namespace UniversalReports.Sites
         internal static void InitializeContainer(Container container)
         {
             container.Register<Filter.Service, Filter.ServiceImp>(Lifestyle.Transient);
+            container.Register<DailyReport.Repository, DailyReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<DailyReport.GridOptionsBuilder, DailyReport.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);
-            container.Register<GridOptionHeaderColumn, GridOptionHeaderColumnImp>(Lifestyle.Transient);
+            container.Register<GridOptionHeaderColumn, GridOptionHeaderColumnImp>(Lifestyle.Transient);             
         }
     }
 }
