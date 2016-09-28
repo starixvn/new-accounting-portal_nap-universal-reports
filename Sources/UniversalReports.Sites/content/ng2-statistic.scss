@@ -1,9 +1,18 @@
 ﻿.freegrid .grid-container .child-row div {
     box-sizing: content-box;
 }
-.grid-boundary{
+
+.grid-boundary {
     float: left;
     width: 100%;
+}
+
+.angucomplete-dropdown {
+    overflow-y: auto !important;
+    max-height: 150px !important;
+    border-color: #5DC9C9 !important;
+    max-width: 200px !important;
+    overflow-x: auto !important;
 }
 
 .form-inline {
@@ -70,10 +79,11 @@
 
         ul li {
             clear: both;
-            div,  input[type=text] {
+
+            div, input[type=text] {
                 width: 100%;
 
-                .input-group-btn{
+                .input-group-btn {
                     width: 15px;
                 }
             }

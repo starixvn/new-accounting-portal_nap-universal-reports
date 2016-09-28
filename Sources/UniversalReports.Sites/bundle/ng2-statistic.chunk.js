@@ -543,7 +543,9 @@ webpackJsonp([4],{
 	                templateUrl: 'app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html'
 	            };
 	        }
-	
+	        $('#_dropdown').focusout(function () {
+	            $('.angucomplete-dropdown').hide();
+	        });
 	        vm.reportCriteria = {};
 	
 	        function generate() {
