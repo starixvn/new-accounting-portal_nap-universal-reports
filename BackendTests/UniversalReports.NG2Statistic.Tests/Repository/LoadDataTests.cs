@@ -42,7 +42,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             var header = new GridOptionHeaderColumnImp();
 
             var dailyModel = service.Query(criteria);            
-            var gridOptions = builder.Build(dailyModel);
+            var gridOptions = builder.Build(dailyModel, "Title");
             gridOptions = header.Build(gridOptions, "Date", 100);
         }
     }

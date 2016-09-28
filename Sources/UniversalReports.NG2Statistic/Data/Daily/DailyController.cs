@@ -21,7 +21,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         public IHttpActionResult Daily(DailyCriteria criteria)
         {
             var dailyModel = service.Query(criteria);
-            var gridOptions = builder.Build(dailyModel);
+            var gridOptions = builder.Build(dailyModel, criteria.Title);
             gridOptions = header.Build(gridOptions, "Date", 100);
 
             return Json(gridOptions);
@@ -31,7 +31,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         public IHttpActionResult Excel(DailyCriteria criteria)
         {
             var dailyModel = service.Query(criteria);
-            var gridOptions = builder.Build(dailyModel);
+            var gridOptions = builder.Build(dailyModel, criteria.Title);
             gridOptions = header.Build(gridOptions, "Date", 100);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");

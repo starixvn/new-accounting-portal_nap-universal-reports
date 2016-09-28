@@ -28,8 +28,8 @@ namespace UniversalReports.NG2Statistic.Data
             return new List<HeaderColumns>
             {
                 new HeaderColumns { HeaderText = mainColumnText, Width = mainColumnWidth, Name = "Name", CellAlignment = HAlignment.Center},
-                new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
+                new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
                 new HeaderColumns { HeaderText = "Currency", Width = 100, Name = "Currency", CellAlignment = HAlignment.Center},
                 new HeaderColumns { HeaderText = "Total Bets", Width = 100, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Total Wins", Width = 100, Name = "TotalWins", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative},

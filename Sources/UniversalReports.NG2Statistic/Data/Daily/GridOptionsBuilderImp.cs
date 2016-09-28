@@ -7,14 +7,14 @@ namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        public GridOptions Build(DailyModel dailyModel)
+        public GridOptions Build(DailyModel dailyModel, string title)
         {
             return new GridOptions
             {
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = "TITLE",
+                TitleInfoText = title,
                 BodyRows = BuildBodyRows(dailyModel),
                 FooterRows = BuildFooter(dailyModel),
                 ShowHighlightRow = false,
@@ -43,14 +43,13 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         private GridDataRow BuildDataRow(DailyRaw raw)
         {
             HAlignment mainTextAlignment = HAlignment.Center;
-            var columnIndex = 0;
-            var customAttributes = $"{raw.CurrencyId}";
+            var columnIndex = 0;            
             var columns = new List<Columns>
             {
-                new Columns { ColumnIndex = columnIndex++, Name = "Name", Value = raw.Name, DisplayValue = raw.Name, CustomAttributes = customAttributes, CellAlignment = mainTextAlignment },
+                new Columns { ColumnIndex = columnIndex++, Name = "Name", Value = raw.Name, CustomAttributes = raw.Name, CellAlignment = mainTextAlignment },
                 new Columns(columnIndex++, "NoOfPlayers", raw.NoOfPlayers),
                 new Columns(columnIndex++, "BetCount", raw.BetCount),
-                new Columns(columnIndex++, "Currency", raw.Currency),
+                new Columns { ColumnIndex = columnIndex++, Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString() },
                 new Columns(columnIndex++, "TotalBets", raw.TotalBets),
                 new Columns(columnIndex++, "TotalWins", raw.TotalWins),
                 new Columns(columnIndex++, "GameIncome", raw.GameIncome),

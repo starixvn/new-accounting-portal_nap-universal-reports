@@ -19,11 +19,11 @@ namespace UniversalReports.NG2Statistic.Data
 
         public string BetType { get; set; }
 
-        public short LiveStatus { get; set; }
+        public short LiveStatus { get; set; } = -1;
 
         public short Currency { get; set; }
 
-        public bool IsRealTime { get; set; }
+        public bool IsRealTime { get; set; } = true;
 
         public override bool IsValid()
         {
