@@ -225,6 +225,10 @@ webpackJsonp([4],{
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(function (angular) {
@@ -241,9 +245,12 @@ webpackJsonp([4],{
 	        $scope.generateCurrencyReport = generateCurrencyReport;
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
-	        function generateCurrencyReport() {
+	        function generateCurrencyReport(idCurrency, dateCurrency) {
 	            var dataQuery = pane;
 	            dataQuery.data.drilldownType = "Currency";
+	            dataQuery.data.currency = parseInt(idCurrency);
+	            dataQuery.data.startDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.data.endDate = _moment2.default.utc(dateCurrency).startOf('day');
 	            dataQuery.data.isDrilldown = true;
 	
 	            tab.goForward(dataQuery.data);
@@ -285,10 +292,10 @@ webpackJsonp([4],{
 	        function createLinks(data) {
 	
 	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var productColumn = data.bodyRows[i].Columns[3];
-	                var productId = productColumn.CustomAttr;
-	                var productName = productColumn.Value;
-	                productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+	                var currencyColumn = data.bodyRows[i].Columns[3];
+	                var idCurrency = currencyColumn.CustomAttr;
+	                var dateCurrency = data.bodyRows[i].Columns[0].CustomAttr;
+	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
 	            }
 	
 	            var grandTotalColumn = data.footerRows[0].Columns[0];

@@ -1,5 +1,6 @@
 import angular from "angular";
 import numeral from "numeral";
+import moment from "moment";
 (function (angular) {
     'use strict';
 
@@ -16,9 +17,12 @@ import numeral from "numeral";
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
-        function generateCurrencyReport(){
+        function generateCurrencyReport(idCurrency, dateCurrency){
             var dataQuery = pane;
-            dataQuery.data.drilldownType = "Currency"; 
+            dataQuery.data.drilldownType = "Currency";
+            dataQuery.data.currency = parseInt(idCurrency);
+            dataQuery.data.startDate = moment.utc(dateCurrency).startOf('day');
+            dataQuery.data.endDate = moment.utc(dateCurrency).startOf('day');
             dataQuery.data.isDrilldown = true;
 
             tab.goForward(dataQuery.data);
@@ -60,10 +64,10 @@ import numeral from "numeral";
         function createLinks(data){
             
             for (var i = 0; i < data.bodyRows.length; i++) {
-                var productColumn = data.bodyRows[i].Columns[3];
-                var productId = productColumn.CustomAttr;
-                var productName = productColumn.Value;
-                productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+                var currencyColumn = data.bodyRows[i].Columns[3];
+                var idCurrency = currencyColumn.CustomAttr;
+                var dateCurrency = data.bodyRows[i].Columns[0].CustomAttr;
+                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
             }
 
             var grandTotalColumn = data.footerRows[0].Columns[0];
