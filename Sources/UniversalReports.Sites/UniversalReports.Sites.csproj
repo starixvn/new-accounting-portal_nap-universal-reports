@@ -291,6 +291,7 @@
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
     <Content Include="app\ng2-statistic\common\common.controller.js" />
     <Content Include="app\ng2-statistic\common\common.service.js" />
+    <Content Include="app\ng2-statistic\drilldown\drilldown.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />

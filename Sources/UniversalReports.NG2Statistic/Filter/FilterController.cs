@@ -29,7 +29,7 @@ namespace UniversalReports.NG2Statistic.Filter
         {
             var criteria = new UserSearchCriteria()
             {
-                CustId = session.UserId,
+                CustId = 8,
                 UserName = userName,
             };
             var sports = service.QueryUserNames(criteria);

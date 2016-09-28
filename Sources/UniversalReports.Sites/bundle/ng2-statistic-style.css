@@ -12,9 +12,6 @@
   max-width: 200px !important;
   overflow-x: auto !important; }
 
-/*#_dropdown:focus .angucomplete-dropdown:focus {
-    display: block;
-}*/
 .form-inline .input-group > input[type=text], .form-inline input[type=text], .form-inline select {
   width: 130px;
   height: 26px; }

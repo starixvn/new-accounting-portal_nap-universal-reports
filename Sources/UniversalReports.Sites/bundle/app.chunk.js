@@ -26240,7 +26240,8 @@ webpackJsonp([0],[
 	            rootUrl: napConfig.RootUrl,
 	            legacyPath: napConfig.LegacyPath,
 	            today: today,
-	            yesterday: yesterday
+	            yesterday: yesterday,
+	            balanceUpDate: moment.utc(napConfig.BalanceUp).startOf('day')
 	        };
 	    }()).constant('formatStrings', {
 	        INT_NUMBER: '0,0',

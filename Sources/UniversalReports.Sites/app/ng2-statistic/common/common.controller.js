@@ -60,7 +60,7 @@ import numeral from "numeral";
         function createLinks(data){
             
             for (var i = 0; i < data.bodyRows.length; i++) {
-                var productColumn = data.bodyRows[i].Columns[0];
+                var productColumn = data.bodyRows[i].Columns[3];
                 var productId = productColumn.CustomAttr;
                 var productName = productColumn.Value;
                 productColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';

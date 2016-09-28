@@ -35,7 +35,8 @@ import moment from "moment";
         vm.yesterday = config.yesterday;
         vm.date = config.today;
         vm.startDate = moment.utc(config.yesterday);
-        vm.endDate = moment.utc(config.yesterday);       
+        vm.endDate = moment.utc(config.yesterday);   
+        vm.balanceUpDate = config.balanceUpDate;
                
         vm.sportItems = [];
         filterService.getSports().then(function(data){
@@ -136,6 +137,7 @@ import moment from "moment";
                 endDate: dateRange.endDate,
                 username: vm.user == null ? "" : vm.user.title,
                 currency: vm.currency,
+                balanceUpDate: vm.balanceUpDate,
                 betType: getBetType(vm.sportItems)
             };
         }
