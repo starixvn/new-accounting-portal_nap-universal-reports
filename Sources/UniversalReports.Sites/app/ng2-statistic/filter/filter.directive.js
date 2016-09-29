@@ -71,7 +71,7 @@ import moment from "moment";
 
         function generateCurrency(data){
             vm.currencies = data;
-            vm.currency = 1;
+            vm.currency = 0;
         }
 
         function generateDropdown(data){

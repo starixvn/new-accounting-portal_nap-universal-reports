@@ -64,9 +64,16 @@ import moment from "moment";
         function createLinks(data){
             
             for (var i = 0; i < data.bodyRows.length; i++) {
-                var currencyColumn = data.bodyRows[i].Columns[3];
+                var row = data.bodyRows[i];
+                var currencyColumn = row.Columns[3];
+                var dateCurrency = row.Columns[0].CustomAttr;
+
+                if(row.Columns.length == 10){
+                    currencyColumn = row.Columns[2];
+                    dateCurrency = row.Columns[1].CustomAttr;
+                }
+                
                 var idCurrency = currencyColumn.CustomAttr;
-                var dateCurrency = data.bodyRows[i].Columns[0].CustomAttr;
                 currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
             }
 
