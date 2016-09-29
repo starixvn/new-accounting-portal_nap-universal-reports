@@ -27,17 +27,17 @@ namespace UniversalReports.NG2Statistic.Data
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Width = mainColumnWidth, Name = "Name", CellAlignment = HAlignment.Center},
-                new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
-                new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
-                new HeaderColumns { HeaderText = "Currency", Width = 100, Name = "Currency", CellAlignment = HAlignment.Center},
-                new HeaderColumns { HeaderText = "Total Bets", Width = 100, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Total Wins", Width = 100, Name = "TotalWins", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative},
-                new HeaderColumns { HeaderText = "Game Income", Width = 100, Name = "GameIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
-                new HeaderColumns { HeaderText = "Game Payout", Width = 100, Name = "GamePayout", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Percentage },
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 100, Name = "CompanyTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Company Comm", Width = 100, Name = "CompanyComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
-                new HeaderColumns { HeaderText = "Company Net Income", Width = 100, Name = "CompanyNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative }                
+                new HeaderColumns { HeaderText = mainColumnText, Width = mainColumnWidth, Name = "Name", CellAlignment = HAlignment.Center, Sort = true, SortType = "string" },
+                new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Currency", Width = 100, Name = "Currency", CellAlignment = HAlignment.Center, Sort = true, SortType = "string" },
+                new HeaderColumns { HeaderText = "Total Bets", Width = 100, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Total Wins", Width = 100, Name = "TotalWins", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Game Income", Width = 100, Name = "GameIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Game Payout", Width = 100, Name = "GamePayout", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Percentage, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Company Turnover", Width = 150, Name = "CompanyTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Company Comm", Width = 130, Name = "CompanyComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortType = "number" },
+                new HeaderColumns { HeaderText = "Company Net Income", Width = 150, Name = "CompanyNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortType = "number" }                
             };
         }
     }

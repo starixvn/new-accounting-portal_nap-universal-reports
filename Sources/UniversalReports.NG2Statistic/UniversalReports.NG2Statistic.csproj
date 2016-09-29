@@ -166,11 +166,9 @@
   <ItemGroup>
     <Compile Include="Data\CommonCriteria.cs" />
     <Compile Include="Data\Daily\DailyCriteria.cs" />
-    <Compile Include="Data\Daily\DailyRawModel.cs" />
     <Compile Include="Data\Daily\DailyRaw.cs" />
     <Compile Include="Data\Daily\DailyService.cs" />
     <Compile Include="Data\Daily\DailyServiceImp.cs" />
-    <Compile Include="Data\Daily\DailyViewModel.cs" />
     <Compile Include="Data\Daily\GridOptionsBuilder.cs" />
     <Compile Include="Data\Daily\GridOptionsBuilderImp.cs" />
     <Compile Include="Data\Daily\DailyController.cs" />

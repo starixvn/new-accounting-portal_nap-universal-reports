@@ -297,7 +297,7 @@ webpackJsonp([4],{
 	            for (var i = 0; i < data.bodyRows.length; i++) {
 	                var row = data.bodyRows[i];
 	                var currencyColumn = row.Columns[3];
-	                var dateCurrency = row.Columns[0].CustomAttr;
+	                var dateCurrency = row.Columns[0].Value;
 	
 	                if (row.Columns.length == 10) {
 	                    currencyColumn = row.Columns[2];
