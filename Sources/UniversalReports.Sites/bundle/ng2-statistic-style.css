@@ -12,6 +12,13 @@
   max-width: 200px !important;
   overflow-x: auto !important; }
 
+.freegrid {
+  max-height: 60vh;
+  overflow-y: auto !important; }
+
+.row-headers-background {
+  position: fixed !important; }
+
 .form-inline .input-group > input[type=text], .form-inline input[type=text], .form-inline select {
   width: 130px;
   height: 26px; }
