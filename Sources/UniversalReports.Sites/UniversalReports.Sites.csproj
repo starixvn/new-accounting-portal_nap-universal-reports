@@ -305,6 +305,8 @@
     <Content Include="app\ng2-statistic\tab\tab.service.js" />
     <Content Include="app\root\app.config.js" />
     <None Include="app\root\components\angucomplete\angucomplete.scss" />
+    <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.css" />
+    <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.js" />
     <Content Include="app\root\components\angucomplete\angucomplete.directive.js" />
     <Content Include="app\root\components\date-range-picker\date-range-picker.directive.html" />
     <Content Include="app\root\components\date-range-picker\date-range-picker.directive.js" />

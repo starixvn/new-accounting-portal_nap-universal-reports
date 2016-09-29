@@ -6923,18 +6923,6 @@ div.divSorter.desc {
 
 #pagination #itemperpage {
   cursor: pointer; }
-.form-control {
-  outline: 0;
-  border-color: #ECECEC;
-  border-style: solid;
-  border-width: 1px;
-  width: 95%;
-  background-color: #ffffff;
-  padding: 6px;
-  border-radius: 2px;
-  margin-bottom: 5px;
-  font-size: 14px; }
-
 .angucomplete-holder {
   position: relative; }
 
@@ -6965,17 +6953,15 @@ div.divSorter.desc {
   padding: 5px;
   color: #000000;
   margin-bottom: 4px;
-  width: 100%; }
+  clear: both; }
 
-.angucomplete-selected-row, .angucomplete-row:hover {
+.angucomplete-selected-row {
   background-color: lightblue;
   color: #ffffff; }
 
 .angucomplete-image-holder {
   padding-top: 2px;
   float: left;
-  height: 34px;
-  width: 34px;
   margin-right: 10px;
   margin-left: 5px; }
 
@@ -6986,6 +6972,15 @@ div.divSorter.desc {
   border-color: #ececec;
   border-style: solid;
   border-width: 1px; }
+
+.angucomplete-image-default {
+  /* Add your own default image here
+     background-image: url('/assets/default.png');
+    */
+  background-position: center;
+  background-size: contain;
+  height: 34px;
+  width: 34px; }
 .glyphicon-none:before {
   content: "\2122";
   color: transparent !important;

@@ -576,7 +576,12 @@ webpackJsonp([4],{
 	            generateCurrency(vm.currencies);
 	            generateDropdown(vm.sportSettings.sourceData);
 	            vm.reportType = "daily";
+	            if (vm.user != null) {
+	                vm.user.title = "";
+	            }
 	            $rootScope.$broadcast('nap-filter-switch');
+	            $scope.$broadcast('angucomplete-alt:clearInput');
+	            //$rootScope.$broadcast('angucomplete-alt:clearInput');
 	        }
 	
 	        function getReportCriteria() {

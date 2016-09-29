@@ -22,6 +22,7 @@ module.exports = {
             "./scripts/Fanex.Grid.css",
             "./scripts/Fanex.Pagination.css",
             "./app/root/**/*.scss",
+            "./app/root/**/*.css",
             "./app/root/**/*.less",
             "./app/root/**/*.css"]),
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js", "./app/house-win-loss/**/*.js"]),
