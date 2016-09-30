@@ -1,12 +1,25 @@
-﻿namespace UniversalReports.NG2Statistic.Data.GrandTotal
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace UniversalReports.NG2Statistic.Data.Daily
 {
-    public class GrandTotalRaw
+    public class DailyModel
     {
+        public DailyModel()
+        {
+            Rows = new List<DailyModel>();
+        }
+
         public string Name { get; set; }
 
         public int NoOfPlayers { get; set; }
 
         public int BetCount { get; set; }
+
+        public int CurrencyId { get; set; }
 
         public string Currency { get; set; }
 
@@ -23,5 +36,9 @@
         public decimal CompanyComm { get; set; }
 
         public decimal CompanyNetIncome { get; set; }
+
+        public List<DailyModel> Rows { get; set; }
+
+        public DailyModel Total { get; set; }
     }
 }

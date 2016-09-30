@@ -6,12 +6,33 @@ namespace UniversalReports.NG2Statistic.Data.GrandTotal
     {
         public GrandTotalModel()
         {
-            Rows = new List<GrandTotalRaw>();
-            GrandTotal = new List<GrandTotalRaw>();
+            Rows = new List<GrandTotalModel>();
         }
 
-        public List<GrandTotalRaw> Rows { get; set; }
+        public string Name { get; set; }
 
-        public List<GrandTotalRaw> GrandTotal { get; set; }
+        public int NoOfPlayers { get; set; }
+
+        public int BetCount { get; set; }
+
+        public string Currency { get; set; }
+
+        public decimal TotalBets { get; set; }
+
+        public decimal TotalWins { get; set; }
+
+        public decimal GameIncome { get; set; }
+
+        public decimal GamePayout { get; set; }
+
+        public decimal CompanyTurnover { get; set; }
+
+        public decimal CompanyComm { get; set; }
+
+        public decimal CompanyNetIncome { get; set; }
+
+        public List<GrandTotalModel> Rows { get; set; }
+
+        public GrandTotalModel Total { get; set; }
     }
 }

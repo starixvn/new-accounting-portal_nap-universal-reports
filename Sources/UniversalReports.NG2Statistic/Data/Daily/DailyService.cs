@@ -2,8 +2,8 @@
 {
     public interface DailyService
     {
-        DailyRaw Query(QueryModel queryModel);
+        DailyModel Query(QueryModel queryModel);
 
-        DailyRaw SortData(QueryModel queryModel);
+        DailyModel SortData(QueryModel queryModel);
     }
 }

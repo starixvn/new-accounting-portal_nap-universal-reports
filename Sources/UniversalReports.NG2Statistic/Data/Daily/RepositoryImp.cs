@@ -17,11 +17,11 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             this.balance = balance;
         }
 
-        public DailyRaw Query(QueryModel queryModel)
+        public DailyModel Query(QueryModel queryModel)
         {
-            DailyRaw daily = new DailyRaw();
-            daily.Rows = new List<DailyRaw>();
-            daily.Total = new DailyRaw();
+            DailyModel daily = new DailyModel();
+            daily.Rows = new List<DailyModel>();
+            daily.Total = new DailyModel();
 
             var criteria = CriteriaFactory.Transform<DailyCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
@@ -50,9 +50,9 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             return daily;
         }
 
-        private DailyRaw AssignData(IDataReader reader)
+        private DailyModel AssignData(IDataReader reader)
         {
-            return new DailyRaw()
+            return new DailyModel()
             {
                 NoOfPlayers = Converter.To<int>(reader["NoOfPlayers"]),
                 BetCount = Converter.To<int>(reader["BetCount"]),

@@ -166,7 +166,7 @@
   <ItemGroup>
     <Compile Include="Data\CommonCriteria.cs" />
     <Compile Include="Data\Daily\DailyCriteria.cs" />
-    <Compile Include="Data\Daily\DailyRaw.cs" />
+    <Compile Include="Data\Daily\DailyModel.cs" />
     <Compile Include="Data\Daily\DailyService.cs" />
     <Compile Include="Data\Daily\DailyServiceImp.cs" />
     <Compile Include="Data\Daily\GridOptionsBuilder.cs" />
@@ -174,9 +174,9 @@
     <Compile Include="Data\Daily\DailyController.cs" />
     <Compile Include="Data\Daily\Repository.cs" />
     <Compile Include="Data\Daily\RepositoryImp.cs" />
+    <Compile Include="Data\GrandTotal\GrandTotalController.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalCriteria.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalModel.cs" />
-    <Compile Include="Data\GrandTotal\GrandTotalRaw.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalService.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalServiceImp.cs" />
     <Compile Include="Data\GridOptionHeaderColumn.cs" />

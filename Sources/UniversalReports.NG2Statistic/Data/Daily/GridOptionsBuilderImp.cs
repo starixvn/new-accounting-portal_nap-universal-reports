@@ -6,7 +6,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        public GridOptions Build(DailyRaw dailyModel, string title)
+        public GridOptions Build(DailyModel dailyModel, string title)
         {
             return new GridOptions
             {
@@ -22,7 +22,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(DailyRaw dailyModel)
+        private List<GridDataRow> BuildBodyRows(DailyModel dailyModel)
         {
             int index = 0;
             int indexGroup = 0;
@@ -47,52 +47,46 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             return gridRows;
         }
 
-        private List<GridDataRow> BuildFooter(DailyRaw total)
+        private List<GridDataRow> BuildFooter(DailyModel total)
         {
             return new List<GridDataRow>() { BuildDataTotalRow(total) };
         }
 
-        private GridDataRow BuildDataRow(DailyRaw raw, int mergeRowNumber, string cssClass)
+        private GridDataRow BuildDataRow(DailyModel raw, int mergeRowNumber, string cssClass)
         {
             var columns = new List<Columns>();
-            var columnIndex = 0;
             if (mergeRowNumber > 0)
             {
-                columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "Name", Value = raw.Name, MergeRowNumber = mergeRowNumber });
+                columns.Add(new Columns { Name = "Name", Value = raw.Name, MergeRowNumber = mergeRowNumber });
             }
-            else
-            {
-                columnIndex = 1;
-            }
-
-            AssignDataRow(raw, columns, columnIndex);
+            
+            AssignDataRow(raw, columns);
 
             return new GridDataRow { Columns = columns, CssClass = cssClass }; ;
         }
 
-        private GridDataRow BuildDataTotalRow(DailyRaw raw)
+        private GridDataRow BuildDataTotalRow(DailyModel raw)
         {
             var columns = new List<Columns>();
-            var columnIndex = 0;
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "Name", Value = raw.Name });
+            columns.Add(new Columns { Name = "Name", Value = raw.Name });
 
-            AssignDataRow(raw, columns, columnIndex);
+            AssignDataRow(raw, columns);
 
             return new GridDataRow { Columns = columns };
         }
 
-        private void AssignDataRow(DailyRaw raw, List<Columns> columns, int columnIndex)
+        private void AssignDataRow(DailyModel raw, List<Columns> columns)
         {
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "NoOfPlayers", Value = raw.NoOfPlayers });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "BetCount", Value = raw.BetCount, CustomAttributes = raw.Name });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString() });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "TotalBets", Value = raw.TotalBets });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "TotalWins", Value = raw.TotalWins });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "GameIncome", Value = raw.GameIncome });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "GamePayout", Value = raw.GamePayout });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyTurnover", Value = raw.CompanyTurnover });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyComm", Value = raw.CompanyComm });
-            columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyNetIncome", Value = raw.CompanyNetIncome });            
+            columns.Add(new Columns { Name = "NoOfPlayers", Value = raw.NoOfPlayers });
+            columns.Add(new Columns { Name = "BetCount", Value = raw.BetCount, CustomAttributes = raw.Name });
+            columns.Add(new Columns { Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString() });
+            columns.Add(new Columns { Name = "TotalBets", Value = raw.TotalBets });
+            columns.Add(new Columns { Name = "TotalWins", Value = raw.TotalWins });
+            columns.Add(new Columns { Name = "GameIncome", Value = raw.GameIncome });
+            columns.Add(new Columns { Name = "GamePayout", Value = raw.GamePayout });
+            columns.Add(new Columns { Name = "CompanyTurnover", Value = raw.CompanyTurnover });
+            columns.Add(new Columns { Name = "CompanyComm", Value = raw.CompanyComm });
+            columns.Add(new Columns { Name = "CompanyNetIncome", Value = raw.CompanyNetIncome });
         }       
     }
 }

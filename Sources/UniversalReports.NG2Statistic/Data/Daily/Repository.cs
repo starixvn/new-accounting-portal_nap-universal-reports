@@ -8,6 +8,6 @@ namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public interface Repository
     {
-        DailyRaw Query(QueryModel queryModel);
+        DailyModel Query(QueryModel queryModel);
     }
 }
