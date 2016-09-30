@@ -110,6 +110,9 @@ import moment from "moment";
             var endOfMonth = moment.utc(selectedDate).endOf('month');
             var startDate = moment.utc(startOfMonth).subtract(Math.abs(startOfMonth.weekday()), 'days');
 
+            startOfMonthOfMinDate = moment.utc(vm.minDate).startOf('month');
+            endOfMonthOfMaxDate = moment.utc(vm.maxDate).endOf('month');
+
             vm.monthOptions = generateMonthOptions();
             vm.month = vm.monthOptions[0];
             angular.forEach(vm.monthOptions, function (monthOption) {

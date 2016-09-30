@@ -27350,6 +27350,9 @@ webpackJsonp([0],[
 	            var endOfMonth = moment.utc(selectedDate).endOf('month');
 	            var startDate = moment.utc(startOfMonth).subtract(Math.abs(startOfMonth.weekday()), 'days');
 	
+	            startOfMonthOfMinDate = moment.utc(vm.minDate).startOf('month');
+	            endOfMonthOfMaxDate = moment.utc(vm.maxDate).endOf('month');
+	
 	            vm.monthOptions = generateMonthOptions();
 	            vm.month = vm.monthOptions[0];
 	            angular.forEach(vm.monthOptions, function (monthOption) {
@@ -27517,6 +27520,9 @@ webpackJsonp([0],[
 	
 	            setDateRangeContrains(data);
 	            vm.timePeriod = "specific-period";
+	            if (vm.startDate.isAfter(vm.maxDateFrom)) {
+	                vm.startDate = data.selectedDate;
+	            }
 	        });
 	
 	        $scope.$watch('vm.startDate', function () {
@@ -27533,11 +27539,12 @@ webpackJsonp([0],[
 	
 	            vm.minDateFrom = vm.minDate;
 	            vm.maxDateFrom = vm.dateto;
-	            vm.minDateTo = vm.datefrom;
+	
+	            vm.minDateTo = vm.minDate;
 	            vm.maxDateTo = vm.maxDate;
 	
-	            vm.startDate = vm.datefrom;
-	            vm.endDate = vm.dateto;
+	            //vm.startDate = vm.datefrom;
+	            //vm.endDate = vm.dateto;
 	        };
 	
 	        function getTimePeriodConfiguration(config) {
@@ -27592,10 +27599,12 @@ webpackJsonp([0],[
 	                case "from":
 	                    vm.minDateTo = data.selectedDate;
 	                    vm.startDate = data.selectedDate;
+	                    vm.datefrom = data.selectedDate;
 	                    break;
 	                case "to":
 	                    vm.maxDateFrom = data.selectedDate;
 	                    vm.endDate = data.selectedDate;
+	                    vm.dateto = data.selectedDate;
 	                    break;
 	                default:
 	                    break;

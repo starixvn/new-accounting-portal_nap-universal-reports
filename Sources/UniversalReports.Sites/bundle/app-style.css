@@ -6953,7 +6953,8 @@ div.divSorter.desc {
   padding: 5px;
   color: #000000;
   margin-bottom: 4px;
-  clear: both; }
+  clear: both;
+  width: 100%; }
 
 .angucomplete-selected-row {
   background-color: lightblue;

@@ -1,7 +1,6 @@
 .angucomplete-holder {
     position: relative;
 }
-
 .angucomplete-dropdown {
     border-color: #ececec;
     border-width: 1px;
@@ -33,6 +32,7 @@
     color: #000000;
     margin-bottom: 4px;
     clear: both;
+    width: 100%;
 }
 
 .angucomplete-selected-row {
