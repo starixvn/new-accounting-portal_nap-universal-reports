@@ -179,6 +179,10 @@
     <Compile Include="Data\GrandTotal\GrandTotalModel.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalService.cs" />
     <Compile Include="Data\GrandTotal\GrandTotalServiceImp.cs" />
+    <Compile Include="Data\GrandTotal\GridOptionsBuilder.cs" />
+    <Compile Include="Data\GrandTotal\GridOptionsBuilderImp.cs" />
+    <Compile Include="Data\GrandTotal\Repository.cs" />
+    <Compile Include="Data\GrandTotal\RepositoryImp.cs" />
     <Compile Include="Data\GridOptionHeaderColumn.cs" />
     <Compile Include="Data\GridOptionHeaderColumnImp.cs" />
     <Compile Include="Data\QueryModel.cs" />

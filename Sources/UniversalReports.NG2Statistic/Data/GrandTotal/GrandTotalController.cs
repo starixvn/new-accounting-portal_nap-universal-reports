@@ -1,18 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Web.Http;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.NG2Statistic.Data.GrandTotal
 {
     [RoutePrefix("api/ng2-statistic/grandtotal")]
     public class GrandTotalController : ApiController
     {
-        public GrandTotalController()
-        {
+        private readonly GrandTotalService service;
+        private readonly GridOptionsBuilder builder;
+        private readonly GridOptionHeaderColumn header;
 
+        public GrandTotalController(GrandTotalService service, GridOptionsBuilder builder, GridOptionHeaderColumn header)
+        {
+            this.service = service;
+            this.builder = builder;
+            this.header = header;
+        }
+
+        [Route("")]
+        public IHttpActionResult GrandTotal(QueryModel queryModel)
+        {
+            var grandTotalModel = service.Query(queryModel);
+            var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
+            gridOptions = header.Build(gridOptions, "Grand Total", queryModel);
+
+            return Json(gridOptions);
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(QueryModel queryModel)
+        {
+            var grandTotalModel = service.Query(queryModel);
+            var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
+            gridOptions = header.Build(gridOptions, "Grand Total", queryModel);
+
+            return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }
     }
 }

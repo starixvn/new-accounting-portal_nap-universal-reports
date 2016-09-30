@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UniversalReports.NG2Statistic.Data.GrandTotal
+﻿namespace UniversalReports.NG2Statistic.Data.GrandTotal
 {
     public interface GrandTotalService
     {
-        GrandTotalModel Query(GrandTotalCriteria criteria);
+        GrandTotalModel Query(QueryModel queryModel);
     }
 }
