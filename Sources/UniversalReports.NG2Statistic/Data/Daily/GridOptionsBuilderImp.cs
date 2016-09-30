@@ -93,8 +93,6 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyTurnover", Value = raw.CompanyTurnover });
             columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyComm", Value = raw.CompanyComm });
             columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "CompanyNetIncome", Value = raw.CompanyNetIncome });            
-        }
-
-       
+        }       
     }
 }

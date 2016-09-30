@@ -27,6 +27,16 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             return Json(gridOptions);
         }
 
+        [Route("sort")]
+        public IHttpActionResult Sort(QueryModel queryModel)
+        {
+            var dailyModel = service.Query(queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel.Title);
+            gridOptions = header.Build(gridOptions, "Date", 100);
+
+            return Json(gridOptions);
+        }
+
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {

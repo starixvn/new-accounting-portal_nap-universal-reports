@@ -15,7 +15,7 @@ namespace UniversalReports.NG2Statistic.Data
         {
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildColumns(mainColumnText, mainColumnWidth);
-            gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();
+            gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();            
 
             return gridOptions;
         }
