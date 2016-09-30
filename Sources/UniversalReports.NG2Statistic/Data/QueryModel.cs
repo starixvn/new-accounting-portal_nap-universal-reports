@@ -8,27 +8,10 @@ namespace UniversalReports.NG2Statistic.Data
 {
     public class QueryModel
     {
-        private Dictionary<string, string> dataTypes;
         public QueryModel()
         {
-            dataTypes = new Dictionary<string, string>()
-            {
-                { "Name", "date"},
-                { "NoOfPlayers", "number" },
-                { "BetCount", "number" },
-                { "Currency", "string" },
-                { "TotalBets", "number" },
-                { "TotalWins", "number" },
-                { "GameIncome", "number" },
-                { "GamePayout", "number" },
-                { "CompanyTurnover", "number" },
-                { "CompanyComm", "number" },
-                { "CompanyNetIncome", "number" },
-            };
-
             SortColumnName = string.Empty;
             SortDirection = string.Empty;
-
         }
 
         public DateTime FromDate { get; set; }
@@ -52,16 +35,5 @@ namespace UniversalReports.NG2Statistic.Data
         public string SortColumnName { get; set; }
 
         public string SortDirection { get; set; }
-
-        public string SortDataType
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(SortColumnName))
-                    return string.Empty;
-
-                return dataTypes.ContainsKey(SortColumnName) ? dataTypes[SortColumnName] : string.Empty;
-            }
-        }
     }
 }

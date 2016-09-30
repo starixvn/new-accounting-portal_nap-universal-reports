@@ -186,6 +186,17 @@
     <Compile Include="Data\GridOptionHeaderColumn.cs" />
     <Compile Include="Data\GridOptionHeaderColumnImp.cs" />
     <Compile Include="Data\QueryModel.cs" />
+    <Compile Include="Data\UserName\GridOptionHeaderColumn.cs" />
+    <Compile Include="Data\UserName\GridOptionHeaderColumnImp.cs" />
+    <Compile Include="Data\UserName\GridOptionsBuilder.cs" />
+    <Compile Include="Data\UserName\GridOptionsBuilderImp.cs" />
+    <Compile Include="Data\UserName\Repository.cs" />
+    <Compile Include="Data\UserName\RepositoryImp.cs" />
+    <Compile Include="Data\UserName\UserNameController.cs" />
+    <Compile Include="Data\UserName\UserNameCriteria.cs" />
+    <Compile Include="Data\UserName\UserNameModel.cs" />
+    <Compile Include="Data\UserName\UserNameService.cs" />
+    <Compile Include="Data\UserName\UserNameServiceImp.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
     <Compile Include="Filter\RawSports.cs" />

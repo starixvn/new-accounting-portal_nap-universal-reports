@@ -44,7 +44,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         {
             foreach (var row in raw.Rows)
             {
-                Sort.SortDataByProperty<DailyModel>(row.Rows, queryModel.SortDirection, queryModel.SortColumnName, queryModel.SortDataType);
+                Sort.SortDataByProperty<DailyModel>(row.Rows, queryModel.SortDirection, queryModel.SortColumnName);
             }
 
             PropertyInfo propInfo = typeof(DailyModel).GetProperty(queryModel.SortColumnName);

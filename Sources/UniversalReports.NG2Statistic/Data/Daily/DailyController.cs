@@ -40,7 +40,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {
-            var dailyModel = service.Query(queryModel);
+            var dailyModel = service.SortData(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Date", queryModel);
 

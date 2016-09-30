@@ -129,7 +129,6 @@
     <Compile Include="Criteria\WinLossCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortServices\Sort.cs" />
-    <Compile Include="SortServices\SortDataTypeConstants.cs" />
     <Compile Include="SortServices\SortDirectionConstants.cs" />
   </ItemGroup>
   <ItemGroup>

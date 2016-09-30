@@ -3,6 +3,7 @@ using UniversalReports.NG2Statistic.Data;
 using DailyReport = UniversalReports.NG2Statistic.Data.Daily;
 using Filter = UniversalReports.NG2Statistic.Filter;
 using GrandTotalReport = UniversalReports.NG2Statistic.Data.GrandTotal;
+using UserNameReport = UniversalReports.NG2Statistic.Data.UserName;
 
 namespace UniversalReports.Sites
 {
@@ -18,6 +19,10 @@ namespace UniversalReports.Sites
             container.Register<GrandTotalReport.Repository, GrandTotalReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<UserNameReport.Repository, UserNameReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
+            container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
         }
     }
 }
