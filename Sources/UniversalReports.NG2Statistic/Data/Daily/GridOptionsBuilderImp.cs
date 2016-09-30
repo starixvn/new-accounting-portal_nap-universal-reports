@@ -56,7 +56,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         {
             var columns = new List<Columns>();
             var columnIndex = 0;
-            if (mergeRowNumber > 1)
+            if (mergeRowNumber > 0)
             {
                 columns.Add(new Columns { ColumnIndex = columnIndex++, Name = "Name", Value = raw.Name, MergeRowNumber = mergeRowNumber });
             }

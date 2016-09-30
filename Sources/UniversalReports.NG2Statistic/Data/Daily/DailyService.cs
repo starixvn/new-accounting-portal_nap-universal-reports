@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UniversalReports.NG2Statistic.Data.Daily
+﻿namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public interface DailyService
     {
         DailyRaw Query(QueryModel queryModel);
+
+        DailyRaw SortData(QueryModel queryModel);
     }
 }

@@ -22,7 +22,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         {            
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", 100);
+            gridOptions = header.Build(gridOptions, "Date", queryModel);
 
             return Json(gridOptions);
         }
@@ -30,9 +30,9 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         [Route("sort")]
         public IHttpActionResult Sort(QueryModel queryModel)
         {
-            var dailyModel = service.Query(queryModel);
+            var dailyModel = service.SortData(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", 100);
+            gridOptions = header.Build(gridOptions, "Date", queryModel);
 
             return Json(gridOptions);
         }
@@ -42,7 +42,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", 100);
+            gridOptions = header.Build(gridOptions, "Date", queryModel);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }
