@@ -54,9 +54,9 @@ import moment from "moment";
                 serverSortFunction: generateSort
             };
 
-            gridOptions.titleInfo = titleInfo;
-            gridOptions.sortOption = sortOptions;
-            gridElement.fanexGrid(gridOptions);
+            data.titleInfo = titleInfo;
+            data.sortOption = sortOptions;
+            gridElement.fanexGrid(data);
         }
 
         function checkDrilldown(data){
