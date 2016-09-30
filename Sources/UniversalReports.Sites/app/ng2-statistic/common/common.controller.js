@@ -50,15 +50,29 @@ import moment from "moment";
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
             };
+            var sortOptions = {
+                serverSortFunction: generateSort
+            };
 
-            data.titleInfo = titleInfo;            
-            gridElement.fanexGrid(data);
+            gridOptions.titleInfo = titleInfo;
+            gridOptions.sortOption = sortOptions;
+            gridElement.fanexGrid(gridOptions);
         }
 
         function checkDrilldown(data){
             if(!pane.data.isDrilldown){
                 createLinks(data);
             }
+        }
+
+        function generateSort(sortColumnName, sortDirection){
+            pane.data.sortColumnName = sortColumnName;
+            pane.data.sortDirection = sortDirection;
+            pane.service.getDataSort(pane.data).then(function(data){
+                checkDrilldown(data);
+                renderGrid(data);
+                pane.compileAll();
+            });
         }
 
         function createLinks(data){

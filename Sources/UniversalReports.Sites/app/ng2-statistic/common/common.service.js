@@ -12,6 +12,7 @@ import angular from "angular";
         var service = {
             getTitle: titleService.getTitleReport,
             getData: getData,
+            getDataSort: getDataSort,
             exportExcel: exportExcel
         };
         return service;
@@ -28,6 +29,25 @@ import angular from "angular";
             };
 
             var url = 'api/ng2-statistic/' + data.reportType;
+            return $http.post(url, httpData)
+                .then(httpResponseService.getDataComplete)
+                .catch(httpResponseService.getDataFailed);
+        }
+
+        function getDataSort(data){
+            var httpData = {
+                fromDate: data.startDate,
+                toDate: data.endDate,
+                betType: data.betType,
+                username: data.username,
+                currency: data.currency,
+                moveBetsDay: data.balanceUpDate,
+                isDrilldown: data.isDrilldown,
+                sortColumnName: data.sortColumnName,
+                sortDirection: data.sortDirection
+            };
+            var url = 'api/ng2-statistic/' + data.reportType + "/sort";
+
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
