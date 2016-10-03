@@ -1,4 +1,4 @@
-/// <binding />
+/// <binding BeforeBuild='Run - Development' />
 "use strict";
 var webpack = require('webpack');
 var path = require('path');
@@ -81,12 +81,12 @@ module.exports = {
 function initializePlugin() {
     var plugins = [
     new extractTextPlugin('[name].css', { allChunks: true }),
-    new cleanWebpackPlugin(['bundle'], {
-        root: __dirname,
-        verbose: true,
-        dry: false,
-        exclude: []
-    }),
+    //new cleanWebpackPlugin(['bundle'], {
+    //    root: __dirname,
+    //    verbose: true,
+    //    dry: false,
+    //    exclude: []
+    //}),
     new webpack.optimize.CommonsChunkPlugin({
         name: 'lib',
         minChunks: 2

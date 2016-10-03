@@ -1,32 +1,38 @@
 webpackJsonp([4],{
 
 /***/ 0:
+/*!***************************!*\
+  !*** multi ng2-statistic ***!
+  \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(78);
-	__webpack_require__(79);
-	__webpack_require__(80);
-	__webpack_require__(81);
-	__webpack_require__(82);
-	__webpack_require__(83);
-	__webpack_require__(84);
-	__webpack_require__(85);
-	__webpack_require__(86);
-	__webpack_require__(87);
-	__webpack_require__(88);
-	__webpack_require__(89);
-	__webpack_require__(90);
-	module.exports = __webpack_require__(91);
+	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */92);
+	__webpack_require__(/*! ./app/ng2-statistic/app.js */93);
+	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */94);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */95);
+	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */96);
+	__webpack_require__(/*! ./app/ng2-statistic/common/common.controller.js */97);
+	__webpack_require__(/*! ./app/ng2-statistic/common/common.service.js */98);
+	__webpack_require__(/*! ./app/ng2-statistic/drilldown/drilldown.service.js */99);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */100);
+	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */101);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */102);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */103);
+	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */104);
+	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */105);
 
 
 /***/ },
 
-/***/ 78:
+/***/ 92:
+/*!*****************************************!*\
+  !*** ./app/ng2-statistic/app.config.js ***!
+  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -59,12 +65,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 79:
+/***/ 93:
+/*!**********************************!*\
+  !*** ./app/ng2-statistic/app.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -78,12 +87,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 80:
+/***/ 94:
+/*!*******************************************************!*\
+  !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -103,12 +115,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 81:
+/***/ 95:
+/*!************************************************************!*\
+  !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
+  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -150,12 +165,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 82:
+/***/ 96:
+/*!*******************************************************!*\
+  !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -215,20 +233,23 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 83:
+/***/ 97:
+/*!*******************************************************!*\
+  !*** ./app/ng2-statistic/common/common.controller.js ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(7);
+	var _numeral = __webpack_require__(/*! numeral */ 7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
-	var _moment = __webpack_require__(5);
+	var _moment = __webpack_require__(/*! moment */ 5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -335,12 +356,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 84:
+/***/ 98:
+/*!****************************************************!*\
+  !*** ./app/ng2-statistic/common/common.service.js ***!
+  \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -416,12 +440,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 85:
+/***/ 99:
+/*!**********************************************************!*\
+  !*** ./app/ng2-statistic/drilldown/drilldown.service.js ***!
+  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -479,16 +506,19 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 86:
+/***/ 100:
+/*!******************************************************!*\
+  !*** ./app/ng2-statistic/filter/filter.directive.js ***!
+  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(5);
+	var _moment = __webpack_require__(/*! moment */ 5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -676,12 +706,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 87:
+/***/ 101:
+/*!****************************************************!*\
+  !*** ./app/ng2-statistic/filter/filter.service.js ***!
+  \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -714,12 +747,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 88:
+/***/ 102:
+/*!*************************************************!*\
+  !*** ./app/ng2-statistic/tab/pane.directive.js ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -772,12 +808,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 89:
+/***/ 103:
+/*!***********************************************!*\
+  !*** ./app/ng2-statistic/tab/pane.service.js ***!
+  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -849,12 +888,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 90:
+/***/ 104:
+/*!************************************************!*\
+  !*** ./app/ng2-statistic/tab/tab.directive.js ***!
+  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -900,12 +942,15 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 91:
+/***/ 105:
+/*!**********************************************!*\
+  !*** ./app/ng2-statistic/tab/tab.service.js ***!
+  \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(10);
+	var _angular = __webpack_require__(/*! angular */ 10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	

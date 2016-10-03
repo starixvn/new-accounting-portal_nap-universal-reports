@@ -1,4 +1,4 @@
-//import angular from "angular";
+import angular from "angular";
 (function (angular, undefined) {
     'use strict';
 

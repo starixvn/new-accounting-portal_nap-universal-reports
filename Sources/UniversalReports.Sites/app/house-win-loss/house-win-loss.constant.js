@@ -358,7 +358,7 @@ import angular from "angular";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/racing/site",
                 mainParameters: {},
-                getTitleFunction: ""
+                getTitleFunction: "getSiteTitle"
             }
         },
         "Bingo": {
