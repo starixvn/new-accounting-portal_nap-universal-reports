@@ -1,5 +1,6 @@
 ﻿using SimpleInjector;
 using UniversalReports.NG2Statistic.Data;
+using BettypeReport = UniversalReports.NG2Statistic.Data.Bettype;
 using DailyReport = UniversalReports.NG2Statistic.Data.Daily;
 using Filter = UniversalReports.NG2Statistic.Filter;
 using GrandTotalReport = UniversalReports.NG2Statistic.Data.GrandTotal;
@@ -15,7 +16,7 @@ namespace UniversalReports.Sites
             container.Register<Filter.Service, Filter.ServiceImp>(Lifestyle.Transient);
             container.Register<DailyReport.Repository, DailyReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<DailyReport.GridOptionsBuilder, DailyReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);            
+            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.Repository, GrandTotalReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>(Lifestyle.Transient);
@@ -23,6 +24,9 @@ namespace UniversalReports.Sites
             container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
+            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>(Lifestyle.Transient);
+            container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>(Lifestyle.Transient);
         }
     }
 }

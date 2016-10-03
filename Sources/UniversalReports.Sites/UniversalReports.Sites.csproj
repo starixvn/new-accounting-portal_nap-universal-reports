@@ -680,6 +680,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\ng2-statistic\bettype\" />
+    <Folder Include="app\ng2-statistic\currency\" />
+    <Folder Include="app\ng2-statistic\daily\" />
+    <Folder Include="app\ng2-statistic\username\" />
     <Folder Include="app\root\components\angucomplete\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>

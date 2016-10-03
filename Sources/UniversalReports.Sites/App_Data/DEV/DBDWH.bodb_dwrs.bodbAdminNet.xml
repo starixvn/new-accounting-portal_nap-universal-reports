@@ -56,5 +56,6 @@
     <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
     <Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
+    <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype_uat2" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
   </Function>
 </Functions>

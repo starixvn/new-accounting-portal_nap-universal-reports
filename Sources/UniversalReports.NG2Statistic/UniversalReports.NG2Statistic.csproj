@@ -164,6 +164,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Bettype\BettypeController.cs" />
+    <Compile Include="Data\Bettype\BettypeCriteria.cs" />
+    <Compile Include="Data\Bettype\BettypeModel.cs" />
+    <Compile Include="Data\Bettype\BettypeService.cs" />
+    <Compile Include="Data\Bettype\BettypeServiceImp.cs" />
+    <Compile Include="Data\Bettype\GridOptionsBuilder.cs" />
+    <Compile Include="Data\Bettype\GridOptionsBuilderImp.cs" />
+    <Compile Include="Data\Bettype\Repository.cs" />
+    <Compile Include="Data\Bettype\RepositoryImp.cs" />
     <Compile Include="Data\CommonCriteria.cs" />
     <Compile Include="Data\Daily\DailyCriteria.cs" />
     <Compile Include="Data\Daily\DailyModel.cs" />
@@ -222,6 +231,7 @@
       <Name>UniversalReports.MVC</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
