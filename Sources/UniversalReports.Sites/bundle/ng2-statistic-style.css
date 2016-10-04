@@ -4,9 +4,12 @@
 .grid-boundary {
   float: left;
   width: 100%; }
-.ng2-sport-bold{
-    font-weight: bold;
-}
+
+.ng2-sport-bold {
+  font-weight: bold; }
+
+.grid-boundary-popup .freegrid {
+  display: none; }
 
 .angucomplete-dropdown {
   overflow-y: auto !important;
