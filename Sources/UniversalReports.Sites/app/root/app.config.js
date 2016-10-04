@@ -20,7 +20,7 @@ import angular from "angular";
                         if ($templateCache.get(url) === undefined) {
                             var subString = url.substring(0, 4);
                             if (subString.toLowerCase() !== 'http') {
-                                c.url = config.rootUrl + '/' + url;
+                                c.url = config.rootUrl + '/' + url + "?version=20161004";
                             }
                         }
 
