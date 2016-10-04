@@ -3,7 +3,6 @@ webpackJsonp([4],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(95);
 	__webpack_require__(96);
 	__webpack_require__(97);
 	__webpack_require__(98);
@@ -16,12 +15,16 @@ webpackJsonp([4],{
 	__webpack_require__(105);
 	__webpack_require__(106);
 	__webpack_require__(107);
-	module.exports = __webpack_require__(108);
+	__webpack_require__(108);
+	__webpack_require__(109);
+	__webpack_require__(110);
+	__webpack_require__(111);
+	module.exports = __webpack_require__(112);
 
 
 /***/ },
 
-/***/ 95:
+/***/ 96:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59,7 +62,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 96:
+/***/ 97:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78,7 +81,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 97:
+/***/ 98:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -103,7 +106,161 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 98:
+/***/ 99:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('BettypeController', BettypeController);
+	
+	    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
+	    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	        $scope.generateCurrencyReport = generateCurrencyReport;
+	        $scope.generateGrandtotalReport = generateGrandtotalReport;
+	
+	        function generateCurrencyReport(idCurrency, dateCurrency) {
+	            var dataQuery = pane.data;
+	            dataQuery.drilldownType = "Currency";
+	            dataQuery.currency = parseInt(idCurrency);
+	            dataQuery.startDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.endDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.isDrilldown = true;
+	
+	            tab.goForward(dataQuery);
+	        }
+	
+	        function generateGrandtotalReport() {
+	            var data = pane.data;
+	            data.drilldownType = "Grandtotal";
+	            data.isDrilldown = true;
+	            pane.service = $injector.get("grandtotalService");
+	            pane.controller = 'GrandtotalController';
+	            //generatePopup(data);
+	        }
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                checkDrilldown(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	            var sortOptions = {
+	                serverSortFunction: generateSort
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.sortOption = sortOptions;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function checkDrilldown(data) {
+	            if (!pane.data.isDrilldown) {
+	                createLinks(data);
+	            }
+	            createLinkTotal(data);
+	        }
+	
+	        function generateSort(sortColumnName, sortDirection) {
+	            pane.data.sortColumnName = sortColumnName;
+	            pane.data.sortDirection = sortDirection;
+	            pane.service.getDataSort(pane.data).then(function (data) {
+	                checkDrilldown(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function createLinks(data) {
+	
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var row = data.bodyRows[i];
+	                var currencyColumn = row.Columns[3];
+	                var dateCurrency = row.Columns[0].Value;
+	
+	                if (row.Columns.length == 10) {
+	                    currencyColumn = row.Columns[2];
+	                    dateCurrency = row.Columns[1].CustomAttr;
+	                }
+	
+	                var idCurrency = currencyColumn.CustomAttr;
+	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+	            }
+	        }
+	
+	        function createLinkTotal(data) {
+	            var grandTotalColumn = data.footerRows[0].Columns[0];
+	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	
+	        function generatePopup() {
+	            pane.service.getData(pane).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function exportExcelGrandTotal() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane, pane.getFileName());
+	        }
+	
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcelGrandTotal
+	            };
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 100:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -150,7 +307,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 99:
+/***/ 101:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -216,7 +373,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 100:
+/***/ 102:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -292,9 +449,10 @@ webpackJsonp([4],{
 	        }
 	
 	        function checkDrilldown(data) {
-	            if (!pane.data.isDrilldown) {
+	            if (!pane.data.isDrilldown & pane.data.reportType != "username") {
 	                createLinks(data);
 	            }
+	            createLinkTotal(data);
 	        }
 	
 	        function generateSort(sortColumnName, sortDirection) {
@@ -322,7 +480,9 @@ webpackJsonp([4],{
 	                var idCurrency = currencyColumn.CustomAttr;
 	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
 	            }
+	        }
 	
+	        function createLinkTotal(data) {
 	            var grandTotalColumn = data.footerRows[0].Columns[0];
 	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
 	        }
@@ -366,7 +526,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 101:
+/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -446,7 +606,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 102:
+/***/ 104:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -643,7 +803,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 103:
+/***/ 105:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -681,7 +841,108 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 104:
+/***/ 106:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('GrandtotalController', GrandtotalController);
+	
+	    GrandtotalController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
+	    function GrandtotalController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        $scope.generate = generate;
+	
+	        function generate() {
+	            //pane.service.getData(pane.data).then(function(data){
+	            //    checkDrilldown(data);
+	            //    renderGrid(data);
+	            //    pane.compileAll();
+	            //});
+	            pane.service.getData(pane).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	            var sortOptions = {
+	                serverSortFunction: generateSort
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.sortOption = sortOptions;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function checkDrilldown(data) {
+	            if (!pane.data.isDrilldown) {
+	                createLinks(data);
+	            }
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	
+	        function generatePopup() {
+	            pane.service.getData(pane).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function exportExcelGrandTotal() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane, pane.getFileName());
+	        }
+	
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcelGrandTotal
+	            };
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 107:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -745,7 +1006,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 105:
+/***/ 108:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -803,7 +1064,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 106:
+/***/ 109:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -880,7 +1141,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 107:
+/***/ 110:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -931,7 +1192,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 108:
+/***/ 111:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1031,6 +1292,156 @@ webpackJsonp([4],{
 	        }
 	
 	        return Tab;
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 112:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('UsernameController', UsernameController);
+	
+	    UsernameController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
+	    function UsernameController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	        $scope.generateCurrencyReport = generateCurrencyReport;
+	        $scope.generateGrandtotalReport = generateGrandtotalReport;
+	
+	        function generateCurrencyReport(idCurrency, dateCurrency) {
+	            var dataQuery = pane.data;
+	            dataQuery.drilldownType = "Currency";
+	            dataQuery.currency = parseInt(idCurrency);
+	            dataQuery.startDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.endDate = _moment2.default.utc(dateCurrency).startOf('day');
+	            dataQuery.isDrilldown = true;
+	
+	            tab.goForward(dataQuery);
+	        }
+	
+	        function generateGrandtotalReport() {
+	            var data = pane.data;
+	            data.drilldownType = "Grandtotal";
+	            data.isDrilldown = true;
+	            pane.service = $injector.get("grandtotalService");
+	            generatePopup(data);
+	        }
+	
+	        function generate() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                checkDrilldown(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	            var sortOptions = {
+	                serverSortFunction: generateSort
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.sortOption = sortOptions;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function checkDrilldown(data) {
+	            if (!pane.data.isDrilldown) {
+	                createLinks(data);
+	            }
+	        }
+	
+	        function generateSort(sortColumnName, sortDirection) {
+	            pane.data.sortColumnName = sortColumnName;
+	            pane.data.sortDirection = sortDirection;
+	            pane.service.getDataSort(pane.data).then(function (data) {
+	                checkDrilldown(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function createLinks(data) {
+	
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var row = data.bodyRows[i];
+	                var currencyColumn = row.Columns[3];
+	                var dateCurrency = row.Columns[0].Value;
+	
+	                if (row.Columns.length == 10) {
+	                    currencyColumn = row.Columns[2];
+	                    dateCurrency = row.Columns[1].CustomAttr;
+	                }
+	
+	                var idCurrency = currencyColumn.CustomAttr;
+	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+	            }
+	
+	            var grandTotalColumn = data.footerRows[0].Columns[0];
+	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	
+	        function generatePopup() {
+	            pane.service.getData(pane).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function exportExcelGrandTotal() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane, pane.getFileName());
+	        }
+	
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcelGrandTotal
+	            };
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
 	    }
 	})(_angular2.default);
 

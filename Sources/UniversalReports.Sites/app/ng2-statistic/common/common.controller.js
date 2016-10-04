@@ -60,9 +60,10 @@ import moment from "moment";
         }
 
         function checkDrilldown(data){
-            if(!pane.data.isDrilldown){
+            if(!pane.data.isDrilldown & (pane.data.reportType != "username")){
                 createLinks(data);
             }
+            createLinkTotal(data);
         }
 
         function generateSort(sortColumnName, sortDirection){
@@ -90,7 +91,9 @@ import moment from "moment";
                 var idCurrency = currencyColumn.CustomAttr;
                 currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
             }
+        }
 
+        function createLinkTotal(data){            
             var grandTotalColumn = data.footerRows[0].Columns[0];
             grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
         }
