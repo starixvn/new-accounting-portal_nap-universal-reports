@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Repository;
-namespace UniversalReports.NG2Statistic.Data.Daily
+﻿namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class DailyCriteria : CommonCriteria
     {

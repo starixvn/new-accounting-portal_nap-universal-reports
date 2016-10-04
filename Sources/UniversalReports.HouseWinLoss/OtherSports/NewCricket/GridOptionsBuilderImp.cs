@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -9,11 +9,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
-
         private const string CssTotal = "grand-total";
-
         private const string CssChargeCom = "cricket-charged-commission";
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;        
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {

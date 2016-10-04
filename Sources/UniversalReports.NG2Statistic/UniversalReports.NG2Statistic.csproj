@@ -222,7 +222,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UniversalReports.Common\UniversalReports.Common.csproj">
+    <ProjectReference Include="..\UniversalReports.Common\UniversalReports.Common.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Common</Name>
     </ProjectReference>

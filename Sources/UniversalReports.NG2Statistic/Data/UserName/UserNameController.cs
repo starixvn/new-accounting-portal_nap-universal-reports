@@ -28,7 +28,7 @@ namespace UniversalReports.NG2Statistic.Data.UserName
         }
 
         [Route("sort")]
-        public IHttpActionResult sort(QueryModel queryModel)
+        public IHttpActionResult Sort(QueryModel queryModel)
         {
             var userNameModel = service.SortData(queryModel);
             var gridOptions = builder.Build(userNameModel, queryModel.Title);

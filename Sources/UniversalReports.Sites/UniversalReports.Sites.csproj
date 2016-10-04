@@ -661,13 +661,13 @@
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UniversalReports.Common\UniversalReports.Common.csproj">
-      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>
       <Name>UniversalReports.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalReports.Common\UniversalReports.Common.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>

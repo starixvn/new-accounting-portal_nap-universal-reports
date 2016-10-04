@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Fanex.Common;
 
 namespace UniversalReports.Common.SortServices
 {
@@ -11,7 +10,7 @@ namespace UniversalReports.Common.SortServices
         {
             PropertyInfo propInfo = typeof(T).GetProperty(sortColumnName);
 
-            Comparison<T> compare = delegate (T a, T b)
+            Comparison<T> compare = delegate(T a, T b)
             {
                 bool isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
                 var valueA = isAsc ? propInfo.GetValue(a, null) : propInfo.GetValue(b, null);

@@ -31,7 +31,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
         {
             var queryModel = new QueryModel()
             {
-                BetType = "2502,2503,2504,2505,2506,2507,2508,2509,2510,2511,2512,2513,2514,2515,2516,2517,2518,2519,2520,2521,2522,2542,2543,2544,2545,2546,2547,2548,2549,2550,2551,2552,2582,2583,2584,2585,2586,2587,2588,2589,2590,2591,2592,2622,2623,2624,2625,2626,2627,2628,2629,2630,2631,2632,2681,2682,2683",
+                BetType = "2502,2503",
                 Currency = 0,
                 FromDate = DateTime.Today.AddMonths(-2),
                 ToDate = DateTime.Today,

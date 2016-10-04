@@ -8,9 +8,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
     public class WinLossServiceImp : WinLossService
     {
+        private const int BetTypeChargedCom = 500;
         private readonly RawWinLossService rawWinLossService;
         private readonly CalculationService calculationService;
-        private const int BetTypeChargedCom = 500;
 
         public WinLossServiceImp(RawWinLossService rawWinLossService, CalculationService calculationService)
         {

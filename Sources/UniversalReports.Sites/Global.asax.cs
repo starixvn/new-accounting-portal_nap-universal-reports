@@ -39,8 +39,7 @@ namespace UniversalReports.Sites
 
             // Change the Application Name in runtime.
             var runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
-            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId",
-                BindingFlags.Instance | BindingFlags.NonPublic);
+            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
             var theRuntime = runtimeInfo.GetValue(null);
 
             appNameInfo.SetValue(theRuntime, ApplicationName);

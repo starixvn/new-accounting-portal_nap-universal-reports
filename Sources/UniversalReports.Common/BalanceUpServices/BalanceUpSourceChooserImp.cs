@@ -1,6 +1,5 @@
 ﻿using System;
 using UniversalReports.Common.Criteria;
-using UniversalReports.Common.BalanceUpServices;
 
 namespace UniversalReports.Common.BalanceUpServices
 {

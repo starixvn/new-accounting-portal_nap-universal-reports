@@ -1,6 +1,6 @@
-﻿using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -36,7 +36,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
             var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
             var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
 
-            return new FanexExcelResult(new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
+            return new FanexExcelResult(
+                new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
                 Constants.SheetName);
         }
     }
