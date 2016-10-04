@@ -16,7 +16,8 @@ webpackJsonp([4],{
 	__webpack_require__(105);
 	__webpack_require__(106);
 	__webpack_require__(107);
-	module.exports = __webpack_require__(108);
+	__webpack_require__(108);
+	module.exports = __webpack_require__(109);
 
 
 /***/ },
@@ -171,7 +172,8 @@ webpackJsonp([4],{
 	        var gameStatisticReport = ' Game Statistic Report ';
 	
 	        var service = {
-	            getTitleReport: getTitleReport
+	            getTitleReport: getTitleReport,
+	            getGrandTotalTitle: getGrandTotalTitle
 	        };
 	        return service;
 	
@@ -239,8 +241,8 @@ webpackJsonp([4],{
 	
 	    angular.module('app.numberGame2StatisticApp').controller('CommonController', CommonController);
 	
-	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
-	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog) {
+	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
+	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
 	        var pane = $scope.pane;
 	        var tab = $scope.tab;
 	        var gridElement = $('.grid-boundary').find('.freegrid');
@@ -263,7 +265,7 @@ webpackJsonp([4],{
 	            var data = pane.data;
 	            data.drilldownType = "Grandtotal";
 	            data.isDrilldown = true;
-	
+	            pane.service = $injector.get("grandtotalService");
 	            generatePopup(data);
 	        }
 	
@@ -339,7 +341,7 @@ webpackJsonp([4],{
 	
 	        function renderPopup(data) {
 	            var titleInfo = {
-	                text: "GRAND TOTAL BY CURRENCY",
+	                text: tab.generateBreadcrumbHtml(), //"GRAND TOTAL BY CURRENCY",
 	                showExcelButton: true,
 	                exportExcelFunction: exportExcel
 	            };
@@ -397,7 +399,7 @@ webpackJsonp([4],{
 	                moveBetsDay: data.balanceUpDate,
 	                isDrilldown: data.isDrilldown
 	            };
-	            var controllerName = data.isDrilldown == false ? data.reportType : GetControllerName(data.drilldownType);
+	            var controllerName = data.isDrilldown == false ? data.reportType : "Currency";
 	            var url = 'api/ng2-statistic/' + controllerName;
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
@@ -434,7 +436,8 @@ webpackJsonp([4],{
 	                moveBetsDay: data.balanceUpDate,
 	                isDrilldown: data.isDrilldown
 	            };
-	            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
+	            var controllerName = data.isDrilldown == false ? data.reportType : "Currency";
+	            var url = 'api/ng2-statistic/' + controllerName + '/excel';
 	
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
@@ -446,71 +449,6 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 102:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	var _moment = __webpack_require__(5);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('DrilldownController', DrilldownController);
-	
-	    DrilldownController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
-	    function DrilldownController($rootScope, $element, $scope, fanexGridService, ngDialog) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        $scope.generate = generate;
-	
-	        function generatePopup() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                renderPopup(data);
-	            });
-	        }
-	
-	        function renderPopup(data) {
-	            var titleInfo = {
-	                text: "GRAND TOTAL BY CURRENCY",
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	            data.titleInfo = titleInfo;
-	            ngDialog.open({ template: 'templateId',
-	                plain: false,
-	                width: 1190,
-	                closeByDocument: false,
-	                data: data
-	
-	            });
-	
-	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
-	                $('#myGrid').fanexGrid(data);
-	            });
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -707,7 +645,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 104:
+/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -745,7 +683,136 @@ webpackJsonp([4],{
 
 /***/ },
 
+/***/ 104:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').controller('GrandtotalController', GrandtotalController);
+	
+	    GrandtotalController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
+	    function GrandtotalController($rootScope, $element, $scope, fanexGridService, ngDialog) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        $scope.generate = generate;
+	
+	        function generatePopup() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: "GRAND TOTAL BY CURRENCY",
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
+	
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
 /***/ 105:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(10);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.numberGame2StatisticApp').factory('grandtotalService', grandtotalService);
+	
+	    grandtotalService.$inject = ['$http', 'httpResponseService', 'titleService'];
+	    function grandtotalService($http, httpResponseService, titleService) {
+	
+	        var service = {
+	            getTitle: titleService.getGrandTotalTitle,
+	            getData: getData,
+	            exportExcel: exportExcel
+	        };
+	        return service;
+	
+	        function getData(data) {
+	            var httpData = {
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
+	                betType: data.betType,
+	                username: data.username,
+	                currency: data.currency,
+	                moveBetsDay: data.balanceUpDate,
+	                isDrilldown: data.isDrilldown
+	            };
+	
+	            var url = 'api/ng2-statistic/grandtotal';
+	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function exportExcel(title, data, fileName) {
+	            var httpData = {
+	                title: title,
+	                fromDate: data.startDate,
+	                toDate: data.endDate,
+	                betType: data.betType,
+	                username: data.username,
+	                currency: data.currency,
+	                moveBetsDay: data.balanceUpDate,
+	                isDrilldown: data.isDrilldown
+	            };
+	
+	            var url = 'api/ng2-statistic/grandtotal/excel';
+	
+	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
+	                httpResponseService.saveExcelFile(response.data, fileName);
+	            }).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 106:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -803,7 +870,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 106:
+/***/ 107:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -839,7 +906,7 @@ webpackJsonp([4],{
 	            this.getFileName = getFileName;
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-	            this.controller = 'CommonController'; // data.drilldownType === 'Grandtotal'? 'DrilldownController': 'CommonController';
+	            this.controller = 'CommonController';
 	            this.service = $injector.get("commonService");
 	
 	            function generate() {
@@ -880,7 +947,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 107:
+/***/ 108:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -931,7 +998,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 108:
+/***/ 109:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

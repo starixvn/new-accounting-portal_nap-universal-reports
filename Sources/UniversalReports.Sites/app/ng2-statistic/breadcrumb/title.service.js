@@ -11,7 +11,8 @@ import angular from "angular";
         var gameStatisticReport = ' Game Statistic Report ';
 
         var service = {
-            getTitleReport: getTitleReport
+            getTitleReport: getTitleReport,
+            getGrandTotalTitle: getGrandTotalTitle
         };
         return service;
 

@@ -8,8 +8,8 @@ import moment from "moment";
         .module('app.numberGame2StatisticApp')
         .controller('CommonController', CommonController);
 
-    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
-    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog) {
+    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector'];
+    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $('.grid-boundary').find('.freegrid');
@@ -32,7 +32,7 @@ import moment from "moment";
             var  data = pane.data;
             data.drilldownType = "Grandtotal"; 
             data.isDrilldown = true;
-
+            pane.service = $injector.get("grandtotalService");
             generatePopup(data);
         }
 
@@ -108,7 +108,7 @@ import moment from "moment";
 
         function renderPopup(data){
             var titleInfo = {
-                text: "GRAND TOTAL BY CURRENCY",
+                text: tab.generateBreadcrumbHtml(),//"GRAND TOTAL BY CURRENCY",
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
             };

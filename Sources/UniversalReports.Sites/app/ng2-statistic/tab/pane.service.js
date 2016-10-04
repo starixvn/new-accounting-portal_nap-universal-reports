@@ -26,7 +26,7 @@ import angular from "angular";
             this.getFileName = getFileName;
 
             this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-            this.controller = 'CommonController' ;// data.drilldownType === 'Grandtotal'? 'DrilldownController': 'CommonController';
+            this.controller = 'CommonController' ;
             this.service = $injector.get("commonService");
 
             function generate() {
