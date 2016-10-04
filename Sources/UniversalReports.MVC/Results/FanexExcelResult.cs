@@ -17,35 +17,55 @@ namespace UniversalReports.MVC.Results
     {
         public FanexExcelResult(GridOptions gridOptions, string sheetName)
         {
-            var excel = new FanexExcel(gridOptions);
-            Workbook = excel.ToExcel2003(sheetName);
+            try
+            {
+                var excel = new FanexExcel(gridOptions);
+                Workbook = excel.ToExcel2003(sheetName);
+            }
+            catch(Exception ex)
+            { }
         }
 
         public FanexExcelResult(List<GridOptions> listGridOptions, string sheetName)
         {
-            var excel = new FanexExcel(listGridOptions);
-            Workbook = excel.ToExcel2003(sheetName);
+            try
+            {
+                var excel = new FanexExcel(listGridOptions);
+                Workbook = excel.ToExcel2003(sheetName);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public IWorkbook Workbook { get; }
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
-            using (var memoryStream = new MemoryStream())
+            try
             {
-                Workbook.Write(memoryStream);
-                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                using (var memoryStream = new MemoryStream())
                 {
-                    Content = new ByteArrayContent(memoryStream.ToArray())
-                };
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                {
-                    FileName = "undefined.xls"
-                };
+                    Workbook.Write(memoryStream);
+                    var response = new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new ByteArrayContent(memoryStream.ToArray())
+                    };
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                    {
+                        FileName = "undefined.xls"
+                    };
 
-                return Task.FromResult(response);
+                    return Task.FromResult(response);
+                }
             }
+            catch(Exception ex)
+            {
+
+            }
+            return null;
         }
     }
 }

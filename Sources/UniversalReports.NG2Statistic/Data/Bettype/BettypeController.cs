@@ -40,7 +40,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {
-            var dailyModel = service.SortData(queryModel);
+            var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Bet Type", queryModel);
 

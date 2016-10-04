@@ -18,7 +18,7 @@ namespace UniversalReports.NG2Statistic.Data.Daily
                 FooterRows = BuildFooter(dailyModel.Total),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
-                ShowFooter = true,                
+                ShowFooter = true,
             };
         }
 
@@ -59,10 +59,10 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             {
                 columns.Add(new Columns { Name = "Name", Value = raw.Name, MergeRowNumber = mergeRowNumber });
             }
-            
+
             AssignDataRow(raw, columns);
 
-            return new GridDataRow { Columns = columns, CssClass = cssClass }; ;
+            return new GridDataRow { Columns = columns, CssClass = cssClass, RowType = string.IsNullOrEmpty(cssClass) ? RowType.Normal : RowType.Even };
         }
 
         private GridDataRow BuildDataTotalRow(DailyModel raw)
@@ -87,6 +87,6 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             columns.Add(new Columns { Name = "CompanyTurnover", Value = raw.CompanyTurnover });
             columns.Add(new Columns { Name = "CompanyComm", Value = raw.CompanyComm });
             columns.Add(new Columns { Name = "CompanyNetIncome", Value = raw.CompanyNetIncome });
-        }       
+        }
     }
 }

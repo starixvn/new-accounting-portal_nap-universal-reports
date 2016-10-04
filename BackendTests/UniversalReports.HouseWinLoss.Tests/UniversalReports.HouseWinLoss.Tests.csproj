@@ -164,7 +164,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-expected.json" />
     <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-fakeData.json" />
     <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-queryModel.json" />

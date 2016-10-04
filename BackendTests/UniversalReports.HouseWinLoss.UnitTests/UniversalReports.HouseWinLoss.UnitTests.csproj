@@ -139,7 +139,6 @@
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Common\MatchDetail\CalculationServiceUnitTests.data-1-expected.json">
       <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
     </None>
