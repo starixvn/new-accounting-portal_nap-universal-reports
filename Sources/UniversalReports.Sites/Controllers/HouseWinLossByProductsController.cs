@@ -1,4 +1,10 @@
-﻿using System;
+﻿#if !DEBUG
+using Fanex.NAP.Core.Business;
+using Fanex.NAP.Core.Web.Attribute;
+using UniversalReports.Sites.Settings;
+#endif
+
+using System;
 using System.Configuration;
 using System.Web.Mvc;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
@@ -15,7 +21,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
 #if !DEBUG
-        //[NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+        [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
 #endif
         public ActionResult Index()
         {

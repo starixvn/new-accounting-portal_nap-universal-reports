@@ -1,4 +1,9 @@
-﻿using System;
+﻿#if !DEBUG
+using Fanex.NAP.Core.Business;
+using Fanex.NAP.Core.Web.Attribute;
+using UniversalReports.Sites.Settings;
+#endif
+using System;
 using System.Configuration;
 using System.Web.Mvc;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
