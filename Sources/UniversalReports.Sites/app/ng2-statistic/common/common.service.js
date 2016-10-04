@@ -27,17 +27,12 @@ import angular from "angular";
                 moveBetsDay: data.balanceUpDate,
                 isDrilldown: data.isDrilldown
             };
-            var controllerName = data.isDrilldown == false? data.reportType : "Currency";
-            var url = 'api/ng2-statistic/' + controllerName;
+            var url = 'api/ng2-statistic/' + data.reportType;
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
         }
-
-        function GetControllerName(name){
-            return name === "Currency" ? "Currency" : "Grandtotal";
-        }
-
+        
         function getDataSort(data){
             var httpData = {
                 fromDate: data.startDate,
@@ -68,8 +63,7 @@ import angular from "angular";
                 moveBetsDay: data.balanceUpDate,
                 isDrilldown: data.isDrilldown
             };
-            var controllerName = data.isDrilldown == false ? data.reportType : "Currency";
-            var url = 'api/ng2-statistic/' + controllerName + '/excel';
+            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
 
             return $http.post(url, httpData, { responseType: "arraybuffer" })
                 .then(function (response) {

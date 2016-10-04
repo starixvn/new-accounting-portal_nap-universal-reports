@@ -12,7 +12,7 @@ import moment from "moment";
     function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
         var pane = $scope.pane;
         var tab = $scope.tab;
-        var gridElement = $('.grid-boundary').find('.freegrid');
+        var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
@@ -101,16 +101,21 @@ import moment from "moment";
         }
 
         function generatePopup() {
-            pane.service.getData(pane.data).then(function(data){
+            pane.service.getData(pane).then(function(data){
                 renderPopup(data);
             });
         }
 
+        function exportExcelGrandTotal(){
+            var title = tab.generateBreadcrumbText();
+            pane.service.exportExcel(title, pane, pane.getFileName());
+        }
+
         function renderPopup(data){
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),//"GRAND TOTAL BY CURRENCY",
+                text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel,
+                exportExcelFunction: exportExcelGrandTotal,
             };
             data.titleInfo = titleInfo;            
             ngDialog.open({template: 'templateId',

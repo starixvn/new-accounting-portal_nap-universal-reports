@@ -49,14 +49,15 @@ import angular from "angular";
                     newActivePane.$scope.show();
                 }
 
-                //activePane = this.panes[index];
-                //var dateRange = {
-                //    normalMode: activePane.data.normalMode,
-                //    startDate: activePane.data.startDate,
-                //    endDate: activePane.data.endDate,
-                //    reportType : activePane.data.reportType
-                //};
-                //$rootScope.$broadcast('nap-filter-date', dateRange);
+                activePane = this.panes[index];
+                var dateRange = {
+                    normalMode: activePane.normalMode,
+                    startDate: activePane.startDate,
+                    endDate: activePane.endDate,
+                    reportType : activePane.reportType,
+                    isDrilldown : activePane.isDrilldown
+                };
+                $rootScope.$broadcast('nap-filter-date', dateRange);
             }
 
             function goForward(data) {

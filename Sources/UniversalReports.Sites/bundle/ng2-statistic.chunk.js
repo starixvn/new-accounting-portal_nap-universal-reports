@@ -1,38 +1,32 @@
 webpackJsonp([4],{
 
 /***/ 0:
-/*!***************************!*\
-  !*** multi ng2-statistic ***!
-  \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */95);
-	__webpack_require__(/*! ./app/ng2-statistic/app.js */96);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */97);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */98);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */99);
-	__webpack_require__(/*! ./app/ng2-statistic/common/common.controller.js */100);
-	__webpack_require__(/*! ./app/ng2-statistic/common/common.service.js */101);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */102);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */103);
-	__webpack_require__(/*! ./app/ng2-statistic/grandtotal/grandtotal.service.js */104);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */105);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */106);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */107);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */108);
+	__webpack_require__(95);
+	__webpack_require__(96);
+	__webpack_require__(97);
+	__webpack_require__(98);
+	__webpack_require__(99);
+	__webpack_require__(100);
+	__webpack_require__(101);
+	__webpack_require__(102);
+	__webpack_require__(103);
+	__webpack_require__(104);
+	__webpack_require__(105);
+	__webpack_require__(106);
+	__webpack_require__(107);
+	module.exports = __webpack_require__(108);
 
 
 /***/ },
 
 /***/ 95:
-/*!*****************************************!*\
-  !*** ./app/ng2-statistic/app.config.js ***!
-  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -66,14 +60,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 96:
-/*!**********************************!*\
-  !*** ./app/ng2-statistic/app.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -88,14 +79,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 97:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -116,14 +104,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 98:
-/*!************************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
-  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -166,14 +151,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 99:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -235,22 +217,19 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 100:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/common/common.controller.js ***!
-  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -265,7 +244,7 @@ webpackJsonp([4],{
 	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
 	        var pane = $scope.pane;
 	        var tab = $scope.tab;
-	        var gridElement = $('.grid-boundary').find('.freegrid');
+	        var gridElement = $element.find('.freegrid');
 	        $scope.generate = generate;
 	        $scope.generateCurrencyReport = generateCurrencyReport;
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
@@ -354,16 +333,21 @@ webpackJsonp([4],{
 	        }
 	
 	        function generatePopup() {
-	            pane.service.getData(pane.data).then(function (data) {
+	            pane.service.getData(pane).then(function (data) {
 	                renderPopup(data);
 	            });
 	        }
 	
+	        function exportExcelGrandTotal() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane, pane.getFileName());
+	        }
+	
 	        function renderPopup(data) {
 	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(), //"GRAND TOTAL BY CURRENCY",
+	                text: tab.generateBreadcrumbHtml(),
 	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
+	                exportExcelFunction: exportExcelGrandTotal
 	            };
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
@@ -383,14 +367,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 101:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/common/common.service.js ***!
-  \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -422,13 +403,8 @@ webpackJsonp([4],{
 	                moveBetsDay: data.balanceUpDate,
 	                isDrilldown: data.isDrilldown
 	            };
-	            var controllerName = data.isDrilldown == false ? data.reportType : "Currency";
-	            var url = 'api/ng2-statistic/' + controllerName;
+	            var url = 'api/ng2-statistic/' + data.reportType;
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function GetControllerName(name) {
-	            return name === "Currency" ? "Currency" : "Grandtotal";
 	        }
 	
 	        function getDataSort(data) {
@@ -459,8 +435,7 @@ webpackJsonp([4],{
 	                moveBetsDay: data.balanceUpDate,
 	                isDrilldown: data.isDrilldown
 	            };
-	            var controllerName = data.isDrilldown == false ? data.reportType : "Currency";
-	            var url = 'api/ng2-statistic/' + controllerName + '/excel';
+	            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
 	
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
 	                httpResponseService.saveExcelFile(response.data, fileName);
@@ -472,18 +447,15 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 102:
-/*!******************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.directive.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -672,14 +644,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 103:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.service.js ***!
-  \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -713,14 +682,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 104:
-/*!************************************************************!*\
-  !*** ./app/ng2-statistic/grandtotal/grandtotal.service.js ***!
-  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -780,14 +746,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 105:
-/*!*************************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.directive.js ***!
-  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -841,14 +804,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 106:
-/*!***********************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.service.js ***!
-  \***********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -921,14 +881,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 107:
-/*!************************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.directive.js ***!
-  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -975,14 +932,11 @@ webpackJsonp([4],{
 /***/ },
 
 /***/ 108:
-/*!**********************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.service.js ***!
-  \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1036,14 +990,15 @@ webpackJsonp([4],{
 	                    newActivePane.$scope.show();
 	                }
 	
-	                //activePane = this.panes[index];
-	                //var dateRange = {
-	                //    normalMode: activePane.data.normalMode,
-	                //    startDate: activePane.data.startDate,
-	                //    endDate: activePane.data.endDate,
-	                //    reportType : activePane.data.reportType
-	                //};
-	                //$rootScope.$broadcast('nap-filter-date', dateRange);
+	                activePane = this.panes[index];
+	                var dateRange = {
+	                    normalMode: activePane.normalMode,
+	                    startDate: activePane.startDate,
+	                    endDate: activePane.endDate,
+	                    reportType: activePane.reportType,
+	                    isDrilldown: activePane.isDrilldown
+	                };
+	                $rootScope.$broadcast('nap-filter-date', dateRange);
 	            }
 	
 	            function goForward(data) {
