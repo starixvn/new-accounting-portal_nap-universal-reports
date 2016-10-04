@@ -291,12 +291,16 @@
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
     <Content Include="app\ng2-statistic\common\common.controller.js" />
     <Content Include="app\ng2-statistic\common\common.service.js" />
-    <Content Include="app\ng2-statistic\drilldown\drilldown.service.js" />
+    <Content Include="app\ng2-statistic\drilldown\drilldown.controller.js" />
     <Content Include="app\ng2-statistic\filter\filter.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.html" />
+    <Content Include="app\root\components\ngDialog\ng-dialog.html" />
+    <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
+    <Content Include="app\root\components\ngDialog\ngDialog.css" />
+    <Content Include="app\root\components\ngDialog\ngDialog.js" />
     <Content Include="app\ng2-statistic\shared\fanex-grid-with-title.html" />
     <Content Include="app\ng2-statistic\tab\pane.directive.js" />
     <Content Include="app\ng2-statistic\tab\pane.service.js" />
@@ -684,7 +688,6 @@
     <Folder Include="app\ng2-statistic\currency\" />
     <Folder Include="app\ng2-statistic\daily\" />
     <Folder Include="app\ng2-statistic\username\" />
-    <Folder Include="app\root\components\angucomplete\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

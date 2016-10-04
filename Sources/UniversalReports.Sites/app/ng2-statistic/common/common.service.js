@@ -27,11 +27,15 @@ import angular from "angular";
                 moveBetsDay: data.balanceUpDate,
                 isDrilldown: data.isDrilldown
             };
-
-            var url = 'api/ng2-statistic/' + data.reportType;
+            var controllerName = data.isDrilldown == false? data.reportType : GetControllerName(data.drilldownType);
+            var url = 'api/ng2-statistic/' + controllerName;
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
+        }
+
+        function GetControllerName(name){
+            return name === "Currency" ? "Currency" : "Grandtotal";
         }
 
         function getDataSort(data){

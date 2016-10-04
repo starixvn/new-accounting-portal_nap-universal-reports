@@ -1,20 +1,14 @@
 webpackJsonp([5],{
 
 /***/ 0:
-/*!*********************************!*\
-  !*** multi ng2-statistic-style ***!
-  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./content/ng2-statistic.scss */106);
+	module.exports = __webpack_require__(95);
 
 
 /***/ },
 
-/***/ 106:
-/*!************************************!*\
-  !*** ./content/ng2-statistic.scss ***!
-  \************************************/
+/***/ 95:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

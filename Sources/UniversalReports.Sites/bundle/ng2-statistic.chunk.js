@@ -1,38 +1,32 @@
 webpackJsonp([4],{
 
 /***/ 0:
-/*!***************************!*\
-  !*** multi ng2-statistic ***!
-  \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/ng2-statistic/app.config.js */92);
-	__webpack_require__(/*! ./app/ng2-statistic/app.js */93);
-	__webpack_require__(/*! ./app/ng2-statistic/ng2-statistic.controller.js */94);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/breadcrumb.service.js */95);
-	__webpack_require__(/*! ./app/ng2-statistic/breadcrumb/title.service.js */96);
-	__webpack_require__(/*! ./app/ng2-statistic/common/common.controller.js */97);
-	__webpack_require__(/*! ./app/ng2-statistic/common/common.service.js */98);
-	__webpack_require__(/*! ./app/ng2-statistic/drilldown/drilldown.service.js */99);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.directive.js */100);
-	__webpack_require__(/*! ./app/ng2-statistic/filter/filter.service.js */101);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.directive.js */102);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/pane.service.js */103);
-	__webpack_require__(/*! ./app/ng2-statistic/tab/tab.directive.js */104);
-	module.exports = __webpack_require__(/*! ./app/ng2-statistic/tab/tab.service.js */105);
+	__webpack_require__(81);
+	__webpack_require__(82);
+	__webpack_require__(83);
+	__webpack_require__(84);
+	__webpack_require__(85);
+	__webpack_require__(86);
+	__webpack_require__(87);
+	__webpack_require__(88);
+	__webpack_require__(89);
+	__webpack_require__(90);
+	__webpack_require__(91);
+	__webpack_require__(92);
+	__webpack_require__(93);
+	module.exports = __webpack_require__(94);
 
 
 /***/ },
 
-/***/ 92:
-/*!*****************************************!*\
-  !*** ./app/ng2-statistic/app.config.js ***!
-  \*****************************************/
+/***/ 81:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -65,15 +59,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 93:
-/*!**********************************!*\
-  !*** ./app/ng2-statistic/app.js ***!
-  \**********************************/
+/***/ 82:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -87,15 +78,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 94:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/ng2-statistic.controller.js ***!
-  \*******************************************************/
+/***/ 83:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -115,15 +103,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 95:
-/*!************************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/breadcrumb.service.js ***!
-  \************************************************************/
+/***/ 84:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -165,15 +150,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 96:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/breadcrumb/title.service.js ***!
-  \*******************************************************/
+/***/ 85:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -233,23 +215,20 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 97:
-/*!*******************************************************!*\
-  !*** ./app/ng2-statistic/common/common.controller.js ***!
-  \*******************************************************/
+/***/ 86:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -260,11 +239,11 @@ webpackJsonp([4],{
 	
 	    angular.module('app.numberGame2StatisticApp').controller('CommonController', CommonController);
 	
-	    CommonController.$inject = ['$element', '$scope', 'fanexGridService'];
-	    function CommonController($element, $scope, fanexGridService) {
+	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
+	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog) {
 	        var pane = $scope.pane;
 	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
+	        var gridElement = $('.grid-boundary').find('.freegrid');
 	        $scope.generate = generate;
 	        $scope.generateCurrencyReport = generateCurrencyReport;
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
@@ -285,7 +264,7 @@ webpackJsonp([4],{
 	            data.drilldownType = "Grandtotal";
 	            data.isDrilldown = true;
 	
-	            tab.goForward(data);
+	            generatePopup(data);
 	        }
 	
 	        function generate() {
@@ -351,20 +330,42 @@ webpackJsonp([4],{
 	            var title = tab.generateBreadcrumbText();
 	            pane.service.exportExcel(title, pane.data, pane.getFileName());
 	        }
+	
+	        function generatePopup() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                renderPopup(data);
+	            });
+	        }
+	
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: "GRAND TOTAL BY CURRENCY",
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 98:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/common/common.service.js ***!
-  \****************************************************/
+/***/ 87:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -396,9 +397,13 @@ webpackJsonp([4],{
 	                moveBetsDay: data.balanceUpDate,
 	                isDrilldown: data.isDrilldown
 	            };
-	
-	            var url = 'api/ng2-statistic/' + data.reportType;
+	            var controllerName = data.isDrilldown == false ? data.reportType : GetControllerName(data.drilldownType);
+	            var url = 'api/ng2-statistic/' + controllerName;
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	
+	        function GetControllerName(name) {
+	            return name === "Currency" ? "Currency" : "Grandtotal";
 	        }
 	
 	        function getDataSort(data) {
@@ -440,85 +445,81 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 99:
-/*!**********************************************************!*\
-  !*** ./app/ng2-statistic/drilldown/drilldown.service.js ***!
-  \**********************************************************/
+/***/ 88:
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(7);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('drilldownService', drilldownService);
+	    angular.module('app.numberGame2StatisticApp').controller('DrilldownController', DrilldownController);
 	
-	    drilldownService.$inject = ['$http', 'httpResponseService', 'titleService'];
-	    function drilldownService($http, httpResponseService, titleService) {
+	    DrilldownController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
+	    function DrilldownController($rootScope, $element, $scope, fanexGridService, ngDialog) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        $scope.generate = generate;
 	
-	        var service = {
-	            getTitle: titleService.getTitleDrilldown,
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	        return service;
-	
-	        function getData(data) {
-	            var httpData = {
-	                fromDate: data.startDate,
-	                toDate: data.endDate,
-	                betType: data.betType,
-	                username: data.username,
-	                currency: data.currency,
-	                moveBetsDay: data.balanceUpDate,
-	                isDrilldown: data.isDrilldown
-	            };
-	
-	            var url = 'api/ng2-statistic/' + data.reportType;
-	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        function generatePopup() {
+	            pane.service.getData(pane.data).then(function (data) {
+	                renderPopup(data);
+	            });
 	        }
 	
-	        function exportExcel(title, data, fileName) {
-	            var httpData = {
-	                title: title,
-	                fromDate: data.startDate,
-	                toDate: data.endDate,
-	                betType: data.betType,
-	                username: data.username,
-	                currency: data.currency,
-	                moveBetsDay: data.balanceUpDate,
-	                isDrilldown: data.isDrilldown
+	        function renderPopup(data) {
+	            var titleInfo = {
+	                text: "GRAND TOTAL BY CURRENCY",
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
 	            };
-	            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
+	            data.titleInfo = titleInfo;
+	            ngDialog.open({ template: 'templateId',
+	                plain: false,
+	                width: 1190,
+	                closeByDocument: false,
+	                data: data
 	
-	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
+	            });
+	
+	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+	                $('#myGrid').fanexGrid(data);
+	            });
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            pane.service.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	    }
 	})(_angular2.default);
 
 /***/ },
 
-/***/ 100:
-/*!******************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.directive.js ***!
-  \******************************************************/
+/***/ 89:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -706,15 +707,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 101:
-/*!****************************************************!*\
-  !*** ./app/ng2-statistic/filter/filter.service.js ***!
-  \****************************************************/
+/***/ 90:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -747,15 +745,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 102:
-/*!*************************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.directive.js ***!
-  \*************************************************/
+/***/ 91:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -808,15 +803,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 103:
-/*!***********************************************!*\
-  !*** ./app/ng2-statistic/tab/pane.service.js ***!
-  \***********************************************/
+/***/ 92:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -847,7 +839,7 @@ webpackJsonp([4],{
 	            this.getFileName = getFileName;
 	
 	            this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-	            this.controller = 'CommonController';
+	            this.controller = 'CommonController'; // data.drilldownType === 'Grandtotal'? 'DrilldownController': 'CommonController';
 	            this.service = $injector.get("commonService");
 	
 	            function generate() {
@@ -888,15 +880,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 104:
-/*!************************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.directive.js ***!
-  \************************************************/
+/***/ 93:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -942,15 +931,12 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 105:
-/*!**********************************************!*\
-  !*** ./app/ng2-statistic/tab/tab.service.js ***!
-  \**********************************************/
+/***/ 94:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	

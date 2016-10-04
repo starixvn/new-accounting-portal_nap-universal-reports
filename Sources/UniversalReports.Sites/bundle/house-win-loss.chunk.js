@@ -1,44 +1,27 @@
 webpackJsonp([2],[
 /* 0 */
-/*!****************************!*\
-  !*** multi house-win-loss ***!
-  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app/house-win-loss/app.config.js */56);
-	__webpack_require__(/*! ./app/house-win-loss/app.js */57);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.constant.js */58);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.controller.js */59);
-	__webpack_require__(/*! ./app/house-win-loss/house-win-loss.service.js */60);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/breadcrumb.service.js */61);
-	__webpack_require__(/*! ./app/house-win-loss/breadcrumb/title.service.js */62);
-	__webpack_require__(/*! ./app/house-win-loss/casino/casino-product.controller.js */63);
-	__webpack_require__(/*! ./app/house-win-loss/common/bet-type.controller.js */64);
-	__webpack_require__(/*! ./app/house-win-loss/common/match-detail.controller.js */65);
-	__webpack_require__(/*! ./app/house-win-loss/common/remote-data.service.js */66);
-	__webpack_require__(/*! ./app/house-win-loss/common/site.controller.js */67);
-	__webpack_require__(/*! ./app/house-win-loss/common/sport-type.controller.js */68);
-	__webpack_require__(/*! ./app/house-win-loss/filter/filter.directive.js */69);
-	__webpack_require__(/*! ./app/house-win-loss/grid/product-show-hide-column.service.js */70);
-	__webpack_require__(/*! ./app/house-win-loss/grid/show-hide-column.service.js */71);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js */72);
-	__webpack_require__(/*! ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js */73);
-	__webpack_require__(/*! ./app/house-win-loss/number-game/number-game-bet-type.controller.js */74);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js */75);
-	__webpack_require__(/*! ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js */76);
-	__webpack_require__(/*! ./app/house-win-loss/parlay/parlay-bet-type.controller.js */77);
-	__webpack_require__(/*! ./app/house-win-loss/product/product.controller.js */78);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-bet-type.service.js */79);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js */80);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-live-nonlive.service.js */81);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer-major-minor.controller.js */82);
-	__webpack_require__(/*! ./app/house-win-loss/soccer/soccer.constant.js */83);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js */84);
-	__webpack_require__(/*! ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js */85);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.directive.js */86);
-	__webpack_require__(/*! ./app/house-win-loss/tab/pane.service.js */87);
-	__webpack_require__(/*! ./app/house-win-loss/tab/tab.directive.js */88);
-	module.exports = __webpack_require__(/*! ./app/house-win-loss/tab/tab.service.js */89);
+	__webpack_require__(59);
+	__webpack_require__(60);
+	__webpack_require__(61);
+	__webpack_require__(62);
+	__webpack_require__(63);
+	__webpack_require__(64);
+	__webpack_require__(65);
+	__webpack_require__(66);
+	__webpack_require__(67);
+	__webpack_require__(68);
+	__webpack_require__(69);
+	__webpack_require__(70);
+	__webpack_require__(71);
+	__webpack_require__(72);
+	__webpack_require__(73);
+	__webpack_require__(74);
+	__webpack_require__(75);
+	__webpack_require__(76);
+	__webpack_require__(77);
+	module.exports = __webpack_require__(78);
 
 
 /***/ },
@@ -97,15 +80,15 @@ webpackJsonp([2],[
 /* 53 */,
 /* 54 */,
 /* 55 */,
-/* 56 */
-/*!******************************************!*\
-  !*** ./app/house-win-loss/app.config.js ***!
-  \******************************************/
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -137,15 +120,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 57 */
-/*!***********************************!*\
-  !*** ./app/house-win-loss/app.js ***!
-  \***********************************/
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -158,15 +138,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 58 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.constant.js ***!
-  \*******************************************************/
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -521,7 +498,7 @@ webpackJsonp([2],[
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/racing/site",
 	                mainParameters: {},
-	                getTitleFunction: "getSiteTitle"
+	                getTitleFunction: ""
 	            }
 	        },
 	        "Bingo": {
@@ -613,15 +590,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 59 */
-/*!*********************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.controller.js ***!
-  \*********************************************************/
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -640,20 +614,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 60 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/house-win-loss.service.js ***!
-  \******************************************************/
-/***/ function(module, exports, __webpack_require__) {
+/* 63 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+	//import angular from "angular";
 	(function (angular, undefined) {
 	    'use strict';
 	
@@ -703,18 +669,15 @@ webpackJsonp([2],[
 	            return angular.isFunction(func) ? func(data) : func;
 	        }
 	    }
-	})(_angular2.default, undefined);
+	})(angular, undefined);
 
 /***/ },
-/* 61 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/breadcrumb/breadcrumb.service.js ***!
-  \*************************************************************/
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -755,20 +718,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 62 */
-/*!********************************************************!*\
-  !*** ./app/house-win-loss/breadcrumb/title.service.js ***!
-  \********************************************************/
-/***/ function(module, exports, __webpack_require__) {
+/* 65 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+	//import angular from "angular";
 	(function (angular) {
 	    'use strict';
 	
@@ -880,18 +835,15 @@ webpackJsonp([2],[
 	            return ' "' + (isLive ? 'Live' : 'Non-Live') + '" ';
 	        }
 	    }
-	})(_angular2.default);
+	})(angular);
 
 /***/ },
-/* 63 */
-/*!****************************************************************!*\
-  !*** ./app/house-win-loss/casino/casino-product.controller.js ***!
-  \****************************************************************/
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -963,15 +915,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 64 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/common/bet-type.controller.js ***!
-  \**********************************************************/
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1099,15 +1048,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 65 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/common/match-detail.controller.js ***!
-  \**************************************************************/
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1163,15 +1109,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 66 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/common/remote-data.service.js ***!
-  \**********************************************************/
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1222,15 +1165,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 67 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/common/site.controller.js ***!
-  \******************************************************/
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1277,15 +1217,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 68 */
-/*!************************************************************!*\
-  !*** ./app/house-win-loss/common/sport-type.controller.js ***!
-  \************************************************************/
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1358,19 +1295,16 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 69 */
-/*!*******************************************************!*\
-  !*** ./app/house-win-loss/filter/filter.directive.js ***!
-  \*******************************************************/
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -1475,15 +1409,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 70 */
-/*!*********************************************************************!*\
-  !*** ./app/house-win-loss/grid/product-show-hide-column.service.js ***!
-  \*********************************************************************/
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1572,15 +1503,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 71 */
-/*!*************************************************************!*\
-  !*** ./app/house-win-loss/grid/show-hide-column.service.js ***!
-  \*************************************************************/
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1657,15 +1585,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 72 */
-/*!************************************************************************************!*\
-  !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.controller.js ***!
-  \************************************************************************************/
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1823,15 +1748,12 @@ webpackJsonp([2],[
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 73 */
-/*!*********************************************************************************!*\
-  !*** ./app/house-win-loss/metric-gaming/metric-gaming-live-non-live.service.js ***!
-  \*********************************************************************************/
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -1864,873 +1786,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 74 */
-/*!***************************************************************************!*\
-  !*** ./app/house-win-loss/number-game/number-game-bet-type.controller.js ***!
-  \***************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('NumberGameBetTypeController', NumberGameBetTypeController);
-	
-	    NumberGameBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-	    function NumberGameBetTypeController($scope, $element, fanexGridService, showHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var gridElements = $element.find('.freegrid');
-	        var nonliveGridElement = angular.element(gridElements[0]);
-	        var liveGridElement = angular.element(gridElements[1]);
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateMatchDetail = generateMatchDetail;
-	        $scope.generateSite = generateSite;
-	        $scope.viewSetting = {};
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                showHideColumnBuilder.build([liveGridElement, nonliveGridElement], [data.Live, data.NonLive]);
-	                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-	                    createLinks(data.Live, true);
-	                }
-	
-	                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-	                    createLinks(data.NonLive, false);
-	                }
-	
-	                renderLiveGrid(liveGridElement, data.Live);
-	                renderNonLiveGrid(nonliveGridElement, data.NonLive);
-	
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function generateMatchDetail(betType, betTypeName, isLive) {
-	            var data = {
-	                betType: betType,
-	                betTypeName: betTypeName,
-	                isLive: isLive
-	            };
-	            angular.extend(data, pane.data);
-	            tab.goForward('matchDetail', data);
-	        }
-	
-	        function generateSite(betType, betTypeName, site, isLive) {
-	            var data = {
-	                betType: betType,
-	                betTypeName: betTypeName,
-	                isLive: isLive,
-	                site: site
-	            };
-	            angular.extend(data, pane.data);
-	            tab.goForward('site', data);
-	        }
-	
-	        function renderNonLiveGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Number Game Non-Live"),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function renderLiveGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Number Game Live"),
-	                showCollapseExpandButton: true,
-	                showExcelButton: false
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function isDateRangeInThreeDays(startDate, endDate) {
-	            return endDate.diff(startDate, 'days') <= 3;
-	        }
-	
-	        function createLinks(data, isLive) {
-	            var betTypeId;
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var betTypeName = betTypeRow.Columns[0].Value;
-	                betTypeId = betTypeRow.Columns[0].CustomAttr;
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
-	
-	                for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-	                    var siteRow = data.bodyRows[i].SubRows[j];
-	                    var siteName = siteRow.Columns[0].Value;
-	                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + siteName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function exportExcel() {
-	            var nonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Number Game Non-Live");
-	            var liveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Number Game Live");
-	            var httpData = {};
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, { liveTitle: liveTitle, nonLiveTitle: nonLiveTitle });
-	
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-/* 75 */
-/*!**********************************************************************************!*\
-  !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.controller.js ***!
-  \**********************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
-	
-	    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-	    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, showHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var gridElements = $element.find('.freegrid');
-	        var sportTypeGridElement = angular.element(gridElements[0]);
-	        var liveNonLiveGridElement = angular.element(gridElements[1]);
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateBetType = generateBetType;
-	        $scope.generateSportType = generateSportType;
-	        $scope.viewSetting = {};
-	
-	        function generateBetType(sportType, sportTypeName) {
-	            var data = {
-	                sportType: sportType,
-	                sportTypeName: sportTypeName
-	            };
-	            angular.extend(data, pane.data);
-	            tab.goForward('betType', data);
-	        }
-	
-	        function generateSportType(isLive) {
-	            var data = {
-	                isLive: isLive
-	            };
-	            angular.extend(data, pane.data);
-	            tab.goForward('sportType', data);
-	        }
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            var sportTypeGridOptions, liveNonLiveGridOptions;
-	
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                liveNonLiveGridOptions = data;
-	                renderAll();
-	            });
-	
-	            pane.service.getSportTypeData(viewSetting, pane.data).then(function (data) {
-	                sportTypeGridOptions = data;
-	                renderAll();
-	            });
-	
-	            function renderAll() {
-	                var isDataReady = angular.isDefined(sportTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions);
-	                if (!isDataReady) {
-	                    return;
-	                }
-	
-	                showHideColumnBuilder.build([sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
-	                createLinksForSportType(sportTypeGridOptions);
-	                renderGridForSportType(sportTypeGridOptions);
-	                createLinksForLiveNonLive(liveNonLiveGridOptions);
-	                renderGridForLiveNonLive(liveNonLiveGridOptions);
-	                pane.compileAll();
-	            }
-	        }
-	
-	        function renderGridForSportType(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Other Sports"),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.bottomBorderWidth = 3;
-	            sportTypeGridElement.fanexGrid(data);
-	        }
-	
-	        function createLinksForSportType(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var sportTypeRow = data.bodyRows[i];
-	                var sportTypeName = sportTypeRow.Columns[0].Value;
-	                var sportType = sportTypeRow.Columns[0].CustomAttr;
-	                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportType + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
-	            }
-	        }
-	
-	        function renderGridForLiveNonLive(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Other Sports Live/Non-Live"),
-	                showCollapseExpandButton: true,
-	                showExcelButton: false
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.bottomBorderWidth = 3;
-	            liveNonLiveGridElement.fanexGrid(data);
-	        }
-	
-	        function createLinksForLiveNonLive(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var row = data.bodyRows[i];
-	                var name = row.Columns[0].Value;
-	                var isLive = parseInt(row.Columns[0].CustomAttr);
-	                row.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSportType(' + isLive + ')">' + name + '</a>';
-	            }
-	        }
-	
-	        function exportExcel() {
-	            var sportTypeTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Other Sports");
-	            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Other Sports Live/Non-Live");
-	            var httpData = {};
-	
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, {
-	                sportTypeTitle: sportTypeTitle,
-	                liveNonLiveTitle: liveNonLiveTitle
-	            });
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-/* 76 */
-/*!*******************************************************************************!*\
-  !*** ./app/house-win-loss/other-sports/other-sports-live-non-live.service.js ***!
-  \*******************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('otherSportsLiveNonLiveService', otherSportsLiveNonLiveService);
-	
-	    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'remoteDataService'];
-	    function otherSportsLiveNonLiveService($http, httpResponseService, houseWinlossService, remoteDataService) {
-	        var service = {
-	            getData: remoteDataService.getData,
-	            getSportTypeData: getSportTypeData,
-	            exportExcel: remoteDataService.exportExcel
-	        };
-	
-	        function getSportTypeData(viewSetting, data) {
-	            var cloneViewSetting = {};
-	            angular.extend(cloneViewSetting, viewSetting);
-	            cloneViewSetting.serviceBaseUrl = "api/house-win-loss-by-products/other-sports/sport-type";
-	            return remoteDataService.getData(cloneViewSetting, data);
-	        }
-	
-	        return service;
-	    }
-	})(_angular2.default);
-
-/***/ },
 /* 77 */
-/*!*****************************************************************!*\
-  !*** ./app/house-win-loss/parlay/parlay-bet-type.controller.js ***!
-  \*****************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _moment = __webpack_require__(/*! moment */ 5);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('ParlayBetTypeController', ParlayBetTypeController);
-	
-	    ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];
-	    function ParlayBetTypeController($scope, $element, fanexGridService, showHideColumnService, legacyService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var parlaySportType = 9;
-	        var systemParlayBetType = 29;
-	        var mixParlayBetType = 9;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateSite = generateSite;
-	        $scope.viewMixParlayWindow = viewMixParlayWindow;
-	        $scope.viewSetting = {};
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                showHideColumnBuilder.build(gridElement, data);
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function generateSite(betType, betTypeName, site) {
-	            var data = {
-	                betType: betType,
-	                betTypeName: betTypeName,
-	                site: site
-	            };
-	            angular.extend(data, pane.data);
-	            tab.goForward('site', data);
-	        }
-	
-	        function viewMixParlayWindow() {
-	            var url = '/WinLoss/DailyMixParlayWinLoss_2hLink/Index?startDate=' + pane.data.startDate.format('MM/DD/YYYY') + '&endDate=' + pane.data.endDate.format('MM/DD/YYYY') + '&SportId=' + parlaySportType + '&IsRedirect=true&BetType=' + mixParlayBetType;
-	            url = legacyService.resolveUrl(url);
-	            location.href = url;
-	        }
-	
-	        function checkvalidLinks() {
-	            var balanceday = (0, _moment2.default)(napConfig.BalanceUp);
-	            return pane.data.startDate.isSameOrAfter(balanceday);
-	        }
-	
-	        function createLinks(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var betTypeName = betTypeRow.Columns[0].Value;
-	                var betTypeId = parseInt(betTypeRow.Columns[0].CustomAttr);
-	                var isEnableLink = checkvalidLinks();
-	                if (betTypeId === systemParlayBetType && isEnableLink === true && pane.data.normalMode === true) {
-	                    betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'ALL\')">' + betTypeName + '</a>';
-	                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
-	                        var siteRow = data.bodyRows[i].SubRows[j];
-	                        var siteName = siteRow.Columns[0].Value;
-	                        siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'' + siteName + '\')">' + siteName + '</a>';
-	                    }
-	                } else if (betTypeId === mixParlayBetType) {
-	                    betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMixParlayWindow()">' + betTypeName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = {};
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, { title: title });
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 78 */
-/*!**********************************************************!*\
-  !*** ./app/house-win-loss/product/product.controller.js ***!
-  \**********************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('ProductController', ProductController);
-	
-	    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'houseWinlossService', 'productShowHideColumnService'];
-	    function ProductController($element, $scope, fanexGridService, houseWinlossService, productShowHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateProduct = generateProduct;
-	        $scope.viewSetting = {};
-	
-	        function generateProduct(productName) {
-	            var data = {};
-	            angular.extend(data, pane.data);
-	            angular.extend(data, { productName: productName });
-	            var level = houseWinlossService.getMainView(productName);
-	            tab.goForward(level, data);
-	        }
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                showHideColumnBuilder.build(gridElement, data);
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinks(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var productRow = data.bodyRows[i];
-	                var customAttr = productRow.CustomAttr;
-	                if (customAttr === 'product') {
-	                    var productName = productRow.Columns[0].Value;
-	                    productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = { title: title };
-	            angular.extend(httpData, pane.data);
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 79 */
-/*!**************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-bet-type.service.js ***!
-  \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('soccerBetTypeService', soccerBetTypeService);
-	
-	    soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
-	    function soccerBetTypeService($http, httpResponseService, soccerConstants) {
-	        var service = {
-	            getData: getData,
-	            exportExcel: exportExcel
-	        };
-	
-	        return service;
-	
-	        function getData(data) {
-	            var isMajor = buildMajorFlag(data);
-	            var isLive = data.isLive;
-	
-	            var httpData = {
-	                isMajor: isMajor,
-	                normalMode: data.normalMode
-	            };
-	            angular.extend(httpData, data);
-	
-	            var url = buildUrl(isLive, isMajor);
-	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function exportExcel(title, data, fileName) {
-	            var isMajor = buildMajorFlag(data);
-	            var isLive = data.isLive;
-	
-	            var httpData = {
-	                title: title,
-	                isMajor: isMajor,
-	                normalMode: data.normalMode
-	            };
-	            angular.extend(httpData, data);
-	
-	            var url = buildUrl(isLive, isMajor) + '/excel';
-	
-	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {
-	                httpResponseService.saveExcelFile(response.data, fileName);
-	            }).catch(httpResponseService.getDataFailed);
-	        }
-	
-	        function buildMajorFlag(data) {
-	            return data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? true : false;
-	        }
-	
-	        function buildUrl(isLive, isMajor) {
-	            var url = "api/house-win-loss-by-products/soccer/bettype";
-	            if (isMajor && isLive === soccerConstants.LiveNonLive) {
-	                url = "api/house-win-loss-by-products/soccer/sum-bettype";
-	            } else if (isMajor && isLive === soccerConstants.NonLive) {
-	                url = "api/house-win-loss-by-products/soccer/group-bettype";
-	            }
-	
-	            return url;
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 80 */
-/*!*********************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-live-nonlive.controller.js ***!
-  \*********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('SoccerLiveNonLiveController', SoccerLiveNonLiveController);
-	
-	    SoccerLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'soccerConstants'];
-	    function SoccerLiveNonLiveController($scope, $element, fanexGridService, showHideColumnService, soccerConstants) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var gridElements = $element.find('.freegrid');
-	        var majorMinorGridElement = angular.element(gridElements[0]);
-	        var liveNonLiveGridElement = angular.element(gridElements[1]);
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateSoccerLiveNonLivePane = generateSoccerLiveNonLivePane;
-	        $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
-	        $scope.viewSetting = {};
-	        pane.data.isLive = soccerConstants.LiveNonLive;
-	
-	        function generate(viewSetting) {
-	            var majorMinorGridOptions, liveNonLiveGridOptions;
-	            $scope.viewSetting = viewSetting;
-	
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                liveNonLiveGridOptions = data;
-	                renderAll();
-	            });
-	
-	            pane.service.getMajorMinorData(pane.data).then(function (data) {
-	                majorMinorGridOptions = data;
-	                renderAll();
-	            });
-	
-	            function renderAll() {
-	                var isDataReady = angular.isDefined(majorMinorGridOptions) && angular.isDefined(liveNonLiveGridOptions);
-	                if (!isDataReady) {
-	                    return;
-	                }
-	
-	                showHideColumnBuilder.build([majorMinorGridElement, liveNonLiveGridElement], [majorMinorGridOptions, liveNonLiveGridOptions]);
-	
-	                createLinksForMajorMinor(majorMinorGridOptions);
-	                renderMajorMinorGrid(majorMinorGridElement, majorMinorGridOptions);
-	
-	                createLinksForLiveNonLive(liveNonLiveGridOptions);
-	                renderLiveNonLiveGrid(liveNonLiveGridElement, liveNonLiveGridOptions);
-	
-	                pane.compileAll();
-	            }
-	        }
-	
-	        function renderMajorMinorGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Soccer MAJOR/MINOR"),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function renderLiveNonLiveGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Soccer LIVE/NON-LIVE"),
-	                showCollapseExpandButton: false,
-	                showExcelButton: false
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinksForMajorMinor(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
-	            }
-	        }
-	
-	        function generateSoccerBetTypePane(betTypeNameMajorMinor) {
-	            var data = {
-	                betTypeNameMajorMinor: betTypeNameMajorMinor,
-	                sportTypeName: betTypeNameMajorMinor
-	            };
-	            angular.extend(data, pane.data);
-	
-	            tab.goForward('soccerBetType', data);
-	        }
-	
-	        function createLinksForLiveNonLive(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var soccerLiveNonLive = betTypeRow.Columns[0].Value;
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
-	            }
-	        }
-	
-	        function generateSoccerLiveNonLivePane(soccerLiveNonLive) {
-	            var data = {
-	                soccerLiveNonLive: soccerLiveNonLive
-	            };
-	            angular.extend(data, pane.data);
-	
-	            tab.goForward('soccerMajorMinor', data);
-	        }
-	
-	        function exportExcel() {
-	
-	            var majorMinorTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Soccer MAJOR/MINOR");
-	            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Soccer LIVE/NON-LIVE");
-	
-	            var httpData = {
-	                majorMinorTitle: majorMinorTitle,
-	                liveNonLiveTitle: liveNonLiveTitle
-	            };
-	            angular.extend(httpData, pane.data);
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-/* 81 */
-/*!******************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-live-nonlive.service.js ***!
-  \******************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('soccerLiveNonLiveService', soccerLiveNonLiveService);
-	
-	    soccerLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'remoteDataService'];
-	    function soccerLiveNonLiveService($http, httpResponseService, remoteDataService) {
-	        var service = {
-	            getData: remoteDataService.getData,
-	            getMajorMinorData: getMajorMinorData,
-	            exportExcel: remoteDataService.exportExcel
-	        };
-	
-	        return service;
-	
-	        function getMajorMinorData(data) {
-	            return $http.post('api/house-win-loss-by-products/soccer/major-minor', data).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 82 */
-/*!********************************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer-major-minor.controller.js ***!
-  \********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular, undefined) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('SoccerMajorMinorController', SoccerMajorMinorController);
-	
-	    SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
-	    function SoccerMajorMinorController($scope, $element, fanexGridService, soccerConstants, showHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new showHideColumnService(pane);
-	        var tab = $scope.tab;
-	        var gridElements = $element.find('.freegrid');
-	        var majorMinorGridElement = angular.element(gridElements[0]);
-	        $scope.generate = generate;
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
-	        $scope.viewSetting = {};
-	        pane.data.isLive = pane.data.soccerLiveNonLive === "Soccer Non-Live" ? soccerConstants.NonLive : soccerConstants.Live;
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                showHideColumnBuilder.build(gridElements, data);
-	                createLinksForMajorMinor(data);
-	                renderGrid(gridElements, data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(gridElement, data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinksForMajorMinor(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var betTypeRow = data.bodyRows[i];
-	                var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
-	            }
-	        }
-	
-	        function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-	            var data = {
-	                betTypeNameMajorMinor: betTypeNameMajorMinor,
-	                sportTypeName: betTypeNameMajorMinor
-	            };
-	            angular.extend(data, pane.data);
-	
-	            tab.goForward('soccerBetType', data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = {
-	                title: title
-	            };
-	            angular.extend(httpData, pane.data);
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default, undefined);
-
-/***/ },
-/* 83 */
-/*!******************************************************!*\
-  !*** ./app/house-win-loss/soccer/soccer.constant.js ***!
-  \******************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2750,183 +1811,12 @@ webpackJsonp([2],[
 	})(_angular2.default);
 
 /***/ },
-/* 84 */
-/*!*****************************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.controller.js ***!
-  \*****************************************************************************/
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
-	
-	    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
-	    function SportsbookMatchDetailController($scope, $element, fanexGridService, $uibModal, $uibModalStack) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	        $scope.viewMatchInformation = viewMatchInformation;
-	        $scope.viewSetting = {};
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function viewMatchInformation(sportType, matchId, eventDate, leagueName) {
-	            pane.data.sportType = sportType;
-	            pane.data.matchId = matchId;
-	            pane.data.eventDate = eventDate;
-	            pane.service.getMatchInformation(pane.data).then(function (data) {
-	                showPopup(data, leagueName);
-	            });
-	        }
-	
-	        function showPopup(data, leagueName) {
-	            var traderName = data && data.TraderName && data.TraderName !== '' ? data.TraderName : "Unassigned";
-	            var newScope = $scope.$new();
-	            angular.extend(newScope, {
-	                sportTypeName: pane.data.sportTypeName,
-	                betTypeName: pane.data.betTypeName,
-	                leagueName: leagueName,
-	                traderName: traderName,
-	                liveName: getLiveName(pane.data.isLive),
-	                matchInformation: data.MatchInformation,
-	                closePopup: closePopup
-	            });
-	            $uibModal.open({
-	                templateUrl: 'app/house-win-loss/sportsbook/sportsbook-match-information.html',
-	                size: 'match-information',
-	                scope: newScope
-	            });
-	        }
-	
-	        function getLiveName(data) {
-	
-	            if (data === 1) {
-	                return "Live!";
-	            } else if (data === 0) {
-	                return "Non-Live!";
-	            } else {
-	                return " ";
-	            }
-	        }
-	
-	        function closePopup() {
-	            $uibModalStack.dismissAll("Close");
-	        }
-	        function createLinks(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var bodyRow = data.bodyRows[i];
-	                var customAttr = bodyRow.Columns[0].CustomAttr;
-	                if (customAttr) {
-	                    var matchName = bodyRow.Columns[0].Value;
-	                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.showPager = true;
-	            data.pagerOption = {
-	                itemsPerPage: 50,
-	                currentPage: 0,
-	                itemsPerPageArray: [50, 100, 200, 500],
-	                totalItem: data.bodyRows.length,
-	                afterPagedFunction: function afterPagedFunction() {
-	                    pane.compileDrilldown();
-	                }
-	            };
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = {};
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, { title: title });
-	
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 85 */
-/*!**************************************************************************!*\
-  !*** ./app/house-win-loss/sportsbook/sportsbook-match-detail.service.js ***!
-  \**************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
-	
-	    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'legacyService', 'remoteDataService'];
-	    function sportsbookMatchDetailService($http, httpResponseService, legacyService, remoteDataService) {
-	        var service = {
-	            getMatchInformation: getMatchInformation,
-	            getData: remoteDataService.getData,
-	            exportExcel: remoteDataService.exportExcel
-	        };
-	        return service;
-	
-	        function getMatchInformation(data) {
-	            var httpData = {
-	                matchId: data.matchId,
-	                betType: data.betType,
-	                sportType: data.sportType,
-	                reportDate: data.eventDate
-	            };
-	
-	            var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
-	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 86 */
-/*!**************************************************!*\
-  !*** ./app/house-win-loss/tab/pane.directive.js ***!
-  \**************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -2976,265 +1866,6 @@ webpackJsonp([2],[
 	        }
 	    }
 	})(_angular2.default);
-
-/***/ },
-/* 87 */
-/*!************************************************!*\
-  !*** ./app/house-win-loss/tab/pane.service.js ***!
-  \************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('napPane', napPane);
-	
-	    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
-	    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
-	        function Pane(viewLevel, data) {
-	            this.viewLevel = viewLevel;
-	            this.data = data;
-	            this.$scope = undefined;
-	            this.$element = undefined;
-	            this.generate = generate;
-	            this.show = show;
-	            this.compileAll = compileAll;
-	            this.compileLinks = compileLinks;
-	            this.compileDrilldown = compileDrilldown;
-	            this.getFileName = getFileName;
-	
-	            if (angular.isUndefined(this.viewLevel) || angular.isUndefined(this.data)) {
-	                $log.error('Invalid pane');
-	                return;
-	            }
-	
-	            this.viewSetting = houseWinlossService.getViewSetting(data.productName, viewLevel, data);
-	            if (this.viewSetting === undefined) {
-	                loggerService.logError('Sorry, the configuration is corrupted, please notify the administrators.');
-	                throw 'Sorry, the configuration is corrupted, please notify the administrators.';
-	            }
-	
-	            this.templateUrl = this.viewSetting.templateUrl;
-	            this.controller = this.viewSetting.controller;
-	            this.service = $injector.get(this.viewSetting.service);
-	
-	            function generate() {
-	                this.$scope.generate(this.viewSetting);
-	            }
-	
-	            function show() {
-	                var gridElement = this.$element.find('.freegrid');
-	                gridElement.fanexGrid('resizeGrid');
-	            }
-	
-	            function getFileName() {
-	                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
-	            }
-	
-	            function compileAll() {
-	                this.compileLinks();
-	                var elements = this.$element.find('.nap-component');
-	                $compile(elements)(this.$scope);
-	            }
-	
-	            function compileLinks() {
-	                var elements = this.$element.find('.drill-down');
-	                $compile(elements)(this.$scope);
-	                elements = this.$element.find('.breadcrumb');
-	                $compile(elements)(this.$scope);
-	            }
-	
-	            function compileDrilldown() {
-	                var elements = this.$element.find('.drill-down');
-	                $compile(elements)(this.$scope);
-	            }
-	        }
-	
-	        return Pane;
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 88 */
-/*!*************************************************!*\
-  !*** ./app/house-win-loss/tab/tab.directive.js ***!
-  \*************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(/*! angular */ 10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').directive('napTab', napTab);
-	
-	    napTab.$inject = ['napPane'];
-	    function napTab(Pane) {
-	        var directive = {
-	            restrict: 'EA',
-	            scope: {
-	                panes: '='
-	            },
-	            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
-	            controller: controller,
-	            controllerAs: 'vm',
-	            bindToController: true
-	        };
-	        return directive;
-	    }
-	
-	    controller.$inject = ['$scope', '$rootScope', 'napTab', 'napPane'];
-	    function controller($scope, $rootScope, Tab, Pane) {
-	        var tab = new Tab($scope.panes);
-	        var vm = this;
-	        vm.tab = tab;
-	
-	        $scope.$on('nap-filter-generate', function (event, data) {
-	            if (tab.panes.length === 0) {
-	                data.productName = "Main";
-	                var mainPane = new Pane('product', data);
-	                tab.addPane(mainPane);
-	            } else {
-	                var activePane = tab.getActivePane();
-	                angular.extend(activePane.data, data);
-	                activePane.generate();
-	            }
-	        });
-	
-	        $scope.$on('nap-filter-switch', function (event) {
-	            tab.panes = [];
-	        });
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 89 */
-/*!***********************************************!*\
-  !*** ./app/house-win-loss/tab/tab.service.js ***!
-  \***********************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	//import angular from "angular";
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('napTab', napTab);
-	
-	    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane', 'titleService'];
-	    function napTab($rootScope, breadcrumbService, Pane, titleService) {
-	        function Tab(panes) {
-	            this.panes = angular.isDefined(panes) ? panes : [];
-	            this.addPane = addPane;
-	            this.getActivePane = getActivePane;
-	            this.getPreviousPane = getPreviousPane;
-	            this.goBack = goBack;
-	            this.goForward = goForward;
-	            this.generateBreadcrumbList = generateBreadcrumbList;
-	            this.generateBreadcrumbHtml = generateBreadcrumbHtml;
-	            this.generateBreadcrumbText = generateBreadcrumbText;
-	            this.generateBreadcrumbHtmlWithLastItemReplacement = generateBreadcrumbHtmlWithLastItemReplacement;
-	            this.generateBreadcrumbTextWithLastItemReplacement = generateBreadcrumbTextWithLastItemReplacement;
-	
-	            function addPane(pane) {
-	                this.panes.push(pane);
-	            }
-	
-	            function getActivePane() {
-	                return this.panes[this.panes.length - 1];
-	            }
-	
-	            function getPreviousPane(pane) {
-	                var previousPane = null;
-	                for (var i = 0; i < this.panes.length; i++) {
-	                    var currentPane = this.panes[i];
-	                    if (currentPane === pane) {
-	                        break;
-	                    }
-	
-	                    previousPane = currentPane;
-	                }
-	
-	                return previousPane;
-	            }
-	
-	            function goBack(index) {
-	                var activePane = this.getActivePane();
-	                this.panes = this.panes.slice(0, index + 1);
-	                var newActivePane = this.getActivePane();
-	                if (angular.isFunction(newActivePane.$scope.show)) {
-	                    newActivePane.$scope.show();
-	                }
-	
-	                activePane = this.panes[index];
-	                var dateRange = {
-	                    normalMode: activePane.data.normalMode,
-	                    startDate: activePane.data.startDate,
-	                    endDate: activePane.data.endDate
-	                };
-	                $rootScope.$broadcast('nap-filter-date', dateRange);
-	            }
-	
-	            function goForward(level, data) {
-	                var activePane = this.getActivePane();
-	                var pane = new Pane(level, data);
-	                this.addPane(pane);
-	            }
-	
-	            function generateBreadcrumbList() {
-	                var list = [];
-	                for (var i = 0; i < this.panes.length; i++) {
-	                    var pane = this.panes[i];
-	                    var isLast = i === this.panes.length - 1;
-	                    var getTitleFunction = pane.viewSetting.getTitleFunction;
-	                    var title = titleService[getTitleFunction](pane.data, isLast);
-	                    list.push(title);
-	                }
-	
-	                return list;
-	            }
-	
-	            function generateBreadcrumbHtml() {
-	                var list = this.generateBreadcrumbList();
-	                return breadcrumbService.generateHtml(list);
-	            }
-	
-	            function generateBreadcrumbText() {
-	                var list = this.generateBreadcrumbList();
-	                return breadcrumbService.generateText(list);
-	            }
-	
-	            function generateBreadcrumbHtmlWithLastItemReplacement(lastItem) {
-	                var list = this.generateBreadcrumbList();
-	                list[list.length - 1] = lastItem;
-	                return breadcrumbService.generateHtml(list);
-	            }
-	
-	            function generateBreadcrumbTextWithLastItemReplacement(lastItem) {
-	                var list = this.generateBreadcrumbList();
-	                list[list.length - 1] = lastItem;
-	                return breadcrumbService.generateText(list);
-	            }
-	        }
-	
-	        return Tab;
-	    }
-	})(angular);
 
 /***/ }
 ]);

@@ -1,38 +1,33 @@
 webpackJsonp([0],[
 /* 0 */
-/*!*****************!*\
-  !*** multi app ***!
-  \*****************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./Scripts/Fanex.Grid.js */1);
-	__webpack_require__(/*! ./Scripts/Fanex.Pagination.js */8);
-	__webpack_require__(/*! ./app/root/app.js */9);
-	__webpack_require__(/*! ./app/root/app.constant.js */32);
-	__webpack_require__(/*! ./app/root/app.config.js */33);
-	__webpack_require__(/*! ./app/root/components/alert/alert.directive.js */34);
-	__webpack_require__(/*! ./app/root/components/angucomplete-alt/angucomplete-alt.js */35);
-	__webpack_require__(/*! ./app/root/components/click/click.directive.js */36);
-	__webpack_require__(/*! ./app/root/components/date-picker/date-picker.directive.js */37);
-	__webpack_require__(/*! ./app/root/components/date-range-picker/date-range-picker.directive.js */38);
-	__webpack_require__(/*! ./app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.js */39);
-	__webpack_require__(/*! ./app/root/components/header/header.directive.js */40);
-	__webpack_require__(/*! ./app/root/components/header/header.service.js */41);
-	__webpack_require__(/*! ./app/root/components/legend/legend.directive.js */42);
-	__webpack_require__(/*! ./app/root/components/legend/legend.service.js */43);
-	__webpack_require__(/*! ./app/root/components/loading/loading.directive.js */44);
-	__webpack_require__(/*! ./app/root/components/month-picker/month-picker.directive.js */45);
-	__webpack_require__(/*! ./app/root/crosscutting/fanex-grid.service.js */46);
-	__webpack_require__(/*! ./app/root/crosscutting/http-response.service.js */47);
-	__webpack_require__(/*! ./app/root/crosscutting/logger.service.js */49);
-	module.exports = __webpack_require__(/*! ./app/root/legacy/legacy.service.js */50);
+	__webpack_require__(1);
+	__webpack_require__(8);
+	__webpack_require__(9);
+	__webpack_require__(32);
+	__webpack_require__(33);
+	__webpack_require__(34);
+	__webpack_require__(35);
+	__webpack_require__(36);
+	__webpack_require__(37);
+	__webpack_require__(38);
+	__webpack_require__(39);
+	__webpack_require__(40);
+	__webpack_require__(41);
+	__webpack_require__(42);
+	__webpack_require__(43);
+	__webpack_require__(44);
+	__webpack_require__(45);
+	__webpack_require__(46);
+	__webpack_require__(47);
+	__webpack_require__(48);
+	__webpack_require__(50);
+	module.exports = __webpack_require__(51);
 
 
 /***/ },
 /* 1 */
-/*!*******************************!*\
-  !*** ./Scripts/Fanex.Grid.js ***!
-  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73,15 +68,15 @@ webpackJsonp([0],[
 	/*jshint maxdepth:false, maxstatements:false, strict:false*/
 	/*global fanexGridLanguage, moment,numeral*/
 	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
+	var _jquery = __webpack_require__(2);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 7);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
@@ -3230,29 +3225,20 @@ webpackJsonp([0],[
 
 /***/ },
 /* 2 */
-/*!*********************************!*\
-  !*** ./~/jquery/dist/jquery.js ***!
-  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(/*! -!./~/expose-loader?jQuery!./~/jquery/dist/jquery.js */ 3);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(3);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 3 */
-/*!**********************************************************!*\
-  !*** ./~/expose-loader?jQuery!./~/jquery/dist/jquery.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(/*! -!./~/jquery/dist/jquery.js */ 4);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(4);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 4 */
-/*!*********************************!*\
-  !*** ./~/jquery/dist/jquery.js ***!
-  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -13336,18 +13322,15 @@ webpackJsonp([0],[
 /* 6 */,
 /* 7 */,
 /* 8 */
-/*!*************************************!*\
-  !*** ./Scripts/Fanex.Pagination.js ***!
-  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _Fanex = __webpack_require__(/*! ./Fanex.Grid */ 1);
+	var _Fanex = __webpack_require__(1);
 	
 	var _Fanex2 = _interopRequireDefault(_Fanex);
 	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
+	var _jquery = __webpack_require__(2);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -13636,26 +13619,23 @@ webpackJsonp([0],[
 
 /***/ },
 /* 9 */
-/*!*************************!*\
-  !*** ./app/root/app.js ***!
-  \*************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	__webpack_require__(/*! bootstrap */ 12);
+	__webpack_require__(12);
 	
-	__webpack_require__(/*! angular-ui-bootstrap */ 25);
+	__webpack_require__(25);
 	
-	__webpack_require__(/*! angular-route */ 27);
+	__webpack_require__(27);
 	
-	__webpack_require__(/*! angular-sanitize */ 29);
+	__webpack_require__(29);
 	
-	__webpack_require__(/*! angular-moment */ 31);
+	__webpack_require__(31);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13669,30 +13649,24 @@ webpackJsonp([0],[
 /* 10 */,
 /* 11 */,
 /* 12 */
-/*!************************************!*\
-  !*** ./~/bootstrap/dist/js/npm.js ***!
-  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-	__webpack_require__(/*! ../../js/transition.js */ 13)
-	__webpack_require__(/*! ../../js/alert.js */ 14)
-	__webpack_require__(/*! ../../js/button.js */ 15)
-	__webpack_require__(/*! ../../js/carousel.js */ 16)
-	__webpack_require__(/*! ../../js/collapse.js */ 17)
-	__webpack_require__(/*! ../../js/dropdown.js */ 18)
-	__webpack_require__(/*! ../../js/modal.js */ 19)
-	__webpack_require__(/*! ../../js/tooltip.js */ 20)
-	__webpack_require__(/*! ../../js/popover.js */ 21)
-	__webpack_require__(/*! ../../js/scrollspy.js */ 22)
-	__webpack_require__(/*! ../../js/tab.js */ 23)
-	__webpack_require__(/*! ../../js/affix.js */ 24)
+	__webpack_require__(13)
+	__webpack_require__(14)
+	__webpack_require__(15)
+	__webpack_require__(16)
+	__webpack_require__(17)
+	__webpack_require__(18)
+	__webpack_require__(19)
+	__webpack_require__(20)
+	__webpack_require__(21)
+	__webpack_require__(22)
+	__webpack_require__(23)
+	__webpack_require__(24)
 
 /***/ },
 /* 13 */
-/*!**************************************!*\
-  !*** ./~/bootstrap/js/transition.js ***!
-  \**************************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -13758,9 +13732,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 14 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/alert.js ***!
-  \*********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -13861,9 +13832,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 15 */
-/*!**********************************!*\
-  !*** ./~/bootstrap/js/button.js ***!
-  \**********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -13995,9 +13963,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 16 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/carousel.js ***!
-  \************************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14241,9 +14206,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 17 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/collapse.js ***!
-  \************************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14462,9 +14424,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 18 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/dropdown.js ***!
-  \************************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14636,9 +14595,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 19 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/modal.js ***!
-  \*********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14984,9 +14940,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 20 */
-/*!***********************************!*\
-  !*** ./~/bootstrap/js/tooltip.js ***!
-  \***********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15513,9 +15466,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 21 */
-/*!***********************************!*\
-  !*** ./~/bootstrap/js/popover.js ***!
-  \***********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15630,9 +15580,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 22 */
-/*!*************************************!*\
-  !*** ./~/bootstrap/js/scrollspy.js ***!
-  \*************************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15811,9 +15758,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 23 */
-/*!*******************************!*\
-  !*** ./~/bootstrap/js/tab.js ***!
-  \*******************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15975,9 +15919,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 24 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/affix.js ***!
-  \*********************************/
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -16146,21 +16087,15 @@ webpackJsonp([0],[
 
 /***/ },
 /* 25 */
-/*!*****************************************!*\
-  !*** ./~/angular-ui-bootstrap/index.js ***!
-  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./dist/ui-bootstrap-tpls */ 26);
+	__webpack_require__(26);
 	
 	module.exports = 'ui.bootstrap';
 
 
 /***/ },
 /* 26 */
-/*!**********************************************************!*\
-  !*** ./~/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js ***!
-  \**********************************************************/
 /***/ function(module, exports) {
 
 	/*
@@ -23702,20 +23637,14 @@ webpackJsonp([0],[
 
 /***/ },
 /* 27 */
-/*!**********************************!*\
-  !*** ./~/angular-route/index.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./angular-route */ 28);
+	__webpack_require__(28);
 	module.exports = 'ngRoute';
 
 
 /***/ },
 /* 28 */
-/*!******************************************!*\
-  !*** ./~/angular-route/angular-route.js ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	/**
@@ -24791,20 +24720,14 @@ webpackJsonp([0],[
 
 /***/ },
 /* 29 */
-/*!*************************************!*\
-  !*** ./~/angular-sanitize/index.js ***!
-  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./angular-sanitize */ 30);
+	__webpack_require__(30);
 	module.exports = 'ngSanitize';
 
 
 /***/ },
 /* 30 */
-/*!************************************************!*\
-  !*** ./~/angular-sanitize/angular-sanitize.js ***!
-  \************************************************/
 /***/ function(module, exports) {
 
 	/**
@@ -25549,9 +25472,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 31 */
-/*!********************************************!*\
-  !*** ./~/angular-moment/angular-moment.js ***!
-  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* angular-moment.js / v1.0.0-beta.6 / (c) 2013, 2014, 2015, 2016 Uri Shaked / MIT Licence */
@@ -25568,7 +25488,7 @@ webpackJsonp([0],[
 	
 		function requireMoment() {
 			try {
-				return __webpack_require__(/*! moment */ 5); // Using nw.js or browserify?
+				return __webpack_require__(5); // Using nw.js or browserify?
 			} catch (e) {
 				throw new Error('Please install moment via npm. Please reference to: https://github.com/urish/angular-moment'); // Add wiki/troubleshooting section?
 			}
@@ -26281,7 +26201,7 @@ webpackJsonp([0],[
 		}
 	
 		if (true) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! angular */ 10), __webpack_require__(/*! moment */ 5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof module !== 'undefined' && module && module.exports) {
 			angularMoment(require('angular'), require('moment'));
 			module.exports = 'angularMoment';
@@ -26293,18 +26213,15 @@ webpackJsonp([0],[
 
 /***/ },
 /* 32 */
-/*!**********************************!*\
-  !*** ./app/root/app.constant.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -26348,14 +26265,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 33 */
-/*!********************************!*\
-  !*** ./app/root/app.config.js ***!
-  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -26412,14 +26326,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 34 */
-/*!******************************************************!*\
-  !*** ./app/root/components/alert/alert.directive.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -26464,9 +26375,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 35 */
-/*!******************************************************************!*\
-  !*** ./app/root/components/angucomplete-alt/angucomplete-alt.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -26487,10 +26395,10 @@ webpackJsonp([0],[
 	
 	  if (typeof module !== 'undefined' && module.exports) {
 	    // CommonJS
-	    module.exports = factory(__webpack_require__(/*! angular */ 10));
+	    module.exports = factory(__webpack_require__(10));
 	  } else if (true) {
 	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! angular */ 10)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else {
 	    // Global Variables
 	    factory(root.angular);
@@ -27270,14 +27178,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 36 */
-/*!******************************************************!*\
-  !*** ./app/root/components/click/click.directive.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -27324,18 +27229,15 @@ webpackJsonp([0],[
 
 /***/ },
 /* 37 */
-/*!******************************************************************!*\
-  !*** ./app/root/components/date-picker/date-picker.directive.js ***!
-  \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -27567,18 +27469,15 @@ webpackJsonp([0],[
 
 /***/ },
 /* 38 */
-/*!******************************************************************************!*\
-  !*** ./app/root/components/date-range-picker/date-range-picker.directive.js ***!
-  \******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -27717,16 +27616,13 @@ webpackJsonp([0],[
 
 /***/ },
 /* 39 */
-/*!********************************************************************************!*\
-  !*** ./app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.js ***!
-  \********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28237,14 +28133,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 40 */
-/*!********************************************************!*\
-  !*** ./app/root/components/header/header.directive.js ***!
-  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28285,14 +28178,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 41 */
-/*!******************************************************!*\
-  !*** ./app/root/components/header/header.service.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28347,14 +28237,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 42 */
-/*!********************************************************!*\
-  !*** ./app/root/components/legend/legend.directive.js ***!
-  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28390,14 +28277,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 43 */
-/*!******************************************************!*\
-  !*** ./app/root/components/legend/legend.service.js ***!
-  \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28426,14 +28310,11 @@ webpackJsonp([0],[
 
 /***/ },
 /* 44 */
-/*!**********************************************************!*\
-  !*** ./app/root/components/loading/loading.directive.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28477,18 +28358,15 @@ webpackJsonp([0],[
 
 /***/ },
 /* 45 */
-/*!********************************************************************!*\
-  !*** ./app/root/components/month-picker/month-picker.directive.js ***!
-  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -28667,14 +28545,894 @@ webpackJsonp([0],[
 
 /***/ },
 /* 46 */
-/*!*****************************************************!*\
-  !*** ./app/root/crosscutting/fanex-grid.service.js ***!
-  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	
+	/*
+	 * ngDialog - easy modals and popup windows
+	 * http://github.com/likeastore/ngDialog
+	 * (c) 2013-2015 MIT License, https://likeastore.com
+	 */
+	
+	(function (root, factory) {
+	    if (typeof module !== 'undefined' && module.exports) {
+	        // CommonJS
+	        if (typeof angular === 'undefined') {
+	            factory(__webpack_require__(10));
+	        } else {
+	            factory(angular);
+	        }
+	        module.exports = 'ngDialog';
+	    } else if (true) {
+	        // AMD
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else {
+	        // Global Variables
+	        factory(root.angular);
+	    }
+	})(undefined, function (angular) {
+	    'use strict';
+	
+	    var m = angular.module('app.core');
+	
+	    var $el = angular.element;
+	    var isDef = angular.isDefined;
+	    var style = (document.body || document.documentElement).style;
+	    var animationEndSupport = isDef(style.animation) || isDef(style.WebkitAnimation) || isDef(style.MozAnimation) || isDef(style.MsAnimation) || isDef(style.OAnimation);
+	    var animationEndEvent = 'animationend webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend';
+	    var focusableElementSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]';
+	    var disabledAnimationClass = 'ngdialog-disabled-animation';
+	    var forceElementsReload = { html: false, body: false };
+	    var scopes = {};
+	    var openIdStack = [];
+	    var keydownIsBound = false;
+	    var openOnePerName = false;
+	
+	    m.provider('ngDialog', function () {
+	        var defaults = this.defaults = {
+	            className: 'ngdialog-theme-default',
+	            appendClassName: '',
+	            disableAnimation: false,
+	            plain: false,
+	            showClose: true,
+	            closeByDocument: true,
+	            closeByEscape: true,
+	            closeByNavigation: false,
+	            appendTo: false,
+	            preCloseCallback: false,
+	            overlay: true,
+	            cache: true,
+	            trapFocus: true,
+	            preserveFocus: true,
+	            ariaAuto: true,
+	            ariaRole: null,
+	            ariaLabelledById: null,
+	            ariaLabelledBySelector: null,
+	            ariaDescribedById: null,
+	            ariaDescribedBySelector: null,
+	            bodyClassName: 'ngdialog-open',
+	            width: null,
+	            height: null
+	        };
+	
+	        this.setForceHtmlReload = function (_useIt) {
+	            forceElementsReload.html = _useIt || false;
+	        };
+	
+	        this.setForceBodyReload = function (_useIt) {
+	            forceElementsReload.body = _useIt || false;
+	        };
+	
+	        this.setDefaults = function (newDefaults) {
+	            angular.extend(defaults, newDefaults);
+	        };
+	
+	        this.setOpenOnePerName = function (isOpenOne) {
+	            openOnePerName = isOpenOne || false;
+	        };
+	
+	        var globalID = 0,
+	            dialogsCount = 0,
+	            closeByDocumentHandler,
+	            defers = {};
+	
+	        this.$get = ['$document', '$templateCache', '$compile', '$q', '$http', '$rootScope', '$timeout', '$window', '$controller', '$injector', function ($document, $templateCache, $compile, $q, $http, $rootScope, $timeout, $window, $controller, $injector) {
+	            var $elements = [];
+	
+	            var privateMethods = {
+	                onDocumentKeydown: function onDocumentKeydown(event) {
+	                    if (event.keyCode === 27) {
+	                        publicMethods.close('$escape');
+	                    }
+	                },
+	
+	                activate: function activate($dialog) {
+	                    var options = $dialog.data('$ngDialogOptions');
+	
+	                    if (options.trapFocus) {
+	                        $dialog.on('keydown', privateMethods.onTrapFocusKeydown);
+	
+	                        // Catch rogue changes (eg. after unfocusing everything by clicking a non-focusable element)
+	                        $elements.body.on('keydown', privateMethods.onTrapFocusKeydown);
+	                    }
+	                },
+	
+	                deactivate: function deactivate($dialog) {
+	                    $dialog.off('keydown', privateMethods.onTrapFocusKeydown);
+	                    $elements.body.off('keydown', privateMethods.onTrapFocusKeydown);
+	                },
+	
+	                deactivateAll: function deactivateAll(els) {
+	                    angular.forEach(els, function (el) {
+	                        var $dialog = angular.element(el);
+	                        privateMethods.deactivate($dialog);
+	                    });
+	                },
+	
+	                setBodyPadding: function setBodyPadding(width) {
+	                    var originalBodyPadding = parseInt($elements.body.css('padding-right') || 0, 10);
+	                    $elements.body.css('padding-right', originalBodyPadding + width + 'px');
+	                    $elements.body.data('ng-dialog-original-padding', originalBodyPadding);
+	                    $rootScope.$broadcast('ngDialog.setPadding', width);
+	                },
+	
+	                resetBodyPadding: function resetBodyPadding() {
+	                    var originalBodyPadding = $elements.body.data('ng-dialog-original-padding');
+	                    if (originalBodyPadding) {
+	                        $elements.body.css('padding-right', originalBodyPadding + 'px');
+	                    } else {
+	                        $elements.body.css('padding-right', '');
+	                    }
+	                    $rootScope.$broadcast('ngDialog.setPadding', 0);
+	                },
+	
+	                performCloseDialog: function performCloseDialog($dialog, value) {
+	                    var options = $dialog.data('$ngDialogOptions');
+	                    var id = $dialog.attr('id');
+	                    var scope = scopes[id];
+	
+	                    if (!scope) {
+	                        // Already closed
+	                        return;
+	                    }
+	
+	                    if (typeof $window.Hammer !== 'undefined') {
+	                        var hammerTime = scope.hammerTime;
+	                        hammerTime.off('tap', closeByDocumentHandler);
+	                        hammerTime.destroy && hammerTime.destroy();
+	                        delete scope.hammerTime;
+	                    } else {
+	                        $dialog.unbind('click');
+	                    }
+	
+	                    if (dialogsCount === 1) {
+	                        $elements.body.unbind('keydown', privateMethods.onDocumentKeydown);
+	                    }
+	
+	                    if (!$dialog.hasClass('ngdialog-closing')) {
+	                        dialogsCount -= 1;
+	                    }
+	
+	                    var previousFocus = $dialog.data('$ngDialogPreviousFocus');
+	                    if (previousFocus && previousFocus.focus) {
+	                        previousFocus.focus();
+	                    }
+	
+	                    $rootScope.$broadcast('ngDialog.closing', $dialog, value);
+	                    dialogsCount = dialogsCount < 0 ? 0 : dialogsCount;
+	                    if (animationEndSupport && !options.disableAnimation) {
+	                        scope.$destroy();
+	                        $dialog.unbind(animationEndEvent).bind(animationEndEvent, function () {
+	                            privateMethods.closeDialogElement($dialog, value);
+	                        }).addClass('ngdialog-closing');
+	                    } else {
+	                        scope.$destroy();
+	                        privateMethods.closeDialogElement($dialog, value);
+	                    }
+	                    if (defers[id]) {
+	                        defers[id].resolve({
+	                            id: id,
+	                            value: value,
+	                            $dialog: $dialog,
+	                            remainingDialogs: dialogsCount
+	                        });
+	                        delete defers[id];
+	                    }
+	                    if (scopes[id]) {
+	                        delete scopes[id];
+	                    }
+	                    openIdStack.splice(openIdStack.indexOf(id), 1);
+	                    if (!openIdStack.length) {
+	                        $elements.body.unbind('keydown', privateMethods.onDocumentKeydown);
+	                        keydownIsBound = false;
+	                    }
+	                },
+	
+	                closeDialogElement: function closeDialogElement($dialog, value) {
+	                    var options = $dialog.data('$ngDialogOptions');
+	                    $dialog.remove();
+	                    if (dialogsCount === 0) {
+	                        $elements.html.removeClass(options.bodyClassName);
+	                        $elements.body.removeClass(options.bodyClassName);
+	                        privateMethods.resetBodyPadding();
+	                    }
+	                    $rootScope.$broadcast('ngDialog.closed', $dialog, value);
+	                },
+	
+	                closeDialog: function closeDialog($dialog, value) {
+	                    var preCloseCallback = $dialog.data('$ngDialogPreCloseCallback');
+	
+	                    if (preCloseCallback && angular.isFunction(preCloseCallback)) {
+	
+	                        var preCloseCallbackResult = preCloseCallback.call($dialog, value);
+	
+	                        if (angular.isObject(preCloseCallbackResult)) {
+	                            if (preCloseCallbackResult.closePromise) {
+	                                preCloseCallbackResult.closePromise.then(function () {
+	                                    privateMethods.performCloseDialog($dialog, value);
+	                                }, function () {
+	                                    return false;
+	                                });
+	                            } else {
+	                                preCloseCallbackResult.then(function () {
+	                                    privateMethods.performCloseDialog($dialog, value);
+	                                }, function () {
+	                                    return false;
+	                                });
+	                            }
+	                        } else if (preCloseCallbackResult !== false) {
+	                            privateMethods.performCloseDialog($dialog, value);
+	                        } else {
+	                            return false;
+	                        }
+	                    } else {
+	                        privateMethods.performCloseDialog($dialog, value);
+	                    }
+	                },
+	
+	                onTrapFocusKeydown: function onTrapFocusKeydown(ev) {
+	                    var el = angular.element(ev.currentTarget);
+	                    var $dialog;
+	
+	                    if (el.hasClass('ngdialog')) {
+	                        $dialog = el;
+	                    } else {
+	                        $dialog = privateMethods.getActiveDialog();
+	
+	                        if ($dialog === null) {
+	                            return;
+	                        }
+	                    }
+	
+	                    var isTab = ev.keyCode === 9;
+	                    var backward = ev.shiftKey === true;
+	
+	                    if (isTab) {
+	                        privateMethods.handleTab($dialog, ev, backward);
+	                    }
+	                },
+	
+	                handleTab: function handleTab($dialog, ev, backward) {
+	                    var focusableElements = privateMethods.getFocusableElements($dialog);
+	
+	                    if (focusableElements.length === 0) {
+	                        if (document.activeElement && document.activeElement.blur) {
+	                            document.activeElement.blur();
+	                        }
+	                        return;
+	                    }
+	
+	                    var currentFocus = document.activeElement;
+	                    var focusIndex = Array.prototype.indexOf.call(focusableElements, currentFocus);
+	
+	                    var isFocusIndexUnknown = focusIndex === -1;
+	                    var isFirstElementFocused = focusIndex === 0;
+	                    var isLastElementFocused = focusIndex === focusableElements.length - 1;
+	
+	                    var cancelEvent = false;
+	
+	                    if (backward) {
+	                        if (isFocusIndexUnknown || isFirstElementFocused) {
+	                            focusableElements[focusableElements.length - 1].focus();
+	                            cancelEvent = true;
+	                        }
+	                    } else {
+	                        if (isFocusIndexUnknown || isLastElementFocused) {
+	                            focusableElements[0].focus();
+	                            cancelEvent = true;
+	                        }
+	                    }
+	
+	                    if (cancelEvent) {
+	                        ev.preventDefault();
+	                        ev.stopPropagation();
+	                    }
+	                },
+	
+	                autoFocus: function autoFocus($dialog) {
+	                    var dialogEl = $dialog[0];
+	
+	                    // Browser's (Chrome 40, Forefix 37, IE 11) don't appear to honor autofocus on the dialog, but we should
+	                    var autoFocusEl = dialogEl.querySelector('*[autofocus]');
+	                    if (autoFocusEl !== null) {
+	                        autoFocusEl.focus();
+	
+	                        if (document.activeElement === autoFocusEl) {
+	                            return;
+	                        }
+	
+	                        // Autofocus element might was display: none, so let's continue
+	                    }
+	
+	                    var focusableElements = privateMethods.getFocusableElements($dialog);
+	
+	                    if (focusableElements.length > 0) {
+	                        focusableElements[0].focus();
+	                        return;
+	                    }
+	
+	                    // We need to focus something for the screen readers to notice the dialog
+	                    var contentElements = privateMethods.filterVisibleElements(dialogEl.querySelectorAll('h1,h2,h3,h4,h5,h6,p,span'));
+	
+	                    if (contentElements.length > 0) {
+	                        var contentElement = contentElements[0];
+	                        $el(contentElement).attr('tabindex', '-1').css('outline', '0');
+	                        contentElement.focus();
+	                    }
+	                },
+	
+	                getFocusableElements: function getFocusableElements($dialog) {
+	                    var dialogEl = $dialog[0];
+	
+	                    var rawElements = dialogEl.querySelectorAll(focusableElementSelector);
+	
+	                    // Ignore untabbable elements, ie. those with tabindex = -1
+	                    var tabbableElements = privateMethods.filterTabbableElements(rawElements);
+	
+	                    return privateMethods.filterVisibleElements(tabbableElements);
+	                },
+	
+	                filterTabbableElements: function filterTabbableElements(els) {
+	                    var tabbableFocusableElements = [];
+	
+	                    for (var i = 0; i < els.length; i++) {
+	                        var el = els[i];
+	
+	                        if ($el(el).attr('tabindex') !== '-1') {
+	                            tabbableFocusableElements.push(el);
+	                        }
+	                    }
+	
+	                    return tabbableFocusableElements;
+	                },
+	
+	                filterVisibleElements: function filterVisibleElements(els) {
+	                    var visibleFocusableElements = [];
+	
+	                    for (var i = 0; i < els.length; i++) {
+	                        var el = els[i];
+	
+	                        if (el.offsetWidth > 0 || el.offsetHeight > 0) {
+	                            visibleFocusableElements.push(el);
+	                        }
+	                    }
+	
+	                    return visibleFocusableElements;
+	                },
+	
+	                getActiveDialog: function getActiveDialog() {
+	                    var dialogs = document.querySelectorAll('.ngdialog');
+	
+	                    if (dialogs.length === 0) {
+	                        return null;
+	                    }
+	
+	                    // TODO: This might be incorrect if there are a mix of open dialogs with different 'appendTo' values
+	                    return $el(dialogs[dialogs.length - 1]);
+	                },
+	
+	                applyAriaAttributes: function applyAriaAttributes($dialog, options) {
+	                    if (options.ariaAuto) {
+	                        if (!options.ariaRole) {
+	                            var detectedRole = privateMethods.getFocusableElements($dialog).length > 0 ? 'dialog' : 'alertdialog';
+	
+	                            options.ariaRole = detectedRole;
+	                        }
+	
+	                        if (!options.ariaLabelledBySelector) {
+	                            options.ariaLabelledBySelector = 'h1,h2,h3,h4,h5,h6';
+	                        }
+	
+	                        if (!options.ariaDescribedBySelector) {
+	                            options.ariaDescribedBySelector = 'article,section,p';
+	                        }
+	                    }
+	
+	                    if (options.ariaRole) {
+	                        $dialog.attr('role', options.ariaRole);
+	                    }
+	
+	                    privateMethods.applyAriaAttribute($dialog, 'aria-labelledby', options.ariaLabelledById, options.ariaLabelledBySelector);
+	
+	                    privateMethods.applyAriaAttribute($dialog, 'aria-describedby', options.ariaDescribedById, options.ariaDescribedBySelector);
+	                },
+	
+	                applyAriaAttribute: function applyAriaAttribute($dialog, attr, id, selector) {
+	                    if (id) {
+	                        $dialog.attr(attr, id);
+	                    }
+	
+	                    if (selector) {
+	                        var dialogId = $dialog.attr('id');
+	
+	                        var firstMatch = $dialog[0].querySelector(selector);
+	
+	                        if (!firstMatch) {
+	                            return;
+	                        }
+	
+	                        var generatedId = dialogId + '-' + attr;
+	
+	                        $el(firstMatch).attr('id', generatedId);
+	
+	                        $dialog.attr(attr, generatedId);
+	
+	                        return generatedId;
+	                    }
+	                },
+	
+	                detectUIRouter: function detectUIRouter() {
+	                    //Detect if ui-router module is installed if not return false
+	                    try {
+	                        angular.module('ui.router');
+	                        return true;
+	                    } catch (err) {
+	                        return false;
+	                    }
+	                },
+	
+	                getRouterLocationEventName: function getRouterLocationEventName() {
+	                    if (privateMethods.detectUIRouter()) {
+	                        return '$stateChangeStart';
+	                    }
+	                    return '$locationChangeStart';
+	                }
+	            };
+	
+	            var publicMethods = {
+	                __PRIVATE__: privateMethods,
+	
+	                /*
+	                 * @param {Object} options:
+	                 * - template {String} - id of ng-template, url for partial, plain string (if enabled)
+	                 * - plain {Boolean} - enable plain string templates, default false
+	                 * - scope {Object}
+	                 * - controller {String}
+	                 * - controllerAs {String}
+	                 * - className {String} - dialog theme class
+	                 * - appendClassName {String} - dialog theme class to be appended to defaults
+	                 * - disableAnimation {Boolean} - set to true to disable animation
+	                 * - showClose {Boolean} - show close button, default true
+	                 * - closeByEscape {Boolean} - default true
+	                 * - closeByDocument {Boolean} - default true
+	                 * - preCloseCallback {String|Function} - user supplied function name/function called before closing dialog (if set)
+	                 * - bodyClassName {String} - class added to body at open dialog
+	                 * @return {Object} dialog
+	                 */
+	                open: function open(opts) {
+	                    var dialogID = null;
+	                    opts = opts || {};
+	                    if (openOnePerName && opts.name) {
+	                        dialogID = opts.name.toLowerCase().replace(/\s/g, '-') + '-dialog';
+	                        if (this.isOpen(dialogID)) {
+	                            return;
+	                        }
+	                    }
+	                    var options = angular.copy(defaults);
+	                    var localID = ++globalID;
+	                    dialogID = dialogID || 'ngdialog' + localID;
+	                    openIdStack.push(dialogID);
+	
+	                    // Merge opts.data with predefined via setDefaults
+	                    if (typeof options.data !== 'undefined') {
+	                        if (typeof opts.data === 'undefined') {
+	                            opts.data = {};
+	                        }
+	                        opts.data = angular.merge(angular.copy(options.data), opts.data);
+	                    }
+	
+	                    angular.extend(options, opts);
+	
+	                    var defer;
+	                    defers[dialogID] = defer = $q.defer();
+	
+	                    var scope;
+	                    scopes[dialogID] = scope = angular.isObject(options.scope) ? options.scope.$new() : $rootScope.$new();
+	
+	                    var $dialog, $dialogParent, $dialogContent;
+	
+	                    var resolve = angular.extend({}, options.resolve);
+	
+	                    angular.forEach(resolve, function (value, key) {
+	                        resolve[key] = angular.isString(value) ? $injector.get(value) : $injector.invoke(value, null, null, key);
+	                    });
+	
+	                    $q.all({
+	                        template: loadTemplate(options.template || options.templateUrl),
+	                        locals: $q.all(resolve)
+	                    }).then(function (setup) {
+	                        var template = setup.template,
+	                            locals = setup.locals;
+	
+	                        if (options.showClose) {
+	                            template += '<div class="ngdialog-close"></div>';
+	                        }
+	
+	                        var hasOverlayClass = options.overlay ? '' : ' ngdialog-no-overlay';
+	                        $dialog = $el('<div id="' + dialogID + '" class="ngdialog' + hasOverlayClass + '"></div>');
+	                        $dialog.html(options.overlay ? '<div class="ngdialog-overlay"></div><div class="ngdialog-content" role="document">' + template + '</div>' : '<div class="ngdialog-content" role="document">' + template + '</div>');
+	
+	                        $dialog.data('$ngDialogOptions', options);
+	
+	                        scope.ngDialogId = dialogID;
+	
+	                        if (options.data && angular.isString(options.data)) {
+	                            var firstLetter = options.data.replace(/^\s*/, '')[0];
+	                            scope.ngDialogData = firstLetter === '{' || firstLetter === '[' ? angular.fromJson(options.data) : new String(options.data);
+	                            scope.ngDialogData.ngDialogId = dialogID;
+	                        } else if (options.data && angular.isObject(options.data)) {
+	                            scope.ngDialogData = options.data;
+	                            scope.ngDialogData.ngDialogId = dialogID;
+	                        }
+	
+	                        if (options.className) {
+	                            $dialog.addClass(options.className);
+	                        }
+	
+	                        if (options.appendClassName) {
+	                            $dialog.addClass(options.appendClassName);
+	                        }
+	
+	                        if (options.width) {
+	                            $dialogContent = $dialog[0].querySelector('.ngdialog-content');
+	                            if (angular.isString(options.width)) {
+	                                $dialogContent.style.width = options.width;
+	                            } else {
+	                                $dialogContent.style.width = options.width + 'px';
+	                            }
+	                        }
+	
+	                        if (options.height) {
+	                            $dialogContent = $dialog[0].querySelector('.ngdialog-content');
+	                            if (angular.isString(options.height)) {
+	                                $dialogContent.style.height = options.height;
+	                            } else {
+	                                $dialogContent.style.height = options.height + 'px';
+	                            }
+	                        }
+	
+	                        if (options.disableAnimation) {
+	                            $dialog.addClass(disabledAnimationClass);
+	                        }
+	
+	                        if (options.appendTo && angular.isString(options.appendTo)) {
+	                            $dialogParent = angular.element(document.querySelector(options.appendTo));
+	                        } else {
+	                            $dialogParent = $elements.body;
+	                        }
+	
+	                        privateMethods.applyAriaAttributes($dialog, options);
+	
+	                        if (options.preCloseCallback) {
+	                            var preCloseCallback;
+	
+	                            if (angular.isFunction(options.preCloseCallback)) {
+	                                preCloseCallback = options.preCloseCallback;
+	                            } else if (angular.isString(options.preCloseCallback)) {
+	                                if (scope) {
+	                                    if (angular.isFunction(scope[options.preCloseCallback])) {
+	                                        preCloseCallback = scope[options.preCloseCallback];
+	                                    } else if (scope.$parent && angular.isFunction(scope.$parent[options.preCloseCallback])) {
+	                                        preCloseCallback = scope.$parent[options.preCloseCallback];
+	                                    } else if ($rootScope && angular.isFunction($rootScope[options.preCloseCallback])) {
+	                                        preCloseCallback = $rootScope[options.preCloseCallback];
+	                                    }
+	                                }
+	                            }
+	
+	                            if (preCloseCallback) {
+	                                $dialog.data('$ngDialogPreCloseCallback', preCloseCallback);
+	                            }
+	                        }
+	
+	                        scope.closeThisDialog = function (value) {
+	                            privateMethods.closeDialog($dialog, value);
+	                        };
+	
+	                        if (options.controller && (angular.isString(options.controller) || angular.isArray(options.controller) || angular.isFunction(options.controller))) {
+	
+	                            var label;
+	
+	                            if (options.controllerAs && angular.isString(options.controllerAs)) {
+	                                label = options.controllerAs;
+	                            }
+	
+	                            var controllerInstance = $controller(options.controller, angular.extend(locals, {
+	                                $scope: scope,
+	                                $element: $dialog
+	                            }), true, label);
+	
+	                            if (options.bindToController) {
+	                                angular.extend(controllerInstance.instance, { ngDialogId: scope.ngDialogId, ngDialogData: scope.ngDialogData, closeThisDialog: scope.closeThisDialog, confirm: scope.confirm });
+	                            }
+	
+	                            if (typeof controllerInstance === 'function') {
+	                                $dialog.data('$ngDialogControllerController', controllerInstance());
+	                            } else {
+	                                $dialog.data('$ngDialogControllerController', controllerInstance);
+	                            }
+	                        }
+	
+	                        $timeout(function () {
+	                            var $activeDialogs = document.querySelectorAll('.ngdialog');
+	                            privateMethods.deactivateAll($activeDialogs);
+	
+	                            $compile($dialog)(scope);
+	                            var widthDiffs = $window.innerWidth - $elements.body.prop('clientWidth');
+	                            $elements.html.addClass(options.bodyClassName);
+	                            $elements.body.addClass(options.bodyClassName);
+	                            var scrollBarWidth = widthDiffs - ($window.innerWidth - $elements.body.prop('clientWidth'));
+	                            if (scrollBarWidth > 0) {
+	                                privateMethods.setBodyPadding(scrollBarWidth);
+	                            }
+	                            $dialogParent.append($dialog);
+	
+	                            privateMethods.activate($dialog);
+	
+	                            if (options.trapFocus) {
+	                                privateMethods.autoFocus($dialog);
+	                            }
+	
+	                            if (options.name) {
+	                                $rootScope.$broadcast('ngDialog.opened', { dialog: $dialog, name: options.name });
+	                            } else {
+	                                $rootScope.$broadcast('ngDialog.opened', $dialog);
+	                            }
+	                        });
+	
+	                        if (!keydownIsBound) {
+	                            $elements.body.bind('keydown', privateMethods.onDocumentKeydown);
+	                            keydownIsBound = true;
+	                        }
+	
+	                        if (options.closeByNavigation) {
+	                            var eventName = privateMethods.getRouterLocationEventName();
+	                            $rootScope.$on(eventName, function ($event) {
+	                                if (privateMethods.closeDialog($dialog) === false) $event.preventDefault();
+	                            });
+	                        }
+	
+	                        if (options.preserveFocus) {
+	                            $dialog.data('$ngDialogPreviousFocus', document.activeElement);
+	                        }
+	
+	                        closeByDocumentHandler = function closeByDocumentHandler(event) {
+	                            var isOverlay = options.closeByDocument ? $el(event.target).hasClass('ngdialog-overlay') : false;
+	                            var isCloseBtn = $el(event.target).hasClass('ngdialog-close');
+	
+	                            if (isOverlay || isCloseBtn) {
+	                                publicMethods.close($dialog.attr('id'), isCloseBtn ? '$closeButton' : '$document');
+	                            }
+	                        };
+	
+	                        if (typeof $window.Hammer !== 'undefined') {
+	                            var hammerTime = scope.hammerTime = $window.Hammer($dialog[0]);
+	                            hammerTime.on('tap', closeByDocumentHandler);
+	                        } else {
+	                            $dialog.bind('click', closeByDocumentHandler);
+	                        }
+	
+	                        dialogsCount += 1;
+	
+	                        return publicMethods;
+	                    });
+	
+	                    return {
+	                        id: dialogID,
+	                        closePromise: defer.promise,
+	                        close: function close(value) {
+	                            privateMethods.closeDialog($dialog, value);
+	                        }
+	                    };
+	
+	                    function loadTemplateUrl(tmpl, config) {
+	                        $rootScope.$broadcast('ngDialog.templateLoading', tmpl);
+	                        return $http.get(tmpl, config || {}).then(function (res) {
+	                            $rootScope.$broadcast('ngDialog.templateLoaded', tmpl);
+	                            return res.data || '';
+	                        });
+	                    }
+	
+	                    function loadTemplate(tmpl) {
+	                        if (!tmpl) {
+	                            return 'Empty template';
+	                        }
+	
+	                        if (angular.isString(tmpl) && options.plain) {
+	                            return tmpl;
+	                        }
+	
+	                        if (typeof options.cache === 'boolean' && !options.cache) {
+	                            return loadTemplateUrl(tmpl, { cache: false });
+	                        }
+	
+	                        return loadTemplateUrl(tmpl, { cache: $templateCache });
+	                    }
+	                },
+	
+	                /*
+	                 * @param {Object} options:
+	                 * - template {String} - id of ng-template, url for partial, plain string (if enabled)
+	                 * - plain {Boolean} - enable plain string templates, default false
+	                 * - name {String}
+	                 * - scope {Object}
+	                 * - controller {String}
+	                 * - controllerAs {String}
+	                 * - className {String} - dialog theme class
+	                 * - appendClassName {String} - dialog theme class to be appended to defaults
+	                 * - showClose {Boolean} - show close button, default true
+	                 * - closeByEscape {Boolean} - default false
+	                 * - closeByDocument {Boolean} - default false
+	                 * - preCloseCallback {String|Function} - user supplied function name/function called before closing dialog (if set); not called on confirm
+	                 * - bodyClassName {String} - class added to body at open dialog
+	                 *
+	                 * @return {Object} dialog
+	                 */
+	                openConfirm: function openConfirm(opts) {
+	                    var defer = $q.defer();
+	                    var options = angular.copy(defaults);
+	
+	                    opts = opts || {};
+	
+	                    // Merge opts.data with predefined via setDefaults
+	                    if (typeof options.data !== 'undefined') {
+	                        if (typeof opts.data === 'undefined') {
+	                            opts.data = {};
+	                        }
+	                        opts.data = angular.merge(angular.copy(options.data), opts.data);
+	                    }
+	
+	                    angular.extend(options, opts);
+	
+	                    options.scope = angular.isObject(options.scope) ? options.scope.$new() : $rootScope.$new();
+	                    options.scope.confirm = function (value) {
+	                        defer.resolve(value);
+	                        var $dialog = $el(document.getElementById(openResult.id));
+	                        privateMethods.performCloseDialog($dialog, value);
+	                    };
+	
+	                    var openResult = publicMethods.open(options);
+	                    if (openResult) {
+	                        openResult.closePromise.then(function (data) {
+	                            if (data) {
+	                                return defer.reject(data.value);
+	                            }
+	                            return defer.reject();
+	                        });
+	                        return defer.promise;
+	                    }
+	                },
+	
+	                isOpen: function isOpen(id) {
+	                    var $dialog = $el(document.getElementById(id));
+	                    return $dialog.length > 0;
+	                },
+	
+	                /*
+	                 * @param {String} id
+	                 * @return {Object} dialog
+	                 */
+	                close: function close(id, value) {
+	                    var $dialog = $el(document.getElementById(id));
+	
+	                    if ($dialog.length) {
+	                        privateMethods.closeDialog($dialog, value);
+	                    } else {
+	                        if (id === '$escape') {
+	                            var topDialogId = openIdStack[openIdStack.length - 1];
+	                            $dialog = $el(document.getElementById(topDialogId));
+	                            if ($dialog.data('$ngDialogOptions').closeByEscape) {
+	                                privateMethods.closeDialog($dialog, '$escape');
+	                            }
+	                        } else {
+	                            publicMethods.closeAll(value);
+	                        }
+	                    }
+	
+	                    return publicMethods;
+	                },
+	
+	                closeAll: function closeAll(value) {
+	                    var $all = document.querySelectorAll('.ngdialog');
+	
+	                    // Reverse order to ensure focus restoration works as expected
+	                    for (var i = $all.length - 1; i >= 0; i--) {
+	                        var dialog = $all[i];
+	                        privateMethods.closeDialog($el(dialog), value);
+	                    }
+	                },
+	
+	                getOpenDialogs: function getOpenDialogs() {
+	                    return openIdStack;
+	                },
+	
+	                getDefaults: function getDefaults() {
+	                    return defaults;
+	                }
+	            };
+	
+	            angular.forEach(['html', 'body'], function (elementName) {
+	                $elements[elementName] = $document.find(elementName);
+	                if (forceElementsReload[elementName]) {
+	                    var eventName = privateMethods.getRouterLocationEventName();
+	                    $rootScope.$on(eventName, function () {
+	                        $elements[elementName] = $document.find(elementName);
+	                    });
+	                }
+	            });
+	
+	            return publicMethods;
+	        }];
+	    });
+	
+	    m.directive('ngDialog', ['ngDialog', function (ngDialog) {
+	        return {
+	            restrict: 'A',
+	            scope: {
+	                ngDialogScope: '='
+	            },
+	            link: function link(scope, elem, attrs) {
+	                elem.on('click', function (e) {
+	                    e.preventDefault();
+	
+	                    var ngDialogScope = angular.isDefined(scope.ngDialogScope) ? scope.ngDialogScope : 'noScope';
+	                    angular.isDefined(attrs.ngDialogClosePrevious) && ngDialog.close(attrs.ngDialogClosePrevious);
+	
+	                    var defaults = ngDialog.getDefaults();
+	
+	                    ngDialog.open({
+	                        template: attrs.ngDialog,
+	                        className: attrs.ngDialogClass || defaults.className,
+	                        appendClassName: attrs.ngDialogAppendClass,
+	                        controller: attrs.ngDialogController,
+	                        controllerAs: attrs.ngDialogControllerAs,
+	                        bindToController: attrs.ngDialogBindToController,
+	                        disableAnimation: attrs.ngDialogDisableAnimation,
+	                        scope: ngDialogScope,
+	                        data: attrs.ngDialogData,
+	                        showClose: attrs.ngDialogShowClose === 'false' ? false : attrs.ngDialogShowClose === 'true' ? true : defaults.showClose,
+	                        closeByDocument: attrs.ngDialogCloseByDocument === 'false' ? false : attrs.ngDialogCloseByDocument === 'true' ? true : defaults.closeByDocument,
+	                        closeByEscape: attrs.ngDialogCloseByEscape === 'false' ? false : attrs.ngDialogCloseByEscape === 'true' ? true : defaults.closeByEscape,
+	                        overlay: attrs.ngDialogOverlay === 'false' ? false : attrs.ngDialogOverlay === 'true' ? true : defaults.overlay,
+	                        preCloseCallback: attrs.ngDialogPreCloseCallback || defaults.preCloseCallback,
+	                        bodyClassName: attrs.ngDialogBodyClass || defaults.bodyClassName
+	                    });
+	                });
+	            }
+	        };
+	    }]);
+	
+	    return m;
+	});
+
+/***/ },
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28701,19 +29459,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 47 */
-/*!********************************************************!*\
-  !*** ./app/root/crosscutting/http-response.service.js ***!
-  \********************************************************/
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _blob = __webpack_require__(/*! blob */ 48);
+	var _blob = __webpack_require__(49);
 	
 	var _blob2 = _interopRequireDefault(_blob);
 	
@@ -28763,10 +29518,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 48 */
-/*!*************************!*\
-  !*** ./~/blob/index.js ***!
-  \*************************/
+/* 49 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -28869,15 +29621,12 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 49 */
-/*!*************************************************!*\
-  !*** ./app/root/crosscutting/logger.service.js ***!
-  \*************************************************/
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28928,15 +29677,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 50 */
-/*!*******************************************!*\
-  !*** ./app/root/legacy/legacy.service.js ***!
-  \*******************************************/
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 10);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	

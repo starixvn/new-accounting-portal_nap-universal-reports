@@ -8,11 +8,11 @@ import moment from "moment";
         .module('app.numberGame2StatisticApp')
         .controller('CommonController', CommonController);
 
-    CommonController.$inject = ['$element', '$scope', 'fanexGridService'];
-    function CommonController($element, $scope, fanexGridService) {
+    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog'];
+    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog) {
         var pane = $scope.pane;
         var tab = $scope.tab;
-        var gridElement = $element.find('.freegrid');
+        var gridElement = $('.grid-boundary').find('.freegrid');
         $scope.generate = generate;
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
@@ -33,7 +33,7 @@ import moment from "moment";
             data.drilldownType = "Grandtotal"; 
             data.isDrilldown = true;
 
-            tab.goForward(data);
+            generatePopup(data);
         }
 
         function generate() {
@@ -98,6 +98,31 @@ import moment from "moment";
         function exportExcel(){
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
+        }
+
+        function generatePopup() {
+            pane.service.getData(pane.data).then(function(data){
+                renderPopup(data);
+            });
+        }
+
+        function renderPopup(data){
+            var titleInfo = {
+                text: "GRAND TOTAL BY CURRENCY",
+                showExcelButton: true,
+                exportExcelFunction: exportExcel,
+            };
+            data.titleInfo = titleInfo;            
+            ngDialog.open({template: 'templateId',
+                plain: false,                
+                width: 1190,
+                closeByDocument: false,
+                data: data                
+            });
+
+            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
+                $('#myGrid').fanexGrid(data);
+            });
         }
     }
 })(angular);

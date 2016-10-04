@@ -1,31 +1,22 @@
 webpackJsonp([3],{
 
 /***/ 0:
-/*!**********************************!*\
-  !*** multi house-win-loss-style ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./content/house-win-loss.scss */90);
-	module.exports = __webpack_require__(/*! ./content/scoreInformation.scss */91);
+	__webpack_require__(79);
+	module.exports = __webpack_require__(80);
 
 
 /***/ },
 
-/***/ 90:
-/*!*************************************!*\
-  !*** ./content/house-win-loss.scss ***!
-  \*************************************/
+/***/ 79:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 91:
-/*!***************************************!*\
-  !*** ./content/scoreInformation.scss ***!
-  \***************************************/
+/***/ 80:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
