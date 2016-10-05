@@ -11,11 +11,6 @@ import angular from "angular";
         function Pane(data) {
 
             this.data = data;
-            this.startDate = data.startDate;
-            this.drilldownType = data.drilldownType === "undefined" ? "" : data.drilldownType;
-            this.reportType = data.reportType;
-            this.isDrilldown = data.isDrilldown;
-            this.endDate = data.endDate;
             this.$scope = undefined;
             this.$element = undefined;
             this.generate = generate;
@@ -43,7 +38,7 @@ import angular from "angular";
             }
 
             function getFileName() {
-                return 'NG2_Statistic_Report_From_' + this.startDate.format('DD_MM_YYYY') + '_To_' + this.endDate.format('DD_MM_YYYY') + '.xls';
+                return 'NG2_Statistic_Report_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
             }
 
             function compileAll() {

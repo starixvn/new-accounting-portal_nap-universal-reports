@@ -8,8 +8,8 @@ import moment from "moment";
         .module('app.numberGame2StatisticApp')
         .controller('BettypeController', BettypeController);
 
-    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector'];
-    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector', 'grandtotalService'];
+    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -18,29 +18,40 @@ import moment from "moment";
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
         function generateCurrencyReport(idCurrency, betTypeId){
-            var dataQuery = pane.data;
-            dataQuery.drilldownType = "Currency";
-            dataQuery.currency = parseInt(idCurrency);
-            dataQuery.betType = betTypeId;
-            //dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
-            //dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.isDrilldown = true;
+            
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, 
+                {
+                    drilldownType: "Currency",
+                    currency: idCurrency,
+                    betType: betTypeId,
+                    isDrilldown: true
+                }
+            );
 
-            tab.goForward(dataQuery);
+            tab.goForward(data);
         }
 
         function generateGrandtotalReport(){
-            var  data = pane.data;
-            data.drilldownType = "Grandtotal"; 
-            data.isDrilldown = true;
-            pane.service = $injector.get("grandtotalService");
-            pane.controller = 'GrandtotalController';
-            generatePopup(data);
+            var data = {
+                drilldownType: "Grandtotal",
+                currency: pane.data.currency,
+                isDrilldown: true,
+                endDate: pane.data.endDate,
+                startDate: pane.data.startDate,
+                betType: pane.data.betType,
+                username: pane.data.username,
+                balanceUpDate: pane.data.balanceUpDate,
+            }
+            grandtotalService.getData(data).then(function(result){
+                renderPopup(result, data);
+            });
         }
 
         function generate() {
             pane.service.getData(pane.data).then(function(data){
-                checkDrilldown(data);
+                createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -61,71 +72,57 @@ import moment from "moment";
             gridElement.fanexGrid(data);
         }
 
-        function checkDrilldown(data){
-            if(!pane.data.isDrilldown){
-                createLinks(data);
-            }
-            createLinkTotal(data);
-        }
-
         function generateSort(sortColumnName, sortDirection){
             pane.data.sortColumnName = sortColumnName;
             pane.data.sortDirection = sortDirection;
             pane.service.getDataSort(pane.data).then(function(data){
-                checkDrilldown(data);
+                createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
             });
         }
 
         function createLinks(data){
-            
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var row = data.bodyRows[i];
-                var currencyColumn = row.Columns[3];
-                var betTypeId = row.Columns[2];
-
-                //var dateCurrency = row.Columns[0].Value;
-
+            if(!pane.data.isDrilldown){
                 
-                var idCurrency = currencyColumn.CustomAttr;
-                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+                for (var i = 0; i < data.bodyRows.length; i++) {
+                    var row = data.bodyRows[i];
+                    var currencyColumn = row.Columns[3];
+                    var betTypeId = row.Columns[2].CustomAttr;
+                
+                    var idCurrency = currencyColumn.CustomAttr;
+                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+                }
+
+                var grandTotalColumn = data.footerRows[0].Columns[0];
+                grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
             }
         }
-
-        function createLinkTotal(data){            
-            var grandTotalColumn = data.footerRows[0].Columns[0];
-            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
-        }
-
+        
         function exportExcel(){
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
 
-        function generatePopup() {
-            pane.service.getData(pane).then(function(data){
-                renderPopup(data);
-            });
-        }
-
         function exportExcelGrandTotal(){
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane, pane.getFileName());
+            var title = "GRAND TOTAL BY CURRENCY";
+            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
         }
 
         function renderPopup(data){
+
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: "GRAND TOTAL BY CURRENCY",
                 showExcelButton: true,
                 exportExcelFunction: exportExcelGrandTotal,
-            };
+            };            
+
             data.titleInfo = titleInfo;            
             ngDialog.open({template: 'templateId',
                 plain: false,                
                 width: 1190,
                 closeByDocument: false,
-                data: data                
+                data: data
             });
 
             $rootScope.$on('ngDialog.opened', function (e, $dialog) {

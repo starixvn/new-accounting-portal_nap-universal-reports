@@ -51,11 +51,11 @@ import angular from "angular";
 
                 activePane = this.panes[index];
                 var dateRange = {
-                    normalMode: activePane.normalMode,
-                    startDate: activePane.startDate,
-                    endDate: activePane.endDate,
-                    reportType : activePane.reportType,
-                    isDrilldown : activePane.isDrilldown
+                    normalMode: activePane.data.normalMode,
+                    startDate: activePane.data.startDate,
+                    endDate: activePane.data.endDate,
+                    reportType : activePane.data.reportType,
+                    isDrilldown : activePane.data.isDrilldown
                 };
                 $rootScope.$broadcast('nap-filter-date', dateRange);
             }
@@ -71,7 +71,7 @@ import angular from "angular";
                 for (var i = 0; i < this.panes.length; i++) {
                     var pane = this.panes[i];
                     var isLast = i === this.panes.length - 1;
-                    var title = pane.service.getTitle(pane, isLast);
+                    var title = isLast == true ? pane.service.getTitle(pane, isLast) : "Back";
                     list.push(title);
                 }
 

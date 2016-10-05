@@ -18,8 +18,7 @@ webpackJsonp([4],{
 	__webpack_require__(108);
 	__webpack_require__(109);
 	__webpack_require__(110);
-	__webpack_require__(111);
-	module.exports = __webpack_require__(112);
+	module.exports = __webpack_require__(111);
 
 
 /***/ },
@@ -130,8 +129,8 @@ webpackJsonp([4],{
 	
 	    angular.module('app.numberGame2StatisticApp').controller('BettypeController', BettypeController);
 	
-	    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
-	    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+	    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
+	    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
 	        var pane = $scope.pane;
 	        var tab = $scope.tab;
 	        var gridElement = $element.find('.freegrid');
@@ -140,29 +139,38 @@ webpackJsonp([4],{
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
 	        function generateCurrencyReport(idCurrency, betTypeId) {
-	            var dataQuery = pane.data;
-	            dataQuery.drilldownType = "Currency";
-	            dataQuery.currency = parseInt(idCurrency);
-	            dataQuery.betType = betTypeId;
-	            //dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
-	            //dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
-	            dataQuery.isDrilldown = true;
 	
-	            tab.goForward(dataQuery);
+	            var data = {};
+	            angular.extend(data, pane.data);
+	            angular.extend(data, {
+	                drilldownType: "Currency",
+	                currency: idCurrency,
+	                betType: betTypeId,
+	                isDrilldown: true
+	            });
+	
+	            tab.goForward(data);
 	        }
 	
 	        function generateGrandtotalReport() {
-	            var data = pane.data;
-	            data.drilldownType = "Grandtotal";
-	            data.isDrilldown = true;
-	            pane.service = $injector.get("grandtotalService");
-	            pane.controller = 'GrandtotalController';
-	            generatePopup(data);
+	            var data = {
+	                drilldownType: "Grandtotal",
+	                currency: pane.data.currency,
+	                isDrilldown: true,
+	                endDate: pane.data.endDate,
+	                startDate: pane.data.startDate,
+	                betType: pane.data.betType,
+	                username: pane.data.username,
+	                balanceUpDate: pane.data.balanceUpDate
+	            };
+	            grandtotalService.getData(data).then(function (result) {
+	                renderPopup(result, data);
+	            });
 	        }
 	
 	        function generate() {
 	            pane.service.getData(pane.data).then(function (data) {
-	                checkDrilldown(data);
+	                createLinks(data);
 	                renderGrid(data);
 	                pane.compileAll();
 	            });
@@ -183,41 +191,31 @@ webpackJsonp([4],{
 	            gridElement.fanexGrid(data);
 	        }
 	
-	        function checkDrilldown(data) {
-	            if (!pane.data.isDrilldown) {
-	                createLinks(data);
-	            }
-	            createLinkTotal(data);
-	        }
-	
 	        function generateSort(sortColumnName, sortDirection) {
 	            pane.data.sortColumnName = sortColumnName;
 	            pane.data.sortDirection = sortDirection;
 	            pane.service.getDataSort(pane.data).then(function (data) {
-	                checkDrilldown(data);
+	                createLinks(data);
 	                renderGrid(data);
 	                pane.compileAll();
 	            });
 	        }
 	
 	        function createLinks(data) {
+	            if (!pane.data.isDrilldown) {
 	
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var row = data.bodyRows[i];
-	                var currencyColumn = row.Columns[3];
-	                var betTypeId = row.Columns[2];
+	                for (var i = 0; i < data.bodyRows.length; i++) {
+	                    var row = data.bodyRows[i];
+	                    var currencyColumn = row.Columns[3];
+	                    var betTypeId = row.Columns[2].CustomAttr;
 	
-	                //var dateCurrency = row.Columns[0].Value;
+	                    var idCurrency = currencyColumn.CustomAttr;
+	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+	                }
 	
-	
-	                var idCurrency = currencyColumn.CustomAttr;
-	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+	                var grandTotalColumn = data.footerRows[0].Columns[0];
+	                grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
 	            }
-	        }
-	
-	        function createLinkTotal(data) {
-	            var grandTotalColumn = data.footerRows[0].Columns[0];
-	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
 	        }
 	
 	        function exportExcel() {
@@ -225,23 +223,19 @@ webpackJsonp([4],{
 	            pane.service.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
-	        function generatePopup() {
-	            pane.service.getData(pane).then(function (data) {
-	                renderPopup(data);
-	            });
-	        }
-	
 	        function exportExcelGrandTotal() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane, pane.getFileName());
+	            var title = "GRAND TOTAL BY CURRENCY";
+	            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
 	        function renderPopup(data) {
+	
 	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
+	                text: "GRAND TOTAL BY CURRENCY",
 	                showExcelButton: true,
 	                exportExcelFunction: exportExcelGrandTotal
 	            };
+	
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
@@ -332,8 +326,8 @@ webpackJsonp([4],{
 	        };
 	        return service;
 	
-	        function getTitleReport(data) {
-	            return data.isDrilldown == true ? getTitleDrilldown(data) : getReportMainTitle(data);
+	        function getTitleReport(model) {
+	            return model.data.isDrilldown == true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
 	        }
 	
 	        function getTitleDrilldown(data) {
@@ -396,8 +390,8 @@ webpackJsonp([4],{
 	
 	    angular.module('app.numberGame2StatisticApp').controller('CommonController', CommonController);
 	
-	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
-	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
+	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
 	        var pane = $scope.pane;
 	        var tab = $scope.tab;
 	        var gridElement = $element.find('.freegrid');
@@ -406,23 +400,33 @@ webpackJsonp([4],{
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
 	        function generateCurrencyReport(idCurrency, dateCurrency) {
-	            var dataQuery = pane.data;
-	            dataQuery.drilldownType = "Currency";
-	            dataQuery.currency = parseInt(idCurrency);
-	            dataQuery.startDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.endDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.isDrilldown = true;
-	
-	            tab.goForward(dataQuery);
+	            var data = {};
+	            angular.extend(data, pane.data);
+	            angular.extend(data, {
+	                drilldownType: "Currency",
+	                currency: idCurrency,
+	                startDate: _moment2.default.utc(dateCurrency).startOf('day'),
+	                endDate: _moment2.default.utc(dateCurrency).startOf('day'),
+	                isDrilldown: true
+	            });
+	            tab.goForward(data);
 	        }
 	
 	        function generateGrandtotalReport() {
-	            var data = pane.data;
-	            data.drilldownType = "Grandtotal";
-	            data.isDrilldown = true;
-	            pane.service = $injector.get("grandtotalService");
-	            pane.controller = "Grandtotalcontroller";
-	            generatePopup(data);
+	
+	            var data = {
+	                drilldownType: "Grandtotal",
+	                currency: pane.data.currency,
+	                isDrilldown: true,
+	                endDate: pane.data.endDate,
+	                startDate: pane.data.startDate,
+	                betType: pane.data.betType,
+	                username: pane.data.username,
+	                balanceUpDate: pane.data.balanceUpDate
+	            };
+	            grandtotalService.getData(data).then(function (result) {
+	                renderPopup(result, data);
+	            });
 	        }
 	
 	        function generate() {
@@ -449,10 +453,9 @@ webpackJsonp([4],{
 	        }
 	
 	        function checkDrilldown(data) {
-	            if (!pane.data.isDrilldown & pane.data.reportType != "username") {
+	            if (!pane.data.isDrilldown) {
 	                createLinks(data);
 	            }
-	            createLinkTotal(data);
 	        }
 	
 	        function generateSort(sortColumnName, sortDirection) {
@@ -466,20 +469,24 @@ webpackJsonp([4],{
 	        }
 	
 	        function createLinks(data) {
+	            if (pane.data.reportType != "username") {
+	                for (var i = 0; i < data.bodyRows.length; i++) {
+	                    var row = data.bodyRows[i];
+	                    var currencyColumn = row.Columns[3];
+	                    var dateCurrency = row.Columns[0].Value;
 	
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var row = data.bodyRows[i];
-	                var currencyColumn = row.Columns[3];
-	                var dateCurrency = row.Columns[0].Value;
+	                    if (row.Columns.length == 10) {
+	                        currencyColumn = row.Columns[2];
+	                        dateCurrency = row.Columns[1].CustomAttr;
+	                    }
 	
-	                if (row.Columns.length == 10) {
-	                    currencyColumn = row.Columns[2];
-	                    dateCurrency = row.Columns[1].CustomAttr;
+	                    var idCurrency = currencyColumn.CustomAttr;
+	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
 	                }
-	
-	                var idCurrency = currencyColumn.CustomAttr;
-	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
 	            }
+	
+	            var grandTotalColumn = data.footerRows[0].Columns[0];
+	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
 	        }
 	
 	        function createLinkTotal(data) {
@@ -492,30 +499,25 @@ webpackJsonp([4],{
 	            pane.service.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
-	        function generatePopup() {
-	            pane.service.getData(pane).then(function (data) {
-	                renderPopup(data);
-	            });
-	        }
-	
 	        function exportExcelGrandTotal() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane, pane.getFileName());
+	            var title = "GRAND TOTAL BY CURRENCY";
+	            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
 	        function renderPopup(data) {
+	
 	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
+	                text: "GRAND TOTAL BY CURRENCY",
 	                showExcelButton: true,
 	                exportExcelFunction: exportExcelGrandTotal
 	            };
+	
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
 	                width: 1190,
 	                closeByDocument: false,
-	                data: data,
-	                controller: 'GrandtotalController'
+	                data: data
 	            });
 	
 	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
@@ -845,70 +847,6 @@ webpackJsonp([4],{
 /***/ 106:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	var _moment = __webpack_require__(5);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('GrandtotalController', GrandtotalController);
-	
-	    GrandtotalController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
-	    function GrandtotalController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        $scope.generate = generate;
-	
-	        function generate() {
-	            pane.service.getData(pane).then(function (data) {
-	                renderPopup(data);
-	            });
-	        }
-	
-	        function exportExcelGrandTotal() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane, pane.getFileName());
-	        }
-	
-	        function renderPopup(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcelGrandTotal
-	            };
-	            data.titleInfo = titleInfo;
-	            ngDialog.open({ template: 'templateId',
-	                plain: false,
-	                width: 1190,
-	                closeByDocument: false,
-	                data: data
-	            });
-	
-	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
-	                $('#myGrid').fanexGrid(data);
-	            });
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 107:
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
 	var _angular = __webpack_require__(10);
@@ -956,7 +894,7 @@ webpackJsonp([4],{
 	                username: data.username,
 	                currency: data.currency,
 	                moveBetsDay: data.balanceUpDate,
-	                isDrilldown: data.isDrilldown
+	                isDrilldown: true
 	            };
 	
 	            var url = 'api/ng2-statistic/grandtotal/excel';
@@ -970,7 +908,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 108:
+/***/ 107:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1028,7 +966,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 109:
+/***/ 108:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1049,11 +987,6 @@ webpackJsonp([4],{
 	        function Pane(data) {
 	
 	            this.data = data;
-	            this.startDate = data.startDate;
-	            this.drilldownType = data.drilldownType === "undefined" ? "" : data.drilldownType;
-	            this.reportType = data.reportType;
-	            this.isDrilldown = data.isDrilldown;
-	            this.endDate = data.endDate;
 	            this.$scope = undefined;
 	            this.$element = undefined;
 	            this.generate = generate;
@@ -1081,7 +1014,7 @@ webpackJsonp([4],{
 	            }
 	
 	            function getFileName() {
-	                return 'NG2_Statistic_Report_From_' + this.startDate.format('DD_MM_YYYY') + '_To_' + this.endDate.format('DD_MM_YYYY') + '.xls';
+	                return 'NG2_Statistic_Report_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
 	            }
 	
 	            function compileAll() {
@@ -1109,7 +1042,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 110:
+/***/ 109:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1160,7 +1093,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 111:
+/***/ 110:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1221,11 +1154,11 @@ webpackJsonp([4],{
 	
 	                activePane = this.panes[index];
 	                var dateRange = {
-	                    normalMode: activePane.normalMode,
-	                    startDate: activePane.startDate,
-	                    endDate: activePane.endDate,
-	                    reportType: activePane.reportType,
-	                    isDrilldown: activePane.isDrilldown
+	                    normalMode: activePane.data.normalMode,
+	                    startDate: activePane.data.startDate,
+	                    endDate: activePane.data.endDate,
+	                    reportType: activePane.data.reportType,
+	                    isDrilldown: activePane.data.isDrilldown
 	                };
 	                $rootScope.$broadcast('nap-filter-date', dateRange);
 	            }
@@ -1241,7 +1174,7 @@ webpackJsonp([4],{
 	                for (var i = 0; i < this.panes.length; i++) {
 	                    var pane = this.panes[i];
 	                    var isLast = i === this.panes.length - 1;
-	                    var title = pane.service.getTitle(pane, isLast);
+	                    var title = isLast == true ? pane.service.getTitle(pane, isLast) : "Back";
 	                    list.push(title);
 	                }
 	
@@ -1265,7 +1198,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 112:
+/***/ 111:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

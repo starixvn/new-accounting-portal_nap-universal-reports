@@ -16,8 +16,8 @@ import angular from "angular";
         };
         return service;
 
-        function getTitleReport(data){
-            return data.isDrilldown == true ? getTitleDrilldown(data) : getReportMainTitle(data);
+        function getTitleReport(model){
+            return model.data.isDrilldown == true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
         }
         
         function getTitleDrilldown(data){

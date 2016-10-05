@@ -42,7 +42,7 @@ import angular from "angular";
                 username: data.username,
                 currency: data.currency,
                 moveBetsDay: data.balanceUpDate,
-                isDrilldown: data.isDrilldown
+                isDrilldown: true
             };
 
             var url = 'api/ng2-statistic/grandtotal/excel';

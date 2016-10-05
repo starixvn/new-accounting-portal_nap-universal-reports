@@ -8,8 +8,8 @@ import moment from "moment";
         .module('app.numberGame2StatisticApp')
         .controller('CommonController', CommonController);
 
-    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector'];
-    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
+    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector','grandtotalService'];
+    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
@@ -19,23 +19,35 @@ import moment from "moment";
 
 
         function generateCurrencyReport(idCurrency, dateCurrency){
-            var dataQuery = pane.data;
-            dataQuery.drilldownType = "Currency";
-            dataQuery.currency = parseInt(idCurrency);
-            dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.isDrilldown = true;
-
-            tab.goForward(dataQuery);
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, 
+                {
+                    drilldownType: "Currency",
+                    currency: idCurrency,
+                    startDate: moment.utc(dateCurrency).startOf('day'),
+                    endDate: moment.utc(dateCurrency).startOf('day'),
+                    isDrilldown: true
+                }
+            );
+            tab.goForward(data);
         }
 
         function generateGrandtotalReport(){
-            var  data = pane.data;
-            data.drilldownType = "Grandtotal"; 
-            data.isDrilldown = true;
-            pane.service = $injector.get("grandtotalService");
-            pane.controller = "Grandtotalcontroller";
-            generatePopup(data);
+            
+            var data = {
+                drilldownType: "Grandtotal",
+                currency: pane.data.currency,
+                isDrilldown: true,
+                endDate: pane.data.endDate,
+                startDate: pane.data.startDate,
+                betType: pane.data.betType,
+                username: pane.data.username,
+                balanceUpDate: pane.data.balanceUpDate,
+            }
+            grandtotalService.getData(data).then(function(result){
+                renderPopup(result, data);
+            });
         }
 
         function generate() {
@@ -62,10 +74,9 @@ import moment from "moment";
         }
 
         function checkDrilldown(data){
-            if(!pane.data.isDrilldown & (pane.data.reportType != "username")){
+            if(!pane.data.isDrilldown){
                 createLinks(data);
-            }
-            createLinkTotal(data);
+            }            
         }
 
         function generateSort(sortColumnName, sortDirection){
@@ -79,20 +90,24 @@ import moment from "moment";
         }
 
         function createLinks(data){
-            
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var row = data.bodyRows[i];
-                var currencyColumn = row.Columns[3];
-                var dateCurrency = row.Columns[0].Value;
+            if(pane.data.reportType != "username"){
+                for (var i = 0; i < data.bodyRows.length; i++) {
+                    var row = data.bodyRows[i];
+                    var currencyColumn = row.Columns[3];
+                    var dateCurrency = row.Columns[0].Value;
 
-                if(row.Columns.length == 10){
-                    currencyColumn = row.Columns[2];
-                    dateCurrency = row.Columns[1].CustomAttr;
-                }
+                    if(row.Columns.length == 10){
+                        currencyColumn = row.Columns[2];
+                        dateCurrency = row.Columns[1].CustomAttr;
+                    }
                 
-                var idCurrency = currencyColumn.CustomAttr;
-                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
-            }
+                    var idCurrency = currencyColumn.CustomAttr;
+                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+                }
+            }           
+
+            var grandTotalColumn = data.footerRows[0].Columns[0];
+            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
         }
 
         function createLinkTotal(data){            
@@ -104,31 +119,26 @@ import moment from "moment";
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
-
-        function generatePopup() {
-            pane.service.getData(pane).then(function(data){
-                renderPopup(data);
-            });
-        }
-
+                
         function exportExcelGrandTotal(){
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane, pane.getFileName());
+            var title = "GRAND TOTAL BY CURRENCY";
+            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
         }
 
         function renderPopup(data){
+
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: "GRAND TOTAL BY CURRENCY",
                 showExcelButton: true,
                 exportExcelFunction: exportExcelGrandTotal,
-            };
+            };            
+
             data.titleInfo = titleInfo;            
             ngDialog.open({template: 'templateId',
                 plain: false,                
                 width: 1190,
                 closeByDocument: false,
-                data: data,
-                controller: 'GrandtotalController'
+                data: data
             });
 
             $rootScope.$on('ngDialog.opened', function (e, $dialog) {
