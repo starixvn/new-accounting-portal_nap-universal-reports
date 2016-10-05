@@ -12,9 +12,22 @@
 }
 
 .grid-boundary-popup .freegrid {
-  display: none; 
+  display: none;
+  //font-size: 0.8em !important; 
 }
 
+.grid-boundary-popup{
+    font-size: 0.85em !important;
+}
+.banner-popup{
+    height: 30px;
+    background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
+    margin-bottom: 7px;
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-top: -12px;
+    border-radius: 5px;
+}
 .angucomplete-dropdown {
     overflow-y: auto !important;
     max-height: 150px !important;
@@ -22,14 +35,6 @@
     max-width: 200px !important;
     overflow-x: auto !important;
 }
-.freegrid{
-    max-height: 60vh;
-    overflow-y: auto !important;
-}
-.row-headers-background{
-    position:fixed !important;
-}
-
 
 .form-inline {
 

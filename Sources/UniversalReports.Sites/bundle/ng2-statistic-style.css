@@ -11,19 +11,24 @@
 .grid-boundary-popup .freegrid {
   display: none; }
 
+.grid-boundary-popup {
+  font-size: 0.85em !important; }
+
+.banner-popup {
+  height: 30px;
+  background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
+  margin-bottom: 7px;
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: -12px;
+  border-radius: 5px; }
+
 .angucomplete-dropdown {
   overflow-y: auto !important;
   max-height: 150px !important;
   border-color: #5DC9C9 !important;
   max-width: 200px !important;
   overflow-x: auto !important; }
-
-.freegrid {
-  max-height: 60vh;
-  overflow-y: auto !important; }
-
-.row-headers-background {
-  position: fixed !important; }
 
 .form-inline .input-group > input[type=text], .form-inline input[type=text], .form-inline select {
   width: 130px;

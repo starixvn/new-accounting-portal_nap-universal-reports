@@ -17,8 +17,7 @@ webpackJsonp([4],{
 	__webpack_require__(107);
 	__webpack_require__(108);
 	__webpack_require__(109);
-	__webpack_require__(110);
-	module.exports = __webpack_require__(111);
+	module.exports = __webpack_require__(110);
 
 
 /***/ },
@@ -186,6 +185,7 @@ webpackJsonp([4],{
 	                serverSortFunction: generateSort
 	            };
 	
+	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
 	            data.titleInfo = titleInfo;
 	            data.sortOption = sortOptions;
 	            gridElement.fanexGrid(data);
@@ -239,7 +239,7 @@ webpackJsonp([4],{
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
-	                width: 1190,
+	                width: 1390,
 	                closeByDocument: false,
 	                data: data
 	            });
@@ -446,7 +446,7 @@ webpackJsonp([4],{
 	            var sortOptions = {
 	                serverSortFunction: generateSort
 	            };
-	
+	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
 	            data.titleInfo = titleInfo;
 	            data.sortOption = sortOptions;
 	            gridElement.fanexGrid(data);
@@ -515,7 +515,7 @@ webpackJsonp([4],{
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
-	                width: 1190,
+	                width: 1390,
 	                closeByDocument: false,
 	                data: data
 	            });
@@ -1193,156 +1193,6 @@ webpackJsonp([4],{
 	        }
 	
 	        return Tab;
-	    }
-	})(_angular2.default);
-
-/***/ },
-
-/***/ 111:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(10);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(7);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	var _moment = __webpack_require__(5);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.numberGame2StatisticApp').controller('UsernameController', UsernameController);
-	
-	    UsernameController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector'];
-	    function UsernameController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	        $scope.generateCurrencyReport = generateCurrencyReport;
-	        $scope.generateGrandtotalReport = generateGrandtotalReport;
-	
-	        function generateCurrencyReport(idCurrency, dateCurrency) {
-	            var dataQuery = pane.data;
-	            dataQuery.drilldownType = "Currency";
-	            dataQuery.currency = parseInt(idCurrency);
-	            dataQuery.startDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.endDate = _moment2.default.utc(dateCurrency).startOf('day');
-	            dataQuery.isDrilldown = true;
-	
-	            tab.goForward(dataQuery);
-	        }
-	
-	        function generateGrandtotalReport() {
-	            var data = pane.data;
-	            data.drilldownType = "Grandtotal";
-	            data.isDrilldown = true;
-	            pane.service = $injector.get("grandtotalService");
-	            generatePopup(data);
-	        }
-	
-	        function generate() {
-	            pane.service.getData(pane.data).then(function (data) {
-	                checkDrilldown(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	            var sortOptions = {
-	                serverSortFunction: generateSort
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.sortOption = sortOptions;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function checkDrilldown(data) {
-	            if (!pane.data.isDrilldown) {
-	                createLinks(data);
-	            }
-	        }
-	
-	        function generateSort(sortColumnName, sortDirection) {
-	            pane.data.sortColumnName = sortColumnName;
-	            pane.data.sortDirection = sortDirection;
-	            pane.service.getDataSort(pane.data).then(function (data) {
-	                checkDrilldown(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function createLinks(data) {
-	
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var row = data.bodyRows[i];
-	                var currencyColumn = row.Columns[3];
-	                var dateCurrency = row.Columns[0].Value;
-	
-	                if (row.Columns.length == 10) {
-	                    currencyColumn = row.Columns[2];
-	                    dateCurrency = row.Columns[1].CustomAttr;
-	                }
-	
-	                var idCurrency = currencyColumn.CustomAttr;
-	                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
-	            }
-	
-	            var grandTotalColumn = data.footerRows[0].Columns[0];
-	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane.data, pane.getFileName());
-	        }
-	
-	        function generatePopup() {
-	            pane.service.getData(pane).then(function (data) {
-	                renderPopup(data);
-	            });
-	        }
-	
-	        function exportExcelGrandTotal() {
-	            var title = tab.generateBreadcrumbText();
-	            pane.service.exportExcel(title, pane, pane.getFileName());
-	        }
-	
-	        function renderPopup(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcelGrandTotal
-	            };
-	            data.titleInfo = titleInfo;
-	            ngDialog.open({ template: 'templateId',
-	                plain: false,
-	                width: 1190,
-	                closeByDocument: false,
-	                data: data
-	            });
-	
-	            $rootScope.$on('ngDialog.opened', function (e, $dialog) {
-	                $('#myGrid').fanexGrid(data);
-	            });
-	        }
 	    }
 	})(_angular2.default);
 

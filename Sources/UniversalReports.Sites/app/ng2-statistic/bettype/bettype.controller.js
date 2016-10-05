@@ -67,6 +67,7 @@ import moment from "moment";
                 serverSortFunction: generateSort
             };
 
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.titleInfo = titleInfo;
             data.sortOption = sortOptions;
             gridElement.fanexGrid(data);
@@ -120,7 +121,7 @@ import moment from "moment";
             data.titleInfo = titleInfo;            
             ngDialog.open({template: 'templateId',
                 plain: false,                
-                width: 1190,
+                width: 1390,
                 closeByDocument: false,
                 data: data
             });
