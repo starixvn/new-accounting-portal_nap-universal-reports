@@ -26,8 +26,12 @@ import angular from "angular";
             this.getFileName = getFileName;
 
             this.templateUrl = 'app/ng2-statistic/shared/fanex-grid-with-title.html';
-            this.controller = 'CommonController' ;
+            this.controller = getController(data.reportType);
             this.service = $injector.get("commonService");
+
+            function getController(data){
+                return data === "bettype" ? 'BettypeController' : 'CommonController';
+            }
 
             function generate() {
                 this.$scope.generate();

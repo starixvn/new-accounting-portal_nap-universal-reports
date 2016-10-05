@@ -17,12 +17,13 @@ import moment from "moment";
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
-        function generateCurrencyReport(idCurrency, dateCurrency){
+        function generateCurrencyReport(idCurrency, betTypeId){
             var dataQuery = pane.data;
             dataQuery.drilldownType = "Currency";
             dataQuery.currency = parseInt(idCurrency);
-            dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
-            dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
+            dataQuery.betType = betTypeId;
+            //dataQuery.startDate = moment.utc(dateCurrency).startOf('day');
+            //dataQuery.endDate = moment.utc(dateCurrency).startOf('day');
             dataQuery.isDrilldown = true;
 
             tab.goForward(dataQuery);
@@ -34,7 +35,7 @@ import moment from "moment";
             data.isDrilldown = true;
             pane.service = $injector.get("grandtotalService");
             pane.controller = 'GrandtotalController';
-            //generatePopup(data);
+            generatePopup(data);
         }
 
         function generate() {
@@ -82,15 +83,13 @@ import moment from "moment";
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var row = data.bodyRows[i];
                 var currencyColumn = row.Columns[3];
-                var dateCurrency = row.Columns[0].Value;
+                var betTypeId = row.Columns[2];
 
-                if(row.Columns.length == 10){
-                    currencyColumn = row.Columns[2];
-                    dateCurrency = row.Columns[1].CustomAttr;
-                }
+                //var dateCurrency = row.Columns[0].Value;
+
                 
                 var idCurrency = currencyColumn.CustomAttr;
-                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+                currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
             }
         }
 

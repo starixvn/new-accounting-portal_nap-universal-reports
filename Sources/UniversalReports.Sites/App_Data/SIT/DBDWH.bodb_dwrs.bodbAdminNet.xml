@@ -83,7 +83,7 @@
     </Setting>
     <Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username_UAT2" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
-    <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype_UAT2" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
   </Function>
 </Functions>

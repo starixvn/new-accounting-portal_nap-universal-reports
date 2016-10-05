@@ -17,6 +17,7 @@ import moment from "moment";
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
+
         function generateCurrencyReport(idCurrency, dateCurrency){
             var dataQuery = pane.data;
             dataQuery.drilldownType = "Currency";
@@ -33,6 +34,7 @@ import moment from "moment";
             data.drilldownType = "Grandtotal"; 
             data.isDrilldown = true;
             pane.service = $injector.get("grandtotalService");
+            pane.controller = "Grandtotalcontroller";
             generatePopup(data);
         }
 
@@ -125,7 +127,8 @@ import moment from "moment";
                 plain: false,                
                 width: 1190,
                 closeByDocument: false,
-                data: data                
+                data: data,
+                controller: 'GrandtotalController'
             });
 
             $rootScope.$on('ngDialog.opened', function (e, $dialog) {

@@ -287,6 +287,7 @@
     <Content Include="app\house-win-loss\common\remote-data.service.js" />
     <Content Include="app\ng2-statistic\app.config.js" />
     <Content Include="app\ng2-statistic\app.js" />
+    <Content Include="app\ng2-statistic\bettype\bettype.controller.js" />
     <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
     <Content Include="app\ng2-statistic\common\common.controller.js" />
@@ -294,9 +295,11 @@
     <Content Include="app\ng2-statistic\filter\filter.service.js" />
     <Content Include="app\ng2-statistic\filter\filter.directive.html" />
     <Content Include="app\ng2-statistic\filter\filter.directive.js" />
+    <Content Include="app\ng2-statistic\grandtotal\grandtotal.controller.js" />
     <Content Include="app\ng2-statistic\grandtotal\grandtotal.service.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.html" />
+    <Content Include="app\ng2-statistic\username\username.controller.js" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.js" />
@@ -683,6 +686,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\ng2-statistic\currency\" />
+    <Folder Include="app\ng2-statistic\daily\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

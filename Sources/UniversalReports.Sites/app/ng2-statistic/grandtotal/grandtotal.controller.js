@@ -15,45 +15,6 @@ import moment from "moment";
         $scope.generate = generate;
 
         function generate() {
-            //pane.service.getData(pane.data).then(function(data){
-            //    checkDrilldown(data);
-            //    renderGrid(data);
-            //    pane.compileAll();
-            //});
-            pane.service.getData(pane).then(function(data){
-                renderPopup(data);
-            });
-        }
-
-        function renderGrid(data){
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showExcelButton: true,
-                exportExcelFunction: exportExcel,
-            };
-            var sortOptions = {
-                serverSortFunction: generateSort
-            };
-
-            data.titleInfo = titleInfo;
-            data.sortOption = sortOptions;
-            gridElement.fanexGrid(data);
-        }
-
-        function checkDrilldown(data){
-            if(!pane.data.isDrilldown){
-                createLinks(data);
-            }
-        }
-
-
-        
-        function exportExcel(){
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
-        }
-
-        function generatePopup() {
             pane.service.getData(pane).then(function(data){
                 renderPopup(data);
             });
