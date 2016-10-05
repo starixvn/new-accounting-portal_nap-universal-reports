@@ -36,6 +36,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
                     row.SportId = Converter.To<int>(reader["SportId"]);
                     row.Bettype = Converter.To<string>(reader["Bettype"]);
                     row.BettypeId = Converter.To<int>(reader["BettypeId"]);
+                    row.CurrencyId = Converter.To<int>(reader["CurrencyId"]);
                     bettype.Rows.Add(row);
                 }
 
