@@ -121,7 +121,7 @@ import moment from "moment";
             data.titleInfo = titleInfo;            
             ngDialog.open({template: 'templateId',
                 plain: false,                
-                width: 1390,
+                width: 1400,
                 closeByDocument: false,
                 data: data
             });

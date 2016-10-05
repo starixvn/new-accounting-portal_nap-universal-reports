@@ -239,7 +239,7 @@ webpackJsonp([4],{
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
-	                width: 1390,
+	                width: 1400,
 	                closeByDocument: false,
 	                data: data
 	            });
@@ -515,7 +515,7 @@ webpackJsonp([4],{
 	            data.titleInfo = titleInfo;
 	            ngDialog.open({ template: 'templateId',
 	                plain: false,
-	                width: 1390,
+	                width: 1400,
 	                closeByDocument: false,
 	                data: data
 	            });
