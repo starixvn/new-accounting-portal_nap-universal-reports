@@ -56,7 +56,7 @@ import angular from "angular";
 
         function renderMajorMinorGrid(gridElement, data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Soccer MAJOR/MINOR"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(" MAJOR/MINOR"),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
@@ -70,7 +70,7 @@ import angular from "angular";
 
         function renderLiveNonLiveGrid(gridElement, data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Soccer LIVE/NON-LIVE"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(" LIVE/NON-LIVE"),
                 showCollapseExpandButton: false,
                 showExcelButton: false
             };
@@ -117,8 +117,8 @@ import angular from "angular";
 
         function exportExcel() {
 
-            var majorMinorTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Soccer MAJOR/MINOR");
-            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Soccer LIVE/NON-LIVE");
+            var majorMinorTitle = tab.generateBreadcrumbTextWithSuffix(" MAJOR/MINOR");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" LIVE/NON-LIVE");
             
             var httpData = {
                 majorMinorTitle: majorMinorTitle,

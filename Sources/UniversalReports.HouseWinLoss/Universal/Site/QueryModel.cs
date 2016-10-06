@@ -1,5 +1,4 @@
 ﻿using System;
-using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.HouseWinLoss.Universal.Site
 {
@@ -7,7 +6,6 @@ namespace UniversalReports.HouseWinLoss.Universal.Site
     {
         public DateTime StartDate { get; set; }
 
-        [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
@@ -15,5 +13,7 @@ namespace UniversalReports.HouseWinLoss.Universal.Site
         public string Site { get; set; }
 
         public int BetType { get; set; }
+
+        public int IsLive { get; set; }
     }
 }

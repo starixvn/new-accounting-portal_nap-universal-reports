@@ -40,7 +40,6 @@ namespace UniversalReports.Sites
             container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<NumberGames.BetType.Service, NumberGames.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<Products.Service, Products.ServiceImp>(Lifestyle.Transient);
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);

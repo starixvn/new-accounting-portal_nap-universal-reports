@@ -38,22 +38,22 @@ import angular from "angular";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: function(data){
+                serviceBaseUrl: function (data) {
                     var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
-                    var isSumBetType =isMajor && data.isLive === 2;
-                    var isGroupBetType=isMajor && data.isLive === 0;
+                    var isSumBetType = isMajor && data.isLive === 2;
+                    var isGroupBetType = isMajor && data.isLive === 0;
 
-                    if(isSumBetType){
+                    if (isSumBetType) {
                         return "api/house-win-loss-by-products/soccer/sum-bettype";
                     }
-                    else if(isGroupBetType){
+                    else if (isGroupBetType) {
                         return "api/house-win-loss-by-products/soccer/group-bettype";
                     }
-                    else{
-                        return "api/house-win-loss-by-products/soccer/bettype"; 
+                    else {
+                        return "api/house-win-loss-by-products/soccer/bettype";
                     }
                 },
-                mainParameters: function(data){
+                mainParameters: function (data) {
                     var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
                     return {
                         isMajor: isMajor
@@ -65,7 +65,7 @@ import angular from "angular";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportsbookMatchDetailController",
                 service: "sportsbookMatchDetailService",
-                serviceBaseUrl:function(data) {
+                serviceBaseUrl: function (data) {
                     return data.betType === 10
                         ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
@@ -114,7 +114,7 @@ import angular from "angular";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/site",
                 mainParameters: {},
-                getTitleFunction:"getSiteTitle"
+                getTitleFunction: "getSiteTitle"
             }
         },
         "Other Sports": {
@@ -137,9 +137,13 @@ import angular from "angular";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "BetTypeController",
+                controller: function (data) {
+                    return data.sportType === cricketProductId
+                    ? 'BetTypeNewCricketController'
+                    : 'BetTypeController';
+                },
                 service: "remoteDataService",
-                serviceBaseUrl:function(data){
+                serviceBaseUrl: function (data) {
                     return data.sportType === cricketProductId
                     ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
                     : 'api/house-win-loss-by-products/other-sports/bet-type';
@@ -151,7 +155,7 @@ import angular from "angular";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportsbookMatchDetailController",
                 service: "sportsbookMatchDetailService",
-                serviceBaseUrl:function(data) {
+                serviceBaseUrl: function (data) {
                     return data.betType === 10
                         ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
@@ -245,11 +249,19 @@ import angular from "angular";
             mainView: "betType",
             betType: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-                controller: "NumberGameBetTypeController",
+                controller: "BetTypeLiveNonLiveController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/number-game/bet-type",
-                mainParameters: {},
-                getTitleFunction: "getNumberGameBetTypeTitle"
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 3 },
+                getTitleFunction: "getBetTypeLiveNonLiveTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 3 },
+                getTitleFunction: "getSiteTitleLive"
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -258,14 +270,6 @@ import angular from "angular";
                 serviceBaseUrl: "api/house-win-loss-by-products/number-game/match-detail",
                 mainParameters: {},
                 getTitleFunction: "getMatchDetailTitleLive"
-            },
-            site: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "SiteController",
-                service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/number-game/site",
-                mainParameters: {},
-                getTitleFunction: "getSiteTitleLive"
             }
         },
         "Virtual Sports": {
@@ -290,11 +294,11 @@ import angular from "angular";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "MatchDetailController",
                 service: "remoteDataService",
-                serviceBaseUrl: function(data){
+                serviceBaseUrl: function (data) {
                     return data.sportType >= 181 && data.sportType <= 185
                            ? "api/house-win-loss-by-products/virtual-sports/racing-match-detail"
                            : "api/house-win-loss-by-products/virtual-sports/sportsbook-match-detail";
-                },                
+                },
                 mainParameters: {},
                 getTitleFunction: "getMatchDetailTitle"
             },
@@ -368,7 +372,7 @@ import angular from "angular";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
-                mainParameters: { productId: 7 },
+                mainParameters: { productId: 7, isLive: 2 },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -376,7 +380,7 @@ import angular from "angular";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
-                mainParameters: { productId: 7 },
+                mainParameters: { productId: 7, isLive: 2 },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -387,7 +391,7 @@ import angular from "angular";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
-                mainParameters: { productId: 8 },
+                mainParameters: { productId: 8, isLive: 2 },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -395,7 +399,7 @@ import angular from "angular";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
-                mainParameters: { productId: 8 },
+                mainParameters: { productId: 8, isLive: 2 },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -406,7 +410,7 @@ import angular from "angular";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
-                mainParameters: { productId: 15 },
+                mainParameters: { productId: 15, isLive: 2 },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -414,7 +418,7 @@ import angular from "angular";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
-                mainParameters: { productId: 15 },
+                mainParameters: { productId: 15, isLive: 2 },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -429,8 +433,8 @@ import angular from "angular";
                 getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "BetTypeController",
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "BetTypeLiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
                 mainParameters: { productId: 23 },
@@ -442,7 +446,7 @@ import angular from "angular";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
                 mainParameters: { productId: 23 },
-                getTitleFunction: "getSiteTitle"
+                getTitleFunction: "getSiteTitleLive"
             }
         }
     };

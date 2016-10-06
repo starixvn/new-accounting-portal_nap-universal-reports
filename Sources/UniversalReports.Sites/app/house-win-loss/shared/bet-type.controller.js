@@ -16,18 +16,19 @@ import angular from "angular";
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
-        $scope.viewSetting = {};
+        $scope.createDrilldownLink = createDrilldownLink;
+        $scope.createDrilldownLinks = createDrilldownLinks;
+        $scope.renderGrid = renderGrid;
+        $scope.exportExcel = exportExcel;
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
             pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElement, data);
 
-                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-                    createLinks(data);
-                    if (pane.data.sportType === 50) {
-                        createLinkChargeCom(data.footerRows);
-                    }
+                var canViewMatchDetail = pane.data.endDate.diff(pane.data.startDate, 'days') <= 3;
+                if (canViewMatchDetail) {
+                    createDrilldownLinks(data.bodyRows);
                 }
 
                 renderGrid(data);
@@ -35,22 +36,62 @@ import angular from "angular";
             });
         }
 
+        function createDrilldownLinks(rows, isLive) {
+            for (var i = 0; i < rows.length; i++) {
+                createDrilldownLink(rows[i], isLive);
+            }
+        }
 
-        function generateSite(betType, betTypeName, site) {
+        function createDrilldownLink(betTypeRow, isLive) {
+            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
+            var hasDetailDrilldown = angular.isDefined(template);
+            var betTypeName = betTypeRow.Columns[0].Value;
+            var betTypeId = betTypeRow.Columns[0].CustomAttr;
+
+            if (betTypeRow.SubRows && hasDetailDrilldown) {
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
+            }
+            if (betTypeRow.SubRows) {
+                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
+                    var siteRow = betTypeRow.SubRows[i];
+                    var siteName = siteRow.Columns[0].Value;
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">'  + siteName + '</a>';
+                }
+            }
+        }
+
+        function renderGrid(data) {
+            var titleInfo = {
+                text: tab.generateBreadcrumbHtml(),
+                showCollapseExpandButton: true,
+                showExcelButton: true,
+                exportExcelFunction: $scope.exportExcel,
+                customButtons: showHideColumnBuilder.getButtonHtml()
+            };
+
+            data.titleInfo = titleInfo;
+            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+            data.bottomBorderWidth = 3;
+            gridElement.fanexGrid(data);
+        }
+
+        function generateSite(betType, betTypeName, site, isLive) {
             var data = {
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
+                isLive: isLive,
                 isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
             };
             angular.extend(data, pane.data);
             tab.goForward('site', data);
         }
 
-        function generateMatchDetail(betType, betTypeName) {
+        function generateMatchDetail(betType, betTypeName, isLive) {
             var data = {
                 betType: betType,
-                betTypeName: betTypeName
+                betTypeName: betTypeName,
+                isLive: isLive
             };
             angular.extend(data, pane.data);
             data.isHedge = getHedgeParameters(data.sportType, betTypeName);
@@ -64,57 +105,6 @@ import angular from "angular";
 
                 return betTypeName && betTypeName.indexOf("(hedge)") > -1 ? 1 : 0;
             }
-        }
-
-        function isDateRangeInThreeDays(startDate, endDate) {
-            return endDate.diff(startDate, 'days') < 3;
-        }
-
-        function createLinkChargeCom(data) {
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].Columns[0].Value === "Charge Commission") {
-                    createLink(data[i]);
-                }
-            }
-        }
-
-        function createLinks(data) {
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                createLink(data.bodyRows[i]);
-            }
-        }
-
-        function createLink(betTypeRow) {
-            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
-            var hasDetailDrilldown = angular.isDefined(template);
-            var betTypeName = betTypeRow.Columns[0].Value;
-            var betTypeId = betTypeRow.Columns[0].CustomAttr;
-
-            if (betTypeRow.SubRows && hasDetailDrilldown) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
-            }
-            if (betTypeRow.SubRows) {
-                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
-                    var siteRow = betTypeRow.SubRows[i];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\')">' + siteName + '</a>';
-                }
-            }
-        }
-
-        function renderGrid(data) {
-            var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
-                showCollapseExpandButton: true,
-                showExcelButton: true,
-                exportExcelFunction: exportExcel,
-                customButtons: showHideColumnBuilder.getButtonHtml()
-            };
-
-            data.titleInfo = titleInfo;
-            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-            data.bottomBorderWidth = 3;
-            gridElement.fanexGrid(data);
         }
 
         function exportExcel() {

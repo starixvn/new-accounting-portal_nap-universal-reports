@@ -18,7 +18,7 @@ import angular from "angular";
             getSoccerMajorMinorTitle: getSoccerMajorMinorTitle,
             getSoccerBetTypeTitle: getSoccerBetTypeTitle,
             getSportsbookBetTypeTitle: getSportsbookBetTypeTitle,
-            getNumberGameBetTypeTitle: getNumberGameBetTypeTitle,
+            getBetTypeLiveNonLiveTitle: getBetTypeLiveNonLiveTitle,
             getCasinoProductTitle: getCasinoProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSportTypeTitleLive: getSportTypeTitleLive,
@@ -84,7 +84,7 @@ import angular from "angular";
                         : product;
         }
 
-        function getNumberGameBetTypeTitle(data) {
+        function getBetTypeLiveNonLiveTitle(data) {
             return data.isLive === undefined
                 ? data.productName
                 : data.productName + getLiveText(data.isLive);

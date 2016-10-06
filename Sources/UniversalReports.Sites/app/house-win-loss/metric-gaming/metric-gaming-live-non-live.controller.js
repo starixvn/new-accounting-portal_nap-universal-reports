@@ -25,13 +25,14 @@ import angular from "angular";
             $scope.viewSetting = viewSetting;
             var betTypeGridOptions,
                 liveNonLiveGridOptions;
-            pane.service.getBetTypeData(viewSetting, pane.data).then(function (data) {
-                betTypeGridOptions = data;
-                renderAll();
-            });
 
             pane.service.getData(viewSetting, pane.data).then(function (data) {
                 liveNonLiveGridOptions = data;
+                renderAll();
+            });
+
+            pane.service.getBetTypeData(viewSetting, pane.data).then(function (data) {
+                betTypeGridOptions = data;
                 renderAll();
             });
 
@@ -42,10 +43,8 @@ import angular from "angular";
                 }
 
                 showHideColumnBuilder.build([betTypeGridElement, liveNonLiveGridElement], [betTypeGridOptions, liveNonLiveGridOptions]);
-                if (isDateRangeInThreeDays(pane.data.startDate, pane.data.endDate)) {
-                    createLinksForBetType(betTypeGridOptions);
-                }
 
+                createLinksForBetType(betTypeGridOptions);
                 renderGridForBetType(betTypeGridOptions);
                 createLinksForLiveNonLive(liveNonLiveGridOptions);
                 renderGridForLiveNonLive(liveNonLiveGridOptions);
@@ -85,7 +84,7 @@ import angular from "angular";
 
         function renderGridForBetType(data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Metric Gaming - Superlive"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(""),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
@@ -97,13 +96,9 @@ import angular from "angular";
             betTypeGridElement.fanexGrid(data);
         }
 
-        function isDateRangeInThreeDays(startDate, endDate) {
-            return endDate.diff(startDate, 'days') < 3;
-        }
-
         function renderGridForLiveNonLive(data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Metric Gaming - Superlive Live/Non-Live"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(" Live/Non-Live"),
                 showCollapseExpandButton: true,
                 showExcelButton: false
             };
@@ -138,8 +133,8 @@ import angular from "angular";
         }
 
         function exportExcel() {
-            var betTypeTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Metric Gaming - Superlive");
-            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Metric Gaming - Superlive Live/Non-Live");
+            var betTypeTitle = tab.generateBreadcrumbTextWithSuffix("");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" Live/Non-Live");
 
             var httpData = {};
             angular.extend(httpData, pane.data);

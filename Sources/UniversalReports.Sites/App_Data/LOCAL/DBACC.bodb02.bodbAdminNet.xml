@@ -25,9 +25,9 @@
     </Setting>
     <Setting Key="HouseWinLoss-Universal-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_14_UAT2" DbName="DBACC.bodb02.bodbAdminNet">
     </Setting>
-    <Setting Key="HouseWinLoss-Universal-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site" DbName="DBACC.bodb02.bodbAdminNet">
+    <Setting Key="HouseWinLoss-Universal-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_UAT2" DbName="DBACC.bodb02.bodbAdminNet">
     </Setting>
-    <Setting Key="HouseWinLoss-Universal-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_14" DbName="DBACC.bodb02.bodbAdminNet">
+    <Setting Key="HouseWinLoss-Universal-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_14_UAT2" DbName="DBACC.bodb02.bodbAdminNet">
     </Setting>
     <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType" DbName="DBACC.bodb02.bodbAdminNet">
     </Setting>

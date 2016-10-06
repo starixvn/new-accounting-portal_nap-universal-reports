@@ -284,7 +284,8 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\house-win-loss\common\remote-data.service.js" />
+    <Content Include="app\house-win-loss\shared\bet-type.new-cricket.controller.js" />
+    <Content Include="app\house-win-loss\shared\remote-data.service.js" />
     <Content Include="app\ng2-statistic\app.config.js" />
     <Content Include="app\ng2-statistic\app.js" />
     <Content Include="app\ng2-statistic\bettype\bettype.controller.js" />
@@ -327,7 +328,7 @@
     <Content Include="app\house-win-loss\sportsbook\sportsbook-match-information.html" />
     <Content Include="app\house-win-loss\sportsbook\sportsbook-match-detail.service.js" />
     <Content Include="app\root\crosscutting\http-response.service.js" />
-    <Content Include="app\house-win-loss\common\match-detail.controller.js" />
+    <Content Include="app\house-win-loss\shared\match-detail.controller.js" />
     <Content Include="app\house-win-loss\metric-gaming\metric-gaming-live-non-live.controller.js" />
     <Content Include="app\house-win-loss\metric-gaming\metric-gaming-live-non-live.service.js" />
     <Content Include="app\house-win-loss\other-sports\other-sports-live-non-live.service.js" />
@@ -344,8 +345,8 @@
     <Content Include="app\root\components\header\header.service.js" />
     <Content Include="app\root\components\header\header.directive.html" />
     <Content Include="app\root\components\header\header.directive.js" />
-    <Content Include="app\house-win-loss\common\sport-type.controller.js" />
-    <Content Include="app\house-win-loss\common\bet-type.controller.js" />
+    <Content Include="app\house-win-loss\shared\sport-type.controller.js" />
+    <Content Include="app\house-win-loss\shared\bet-type.controller.js" />
     <Content Include="app\house-win-loss\house-win-loss.constant.js" />
     <Content Include="app\house-win-loss\house-win-loss.service.js" />
     <Content Include="app\house-win-loss\filter\filter.directive.js" />
@@ -353,9 +354,9 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
     <Content Include="app\house-win-loss\shared\two-fanex-grid-with-title.html" />
-    <Content Include="app\house-win-loss\number-game\number-game-bet-type.controller.js" />
+    <Content Include="app\house-win-loss\shared\bet-type.live-non-live.controller.js" />
     <Content Include="app\house-win-loss\shared\fanex-grid-with-title.html" />
-    <Content Include="app\house-win-loss\common\site.controller.js" />
+    <Content Include="app\house-win-loss\shared\site.controller.js" />
     <Content Include="app\root\components\click\click.directive.js" />
     <Content Include="app\root\legacy\check-in.js" />
     <Content Include="App_Configuration\Web.config.tt">
@@ -643,7 +644,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\HouseWinLossByProducts\Index.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Common\SessionExpired.cshtml" />
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
@@ -684,6 +687,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\house-win-loss\number-game\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

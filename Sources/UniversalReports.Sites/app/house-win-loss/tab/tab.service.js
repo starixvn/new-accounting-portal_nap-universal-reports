@@ -16,10 +16,12 @@
             this.goBack = goBack;
             this.goForward = goForward;
             this.generateBreadcrumbList = generateBreadcrumbList;
+            this.generateBreadcrumbListWithModifiedLastItem = generateBreadcrumbListWithModifiedLastItem;
             this.generateBreadcrumbHtml = generateBreadcrumbHtml;
             this.generateBreadcrumbText = generateBreadcrumbText;
-            this.generateBreadcrumbHtmlWithLastItemReplacement = generateBreadcrumbHtmlWithLastItemReplacement;
-            this.generateBreadcrumbTextWithLastItemReplacement = generateBreadcrumbTextWithLastItemReplacement;
+            this.generateBreadcrumbTextWithSuffix = generateBreadcrumbTextWithSuffix;
+            this.generateBreadcrumbHtmlWithSuffix = generateBreadcrumbHtmlWithSuffix;
+            
 
             function addPane(pane) {
                 this.panes.push(pane);
@@ -66,7 +68,7 @@
                 this.addPane(pane);
             }
 
-            function generateBreadcrumbList() {
+            function generateBreadcrumbListWithModifiedLastItem() {
                 var list = [];
                 for (var i = 0; i < this.panes.length; i++) {
                     var pane = this.panes[i];
@@ -79,25 +81,37 @@
                 return list;
             }
 
+            function generateBreadcrumbList() {
+                var list = [];
+                for (var i = 0; i < this.panes.length; i++) {
+                    var pane = this.panes[i];
+                    var getTitleFunction = pane.viewSetting.getTitleFunction;
+                    var title = titleService[getTitleFunction](pane.data, false);
+                    list.push(title);
+                }
+
+                return list;
+            }
+
             function generateBreadcrumbHtml() {
-                var list = this.generateBreadcrumbList();
+                var list = this.generateBreadcrumbListWithModifiedLastItem();
                 return breadcrumbService.generateHtml(list);
             }
 
             function generateBreadcrumbText() {
-                var list = this.generateBreadcrumbList();
+                var list = this.generateBreadcrumbListWithModifiedLastItem();
                 return breadcrumbService.generateText(list);
             }
 
-            function generateBreadcrumbHtmlWithLastItemReplacement(lastItem) {
+            function generateBreadcrumbHtmlWithSuffix(suffix) {
                 var list = this.generateBreadcrumbList();
-                list[list.length - 1] = lastItem;
+                list[list.length - 1] = list[list.length - 1] + suffix;
                 return breadcrumbService.generateHtml(list);
             }
 
-            function generateBreadcrumbTextWithLastItemReplacement(lastItem) {
+            function generateBreadcrumbTextWithSuffix(suffix) {
                 var list = this.generateBreadcrumbList();
-                list[list.length - 1] = lastItem;
+                list[list.length - 1] = list[list.length - 1] + suffix;
                 return breadcrumbService.generateText(list);
             }
         }

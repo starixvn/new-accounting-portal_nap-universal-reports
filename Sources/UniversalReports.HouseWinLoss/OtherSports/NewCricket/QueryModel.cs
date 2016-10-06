@@ -1,6 +1,5 @@
 ﻿using System;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
@@ -10,7 +9,6 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 
         public DateTime StartDate { get; set; }
 
-        [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
         public int SportType { get; set; }

@@ -45,13 +45,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 IsLive = 2
             };
 
-            var numberGameBetTypeCriteria = new NumberGame.BetType.Criteria();
-            var numberGameSiteCriteria = new NumberGame.Site.Criteria
-            {
-                BetType = 81,
-                IsLive = true,
-                Site = "Credit"
-            };
             var numberGameMatchDetailCriteria = new NumberGame.MatchDetail.Criteria
             {
                 BetType = 81,
@@ -132,8 +125,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 metricGamingBetTypeCriteria,
                 metricGamingLiveNonLiveCriteria,
                 metricGamingSiteCriteria,
-                numberGameBetTypeCriteria,
-                numberGameSiteCriteria,
                 numberGameMatchDetailCriteria,
                 otherSportsBetTypeCriteria,
                 otherSportsLiveNonLiveCriteria,

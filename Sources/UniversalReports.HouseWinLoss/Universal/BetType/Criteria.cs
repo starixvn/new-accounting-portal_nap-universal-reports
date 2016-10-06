@@ -8,9 +8,25 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
 
         public int SportType { get; set; } = 0;
 
+        public int IsLive { get; set; } = 2;
+
         public override string GetSettingKey()
         {
             return $"HouseWinLoss-Universal-BetType-{Source}";
+        }
+
+        public Criteria Clone()
+        {
+            return new Criteria
+            {
+                ProductId = ProductId,
+                SportType = SportType,
+                IsLive = IsLive,
+                StartDate = StartDate,
+                EndDate = EndDate,
+                NormalMode = NormalMode,
+                Source = Source
+            };
         }
     }
 }

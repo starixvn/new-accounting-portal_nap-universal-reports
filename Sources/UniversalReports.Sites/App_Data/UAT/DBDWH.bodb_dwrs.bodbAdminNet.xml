@@ -13,7 +13,7 @@
     </Setting>
     <Setting Key="HouseWinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old_UAT2" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
-    <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old_UAT2" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
     <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>

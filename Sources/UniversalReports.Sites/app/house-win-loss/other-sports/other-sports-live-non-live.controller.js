@@ -20,23 +20,6 @@ import angular from "angular";
         $scope.generateSportType = generateSportType;
         $scope.viewSetting = {};
 
-        function generateBetType(sportType, sportTypeName) {
-            var data = {
-                sportType: sportType,
-                sportTypeName: sportTypeName
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('betType', data);
-        }
-
-        function generateSportType(isLive) {
-            var data = {
-                isLive: isLive
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('sportType', data);
-        }
-
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
             var sportTypeGridOptions,
@@ -69,7 +52,7 @@ import angular from "angular";
 
         function renderGridForSportType(data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Other Sports"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(""),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
@@ -92,7 +75,7 @@ import angular from "angular";
 
         function renderGridForLiveNonLive(data) {
             var titleInfo = {
-                text: tab.generateBreadcrumbHtmlWithLastItemReplacement("Other Sports Live/Non-Live"),
+                text: tab.generateBreadcrumbHtmlWithSuffix(" Live/Non-Live"),
                 showCollapseExpandButton: true,
                 showExcelButton: false
             };
@@ -111,9 +94,26 @@ import angular from "angular";
             }
         }
 
+        function generateBetType(sportType, sportTypeName) {
+            var data = {
+                sportType: sportType,
+                sportTypeName: sportTypeName
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('betType', data);
+        }
+
+        function generateSportType(isLive) {
+            var data = {
+                isLive: isLive
+            };
+            angular.extend(data, pane.data);
+            tab.goForward('sportType', data);
+        }
+
         function exportExcel() {
-            var sportTypeTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Other Sports");
-            var liveNonLiveTitle = tab.generateBreadcrumbTextWithLastItemReplacement("Other Sports Live/Non-Live");
+            var sportTypeTitle = tab.generateBreadcrumbTextWithSuffix("");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" Live/Non-Live");
             var httpData = {};
 
             angular.extend(httpData, pane.data);
