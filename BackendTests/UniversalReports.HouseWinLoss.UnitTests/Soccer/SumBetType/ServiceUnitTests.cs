@@ -1,6 +1,6 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
@@ -29,7 +29,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.SumBetType
             var service = new WinLossServiceImp(rawWinLossService, calculatorService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
-            // Assert           
+            // Assert
             ComparisonAssert.AreEqual(expected, result);
         }
     }

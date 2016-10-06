@@ -50,8 +50,7 @@ namespace UniversalReports.Core.Tests.Factory
         }
     }
 
-
-    class ModelWithTwoProperties
+    internal class ModelWithTwoProperties
     {
         public string Property1 { get; set; }
 
@@ -70,7 +69,7 @@ namespace UniversalReports.Core.Tests.Factory
         }
     }
 
-    class ModelWithThreeProperties
+    internal class ModelWithThreeProperties
     {
         public string Property1 { get; set; }
 
@@ -92,7 +91,7 @@ namespace UniversalReports.Core.Tests.Factory
         }
     }
 
-    class ExModelWithThreeProperties
+    internal class ExModelWithThreeProperties
     {
         public string Property4 { get; set; }
 

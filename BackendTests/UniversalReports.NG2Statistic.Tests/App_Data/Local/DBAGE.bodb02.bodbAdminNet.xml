@@ -5,7 +5,7 @@
       <Mapping DataField="BalanceUpDay" ObjectProperty="BalanceUpDate" />
       <Mapping DataField="MoveBetsDay" ObjectProperty="MoveBetsDate" />
     </Setting>
-    <Setting Key="NG2-Statistics-Currencies" SpName="NAP_ExchangeCurrencySel" DbName="DBAGE.bodb02.bodbAdminNet" >
+    <Setting Key="NG2-Statistics-Currencies" SpName="NAP_ExchangeCurrencySel" DbName="DBAGE.bodb02.bodbAdminNet">
       <Mapping DataField="exchangeid" ObjectProperty="Id" />
       <Mapping DataField="currency" ObjectProperty="Name" />
     </Setting>

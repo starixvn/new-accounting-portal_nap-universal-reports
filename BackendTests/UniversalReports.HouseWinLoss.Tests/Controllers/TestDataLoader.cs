@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {

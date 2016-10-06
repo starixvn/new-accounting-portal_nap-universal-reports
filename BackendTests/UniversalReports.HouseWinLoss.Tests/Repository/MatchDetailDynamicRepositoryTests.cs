@@ -1,7 +1,7 @@
-﻿using Fanex.Data.Repository;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Data.Repository;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.MetricGaming.MatchDetail;

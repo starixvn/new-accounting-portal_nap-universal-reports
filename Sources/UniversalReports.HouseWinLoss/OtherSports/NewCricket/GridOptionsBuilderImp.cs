@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
     {
         private const string CssTotal = "grand-total";
         private const string CssChargeCom = "cricket-charged-commission";
-        private readonly BasicGridDataRowBuilder gridDataRowBuilder;        
+        private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
         {

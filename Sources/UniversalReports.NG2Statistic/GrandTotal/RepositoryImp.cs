@@ -1,9 +1,10 @@
-﻿using Fanex.Common;
-using Fanex.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using UniversalReports.NG2Statistic.Common;
+using Fanex.Common;
+using Fanex.Data;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Factory;
+using UniversalReports.NG2Statistic.Common;
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {

@@ -1,8 +1,8 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {
@@ -34,13 +34,12 @@ namespace UniversalReports.NG2Statistic.GrandTotal
             return new List<GridDataRow> { BuildDataRow(total) };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
-
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(GrandTotalModel raw)
         {
             var columns = new List<Columns>
             {
-                new Columns {Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center},
+                new Columns { Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "NoOfPlayers",

@@ -1,9 +1,9 @@
-﻿using Fanex.Data.Repository;
-using Fanex.Repository;
-using NSubstitute;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using Fanex.Data.Repository;
+using Fanex.Repository;
+using NSubstitute;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 

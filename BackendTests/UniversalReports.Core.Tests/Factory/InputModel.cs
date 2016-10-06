@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.Core.Tests.Factory
 {
-    class InputModel
+    internal class InputModel
     {
         public string Name { get; set; }
 

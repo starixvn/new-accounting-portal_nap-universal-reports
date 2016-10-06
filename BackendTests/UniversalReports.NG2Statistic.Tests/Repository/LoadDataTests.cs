@@ -1,7 +1,8 @@
-﻿using Fanex.Data.Configuration;
+﻿using System;
+using Fanex.Data.Configuration;
 using Fanex.Repository;
 using NUnit.Framework;
-using System;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.Common;
 using UniversalReports.NG2Statistic.Daily;
 

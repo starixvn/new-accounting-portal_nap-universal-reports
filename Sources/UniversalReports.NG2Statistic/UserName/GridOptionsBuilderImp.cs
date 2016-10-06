@@ -1,8 +1,8 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.NG2Statistic.UserName
 {
@@ -35,12 +35,12 @@ namespace UniversalReports.NG2Statistic.UserName
             return new List<GridDataRow> { BuildDataRow(total, true) };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(UserNameModel raw, bool isTotal = false)
         {
             var columns = new List<Columns>
             {
-                new Columns {Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center},
+                new Columns { Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "CustId",
@@ -54,7 +54,7 @@ namespace UniversalReports.NG2Statistic.UserName
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.Integer
                 },
-                new Columns {Name = "Currency", Value = raw.Currency, CellAlignment = HAlignment.Center},
+                new Columns { Name = "Currency", Value = raw.Currency, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "TotalBets",
@@ -105,7 +105,6 @@ namespace UniversalReports.NG2Statistic.UserName
                     CustomCellType = ExcelCellType.DoubleRedNegative
                 }
             };
-
 
             return new GridDataRow { Columns = columns };
         }

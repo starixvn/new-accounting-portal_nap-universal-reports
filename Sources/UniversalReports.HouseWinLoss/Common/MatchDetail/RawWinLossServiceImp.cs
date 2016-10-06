@@ -1,6 +1,6 @@
-﻿using Fanex.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Repository;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 

@@ -25,9 +25,7 @@ namespace UniversalReports.Sites
         {
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
 
-            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Transient);
-            container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
+            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Transient);                        
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);

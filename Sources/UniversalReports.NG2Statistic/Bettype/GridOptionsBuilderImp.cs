@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
@@ -76,8 +76,8 @@ namespace UniversalReports.NG2Statistic.Bettype
             return new GridDataRow { Columns = columns };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan",
-            Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
+
         private void AssignDataRow(BettypeModel raw, ICollection<Columns> columns, bool isSport)
         {
             var bold = isSport;

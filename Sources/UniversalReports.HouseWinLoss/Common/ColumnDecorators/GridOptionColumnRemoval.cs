@@ -1,5 +1,5 @@
-﻿using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {

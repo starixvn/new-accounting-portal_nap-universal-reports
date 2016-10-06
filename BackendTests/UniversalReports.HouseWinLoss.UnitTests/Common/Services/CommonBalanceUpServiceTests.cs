@@ -46,7 +46,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
             // Assert
             dynamicRepository.Received(1).Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>());
 
-            // Clean 
+            // Clean
             balanceUpService.ClearCache();
         }
     }

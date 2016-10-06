@@ -47,8 +47,7 @@ namespace UniversalReports.NG2Statistic.Daily
             }
 
             var propInfo = typeof(DailyModel).GetProperty(queryModel.SortColumnName);
-            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc,
-                StringComparison.OrdinalIgnoreCase);
+            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
             if (isAsc)
             {
                 raw.Rows = raw

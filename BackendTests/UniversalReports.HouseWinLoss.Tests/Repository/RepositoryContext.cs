@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Configuration;
+﻿using System;
+using Fanex.Data.Configuration;
 using Fanex.Repository;
-using System;
 using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.Tests.Repository

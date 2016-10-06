@@ -11,7 +11,6 @@ import moment from "moment";
         var directive = {
             restrict: 'EA',
             scope: {
-
             },
             templateUrl: 'app/house-win-loss/filter/filter.directive.html',
             replace: true,

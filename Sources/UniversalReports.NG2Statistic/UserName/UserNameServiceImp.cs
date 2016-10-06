@@ -30,8 +30,7 @@ namespace UniversalReports.NG2Statistic.UserName
         private void SortData(UserNameModel raw, QueryModel queryModel)
         {
             var propInfo = typeof(UserNameModel).GetProperty(queryModel.SortColumnName);
-            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc,
-                StringComparison.OrdinalIgnoreCase);
+            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
             if (isAsc)
             {
                 raw.Rows = raw

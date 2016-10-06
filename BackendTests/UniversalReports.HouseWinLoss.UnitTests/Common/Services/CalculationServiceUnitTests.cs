@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
@@ -67,7 +67,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 
             var calculationService = new CalculationServiceImp();
 
-            // Act            
+            // Act
             var result = calculationService.CalculateSumWinLoss("Group 1", fakeData);
 
             // Assert
@@ -77,11 +77,11 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         [Test]
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
-            // Arrange   
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-4-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-4-expected");
 
-            // Act 
+            // Act
             var service = new CalculationServiceImp();
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
@@ -92,11 +92,11 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         [Test]
         public void CalculateSumWinLossSummary_EmptyData_ReturnZeroCreditAndDeposit()
         {
-            // Arrange   
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-5-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-5-expected");
 
-            // Act 
+            // Act
             var service = new CalculationServiceImp();
             var result = service.CalculateSumWinLossSummary("Grand Total", fakeData);
 
@@ -107,11 +107,11 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         [Test]
         public void CalculateSiteWinLossSummary_EmptyData_ReturnEmptySiteWinLoss()
         {
-            // Arrange 
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-6-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-6-expected");
 
-            // Act 
+            // Act
             var service = new CalculationServiceImp();
             var result = service.CalculateSiteWinLossSummary(1, "Group 1", fakeData);
 
@@ -122,11 +122,11 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         [Test]
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
-            // Arrange 
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-7-fakeData");
             var expected = TestDataLoader.Load<List<SiteWinLossSummary>>("data-7-expected");
 
-            // Act 
+            // Act
             var service = new CalculationServiceImp();
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
@@ -137,11 +137,11 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         [Test]
         public void CalculateRM_ReturnRightRMData()
         {
-            // Arrange 
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-8-fakeData");
             var expected = TestDataLoader.Load<List<WinLoss>>("data-8-expected");
 
-            // Act 
+            // Act
             var service = new CalculationServiceImp();
             var result = service.CalculateRM(fakeData).ToList();
 

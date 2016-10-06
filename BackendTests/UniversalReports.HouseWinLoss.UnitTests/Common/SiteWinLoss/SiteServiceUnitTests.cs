@@ -1,6 +1,6 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
@@ -16,7 +16,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
         [Test]
         public void Query_ReturnRightSiteWinLoss()
         {
-            // Arrange   
+            // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossModel>("data-1-expected");
 
@@ -25,7 +25,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
 
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
-            // Act 
+            // Act
             var service = new WinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 

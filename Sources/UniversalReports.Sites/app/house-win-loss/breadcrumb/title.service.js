@@ -8,7 +8,6 @@ import angular from "angular";
 
     titleService.$inject = ['soccerConstants'];
     function titleService(soccerConstants) {
-
         var service = {
             getMainTitle: getMainTitle,
             getProductTitle: getProductTitle,
