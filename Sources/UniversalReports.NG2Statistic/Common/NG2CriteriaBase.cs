@@ -3,7 +3,7 @@ using Fanex.Data.Repository;
 
 namespace UniversalReports.NG2Statistic.Common
 {
-    public class CommonCriteria : CriteriaBase
+    public class NG2CriteriaBase : CriteriaBase
     {
         public DateTime FromDate { get; set; }
 

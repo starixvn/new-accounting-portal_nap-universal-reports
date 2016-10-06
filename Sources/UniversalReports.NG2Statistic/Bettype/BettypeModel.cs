@@ -9,7 +9,7 @@ namespace UniversalReports.NG2Statistic.Bettype
             Rows = new List<BettypeModel>();
         }
 
-        public string Name { get; set; }
+        public string Sporttype { get; set; }
 
         public int SportId { get; set; }
 

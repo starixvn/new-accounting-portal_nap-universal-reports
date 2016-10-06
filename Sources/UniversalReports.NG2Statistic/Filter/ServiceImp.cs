@@ -1,6 +1,6 @@
-﻿using Fanex.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Repository;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
@@ -26,31 +26,22 @@ namespace UniversalReports.NG2Statistic.Filter
 
         public List<Sport> QuerySports(SportCriteria criteria)
         {
-            var rawSports = repository.Fetch<RawSports>(criteria).ToList();
+            var rawSports = repository.Fetch<SportRaw>(criteria).ToList();
             var sportList = new List<Sport>();
-            var sports = rawSports.Select(sport => new { sport.SportId, sport.SportName }).Distinct().ToList();
-            foreach (var sport in sports)
-            {
-                var bettypes = rawSports.Where(s => s.SportId == sport.SportId).ToList();
-                var sportType = new Sport
+            rawSports
+                .Select(sport => new { sport.SportId, sport.SportName })
+                .Distinct()
+                .ToList()
+                .ForEach(sport => 
                 {
-                    Checked = true,
-                    Id = sport.SportId,
-                    Name = sport.SportName
-                };
+                    var sportType = new Sport { Checked = true, Id = sport.SportId, Name = sport.SportName };
+                    rawSports
+                        .Where(s => s.SportId == sport.SportId)
+                        .ToList()
+                        .ForEach(bettype => sportType.Children.Add(new Sport { Checked = true, Id = bettype.BettypeId, Name = bettype.BettypeName }));
 
-                foreach (var bettype in bettypes)
-                {
-                    sportType.Children.Add(new Sport
-                    {
-                        Checked = true,
-                        Id = bettype.BettypeId,
-                        Name = bettype.BettypeName
-                    });
-                }
-
-                sportList.Add(sportType);
-            }
+                    sportList.Add(sportType);
+                });
 
             return sportList;
         }

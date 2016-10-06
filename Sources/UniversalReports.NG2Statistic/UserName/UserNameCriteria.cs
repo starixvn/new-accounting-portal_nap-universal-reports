@@ -2,7 +2,7 @@
 
 namespace UniversalReports.NG2Statistic.UserName
 {
-    public class UserNameCriteria : CommonCriteria
+    public class UserNameCriteria : NG2CriteriaBase
     {
         public bool IsDrillDown { get; set; }
 

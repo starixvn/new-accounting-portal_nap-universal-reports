@@ -2,7 +2,7 @@
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {
-    public class GrandTotalCriteria : CommonCriteria
+    public class GrandTotalCriteria : NG2CriteriaBase
     {
         public override string GetSettingKey()
         {

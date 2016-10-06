@@ -14,7 +14,6 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
     {
         private SimpleRepository simpleRepository;
         private BalanceUpService balance;
-        private NG2Statistic.Daily.Repository repository;
 
         [OneTimeSetUp]
         public void Init()
@@ -22,7 +21,6 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
             DbSettingProviderManager.Current.Start();
             simpleRepository = new SimpleRepositoryImp();
             balance = new BalanceUpServiceImp(simpleRepository);
-            repository = new NG2Statistic.Daily.RepositoryImp(balance);
         }
 
         [Test]
@@ -39,13 +37,8 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
                 MoveBetsDay = balance.Query().MoveBetsDate
             };
 
-            var service = new DailyServiceImp(repository);
-            var builder = new GridOptionsBuilderImp();
-            var header = new GridOptionHeaderColumnImp();
-
-            var dailyModel = service.Query(queryModel);
-            var gridOptions = builder.Build(dailyModel, "Title");
-            gridOptions = header.Build(gridOptions, "Date", queryModel);
+            var service = new DailyServiceImp(balance);
+            service.DataRaw(queryModel);
         }
     }
 }

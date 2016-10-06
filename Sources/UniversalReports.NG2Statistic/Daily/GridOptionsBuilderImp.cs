@@ -1,7 +1,9 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Common;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.NG2Statistic.Daily
 {
@@ -57,7 +59,7 @@ namespace UniversalReports.NG2Statistic.Daily
             var columns = new List<Columns>();
             if (mergeRowNumber > 0)
             {
-                columns.Add(new Columns { Name = "Name", Value = raw.Name, MergeRowNumber = mergeRowNumber });
+                columns.Add(new Columns { Name = "Name", Value = Converter.To<DateTime>(raw.Winlostdate).ToString("MMM dd, yyyy"), MergeRowNumber = mergeRowNumber });
             }
 
             AssignDataRow(raw, columns);
@@ -72,7 +74,7 @@ namespace UniversalReports.NG2Statistic.Daily
 
         private GridDataRow BuildDataTotalRow(DailyModel raw)
         {
-            var columns = new List<Columns> { new Columns { Name = "Name", Value = raw.Name } };
+            var columns = new List<Columns> { new Columns { Name = "Name", Value = raw.Winlostdate } };
 
             AssignDataRow(raw, columns);
 
@@ -80,7 +82,6 @@ namespace UniversalReports.NG2Statistic.Daily
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
-
         private void AssignDataRow(DailyModel raw, List<Columns> columns)
         {
             columns.Add(new Columns
@@ -94,7 +95,7 @@ namespace UniversalReports.NG2Statistic.Daily
             {
                 Name = "BetCount",
                 Value = raw.BetCount,
-                CustomAttributes = raw.Name,
+                CustomAttributes = raw.Winlostdate,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.Integer
             });

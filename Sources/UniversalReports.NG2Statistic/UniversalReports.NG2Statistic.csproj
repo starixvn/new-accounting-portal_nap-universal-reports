@@ -175,9 +175,7 @@
     <Compile Include="Bettype\BettypeServiceImp.cs" />
     <Compile Include="Bettype\GridOptionsBuilder.cs" />
     <Compile Include="Bettype\GridOptionsBuilderImp.cs" />
-    <Compile Include="Bettype\Repository.cs" />
-    <Compile Include="Bettype\RepositoryImp.cs" />
-    <Compile Include="Common\CommonCriteria.cs" />
+    <Compile Include="Common\NG2CriteriaBase.cs" />
     <Compile Include="Daily\DailyCriteria.cs" />
     <Compile Include="Daily\DailyModel.cs" />
     <Compile Include="Daily\DailyService.cs" />
@@ -185,8 +183,6 @@
     <Compile Include="Daily\GridOptionsBuilder.cs" />
     <Compile Include="Daily\GridOptionsBuilderImp.cs" />
     <Compile Include="Daily\DailyController.cs" />
-    <Compile Include="Daily\Repository.cs" />
-    <Compile Include="Daily\RepositoryImp.cs" />
     <Compile Include="GrandTotal\GrandTotalController.cs" />
     <Compile Include="GrandTotal\GrandTotalCriteria.cs" />
     <Compile Include="GrandTotal\GrandTotalModel.cs" />
@@ -196,8 +192,6 @@
     <Compile Include="GrandTotal\GridOptionHeaderColumnImp.cs" />
     <Compile Include="GrandTotal\GridOptionsBuilder.cs" />
     <Compile Include="GrandTotal\GridOptionsBuilderImp.cs" />
-    <Compile Include="GrandTotal\Repository.cs" />
-    <Compile Include="GrandTotal\RepositoryImp.cs" />
     <Compile Include="Common\GridOptionHeaderColumn.cs" />
     <Compile Include="Common\GridOptionHeaderColumnImp.cs" />
     <Compile Include="Common\QueryModel.cs" />
@@ -205,8 +199,6 @@
     <Compile Include="UserName\GridOptionHeaderColumnImp.cs" />
     <Compile Include="UserName\GridOptionsBuilder.cs" />
     <Compile Include="UserName\GridOptionsBuilderImp.cs" />
-    <Compile Include="UserName\Repository.cs" />
-    <Compile Include="UserName\RepositoryImp.cs" />
     <Compile Include="UserName\UserNameController.cs" />
     <Compile Include="UserName\UserNameCriteria.cs" />
     <Compile Include="UserName\UserNameModel.cs" />
@@ -214,7 +206,7 @@
     <Compile Include="UserName\UserNameServiceImp.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
-    <Compile Include="Filter\RawSports.cs" />
+    <Compile Include="Filter\SportRaw.cs" />
     <Compile Include="Filter\Service.cs" />
     <Compile Include="Filter\ServiceImp.cs" />
     <Compile Include="Filter\Sport.cs" />

@@ -2,7 +2,7 @@
 
 namespace UniversalReports.NG2Statistic.Daily
 {
-    public class DailyCriteria : CommonCriteria
+    public class DailyCriteria : NG2CriteriaBase
     {
         public bool IsDrillDown { get; set; }
 

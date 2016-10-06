@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.NG2Statistic.Filter
 {
-    public class RawSports
+    public class SportRaw
     {
         public int SportId { get; set; }
 

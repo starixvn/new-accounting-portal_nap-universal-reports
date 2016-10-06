@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Fanex.Data;
+using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Factory;
 using UniversalReports.Core.SortUtility;
 using UniversalReports.NG2Statistic.Common;
 
@@ -7,26 +11,53 @@ namespace UniversalReports.NG2Statistic.Bettype
 {
     public class BettypeServiceImp : BettypeService
     {
-        private readonly Repository repository;
+        private readonly BalanceUpService balance;
 
-        public BettypeServiceImp(Repository repository)
+        public BettypeServiceImp(BalanceUpService balance)
         {
-            this.repository = repository;
+            this.balance = balance;
         }
 
         public BettypeModel Query(QueryModel queryModel)
         {
             var bettype = new BettypeModel { Total = new BettypeModel() };
 
-            var rawData = repository.Query(queryModel);
-            var sportTypeIds = rawData.Rows.Select(s => s.SportId).Distinct().ToList();
+            var dataRaw = DataRaw(queryModel);
+            var sportTypeIds = dataRaw.Rows.Select(s => s.SportId).Distinct().ToList();
             foreach (var sportTypeId in sportTypeIds)
             {
-                var bettypesBySportId = rawData.Rows.Where(s => s.SportId == sportTypeId).ToList();
+                var bettypesBySportId = dataRaw.Rows.Where(s => s.SportId == sportTypeId).ToList();
                 bettype.Rows.Add(new BettypeModel { Rows = bettypesBySportId });
             }
 
-            bettype.Total = rawData.Total;
+            bettype.Total = dataRaw.Total;
+
+            return bettype;
+        }
+
+        private BettypeModel DataRaw(QueryModel queryModel)
+        {
+            var bettype = new BettypeModel
+            {
+                Rows = new List<BettypeModel>(),
+                Total = new BettypeModel()
+            };
+
+            var criteria = CriteriaFactory.Transform<BettypeCriteria>(queryModel);
+            criteria.MoveBetsDay = balance.Query().MoveBetsDate;
+
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var multi = db.QueryMultiple(criteria.GetSpParams()))
+                {
+                    var rows = multi.Read<BettypeModel>();
+                    var total = multi.Read<BettypeModel>().FirstOrDefault();
+                    total.Sporttype = "Grand Total RM";
+
+                    bettype.Rows = rows.ToList();
+                    bettype.Total = total;
+                }
+            }
 
             return bettype;
         }

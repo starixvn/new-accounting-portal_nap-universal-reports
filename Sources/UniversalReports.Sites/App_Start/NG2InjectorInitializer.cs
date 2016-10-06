@@ -13,19 +13,15 @@ namespace UniversalReports.Sites
         internal static void InitializeContainer(Container container)
         {
             container.Register<GridOptionHeaderColumn, GridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<Filter.Service, Filter.ServiceImp>(Lifestyle.Transient);
-            container.Register<DailyReport.Repository, DailyReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<Filter.Service, Filter.ServiceImp>(Lifestyle.Transient);            
             container.Register<DailyReport.GridOptionsBuilder, DailyReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);
-            container.Register<GrandTotalReport.Repository, GrandTotalReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);            
             container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<GrandTotalReport.GridOptionHeaderColumn, GrandTotalReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<UserNameReport.Repository, UserNameReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<GrandTotalReport.GridOptionHeaderColumn, GrandTotalReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);            
             container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>(Lifestyle.Transient);
+            container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);            
             container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>(Lifestyle.Transient);
             container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>(Lifestyle.Transient);
         }

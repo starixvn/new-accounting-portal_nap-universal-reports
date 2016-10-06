@@ -14,7 +14,8 @@ namespace UniversalReports.NG2Statistic.Filter
             get; set;
         }
 
-        public bool IsAllowFISearch
+        [SpParam(SqlParamName = "IsAllowFISearch")]
+        public bool IsAllowFinanceUsersSearch
         {
             get; set;
         }

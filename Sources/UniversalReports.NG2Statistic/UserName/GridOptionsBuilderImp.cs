@@ -38,13 +38,19 @@ namespace UniversalReports.NG2Statistic.UserName
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(UserNameModel raw, bool isTotal = false)
         {
+            object custId = raw.CustId;
+            if (isTotal)
+            {
+                custId = string.Empty;
+            }
+
             var columns = new List<Columns>
             {
-                new Columns { Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center },
+                new Columns { Name = "Name", Value = raw.Username, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "CustId",
-                    Value = isTotal ? string.Empty : raw.CustId.ToString(),
+                    Value = custId,
                     CellAlignment = HAlignment.Center
                 },
                 new Columns

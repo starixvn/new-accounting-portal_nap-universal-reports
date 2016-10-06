@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Fanex.Data;
+using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Factory;
 using UniversalReports.Core.SortUtility;
 using UniversalReports.NG2Statistic.Common;
 
@@ -7,16 +11,38 @@ namespace UniversalReports.NG2Statistic.UserName
 {
     public class UserNameServiceImp : UserNameService
     {
-        private readonly Repository repository;
+        private readonly BalanceUpService balance;
 
-        public UserNameServiceImp(Repository repository)
+        public UserNameServiceImp(BalanceUpService balance)
         {
-            this.repository = repository;
+            this.balance = balance;
         }
 
         public UserNameModel Query(QueryModel queryModel)
         {
-            return repository.Query(queryModel);
+            var daily = new UserNameModel
+            {
+                Rows = new List<UserNameModel>(),
+                Total = new UserNameModel()
+            };
+
+            var criteria = CriteriaFactory.Transform<UserNameCriteria>(queryModel);
+            criteria.MoveBetsDay = balance.Query().MoveBetsDate;
+
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var multi = db.QueryMultiple(criteria.GetSpParams()))
+                {
+                    var rows = multi.Read<UserNameModel>();
+                    var total = multi.Read<UserNameModel>().FirstOrDefault();
+                    total.Username = "Grand Total RM";
+
+                    daily.Rows = rows.ToList();
+                    daily.Total = total;
+                }
+            }
+
+            return daily;
         }
 
         public UserNameModel SortData(QueryModel queryModel)

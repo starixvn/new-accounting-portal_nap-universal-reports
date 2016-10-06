@@ -9,7 +9,7 @@ namespace UniversalReports.NG2Statistic.Daily
             Rows = new List<DailyModel>();
         }
 
-        public string Name { get; set; }
+        public string Winlostdate { get; set; }
 
         public int NoOfPlayers { get; set; }
 

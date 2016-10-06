@@ -9,7 +9,7 @@ namespace UniversalReports.NG2Statistic.UserName
             Rows = new List<UserNameModel>();
         }
 
-        public string Name { get; set; }
+        public string Username { get; set; }
 
         public int CustId { get; set; }
 

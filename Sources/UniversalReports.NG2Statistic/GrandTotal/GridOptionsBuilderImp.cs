@@ -39,7 +39,7 @@ namespace UniversalReports.NG2Statistic.GrandTotal
         {
             var columns = new List<Columns>
             {
-                new Columns { Name = "Name", Value = raw.Name, CellAlignment = HAlignment.Center },
+                new Columns { Name = "Name", Value = raw.Currency, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "NoOfPlayers",

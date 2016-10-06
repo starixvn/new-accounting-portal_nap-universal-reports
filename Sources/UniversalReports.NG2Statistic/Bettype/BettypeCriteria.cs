@@ -2,7 +2,7 @@
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
-    public class BettypeCriteria : CommonCriteria
+    public class BettypeCriteria : NG2CriteriaBase
     {
         public bool IsDrillDown { get; set; }
 
