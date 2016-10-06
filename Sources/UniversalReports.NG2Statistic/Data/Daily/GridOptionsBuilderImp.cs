@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 
@@ -75,18 +76,19 @@ namespace UniversalReports.NG2Statistic.Data.Daily
             return new GridDataRow { Columns = columns };
         }
 
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private void AssignDataRow(DailyModel raw, List<Columns> columns)
         {
-            columns.Add(new Columns { Name = "NoOfPlayers", Value = raw.NoOfPlayers });
-            columns.Add(new Columns { Name = "BetCount", Value = raw.BetCount, CustomAttributes = raw.Name });
-            columns.Add(new Columns { Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString() });
-            columns.Add(new Columns { Name = "TotalBets", Value = raw.TotalBets });
-            columns.Add(new Columns { Name = "TotalWins", Value = raw.TotalWins });
-            columns.Add(new Columns { Name = "GameIncome", Value = raw.GameIncome });
-            columns.Add(new Columns { Name = "GamePayout", Value = raw.GamePayout });
-            columns.Add(new Columns { Name = "CompanyTurnover", Value = raw.CompanyTurnover });
-            columns.Add(new Columns { Name = "CompanyComm", Value = raw.CompanyComm });
-            columns.Add(new Columns { Name = "CompanyNetIncome", Value = raw.CompanyNetIncome });
+            columns.Add(new Columns { Name = "NoOfPlayers", Value = raw.NoOfPlayers, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer });
+            columns.Add(new Columns { Name = "BetCount", Value = raw.BetCount, CustomAttributes = raw.Name, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer });
+            columns.Add(new Columns { Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString(), CellAlignment = HAlignment.Right });
+            columns.Add(new Columns { Name = "TotalBets", Value = raw.TotalBets, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double });
+            columns.Add(new Columns { Name = "TotalWins", Value = raw.TotalWins, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double });
+            columns.Add(new Columns { Name = "GameIncome", Value = raw.GameIncome, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive });
+            columns.Add(new Columns { Name = "GamePayout", Value = raw.GamePayout, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedNegative });
+            columns.Add(new Columns { Name = "CompanyTurnover", Value = raw.CompanyTurnover, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive });
+            columns.Add(new Columns { Name = "CompanyComm", Value = raw.CompanyComm, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive });
+            columns.Add(new Columns { Name = "CompanyNetIncome", Value = raw.CompanyNetIncome, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive });
         }
     }
 }

@@ -20,6 +20,7 @@ namespace UniversalReports.Sites
             container.Register<GrandTotalReport.Repository, GrandTotalReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>(Lifestyle.Transient);
             container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<GrandTotalReport.GridOptionHeaderColumn, GrandTotalReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
             container.Register<UserNameReport.Repository, UserNameReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);

@@ -22,7 +22,7 @@ namespace UniversalReports.NG2Statistic.Data.GrandTotal
         {
             var grandTotalModel = service.Query(queryModel);
             var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Grand Total", queryModel);
+            gridOptions = header.Build(gridOptions, queryModel);
 
             return Json(gridOptions);
         }
@@ -32,7 +32,7 @@ namespace UniversalReports.NG2Statistic.Data.GrandTotal
         {
             var grandTotalModel = service.Query(queryModel);
             var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Grand Total", queryModel);
+            gridOptions = header.Build(gridOptions, queryModel);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }
