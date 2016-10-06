@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using Fanex.Common;
+﻿using Fanex.Common;
 using Fanex.Data;
-using UniversalReports.Common.BalanceUpServices;
-using UniversalReports.Common.Criteria;
+using System.Collections.Generic;
+using System.Data;
+using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Factory;
 
 namespace UniversalReports.NG2Statistic.Data.Bettype
 {

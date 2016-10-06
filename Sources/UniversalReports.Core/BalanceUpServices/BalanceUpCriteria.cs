@@ -1,6 +1,6 @@
 ﻿using Fanex.Data.Repository;
 
-namespace UniversalReports.HouseWinLoss.Common.BalanceUpServices
+namespace UniversalReports.Core.BalanceUpServices
 {
     public class BalanceUpCriteria : CriteriaBase
     {

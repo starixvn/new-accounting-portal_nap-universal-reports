@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 
-namespace UniversalReports.Common.SortServices
+namespace UniversalReports.Core.SortServices
 {
     public static class Sort
     {
         public static void SortDataByProperty<T>(List<T> dataSource, string sortDirection, string sortColumnName)
         {
-            PropertyInfo propInfo = typeof(T).GetProperty(sortColumnName);
+            var propInfo = typeof(T).GetProperty(sortColumnName);
 
-            Comparison<T> compare = delegate(T a, T b)
+            Comparison<T> compare = delegate (T a, T b)
             {
                 bool isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
                 var valueA = isAsc ? propInfo.GetValue(a, null) : propInfo.GetValue(b, null);

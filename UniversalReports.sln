@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UITests", "UITests", "{B32162A7-27BA-4D13-A4FB-CB4138D4F44E}"
 EndProject
@@ -34,7 +34,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistic.UnitTests", "BackendTests\UniversalReports.NG2Statistic.UnitTests\UniversalReports.NG2Statistic.UnitTests.csproj", "{12386AEC-D857-4D74-92B8-EE259DDD007D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Common", "Sources\UniversalReports.Common\UniversalReports.Common.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core", "Sources\UniversalReports.Core\UniversalReports.Core.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.Tests", "BackendTests\UniversalReports.Core.Tests\UniversalReports.Core.Tests.csproj", "{03740B18-F2B7-41A0-8357-FAA32CF3A06F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{6ED6F74A-B63E-470F-B35B-191D7B86AB57} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{12386AEC-D857-4D74-92B8-EE259DDD007D} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{94BAB182-85DE-4715-B396-BB6696D8BC81} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F} = {C074583A-B1D9-412C-8649-DD98B9234224}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35

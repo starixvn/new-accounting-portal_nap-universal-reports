@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Configuration;
 using Fanex.Repository;
 using NUnit.Framework;
-using UniversalReports.Common.BalanceUpServices;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.Filter;
 
 namespace UniversalReports.HouseWinLoss.Tests.Repository

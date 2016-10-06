@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UniversalReports.Common")]
+[assembly: AssemblyTitle("UniversalReports.Core.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UniversalReports.Common")]
+[assembly: AssemblyProduct("UniversalReports.Core.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("94bab182-85de-4715-b396-bb6696d8bc81")]
+[assembly: Guid("03740b18-f2b7-41a0-8357-faa32cf3a06f")]
 
 // Version information for an assembly consists of the following four values:
 //

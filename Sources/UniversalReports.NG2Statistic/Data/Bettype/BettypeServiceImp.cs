@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using UniversalReports.Common.SortServices;
+using UniversalReports.Core.SortServices;
 
 namespace UniversalReports.NG2Statistic.Data.Bettype
 {

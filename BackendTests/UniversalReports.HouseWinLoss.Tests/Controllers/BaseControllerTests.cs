@@ -4,7 +4,7 @@ using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers

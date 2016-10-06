@@ -2,6 +2,7 @@
 
 using Fanex.Repository;
 using SimpleInjector;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CasinoProduct = UniversalReports.HouseWinLoss.Casino.Product;

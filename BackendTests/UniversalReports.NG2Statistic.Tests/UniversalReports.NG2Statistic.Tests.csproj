@@ -168,9 +168,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Sources\UniversalReports.Common\UniversalReports.Common.csproj">
+    <ProjectReference Include="..\..\Sources\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Common</Name>
+      <Name>UniversalReports.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Sources\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>

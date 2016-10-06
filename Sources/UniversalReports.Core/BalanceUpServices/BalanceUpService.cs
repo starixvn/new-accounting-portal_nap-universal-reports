@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.Common.BalanceUpServices
+﻿namespace UniversalReports.Core.BalanceUpServices
 {
     public interface BalanceUpService
     {

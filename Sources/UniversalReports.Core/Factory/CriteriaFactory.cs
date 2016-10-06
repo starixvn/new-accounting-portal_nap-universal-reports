@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace UniversalReports.Common.Criteria
+namespace UniversalReports.Core.Factory
 {
     public static class CriteriaFactory
     {

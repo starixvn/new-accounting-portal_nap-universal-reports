@@ -2,6 +2,7 @@
 
 namespace UniversalReports.Sites.App_Start
 {
+    using Core.BalanceUpServices;
     using Fanex.Repository;
     using HouseWinLoss.Common.BalanceUpServices;
     using SimpleInjector;

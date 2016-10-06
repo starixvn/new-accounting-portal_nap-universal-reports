@@ -139,7 +139,6 @@
     <Compile Include="Controllers\GridOptionsWithMatchRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\TestDataLoader.cs" />
-    <Compile Include="Repository\BalanceUpRepositoryTests.cs" />
     <Compile Include="Repository\MatchDetailDynamicRepositoryTests.cs" />
     <Compile Include="Repository\RawWinLossDynamicRepositoryTests.cs" />
     <Compile Include="Repository\WinLossCriteriaFactory.cs" />
@@ -151,12 +150,16 @@
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\Local\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Local\DBAGE.bodb02.bodbAdminNet.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Data\Local\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\Local\DBNAP.bodb_NAP.bodbAdminNet.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -278,6 +281,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Sources\UniversalReports.Core\UniversalReports.Core.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Sources\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>

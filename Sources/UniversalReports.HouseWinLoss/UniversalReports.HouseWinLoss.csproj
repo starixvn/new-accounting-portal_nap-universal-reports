@@ -209,9 +209,7 @@
     <Compile Include="Common\MatchDetail\MatchDetailController.cs" />
     <Compile Include="Common\MatchDetail\WinLossModel.cs" />
     <Compile Include="Configuration\Constants.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpCriteria.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
@@ -252,8 +250,6 @@
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpService.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpServiceImp.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserImp.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
@@ -291,7 +287,6 @@
     <Compile Include="Products\Service.cs" />
     <Compile Include="Products\ProductGroupWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
-    <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="NumberGame\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Products\ExcelQueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />
@@ -410,6 +405,10 @@
     <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>

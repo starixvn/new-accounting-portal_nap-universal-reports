@@ -1,7 +1,7 @@
 ﻿using Fanex.Caching;
 using Fanex.Repository;
 
-namespace UniversalReports.Common.BalanceUpServices
+namespace UniversalReports.Core.BalanceUpServices
 {
     public class BalanceUpServiceImp : BalanceUpService
     {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using UniversalReports.HouseWinLoss.Factory;
+using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
 using UniversalReports.HouseWinLoss.VirtualSports.BetType;
 

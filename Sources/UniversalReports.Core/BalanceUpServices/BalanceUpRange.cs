@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversalReports.Common.BalanceUpServices
+namespace UniversalReports.Core.BalanceUpServices
 {
     public class BalanceUpRange
     {

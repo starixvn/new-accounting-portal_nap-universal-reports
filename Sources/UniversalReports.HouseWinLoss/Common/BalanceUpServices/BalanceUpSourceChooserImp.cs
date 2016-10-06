@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Common.BalanceUpServices

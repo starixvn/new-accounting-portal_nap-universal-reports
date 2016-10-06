@@ -1,9 +1,8 @@
-﻿using System;
-using Fanex.Data.Configuration;
+﻿using Fanex.Data.Configuration;
 using Fanex.Repository;
 using NUnit.Framework;
-using UniversalReports.Common.BalanceUpServices;
-using UniversalReports.Common.Criteria;
+using System;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.Data;
 using UniversalReports.NG2Statistic.Data.Daily;
 
@@ -39,11 +38,11 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 IsRealTime = true,
                 MoveBetsDay = balance.Query().MoveBetsDate
             };
-            
+
             var service = new DailyServiceImp(repository);
             var builder = new GridOptionsBuilderImp();
             var header = new GridOptionHeaderColumnImp();
-            
+
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, "Title");
             gridOptions = header.Build(gridOptions, "Date", queryModel);

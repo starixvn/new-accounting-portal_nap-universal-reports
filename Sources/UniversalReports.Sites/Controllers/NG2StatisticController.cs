@@ -6,7 +6,7 @@ using UniversalReports.Sites.Settings;
 using System;
 using System.Configuration;
 using System.Web.Mvc;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.Sites.Controllers
 {

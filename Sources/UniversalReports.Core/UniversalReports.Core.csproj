@@ -7,8 +7,8 @@
     <ProjectGuid>{94BAB182-85DE-4715-B396-BB6696D8BC81}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UniversalReports.Common</RootNamespace>
-    <AssemblyName>UniversalReports.Common</AssemblyName>
+    <RootNamespace>UniversalReports.Core</RootNamespace>
+    <AssemblyName>UniversalReports.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -124,14 +124,10 @@
     <Compile Include="BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="BalanceUpServices\BalanceUpService.cs" />
     <Compile Include="BalanceUpServices\BalanceUpServiceImp.cs" />
-    <Compile Include="BalanceUpServices\BalanceUpSource.cs" />
-    <Compile Include="BalanceUpServices\BalanceUpSourceChooser.cs" />
-    <Compile Include="BalanceUpServices\BalanceUpSourceChooserImp.cs" />
-    <Compile Include="Criteria\CriteriaFactory.cs" />
-    <Compile Include="Criteria\WinLossCriteria.cs" />
+    <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SortServices\Sort.cs" />
-    <Compile Include="SortServices\SortDirectionConstants.cs" />
+    <Compile Include="SortUtility\Sort.cs" />
+    <Compile Include="SortUtility\SortDirectionConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

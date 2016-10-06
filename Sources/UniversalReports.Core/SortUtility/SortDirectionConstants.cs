@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.Common.SortServices
+﻿namespace UniversalReports.Core.SortServices
 {
     public class SortDirectionConstants
     {

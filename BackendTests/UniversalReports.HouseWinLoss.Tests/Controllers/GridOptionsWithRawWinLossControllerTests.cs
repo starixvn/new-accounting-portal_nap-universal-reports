@@ -39,7 +39,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
                 "MetricGaming.Site.MetricGamingSiteController",
                 "NumberGame.MatchDetail.NumberGameMatchDetailController",
-                "NumberGame.Site.NumberGameSiteController",
                 "OtherSports.BetType.OtherSportsBetTypeController",
                 "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
                 "OtherSports.SportType.OtherSportsSportTypeController",

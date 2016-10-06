@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SimpleInjector;
-using UniversalReports.Common.BalanceUpServices;
+﻿using SimpleInjector;
+using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.Sites
 {
