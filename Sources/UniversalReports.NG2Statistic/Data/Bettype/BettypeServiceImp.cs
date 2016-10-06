@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
-using UniversalReports.Core.SortServices;
+using UniversalReports.Core.SortUtility;
 
 namespace UniversalReports.NG2Statistic.Data.Bettype
 {
     public class BettypeServiceImp : BettypeService
     {
-        private Repository repository;
+        private readonly Repository repository;
 
         public BettypeServiceImp(Repository repository)
         {
@@ -16,15 +15,14 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
 
         public BettypeModel Query(QueryModel queryModel)
         {
-            BettypeModel bettype = new BettypeModel();
-            bettype.Total = new BettypeModel();
+            var bettype = new BettypeModel { Total = new BettypeModel() };
 
             var rawData = repository.Query(queryModel);
             var sportTypeIds = rawData.Rows.Select(s => s.SportId).Distinct().ToList();
             foreach (var sportTypeId in sportTypeIds)
             {
                 var bettypesBySportId = rawData.Rows.Where(s => s.SportId == sportTypeId).ToList();
-                bettype.Rows.Add(new BettypeModel() { Rows = bettypesBySportId });
+                bettype.Rows.Add(new BettypeModel { Rows = bettypesBySportId });
             }
 
             bettype.Total = rawData.Total;
@@ -34,7 +32,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
 
         public BettypeModel SortData(QueryModel queryModel)
         {
-            BettypeModel bettype = Query(queryModel);
+            var bettype = Query(queryModel);
             SortData(bettype, queryModel);
 
             return bettype;
@@ -44,11 +42,11 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
         {
             foreach (var row in raw.Rows)
             {
-                Sort.SortDataByProperty<BettypeModel>(row.Rows, queryModel.SortDirection, queryModel.SortColumnName);
+                Sort.SortDataByProperty(row.Rows, queryModel.SortDirection, queryModel.SortColumnName);
             }
 
-            PropertyInfo propInfo = typeof(BettypeModel).GetProperty(queryModel.SortColumnName);
-            bool isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
+            var propInfo = typeof(BettypeModel).GetProperty(queryModel.SortColumnName);
+            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
             if (isAsc)
             {
                 raw.Rows = raw

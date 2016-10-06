@@ -9,7 +9,7 @@ namespace UniversalReports.NG2Statistic.Data.UserName
 {
     public class RepositoryImp : Repository
     {
-        private BalanceUpService balance;
+        private readonly BalanceUpService balance;
 
         public RepositoryImp(BalanceUpService balance)
         {
@@ -18,14 +18,16 @@ namespace UniversalReports.NG2Statistic.Data.UserName
 
         public UserNameModel Query(QueryModel queryModel)
         {
-            UserNameModel daily = new UserNameModel();
-            daily.Rows = new List<UserNameModel>();
-            daily.Total = new UserNameModel();
+            var daily = new UserNameModel
+            {
+                Rows = new List<UserNameModel>(),
+                Total = new UserNameModel()
+            };
 
             var criteria = CriteriaFactory.Transform<UserNameCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
-            using (ObjectDb db = new ObjectDb(criteria.GetSettingKey()))
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
                 db.AssignParamValues(criteria.GetSpParams());
                 var reader = db.ExecuteReader();
@@ -51,7 +53,7 @@ namespace UniversalReports.NG2Statistic.Data.UserName
 
         private UserNameModel AssignData(IDataReader reader)
         {
-            return new UserNameModel()
+            return new UserNameModel
             {
                 BetCount = Converter.To<int>(reader["BetCount"]),
                 Currency = Converter.To<string>(reader["Currency"]),
@@ -61,7 +63,7 @@ namespace UniversalReports.NG2Statistic.Data.UserName
                 GamePayout = Converter.To<decimal>(reader["GamePayout"]),
                 CompanyTurnover = Converter.To<decimal>(reader["CompanyTurnover"]),
                 CompanyComm = Converter.To<decimal>(reader["CompanyComm"]),
-                CompanyNetIncome = Converter.To<decimal>(reader["CompanyNetIncome"]),
+                CompanyNetIncome = Converter.To<decimal>(reader["CompanyNetIncome"])
             };
         }
     }

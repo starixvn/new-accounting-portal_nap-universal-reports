@@ -1,24 +1,21 @@
 ﻿using Fanex.Data.Configuration;
 using Fanex.Repository;
 using NUnit.Framework;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.Filter;
 
-namespace UniversalReports.HouseWinLoss.Tests.Repository
+namespace UniversalReports.NG2Statistic.Tests.Repository
 {
     [TestFixture]
     [Category("NG2 Filter")]
     public class FilterTests
     {
         private SimpleRepository repository;
-        private BalanceUpRange balance;
 
         [OneTimeSetUp]
         public void Init()
         {
             DbSettingProviderManager.Current.Start();
             repository = new SimpleRepositoryImp();
-            balance = new BalanceUpServiceImp(repository).Query();
         }
 
         [Test]
@@ -26,20 +23,20 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
         {
             var criteria = new SportCriteria();
             var service = new ServiceImp(repository);
-            var result = service.QuerySports(criteria);
+            service.QuerySports(criteria);
         }
 
         [Test]
         public void TestUserNameSuggestionRepository()
         {
-            var criteria = new UserSearchCriteria()
+            var criteria = new UserSearchCriteria
             {
                 CustId = 8,
                 UserName = "iti"
             };
 
             var service = new ServiceImp(repository);
-            var result = service.QueryUserNames(criteria);
+            service.QueryUserNames(criteria);
         }
 
         [Test]

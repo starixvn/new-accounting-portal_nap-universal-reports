@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
-using UniversalReports.Core.SortServices;
+using UniversalReports.Core.SortUtility;
 
 namespace UniversalReports.NG2Statistic.Data.UserName
 {
     public class UserNameServiceImp : UserNameService
     {
-        private Repository repository;
+        private readonly Repository repository;
 
         public UserNameServiceImp(Repository repository)
         {
@@ -21,7 +20,7 @@ namespace UniversalReports.NG2Statistic.Data.UserName
 
         public UserNameModel SortData(QueryModel queryModel)
         {
-            UserNameModel daily = Query(queryModel);
+            var daily = Query(queryModel);
             SortData(daily, queryModel);
 
             return daily;
@@ -29,8 +28,9 @@ namespace UniversalReports.NG2Statistic.Data.UserName
 
         private void SortData(UserNameModel raw, QueryModel queryModel)
         {
-            PropertyInfo propInfo = typeof(UserNameModel).GetProperty(queryModel.SortColumnName);
-            bool isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
+            var propInfo = typeof(UserNameModel).GetProperty(queryModel.SortColumnName);
+            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc,
+                StringComparison.OrdinalIgnoreCase);
             if (isAsc)
             {
                 raw.Rows = raw

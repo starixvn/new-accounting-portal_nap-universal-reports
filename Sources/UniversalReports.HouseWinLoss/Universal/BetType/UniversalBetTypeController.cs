@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.Core.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Universal.BetType
@@ -57,8 +57,8 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
 
             var tasks = new[]
             {
-                 Task.Run(() => { return Service.Query(nonLiveCriteria); }),
-                 Task.Run(() => { return Service.Query(liveCriteria); })
+                 Task.Run(() => Service.Query(nonLiveCriteria)),
+                 Task.Run(() => Service.Query(liveCriteria))
             };
 
             return await Task.WhenAll(tasks);

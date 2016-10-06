@@ -2,7 +2,6 @@
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 {

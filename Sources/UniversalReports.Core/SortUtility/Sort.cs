@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UniversalReports.Core.SortServices
+namespace UniversalReports.Core.SortUtility
 {
     public static class Sort
     {
@@ -11,11 +11,11 @@ namespace UniversalReports.Core.SortServices
 
             Comparison<T> compare = delegate (T a, T b)
             {
-                bool isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
+                var isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
                 var valueA = isAsc ? propInfo.GetValue(a, null) : propInfo.GetValue(b, null);
                 var valueB = isAsc ? propInfo.GetValue(b, null) : propInfo.GetValue(a, null);
 
-                return valueA is IComparable ? ((IComparable)valueA).CompareTo(valueB) : 0;
+                return (valueA as IComparable)?.CompareTo(valueB) ?? 0;
             };
 
             dataSource.Sort(compare);

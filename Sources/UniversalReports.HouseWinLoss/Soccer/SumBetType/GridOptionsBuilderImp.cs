@@ -45,7 +45,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             {
                 winLoss.MainTotal,
                 winLoss.OtherTotal,
-                winLoss.HedgeTotal,
+                winLoss.HedgeTotal
             };
 
             var footer = BuildRowsFooter(rows);
@@ -56,7 +56,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             return footer;
         }
 
-        private List<GridDataRow> BuildRowsFooter(List<WinLoss> rows)
+        private List<GridDataRow> BuildRowsFooter(IEnumerable<WinLoss> rows)
         {
             return rows
                 .Where(r => r.RealTurnover != 0 || r.VirtualTurnover != 0)

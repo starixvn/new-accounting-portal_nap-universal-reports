@@ -7,8 +7,8 @@
     <ProjectGuid>{12386AEC-D857-4D74-92B8-EE259DDD007D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UniversalReports.HouseWinLoss.UnitTests</RootNamespace>
-    <AssemblyName>UniversalReports.HouseWinLoss.UnitTests</AssemblyName>
+    <RootNamespace>UniversalReports.NG2Statistic.UnitTests</RootNamespace>
+    <AssemblyName>UniversalReports.NG2Statistic.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

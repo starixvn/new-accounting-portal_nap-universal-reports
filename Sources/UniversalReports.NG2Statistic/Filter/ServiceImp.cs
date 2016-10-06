@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Fanex.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Fanex.Repository;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
@@ -21,8 +18,8 @@ namespace UniversalReports.NG2Statistic.Filter
             var currencies = repository.Fetch<Entity>(criteria)
                 .OrderBy(c => c.Name)
                 .ToList();
-            currencies.Insert(0, new Entity() { Id = 0, Name = "All" });
-            currencies.Insert(1, new Entity() { Id = -1, Name = "Base RM" });
+            currencies.Insert(0, new Entity { Id = 0, Name = "All" });
+            currencies.Insert(1, new Entity { Id = -1, Name = "Base RM" });
 
             return currencies;
         }
@@ -44,12 +41,12 @@ namespace UniversalReports.NG2Statistic.Filter
 
                 foreach (var bettype in bettypes)
                 {
-                    sportType.Children.Add(new Sport()
+                    sportType.Children.Add(new Sport
                     {
                         Checked = true,
                         Id = bettype.BettypeId,
                         Name = bettype.BettypeName
-                    });                    
+                    });
                 }
 
                 sportList.Add(sportType);

@@ -51,7 +51,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return bodyRows;
         }
 
-        private List<GridDataRow> BuildProductGroup(ProductGroupWinLoss productGroupWinLoss)
+        private IEnumerable<GridDataRow> BuildProductGroup(ProductGroupWinLoss productGroupWinLoss)
         {
             var bodyRows = productGroupWinLoss
                 .Products
@@ -147,7 +147,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return productDataRow;
         }
 
-        private List<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
+        private IEnumerable<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
                 .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))

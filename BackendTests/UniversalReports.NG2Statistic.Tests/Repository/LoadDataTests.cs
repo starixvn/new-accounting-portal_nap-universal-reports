@@ -6,7 +6,7 @@ using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.Data;
 using UniversalReports.NG2Statistic.Data.Daily;
 
-namespace UniversalReports.HouseWinLoss.Tests.Repository
+namespace UniversalReports.NG2Statistic.Tests.Repository
 {
     [TestFixture]
     [Category("NG2 Loading Data")]
@@ -14,7 +14,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
     {
         private SimpleRepository simpleRepository;
         private BalanceUpService balance;
-        private NG2Statistic.Data.Daily.Repository repository;
+        private Data.Daily.Repository repository;
 
         [OneTimeSetUp]
         public void Init()
@@ -22,13 +22,13 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             DbSettingProviderManager.Current.Start();
             simpleRepository = new SimpleRepositoryImp();
             balance = new BalanceUpServiceImp(simpleRepository);
-            repository = new NG2Statistic.Data.Daily.RepositoryImp(balance);
+            repository = new RepositoryImp(balance);
         }
 
         [Test]
         public void TestDailyRepository()
         {
-            var queryModel = new QueryModel()
+            var queryModel = new QueryModel
             {
                 BetType = "2502,2503",
                 Currency = 0,

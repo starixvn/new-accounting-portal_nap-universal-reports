@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fanex.Excel;
+using Fanex.Excel.Models;
+using NPOI.SS.UserModel;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -7,9 +9,6 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Fanex.Excel;
-using Fanex.Excel.Models;
-using NPOI.SS.UserModel;
 
 namespace UniversalReports.MVC.Results
 {

@@ -1,5 +1,4 @@
-﻿using Fanex.NAP.Core.Web.Session;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
@@ -7,12 +6,10 @@ namespace UniversalReports.NG2Statistic.Filter
     public class FilterController : ApiController
     {
         private readonly Service service;
-        private readonly ICurrentSession session;
 
-        public FilterController(Service service, ICurrentSession session)
+        public FilterController(Service service)
         {
             this.service = service;
-            this.session = session;
         }
 
         [Route("sports")]
@@ -27,10 +24,10 @@ namespace UniversalReports.NG2Statistic.Filter
         [HttpGet]
         public IHttpActionResult UsernameSuggestion(string userName)
         {
-            var criteria = new UserSearchCriteria()
+            var criteria = new UserSearchCriteria
             {
                 CustId = 8,
-                UserName = userName,
+                UserName = userName
             };
             var sports = service.QueryUserNames(criteria);
             return Json(sports);

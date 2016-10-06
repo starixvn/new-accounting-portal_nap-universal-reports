@@ -9,7 +9,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
 {
     public class RepositoryImp : Repository
     {
-        private BalanceUpService balance;
+        private readonly BalanceUpService balance;
 
         public RepositoryImp(BalanceUpService balance)
         {
@@ -18,14 +18,16 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
 
         public BettypeModel Query(QueryModel queryModel)
         {
-            BettypeModel bettype = new BettypeModel();
-            bettype.Rows = new List<BettypeModel>();
-            bettype.Total = new BettypeModel();
+            var bettype = new BettypeModel
+            {
+                Rows = new List<BettypeModel>(),
+                Total = new BettypeModel()
+            };
 
             var criteria = CriteriaFactory.Transform<BettypeCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
-            using (ObjectDb db = new ObjectDb(criteria.GetSettingKey()))
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
                 db.AssignParamValues(criteria.GetSpParams());
                 var reader = db.ExecuteReader();
@@ -54,7 +56,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
 
         private BettypeModel AssignData(IDataReader reader)
         {
-            return new BettypeModel()
+            return new BettypeModel
             {
                 NoOfPlayers = Converter.To<int>(reader["NoOfPlayers"]),
                 BetCount = Converter.To<int>(reader["BetCount"]),
@@ -65,7 +67,7 @@ namespace UniversalReports.NG2Statistic.Data.Bettype
                 GamePayout = Converter.To<decimal>(reader["GamePayout"]),
                 CompanyTurnover = Converter.To<decimal>(reader["CompanyTurnover"]),
                 CompanyComm = Converter.To<decimal>(reader["CompanyComm"]),
-                CompanyNetIncome = Converter.To<decimal>(reader["CompanyNetIncome"]),
+                CompanyNetIncome = Converter.To<decimal>(reader["CompanyNetIncome"])
             };
         }
     }

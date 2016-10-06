@@ -66,7 +66,7 @@ namespace UniversalReports.Core.Tests.Factory
 
         public override int GetHashCode()
         {
-            return Property2;
+            return 1;
         }
     }
 
@@ -88,7 +88,7 @@ namespace UniversalReports.Core.Tests.Factory
 
         public override int GetHashCode()
         {
-            return Property2;
+            return 2;
         }
     }
 
@@ -110,7 +110,7 @@ namespace UniversalReports.Core.Tests.Factory
 
         public override int GetHashCode()
         {
-            return Property2;
+            return 3;
         }
     }
 }

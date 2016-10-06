@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
-using UniversalReports.Core.SortServices;
+using UniversalReports.Core.SortUtility;
 
 namespace UniversalReports.NG2Statistic.Data.Daily
 {
     public class DailyServiceImp : DailyService
     {
-        private Repository repository;
+        private readonly Repository repository;
 
         public DailyServiceImp(Repository repository)
         {
@@ -16,25 +15,24 @@ namespace UniversalReports.NG2Statistic.Data.Daily
 
         public DailyModel Query(QueryModel queryModel)
         {
-            DailyModel daily = new DailyModel();
-            daily.Total = new DailyModel();
+            var daily = new DailyModel { Total = new DailyModel() };
 
-            var rawData = repository.Query(queryModel);            
+            var rawData = repository.Query(queryModel);
             var dates = rawData.Rows.Select(s => s.Name).Distinct().ToList();
             foreach (var date in dates)
             {
                 var dateByDate = rawData.Rows.Where(s => s.Name == date).ToList();
-                daily.Rows.Add(new DailyModel() { Rows = dateByDate });
+                daily.Rows.Add(new DailyModel { Rows = dateByDate });
             }
 
-            daily.Total = rawData.Total;           
+            daily.Total = rawData.Total;
 
             return daily;
         }
 
         public DailyModel SortData(QueryModel queryModel)
         {
-            DailyModel daily = Query(queryModel);
+            var daily = Query(queryModel);
             SortData(daily, queryModel);
 
             return daily;
@@ -44,11 +42,12 @@ namespace UniversalReports.NG2Statistic.Data.Daily
         {
             foreach (var row in raw.Rows)
             {
-                Sort.SortDataByProperty<DailyModel>(row.Rows, queryModel.SortDirection, queryModel.SortColumnName);
+                Sort.SortDataByProperty(row.Rows, queryModel.SortDirection, queryModel.SortColumnName);
             }
 
-            PropertyInfo propInfo = typeof(DailyModel).GetProperty(queryModel.SortColumnName);
-            bool isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
+            var propInfo = typeof(DailyModel).GetProperty(queryModel.SortColumnName);
+            var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc,
+                StringComparison.OrdinalIgnoreCase);
             if (isAsc)
             {
                 raw.Rows = raw
