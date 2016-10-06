@@ -4,15 +4,15 @@
     "GroupId": 903,
     "RowName": "Deposit",
     "IsLive": false,
-    "MemberWinLoss": -8.6257116,
-    "SMAWinLoss": 6.4692837,
-    "Commission": 0.0,
-    "RealIncome": -2.1564279,
-    "VirtualIncome": 0.0,
-    "VarianceIncome": 0.0,
-    "ExtraPT": 0.0,
-    "AfterExtraPT": 0.0,
-    "RealTurnover": 0.0,
-    "VirtualTurnover": 0.0
+    "MemberWinLoss": -8,
+    "SMAWinLoss": 6,
+    "Commission": 0,
+    "RealIncome": -2,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 0,
+    "VirtualTurnover": 0
   }
 ]

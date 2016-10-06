@@ -28,5 +28,13 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
             File.WriteAllText(dataFilePath, json);
         }
+
+        internal static void SaveTestContent(string controllerName, string name, object @object, [CallerFilePath] string sourceFilePath = "")
+        {
+            var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
+            var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
+            var json = JsonConvert.SerializeObject(@object, Formatting.Indented);
+            File.WriteAllText(dataFilePath, json);
+        }
     }
 }
