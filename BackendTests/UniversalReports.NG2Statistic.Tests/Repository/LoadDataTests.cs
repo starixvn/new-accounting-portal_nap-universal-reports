@@ -2,9 +2,8 @@
 using Fanex.Repository;
 using NUnit.Framework;
 using System;
-using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.NG2Statistic.Data;
-using UniversalReports.NG2Statistic.Data.Daily;
+using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.Daily;
 
 namespace UniversalReports.NG2Statistic.Tests.Repository
 {
@@ -14,7 +13,7 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
     {
         private SimpleRepository simpleRepository;
         private BalanceUpService balance;
-        private Data.Daily.Repository repository;
+        private NG2Statistic.Daily.Repository repository;
 
         [OneTimeSetUp]
         public void Init()
@@ -22,7 +21,7 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
             DbSettingProviderManager.Current.Start();
             simpleRepository = new SimpleRepositoryImp();
             balance = new BalanceUpServiceImp(simpleRepository);
-            repository = new RepositoryImp(balance);
+            repository = new NG2Statistic.Daily.RepositoryImp(balance);
         }
 
         [Test]

@@ -1,10 +1,10 @@
 ﻿using SimpleInjector;
-using UniversalReports.NG2Statistic.Data;
-using BettypeReport = UniversalReports.NG2Statistic.Data.Bettype;
-using DailyReport = UniversalReports.NG2Statistic.Data.Daily;
+using UniversalReports.NG2Statistic.Common;
+using BettypeReport = UniversalReports.NG2Statistic.Bettype;
+using DailyReport = UniversalReports.NG2Statistic.Daily;
 using Filter = UniversalReports.NG2Statistic.Filter;
-using GrandTotalReport = UniversalReports.NG2Statistic.Data.GrandTotal;
-using UserNameReport = UniversalReports.NG2Statistic.Data.UserName;
+using GrandTotalReport = UniversalReports.NG2Statistic.GrandTotal;
+using UserNameReport = UniversalReports.NG2Statistic.UserName;
 
 namespace UniversalReports.Sites
 {
