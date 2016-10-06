@@ -8,8 +8,6 @@
 
         public string RowName { get; set; }
 
-        public bool IsLive { get; set; }
-
         public decimal MemberWinLoss { get; set; }
 
         public decimal SMAWinLoss { get; set; }
