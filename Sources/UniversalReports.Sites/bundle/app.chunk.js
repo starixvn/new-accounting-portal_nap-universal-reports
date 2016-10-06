@@ -1,40 +1,34 @@
 webpackJsonp([0],[
 /* 0 */
-/*!*****************!*\
-  !*** multi app ***!
-  \*****************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./Scripts/Fanex.Grid.js */1);
-	__webpack_require__(/*! ./Scripts/Fanex.Pagination.js */113);
-	__webpack_require__(/*! ./app/root/app.js */114);
-	__webpack_require__(/*! ./app/root/app.constant.js */137);
-	__webpack_require__(/*! ./app/root/app.config.js */138);
-	__webpack_require__(/*! ./app/root/components/alert/alert.directive.js */139);
-	__webpack_require__(/*! ./app/root/components/angucomplete-alt/angucomplete-alt.js */140);
-	__webpack_require__(/*! ./app/root/components/click/click.directive.js */141);
-	__webpack_require__(/*! ./app/root/components/date-picker/date-picker.directive.js */142);
-	__webpack_require__(/*! ./app/root/components/date-range-picker/date-range-picker.directive.js */143);
-	__webpack_require__(/*! ./app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.js */144);
-	__webpack_require__(/*! ./app/root/components/header/header.directive.js */145);
-	__webpack_require__(/*! ./app/root/components/header/header.service.js */146);
-	__webpack_require__(/*! ./app/root/components/legend/legend.directive.js */147);
-	__webpack_require__(/*! ./app/root/components/legend/legend.service.js */148);
-	__webpack_require__(/*! ./app/root/components/loading/loading.directive.js */149);
-	__webpack_require__(/*! ./app/root/components/month-picker/month-picker.directive.js */150);
-	__webpack_require__(/*! ./app/root/components/ngDialog/ngDialog.js */151);
-	__webpack_require__(/*! ./app/root/crosscutting/fanex-grid.service.js */152);
-	__webpack_require__(/*! ./app/root/crosscutting/http-response.service.js */153);
-	__webpack_require__(/*! ./app/root/crosscutting/logger.service.js */155);
-	__webpack_require__(/*! ./app/root/legacy/check-in.js */156);
-	module.exports = __webpack_require__(/*! ./app/root/legacy/legacy.service.js */157);
+	__webpack_require__(1);
+	__webpack_require__(8);
+	__webpack_require__(9);
+	__webpack_require__(32);
+	__webpack_require__(33);
+	__webpack_require__(34);
+	__webpack_require__(35);
+	__webpack_require__(36);
+	__webpack_require__(37);
+	__webpack_require__(38);
+	__webpack_require__(39);
+	__webpack_require__(40);
+	__webpack_require__(41);
+	__webpack_require__(42);
+	__webpack_require__(43);
+	__webpack_require__(44);
+	__webpack_require__(45);
+	__webpack_require__(46);
+	__webpack_require__(47);
+	__webpack_require__(48);
+	__webpack_require__(50);
+	__webpack_require__(51);
+	module.exports = __webpack_require__(52);
 
 
 /***/ },
 /* 1 */
-/*!*******************************!*\
-  !*** ./Scripts/Fanex.Grid.js ***!
-  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43,7 +37,7 @@ webpackJsonp([0],[
 	    value: true
 	});
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; // module "fanexgrid.js"
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; // module "fanexgrid.js"
 	// --------------------------------------------------------------------------
 	// <copyright file="Fanex.Grid.js" company="">
 	// Copyright (c) . All rights reserved.
@@ -75,15 +69,15 @@ webpackJsonp([0],[
 	/*jshint maxdepth:false, maxstatements:false, strict:false*/
 	/*global fanexGridLanguage, moment,numeral*/
 	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
+	var _jquery = __webpack_require__(2);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
-	var _numeral = __webpack_require__(/*! numeral */ 112);
+	var _numeral = __webpack_require__(7);
 	
 	var _numeral2 = _interopRequireDefault(_numeral);
 	
@@ -3232,33 +3226,25 @@ webpackJsonp([0],[
 
 /***/ },
 /* 2 */
-/*!*********************************!*\
-  !*** ./~/jquery/dist/jquery.js ***!
-  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(/*! -!./~/expose-loader?jQuery!./~/jquery/dist/jquery.js */ 3);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(3);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 3 */
-/*!**********************************************************!*\
-  !*** ./~/expose-loader?jQuery!./~/jquery/dist/jquery.js ***!
-  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(/*! -!./~/jquery/dist/jquery.js */ 4);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(4);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 4 */
-/*!*********************************!*\
-  !*** ./~/jquery/dist/jquery.js ***!
-  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v3.1.1
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
+	/*!
+	 * jQuery JavaScript Library v3.1.0
 	 * https://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -3268,7 +3254,7 @@ webpackJsonp([0],[
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-09-22T22:30Z
+	 * Date: 2016-07-07T21:44Z
 	 */
 	( function( global, factory ) {
 	
@@ -3341,13 +3327,13 @@ webpackJsonp([0],[
 			doc.head.appendChild( script ).parentNode.removeChild( script );
 		}
 	/* global Symbol */
-	// Defining this global in .eslintrc.json would create a danger of using the global
+	// Defining this global in .eslintrc would create a danger of using the global
 	// unguarded in another place, it seems safer to define global only for this module
 	
 	
 	
 	var
-		version = "3.1.1",
+		version = "3.1.0",
 	
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -3387,14 +3373,13 @@ webpackJsonp([0],[
 		// Get the Nth element in the matched element set OR
 		// Get the whole matched element set as a clean array
 		get: function( num ) {
+			return num != null ?
 	
-			// Return all the elements in a clean array
-			if ( num == null ) {
-				return slice.call( this );
-			}
+				// Return just the one element from the set
+				( num < 0 ? this[ num + this.length ] : this[ num ] ) :
 	
-			// Return just the one element from the set
-			return num < 0 ? this[ num + this.length ] : this[ num ];
+				// Return all the elements in a clean array
+				slice.call( this );
 		},
 	
 		// Take an array of elements and push it onto the stack
@@ -3802,14 +3787,14 @@ webpackJsonp([0],[
 	}
 	var Sizzle =
 	/*!
-	 * Sizzle CSS Selector Engine v2.3.3
+	 * Sizzle CSS Selector Engine v2.3.0
 	 * https://sizzlejs.com/
 	 *
 	 * Copyright jQuery Foundation and other contributors
 	 * Released under the MIT license
 	 * http://jquery.org/license
 	 *
-	 * Date: 2016-08-08
+	 * Date: 2016-01-04
 	 */
 	(function( window ) {
 	
@@ -3955,7 +3940,7 @@ webpackJsonp([0],[
 	
 		// CSS string/identifier serialization
 		// https://drafts.csswg.org/cssom/#common-serializing-idioms
-		rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,
+		rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g,
 		fcssescape = function( ch, asCodePoint ) {
 			if ( asCodePoint ) {
 	
@@ -3982,7 +3967,7 @@ webpackJsonp([0],[
 	
 		disabledAncestor = addCombinator(
 			function( elem ) {
-				return elem.disabled === true && ("form" in elem || "label" in elem);
+				return elem.disabled === true;
 			},
 			{ dir: "parentNode", next: "legend" }
 		);
@@ -4268,54 +4253,26 @@ webpackJsonp([0],[
 	 * @param {Boolean} disabled true for :disabled; false for :enabled
 	 */
 	function createDisabledPseudo( disabled ) {
-	
-		// Known :disabled false positives: fieldset[disabled] > legend:nth-of-type(n+2) :can-disable
+		// Known :disabled false positives:
+		// IE: *[disabled]:not(button, input, select, textarea, optgroup, option, menuitem, fieldset)
+		// not IE: fieldset[disabled] > legend:nth-of-type(n+2) :can-disable
 		return function( elem ) {
 	
-			// Only certain elements can match :enabled or :disabled
-			// https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled
-			// https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
-			if ( "form" in elem ) {
+			// Check form elements and option elements for explicit disabling
+			return "label" in elem && elem.disabled === disabled ||
+				"form" in elem && elem.disabled === disabled ||
 	
-				// Check for inherited disabledness on relevant non-disabled elements:
-				// * listed form-associated elements in a disabled fieldset
-				//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
-				//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
-				// * option elements in a disabled optgroup
-				//   https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled
-				// All such elements have a "form" property.
-				if ( elem.parentNode && elem.disabled === false ) {
+				// Check non-disabled form elements for fieldset[disabled] ancestors
+				"form" in elem && elem.disabled === false && (
+					// Support: IE6-11+
+					// Ancestry is covered for us
+					elem.isDisabled === disabled ||
 	
-					// Option elements defer to a parent optgroup if present
-					if ( "label" in elem ) {
-						if ( "label" in elem.parentNode ) {
-							return elem.parentNode.disabled === disabled;
-						} else {
-							return elem.disabled === disabled;
-						}
-					}
-	
-					// Support: IE 6 - 11
-					// Use the isDisabled shortcut property to check for disabled fieldset ancestors
-					return elem.isDisabled === disabled ||
-	
-						// Where there is no isDisabled, check manually
-						/* jshint -W018 */
-						elem.isDisabled !== !disabled &&
-							disabledAncestor( elem ) === disabled;
-				}
-	
-				return elem.disabled === disabled;
-	
-			// Try to winnow out elements that can't be disabled before trusting the disabled property.
-			// Some victims get caught in our net (label, legend, menu, track), but it shouldn't
-			// even exist on them, let alone have a boolean value.
-			} else if ( "label" in elem ) {
-				return elem.disabled === disabled;
-			}
-	
-			// Remaining elements are neither :enabled nor :disabled
-			return false;
+					// Otherwise, assume any non-<option> under fieldset[disabled] is disabled
+					/* jshint -W018 */
+					elem.isDisabled !== !disabled &&
+						("label" in elem || !disabledAncestor( elem )) !== disabled
+				);
 		};
 	}
 	
@@ -4431,21 +4388,25 @@ webpackJsonp([0],[
 			return !document.getElementsByName || !document.getElementsByName( expando ).length;
 		});
 	
-		// ID filter and find
+		// ID find and filter
 		if ( support.getById ) {
+			Expr.find["ID"] = function( id, context ) {
+				if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+					var m = context.getElementById( id );
+					return m ? [ m ] : [];
+				}
+			};
 			Expr.filter["ID"] = function( id ) {
 				var attrId = id.replace( runescape, funescape );
 				return function( elem ) {
 					return elem.getAttribute("id") === attrId;
 				};
 			};
-			Expr.find["ID"] = function( id, context ) {
-				if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
-					var elem = context.getElementById( id );
-					return elem ? [ elem ] : [];
-				}
-			};
 		} else {
+			// Support: IE6/7
+			// getElementById is not reliable as a find shortcut
+			delete Expr.find["ID"];
+	
 			Expr.filter["ID"] =  function( id ) {
 				var attrId = id.replace( runescape, funescape );
 				return function( elem ) {
@@ -4453,36 +4414,6 @@ webpackJsonp([0],[
 						elem.getAttributeNode("id");
 					return node && node.value === attrId;
 				};
-			};
-	
-			// Support: IE 6 - 7 only
-			// getElementById is not reliable as a find shortcut
-			Expr.find["ID"] = function( id, context ) {
-				if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
-					var node, i, elems,
-						elem = context.getElementById( id );
-	
-					if ( elem ) {
-	
-						// Verify the id attribute
-						node = elem.getAttributeNode("id");
-						if ( node && node.value === id ) {
-							return [ elem ];
-						}
-	
-						// Fall back on getElementsByName
-						elems = context.getElementsByName( id );
-						i = 0;
-						while ( (elem = elems[i++]) ) {
-							node = elem.getAttributeNode("id");
-							if ( node && node.value === id ) {
-								return [ elem ];
-							}
-						}
-					}
-	
-					return [];
-				}
 			};
 		}
 	
@@ -5524,7 +5455,6 @@ webpackJsonp([0],[
 						return matcher( elem, context, xml );
 					}
 				}
-				return false;
 			} :
 	
 			// Check against all ancestor/preceding elements
@@ -5569,7 +5499,6 @@ webpackJsonp([0],[
 						}
 					}
 				}
-				return false;
 			};
 	}
 	
@@ -5932,7 +5861,8 @@ webpackJsonp([0],[
 			// Reduce context if the leading compound selector is an ID
 			tokens = match[0] = match[0].slice( 0 );
 			if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-					context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[1].type ] ) {
+					support.getById && context.nodeType === 9 && documentIsHTML &&
+					Expr.relative[ tokens[1].type ] ) {
 	
 				context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 				if ( !context ) {
@@ -6114,29 +6044,24 @@ webpackJsonp([0],[
 			return jQuery.grep( elements, function( elem, i ) {
 				return !!qualifier.call( elem, i, elem ) !== not;
 			} );
+	
 		}
 	
-		// Single element
 		if ( qualifier.nodeType ) {
 			return jQuery.grep( elements, function( elem ) {
 				return ( elem === qualifier ) !== not;
 			} );
+	
 		}
 	
-		// Arraylike of elements (jQuery, arguments, Array)
-		if ( typeof qualifier !== "string" ) {
-			return jQuery.grep( elements, function( elem ) {
-				return ( indexOf.call( qualifier, elem ) > -1 ) !== not;
-			} );
+		if ( typeof qualifier === "string" ) {
+			if ( risSimple.test( qualifier ) ) {
+				return jQuery.filter( qualifier, elements, not );
+			}
+	
+			qualifier = jQuery.filter( qualifier, elements );
 		}
 	
-		// Simple selector that can be filtered directly, removing non-Elements
-		if ( risSimple.test( qualifier ) ) {
-			return jQuery.filter( qualifier, elements, not );
-		}
-	
-		// Complex selector, compare the two sets, removing non-Elements
-		qualifier = jQuery.filter( qualifier, elements );
 		return jQuery.grep( elements, function( elem ) {
 			return ( indexOf.call( qualifier, elem ) > -1 ) !== not && elem.nodeType === 1;
 		} );
@@ -6149,13 +6074,11 @@ webpackJsonp([0],[
 			expr = ":not(" + expr + ")";
 		}
 	
-		if ( elems.length === 1 && elem.nodeType === 1 ) {
-			return jQuery.find.matchesSelector( elem, expr ) ? [ elem ] : [];
-		}
-	
-		return jQuery.find.matches( expr, jQuery.grep( elems, function( elem ) {
-			return elem.nodeType === 1;
-		} ) );
+		return elems.length === 1 && elem.nodeType === 1 ?
+			jQuery.find.matchesSelector( elem, expr ) ? [ elem ] : [] :
+			jQuery.find.matches( expr, jQuery.grep( elems, function( elem ) {
+				return elem.nodeType === 1;
+			} ) );
 	};
 	
 	jQuery.fn.extend( {
@@ -6483,14 +6406,14 @@ webpackJsonp([0],[
 			return this.pushStack( matched );
 		};
 	} );
-	var rnothtmlwhite = ( /[^\x20\t\r\n\f]+/g );
+	var rnotwhite = ( /\S+/g );
 	
 	
 	
 	// Convert String-formatted options into Object-formatted ones
 	function createOptions( options ) {
 		var object = {};
-		jQuery.each( options.match( rnothtmlwhite ) || [], function( _, flag ) {
+		jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
 			object[ flag ] = true;
 		} );
 		return object;
@@ -7255,16 +7178,13 @@ webpackJsonp([0],[
 			}
 		}
 	
-		if ( chainable ) {
-			return elems;
-		}
+		return chainable ?
+			elems :
 	
-		// Gets
-		if ( bulk ) {
-			return fn.call( elems );
-		}
-	
-		return len ? fn( elems[ 0 ], key ) : emptyGet;
+			// Gets
+			bulk ?
+				fn.call( elems ) :
+				len ? fn( elems[ 0 ], key ) : emptyGet;
 	};
 	var acceptData = function( owner ) {
 	
@@ -7401,7 +7321,7 @@ webpackJsonp([0],[
 					// Otherwise, create an array by matching non-whitespace
 					key = key in cache ?
 						[ key ] :
-						( key.match( rnothtmlwhite ) || [] );
+						( key.match( rnotwhite ) || [] );
 				}
 	
 				i = key.length;
@@ -7449,31 +7369,6 @@ webpackJsonp([0],[
 	var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
 		rmultiDash = /[A-Z]/g;
 	
-	function getData( data ) {
-		if ( data === "true" ) {
-			return true;
-		}
-	
-		if ( data === "false" ) {
-			return false;
-		}
-	
-		if ( data === "null" ) {
-			return null;
-		}
-	
-		// Only convert to a number if it doesn't change the string
-		if ( data === +data + "" ) {
-			return +data;
-		}
-	
-		if ( rbrace.test( data ) ) {
-			return JSON.parse( data );
-		}
-	
-		return data;
-	}
-	
 	function dataAttr( elem, key, data ) {
 		var name;
 	
@@ -7485,7 +7380,14 @@ webpackJsonp([0],[
 	
 			if ( typeof data === "string" ) {
 				try {
-					data = getData( data );
+					data = data === "true" ? true :
+						data === "false" ? false :
+						data === "null" ? null :
+	
+						// Only convert to a number if it doesn't change the string
+						+data + "" === data ? +data :
+						rbrace.test( data ) ? JSON.parse( data ) :
+						data;
 				} catch ( e ) {}
 	
 				// Make sure we set the data so it isn't changed later
@@ -7862,7 +7764,7 @@ webpackJsonp([0],[
 			return display;
 		}
 	
-		temp = doc.body.appendChild( doc.createElement( nodeName ) );
+		temp = doc.body.appendChild( doc.createElement( nodeName ) ),
 		display = jQuery.css( temp, "display" );
 	
 		temp.parentNode.removeChild( temp );
@@ -7980,23 +7882,15 @@ webpackJsonp([0],[
 	
 		// Support: IE <=9 - 11 only
 		// Use typeof to avoid zero-argument method invocation on host objects (#15151)
-		var ret;
+		var ret = typeof context.getElementsByTagName !== "undefined" ?
+				context.getElementsByTagName( tag || "*" ) :
+				typeof context.querySelectorAll !== "undefined" ?
+					context.querySelectorAll( tag || "*" ) :
+				[];
 	
-		if ( typeof context.getElementsByTagName !== "undefined" ) {
-			ret = context.getElementsByTagName( tag || "*" );
-	
-		} else if ( typeof context.querySelectorAll !== "undefined" ) {
-			ret = context.querySelectorAll( tag || "*" );
-	
-		} else {
-			ret = [];
-		}
-	
-		if ( tag === undefined || tag && jQuery.nodeName( context, tag ) ) {
-			return jQuery.merge( [ context ], ret );
-		}
-	
-		return ret;
+		return tag === undefined || tag && jQuery.nodeName( context, tag ) ?
+			jQuery.merge( [ context ], ret ) :
+			ret;
 	}
 	
 	
@@ -8270,7 +8164,7 @@ webpackJsonp([0],[
 			}
 	
 			// Handle multiple events separated by a space
-			types = ( types || "" ).match( rnothtmlwhite ) || [ "" ];
+			types = ( types || "" ).match( rnotwhite ) || [ "" ];
 			t = types.length;
 			while ( t-- ) {
 				tmp = rtypenamespace.exec( types[ t ] ) || [];
@@ -8352,7 +8246,7 @@ webpackJsonp([0],[
 			}
 	
 			// Once for each type.namespace in types; type may be omitted
-			types = ( types || "" ).match( rnothtmlwhite ) || [ "" ];
+			types = ( types || "" ).match( rnotwhite ) || [ "" ];
 			t = types.length;
 			while ( t-- ) {
 				tmp = rtypenamespace.exec( types[ t ] ) || [];
@@ -8478,58 +8372,51 @@ webpackJsonp([0],[
 		},
 	
 		handlers: function( event, handlers ) {
-			var i, handleObj, sel, matchedHandlers, matchedSelectors,
+			var i, matches, sel, handleObj,
 				handlerQueue = [],
 				delegateCount = handlers.delegateCount,
 				cur = event.target;
 	
+			// Support: IE <=9
 			// Find delegate handlers
-			if ( delegateCount &&
-	
-				// Support: IE <=9
-				// Black-hole SVG <use> instance trees (trac-13180)
-				cur.nodeType &&
-	
-				// Support: Firefox <=42
-				// Suppress spec-violating clicks indicating a non-primary pointer button (trac-3861)
-				// https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click
-				// Support: IE 11 only
-				// ...but not arrow key "clicks" of radio inputs, which can have `button` -1 (gh-2343)
-				!( event.type === "click" && event.button >= 1 ) ) {
+			// Black-hole SVG <use> instance trees (#13180)
+			//
+			// Support: Firefox <=42
+			// Avoid non-left-click in FF but don't block IE radio events (#3861, gh-2343)
+			if ( delegateCount && cur.nodeType &&
+				( event.type !== "click" || isNaN( event.button ) || event.button < 1 ) ) {
 	
 				for ( ; cur !== this; cur = cur.parentNode || this ) {
 	
 					// Don't check non-elements (#13208)
 					// Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
-					if ( cur.nodeType === 1 && !( event.type === "click" && cur.disabled === true ) ) {
-						matchedHandlers = [];
-						matchedSelectors = {};
+					if ( cur.nodeType === 1 && ( cur.disabled !== true || event.type !== "click" ) ) {
+						matches = [];
 						for ( i = 0; i < delegateCount; i++ ) {
 							handleObj = handlers[ i ];
 	
 							// Don't conflict with Object.prototype properties (#13203)
 							sel = handleObj.selector + " ";
 	
-							if ( matchedSelectors[ sel ] === undefined ) {
-								matchedSelectors[ sel ] = handleObj.needsContext ?
+							if ( matches[ sel ] === undefined ) {
+								matches[ sel ] = handleObj.needsContext ?
 									jQuery( sel, this ).index( cur ) > -1 :
 									jQuery.find( sel, this, null, [ cur ] ).length;
 							}
-							if ( matchedSelectors[ sel ] ) {
-								matchedHandlers.push( handleObj );
+							if ( matches[ sel ] ) {
+								matches.push( handleObj );
 							}
 						}
-						if ( matchedHandlers.length ) {
-							handlerQueue.push( { elem: cur, handlers: matchedHandlers } );
+						if ( matches.length ) {
+							handlerQueue.push( { elem: cur, handlers: matches } );
 						}
 					}
 				}
 			}
 	
 			// Add the remaining (directly-bound) handlers
-			cur = this;
 			if ( delegateCount < handlers.length ) {
-				handlerQueue.push( { elem: cur, handlers: handlers.slice( delegateCount ) } );
+				handlerQueue.push( { elem: this, handlers: handlers.slice( delegateCount ) } );
 			}
 	
 			return handlerQueue;
@@ -8763,19 +8650,7 @@ webpackJsonp([0],[
 	
 			// Add which for click: 1 === left; 2 === middle; 3 === right
 			if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
-				if ( button & 1 ) {
-					return 1;
-				}
-	
-				if ( button & 2 ) {
-					return 3;
-				}
-	
-				if ( button & 4 ) {
-					return 2;
-				}
-	
-				return 0;
+				return ( button & 1 ? 1 : ( button & 2 ? 3 : ( button & 4 ? 2 : 0 ) ) );
 			}
 	
 			return event.which;
@@ -9531,17 +9406,15 @@ webpackJsonp([0],[
 	}
 	
 	function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
-		var i,
+		var i = extra === ( isBorderBox ? "border" : "content" ) ?
+	
+			// If we already have the right measurement, avoid augmentation
+			4 :
+	
+			// Otherwise initialize for horizontal or vertical properties
+			name === "width" ? 1 : 0,
+	
 			val = 0;
-	
-		// If we already have the right measurement, avoid augmentation
-		if ( extra === ( isBorderBox ? "border" : "content" ) ) {
-			i = 4;
-	
-		// Otherwise initialize for horizontal or vertical properties
-		} else {
-			i = name === "width" ? 1 : 0;
-		}
 	
 		for ( ; i < 4; i += 2 ) {
 	
@@ -10395,7 +10268,7 @@ webpackJsonp([0],[
 				callback = props;
 				props = [ "*" ];
 			} else {
-				props = props.match( rnothtmlwhite );
+				props = props.match( rnotwhite );
 			}
 	
 			var prop,
@@ -10433,14 +10306,9 @@ webpackJsonp([0],[
 			opt.duration = 0;
 	
 		} else {
-			if ( typeof opt.duration !== "number" ) {
-				if ( opt.duration in jQuery.fx.speeds ) {
-					opt.duration = jQuery.fx.speeds[ opt.duration ];
-	
-				} else {
-					opt.duration = jQuery.fx.speeds._default;
-				}
-			}
+			opt.duration = typeof opt.duration === "number" ?
+				opt.duration : opt.duration in jQuery.fx.speeds ?
+					jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
 		}
 	
 		// Normalize opt.queue - true/undefined/null -> "fx"
@@ -10790,10 +10658,7 @@ webpackJsonp([0],[
 		removeAttr: function( elem, value ) {
 			var name,
 				i = 0,
-	
-				// Attribute names can contain non-HTML whitespace characters
-				// https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
-				attrNames = value && value.match( rnothtmlwhite );
+				attrNames = value && value.match( rnotwhite );
 	
 			if ( attrNames && elem.nodeType === 1 ) {
 				while ( ( name = attrNames[ i++ ] ) ) {
@@ -10900,19 +10765,12 @@ webpackJsonp([0],[
 					// Use proper attribute retrieval(#12072)
 					var tabindex = jQuery.find.attr( elem, "tabindex" );
 	
-					if ( tabindex ) {
-						return parseInt( tabindex, 10 );
-					}
-	
-					if (
+					return tabindex ?
+						parseInt( tabindex, 10 ) :
 						rfocusable.test( elem.nodeName ) ||
-						rclickable.test( elem.nodeName ) &&
-						elem.href
-					) {
-						return 0;
-					}
-	
-					return -1;
+							rclickable.test( elem.nodeName ) && elem.href ?
+								0 :
+								-1;
 				}
 			}
 		},
@@ -10929,14 +10787,9 @@ webpackJsonp([0],[
 	// on the option
 	// The getter ensures a default option is selected
 	// when in an optgroup
-	// eslint rule "no-unused-expressions" is disabled for this code
-	// since it considers such accessions noop
 	if ( !support.optSelected ) {
 		jQuery.propHooks.selected = {
 			get: function( elem ) {
-	
-				/* eslint no-unused-expressions: "off" */
-	
 				var parent = elem.parentNode;
 				if ( parent && parent.parentNode ) {
 					parent.parentNode.selectedIndex;
@@ -10944,9 +10797,6 @@ webpackJsonp([0],[
 				return null;
 			},
 			set: function( elem ) {
-	
-				/* eslint no-unused-expressions: "off" */
-	
 				var parent = elem.parentNode;
 				if ( parent ) {
 					parent.selectedIndex;
@@ -10977,13 +10827,7 @@ webpackJsonp([0],[
 	
 	
 	
-		// Strip and collapse whitespace according to HTML spec
-		// https://html.spec.whatwg.org/multipage/infrastructure.html#strip-and-collapse-whitespace
-		function stripAndCollapse( value ) {
-			var tokens = value.match( rnothtmlwhite ) || [];
-			return tokens.join( " " );
-		}
-	
+	var rclass = /[\t\r\n\f]/g;
 	
 	function getClass( elem ) {
 		return elem.getAttribute && elem.getAttribute( "class" ) || "";
@@ -11001,11 +10845,12 @@ webpackJsonp([0],[
 			}
 	
 			if ( typeof value === "string" && value ) {
-				classes = value.match( rnothtmlwhite ) || [];
+				classes = value.match( rnotwhite ) || [];
 	
 				while ( ( elem = this[ i++ ] ) ) {
 					curValue = getClass( elem );
-					cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+					cur = elem.nodeType === 1 &&
+						( " " + curValue + " " ).replace( rclass, " " );
 	
 					if ( cur ) {
 						j = 0;
@@ -11016,7 +10861,7 @@ webpackJsonp([0],[
 						}
 	
 						// Only assign if different to avoid unneeded rendering.
-						finalValue = stripAndCollapse( cur );
+						finalValue = jQuery.trim( cur );
 						if ( curValue !== finalValue ) {
 							elem.setAttribute( "class", finalValue );
 						}
@@ -11042,13 +10887,14 @@ webpackJsonp([0],[
 			}
 	
 			if ( typeof value === "string" && value ) {
-				classes = value.match( rnothtmlwhite ) || [];
+				classes = value.match( rnotwhite ) || [];
 	
 				while ( ( elem = this[ i++ ] ) ) {
 					curValue = getClass( elem );
 	
 					// This expression is here for better compressibility (see addClass)
-					cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+					cur = elem.nodeType === 1 &&
+						( " " + curValue + " " ).replace( rclass, " " );
 	
 					if ( cur ) {
 						j = 0;
@@ -11061,7 +10907,7 @@ webpackJsonp([0],[
 						}
 	
 						// Only assign if different to avoid unneeded rendering.
-						finalValue = stripAndCollapse( cur );
+						finalValue = jQuery.trim( cur );
 						if ( curValue !== finalValue ) {
 							elem.setAttribute( "class", finalValue );
 						}
@@ -11096,7 +10942,7 @@ webpackJsonp([0],[
 					// Toggle individual class names
 					i = 0;
 					self = jQuery( this );
-					classNames = value.match( rnothtmlwhite ) || [];
+					classNames = value.match( rnotwhite ) || [];
 	
 					while ( ( className = classNames[ i++ ] ) ) {
 	
@@ -11139,8 +10985,10 @@ webpackJsonp([0],[
 			className = " " + selector + " ";
 			while ( ( elem = this[ i++ ] ) ) {
 				if ( elem.nodeType === 1 &&
-					( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
-						return true;
+					( " " + getClass( elem ) + " " ).replace( rclass, " " )
+						.indexOf( className ) > -1
+				) {
+					return true;
 				}
 			}
 	
@@ -11151,7 +10999,8 @@ webpackJsonp([0],[
 	
 	
 	
-	var rreturn = /\r/g;
+	var rreturn = /\r/g,
+		rspaces = /[\x20\t\r\n\f]+/g;
 	
 	jQuery.fn.extend( {
 		val: function( value ) {
@@ -11172,13 +11021,13 @@ webpackJsonp([0],[
 	
 					ret = elem.value;
 	
-					// Handle most common string cases
-					if ( typeof ret === "string" ) {
-						return ret.replace( rreturn, "" );
-					}
+					return typeof ret === "string" ?
 	
-					// Handle cases where value is null/undef or number
-					return ret == null ? "" : ret;
+						// Handle most common string cases
+						ret.replace( rreturn, "" ) :
+	
+						// Handle cases where value is null/undef or number
+						ret == null ? "" : ret;
 				}
 	
 				return;
@@ -11235,24 +11084,20 @@ webpackJsonp([0],[
 						// option.text throws exceptions (#14686, #14858)
 						// Strip and collapse whitespace
 						// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
-						stripAndCollapse( jQuery.text( elem ) );
+						jQuery.trim( jQuery.text( elem ) ).replace( rspaces, " " );
 				}
 			},
 			select: {
 				get: function( elem ) {
-					var value, option, i,
+					var value, option,
 						options = elem.options,
 						index = elem.selectedIndex,
 						one = elem.type === "select-one",
 						values = one ? null : [],
-						max = one ? index + 1 : options.length;
-	
-					if ( index < 0 ) {
-						i = max;
-	
-					} else {
-						i = one ? index : 0;
-					}
+						max = one ? index + 1 : options.length,
+						i = index < 0 ?
+							max :
+							one ? index : 0;
 	
 					// Loop through all the selected options
 					for ( ; i < max; i++ ) {
@@ -11706,17 +11551,13 @@ webpackJsonp([0],[
 			.map( function( i, elem ) {
 				var val = jQuery( this ).val();
 	
-				if ( val == null ) {
-					return null;
-				}
-	
-				if ( jQuery.isArray( val ) ) {
-					return jQuery.map( val, function( val ) {
-						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
-					} );
-				}
-	
-				return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+				return val == null ?
+					null :
+					jQuery.isArray( val ) ?
+						jQuery.map( val, function( val ) {
+							return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
+						} ) :
+						{ name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
 			} ).get();
 		}
 	} );
@@ -11725,7 +11566,7 @@ webpackJsonp([0],[
 	var
 		r20 = /%20/g,
 		rhash = /#.*$/,
-		rantiCache = /([?&])_=[^&]*/,
+		rts = /([?&])_=[^&]*/,
 		rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
 	
 		// #7653, #8125, #8152: local protocol detection
@@ -11771,7 +11612,7 @@ webpackJsonp([0],[
 	
 			var dataType,
 				i = 0,
-				dataTypes = dataTypeExpression.toLowerCase().match( rnothtmlwhite ) || [];
+				dataTypes = dataTypeExpression.toLowerCase().match( rnotwhite ) || [];
 	
 			if ( jQuery.isFunction( func ) ) {
 	
@@ -12239,7 +12080,7 @@ webpackJsonp([0],[
 			s.type = options.method || options.type || s.method || s.type;
 	
 			// Extract dataTypes list
-			s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
+			s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 	
 			// A cross-domain request is in order when the origin doesn't match the current origin.
 			if ( s.crossDomain == null ) {
@@ -12311,9 +12152,9 @@ webpackJsonp([0],[
 					delete s.data;
 				}
 	
-				// Add or update anti-cache param if needed
+				// Add anti-cache in uncached url if needed
 				if ( s.cache === false ) {
-					cacheURL = cacheURL.replace( rantiCache, "$1" );
+					cacheURL = cacheURL.replace( rts, "" );
 					uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce++ ) + uncached;
 				}
 	
@@ -13052,7 +12893,7 @@ webpackJsonp([0],[
 			off = url.indexOf( " " );
 	
 		if ( off > -1 ) {
-			selector = stripAndCollapse( url.slice( off ) );
+			selector = jQuery.trim( url.slice( off ) );
 			url = url.slice( 0, off );
 		}
 	
@@ -13444,6 +13285,7 @@ webpackJsonp([0],[
 	
 	
 	
+	
 	var
 	
 		// Map over jQuery in case of overwrite
@@ -13472,9 +13314,6 @@ webpackJsonp([0],[
 	}
 	
 	
-	
-	
-	
 	return jQuery;
 	} );
 
@@ -13483,124 +13322,16 @@ webpackJsonp([0],[
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */
-/*!*************************************!*\
-  !*** ./Scripts/Fanex.Pagination.js ***!
-  \*************************************/
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _Fanex = __webpack_require__(/*! ./Fanex.Grid */ 1);
+	var _Fanex = __webpack_require__(1);
 	
 	var _Fanex2 = _interopRequireDefault(_Fanex);
 	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
+	var _jquery = __webpack_require__(2);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -13888,27 +13619,24 @@ webpackJsonp([0],[
 	/*global fanexGridCurrentLanguage*/
 
 /***/ },
-/* 114 */
-/*!*************************!*\
-  !*** ./app/root/app.js ***!
-  \*************************/
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	__webpack_require__(/*! bootstrap */ 117);
+	__webpack_require__(12);
 	
-	__webpack_require__(/*! angular-ui-bootstrap */ 130);
+	__webpack_require__(25);
 	
-	__webpack_require__(/*! angular-route */ 132);
+	__webpack_require__(27);
 	
-	__webpack_require__(/*! angular-sanitize */ 134);
+	__webpack_require__(29);
 	
-	__webpack_require__(/*! angular-moment */ 136);
+	__webpack_require__(31);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13919,33 +13647,27 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 115 */,
-/* 116 */,
-/* 117 */
-/*!************************************!*\
-  !*** ./~/bootstrap/dist/js/npm.js ***!
-  \************************************/
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
-	__webpack_require__(/*! ../../js/transition.js */ 118)
-	__webpack_require__(/*! ../../js/alert.js */ 119)
-	__webpack_require__(/*! ../../js/button.js */ 120)
-	__webpack_require__(/*! ../../js/carousel.js */ 121)
-	__webpack_require__(/*! ../../js/collapse.js */ 122)
-	__webpack_require__(/*! ../../js/dropdown.js */ 123)
-	__webpack_require__(/*! ../../js/modal.js */ 124)
-	__webpack_require__(/*! ../../js/tooltip.js */ 125)
-	__webpack_require__(/*! ../../js/popover.js */ 126)
-	__webpack_require__(/*! ../../js/scrollspy.js */ 127)
-	__webpack_require__(/*! ../../js/tab.js */ 128)
-	__webpack_require__(/*! ../../js/affix.js */ 129)
+	__webpack_require__(13)
+	__webpack_require__(14)
+	__webpack_require__(15)
+	__webpack_require__(16)
+	__webpack_require__(17)
+	__webpack_require__(18)
+	__webpack_require__(19)
+	__webpack_require__(20)
+	__webpack_require__(21)
+	__webpack_require__(22)
+	__webpack_require__(23)
+	__webpack_require__(24)
 
 /***/ },
-/* 118 */
-/*!**************************************!*\
-  !*** ./~/bootstrap/js/transition.js ***!
-  \**************************************/
+/* 13 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14010,10 +13732,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 119 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/alert.js ***!
-  \*********************************/
+/* 14 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14113,10 +13832,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 120 */
-/*!**********************************!*\
-  !*** ./~/bootstrap/js/button.js ***!
-  \**********************************/
+/* 15 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14247,10 +13963,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 121 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/carousel.js ***!
-  \************************************/
+/* 16 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14493,10 +14206,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 122 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/collapse.js ***!
-  \************************************/
+/* 17 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14714,10 +14424,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 123 */
-/*!************************************!*\
-  !*** ./~/bootstrap/js/dropdown.js ***!
-  \************************************/
+/* 18 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -14888,10 +14595,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 124 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/modal.js ***!
-  \*********************************/
+/* 19 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15236,10 +14940,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 125 */
-/*!***********************************!*\
-  !*** ./~/bootstrap/js/tooltip.js ***!
-  \***********************************/
+/* 20 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15765,10 +15466,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 126 */
-/*!***********************************!*\
-  !*** ./~/bootstrap/js/popover.js ***!
-  \***********************************/
+/* 21 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -15882,10 +15580,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 127 */
-/*!*************************************!*\
-  !*** ./~/bootstrap/js/scrollspy.js ***!
-  \*************************************/
+/* 22 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -16063,10 +15758,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 128 */
-/*!*******************************!*\
-  !*** ./~/bootstrap/js/tab.js ***!
-  \*******************************/
+/* 23 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -16227,10 +15919,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 129 */
-/*!*********************************!*\
-  !*** ./~/bootstrap/js/affix.js ***!
-  \*********************************/
+/* 24 */
 /***/ function(module, exports) {
 
 	/* ========================================================================
@@ -16398,29 +16087,23 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 130 */
-/*!*****************************************!*\
-  !*** ./~/angular-ui-bootstrap/index.js ***!
-  \*****************************************/
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./dist/ui-bootstrap-tpls */ 131);
+	__webpack_require__(26);
 	
 	module.exports = 'ui.bootstrap';
 
 
 /***/ },
-/* 131 */
-/*!**********************************************************!*\
-  !*** ./~/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js ***!
-  \**********************************************************/
+/* 26 */
 /***/ function(module, exports) {
 
 	/*
 	 * angular-ui-bootstrap
 	 * http://angular-ui.github.io/bootstrap/
 	
-	 * Version: 2.1.4 - 2016-09-23
+	 * Version: 2.1.3 - 2016-08-25
 	 * License: MIT
 	 */angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.collapse","ui.bootstrap.tabindex","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.dateparser","ui.bootstrap.isClass","ui.bootstrap.datepicker","ui.bootstrap.position","ui.bootstrap.datepickerPopup","ui.bootstrap.debounce","ui.bootstrap.dropdown","ui.bootstrap.stackedMap","ui.bootstrap.modal","ui.bootstrap.paging","ui.bootstrap.pager","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker","ui.bootstrap.typeahead"]);
 	angular.module("ui.bootstrap.tpls", ["uib/template/accordion/accordion-group.html","uib/template/accordion/accordion.html","uib/template/alert/alert.html","uib/template/carousel/carousel.html","uib/template/carousel/slide.html","uib/template/datepicker/datepicker.html","uib/template/datepicker/day.html","uib/template/datepicker/month.html","uib/template/datepicker/year.html","uib/template/datepickerPopup/popup.html","uib/template/modal/window.html","uib/template/pager/pager.html","uib/template/pagination/pagination.html","uib/template/tooltip/tooltip-html-popup.html","uib/template/tooltip/tooltip-popup.html","uib/template/tooltip/tooltip-template-popup.html","uib/template/popover/popover-html.html","uib/template/popover/popover-template.html","uib/template/popover/popover.html","uib/template/progressbar/bar.html","uib/template/progressbar/progress.html","uib/template/progressbar/progressbar.html","uib/template/rating/rating.html","uib/template/tabs/tab.html","uib/template/tabs/tabset.html","uib/template/timepicker/timepicker.html","uib/template/typeahead/typeahead-match.html","uib/template/typeahead/typeahead-popup.html"]);
@@ -19636,8 +19319,8 @@ webpackJsonp([0],[
 	      return;
 	    }
 	
-	    openScope.focusToggleElement();
 	    openScope.isOpen = false;
+	    openScope.focusToggleElement();
 	
 	    if (!$rootScope.$$phase) {
 	      openScope.$apply();
@@ -23651,9 +23334,9 @@ webpackJsonp([0],[
 	    "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
 	    "  <thead>\n" +
 	    "    <tr>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></th>\n" +
 	    "      <th colspan=\"{{::5 + showWeeks}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></th>\n" +
 	    "    </tr>\n" +
 	    "    <tr>\n" +
 	    "      <th ng-if=\"showWeeks\" class=\"text-center\"></th>\n" +
@@ -23686,9 +23369,9 @@ webpackJsonp([0],[
 	    "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
 	    "  <thead>\n" +
 	    "    <tr>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></th>\n" +
 	    "      <th colspan=\"{{::yearHeaderColspan}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></i></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></th>\n" +
 	    "    </tr>\n" +
 	    "  </thead>\n" +
 	    "  <tbody>\n" +
@@ -23716,9 +23399,9 @@ webpackJsonp([0],[
 	    "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
 	    "  <thead>\n" +
 	    "    <tr>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></th>\n" +
 	    "      <th colspan=\"{{::columns - 2}}\"><button id=\"{{::uniqueId}}-title\" role=\"heading\" aria-live=\"assertive\" aria-atomic=\"true\" type=\"button\" class=\"btn btn-default btn-sm uib-title\" ng-click=\"toggleMode()\" ng-disabled=\"datepickerMode === maxMode\" tabindex=\"-1\"><strong>{{title}}</strong></button></th>\n" +
-	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-right\"></i><span class=\"sr-only\">next</span></button></th>\n" +
+	    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right uib-right\" ng-click=\"move(1)\" tabindex=\"-1\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></th>\n" +
 	    "    </tr>\n" +
 	    "  </thead>\n" +
 	    "  <tbody>\n" +
@@ -23743,7 +23426,7 @@ webpackJsonp([0],[
 	
 	angular.module("uib/template/datepickerPopup/popup.html", []).run(["$templateCache", function($templateCache) {
 	  $templateCache.put("uib/template/datepickerPopup/popup.html",
-	    "<ul role=\"presentation\" class=\"uib-datepicker-popup dropdown-menu uib-position-measure\" dropdown-nested ng-if=\"isOpen\" ng-keydown=\"keydown($event)\" ng-click=\"$event.stopPropagation()\">\n" +
+	    "<ul class=\"uib-datepicker-popup dropdown-menu uib-position-measure\" dropdown-nested ng-if=\"isOpen\" ng-keydown=\"keydown($event)\" ng-click=\"$event.stopPropagation()\">\n" +
 	    "  <li ng-transclude></li>\n" +
 	    "  <li ng-if=\"showButtonBar\" class=\"uib-button-bar\">\n" +
 	    "    <span class=\"btn-group pull-left\">\n" +
@@ -23954,21 +23637,15 @@ webpackJsonp([0],[
 	angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInlineStyle && !angular.$$uibTypeaheadCss && angular.element(document).find('head').prepend('<style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style>'); angular.$$uibTypeaheadCss = true; });
 
 /***/ },
-/* 132 */
-/*!**********************************!*\
-  !*** ./~/angular-route/index.js ***!
-  \**********************************/
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./angular-route */ 133);
+	__webpack_require__(28);
 	module.exports = 'ngRoute';
 
 
 /***/ },
-/* 133 */
-/*!******************************************!*\
-  !*** ./~/angular-route/angular-route.js ***!
-  \******************************************/
+/* 28 */
 /***/ function(module, exports) {
 
 	/**
@@ -25043,21 +24720,15 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 134 */
-/*!*************************************!*\
-  !*** ./~/angular-sanitize/index.js ***!
-  \*************************************/
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./angular-sanitize */ 135);
+	__webpack_require__(30);
 	module.exports = 'ngSanitize';
 
 
 /***/ },
-/* 135 */
-/*!************************************************!*\
-  !*** ./~/angular-sanitize/angular-sanitize.js ***!
-  \************************************************/
+/* 30 */
 /***/ function(module, exports) {
 
 	/**
@@ -25801,10 +25472,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 136 */
-/*!********************************************!*\
-  !*** ./~/angular-moment/angular-moment.js ***!
-  \********************************************/
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* angular-moment.js / v1.0.0-beta.6 / (c) 2013, 2014, 2015, 2016 Uri Shaked / MIT Licence */
@@ -25821,7 +25489,7 @@ webpackJsonp([0],[
 	
 		function requireMoment() {
 			try {
-				return __webpack_require__(/*! moment */ 5); // Using nw.js or browserify?
+				return __webpack_require__(5); // Using nw.js or browserify?
 			} catch (e) {
 				throw new Error('Please install moment via npm. Please reference to: https://github.com/urish/angular-moment'); // Add wiki/troubleshooting section?
 			}
@@ -26534,7 +26202,7 @@ webpackJsonp([0],[
 		}
 	
 		if (true) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! angular */ 115), __webpack_require__(/*! moment */ 5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (angularMoment), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof module !== 'undefined' && module && module.exports) {
 			angularMoment(require('angular'), require('moment'));
 			module.exports = 'angularMoment';
@@ -26545,19 +26213,16 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 137 */
-/*!**********************************!*\
-  !*** ./app/root/app.constant.js ***!
-  \**********************************/
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -26600,15 +26265,12 @@ webpackJsonp([0],[
 	})(_angular2.default, _moment2.default);
 
 /***/ },
-/* 138 */
-/*!********************************!*\
-  !*** ./app/root/app.config.js ***!
-  \********************************/
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -26664,15 +26326,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 139 */
-/*!******************************************************!*\
-  !*** ./app/root/components/alert/alert.directive.js ***!
-  \******************************************************/
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -26716,15 +26375,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 140 */
-/*!******************************************************************!*\
-  !*** ./app/root/components/angucomplete-alt/angucomplete-alt.js ***!
-  \******************************************************************/
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 	
 	/*
 	 * angucomplete-alt
@@ -26740,10 +26396,10 @@ webpackJsonp([0],[
 	
 	  if (typeof module !== 'undefined' && module.exports) {
 	    // CommonJS
-	    module.exports = factory(__webpack_require__(/*! angular */ 115));
+	    module.exports = factory(__webpack_require__(10));
 	  } else if (true) {
 	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! angular */ 115)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else {
 	    // Global Variables
 	    factory(root.angular);
@@ -27522,15 +27178,12 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 141 */
-/*!******************************************************!*\
-  !*** ./app/root/components/click/click.directive.js ***!
-  \******************************************************/
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -27576,19 +27229,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 142 */
-/*!******************************************************************!*\
-  !*** ./app/root/components/date-picker/date-picker.directive.js ***!
-  \******************************************************************/
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -27819,19 +27469,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 143 */
-/*!******************************************************************************!*\
-  !*** ./app/root/components/date-range-picker/date-range-picker.directive.js ***!
-  \******************************************************************************/
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -27969,17 +27616,14 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 144 */
-/*!********************************************************************************!*\
-  !*** ./app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.js ***!
-  \********************************************************************************/
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28489,15 +28133,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 145 */
-/*!********************************************************!*\
-  !*** ./app/root/components/header/header.directive.js ***!
-  \********************************************************/
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28537,15 +28178,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 146 */
-/*!******************************************************!*\
-  !*** ./app/root/components/header/header.service.js ***!
-  \******************************************************/
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28599,15 +28237,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 147 */
-/*!********************************************************!*\
-  !*** ./app/root/components/legend/legend.directive.js ***!
-  \********************************************************/
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28642,15 +28277,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 148 */
-/*!******************************************************!*\
-  !*** ./app/root/components/legend/legend.service.js ***!
-  \******************************************************/
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28678,15 +28310,12 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 149 */
-/*!**********************************************************!*\
-  !*** ./app/root/components/loading/loading.directive.js ***!
-  \**********************************************************/
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -28729,19 +28358,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 150 */
-/*!********************************************************************!*\
-  !*** ./app/root/components/month-picker/month-picker.directive.js ***!
-  \********************************************************************/
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _moment = __webpack_require__(/*! moment */ 5);
+	var _moment = __webpack_require__(5);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -28919,10 +28545,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 151 */
-/*!**************************************************!*\
-  !*** ./app/root/components/ngDialog/ngDialog.js ***!
-  \**************************************************/
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -28937,14 +28560,14 @@ webpackJsonp([0],[
 	    if (typeof module !== 'undefined' && module.exports) {
 	        // CommonJS
 	        if (typeof angular === 'undefined') {
-	            factory(__webpack_require__(/*! angular */ 115));
+	            factory(__webpack_require__(10));
 	        } else {
 	            factory(angular);
 	        }
 	        module.exports = 'ngDialog';
 	    } else if (true) {
 	        // AMD
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! angular */ 115)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else {
 	        // Global Variables
 	        factory(root.angular);
@@ -29805,15 +29428,12 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 152 */
-/*!*****************************************************!*\
-  !*** ./app/root/crosscutting/fanex-grid.service.js ***!
-  \*****************************************************/
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -29840,19 +29460,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 153 */
-/*!********************************************************!*\
-  !*** ./app/root/crosscutting/http-response.service.js ***!
-  \********************************************************/
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _blob = __webpack_require__(/*! blob */ 154);
+	var _blob = __webpack_require__(49);
 	
 	var _blob2 = _interopRequireDefault(_blob);
 	
@@ -29902,10 +29519,7 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 154 */
-/*!*************************!*\
-  !*** ./~/blob/index.js ***!
-  \*************************/
+/* 49 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -30008,15 +29622,12 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 155 */
-/*!*************************************************!*\
-  !*** ./app/root/crosscutting/logger.service.js ***!
-  \*************************************************/
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
@@ -30067,19 +29678,16 @@ webpackJsonp([0],[
 	})(_angular2.default);
 
 /***/ },
-/* 156 */
-/*!*************************************!*\
-  !*** ./app/root/legacy/check-in.js ***!
-  \*************************************/
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
+	var _jquery = __webpack_require__(2);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -30112,15 +29720,12 @@ webpackJsonp([0],[
 	})(_jquery2.default);
 
 /***/ },
-/* 157 */
-/*!*******************************************!*\
-  !*** ./app/root/legacy/legacy.service.js ***!
-  \*******************************************/
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _angular = __webpack_require__(/*! angular */ 115);
+	var _angular = __webpack_require__(10);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
