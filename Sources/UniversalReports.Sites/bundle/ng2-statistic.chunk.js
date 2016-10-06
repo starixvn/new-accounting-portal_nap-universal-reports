@@ -177,8 +177,8 @@ webpackJsonp([4],{
 	                username: pane.data.username,
 	                balanceUpDate: pane.data.balanceUpDate
 	            };
-	            grandtotalService.getData(data).then(function (result) {
-	                renderPopup(result, data);
+	            grandtotalService.getData(data).then(function (data) {
+	                renderPopup(data);
 	            });
 	        }
 	
@@ -221,15 +221,10 @@ webpackJsonp([4],{
 	
 	                for (var i = 0; i < data.bodyRows.length; i++) {
 	                    var row = data.bodyRows[i];
-	                    var currencyColumn = row.Columns[3];
-	                    var betTypeId = row.Columns[2].CustomAttr;
-	
-	                    var idCurrency = currencyColumn.CustomAttr;
-	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+	                    row.Columns[3].Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + row.Columns[3].CustomAttr + ',\'' + row.Columns[2].CustomAttr + '\')">' + row.Columns[3].Value + '</a>';
 	                }
 	
-	                var grandTotalColumn = data.footerRows[0].Columns[0];
-	                grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+	                data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
 	            }
 	        }
 	
@@ -448,8 +443,8 @@ webpackJsonp([4],{
 	                username: pane.data.username,
 	                balanceUpDate: pane.data.balanceUpDate
 	            };
-	            grandtotalService.getData(data).then(function (result) {
-	                renderPopup(result, data);
+	            grandtotalService.getData(data).then(function (data) {
+	                renderPopup(data);
 	            });
 	        }
 	
@@ -496,26 +491,14 @@ webpackJsonp([4],{
 	            if (pane.data.reportType != "username") {
 	                for (var i = 0; i < data.bodyRows.length; i++) {
 	                    var row = data.bodyRows[i];
-	                    var currencyColumn = row.Columns[3];
-	                    var dateCurrency = row.Columns[0].Value;
+	                    var currencyColumn = row.Columns.length == 11 ? row.Columns[3] : row.Columns[2];
+	                    var dateCurrency = row.Columns.length == 11 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
 	
-	                    if (row.Columns.length == 10) {
-	                        currencyColumn = row.Columns[2];
-	                        dateCurrency = row.Columns[1].CustomAttr;
-	                    }
-	
-	                    var idCurrency = currencyColumn.CustomAttr;
-	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyColumn.CustomAttr + ',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
 	                }
 	            }
 	
-	            var grandTotalColumn = data.footerRows[0].Columns[0];
-	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
-	        }
-	
-	        function createLinkTotal(data) {
-	            var grandTotalColumn = data.footerRows[0].Columns[0];
-	            grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+	            data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
 	        }
 	
 	        function exportExcel() {

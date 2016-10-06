@@ -44,8 +44,8 @@ import moment from "moment";
                 username: pane.data.username,
                 balanceUpDate: pane.data.balanceUpDate,
             }
-            grandtotalService.getData(data).then(function(result){
-                renderPopup(result, data);
+            grandtotalService.getData(data).then(function(data){
+                renderPopup(data);
             });
         }
 
@@ -88,15 +88,12 @@ import moment from "moment";
                 
                 for (var i = 0; i < data.bodyRows.length; i++) {
                     var row = data.bodyRows[i];
-                    var currencyColumn = row.Columns[3];
-                    var betTypeId = row.Columns[2].CustomAttr;
-                
-                    var idCurrency = currencyColumn.CustomAttr;
-                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + idCurrency + ',\'' + betTypeId + '\')">' + currencyColumn.Value + '</a>';
+                    row.Columns[3].Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + row.Columns[3].CustomAttr + ',\''
+                                                                                                                + row.Columns[2].CustomAttr + '\')">' 
+                                                                                                                + row.Columns[3].Value + '</a>';
                 }
 
-                var grandTotalColumn = data.footerRows[0].Columns[0];
-                grandTotalColumn.Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + grandTotalColumn.Value + '</a>';
+                data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
             }
         }
         
