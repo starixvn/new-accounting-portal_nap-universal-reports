@@ -19,10 +19,10 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             this.balanceUpSourceChooser = balanceUpSourceChooser;
         }
 
-        public virtual List<RawWinLoss> Query(WinLossCriteria criteria)
+        public virtual List<WinLossRaw> Query(WinLossCriteria criteria)
         {
             criteria.Source = balanceUpSourceChooser.Determine(criteria);
-            return repository.Fetch<RawWinLoss>(criteria).ToList();
+            return repository.Fetch<WinLossRaw>(criteria).ToList();
         }
     }
 }

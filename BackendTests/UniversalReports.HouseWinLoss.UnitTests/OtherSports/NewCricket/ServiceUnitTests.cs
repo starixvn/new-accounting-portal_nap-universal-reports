@@ -17,7 +17,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.OtherSports.NewCricket
         public void Query_ReturnRightResult()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
             var expected = TestDataLoader.Load<WinLossModel>("data-1-expected");
 
             // Act

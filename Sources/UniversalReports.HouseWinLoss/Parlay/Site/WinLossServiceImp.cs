@@ -38,7 +38,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
             };
         }
 
-        public SiteModel CalculationSiteTotal(string name, IEnumerable<RawWinLoss> rawWinLosses)
+        public SiteModel CalculationSiteTotal(string name, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var siteWinLosses = rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
             var siteTotal = calculationService.CalculateSumWinLoss(name, rawWinLosses);

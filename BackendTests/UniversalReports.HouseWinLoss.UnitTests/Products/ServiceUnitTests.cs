@@ -17,7 +17,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
         public void Query_ReturnRightProductWinLoss()
         {
             // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
             var expected = TestDataLoader.Load<ProductWinLoss>("data-1-expected");
 
             var criteria = new WinLossCriteria();
@@ -37,7 +37,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
         public void GetProductGroup_ReturnRightGetProductGroupWinLoss()
         {
             // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-2-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-2-fakeData");
             var expected = TestDataLoader.Load<ProductGroupWinLoss>("data-2-expected");
 
             var calculationService = new CalculationServiceImp();

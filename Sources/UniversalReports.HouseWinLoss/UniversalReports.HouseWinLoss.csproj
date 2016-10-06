@@ -246,7 +246,7 @@
     <Compile Include="Parlay\Site\WinLossServiceImp.cs" />
     <Compile Include="Parlay\Site\WinLossService.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
-    <Compile Include="Common\Models\RawWinLoss.cs" />
+    <Compile Include="Common\Models\WinLossRaw.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />

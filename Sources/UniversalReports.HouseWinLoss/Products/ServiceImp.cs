@@ -45,7 +45,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return result;
         }
 
-        public ProductGroupWinLoss GetProductGroup(IEnumerable<RawWinLoss> rawWinLosses, string groupName)
+        public ProductGroupWinLoss GetProductGroup(IEnumerable<WinLossRaw> rawWinLosses, string groupName)
         {
             var products = calculationService.CalculateSiteWinLossSummary(rawWinLosses).ToList();
             var total = calculationService.CalculateSumWinLossSummary(groupName, rawWinLosses);
@@ -56,7 +56,7 @@ namespace UniversalReports.HouseWinLoss.Products
             };
         }
 
-        public List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
+        public List<WinLoss> GetRMWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
         {
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
         }

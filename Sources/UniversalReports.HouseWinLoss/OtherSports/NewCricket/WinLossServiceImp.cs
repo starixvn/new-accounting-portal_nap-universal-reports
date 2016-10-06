@@ -41,7 +41,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
             };
         }
 
-        public ChargeCommissionModel CalculateSiteChargedCom(IEnumerable<RawWinLoss> rawWinLosses, IEnumerable<SiteWinLossSummary> chargedCommision)
+        public ChargeCommissionModel CalculateSiteChargedCom(IEnumerable<WinLossRaw> rawWinLosses, IEnumerable<SiteWinLossSummary> chargedCommision)
         {
             return new ChargeCommissionModel
             {

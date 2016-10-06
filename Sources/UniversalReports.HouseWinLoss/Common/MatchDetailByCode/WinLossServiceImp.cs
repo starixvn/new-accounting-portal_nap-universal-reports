@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             };
         }
 
-        private LeagueWinLoss CalculateLeagueWinLoss(string league, IEnumerable<RawWinLoss> rawWinLosses)
+        private LeagueWinLoss CalculateLeagueWinLoss(string league, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var rawLeagueWinLosses = rawWinLosses.Where(r => r.GroupName == league);
             var matchWinLosses = rawLeagueWinLosses

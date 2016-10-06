@@ -32,7 +32,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<RawWinLoss>("data-1-fakeData");
+            var fakeData = TestDataLoader.Load<WinLossRaw>("data-1-fakeData");
             var expected = TestDataLoader.Load<WinLoss>("data-1-expected");
             var calculationService = new CalculationServiceImp();
 
@@ -47,8 +47,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSum_ArrayWithTwoRawWinLosses_ReturnsRightSumValue()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-2-fakeData");
-            var expected = TestDataLoader.Load<RawWinLoss>("data-2-expected");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-2-fakeData");
+            var expected = TestDataLoader.Load<WinLossRaw>("data-2-expected");
 
             // Act
             var calculationService = new CalculationServiceImp();
@@ -62,7 +62,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSumWinLoss_ReturnsRightTotalValue()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-3-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-3-fakeData");
             var expected = TestDataLoader.Load<WinLoss>("data-3-expected");
 
             var calculationService = new CalculationServiceImp();
@@ -78,7 +78,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSumWinLossSummary_TwoGroups_ReturnRightGrandTotal()
         {
             // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-4-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-4-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-4-expected");
 
             // Act 
@@ -93,7 +93,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSumWinLossSummary_EmptyData_ReturnZeroCreditAndDeposit()
         {
             // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-5-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-5-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-5-expected");
 
             // Act 
@@ -108,7 +108,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSiteWinLossSummary_EmptyData_ReturnEmptySiteWinLoss()
         {
             // Arrange 
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-6-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-6-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossSummary>("data-6-expected");
 
             // Act 
@@ -123,7 +123,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateSiteWinLossSummary_TwoGroups_ReturnRightGroups()
         {
             // Arrange 
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-7-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-7-fakeData");
             var expected = TestDataLoader.Load<List<SiteWinLossSummary>>("data-7-expected");
 
             // Act 
@@ -138,7 +138,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void CalculateRM_ReturnRightRMData()
         {
             // Arrange 
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-8-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-8-fakeData");
             var expected = TestDataLoader.Load<List<WinLoss>>("data-8-expected");
 
             // Act 

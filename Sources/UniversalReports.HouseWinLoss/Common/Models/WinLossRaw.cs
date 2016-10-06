@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.HouseWinLoss.Common.Models
 {
-    public class RawWinLoss
+    public class WinLossRaw
     {
         public string GroupName { get; set; }
 

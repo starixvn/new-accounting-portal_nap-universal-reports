@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
         public void Fetch_Successful(ICriteria criteria)
         {
             var repository = new DynamicRepository();
-            repository.Fetch<RawWinLoss>(criteria);
+            repository.Fetch<WinLossRaw>(criteria);
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",

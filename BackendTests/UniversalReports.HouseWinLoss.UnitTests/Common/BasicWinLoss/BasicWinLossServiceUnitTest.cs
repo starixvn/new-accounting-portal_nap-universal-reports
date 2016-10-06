@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BasicWinLoss
         {
             // Arrange   
             var expected = TestDataLoader.Load<BasicWinLossModel>("data-1-expected");
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
 
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
