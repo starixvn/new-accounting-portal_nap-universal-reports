@@ -63,8 +63,8 @@ import moment from "moment";
             vm.minDateTo = vm.minDate;
             vm.maxDateTo = vm.maxDate;
 
-            //vm.startDate = vm.datefrom;
-            //vm.endDate = vm.dateto;
+            vm.startDate = vm.datefrom;
+            vm.endDate = vm.dateto;
         };         
 
         function getTimePeriodConfiguration(config){
