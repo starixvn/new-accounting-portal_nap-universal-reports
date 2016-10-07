@@ -11,7 +11,7 @@ import moment from "moment";
         var directive = {
             restrict: 'EA',
             scope: {
-                ngModel: '=',
+                ngModel: '='
             },
             templateUrl: 'app/ng2-statistic/filter/filter.directive.html',
             replace: true,
@@ -29,7 +29,7 @@ import moment from "moment";
         vm.minDate = moment("20130101", "YYYYMMDD");
         vm.reportType = "daily";
         vm.currentLevel = 0;
-        vm.normalMode = false;
+        vm.normalMode = true;
 
         vm.today = config.today;
         vm.yesterday = config.yesterday;
@@ -54,7 +54,7 @@ import moment from "moment";
         
         vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
-            generateCurrency(data)
+            generateCurrency(data);
         });
 
         vm.generate = generate;
@@ -71,7 +71,7 @@ import moment from "moment";
 
         function generateCurrency(data){
             vm.currencies = data;
-            vm.currency = 0;
+            vm.currency = 2;
         }
 
         function generateDropdown(data){
@@ -123,7 +123,7 @@ import moment from "moment";
             generateCurrency(vm.currencies);
             generateDropdown(vm.sportSettings.sourceData);
             vm.reportType = "daily";
-            if(vm.user != null){
+            if(vm.user !== null){
                 vm.user.title = "";
             }   
             $rootScope.$broadcast('nap-filter-switch');
@@ -138,7 +138,7 @@ import moment from "moment";
                 normalMode: dateRange.normalMode,
                 startDate: dateRange.startDate,
                 endDate: dateRange.endDate,
-                username: vm.user == null ? "" : vm.user.title,
+                username: vm.user !== undefined ? vm.user.title : "",
                 currency: vm.currency,
                 balanceUpDate: vm.balanceUpDate,
                 betType: getBetType(vm.sportItems)

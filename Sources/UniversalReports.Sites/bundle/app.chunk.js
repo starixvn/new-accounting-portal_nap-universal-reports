@@ -27905,7 +27905,7 @@ webpackJsonp([0],[
 	
 	            vm.startDate = vm.datefrom;
 	            vm.endDate = vm.dateto;
-	        };
+	        }
 	
 	        function getTimePeriodConfiguration(config) {
 	            var yesterday = config.yesterday;

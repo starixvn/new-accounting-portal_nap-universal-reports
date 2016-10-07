@@ -16,7 +16,7 @@ import moment from "moment";
                 minDate: '=',
                 maxDate: '=',
                 startDate: '=',
-                endDate: '=',
+                endDate: '='
             },
             replace: true,
             controller: controller,
@@ -65,7 +65,7 @@ import moment from "moment";
 
             vm.startDate = vm.datefrom;
             vm.endDate = vm.dateto;
-        };         
+        }         
 
         function getTimePeriodConfiguration(config){
             var yesterday = config.yesterday;
@@ -109,7 +109,7 @@ import moment from "moment";
                 "specific-date": specificDateConfig,
                 "last-3-months": last3MonthsConfig,
                 "last-6-months": last3MonthsConfig,
-                "last-1-year": last1YearConfig,
+                "last-1-year": last1YearConfig
 
             };            
         }  

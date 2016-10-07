@@ -667,7 +667,7 @@ webpackJsonp([4],{
 	        vm.minDate = (0, _moment2.default)("20130101", "YYYYMMDD");
 	        vm.reportType = "daily";
 	        vm.currentLevel = 0;
-	        vm.normalMode = false;
+	        vm.normalMode = true;
 	
 	        vm.today = config.today;
 	        vm.yesterday = config.yesterday;
@@ -709,7 +709,7 @@ webpackJsonp([4],{
 	
 	        function generateCurrency(data) {
 	            vm.currencies = data;
-	            vm.currency = 0;
+	            vm.currency = 2;
 	        }
 	
 	        function generateDropdown(data) {
@@ -761,7 +761,7 @@ webpackJsonp([4],{
 	            generateCurrency(vm.currencies);
 	            generateDropdown(vm.sportSettings.sourceData);
 	            vm.reportType = "daily";
-	            if (vm.user != null) {
+	            if (vm.user !== null) {
 	                vm.user.title = "";
 	            }
 	            $rootScope.$broadcast('nap-filter-switch');
@@ -776,7 +776,7 @@ webpackJsonp([4],{
 	                normalMode: dateRange.normalMode,
 	                startDate: dateRange.startDate,
 	                endDate: dateRange.endDate,
-	                username: vm.user == null ? "" : vm.user.title,
+	                username: vm.user !== undefined ? vm.user.title : "",
 	                currency: vm.currency,
 	                balanceUpDate: vm.balanceUpDate,
 	                betType: getBetType(vm.sportItems)
