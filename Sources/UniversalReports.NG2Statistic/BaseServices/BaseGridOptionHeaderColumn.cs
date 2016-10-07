@@ -1,8 +1,8 @@
 ﻿using Fanex.Excel.Models;
 
-namespace UniversalReports.NG2Statistic.Common
+namespace UniversalReports.NG2Statistic.BaseServices
 {
-    public interface GridOptionHeaderColumn
+    public interface BaseGridOptionHeaderColumn
     {
         GridOptions Build(GridOptions gridOptions, string mainColumnText, QueryModel queryModel);
     }

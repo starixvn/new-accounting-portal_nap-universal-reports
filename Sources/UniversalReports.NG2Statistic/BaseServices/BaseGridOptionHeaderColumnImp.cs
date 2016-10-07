@@ -3,9 +3,9 @@ using System.Diagnostics.CodeAnalysis;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 
-namespace UniversalReports.NG2Statistic.Common
+namespace UniversalReports.NG2Statistic.BaseServices
 {
-    public class GridOptionHeaderColumnImp : GridOptionHeaderColumn
+    public class BaseGridOptionHeaderColumnImp : BaseGridOptionHeaderColumn
     {
         public GridOptions Build(GridOptions gridOptions, string mainColumnText, QueryModel queryModel)
         {

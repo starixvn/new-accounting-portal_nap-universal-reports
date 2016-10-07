@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.MVC.Results;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.Daily
 {
@@ -9,9 +9,9 @@ namespace UniversalReports.NG2Statistic.Daily
     {
         private readonly DailyService service;
         private readonly GridOptionsBuilder builder;
-        private readonly GridOptionHeaderColumn header;
+        private readonly BaseGridOptionHeaderColumn header;
 
-        public DailyController(DailyService service, GridOptionsBuilder builder, GridOptionHeaderColumn header)
+        public DailyController(DailyService service, GridOptionsBuilder builder, BaseGridOptionHeaderColumn header)
         {
             this.service = service;
             this.builder = builder;
@@ -20,7 +20,7 @@ namespace UniversalReports.NG2Statistic.Daily
 
         [Route("")]
         public IHttpActionResult Daily(QueryModel queryModel)
-        {            
+        {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Date", queryModel);

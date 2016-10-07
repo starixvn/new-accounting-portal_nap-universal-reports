@@ -175,7 +175,7 @@
     <Compile Include="Bettype\BettypeServiceImp.cs" />
     <Compile Include="Bettype\GridOptionsBuilder.cs" />
     <Compile Include="Bettype\GridOptionsBuilderImp.cs" />
-    <Compile Include="Common\NG2CriteriaBase.cs" />
+    <Compile Include="BaseServices\NG2CriteriaBase.cs" />
     <Compile Include="Daily\DailyCriteria.cs" />
     <Compile Include="Daily\DailyModel.cs" />
     <Compile Include="Daily\DailyService.cs" />
@@ -192,9 +192,9 @@
     <Compile Include="GrandTotal\GridOptionHeaderColumnImp.cs" />
     <Compile Include="GrandTotal\GridOptionsBuilder.cs" />
     <Compile Include="GrandTotal\GridOptionsBuilderImp.cs" />
-    <Compile Include="Common\GridOptionHeaderColumn.cs" />
-    <Compile Include="Common\GridOptionHeaderColumnImp.cs" />
-    <Compile Include="Common\QueryModel.cs" />
+    <Compile Include="BaseServices\BaseGridOptionHeaderColumn.cs" />
+    <Compile Include="BaseServices\BaseGridOptionHeaderColumnImp.cs" />
+    <Compile Include="BaseServices\QueryModel.cs" />
     <Compile Include="UserName\GridOptionHeaderColumn.cs" />
     <Compile Include="UserName\GridOptionHeaderColumnImp.cs" />
     <Compile Include="UserName\GridOptionsBuilder.cs" />

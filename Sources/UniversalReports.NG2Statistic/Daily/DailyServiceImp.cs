@@ -5,7 +5,7 @@ using Fanex.Data;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Factory;
 using UniversalReports.Core.SortUtility;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.Daily
 {

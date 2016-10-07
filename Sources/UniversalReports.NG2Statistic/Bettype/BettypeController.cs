@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.MVC.Results;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
@@ -9,9 +9,9 @@ namespace UniversalReports.NG2Statistic.Bettype
     {
         private readonly BettypeService service;
         private readonly GridOptionsBuilder builder;
-        private readonly GridOptionHeaderColumn header;
+        private readonly BaseGridOptionHeaderColumn header;
 
-        public BettypeController(BettypeService service, GridOptionsBuilder builder, GridOptionHeaderColumn header)
+        public BettypeController(BettypeService service, GridOptionsBuilder builder, BaseGridOptionHeaderColumn header)
         {
             this.service = service;
             this.builder = builder;

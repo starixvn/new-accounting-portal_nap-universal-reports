@@ -3,7 +3,7 @@ using Fanex.Data.Configuration;
 using Fanex.Repository;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 using UniversalReports.NG2Statistic.Daily;
 
 namespace UniversalReports.NG2Statistic.Tests.Repository

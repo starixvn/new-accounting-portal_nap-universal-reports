@@ -2,16 +2,15 @@
 using System.Diagnostics.CodeAnalysis;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
-using UniversalReports.NG2Statistic.Common;
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {
     public class GridOptionHeaderColumnImp : GridOptionHeaderColumn
     {
-        public GridOptions Build(GridOptions gridOptions, QueryModel queryModel)
+        public GridOptions Build(GridOptions gridOptions)
         {
             gridOptions.CustomizeHeader = true;
-            gridOptions.Columns = BuildColumns(queryModel);
+            gridOptions.Columns = BuildColumns();
             gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();
 
             return gridOptions;
@@ -20,7 +19,7 @@ namespace UniversalReports.NG2Statistic.GrandTotal
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
            "SP2100:CodeLineMustNotBeLongerThan",
            Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(QueryModel queryModel)
+        protected List<HeaderColumns> BuildColumns()
         {
             return new List<HeaderColumns>
             {

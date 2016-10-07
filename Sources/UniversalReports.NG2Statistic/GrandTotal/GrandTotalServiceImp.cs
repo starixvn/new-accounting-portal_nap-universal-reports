@@ -3,7 +3,7 @@ using System.Linq;
 using Fanex.Data;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Factory;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {

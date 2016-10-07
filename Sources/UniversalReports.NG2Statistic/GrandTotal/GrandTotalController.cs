@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.MVC.Results;
-using UniversalReports.NG2Statistic.Common;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.GrandTotal
 {
@@ -23,7 +23,7 @@ namespace UniversalReports.NG2Statistic.GrandTotal
         {
             var grandTotalModel = service.Query(queryModel);
             var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, queryModel);
+            gridOptions = header.Build(gridOptions);
 
             return Json(gridOptions);
         }
@@ -33,7 +33,7 @@ namespace UniversalReports.NG2Statistic.GrandTotal
         {
             var grandTotalModel = service.Query(queryModel);
             var gridOptions = builder.Build(grandTotalModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, queryModel);
+            gridOptions = header.Build(gridOptions);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }

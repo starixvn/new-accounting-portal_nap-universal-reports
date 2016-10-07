@@ -1,4 +1,4 @@
-﻿using UniversalReports.NG2Statistic.Common;
+﻿using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.Daily
 {
