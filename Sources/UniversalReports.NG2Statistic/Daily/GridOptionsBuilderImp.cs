@@ -104,7 +104,7 @@ namespace UniversalReports.NG2Statistic.Daily
                 Name = "Currency",
                 Value = raw.Currency,
                 CustomAttributes = raw.CurrencyId.ToString(),
-                CellAlignment = HAlignment.Right
+                CellAlignment = HAlignment.Center
             });
             columns.Add(new Columns
             {

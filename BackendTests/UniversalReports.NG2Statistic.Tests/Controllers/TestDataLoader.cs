@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace UniversalReports.NG2Statistic.Tests.Controllers
 {
-    internal class TestDataLoader
+    internal static class TestDataLoader
     {
         internal static T Load<T>(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
         {
@@ -26,6 +26,14 @@ namespace UniversalReports.NG2Statistic.Tests.Controllers
         {
             var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
+            File.WriteAllText(dataFilePath, json);
+        }
+
+        internal static void SaveTestContent(string controllerName, string name, object @object, [CallerFilePath] string sourceFilePath = "")
+        {
+            var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
+            var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
+            var json = JsonConvert.SerializeObject(@object, Formatting.Indented);
             File.WriteAllText(dataFilePath, json);
         }
     }

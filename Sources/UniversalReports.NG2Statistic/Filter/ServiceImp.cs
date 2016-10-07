@@ -29,10 +29,10 @@ namespace UniversalReports.NG2Statistic.Filter
             var rawSports = repository.Fetch<SportRaw>(criteria).ToList();
             var sportList = new List<Sport>();
             rawSports
-                .Select(sport => new { sport.SportId, sport.SportName })
+                .Select(group => new { group.SportId, group.SportName })
                 .Distinct()
                 .ToList()
-                .ForEach(sport => 
+                .ForEach(sport =>
                 {
                     var sportType = new Sport { Checked = true, Id = sport.SportId, Name = sport.SportName };
                     rawSports
@@ -46,9 +46,9 @@ namespace UniversalReports.NG2Statistic.Filter
             return sportList;
         }
 
-        public List<dynamic> QueryUserNames(UserSearchCriteria criteria)
+        public List<UserNameModel> QueryUserNames(UserSearchCriteria criteria)
         {
-            return repository.Fetch<dynamic>(criteria).ToList();
+            return repository.Fetch<UserNameModel>(criteria).ToList();
         }
     }
 }

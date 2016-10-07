@@ -183,6 +183,7 @@
     <Compile Include="Daily\GridOptionsBuilder.cs" />
     <Compile Include="Daily\GridOptionsBuilderImp.cs" />
     <Compile Include="Daily\DailyController.cs" />
+    <Compile Include="Filter\UserNameModel.cs" />
     <Compile Include="GrandTotal\GrandTotalController.cs" />
     <Compile Include="GrandTotal\GrandTotalCriteria.cs" />
     <Compile Include="GrandTotal\GrandTotalModel.cs" />

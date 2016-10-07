@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace UniversalReports.NG2Statistic.Tests
 {
-    internal class ComparisonAssert
+    internal static class ComparisonAssert
     {
         internal static void AreEqualJson(object expected, object actual)
         {

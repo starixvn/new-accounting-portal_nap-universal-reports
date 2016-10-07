@@ -6,7 +6,7 @@ namespace UniversalReports.NG2Statistic.Filter
     {
         List<Sport> QuerySports(SportCriteria criteria);
 
-        List<dynamic> QueryUserNames(UserSearchCriteria criteria);
+        List<UserNameModel> QueryUserNames(UserSearchCriteria criteria);
 
         List<Entity> QueryCurrency(CurrencyCriteria criteria);
     }
