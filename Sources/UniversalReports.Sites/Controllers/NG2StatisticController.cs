@@ -20,7 +20,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
 #if !DEBUG
-        [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+        [NapAuth(FunctionKey = FunctionKeys.NG2Statistic, Policy = Constant.Policy.Read)]
 #endif
         public ActionResult Index()
         {
