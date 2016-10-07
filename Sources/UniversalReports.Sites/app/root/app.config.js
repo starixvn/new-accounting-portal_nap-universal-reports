@@ -18,12 +18,17 @@ import angular from "angular";
                     request: function (c) {
                         var url = c.url;
                         if ($templateCache.get(url) === undefined) {
-                            var subString = url.substring(0, 4);
-                            if (subString.toLowerCase() !== 'http') {
-                                c.url = config.rootUrl + '/' + url + "?v=20161004";
+                            var protocol = url.substring(0, 4);
+                            var extension = url.substring(url.length - 4);
+                            if (protocol.toLowerCase() !== 'http') {
+                                url = config.rootUrl + '/' + url;
+                            }
+                            if (extension.toLowerCase() === 'html') {
+                                url = url + "?v=1.0";
                             }
                         }
 
+                        c.url = url;
                         return c;
                     }
                 };

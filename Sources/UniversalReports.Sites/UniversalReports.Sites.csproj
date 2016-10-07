@@ -548,6 +548,7 @@
     <Content Include="app\root\components\month-picker\month-picker.directive.js" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
+    <None Include="Properties\PublishProfiles\Temp.pubxml" />
     <None Include="Properties\PublishProfiles\xx.pubxml" />
     <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
