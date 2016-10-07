@@ -89,12 +89,12 @@ import angular from "angular";
         }
 
         function generateSoccerBetTypePane(betTypeNameMajorMinor) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betTypeNameMajorMinor: betTypeNameMajorMinor,
                 sportTypeName: betTypeNameMajorMinor
-            };
-            angular.extend(data, pane.data);
-
+            });
             tab.goForward('soccerBetType', data);
         }
 
@@ -107,11 +107,11 @@ import angular from "angular";
         }
 
         function generateSoccerLiveNonLivePane(soccerLiveNonLive) {
-            var data = {
-                soccerLiveNonLive: soccerLiveNonLive
-            };
+            var data = {};
             angular.extend(data, pane.data);
-
+            angular.extend(data, {
+                soccerLiveNonLive: soccerLiveNonLive
+            });
             tab.goForward('soccerMajorMinor', data);
         }
 

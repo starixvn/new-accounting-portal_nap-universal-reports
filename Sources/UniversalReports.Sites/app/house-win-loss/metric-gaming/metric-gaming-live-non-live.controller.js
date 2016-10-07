@@ -53,32 +53,35 @@ import angular from "angular";
         }
 
         function generateBetType(isLive) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 isLive: isLive,
                 sportTypeName: "Metric Gaming - Superlive Live"
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('betType', data);
         }
 
         function generateMatchDetail(betType, betTypeName) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 sportTypeName: "Metric Gaming - Superlive Live"
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('matchDetail', data);
         }
 
         function generateSite(betType, betTypeName, site, isHegde) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
                 isHegde: isHegde
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('site', data);
         }
 

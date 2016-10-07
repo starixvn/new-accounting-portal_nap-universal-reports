@@ -33,12 +33,13 @@ import moment from "moment";
         }
 
         function generateSite(betType, betTypeName, site) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('site', data);
         }
 

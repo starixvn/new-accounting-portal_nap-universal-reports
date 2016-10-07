@@ -55,7 +55,7 @@ import angular from "angular";
                 for (var i = 0; i < betTypeRow.SubRows.length; i++) {
                     var siteRow = betTypeRow.SubRows[i];
                     var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">'  + siteName + '</a>';
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + siteName + '</a>';
                 }
             }
         }
@@ -76,24 +76,27 @@ import angular from "angular";
         }
 
         function generateSite(betType, betTypeName, site, isLive) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
                 isLive: isLive,
                 isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
-            };
-            angular.extend(data, pane.data);
+            });
+
             tab.goForward('site', data);
         }
 
         function generateMatchDetail(betType, betTypeName, isLive) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data,{
                 betType: betType,
                 betTypeName: betTypeName,
                 isLive: isLive
-            };
-            angular.extend(data, pane.data);
+            });
             data.isHedge = getHedgeParameters(data.sportType, betTypeName);
 
             tab.goForward('matchDetail', data);

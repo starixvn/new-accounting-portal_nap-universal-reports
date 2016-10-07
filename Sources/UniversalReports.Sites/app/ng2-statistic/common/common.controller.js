@@ -8,7 +8,7 @@ import moment from "moment";
         .module('app.numberGame2StatisticApp')
         .controller('CommonController', CommonController);
 
-    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog','$injector','grandtotalService'];
+    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
     function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
         var pane = $scope.pane;
         var tab = $scope.tab;
@@ -18,23 +18,22 @@ import moment from "moment";
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
 
-        function generateCurrencyReport(idCurrency, dateCurrency){
+        function generateCurrencyReport(idCurrency, dateCurrency) {
             var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data, 
-                {
-                    drilldownType: "Currency",
-                    currency: idCurrency,
-                    startDate: moment.utc(dateCurrency).startOf('day'),
-                    endDate: moment.utc(dateCurrency).startOf('day'),
-                    isDrilldown: true
-                }
+            angular.extend(data, {
+                drilldownType: "Currency",
+                currency: idCurrency,
+                startDate: moment.utc(dateCurrency).startOf('day'),
+                endDate: moment.utc(dateCurrency).startOf('day'),
+                isDrilldown: true
+            }
             );
             tab.goForward(data);
         }
 
-        function generateGrandtotalReport(){
-            
+        function generateGrandtotalReport() {
+
             var data = {
                 drilldownType: "Grandtotal",
                 currency: pane.data.currency,
@@ -46,20 +45,20 @@ import moment from "moment";
                 balanceUpDate: pane.data.balanceUpDate
             };
 
-            grandtotalService.getData(data).then(function(data){
+            grandtotalService.getData(data).then(function (data) {
                 renderPopup(data);
             });
         }
 
         function generate() {
-            pane.service.getData(pane.data).then(function(data){
+            pane.service.getData(pane.data).then(function (data) {
                 checkDrilldown(data);
                 renderGrid(data);
                 pane.compileAll();
             });
         }
 
-        function renderGrid(data){
+        function renderGrid(data) {
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
@@ -74,59 +73,60 @@ import moment from "moment";
             gridElement.fanexGrid(data);
         }
 
-        function checkDrilldown(data){
-            if(!pane.data.isDrilldown){
+        function checkDrilldown(data) {
+            if (!pane.data.isDrilldown) {
                 createLinks(data);
-            }            
+            }
         }
 
-        function generateSort(sortColumnName, sortDirection){
+        function generateSort(sortColumnName, sortDirection) {
             pane.data.sortColumnName = sortColumnName;
             pane.data.sortDirection = sortDirection;
-            pane.service.getDataSort(pane.data).then(function(data){
+            pane.service.getDataSort(pane.data).then(function (data) {
                 checkDrilldown(data);
                 renderGrid(data);
                 pane.compileAll();
             });
         }
 
-        function createLinks(data){
-            if(pane.data.reportType !== "username"){
+        function createLinks(data) {
+            if (pane.data.reportType !== "username") {
                 for (var i = 0; i < data.bodyRows.length; i++) {
                     var row = data.bodyRows[i];
                     var currencyColumn = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
                     var dateCurrency = row.Columns.length === 11 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
-                                    
-                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyColumn.CustomAttr + ',\'' 
-                                                                                                                + dateCurrency + '\')">' 
+
+                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyColumn.CustomAttr + ',\''
+                                                                                                                + dateCurrency + '\')">'
                                                                                                                 + currencyColumn.Value + '</a>';
                 }
-            }           
+            }
 
             data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
         }
 
-        function exportExcel(){
+        function exportExcel() {
             var title = tab.generateBreadcrumbText();
             pane.service.exportExcel(title, pane.data, pane.getFileName());
         }
-                
-        function exportExcelGrandTotal(){
+
+        function exportExcelGrandTotal() {
             var title = "GRAND TOTAL BY CURRENCY";
             grandtotalService.exportExcel(title, pane.data, pane.getFileName());
         }
 
-        function renderPopup(data){
+        function renderPopup(data) {
 
             var titleInfo = {
                 text: "GRAND TOTAL BY CURRENCY",
                 showExcelButton: true,
                 exportExcelFunction: exportExcelGrandTotal
-            };            
+            };
 
-            data.titleInfo = titleInfo;            
-            ngDialog.open({template: 'templateId',
-                plain: false,                
+            data.titleInfo = titleInfo;
+            ngDialog.open({
+                template: 'templateId',
+                plain: false,
                 width: 1400,
                 closeByDocument: false,
                 data: data

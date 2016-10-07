@@ -688,7 +688,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\house-win-loss\number-game\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

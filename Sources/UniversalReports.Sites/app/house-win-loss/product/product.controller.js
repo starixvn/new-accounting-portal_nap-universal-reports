@@ -19,9 +19,9 @@ import numeral from "numeral";
         $scope.viewSetting = {};
 
         function generateProduct(productName) {
-            var data = {};                
+            var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data, {productName: productName});            
+            angular.extend(data, { productName: productName });
             var level = houseWinlossService.getMainView(productName);
             tab.goForward(level, data);
         }

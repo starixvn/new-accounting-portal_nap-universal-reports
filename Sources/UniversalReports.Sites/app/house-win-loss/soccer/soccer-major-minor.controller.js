@@ -55,12 +55,12 @@ import angular from "angular";
         }
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betTypeNameMajorMinor: betTypeNameMajorMinor,
                 sportTypeName: betTypeNameMajorMinor
-            };
-            angular.extend(data, pane.data);
-
+            });
             tab.goForward('soccerBetType', data);
         }
 

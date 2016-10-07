@@ -95,19 +95,21 @@ import angular from "angular";
         }
 
         function generateBetType(sportType, sportTypeName) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 sportType: sportType,
                 sportTypeName: sportTypeName
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('betType', data);
         }
 
         function generateSportType(isLive) {
-            var data = {
-                isLive: isLive
-            };
+            var data = {};
             angular.extend(data, pane.data);
+            angular.extend(data, {
+                isLive: isLive
+            });
             tab.goForward('sportType', data);
         }
 

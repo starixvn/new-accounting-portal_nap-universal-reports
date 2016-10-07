@@ -28,12 +28,13 @@ import angular from "angular";
         }
 
         function generateBetType(sportType, sportTypeName, isLive) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 sportType: sportType,
                 sportTypeName: sportTypeName,
                 isLive: isLive
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('betType', data);
         }
 

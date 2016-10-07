@@ -28,11 +28,12 @@ import angular from "angular";
         }
 
         function generateBetType(productId, productName) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 casinoProductId: productId,
                 casinoProductName: productName
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('betType', data);
         }
 
