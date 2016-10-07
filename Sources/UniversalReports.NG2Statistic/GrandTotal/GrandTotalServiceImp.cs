@@ -33,7 +33,7 @@ namespace UniversalReports.NG2Statistic.GrandTotal
                 {
                     var rows = multi.Read<GrandTotalModel>();
                     var total = multi.Read<GrandTotalModel>().FirstOrDefault();
-                    total.Name = "Grand Total RM";
+                    total.Currency = "Grand Total RM";
 
                     daily.Rows = rows.ToList();
                     daily.Total = total;
