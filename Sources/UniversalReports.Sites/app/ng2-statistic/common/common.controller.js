@@ -43,8 +43,9 @@ import moment from "moment";
                 startDate: pane.data.startDate,
                 betType: pane.data.betType,
                 username: pane.data.username,
-                balanceUpDate: pane.data.balanceUpDate,
-            }
+                balanceUpDate: pane.data.balanceUpDate
+            };
+
             grandtotalService.getData(data).then(function(data){
                 renderPopup(data);
             });
@@ -62,7 +63,7 @@ import moment from "moment";
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel,
+                exportExcelFunction: exportExcel
             };
             var sortOptions = {
                 serverSortFunction: generateSort
@@ -90,11 +91,11 @@ import moment from "moment";
         }
 
         function createLinks(data){
-            if(pane.data.reportType != "username"){
+            if(pane.data.reportType !== "username"){
                 for (var i = 0; i < data.bodyRows.length; i++) {
                     var row = data.bodyRows[i];
-                    var currencyColumn = row.Columns.length == 11 ? row.Columns[3] : row.Columns[2];
-                    var dateCurrency = row.Columns.length == 11 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
+                    var currencyColumn = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
+                    var dateCurrency = row.Columns.length === 11 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
                                     
                     currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyColumn.CustomAttr + ',\'' 
                                                                                                                 + dateCurrency + '\')">' 
@@ -120,7 +121,7 @@ import moment from "moment";
             var titleInfo = {
                 text: "GRAND TOTAL BY CURRENCY",
                 showExcelButton: true,
-                exportExcelFunction: exportExcelGrandTotal,
+                exportExcelFunction: exportExcelGrandTotal
             };            
 
             data.titleInfo = titleInfo;            
