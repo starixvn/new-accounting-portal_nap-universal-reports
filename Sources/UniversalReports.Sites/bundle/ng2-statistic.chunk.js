@@ -657,7 +657,8 @@ webpackJsonp([4],{
 	            CollapseBranch: "Collapse/Expanse this branch",
 	            NoItemChecked: "Select options",
 	            ItemsSelected: "# selected",
-	            NoData: "Select options"
+	            NoData: "Select options",
+	            AllItemsSelected: "All"
 	        };
 	
 	        vm.currencies = [];

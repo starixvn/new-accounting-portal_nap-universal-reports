@@ -27626,7 +27626,8 @@ webpackJsonp([0],[
 
 	"use strict";
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /*global angular */
+	
 	
 	var _angular = __webpack_require__(10);
 	
@@ -27668,7 +27669,7 @@ webpackJsonp([0],[
 	                return angular.extend({}, config);
 	            }
 	        };
-	    }).directive('dropdowntree', ['$parse', '$compile', '$http', '$filter', 'dropdowntreeConfig', function ($parse, $compile, $http, $filter, dropdowntreeConfig) {
+	    }).directive('dropdowntree', ['$timeout', '$parse', '$compile', '$http', '$filter', 'dropdowntreeConfig', function ($timeout, $parse, $compile, $http, $filter, dropdowntreeConfig) {
 	        function containsText(item, searchText) {
 	            var found = item.label.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 	
@@ -27851,6 +27852,9 @@ webpackJsonp([0],[
 	                    if (angular.isArray(_leafCheckedNames) === false || _leafCheckedNames.length === 0) {
 	                        return scope._textSettings.NoItemChecked;
 	                    }
+	                    if (scope.checkedAll && scope._textSettings.AllItemsSelected) {
+	                        return scope._textSettings.AllItemsSelected;
+	                    }
 	
 	                    var header;
 	
@@ -27894,7 +27898,6 @@ webpackJsonp([0],[
 	                    var data = getCheckedItems(scope.items);
 	                    _leafCheckedNames = data.leafNames;
 	                    scope.selectedItems = data.leafItems;
-	                    scope.header = getHeaderText(scope.selectedItems);
 	                    scope.allSelectedItems = data.allItems;
 	                    scope.checkedAll = isAllItemsChecked(scope.items);
 	                }
@@ -27941,14 +27944,15 @@ webpackJsonp([0],[
 	                    var sourceDataType = _typeof(scope._settings.sourceData);
 	
 	                    function startParseData() {
+	                        $timeout(function () {
+	                            parseData();
 	
-	                        parseData();
+	                            if (scope._settings.checkedAll === true) {
+	                                scope.toggleCheckAll(true);
+	                            }
 	
-	                        if (scope._settings.checkedAll === true) {
-	                            scope.toggleCheckAll(true);
-	                        }
-	
-	                        scope.toggleCollapseExpanse(scope._settings.collapsedAll);
+	                            scope.toggleCollapseExpanse(scope._settings.collapsedAll);
+	                        }, 100);
 	                    }
 	
 	                    if (sourceDataType === "string") // url
@@ -27975,6 +27979,7 @@ webpackJsonp([0],[
 	                        CollapseBranch: "Collapse/Expanse this branch",
 	                        NoItemChecked: "Select options",
 	                        ItemsSelected: "# selected",
+	                        AllItemsSelected: "",
 	                        NoData: "(No Data)"
 	                    };
 	
@@ -28071,11 +28076,13 @@ webpackJsonp([0],[
 	                };
 	
 	                scope.touched = function () {
-	                    modelCtrl.$setTouched();
+	                    if (modelCtrl.$setTouched) {
+	                        modelCtrl.$setTouched();
+	                    }
 	                };
 	            }
 	        };
-	    }]).directive('dropdowntreePopup', ['$document', function ($document) {
+	    }]).directive('dropdowntreePopup', ['$document', '$timeout', function ($document, $timeout) {
 	        return {
 	            restrict: 'E',
 	            replace: true,
@@ -28127,9 +28134,11 @@ webpackJsonp([0],[
 	                }
 	
 	                scope.focusSearchBox = function focusSearchBox() {
-	                    var searchBox = dropdownElement.find('input')[0];
+	                    var searchBox = dropdownElement.find('input[type=text]')[0];
 	                    if (searchBox) {
-	                        searchBox.focus();
+	                        $timeout(function () {
+	                            searchBox.focus();
+	                        }, 0, false);
 	                    }
 	                };
 	            }

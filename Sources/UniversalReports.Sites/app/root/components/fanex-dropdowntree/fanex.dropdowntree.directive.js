@@ -1,3 +1,4 @@
+/*global angular */
 import angular from "angular";
 (function (angular) {
     "use strict";
@@ -35,8 +36,8 @@ import angular from "angular";
                 }
             };
         })
-        .directive('dropdowntree', ['$parse', '$compile', '$http', '$filter', 'dropdowntreeConfig',
-            function ($parse, $compile, $http, $filter, dropdowntreeConfig) {
+        .directive('dropdowntree', ['$timeout', '$parse', '$compile', '$http', '$filter', 'dropdowntreeConfig',
+            function ($timeout, $parse, $compile, $http, $filter, dropdowntreeConfig) {
                 function containsText(item, searchText) {
                     var found = item.label.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
 
@@ -225,6 +226,9 @@ import angular from "angular";
                             if (angular.isArray(_leafCheckedNames) === false || _leafCheckedNames.length === 0) {
                                 return scope._textSettings.NoItemChecked;
                             }
+                            if (scope.checkedAll && scope._textSettings.AllItemsSelected) {
+                                return scope._textSettings.AllItemsSelected;
+                            }
 
                             var header;
 
@@ -268,7 +272,6 @@ import angular from "angular";
                             var data = getCheckedItems(scope.items);
                             _leafCheckedNames = data.leafNames;
                             scope.selectedItems = data.leafItems;
-                            scope.header = getHeaderText(scope.selectedItems);
                             scope.allSelectedItems = data.allItems;
                             scope.checkedAll = isAllItemsChecked(scope.items);
                         }
@@ -315,15 +318,15 @@ import angular from "angular";
                             var sourceDataType = typeof scope._settings.sourceData;
 
                             function startParseData() {
+                                $timeout(function () {
+                                    parseData();
 
-                                parseData();
+                                    if (scope._settings.checkedAll === true) {
+                                        scope.toggleCheckAll(true);
+                                    }
 
-                                if (scope._settings.checkedAll === true) {
-                                    scope.toggleCheckAll(true);
-                                }
-
-                                scope.toggleCollapseExpanse(scope._settings.collapsedAll);
-
+                                    scope.toggleCollapseExpanse(scope._settings.collapsedAll);
+                                }, 100);
                             }
 
                             if (sourceDataType === "string") // url
@@ -351,6 +354,7 @@ import angular from "angular";
                                 CollapseBranch: "Collapse/Expanse this branch",
                                 NoItemChecked: "Select options",
                                 ItemsSelected: "# selected",
+                                AllItemsSelected: "",
                                 NoData: "(No Data)"
                             };
 
@@ -449,15 +453,17 @@ import angular from "angular";
                         };
 
                         scope.touched = function () {
-                            modelCtrl.$setTouched();
+                            if (modelCtrl.$setTouched) {
+                                modelCtrl.$setTouched();
+                            }
                         };
                     }
                 };
             }
         ])
 
-    .directive('dropdowntreePopup', ['$document',
-        function ($document) {
+    .directive('dropdowntreePopup', ['$document', '$timeout',
+        function ($document, $timeout) {
             return {
                 restrict: 'E',
                 replace: true,
@@ -509,9 +515,11 @@ import angular from "angular";
                     }
 
                     scope.focusSearchBox = function focusSearchBox() {
-                        var searchBox = dropdownElement.find('input')[0];
+                        var searchBox = dropdownElement.find('input[type=text]')[0];
                         if (searchBox) {
-                            searchBox.focus();
+                            $timeout(function () {
+                                searchBox.focus();
+                            }, 0, false);
                         }
                     };
                 }
