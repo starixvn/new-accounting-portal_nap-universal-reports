@@ -83,13 +83,13 @@ namespace UniversalReports.NG2Statistic.Bettype
             var bold = isSport;
             if (isSport)
             {
-                columns.Add(new Columns { Name = "Name", Value = raw.Sporttype, Bold = true, CellAlignment = HAlignment.Left });
+                columns.Add(new Columns { Name = "Bettype", Value = raw.Sporttype, Bold = true, CellAlignment = HAlignment.Left });
             }
             else
             {
                 columns.Add(new Columns
                 {
-                    Name = "Name",
+                    Name = "Bettype",
                     Value = raw.Bettype,
                     Bold = false,
                     CellAlignment = HAlignment.Right

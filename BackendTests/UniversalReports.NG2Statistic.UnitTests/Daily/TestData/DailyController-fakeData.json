@@ -1,0 +1,65 @@
+{
+  "Winlostdate": null,
+  "NoOfPlayers": 0,
+  "BetCount": 0,
+  "CurrencyId": 0,
+  "Currency": null,
+  "TotalBets": 0.0,
+  "TotalWins": 0.0,
+  "GameIncome": 0.0,
+  "GamePayout": 0.0,
+  "CompanyTurnover": 0.0,
+  "CompanyComm": 0.0,
+  "CompanyNetIncome": 0.0,
+  "Rows": [
+    {
+      "Winlostdate": null,
+      "NoOfPlayers": 0,
+      "BetCount": 0,
+      "CurrencyId": 0,
+      "Currency": null,
+      "TotalBets": 0.0,
+      "TotalWins": 0.0,
+      "GameIncome": 0.0,
+      "GamePayout": 0.0,
+      "CompanyTurnover": 0.0,
+      "CompanyComm": 0.0,
+      "CompanyNetIncome": 0.0,
+      "Rows": [
+        {
+          "Winlostdate": "9/1/2016 12:00:00 AM",
+          "NoOfPlayers": 1,
+          "BetCount": 684,
+          "CurrencyId": 2,
+          "Currency": "RM",
+          "TotalBets": 62295322.2984,
+          "TotalWins": 224465255.9676,
+          "GameIncome": -162169933.6692,
+          "GamePayout": 3.6032,
+          "CompanyTurnover": 10073029.5576,
+          "CompanyComm": 0.0000,
+          "CompanyNetIncome": -43381867.4352,
+          "Rows": [],
+          "Total": null
+        }
+      ],
+      "Total": null
+    }
+  ],
+  "Total": {
+    "Winlostdate": "Grand Total RM",
+    "NoOfPlayers": 1,
+    "BetCount": 684,
+    "CurrencyId": 0,
+    "Currency": "RM",
+    "TotalBets": 62295322.2984,
+    "TotalWins": 224465255.9676,
+    "GameIncome": -162169933.6692,
+    "GamePayout": 3.60324415519341795,
+    "CompanyTurnover": 10073029.5576,
+    "CompanyComm": 0.0000,
+    "CompanyNetIncome": -43381867.4352,
+    "Rows": [],
+    "Total": null
+  }
+}

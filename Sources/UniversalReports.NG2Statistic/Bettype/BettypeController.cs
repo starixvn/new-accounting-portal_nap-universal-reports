@@ -23,7 +23,7 @@ namespace UniversalReports.NG2Statistic.Bettype
         {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", queryModel);
+            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
 
             return Json(gridOptions);
         }
@@ -33,7 +33,7 @@ namespace UniversalReports.NG2Statistic.Bettype
         {
             var dailyModel = service.SortData(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", queryModel);
+            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
 
             return Json(gridOptions);
         }
@@ -43,7 +43,7 @@ namespace UniversalReports.NG2Statistic.Bettype
         {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", queryModel);
+            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }

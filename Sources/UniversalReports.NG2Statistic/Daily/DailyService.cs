@@ -6,6 +6,6 @@ namespace UniversalReports.NG2Statistic.Daily
     {
         DailyModel Query(QueryModel queryModel);
 
-        DailyModel SortData(QueryModel queryModel);
+        DailyModel SortData(DailyModel dataRaw, QueryModel queryModel);
     }
 }

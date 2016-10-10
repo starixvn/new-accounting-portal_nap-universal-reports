@@ -38,7 +38,7 @@ namespace UniversalReports.NG2Statistic.Tests.Repository
             };
 
             var service = new DailyServiceImp(balance);
-            service.DataRaw(queryModel);
+            service.Query(queryModel);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace UniversalReports.NG2Statistic.UserName
         {
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildColumns(queryModel);
-            gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();
+            gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();            
 
             return gridOptions;
         }

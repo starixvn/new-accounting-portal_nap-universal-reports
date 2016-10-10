@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace UniversalReports.Core.Tests.TestUtility
+namespace UniversalReports.Core.TestUtility
 {
-    internal static class TestDataLoader
+    public static class TestDataProvider
     {
-        internal static T Load<T>(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
+        public static T Load<T>(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
         {
             var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
@@ -20,21 +15,21 @@ namespace UniversalReports.Core.Tests.TestUtility
             return JsonConvert.DeserializeObject<T>(text);
         }
 
-        internal static string LoadTestContent(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
+        public static string LoadTestContent(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
         {
             var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
             return File.ReadAllText(dataFilePath);
         }
 
-        internal static void SaveTestContent(string controllerName, string name, string json, [CallerFilePath] string sourceFilePath = "")
+        public static void SaveTestContent(string controllerName, string name, string json, [CallerFilePath] string sourceFilePath = "")
         {
             var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
             File.WriteAllText(dataFilePath, json);
         }
 
-        internal static void SaveTestContent(string controllerName, string name, object @object, [CallerFilePath] string sourceFilePath = "")
+        public static void SaveTestContent(string controllerName, string name, object @object, [CallerFilePath] string sourceFilePath = "")
         {
             var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";

@@ -4,6 +4,6 @@ namespace UniversalReports.NG2Statistic.BaseServices
 {
     public interface BaseGridOptionHeaderColumn
     {
-        GridOptions Build(GridOptions gridOptions, string mainColumnText, QueryModel queryModel);
+        GridOptions Build(GridOptions gridOptions, string mainColumnText, string mainColumnName, QueryModel queryModel);
     }
 }

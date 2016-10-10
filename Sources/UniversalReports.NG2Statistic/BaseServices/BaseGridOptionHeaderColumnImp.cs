@@ -7,10 +7,10 @@ namespace UniversalReports.NG2Statistic.BaseServices
 {
     public class BaseGridOptionHeaderColumnImp : BaseGridOptionHeaderColumn
     {
-        public GridOptions Build(GridOptions gridOptions, string mainColumnText, QueryModel queryModel)
+        public GridOptions Build(GridOptions gridOptions, string mainColumnText, string mainColumnName, QueryModel queryModel)
         {
             gridOptions.CustomizeHeader = true;
-            gridOptions.Columns = BuildColumns(mainColumnText, queryModel);
+            gridOptions.Columns = BuildColumns(mainColumnText, mainColumnName, queryModel);
             gridOptions.GroupHeaderRows = new List<GroupHeaderRows>();
 
             return gridOptions;
@@ -19,11 +19,11 @@ namespace UniversalReports.NG2Statistic.BaseServices
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
            "SP2100:CodeLineMustNotBeLongerThan",
            Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(string mainColumnText, QueryModel queryModel)
+        protected List<HeaderColumns> BuildColumns(string mainColumnText, string mainColumnName, QueryModel queryModel)
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = mainColumnText, Width = 100, Name = "Name", CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == "Name" ? queryModel.SortDirection : string.Empty },
+                new HeaderColumns { HeaderText = mainColumnText, Width = 100, Name = mainColumnName, CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == mainColumnName ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer, Sort = true, SortDirection = queryModel.SortColumnName == "NoOfPlayers" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer, Sort = true, SortDirection = queryModel.SortColumnName == "BetCount" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Currency", Width = 80, Name = "Currency", CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == "Currency" ? queryModel.SortDirection : string.Empty },

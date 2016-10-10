@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace UniversalReports.NG2Statistic.Daily
 {
@@ -9,7 +10,9 @@ namespace UniversalReports.NG2Statistic.Daily
             Rows = new List<DailyModel>();
         }
 
-        public string Winlostdate { get; set; }
+        public string Name { get; set; }
+
+        public DateTime Winlostdate { get; set; }
 
         public int NoOfPlayers { get; set; }
 

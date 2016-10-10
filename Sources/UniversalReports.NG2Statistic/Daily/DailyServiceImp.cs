@@ -35,7 +35,7 @@ namespace UniversalReports.NG2Statistic.Daily
             return daily;
         }
 
-        public DailyModel DataRaw(QueryModel queryModel)
+        private DailyModel DataRaw(QueryModel queryModel)
         {
             var daily = new DailyModel
             {
@@ -52,7 +52,7 @@ namespace UniversalReports.NG2Statistic.Daily
                 {
                     var rows = multi.Read<DailyModel>();
                     var total = multi.Read<DailyModel>().FirstOrDefault();
-                    total.Winlostdate = "Grand Total RM";
+                    total.Name = "Grand Total RM";
 
                     daily.Rows = rows.ToList();
                     daily.Total = total;
@@ -62,15 +62,14 @@ namespace UniversalReports.NG2Statistic.Daily
             return daily;
         }
 
-        public DailyModel SortData(QueryModel queryModel)
+        public DailyModel SortData(DailyModel dataRaw, QueryModel queryModel)
         {
-            var daily = Query(queryModel);
-            SortData(daily, queryModel);
+            Sorting(dataRaw, queryModel);
 
-            return daily;
+            return dataRaw;
         }
 
-        private void SortData(DailyModel raw, QueryModel queryModel)
+        private void Sorting(DailyModel raw, QueryModel queryModel)
         {
             foreach (var row in raw.Rows)
             {

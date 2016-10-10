@@ -59,7 +59,7 @@ namespace UniversalReports.NG2Statistic.Daily
             var columns = new List<Columns>();
             if (mergeRowNumber > 0)
             {
-                columns.Add(new Columns { Name = "Name", Value = Converter.To<DateTime>(raw.Winlostdate).ToString("MMM dd, yyyy"), MergeRowNumber = mergeRowNumber });
+                columns.Add(new Columns { Name = "Winlostdate", Value = Converter.To<DateTime>(raw.Winlostdate).ToString("MMM dd, yyyy"), MergeRowNumber = mergeRowNumber });
             }
 
             AssignDataRow(raw, columns);
@@ -74,7 +74,7 @@ namespace UniversalReports.NG2Statistic.Daily
 
         private GridDataRow BuildDataTotalRow(DailyModel raw)
         {
-            var columns = new List<Columns> { new Columns { Name = "Name", Value = raw.Winlostdate } };
+            var columns = new List<Columns> { new Columns { Name = "Winlostdate", Value = raw.Name } };
 
             AssignDataRow(raw, columns);
 
@@ -95,7 +95,7 @@ namespace UniversalReports.NG2Statistic.Daily
             {
                 Name = "BetCount",
                 Value = raw.BetCount,
-                CustomAttributes = raw.Winlostdate,
+                CustomAttributes = raw.Winlostdate.ToShortDateString(),
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.Integer
             });
