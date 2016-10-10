@@ -8,6 +8,26 @@
 .ng2-sport-bold {
   font-weight: bold; }
 
+.form-inline .row .col-section, .form-inline .row .col-label {
+  /*text-shadow: 0 0 0.023em black;*/
+  /*font-weight: bold;*/ }
+
+.ngdialog.ngdialog-theme-plain .ngdialog-content {
+  top: -122px; }
+
+.errorMsg {
+  border: 1px solid red;
+  background: none repeat scroll 0 0 #ffd4d4;
+  font-weight: bold;
+  margin: -14px;
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: -15px;
+  margin-right: -15px; }
+  .errorMsg p {
+    line-height: 36px;
+    margin-left: 10px; }
+
 .grid-boundary-popup .freegrid {
   display: none; }
 

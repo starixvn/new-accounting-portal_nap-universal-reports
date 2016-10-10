@@ -22,8 +22,8 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope', '$rootScope', 'config', 'filterService'];
-    function controller($scope, $rootScope, config, filterService) {
+    controller.$inject = ['$scope', '$rootScope', 'config', 'filterService', 'ngDialog'];
+    function controller($scope, $rootScope, config, filterService, ngDialog) {
         /*jshint validthis: true */
         var vm = this;
         vm.minDate = moment("20130101", "YYYYMMDD");
@@ -47,9 +47,9 @@ import moment from "moment";
             CheckAll: "ALL",
             CollapseExpanse: "Collapse/Expanse",
             CollapseBranch: "Collapse/Expanse this branch",
-            NoItemChecked: "Select bet type",
+            NoItemChecked: "Select options",
             ItemsSelected: "# selected",
-            NoData: "Select bet type"
+            NoData: "Select options"
         };          
         
         vm.currencies = [];
@@ -68,6 +68,17 @@ import moment from "moment";
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
         });
+
+        function showErrorMsg(){
+            ngDialog.open({
+                template:'<div class="errorMsg"><p>Please select at least one bet type!</p></div>',
+                plain: true,
+                closeByDocument: false,
+                width: 285,
+                overlay: false,
+                className: 'ngdialog-theme-plain'
+            });
+        }
 
         function generateCurrency(data){
             vm.currencies = data;
@@ -92,7 +103,12 @@ import moment from "moment";
 
         function generate() {
             vm.reportCriteria = vm.getReportCriteria();
-            $rootScope.$broadcast('nap-filter-generate', vm.reportCriteria);
+            if(vm.reportCriteria.betType === ""){
+                showErrorMsg();
+            }
+            else{
+                $rootScope.$broadcast('nap-filter-generate', vm.reportCriteria);
+            }
         }
 
         function todayClicked() {
@@ -123,9 +139,10 @@ import moment from "moment";
             generateCurrency(vm.currencies);
             generateDropdown(vm.sportSettings.sourceData);
             vm.reportType = "daily";
-            if(vm.user !== null){
+            if(vm.user !== undefined){
                 vm.user.title = "";
-            }   
+            }
+            $('.ngdialog-close').click();
             $rootScope.$broadcast('nap-filter-switch');
             $scope.$broadcast('angucomplete-alt:clearInput');
         }
@@ -147,7 +164,7 @@ import moment from "moment";
 
         function getBetType(sportItems){
             var betTypes = "";
-            for(var i = 0; i< sportItems.length; i++){
+            for(var i = 0; i < sportItems.length; i++){
                 betTypes = betTypes + sportItems[i].Id + ",";
             }
             return betTypes;

@@ -7,19 +7,47 @@
     width: 100%;
 }
 
-.ng2-sport-bold{
+.ng2-sport-bold {
     font-weight: bold;
 }
 
-.grid-boundary-popup .freegrid {
-  display: none;
-  //font-size: 0.8em !important; 
+.form-inline {
+    .row {
+        .col-section, .col-label {
+            /*text-shadow: 0 0 0.023em black;*/
+            /*font-weight: bold;*/
+        }
+    }
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content{
+    top: -122px;
 }
 
-.grid-boundary-popup{
+.errorMsg {
+    border: 1px solid red;
+    background: none repeat scroll 0 0 #ffd4d4;
+    font-weight: bold;
+    margin: -14px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: -15px;
+    margin-right: -15px;
+
+    p {
+        line-height: 36px;
+        margin-left: 10px;
+    }
+}
+
+.grid-boundary-popup .freegrid {
+    display: none;
+}
+
+.grid-boundary-popup {
     font-size: 0.85em !important;
 }
-.banner-popup{
+
+.banner-popup {
     height: 30px;
     background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
     margin-bottom: 7px;
@@ -28,6 +56,7 @@
     margin-top: -12px;
     border-radius: 5px;
 }
+
 .angucomplete-dropdown {
     overflow-y: auto !important;
     max-height: 150px !important;
