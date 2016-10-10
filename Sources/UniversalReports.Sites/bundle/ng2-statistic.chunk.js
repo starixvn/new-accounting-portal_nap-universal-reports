@@ -674,15 +674,11 @@ webpackJsonp([4],{
 	        vm.getReportCriteria = getReportCriteria;
 	        vm.updateDateRange = updateDateRange;
 	
-	        $scope.$on('nap-filter-date', function (event, data) {
-	            updateDateRange(data);
-	        });
-	
 	        function showErrorMsg() {
 	            ngDialog.open({
 	                template: '<div class="errorMsg"><p>Please select at least one bet type!</p></div>',
 	                plain: true,
-	                closeByDocument: false,
+	                closeByDocument: true,
 	                width: 285,
 	                overlay: false,
 	                className: 'ngdialog-theme-plain'
@@ -697,6 +693,7 @@ webpackJsonp([4],{
 	        function generateDropdown(data) {
 	            vm.sportSettings = {
 	                hasFilter: false,
+	                collapsedAll: true,
 	                checkedAll: true,
 	                idMember: "Id",
 	                nameMember: "Name",
@@ -711,6 +708,7 @@ webpackJsonp([4],{
 	        vm.reportCriteria = {};
 	
 	        function generate() {
+	            $('.ngdialog-close').click();
 	            vm.reportCriteria = vm.getReportCriteria();
 	            if (vm.reportCriteria.betType === "") {
 	                showErrorMsg();

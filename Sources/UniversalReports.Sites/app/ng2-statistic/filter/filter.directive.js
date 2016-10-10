@@ -51,7 +51,7 @@ import moment from "moment";
             ItemsSelected: "# selected",
             NoData: "Select options",
             AllItemsSelected: "All"
-        };          
+        }; 
         
         vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
@@ -65,16 +65,13 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
         vm.updateDateRange = updateDateRange;
+     
 
-        $scope.$on('nap-filter-date', function (event, data) {
-            updateDateRange(data);
-        });
-
-        function showErrorMsg(){
+        function showErrorMsg(){ 
             ngDialog.open({
                 template:'<div class="errorMsg"><p>Please select at least one bet type!</p></div>',
                 plain: true,
-                closeByDocument: false,
+                closeByDocument: true,
                 width: 285,
                 overlay: false,
                 className: 'ngdialog-theme-plain'
@@ -89,6 +86,7 @@ import moment from "moment";
         function generateDropdown(data){
             vm.sportSettings = {
                 hasFilter: false,
+                collapsedAll: true,
                 checkedAll: true,
                 idMember: "Id",
                 nameMember: "Name",
@@ -103,6 +101,7 @@ import moment from "moment";
         vm.reportCriteria = {};
 
         function generate() {
+            $('.ngdialog-close').click();
             vm.reportCriteria = vm.getReportCriteria();
             if(vm.reportCriteria.betType === ""){
                 showErrorMsg();

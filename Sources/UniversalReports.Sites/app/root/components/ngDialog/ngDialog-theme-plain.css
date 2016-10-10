@@ -1,8 +1,10 @@
 .ngdialog.ngdialog-theme-plain {
-  padding-bottom: 160px;
-  padding-top: 160px;
+  /*padding-bottom: 160px;*/
+  padding-top: 38px;
 }
-
+body.ngdialog-open {
+  overflow: initial !important;
+}
 .ngdialog.ngdialog-theme-plain .ngdialog-content {
   background: #fff;
   color: #444;
