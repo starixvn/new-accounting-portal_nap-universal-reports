@@ -300,6 +300,7 @@
     <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
     <Content Include="app\ng2-statistic\ng2-statistic.html" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
+    <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.js" />
     <Content Include="app\ng2-statistic\shared\fanex-grid-with-title.html" />
