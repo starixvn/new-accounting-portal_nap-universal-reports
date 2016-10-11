@@ -687,7 +687,7 @@ webpackJsonp([4],{
 	
 	        function generateCurrency(data) {
 	            vm.currencies = data;
-	            vm.currency = 2;
+	            vm.currency = -1;
 	        }
 	
 	        function generateDropdown(data) {
