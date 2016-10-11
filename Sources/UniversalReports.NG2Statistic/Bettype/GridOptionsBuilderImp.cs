@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
-using System.Linq;
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
@@ -32,14 +32,18 @@ namespace UniversalReports.NG2Statistic.Bettype
             int preBettypeId = 0;
             int mergeRowNumber = 0;
             foreach (var sportType in bettypeModel.Rows)
-            {                
+            {
                 foreach (var bettype in sportType.Rows)
                 {
                     currentBettypeId = bettype.BettypeId;
                     if (currentBettypeId != preBettypeId)
                     {
                         preBettypeId = currentBettypeId;
-                        mergeRowNumber = sportType.Rows.Where(s => s.BettypeId == currentBettypeId).Count();
+                        mergeRowNumber = sportType.Rows.Count(s => s.BettypeId == currentBettypeId);
+                    }
+                    else
+                    {
+                        mergeRowNumber = 0;
                     }
 
                     var cssClass = index == 0 ? "parent-level-0" : string.Empty;
@@ -49,8 +53,8 @@ namespace UniversalReports.NG2Statistic.Bettype
                         gridRows.Add(sportTypeRow);
                     }
 
-                    //var bettypeRow = BuildDataRow(bettype, cssClass, index == 0);
-                    //gridRows.Add(bettypeRow);
+                    var bettypeRow = BuildDataRow(bettype, mergeRowNumber, false);
+                    gridRows.Add(bettypeRow);
 
                     index++;
                 }
@@ -66,7 +70,7 @@ namespace UniversalReports.NG2Statistic.Bettype
             var columns = new List<Columns>();
             columns.Add(new Columns { Name = "Bettype", Value = sportType, Bold = true, CellAlignment = HAlignment.Left, MergeColNumber = 11 });
 
-            return new GridDataRow { Columns = columns, RowType = RowType.Even };
+            return new GridDataRow { Columns = columns, RowType = RowType.Even, CssClass = "parent-level-0 ng2-sport-bold" };
         }
 
         private List<GridDataRow> BuildFooter(BettypeModel total)
@@ -74,48 +78,36 @@ namespace UniversalReports.NG2Statistic.Bettype
             return new List<GridDataRow> { BuildDataTotalRow(total) };
         }
 
-        private GridDataRow BuildDataRow(BettypeModel raw, string cssClass, bool isSport)
+        private GridDataRow BuildDataRow(BettypeModel raw, int mergeRowNumber, bool isTotal)
         {
             var columns = new List<Columns>();
-            AssignDataRow(raw, columns, isSport);
-            if (isSport)
-            {
-                cssClass = cssClass + " ng2-sport-bold";
-            }
+            AssignDataRow(raw, columns, mergeRowNumber, isTotal);
 
             return new GridDataRow
             {
-                Columns = columns,
-                CssClass = cssClass,
-                RowType = isSport ? RowType.Even : RowType.Normal
+                Columns = columns
             };
         }
 
         private GridDataRow BuildDataTotalRow(BettypeModel raw)
         {
             var columns = new List<Columns>();
-            AssignDataRow(raw, columns, true);
+            AssignDataRow(raw, columns, 1, true);
 
             return new GridDataRow { Columns = columns };
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
-
-        private void AssignDataRow(BettypeModel raw, ICollection<Columns> columns, bool isSport)
+        private void AssignDataRow(BettypeModel raw, ICollection<Columns> columns, int mergeRowNumber, bool isTotal)
         {
-            var bold = isSport;
-            if (isSport)
-            {
-                columns.Add(new Columns { Name = "Bettype", Value = raw.Sporttype, Bold = true, CellAlignment = HAlignment.Left });
-            }
-            else
+            if (mergeRowNumber > 0 || isTotal)
             {
                 columns.Add(new Columns
                 {
                     Name = "Bettype",
                     Value = raw.Bettype,
-                    Bold = false,
-                    CellAlignment = HAlignment.Right
+                    CellAlignment = isTotal ? HAlignment.Center : HAlignment.Right,
+                    MergeRowNumber = mergeRowNumber
                 });
             }
 
@@ -123,7 +115,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "NoOfPlayers",
                 Value = raw.NoOfPlayers,
-                Bold = bold,
                 CustomAttributes = raw.SportId.ToString(),
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.Integer
@@ -132,7 +123,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "BetCount",
                 Value = raw.BetCount,
-                Bold = bold,
                 CustomAttributes = raw.BettypeId.ToString(),
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.Integer
@@ -141,7 +131,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "Currency",
                 Value = raw.Currency,
-                Bold = bold,
                 CustomAttributes = raw.CurrencyId.ToString(),
                 CellAlignment = HAlignment.Center
             });
@@ -149,7 +138,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "TotalBets",
                 Value = raw.TotalBets,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
@@ -157,7 +145,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "TotalWins",
                 Value = raw.TotalWins,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
@@ -165,7 +152,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "GameIncome",
                 Value = raw.GameIncome,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
@@ -173,7 +159,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "GamePayout",
                 Value = raw.GamePayout,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = raw.GamePayout > 1 ? ExcelCellType.PercentageRedPositive : ExcelCellType.Percentage,
                 CssClass = raw.GamePayout > 1 ? "format-negative" : string.Empty
@@ -182,7 +167,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "CompanyTurnover",
                 Value = raw.CompanyTurnover,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
@@ -190,7 +174,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "CompanyComm",
                 Value = raw.CompanyComm,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
@@ -198,7 +181,6 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Name = "CompanyNetIncome",
                 Value = raw.CompanyNetIncome,
-                Bold = bold,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });

@@ -26,20 +26,20 @@ namespace UniversalReports.NG2Statistic.GrandTotal
 
         private List<GridDataRow> BuildBodyRows(GrandTotalModel grandTotalModel)
         {
-            return grandTotalModel.Rows.Select(BuildDataRow).ToList();
+            return grandTotalModel.Rows.Select(s => BuildDataRow(s, false)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(GrandTotalModel total)
         {
-            return new List<GridDataRow> { BuildDataRow(total) };
+            return new List<GridDataRow> { BuildDataRow(total, true) };
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
-        private GridDataRow BuildDataRow(GrandTotalModel raw)
+        private GridDataRow BuildDataRow(GrandTotalModel raw, bool isTotal)
         {
             var columns = new List<Columns>
             {
-                new Columns { Name = "Name", Value = raw.Currency, CellAlignment = HAlignment.Center },
+                new Columns { Name = "Name", Value = (isTotal ? "Grand Total " : "Total ") + raw.Currency, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "NoOfPlayers",

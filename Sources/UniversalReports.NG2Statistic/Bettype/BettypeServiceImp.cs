@@ -52,7 +52,7 @@ namespace UniversalReports.NG2Statistic.Bettype
                 {
                     var rows = multi.Read<BettypeModel>();
                     var total = multi.Read<BettypeModel>().FirstOrDefault();
-                    total.Sporttype = "Grand Total RM";
+                    total.Bettype = "Grand Total RM";
 
                     bettype.Rows = rows.ToList();
                     bettype.Total = total;

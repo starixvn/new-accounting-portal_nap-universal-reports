@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 
@@ -27,16 +26,29 @@ namespace UniversalReports.NG2Statistic.UserName
 
         private List<GridDataRow> BuildBodyRows(UserNameModel userNameModel)
         {
-            return userNameModel.Rows.Select(s => BuildDataRow(s)).ToList();
+            var gridRows = new List<GridDataRow>();
+            int index = 0;
+            string cssClass = string.Empty;
+            RowType rowType = RowType.Normal;
+            foreach (var user in userNameModel.Rows)
+            {
+                cssClass = index % 2 == 0 ? "parent-level-0" : string.Empty;
+                rowType = index % 2 == 0 ? RowType.Even : RowType.Normal;
+                var gridRow = BuildDataRow(user, false, cssClass, rowType);
+                gridRows.Add(gridRow);
+                index++;
+            }
+
+            return gridRows;
         }
 
         private List<GridDataRow> BuildFooter(UserNameModel total)
         {
-            return new List<GridDataRow> { BuildDataRow(total, true) };
+            return new List<GridDataRow> { BuildDataRow(total, true, string.Empty, RowType.Normal) };
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
-        private GridDataRow BuildDataRow(UserNameModel raw, bool isTotal = false)
+        private GridDataRow BuildDataRow(UserNameModel raw, bool isTotal, string cssClass, RowType rowType)
         {
             object custId = raw.CustId;
             if (isTotal)
@@ -113,7 +125,7 @@ namespace UniversalReports.NG2Statistic.UserName
                 }
             };
 
-            return new GridDataRow { Columns = columns };
+            return new GridDataRow { Columns = columns, CssClass = cssClass, RowType = rowType };
         }
     }
 }

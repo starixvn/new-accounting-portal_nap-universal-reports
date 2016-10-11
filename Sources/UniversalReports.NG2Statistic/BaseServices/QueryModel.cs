@@ -26,6 +26,8 @@ namespace UniversalReports.NG2Statistic.BaseServices
 
         public bool IsRealTime { get; set; } = true;
 
+        public bool IsDrillDown { get; set; }
+
         public string Title { get; set; }
 
         public string SortColumnName { get; set; }

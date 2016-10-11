@@ -23,8 +23,8 @@ namespace UniversalReports.NG2Statistic.GrandTotal
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Grand Total", Width = 100, Name = "Name", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = "No.PLayers", Width = 100, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
+                new HeaderColumns { HeaderText = "Grand Total", Width = 120, Name = "Name", CellAlignment = HAlignment.Center },
+                new HeaderColumns { HeaderText = "No.PLayers", Width = 80, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
                 new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
                 new HeaderColumns { HeaderText = "Currency", Width = 80, Name = "Currency", CellAlignment = HAlignment.Center },
                 new HeaderColumns { HeaderText = "Total Bets", Width = 120, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
