@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Linq;
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
@@ -27,13 +28,29 @@ namespace UniversalReports.NG2Statistic.Bettype
         {
             var index = 0;
             var gridRows = new List<GridDataRow>();
+            int currentBettypeId = 0;
+            int preBettypeId = 0;
+            int mergeRowNumber = 0;
             foreach (var sportType in bettypeModel.Rows)
             {                
                 foreach (var bettype in sportType.Rows)
                 {
+                    currentBettypeId = bettype.BettypeId;
+                    if (currentBettypeId != preBettypeId)
+                    {
+                        preBettypeId = currentBettypeId;
+                        mergeRowNumber = sportType.Rows.Where(s => s.BettypeId == currentBettypeId).Count();
+                    }
+
                     var cssClass = index == 0 ? "parent-level-0" : string.Empty;
-                    var gridRow = BuildDataRow(bettype, cssClass, index == 0);
-                    gridRows.Add(gridRow);
+                    if (index == 0)
+                    {
+                        var sportTypeRow = BuildDataSportRow(sportType.Sporttype);
+                        gridRows.Add(sportTypeRow);
+                    }
+
+                    //var bettypeRow = BuildDataRow(bettype, cssClass, index == 0);
+                    //gridRows.Add(bettypeRow);
 
                     index++;
                 }
@@ -42,6 +59,14 @@ namespace UniversalReports.NG2Statistic.Bettype
             }
 
             return gridRows;
+        }
+
+        private GridDataRow BuildDataSportRow(string sportType)
+        {
+            var columns = new List<Columns>();
+            columns.Add(new Columns { Name = "Bettype", Value = sportType, Bold = true, CellAlignment = HAlignment.Left, MergeColNumber = 11 });
+
+            return new GridDataRow { Columns = columns, RowType = RowType.Even };
         }
 
         private List<GridDataRow> BuildFooter(BettypeModel total)

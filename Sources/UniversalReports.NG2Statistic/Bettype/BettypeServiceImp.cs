@@ -23,11 +23,11 @@ namespace UniversalReports.NG2Statistic.Bettype
             var bettype = new BettypeModel { Total = new BettypeModel() };
 
             var dataRaw = DataRaw(queryModel);
-            var sportTypeIds = dataRaw.Rows.Select(s => s.SportId).Distinct().ToList();
-            foreach (var sportTypeId in sportTypeIds)
+            var sportTypes = dataRaw.Rows.Select(s => new { s.SportId, s.Sporttype }).Distinct().ToList();
+            foreach (var sportType in sportTypes)
             {
-                var bettypesBySportId = dataRaw.Rows.Where(s => s.SportId == sportTypeId).ToList();
-                bettype.Rows.Add(new BettypeModel { Rows = bettypesBySportId });
+                var bettypesBySportId = dataRaw.Rows.Where(s => s.SportId == sportType.SportId).ToList();
+                bettype.Rows.Add(new BettypeModel { Rows = bettypesBySportId, SportId = sportType.SportId, Sporttype = sportType.Sporttype });
             }
 
             bettype.Total = dataRaw.Total;
