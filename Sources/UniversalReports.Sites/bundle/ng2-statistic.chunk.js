@@ -638,7 +638,6 @@ webpackJsonp([4],{
 	        vm.reportType = "daily";
 	        vm.currentLevel = 0;
 	        vm.normalMode = true;
-	
 	        vm.today = config.today;
 	        vm.yesterday = config.yesterday;
 	        vm.date = config.today;
