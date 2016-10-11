@@ -34,13 +34,13 @@ import moment from "moment";
         vm.yesterday = config.yesterday;
         vm.date = config.today;
         vm.startDate = moment.utc(config.yesterday);
-        vm.endDate = moment.utc(config.yesterday);   
+        vm.endDate = moment.utc(config.yesterday);
         vm.balanceUpDate = config.balanceUpDate;
-               
+
         vm.sportItems = [];
-        filterService.getSports().then(function(data){
+        filterService.getSports().then(function (data) {
             generateDropdown(data);
-        });       
+        });
 
         vm.sportTextSettings = {
             CheckAll: "ALL",
@@ -50,8 +50,8 @@ import moment from "moment";
             ItemsSelected: "# selected",
             NoData: "Select options",
             AllItemsSelected: "All"
-        }; 
-        
+        };
+
         vm.currencies = [];
         filterService.getCurrencies().then(function (data) {
             generateCurrency(data);
@@ -64,25 +64,14 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
         vm.updateDateRange = updateDateRange;
-     
+              
 
-        function showErrorMsg(){ 
-            ngDialog.open({
-                template:'<div class="errorMsg"><p>Please select at least one bet type!</p></div>',
-                plain: true,
-                closeByDocument: true,
-                width: 285,
-                overlay: false,
-                className: 'ngdialog-theme-plain'
-            });
-        }
-
-        function generateCurrency(data){
+        function generateCurrency(data) {
             vm.currencies = data;
             vm.currency = -1;
         }
 
-        function generateDropdown(data){
+        function generateDropdown(data) {
             vm.sportSettings = {
                 hasFilter: false,
                 collapsedAll: true,
@@ -102,10 +91,8 @@ import moment from "moment";
         function generate() {
             $('.ngdialog-close').click();
             vm.reportCriteria = vm.getReportCriteria();
-            if(vm.reportCriteria.betType === ""){
-                showErrorMsg();
-            }
-            else{
+            if (validDateRange(vm.reportCriteria.startDate, vm.reportCriteria.endDate)
+                && validbetType(vm.reportCriteria.betType)) {
                 $rootScope.$broadcast('nap-filter-generate', vm.reportCriteria);
             }
         }
@@ -134,11 +121,11 @@ import moment from "moment";
             resetFilter();
         }
 
-        function resetFilter(){
+        function resetFilter() {
             generateCurrency(vm.currencies);
             generateDropdown(vm.sportSettings.sourceData);
             vm.reportType = "daily";
-            if(vm.user !== undefined){
+            if (vm.user !== undefined) {
                 vm.user.title = "";
             }
             $('.ngdialog-close').click();
@@ -161,9 +148,9 @@ import moment from "moment";
             };
         }
 
-        function getBetType(sportItems){
+        function getBetType(sportItems) {
             var betTypes = "";
-            for(var i = 0; i < sportItems.length; i++){
+            for (var i = 0; i < sportItems.length; i++) {
                 betTypes = betTypes + sportItems[i].Id + ",";
             }
             return betTypes;
@@ -192,8 +179,49 @@ import moment from "moment";
                 vm.date = dateRange.startDate;
             } else {
                 vm.startDate = dateRange.startDate;
-                vm.endDate = dateRange.endDate;     
+                vm.endDate = dateRange.endDate;
             }
+        }
+
+        function validbetType(betType) {
+
+            if (betType === "") {
+                var contentMsg = "Please select at least one bet type!";
+                showErrorMsg(contentMsg);
+                return false;
+            }
+            else {
+                return true;
+            }
+            
+        }
+
+        function validDateRange(fromDate, toDate) {
+            var gapYear = toDate.year() - fromDate.year();
+            var gapMonth = toDate.month() - fromDate.month();
+            var gapDay = toDate.date() - fromDate.date();
+
+            if ((gapYear > 1) || (gapYear === 1 && gapMonth > 0)
+                || (gapYear === 1 && gapMonth === 0) && gapDay > 0) {
+                var contentMsg = "Date range should not exceed 1 year";
+                showErrorMsg(contentMsg);
+                return false;
+            }
+            else {
+
+                return true;
+            }
+        }
+
+        function showErrorMsg(msg) {
+            ngDialog.open({
+                template: '<div class="errorMsg"><p>' + msg + '</p></div>',
+                plain: true,
+                closeByDocument: true,
+                width: 295,
+                overlay: false,
+                className: 'ngdialog-theme-plain'
+            });
         }
     }
 })(angular);
