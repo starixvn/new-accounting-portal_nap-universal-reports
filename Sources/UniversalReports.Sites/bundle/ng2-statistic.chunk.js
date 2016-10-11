@@ -206,9 +206,11 @@ webpackJsonp([4],{
 	
 	                for (var i = 0; i < data.bodyRows.length; i++) {
 	                    var row = data.bodyRows[i];
-	                    row.Columns[3].Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + row.Columns[3].CustomAttr + ',\'' + row.Columns[2].CustomAttr + '\')">' + row.Columns[3].Value + '</a>';
+	                    if (row.Columns.length > 1) {
+	                        var column = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
+	                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + column.CustomAttr + ',\'' + column.CustomAttr + '\')">' + column.Value + '</a>';
+	                    }
 	                }
-	
 	                data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
 	            }
 	        }
