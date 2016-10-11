@@ -127,15 +127,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bettype\BettypeUnittests.cs" />
     <Compile Include="Daily\DailyUnitTests.cs" />
+    <Compile Include="GrandTotal\GrandTotalUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Username\UsernameUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Bettype\TestData\BettypeController-expectedData.json" />
+    <None Include="Bettype\TestData\BettypeController-fakeData.json" />
+    <None Include="Bettype\TestData\BettypeController-queryModel.json" />
     <None Include="Daily\TestData\DailyController-expectedData.json" />
     <None Include="Daily\TestData\DailyController-fakeData.json" />
     <None Include="Daily\TestData\DailyController-queryModel.json" />
+    <None Include="GrandTotal\TestData\GrandTotalController-expectedData.json" />
+    <None Include="GrandTotal\TestData\GrandTotalController-fakeData.json" />
+    <None Include="GrandTotal\TestData\GrandTotalController-queryModel.json" />
     <None Include="packages.config" />
+    <None Include="Username\TestData\UserNameController-expectedData.json" />
+    <None Include="Username\TestData\UserNameController-fakeData.json" />
+    <None Include="Username\TestData\UserNameController-queryModel.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\UniversalReports.Core\UniversalReports.Core.csproj">

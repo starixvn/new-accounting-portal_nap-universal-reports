@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using UniversalReports.Core.TestUtility;
 using UniversalReports.MVC.Results;
 using UniversalReports.NG2Statistic.BaseServices;
 
@@ -24,7 +23,7 @@ namespace UniversalReports.NG2Statistic.Daily
         {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);         
+            gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);
 
             return Json(gridOptions);
         }
