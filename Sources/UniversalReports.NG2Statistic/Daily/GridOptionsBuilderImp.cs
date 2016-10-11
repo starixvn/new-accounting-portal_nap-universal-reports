@@ -131,8 +131,9 @@ namespace UniversalReports.NG2Statistic.Daily
             {
                 Name = "GamePayout",
                 Value = raw.GamePayout,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.PercentageRedNegative
+                CellAlignment = HAlignment.Right,                
+                CustomCellType = raw.GamePayout > 1 ? ExcelCellType.PercentageRedPositive : ExcelCellType.Percentage,
+                CssClass = raw.GamePayout > 1 ? "format-negative" : string.Empty
             });
             columns.Add(new Columns
             {

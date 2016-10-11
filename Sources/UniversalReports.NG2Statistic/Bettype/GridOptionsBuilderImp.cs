@@ -26,21 +26,19 @@ namespace UniversalReports.NG2Statistic.Bettype
         private List<GridDataRow> BuildBodyRows(BettypeModel bettypeModel)
         {
             var index = 0;
-            var indexGroup = 0;
             var gridRows = new List<GridDataRow>();
             foreach (var sportType in bettypeModel.Rows)
-            {
-                var cssClass = indexGroup % 2 == 0 ? string.Empty : "parent-level-0";
+            {                
                 foreach (var bettype in sportType.Rows)
                 {
-                    var gridRow = BuildDataRow(bettype, cssClass, index == 0, indexGroup);
+                    var cssClass = index == 0 ? "parent-level-0" : string.Empty;
+                    var gridRow = BuildDataRow(bettype, cssClass, index == 0);
                     gridRows.Add(gridRow);
 
                     index++;
                 }
 
                 index = 0;
-                indexGroup++;
             }
 
             return gridRows;
@@ -51,7 +49,7 @@ namespace UniversalReports.NG2Statistic.Bettype
             return new List<GridDataRow> { BuildDataTotalRow(total) };
         }
 
-        private GridDataRow BuildDataRow(BettypeModel raw, string cssClass, bool isSport, int indexGroup)
+        private GridDataRow BuildDataRow(BettypeModel raw, string cssClass, bool isSport)
         {
             var columns = new List<Columns>();
             AssignDataRow(raw, columns, isSport);
@@ -64,7 +62,7 @@ namespace UniversalReports.NG2Statistic.Bettype
             {
                 Columns = columns,
                 CssClass = cssClass,
-                RowType = indexGroup % 2 == 0 ? RowType.Normal : RowType.Even
+                RowType = isSport ? RowType.Even : RowType.Normal
             };
         }
 
@@ -152,7 +150,8 @@ namespace UniversalReports.NG2Statistic.Bettype
                 Value = raw.GamePayout,
                 Bold = bold,
                 CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.PercentageRedNegative
+                CustomCellType = raw.GamePayout > 1 ? ExcelCellType.PercentageRedPositive : ExcelCellType.Percentage,
+                CssClass = raw.GamePayout > 1 ? "format-negative" : string.Empty
             });
             columns.Add(new Columns
             {
