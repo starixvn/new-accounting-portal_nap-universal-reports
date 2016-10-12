@@ -27578,10 +27578,10 @@ webpackJsonp([0],[
 	            var specificDateConfig = yesterdayConfig;
 	            var last3MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(3, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(3, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday) };
 	            var last6MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(6, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(6, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday) };
 	            var last1YearConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'years').startOf('month'),
 	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
@@ -27595,7 +27595,7 @@ webpackJsonp([0],[
 	                "since-last-month": sinceLastMonthConfig,
 	                "specific-date": specificDateConfig,
 	                "last-3-months": last3MonthsConfig,
-	                "last-6-months": last3MonthsConfig,
+	                "last-6-months": last6MonthsConfig,
 	                "last-1-year": last1YearConfig
 	
 	            };
