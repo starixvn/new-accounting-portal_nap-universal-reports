@@ -649,6 +649,7 @@ webpackJsonp([4],{
 	        vm.endDate = _moment2.default.utc(config.yesterday);
 	        vm.balanceUpDate = config.balanceUpDate;
 	        vm.sportItems = [];
+	        vm.user = undefined;
 	        filterService.getSports().then(function (data) {
 	            generateDropdown(data);
 	        });
@@ -675,9 +676,6 @@ webpackJsonp([4],{
 	        vm.viewHistoryMode = viewHistoryMode;
 	        vm.getReportCriteria = getReportCriteria;
 	        vm.updateDateRange = updateDateRange;
-	        vm.changeFc = function (text) {
-	            console.log(text);
-	        };
 	
 	        function generateCurrency(data) {
 	            vm.currencies = data;
@@ -753,11 +751,16 @@ webpackJsonp([4],{
 	                normalMode: dateRange.normalMode,
 	                startDate: dateRange.startDate,
 	                endDate: dateRange.endDate,
-	                username: vm.user !== undefined ? vm.user.title : "",
+	                username: vm.user === undefined ? "" : getUserName(),
 	                currency: vm.currency,
 	                balanceUpDate: vm.balanceUpDate,
 	                betType: getBetType(vm.sportItems)
 	            };
+	        }
+	
+	        function getUserName() {
+	
+	            return vm.user.title != undefined ? vm.user.title : vm.user.originalObject;
 	        }
 	
 	        function getBetType(sportItems) {
