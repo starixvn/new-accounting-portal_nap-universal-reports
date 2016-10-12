@@ -27523,6 +27523,10 @@ webpackJsonp([0],[
 	        vm.changeTimePeriod = changeTimePeriod;
 	        vm.changeTimePeriod();
 	
+	        $scope.$on('nap-filter-switch-history', function (event, data) {
+	            vm.timePeriod = data;
+	        });
+	
 	        $scope.$on('nap-date-picker-select', function (event, data) {
 	
 	            setDateRangeContrains(data);
@@ -27565,26 +27569,26 @@ webpackJsonp([0],[
 	            };
 	            var lastWeekConfig = {
 	                datefrom: moment.utc(yesterday).subtract(7, 'days').startOf('week'),
-	                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week') };
+	                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week').subtract({ 'hours': 1 }) };
 	            var currentMonthConfig = {
 	                datefrom: moment.utc(yesterday).startOf('month'),
 	                dateto: moment.utc(yesterday) };
 	            var lastMonthConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
 	            var sinceLastMonthConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
 	                dateto: moment.utc(yesterday) };
 	            var specificDateConfig = yesterdayConfig;
 	            var last3MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(3, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
 	            var last6MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(6, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
 	            var last1YearConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'years').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month') };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
 	
 	            return {
 	                "yesterday": yesterdayConfig,

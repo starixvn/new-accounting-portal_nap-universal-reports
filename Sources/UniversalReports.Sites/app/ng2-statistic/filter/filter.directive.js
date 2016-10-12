@@ -116,6 +116,7 @@ import moment from "moment";
 
         function viewHistoryMode() {
             vm.normalMode = false;
+            $scope.$broadcast('nap-filter-switch-history', "yesterday");
             $('.filter-note').css('display', 'none');
             resetFilter();
         }
