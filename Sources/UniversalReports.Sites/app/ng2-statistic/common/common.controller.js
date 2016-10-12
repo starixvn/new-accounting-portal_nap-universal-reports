@@ -23,7 +23,7 @@ import moment from "moment";
             angular.extend(data, pane.data);
             angular.extend(data, {
                 drilldownType: "Currency",
-                currency: idCurrency,
+                currency: pane.data.currency === -1 ? -1: idCurrency,
                 startDate: moment.utc(dateCurrency).startOf('day'),
                 endDate: moment.utc(dateCurrency).startOf('day'),
                 isDrilldown: true

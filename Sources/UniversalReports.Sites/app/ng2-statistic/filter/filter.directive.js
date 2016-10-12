@@ -149,7 +149,7 @@ import moment from "moment";
 
         function getUserName(){
 
-            return vm.user.title != undefined ? vm.user.title : vm.user.originalObject;
+            return vm.user.title !== undefined ? vm.user.title : vm.user.originalObject;
         }
 
         function getBetType(sportItems) {

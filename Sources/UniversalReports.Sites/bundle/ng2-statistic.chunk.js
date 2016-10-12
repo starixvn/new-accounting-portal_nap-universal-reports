@@ -404,7 +404,7 @@ webpackJsonp([4],{
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
 	                drilldownType: "Currency",
-	                currency: idCurrency,
+	                currency: pane.data.currency === -1 ? -1 : idCurrency,
 	                startDate: _moment2.default.utc(dateCurrency).startOf('day'),
 	                endDate: _moment2.default.utc(dateCurrency).startOf('day'),
 	                isDrilldown: true
@@ -760,7 +760,7 @@ webpackJsonp([4],{
 	
 	        function getUserName() {
 	
-	            return vm.user.title != undefined ? vm.user.title : vm.user.originalObject;
+	            return vm.user.title !== undefined ? vm.user.title : vm.user.originalObject;
 	        }
 	
 	        function getBetType(sportItems) {
