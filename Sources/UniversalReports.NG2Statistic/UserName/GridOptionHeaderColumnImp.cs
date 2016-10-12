@@ -24,7 +24,7 @@ namespace UniversalReports.NG2Statistic.UserName
         {
             return new List<HeaderColumns>
             {
-                new HeaderColumns { HeaderText = "Username", Width = 130, Name = "Name", CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == "Name" ? queryModel.SortDirection : string.Empty },
+                new HeaderColumns { HeaderText = "Username", Width = 130, Name = "Username", CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == "Username" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Player ID", Width = 100, Name = "CustId", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.General, Sort = true, SortDirection = queryModel.SortColumnName == "CustId" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Bet Count", Width = 100, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer, Sort = true, SortDirection = queryModel.SortColumnName == "BetCount" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Currency", Width = 80, Name = "Currency", CellAlignment = HAlignment.Center, Sort = true, SortDirection = queryModel.SortColumnName == "Currency" ? queryModel.SortDirection : string.Empty },

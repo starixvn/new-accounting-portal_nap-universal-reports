@@ -58,7 +58,7 @@ namespace UniversalReports.NG2Statistic.UserName
 
             var columns = new List<Columns>
             {
-                new Columns { Name = "Name", Value = raw.Username, CellAlignment = HAlignment.Center },
+                new Columns { Name = "Username", Value = raw.Username, CellAlignment = HAlignment.Center },
                 new Columns
                 {
                     Name = "CustId",

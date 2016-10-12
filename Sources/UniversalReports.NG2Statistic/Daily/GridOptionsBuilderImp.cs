@@ -125,7 +125,7 @@ namespace UniversalReports.NG2Statistic.Daily
                 Name = "GameIncome",
                 Value = raw.GameIncome,
                 CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedPositive
+                CustomCellType = ExcelCellType.DoubleRedNegative
             });
             columns.Add(new Columns
             {
@@ -140,21 +140,21 @@ namespace UniversalReports.NG2Statistic.Daily
                 Name = "CompanyTurnover",
                 Value = raw.CompanyTurnover,
                 CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedPositive
+                CustomCellType = ExcelCellType.DoubleRedNegative
             });
             columns.Add(new Columns
             {
                 Name = "CompanyComm",
                 Value = raw.CompanyComm,
                 CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedPositive
+                CustomCellType = ExcelCellType.DoubleRedNegative
             });
             columns.Add(new Columns
             {
                 Name = "CompanyNetIncome",
                 Value = raw.CompanyNetIncome,
                 CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedPositive
+                CustomCellType = ExcelCellType.DoubleRedNegative
             });
         }
     }
