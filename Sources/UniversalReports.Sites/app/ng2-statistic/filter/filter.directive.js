@@ -36,7 +36,6 @@ import moment from "moment";
         vm.startDate = moment.utc(config.yesterday);
         vm.endDate = moment.utc(config.yesterday);
         vm.balanceUpDate = config.balanceUpDate;
-
         vm.sportItems = [];
         filterService.getSports().then(function (data) {
             generateDropdown(data);
@@ -64,6 +63,9 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
         vm.updateDateRange = updateDateRange;
+        vm.changeFc = function(text){
+            console.log(text);
+        }
               
 
         function generateCurrency(data) {

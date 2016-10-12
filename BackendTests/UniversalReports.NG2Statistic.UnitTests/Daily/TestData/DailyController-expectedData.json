@@ -57,7 +57,7 @@
     {
       "HeaderText": "Currency",
       "ShowCollapseExpand": false,
-      "Width": 80,
+      "Width": 100,
       "HeaderAlign": "center",
       "IsAbs": false,
       "Sort": true,
@@ -217,7 +217,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 4,
+          "Value": 92,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -227,7 +227,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 285,
+          "Value": 6042,
           "CssClass": null,
           "CustomAttr": "8/5/2016",
           "CellAlign": "right",
@@ -247,7 +247,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 31259006.9153,
+          "Value": 857357301.0035,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -257,7 +257,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 58935944.9165,
+          "Value": 1067910314.8188,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -267,7 +267,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -27676938.0012,
+          "Value": -210553013.8153,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -277,8 +277,8 @@
         },
         {
           "Name": "GamePayout",
-          "Value": 1.8854,
-          "CssClass": null,
+          "Value": 1.2456,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -287,7 +287,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 5054519.1739,
+          "Value": 230426287.0305,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -297,7 +297,7 @@
         },
         {
           "Name": "CompanyComm",
-          "Value": 0.0,
+          "Value": -5324.8864,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -307,7 +307,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -7403821.5855,
+          "Value": -91013497.7307,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -333,7 +333,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 5,
+          "Value": 93,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -343,7 +343,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 342,
+          "Value": 6213,
           "CssClass": null,
           "CustomAttr": "8/12/2016",
           "CellAlign": "right",
@@ -363,7 +363,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 61259165.8678,
+          "Value": 793004180.514,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -373,7 +373,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 143102618.9519,
+          "Value": 1998900494.041,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -383,7 +383,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -81843453.0841,
+          "Value": -1205896313.527,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -393,8 +393,8 @@
         },
         {
           "Name": "GamePayout",
-          "Value": 2.336,
-          "CssClass": null,
+          "Value": 2.5207,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -403,7 +403,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 10318299.0939,
+          "Value": 212234942.0176,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -423,7 +423,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -9456872.1153,
+          "Value": -210603850.2642,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -449,7 +449,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 5,
+          "Value": 90,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -459,7 +459,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 285,
+          "Value": 6327,
           "CssClass": null,
           "CustomAttr": "8/20/2016",
           "CellAlign": "right",
@@ -479,7 +479,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 5152009.9168,
+          "Value": 64517432.7646,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -489,7 +489,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 263796569.7133,
+          "Value": 1458114697.9364,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -499,7 +499,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -258644559.7965,
+          "Value": -1393597265.1718,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -509,8 +509,8 @@
         },
         {
           "Name": "GamePayout",
-          "Value": 51.2027,
-          "CssClass": null,
+          "Value": 22.6003,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -519,7 +519,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 6436789.9895,
+          "Value": 136288785.5636,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -539,7 +539,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -2015385.5399,
+          "Value": -21354775.122,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -565,7 +565,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 4,
+          "Value": 51,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -575,7 +575,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 285,
+          "Value": 3591,
           "CssClass": null,
           "CustomAttr": "8/25/2016",
           "CellAlign": "right",
@@ -595,7 +595,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 102156351.0377,
+          "Value": 349070743.9051,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -605,7 +605,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 256749268.4269,
+          "Value": 811197182.4716,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -615,7 +615,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -154592917.3892,
+          "Value": -462126438.5665,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -625,8 +625,8 @@
         },
         {
           "Name": "GamePayout",
-          "Value": 2.5133,
-          "CssClass": null,
+          "Value": 2.3239,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -635,7 +635,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 36406556.6861,
+          "Value": 176094226.7352,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -645,7 +645,7 @@
         },
         {
           "Name": "CompanyComm",
-          "Value": -649287.1405,
+          "Value": -2653740.4283,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -655,7 +655,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -5694800.6424,
+          "Value": -24065375.3763,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -681,7 +681,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 1,
+          "Value": 4,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -691,7 +691,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 684,
+          "Value": 1197,
           "CssClass": null,
           "CustomAttr": "9/1/2016",
           "CellAlign": "right",
@@ -711,7 +711,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 62295322.2984,
+          "Value": 181221764.7078,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -721,7 +721,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 224465255.9676,
+          "Value": 652986264.4947,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -731,7 +731,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -162169933.6692,
+          "Value": -471764499.7869,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -742,7 +742,7 @@
         {
           "Name": "GamePayout",
           "Value": 3.6032,
-          "CssClass": null,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -751,7 +751,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 10073029.5576,
+          "Value": 29303198.457,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -771,7 +771,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -43381867.4352,
+          "Value": -126201106.0098,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -781,6 +781,354 @@
         }
       ],
       "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "Winlostdate",
+          "Value": "Oct 01, 2016",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "NoOfPlayers",
+          "Value": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "BetCount",
+          "Value": 114,
+          "CssClass": null,
+          "CustomAttr": "10/1/2016",
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Currency",
+          "Value": "RM",
+          "CssClass": null,
+          "CustomAttr": "2",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalBets",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalWins",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GameIncome",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GamePayout",
+          "Value": 0.0,
+          "CssClass": "",
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyTurnover",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyComm",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyNetIncome",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "parent-level-0",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "Winlostdate",
+          "Value": "Oct 02, 2016",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "NoOfPlayers",
+          "Value": 1,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "BetCount",
+          "Value": 57,
+          "CssClass": null,
+          "CustomAttr": "10/2/2016",
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Currency",
+          "Value": "RM",
+          "CssClass": null,
+          "CustomAttr": "2",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalBets",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalWins",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GameIncome",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GamePayout",
+          "Value": 0.0,
+          "CssClass": "",
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyTurnover",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyComm",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyNetIncome",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "Winlostdate",
+          "Value": "Oct 03, 2016",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "NoOfPlayers",
+          "Value": 1,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "BetCount",
+          "Value": 54,
+          "CssClass": null,
+          "CustomAttr": "10/3/2016",
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Currency",
+          "Value": "RM",
+          "CssClass": null,
+          "CustomAttr": "2",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalBets",
+          "Value": 2068.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "TotalWins",
+          "Value": 2840.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GameIncome",
+          "Value": -772.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "GamePayout",
+          "Value": 1.3733,
+          "CssClass": "format-negative",
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyTurnover",
+          "Value": 660.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyComm",
+          "Value": -1.38,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "CompanyNetIncome",
+          "Value": -232.98,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "parent-level-0",
       "CustomAttr": null
     }
   ],
@@ -799,7 +1147,7 @@
         },
         {
           "Name": "NoOfPlayers",
-          "Value": 15,
+          "Value": 300,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -809,7 +1157,7 @@
         },
         {
           "Name": "BetCount",
-          "Value": 1881,
+          "Value": 23595,
           "CssClass": null,
           "CustomAttr": "1/1/0001",
           "CellAlign": "right",
@@ -829,7 +1177,7 @@
         },
         {
           "Name": "TotalBets",
-          "Value": 262121856.036,
+          "Value": 2245173490.895,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -839,7 +1187,7 @@
         },
         {
           "Name": "TotalWins",
-          "Value": 947049657.9762,
+          "Value": 5989111793.7625,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -849,7 +1197,7 @@
         },
         {
           "Name": "GameIncome",
-          "Value": -684927801.9402,
+          "Value": -3743938302.8675,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -859,8 +1207,8 @@
         },
         {
           "Name": "GamePayout",
-          "Value": 3.6130129409969216,
-          "CssClass": null,
+          "Value": 2.667549665115208,
+          "CssClass": "format-negative",
           "CustomAttr": null,
           "CellAlign": "right",
           "StartIndex": [],
@@ -869,7 +1217,7 @@
         },
         {
           "Name": "CompanyTurnover",
-          "Value": 68289194.501,
+          "Value": 784348099.8039,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -879,7 +1227,7 @@
         },
         {
           "Name": "CompanyComm",
-          "Value": -649287.1405,
+          "Value": -2659066.6947,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -889,7 +1237,7 @@
         },
         {
           "Name": "CompanyNetIncome",
-          "Value": -67952747.3183,
+          "Value": -473238837.483,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

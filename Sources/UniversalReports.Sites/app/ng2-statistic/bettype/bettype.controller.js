@@ -23,7 +23,7 @@ import moment from "moment";
             angular.extend(data, pane.data);
             angular.extend(data, {
                 drilldownType: "Currency",
-                currency: idCurrency,
+                currency: pane.data.currency === -1 ? -1: idCurrency,
                 betType: betTypeId,
                 isDrilldown: true
             }
@@ -89,9 +89,11 @@ import moment from "moment";
                     var row = data.bodyRows[i];
                     if(row.Columns.length > 1){
                         var column = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
-                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + column.CustomAttr + ',\''
-                                                                                                                + column.CustomAttr + '\')">'
-                                                                                                                +column.Value + '</a>';
+                        var currencyId = column.CustomAttr;
+                        var betTypeId = row.Columns.length === 11 ? row.Columns[2] : row.Columns[1];
+                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\''
+                                                                                                            + betTypeId.CustomAttr + '\')">'
+                                                                                                            +column.Value + '</a>';
                     }                    
                 }
                 data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';

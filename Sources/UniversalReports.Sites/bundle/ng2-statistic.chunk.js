@@ -143,7 +143,7 @@ webpackJsonp([4],{
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
 	                drilldownType: "Currency",
-	                currency: idCurrency,
+	                currency: pane.data.currency === -1 ? -1 : idCurrency,
 	                betType: betTypeId,
 	                isDrilldown: true
 	            });
@@ -208,7 +208,9 @@ webpackJsonp([4],{
 	                    var row = data.bodyRows[i];
 	                    if (row.Columns.length > 1) {
 	                        var column = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
-	                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + column.CustomAttr + ',\'' + column.CustomAttr + '\')">' + column.Value + '</a>';
+	                        var currencyId = column.CustomAttr;
+	                        var betTypeId = row.Columns.length === 11 ? row.Columns[2] : row.Columns[1];
+	                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\'' + betTypeId.CustomAttr + '\')">' + column.Value + '</a>';
 	                    }
 	                }
 	                data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
@@ -646,7 +648,6 @@ webpackJsonp([4],{
 	        vm.startDate = _moment2.default.utc(config.yesterday);
 	        vm.endDate = _moment2.default.utc(config.yesterday);
 	        vm.balanceUpDate = config.balanceUpDate;
-	
 	        vm.sportItems = [];
 	        filterService.getSports().then(function (data) {
 	            generateDropdown(data);
@@ -674,6 +675,9 @@ webpackJsonp([4],{
 	        vm.viewHistoryMode = viewHistoryMode;
 	        vm.getReportCriteria = getReportCriteria;
 	        vm.updateDateRange = updateDateRange;
+	        vm.changeFc = function (text) {
+	            console.log(text);
+	        };
 	
 	        function generateCurrency(data) {
 	            vm.currencies = data;

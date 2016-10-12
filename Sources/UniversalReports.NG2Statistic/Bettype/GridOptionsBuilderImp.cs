@@ -43,7 +43,7 @@ namespace UniversalReports.NG2Statistic.Bettype
                     }
                     else
                     {
-                        mergeRowNumber = 0;
+                        mergeRowNumber = currentBettypeId == 0 ? 1 : 0;
                     }
 
                     var cssClass = index == 0 ? "parent-level-0" : string.Empty;
