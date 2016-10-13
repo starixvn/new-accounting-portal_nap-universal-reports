@@ -69,6 +69,12 @@ import moment from "moment";
             };
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.titleInfo = titleInfo;
+            data.pagerOption = {
+                itemsPerPage: 50,
+                currentPage: 0,
+                itemsPerPageArray: [50, 100, 200, 500],
+                totalItem: data.bodyRows.length
+            };
             data.sortOption = sortOptions;
             gridElement.fanexGrid(data);
         }
