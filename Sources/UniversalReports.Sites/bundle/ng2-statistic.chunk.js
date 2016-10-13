@@ -592,7 +592,9 @@ webpackJsonp([4],{
 	                username: data.username,
 	                currency: data.currency,
 	                moveBetsDay: data.balanceUpDate,
-	                isDrilldown: data.isDrilldown
+	                isDrilldown: data.isDrilldown,
+	                sortColumnName: data.sortColumnName,
+	                sortDirection: data.sortDirection
 	            };
 	            var url = 'api/ng2-statistic/' + data.reportType + '/excel';
 	
