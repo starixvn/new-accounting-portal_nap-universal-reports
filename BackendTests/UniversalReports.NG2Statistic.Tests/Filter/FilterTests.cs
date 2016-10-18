@@ -3,7 +3,7 @@ using Fanex.Repository;
 using NUnit.Framework;
 using UniversalReports.NG2Statistic.Filter;
 
-namespace UniversalReports.NG2Statistic.Tests.Repository
+namespace UniversalReports.NG2Statistic.Tests.Filter
 {
     [TestFixture]
     [Category("NG2 Filter")]

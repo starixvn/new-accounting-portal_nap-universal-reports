@@ -22,8 +22,10 @@ namespace UniversalReports.Sites
             container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
+            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>(Lifestyle.Transient);
             container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>(Lifestyle.Transient);
             container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<BettypeReport.SortingService, BettypeReport.SortingServiceImp>(Lifestyle.Transient);
         }
     }
 }

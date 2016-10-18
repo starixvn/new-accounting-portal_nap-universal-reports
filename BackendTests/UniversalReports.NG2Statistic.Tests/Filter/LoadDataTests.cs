@@ -6,7 +6,7 @@ using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistic.BaseServices;
 using UniversalReports.NG2Statistic.Daily;
 
-namespace UniversalReports.NG2Statistic.Tests.Repository
+namespace UniversalReports.NG2Statistic.Tests.Filter
 {
     [TestFixture]
     [Category("NG2 Loading Data")]

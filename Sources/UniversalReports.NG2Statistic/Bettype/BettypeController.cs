@@ -9,21 +9,20 @@ namespace UniversalReports.NG2Statistic.Bettype
     {
         private readonly BettypeService service;
         private readonly GridOptionsBuilder builder;
-        private readonly BaseGridOptionHeaderColumn header;
+        private readonly SortingService sorting;
 
-        public BettypeController(BettypeService service, GridOptionsBuilder builder, BaseGridOptionHeaderColumn header)
+        public BettypeController(BettypeService service, GridOptionsBuilder builder, SortingService sorting)
         {
             this.service = service;
             this.builder = builder;
-            this.header = header;
+            this.sorting = sorting;
         }
 
         [Route("")]
         public IHttpActionResult Bettype(QueryModel queryModel)
         {
             var dailyModel = service.Query(queryModel);
-            var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel);
 
             return Json(gridOptions);
         }
@@ -31,9 +30,9 @@ namespace UniversalReports.NG2Statistic.Bettype
         [Route("sort")]
         public IHttpActionResult Sort(QueryModel queryModel)
         {
-            var dailyModel = service.SortData(queryModel);
-            var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
+            var dailyModel = service.Query(queryModel);
+            sorting.SortingData(dailyModel, queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel);
 
             return Json(gridOptions);
         }
@@ -42,8 +41,8 @@ namespace UniversalReports.NG2Statistic.Bettype
         public IHttpActionResult Excel(QueryModel queryModel)
         {
             var dailyModel = service.Query(queryModel);
-            var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Bet Type", "Bettype", queryModel);
+            sorting.SortingData(dailyModel, queryModel);
+            var gridOptions = builder.Build(dailyModel, queryModel);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistic");
         }

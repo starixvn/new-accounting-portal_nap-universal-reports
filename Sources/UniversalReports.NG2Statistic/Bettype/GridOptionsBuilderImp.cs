@@ -1,65 +1,67 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.Bettype
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        public GridOptions Build(BettypeModel bettypeModel, string title)
+        private readonly BaseGridOptionHeaderColumn headerBuilder;
+
+        public GridOptionsBuilderImp(BaseGridOptionHeaderColumn headerBuilder)
         {
-            return new GridOptions
-            {
-                CustomizeHeader = true,
-                ShowTitle = true,
-                TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title,
-                BodyRows = BuildBodyRows(bettypeModel),
-                FooterRows = BuildFooter(bettypeModel.Total),
-                ShowHighlightRow = false,
-                ShowDistinctRow = false,
-                ShowFooter = true
-            };
+            this.headerBuilder = headerBuilder;
+        }
+
+        public GridOptions Build(BettypeModel bettypeModel, QueryModel queryModel)
+        {
+            var gridOptions = new GridOptions
+             {
+                 CustomizeHeader = true,
+                 ShowTitle = true,
+                 TitleType = TitleType.TwoLineBlue,
+                 TitleInfoText = queryModel.Title,
+                 BodyRows = BuildBodyRows(bettypeModel),
+                 FooterRows = BuildFooter(bettypeModel.Total),
+                 ShowHighlightRow = false,
+                 ShowDistinctRow = false,
+                 ShowFooter = true
+             };
+
+            return headerBuilder.Build(gridOptions, "Bet Type", "Bettype", queryModel);
         }
 
         private List<GridDataRow> BuildBodyRows(BettypeModel bettypeModel)
         {
-            var index = 0;
+            var bettypeIndex = 0;
             var gridRows = new List<GridDataRow>();
-            int currentBettypeId = 0;
-            int preBettypeId = 0;
             int mergeRowNumber = 0;
             foreach (var sportType in bettypeModel.Rows)
             {
+                var cssClass = bettypeIndex == 0 ? "parent-level-0" : string.Empty;
+                var sportTypeRow = BuildDataSportRow(sportType.Sporttype);
+                gridRows.Add(sportTypeRow);
+
                 foreach (var bettype in sportType.Rows)
                 {
-                    currentBettypeId = bettype.BettypeId;
-                    if (currentBettypeId != preBettypeId)
+                    mergeRowNumber = bettype.Rows.Count;
+                    foreach (var row in bettype.Rows)
                     {
-                        preBettypeId = currentBettypeId;
-                        mergeRowNumber = sportType.Rows.Count(s => s.BettypeId == currentBettypeId);
-                    }
-                    else
-                    {
-                        mergeRowNumber = currentBettypeId == 0 ? 1 : 0;
-                    }
+                        if (bettypeIndex > 0)
+                        {
+                            mergeRowNumber = 0;
+                        }
 
-                    var cssClass = index == 0 ? "parent-level-0" : string.Empty;
-                    if (index == 0)
-                    {
-                        var sportTypeRow = BuildDataSportRow(sportType.Sporttype);
-                        gridRows.Add(sportTypeRow);
+                        var bettypeRow = BuildDataRow(row, mergeRowNumber, false);
+                        gridRows.Add(bettypeRow);
+
+                        bettypeIndex++;
                     }
 
-                    var bettypeRow = BuildDataRow(bettype, mergeRowNumber, false);
-                    gridRows.Add(bettypeRow);
-
-                    index++;
+                    bettypeIndex = 0;
                 }
-
-                index = 0;
             }
 
             return gridRows;

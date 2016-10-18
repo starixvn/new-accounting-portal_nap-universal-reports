@@ -8,6 +8,10 @@ namespace UniversalReports.Core.SortUtility
         public static void SortDataByProperty<T>(List<T> dataSource, string sortDirection, string sortColumnName)
         {
             var propInfo = typeof(T).GetProperty(sortColumnName);
+            if (propInfo == null)
+            {
+                return;
+            }
 
             Comparison<T> compare = delegate(T a, T b)
             {

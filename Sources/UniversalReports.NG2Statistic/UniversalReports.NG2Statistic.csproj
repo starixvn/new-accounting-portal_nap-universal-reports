@@ -156,6 +156,10 @@
     <Compile Include="Bettype\GridOptionsBuilder.cs" />
     <Compile Include="Bettype\GridOptionsBuilderImp.cs" />
     <Compile Include="BaseServices\NG2CriteriaBase.cs" />
+    <Compile Include="Bettype\Repository.cs" />
+    <Compile Include="Bettype\RepositoryImp.cs" />
+    <Compile Include="Bettype\SortingService.cs" />
+    <Compile Include="Bettype\SortingServiceImp.cs" />
     <Compile Include="Daily\DailyCriteria.cs" />
     <Compile Include="Daily\DailyModel.cs" />
     <Compile Include="Daily\DailyService.cs" />

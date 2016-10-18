@@ -107,7 +107,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bettype\BettypeUnittests.cs" />
+    <Compile Include="Bettype\BettypeControllerUnitTests.cs" />
+    <Compile Include="Bettype\BettypeServiceTests.cs" />
+    <Compile Include="Bettype\BettypeServiceUnittests.cs" />
+    <Compile Include="Bettype\BettypeSortingServiceUnitTests.cs" />
     <Compile Include="Daily\DailyUnitTests.cs" />
     <Compile Include="GrandTotal\GrandTotalUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +121,11 @@
     <None Include="Bettype\TestData\BettypeController-expectedData.json" />
     <None Include="Bettype\TestData\BettypeController-fakeData.json" />
     <None Include="Bettype\TestData\BettypeController-queryModel.json" />
+    <None Include="Bettype\TestData\BettypeService-expectedData.json" />
+    <None Include="Bettype\TestData\BettypeService-fakeData.json" />
+    <None Include="Bettype\TestData\SortingService-sortExpectedData.json" />
+    <None Include="Bettype\TestData\SortingService-sortFakeData.json" />
+    <None Include="Bettype\TestData\SortingService-sortQueryModel.json" />
     <None Include="Daily\TestData\DailyController-expectedData.json" />
     <None Include="Daily\TestData\DailyController-fakeData.json" />
     <None Include="Daily\TestData\DailyController-queryModel.json" />

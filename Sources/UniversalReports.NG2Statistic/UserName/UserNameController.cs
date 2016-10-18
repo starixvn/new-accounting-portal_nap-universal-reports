@@ -41,7 +41,10 @@ namespace UniversalReports.NG2Statistic.UserName
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {
-            var userNameModel = service.Query(queryModel);
+            queryModel.SortColumnName = string.IsNullOrEmpty(queryModel.SortColumnName) ? "Username" : queryModel.SortColumnName;
+            queryModel.SortDirection = string.IsNullOrEmpty(queryModel.SortDirection) ? "asc" : queryModel.SortDirection;
+
+            var userNameModel = service.SortData(queryModel);
             var gridOptions = builder.Build(userNameModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, queryModel);
 

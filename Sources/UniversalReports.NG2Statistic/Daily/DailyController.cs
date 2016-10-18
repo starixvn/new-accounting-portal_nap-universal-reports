@@ -42,7 +42,11 @@ namespace UniversalReports.NG2Statistic.Daily
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {
+            queryModel.SortColumnName = string.IsNullOrEmpty(queryModel.SortColumnName) ? "Winlostdate" : queryModel.SortColumnName;
+            queryModel.SortDirection = string.IsNullOrEmpty(queryModel.SortDirection) ? "asc" : queryModel.SortDirection;
+
             var dailyModel = service.Query(queryModel);
+            dailyModel = service.SortData(dailyModel, queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
             gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);
 
