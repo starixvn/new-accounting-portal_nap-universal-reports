@@ -26,7 +26,7 @@ import moment from "moment";
     function controller($scope, $rootScope, config, filterService, ngDialog) {
         /*jshint validthis: true */
         var vm = this;
-        vm.minDate = moment("20130101", "YYYYMMDD");
+        vm.minDate = moment("20161101", "YYYYMMDD");
         vm.reportType = "daily";
         vm.currentLevel = 0;
         vm.normalMode = true;

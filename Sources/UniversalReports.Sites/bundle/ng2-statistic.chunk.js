@@ -646,7 +646,7 @@ webpackJsonp([4],{
 	    function controller($scope, $rootScope, config, filterService, ngDialog) {
 	        /*jshint validthis: true */
 	        var vm = this;
-	        vm.minDate = (0, _moment2.default)("20130101", "YYYYMMDD");
+	        vm.minDate = (0, _moment2.default)("20161101", "YYYYMMDD");
 	        vm.reportType = "daily";
 	        vm.currentLevel = 0;
 	        vm.normalMode = true;
