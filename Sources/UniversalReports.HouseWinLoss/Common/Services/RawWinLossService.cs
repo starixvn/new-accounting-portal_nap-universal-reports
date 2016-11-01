@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 {
     public interface RawWinLossService
     {
-        List<RawWinLoss> Query(WinLossCriteria criteria);
+        List<WinLossRaw> Query(WinLossCriteria criteria);
     }
 }

@@ -1,6 +1,6 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
@@ -16,8 +16,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
         [Test]
         public void Query_ReturnRightProductWinLoss()
         {
-            // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
+            // Arrange
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
             var expected = TestDataLoader.Load<ProductWinLoss>("data-1-expected");
 
             var criteria = new WinLossCriteria();
@@ -25,7 +25,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(criteria).Returns(fakeData);
 
-            // Act 
+            // Act
             var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.Query(criteria);
 
@@ -36,8 +36,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
         [Test]
         public void GetProductGroup_ReturnRightGetProductGroupWinLoss()
         {
-            // Arrange   
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-2-fakeData");
+            // Arrange
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-2-fakeData");
             var expected = TestDataLoader.Load<ProductGroupWinLoss>("data-2-expected");
 
             var calculationService = new CalculationServiceImp();

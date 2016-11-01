@@ -1,8 +1,9 @@
-﻿(function (angular, undefined) {
+import angular from "angular";
+(function (angular, undefined) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('SoccerMajorMinorController', SoccerMajorMinorController);
 
     SoccerMajorMinorController.$inject = ['$scope', '$element', 'fanexGridService', 'soccerConstants', 'showHideColumnService'];
@@ -15,10 +16,14 @@
         $scope.generate = generate;
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
-        pane.data.isLive = (pane.data.soccerLiveNonLive == "Soccer Non-Live") ? soccerConstants.NonLive : soccerConstants.Live;
+        $scope.viewSetting = {};
+        pane.data.isLive = pane.data.soccerLiveNonLive === "Soccer Non-Live"
+            ? soccerConstants.NonLive 
+            : soccerConstants.Live;
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElements, data);
                 createLinksForMajorMinor(data);
                 renderGrid(gridElements, data);
@@ -50,18 +55,22 @@
         }
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betTypeNameMajorMinor: betTypeNameMajorMinor,
                 sportTypeName: betTypeNameMajorMinor
-            };
-            angular.extend(data, pane.data);
-
+            });
             tab.goForward('soccerBetType', data);
         }
 
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            var httpData = {
+                title: title
+            };
+            angular.extend(httpData, pane.data);
+            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }
     }
 })(angular, undefined);

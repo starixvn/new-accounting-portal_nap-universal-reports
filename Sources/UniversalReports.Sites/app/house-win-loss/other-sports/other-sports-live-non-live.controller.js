@@ -1,16 +1,15 @@
-﻿(function (angular, undefined) {
+import angular from "angular";
+(function (angular, undefined) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('OtherSportsLiveNonLiveController', OtherSportsLiveNonLiveController);
 
-    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'sportTypeService', 'showHideColumnService'];
-    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, sportTypeService, showHideColumnService) {
+    OtherSportsLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+    function OtherSportsLiveNonLiveController($scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
-        var getProductTitle = sportTypeService.getTitle;
-        var getProductLiveNonLiveTitle = pane.service.getTitle;
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
         var sportTypeGridElement = angular.element(gridElements[0]);
@@ -19,51 +18,41 @@
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.generateSportType = generateSportType;
+        $scope.viewSetting = {};
 
-        function generateBetType(sportType, sportTypeName) {
-            var data = {
-                sportType: sportType,
-                sportTypeName: sportTypeName
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('betType', data);
-        }
-
-        function generateSportType(isLive) {
-            var data = {
-                isLive: isLive
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('sportType', data);
-        }
-
-        function generate() {
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
             var sportTypeGridOptions,
                 liveNonLiveGridOptions;
-            var renderAll = function () {
-                if (angular.isDefined(sportTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions)) {
-                    showHideColumnBuilder.build([sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
-                    createLinksForSportType(sportTypeGridOptions);
-                    renderGridForSportType(sportTypeGridOptions);
-                    createLinksForLiveNonLive(liveNonLiveGridOptions);
-                    renderGridForLiveNonLive(liveNonLiveGridOptions);
-                    pane.compileAll();
-                }
-            };
-            sportTypeService.getData(pane.data).then(function (data) {
-                sportTypeGridOptions = data;
-                renderAll();
-            });
-            pane.service.getData(pane.data).then(function (data) {
+
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
                 liveNonLiveGridOptions = data;
                 renderAll();
             });
+
+            pane.service.getSportTypeData(viewSetting, pane.data).then(function (data) {
+                sportTypeGridOptions = data;
+                renderAll();
+            });
+
+            function renderAll() {
+                var isDataReady = angular.isDefined(sportTypeGridOptions) && angular.isDefined(liveNonLiveGridOptions);
+                if (!isDataReady) {
+                    return;
+                }
+
+                showHideColumnBuilder.build([sportTypeGridElement, liveNonLiveGridElement], [sportTypeGridOptions, liveNonLiveGridOptions]);
+                createLinksForSportType(sportTypeGridOptions);
+                renderGridForSportType(sportTypeGridOptions);
+                createLinksForLiveNonLive(liveNonLiveGridOptions);
+                renderGridForLiveNonLive(liveNonLiveGridOptions);
+                pane.compileAll();
+            }
         }
 
         function renderGridForSportType(data) {
-            pane.service.getTitle = getProductTitle;
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: tab.generateBreadcrumbHtmlWithSuffix(""),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
                 exportExcelFunction: exportExcel,
@@ -71,7 +60,6 @@
             };
 
             data.titleInfo = titleInfo;
-            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(sportTypeGridElement, true);
             data.bottomBorderWidth = 3;
             sportTypeGridElement.fanexGrid(data);
         }
@@ -81,20 +69,18 @@
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeName = sportTypeRow.Columns[0].Value;
                 var sportType = sportTypeRow.Columns[0].CustomAttr;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportType + ',\'' + sportTypeName.replace('\'', '\\\'') + '\')">' + sportTypeName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportType + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
             }
         }
 
         function renderGridForLiveNonLive(data) {
-            pane.service.getTitle = getProductLiveNonLiveTitle;
             var titleInfo = {
-                text: tab.generateBreadcrumbHtml(),
+                text: tab.generateBreadcrumbHtmlWithSuffix(" Live/Non-Live"),
                 showCollapseExpandButton: true,
                 showExcelButton: false
             };
 
             data.titleInfo = titleInfo;
-            //data.gridExpandHeight = fanexGridService.calculateExpandHeight(liveNonLiveGridElement, true);
             data.bottomBorderWidth = 3;
             liveNonLiveGridElement.fanexGrid(data);
         }
@@ -108,12 +94,36 @@
             }
         }
 
+        function generateBetType(sportType, sportTypeName) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                sportType: sportType,
+                sportTypeName: sportTypeName
+            });
+            tab.goForward('betType', data);
+        }
+
+        function generateSportType(isLive) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                isLive: isLive
+            });
+            tab.goForward('sportType', data);
+        }
+
         function exportExcel() {
-            pane.service.getTitle = getProductTitle;
-            var sportTypeTitle = tab.generateBreadcrumbText();
-            pane.service.getTitle = getProductLiveNonLiveTitle;
-            var liveNonLiveTitle = tab.generateBreadcrumbText();
-            pane.service.exportExcel(sportTypeTitle, liveNonLiveTitle, pane.data, pane.getFileName());
+            var sportTypeTitle = tab.generateBreadcrumbTextWithSuffix("");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" Live/Non-Live");
+            var httpData = {};
+
+            angular.extend(httpData, pane.data);
+            angular.extend(httpData, {
+                sportTypeTitle: sportTypeTitle,
+                liveNonLiveTitle: liveNonLiveTitle
+            });
+            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }
     }
 })(angular, undefined);

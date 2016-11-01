@@ -1,7 +1,7 @@
-﻿using NSubstitute;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NSubstitute;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;

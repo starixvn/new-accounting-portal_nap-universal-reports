@@ -2,10 +2,10 @@
 
 using Fanex.Repository;
 using SimpleInjector;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
-using UniversalReports.HouseWinLoss.NumberGame.BetType;
 using CasinoProduct = UniversalReports.HouseWinLoss.Casino.Product;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
@@ -56,7 +56,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container
                 .Register<Common.MatchDetailByCode.GridOptionsBuilder, Common.MatchDetailByCode.GridOptionsBuilderImp>(
                     Lifestyle.Transient);
-            container.Register<Service, ServiceImp>(Lifestyle.Transient);
             container.Register<Products.Service, Products.ServiceImp>(Lifestyle.Transient);
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<Soccer.GroupBetType.WinLossService, Soccer.GroupBetType.WinLossServiceImp>(

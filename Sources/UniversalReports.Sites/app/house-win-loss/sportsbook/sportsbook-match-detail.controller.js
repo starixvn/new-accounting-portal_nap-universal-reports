@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
 
     SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
@@ -12,9 +13,11 @@
         var gridElement = $element.find('.freegrid');
         $scope.generate = generate;
         $scope.viewMatchInformation = viewMatchInformation;
+        $scope.viewSetting = {};
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
                 createLinks(data);
                 renderGrid(data);
                 pane.compileAll();
@@ -31,7 +34,7 @@
         }
 
         function showPopup(data, leagueName) {
-            var traderName = data && data.TraderName && data.TraderName != '' ? data.TraderName : "Unassigned";
+            var traderName = data && data.TraderName && data.TraderName !== '' ? data.TraderName : "Unassigned";
             var newScope = $scope.$new();
             angular.extend(newScope, {
                 sportTypeName: pane.data.sportTypeName,
@@ -51,11 +54,11 @@
 
         function getLiveName(data) {
 
-            if (data == 1) {
+            if (data === 1) {
                 return "Live!";
             }
-            else if (data == 0) {
-                return "Non-Live!"
+            else if (data === 0) {
+                return "Non-Live!";
             }
             else {
                 return " ";
@@ -101,7 +104,11 @@
 
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            var httpData = {};
+            angular.extend(httpData, pane.data);
+            angular.extend(httpData, { title: title });
+
+            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }
     }
 })(angular);

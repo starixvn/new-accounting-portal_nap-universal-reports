@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
                 FooterRows = BuildFooter(winLoss.Total),
                 ShowFooter = true,
                 ShowHighlightRow = false,
-                ShowDistinctRow = false,
+                ShowDistinctRow = false
             };
         }
 
@@ -67,9 +67,9 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
+        private IEnumerable<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
         {
-            return winLoss.Select(item => gridDataRowBuilder.BuildDataRow(item, HAlignment.Center)).ToList();
+            return winLoss.Select(item => gridDataRowBuilder.BuildDataRow(item, HAlignment.Center));
         }
 
         private List<GridDataRow> BuildFooter(WinLoss item)

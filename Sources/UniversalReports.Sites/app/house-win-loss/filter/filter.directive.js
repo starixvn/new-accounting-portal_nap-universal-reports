@@ -1,14 +1,17 @@
-﻿(function (angular) {
+import angular from "angular";
+import moment from "moment";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .directive('napFilter', napFilter);
 
     function napFilter() {
         var directive = {
             restrict: 'EA',
-            scope: {},
+            scope: {
+            },
             templateUrl: 'app/house-win-loss/filter/filter.directive.html',
             replace: true,
             controller: controller,
@@ -18,10 +21,11 @@
         return directive;
     }
 
-    controller.$inject = ['$scope', '$rootScope', 'config'];
-    function controller($scope, $rootScope, config) {
+    controller.$inject = ['$scope', '$rootScope', 'config', 'moment'];
+    function controller($scope, $rootScope, config, moment) {
         /*jshint validthis: true */
         var vm = this;
+        vm.minDate= moment("20110101", "YYYYMMDD");
         vm.currentLevel = 0;
         vm.normalMode = true;
         vm.today = config.today;
@@ -57,12 +61,14 @@
 
         function viewNormalMode() {
             vm.normalMode = true;
+
             $('.filter-note').css('display', 'block');
             $rootScope.$broadcast('nap-filter-switch');
         }
 
         function viewHistoryMode() {
             vm.normalMode = false;
+
             $('.filter-note').css('display', 'none');
             $rootScope.$broadcast('nap-filter-switch');
         }

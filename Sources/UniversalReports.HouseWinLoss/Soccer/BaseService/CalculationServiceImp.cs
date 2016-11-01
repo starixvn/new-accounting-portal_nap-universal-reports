@@ -7,7 +7,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
     public class CalculationServiceImp : Common.Services.CalculationServiceImp, CalculationService
     {
-        public List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<RawWinLoss> rawWinLosses)
+        public List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<WinLossRaw> rawWinLosses)
         {
             var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
             var winLosses = from @group in groups
@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             return winLossesByBetTypeGroup;
         }
 
-        public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        public WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var mainRawWinLosses = rawWinLosses
                 .Where(r => !r.GroupName.Contains("(hedge)"))
@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             return CalculateSumWinLoss(sumTitle, mainRawWinLosses);
         }
 
-        public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        public WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var otherRawWinLosses = rawWinLosses
                 .Where(r => !r.GroupName.Contains("(hedge)") && r.GroupName != "RM")
@@ -34,7 +34,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             return CalculateSumWinLoss(sumTitle, otherRawWinLosses);
         }
 
-        public WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses)
+        public WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var hedgeRawWinLosses = rawWinLosses
                 .Where(r => r.GroupName.Contains("(hedge)"));

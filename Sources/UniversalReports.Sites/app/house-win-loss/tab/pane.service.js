@@ -1,14 +1,15 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('napPane', napPane);
 
-    napPane.$inject = ['$log', '$compile', '$injector', 'companyWinlossService', 'showHideColumnService'];
-    function napPane($log, $compile, $injector, companyWinlossService, showHideColumnService) {
-        function Pane(level, data) {
-            this.level = level;
+    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
+    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
+        function Pane(viewLevel, data) {
+            this.viewLevel = viewLevel;
             this.data = data;
             this.$scope = undefined;
             this.$element = undefined;
@@ -19,18 +20,23 @@
             this.compileDrilldown = compileDrilldown;
             this.getFileName = getFileName;
 
-            if (angular.isUndefined(this.level) || angular.isUndefined(this.data)) {
+            if (angular.isUndefined(this.viewLevel) || angular.isUndefined(this.data)) {
                 $log.error('Invalid pane');
                 return;
             }
 
-            var template = companyWinlossService.getTemplate(data, level);
-            this.templateUrl = template.templateUrl;
-            this.controller = template.controller;
-            this.service = $injector.get(template.service);
+            this.viewSetting = houseWinlossService.getViewSetting(data.productName, viewLevel, data);
+            if(this.viewSetting === undefined) {
+                loggerService.logError('Sorry, the configuration is corrupted, please notify the administrators.');
+                throw 'Sorry, the configuration is corrupted, please notify the administrators.';
+            }
+
+            this.templateUrl = this.viewSetting.templateUrl;
+            this.controller = this.viewSetting.controller;
+            this.service = $injector.get(this.viewSetting.service);
 
             function generate() {
-                this.$scope.generate();
+                this.$scope.generate(this.viewSetting);
             }
 
             function show() {

@@ -1,5 +1,5 @@
-﻿using Fanex.Data.Repository;
-using System;
+﻿using System;
+using Fanex.Data.Repository;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.Common.Criteria

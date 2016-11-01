@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
+using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.HouseWinLoss.Factory;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket

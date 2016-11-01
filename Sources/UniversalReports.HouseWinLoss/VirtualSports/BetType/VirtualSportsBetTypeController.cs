@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
+using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Factory;
 
 namespace UniversalReports.HouseWinLoss.VirtualSports.BetType
 {

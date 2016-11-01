@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('showHideColumnService', showHideColumnService);
 
     showHideColumnService.$inject = ['$log', '$timeout', 'productShowHideColumnService'];

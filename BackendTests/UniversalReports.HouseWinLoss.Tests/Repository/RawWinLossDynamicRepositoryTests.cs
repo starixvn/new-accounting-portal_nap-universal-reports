@@ -1,8 +1,8 @@
-﻿using Fanex.Data.Repository;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Fanex.Data.Repository;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
         public void Fetch_Successful(ICriteria criteria)
         {
             var repository = new DynamicRepository();
-            repository.Fetch<RawWinLoss>(criteria);
+            repository.Fetch<WinLossRaw>(criteria);
         }
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
             var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();
             var betTradeSiteCriteria = new Bettrade.Site.Criteria { Site = "Deposit" };
 
-            var casinoBetTypeCriteria = new Casino.BetType.Criteria { ProductId = 6 };
+            var casinoBetTypeCriteria = new Casino.BetType.Criteria { CasinoProductId = 6 };
             var casinoProductCriteria = new Casino.Product.Criteria { CasinoType = 1 };
             var casinoSiteCriteria = new Casino.Site.Criteria
             {
@@ -45,13 +45,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 IsLive = 2
             };
 
-            var numberGameBetTypeCriteria = new NumberGame.BetType.Criteria();
-            var numberGameSiteCriteria = new NumberGame.Site.Criteria
-            {
-                BetType = 81,
-                IsLive = true,
-                Site = "Credit"
-            };
             var numberGameMatchDetailCriteria = new NumberGame.MatchDetail.Criteria
             {
                 BetType = 81,
@@ -101,6 +94,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 IsLive = 2
             };
 
+            var universalSportTypeCriteria = new Universal.SportType.Criteria { ProductId = 23 };
             var universalBetTypeCriteria = new Universal.BetType.Criteria { ProductId = 7 };
             var universalSiteCriteria = new Universal.Site.Criteria
             {
@@ -131,8 +125,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 metricGamingBetTypeCriteria,
                 metricGamingLiveNonLiveCriteria,
                 metricGamingSiteCriteria,
-                numberGameBetTypeCriteria,
-                numberGameSiteCriteria,
                 numberGameMatchDetailCriteria,
                 otherSportsBetTypeCriteria,
                 otherSportsLiveNonLiveCriteria,
@@ -148,6 +140,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 soccerLiveNonLiveCriteria,
                 soccerMajorMinorCriteria,
                 sportsbookSiteCriteria,
+                universalSportTypeCriteria,
                 universalBetTypeCriteria,
                 universalSiteCriteria,
                 virtualSportsBetTypeCriteria,

@@ -1,5 +1,4 @@
 ﻿using System;
-using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.HouseWinLoss.Racing.MatchDetail
 {
@@ -7,7 +6,6 @@ namespace UniversalReports.HouseWinLoss.Racing.MatchDetail
     {
         public DateTime StartDate { get; set; }
 
-        [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;

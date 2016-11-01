@@ -1,6 +1,6 @@
-﻿using Fanex.Excel.Models;
+﻿using System.Web.Http.Results;
+using Fanex.Excel.Models;
 using NUnit.Framework;
-using System.Web.Http.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -40,12 +40,16 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             {
                 case "MetricGaming.MatchDetail.MetricGamingMatchDetailController":
                     return TestDataLoader.Load<MetricGaming.MatchDetail.QueryModel>(controllerName, "queryModel");
+
                 case "Sportsbook.MatchDetail.SportsbookMatchDetailController":
                     return TestDataLoader.Load<Sportsbook.MatchDetail.QueryModel>(controllerName, "queryModel");
+
                 case "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController":
                     return TestDataLoader.Load<Sportsbook.OutrightMatchDetail.QueryModel>(controllerName, "queryModel");
+
                 case "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController":
                     return TestDataLoader.Load<VirtualSports.SportsbookDetail.QueryModel>(controllerName, "queryModel");
+
                 default: return null;
             }
         }

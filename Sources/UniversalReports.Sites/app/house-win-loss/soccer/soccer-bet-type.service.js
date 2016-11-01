@@ -1,30 +1,19 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('soccerBetTypeService', soccerBetTypeService);
 
     soccerBetTypeService.$inject = ['$http', 'httpResponseService', 'soccerConstants'];
     function soccerBetTypeService($http, httpResponseService, soccerConstants) {
         var service = {
-            getTitle: getTitle,
             getData: getData,
             exportExcel: exportExcel
         };
 
         return service;
-
-        function getTitle(data) {
-            var majorMinor = buildMajorFlag(data) ? "-MAJOR" : "-MINOR";
-            if (data.isLive == soccerConstants.LiveNonLive) {
-                return data.productName + majorMinor + ' BET TYPES';
-            }
-            else {
-                var liveNonLive = (data.isLive == soccerConstants.Live) ? '"LIVE"' : '"NON-LIVE"';
-                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
-            }
-        }
 
         function getData(data) {
             var isMajor = buildMajorFlag(data);
@@ -64,16 +53,16 @@
 
         function buildMajorFlag(data)
         {
-            return data.betTypeNameMajorMinor == "Soccer-Major Bet Types" ? true : false;
+            return data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? true : false;
         }
 
         function buildUrl(isLive, isMajor)
         {
             var url = "api/house-win-loss-by-products/soccer/bettype";
-            if (isMajor && isLive == soccerConstants.LiveNonLive) {
+            if (isMajor && isLive === soccerConstants.LiveNonLive) {
                 url = "api/house-win-loss-by-products/soccer/sum-bettype";
             }
-            else if (isMajor && isLive == soccerConstants.NonLive) {
+            else if (isMajor && isLive === soccerConstants.NonLive) {
                 url = "api/house-win-loss-by-products/soccer/group-bettype";
             }
 

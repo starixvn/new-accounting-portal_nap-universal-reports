@@ -1,46 +1,26 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('otherSportsLiveNonLiveService', otherSportsLiveNonLiveService);
 
-    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function otherSportsLiveNonLiveService($http, httpResponseService, companyWinlossService, titleService) {
+    otherSportsLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'remoteDataService'];
+    function otherSportsLiveNonLiveService($http, httpResponseService, houseWinlossService,  remoteDataService) {
         var service = {
-            getTitle: titleService.getProductLiveNonLiveTitle,
-            getData: getData,
-            exportExcel: exportExcel
+            getData: remoteDataService.getData,
+            getSportTypeData: getSportTypeData,
+            exportExcel: remoteDataService.exportExcel
         };
 
+        function getSportTypeData(viewSetting, data) {
+            var cloneViewSetting = {};
+            angular.extend(cloneViewSetting, viewSetting);
+            cloneViewSetting.serviceBaseUrl = "api/house-win-loss-by-products/other-sports/sport-type";
+            return remoteDataService.getData(cloneViewSetting, data);
+        }
+
         return service;
-
-        function getData(data) {
-            var httpData = {
-                startDate: data.startDate,
-                endDate: data.endDate,
-                normalMode: data.normalMode
-            };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live';
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(sportTypeTitle, liveNonLiveTitle, data, fileName) {
-            var httpData = {
-                sportTypeTitle: sportTypeTitle,
-                liveNonLiveTitle: liveNonLiveTitle,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                normalMode: data.normalMode
-            };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-non-live/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
     }
 })(angular);

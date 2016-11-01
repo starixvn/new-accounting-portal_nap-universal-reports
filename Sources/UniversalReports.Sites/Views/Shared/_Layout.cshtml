@@ -9,7 +9,8 @@
         BalanceUp = Convert.ToInt64(ViewBag.BalanceUp.BalanceUpDate
             .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
             .TotalMilliseconds)
-    };    
+    };
+    var contentVersion = HttpContext.Current.IsDebuggingEnabled ? "" : "min.";
 }
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
 <!--[if (IE 9)&!(IEMobile)]><html class="no-js ie9" lang="en"><![endif]-->
 <!--[if (gt IE 9)|(gt IEMobile 7)]><!-->
-<html lang="en" data-ng-app="app.companyWinlossApp" data-ng-strict-di>
+<html lang="en" data-ng-app="app.@ViewBag.AngularAppName" data-ng-strict-di>
 <!--<![endif]-->
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -28,10 +29,7 @@
     <meta name="description" content="Universal Reports" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title</title>
-    <link href="~/Scripts/Fanex.Grid.css" rel="stylesheet" />
-    <link href="~/Scripts/Fanex.Pagination.css" rel="stylesheet" />
-    <link href="~/stylesheets/Site.css" rel="stylesheet" />
-    <link href="~/stylesheets/scoreInformation.css" rel="stylesheet" />
+    <link href="~/bundle/app-style.css" rel="stylesheet" />    
     @RenderSection("Styles", false)    
 </head>
 <body>
@@ -42,46 +40,8 @@
     <script type="text/javascript">
         var napConfig = @Html.Raw(Json.Encode(napConfig));
     </script>
-    <script src="~/Scripts/Blob.js"></script>
-    <script src="~/Scripts/jquery-3.1.0.min.js"></script>
-    <script src="~/Scripts/moment.min.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/angular-route.min.js"></script>
-    <script src="~/Scripts/angular-sanitize.min.js"></script>
-    <script src="~/Scripts/angular-moment.min.js"></script>
-    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="~/javascripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/numeral/numeral.min.js"></script>
-    <script src="~/Scripts/Fanex.Grid.js"></script>
-    <script src="~/Scripts/Fanex.Pagination.js"></script>
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        <script src="~/app/app.js"></script>
-        <script src="~/app/app.config.js"></script>
-        <script src="~/app/app.constant.js"></script>
-
-        <script src="~/app/common/check-in.js"></script>
-        <script src="~/app/common/legacy.service.js"></script>
-        <script src="~/app/common/fanex-grid.service.js"></script>
-        <script src="~/app/common/http-response.service.js"></script>
-        <script src="~/app/common/logger.service.js"></script>
-
-        <script src="~/app/components/alert/alert.directive.js"></script>
-        <script src="~/app/components/date-picker/date-picker.directive.js"></script>
-        <script src="~/app/components/click/click.directive.js"></script>
-        <script src="~/app/components/legend/legend.service.js"></script>
-        <script src="~/app/components/legend/legend.directive.js"></script>
-        <script src="~/app/components/loading/loading.directive.js"></script>
-        <script src="~/app/components/header/header.directive.js"></script>
-        <script src="~/app/components/header/header.service.js"></script>
-        <script src="~/app/components/month-picker/month-picker.directive.js"></script>
-    }
-    else
-    {
-        <script src="~/app/main-app.min.js"></script>
-        <script src="~/app/common.min.js"></script>
-    }
-
+    <script src="~/bundle/lib.chunk.js"></script>
+    <script src="~/bundle/app.chunk.js"></script>
     @RenderSection("Scripts", false)
 </body>
 </html>

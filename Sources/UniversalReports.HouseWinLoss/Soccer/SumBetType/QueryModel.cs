@@ -1,6 +1,5 @@
 ﻿using System;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 {
@@ -8,7 +7,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
     {
         public DateTime StartDate { get; set; }
 
-        [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;

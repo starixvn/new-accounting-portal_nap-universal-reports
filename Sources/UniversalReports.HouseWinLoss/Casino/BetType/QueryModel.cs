@@ -1,5 +1,4 @@
 ﻿using System;
-using UniversalReports.MVC.Validation;
 
 namespace UniversalReports.HouseWinLoss.Casino.BetType
 {
@@ -7,11 +6,10 @@ namespace UniversalReports.HouseWinLoss.Casino.BetType
     {
         public DateTime StartDate { get; set; }
 
-        [DateTimeGreaterThan("StartDate")]
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
 
-        public int ProductId { get; set; }
+        public int CasinoProductId { get; set; }
     }
 }

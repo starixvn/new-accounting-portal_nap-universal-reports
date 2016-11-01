@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('CasinoProductController', CasinoProductController);
 
     CasinoProductController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService'];
@@ -14,18 +15,11 @@
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
+        $scope.viewSetting = {};
 
-        function generateBetType(productId, productName) {
-            var data = {
-                casinoProductId: productId,
-                casinoProductName: productName
-            };
-            angular.extend(data, pane.data);
-            tab.goForward('betType', data);
-        }
-
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
                 renderGrid(data);
@@ -33,12 +27,22 @@
             });
         }
 
+        function generateBetType(productId, productName) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                casinoProductId: productId,
+                casinoProductName: productName
+            });
+            tab.goForward('betType', data);
+        }
+
         function createLinks(data) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var productColumn = data.bodyRows[i].Columns[0];
                 var productId = productColumn.CustomAttr;
                 var productName = productColumn.Value;
-                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace('\'', '\\\'') + '\')">' + productName + '</a>';
+                productColumn.Value = '<a class="drill-down" href data-nap-click="generateBetType(' + productId + ',\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
             }
         }
 
@@ -58,8 +62,7 @@
         }
 
         function exportExcel() {
-            var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
         }
     }
 })(angular);

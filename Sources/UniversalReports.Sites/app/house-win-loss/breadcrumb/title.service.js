@@ -1,28 +1,32 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('titleService', titleService);
 
-    titleService.$inject = [];
-    function titleService() {
-        var productWinLossReport = 'Product Win/Loss Report' ;
-
+    titleService.$inject = ['soccerConstants'];
+    function titleService(soccerConstants) {
         var service = {
             getMainTitle: getMainTitle,
             getProductTitle: getProductTitle,
-            getProductLiveNonLiveTitle: getProductLiveNonLiveTitle,
+            getProductTitleLiveNonLive: getProductTitleLiveNonLive,
+            getProductTitleLive: getProductTitleLive,
+            getSoccerLiveNonLiveTitle: getSoccerLiveNonLiveTitle,
+            getSoccerMajorMinorTitle: getSoccerMajorMinorTitle,
+            getSoccerBetTypeTitle: getSoccerBetTypeTitle,
+            getSportsbookBetTypeTitle: getSportsbookBetTypeTitle,
+            getBetTypeLiveNonLiveTitle: getBetTypeLiveNonLiveTitle,
             getCasinoProductTitle: getCasinoProductTitle,
             getSportTypeTitle: getSportTypeTitle,
+            getSportTypeTitleLive: getSportTypeTitleLive,
             getSiteTitle: getSiteTitle,
-            getMatchDetailTitle: getMatchDetailTitle
+            getSiteTitleLive: getSiteTitleLive,
+            getMatchDetailTitle: getMatchDetailTitle,
+            getMatchDetailTitleLive: getMatchDetailTitleLive
         };
         return service;
-
-        function getSiteText(site) {
-            return '| ' + (site == undefined ? "ALL" : site) + ' Site';
-        }
 
         function getMainTitle(data) {
             return 'Main';
@@ -32,8 +36,57 @@
             return data.productName;
         }
 
-        function getProductLiveNonLiveTitle(data, isLast) {
-            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
+        function getProductTitleLiveNonLive(data, isLast) {
+            return isLast
+                ? data.productName + ' Live/Non-Live '
+                : data.productName;
+        }
+
+        function getProductTitleLive(data) {
+            return data.productName
+                + getLiveText(data.isLive);
+        }
+
+        function getSoccerLiveNonLiveTitle(data, isLast) {
+            return isLast
+                ? ' SOCCER LIVE/NON-LIVE'
+                : "SOCCER";
+        }
+
+        function getSoccerMajorMinorTitle(data) {
+            if (data.isLive === soccerConstants.LiveNonLive) {
+                return data.productName + ' ' + "MAJOR/MINOR";
+            }
+            else {
+                var liveNonLive = data.isLive === soccerConstants.Live ? "LIVE" : "NON-LIVE";
+                return data.productName + ' ' + liveNonLive;
+            }
+        }
+
+        function getSoccerBetTypeTitle(data) {
+            var majorMinor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
+            if (data.isLive === soccerConstants.LiveNonLive) {
+                return data.productName + majorMinor + ' BET TYPES';
+            }
+            else {
+                var liveNonLive = data.isLive === soccerConstants.Live ? '"LIVE"' : '"NON-LIVE"';
+                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
+            }
+        }
+
+        function getSportsbookBetTypeTitle(data) {
+            var sportType = getSportTypeTitle(data);
+            var product = getProductTitleLive(data);
+            var viewingFromSportType = sportType !== undefined;
+            return viewingFromSportType
+                        ? sportType
+                        : product;
+        }
+
+        function getBetTypeLiveNonLiveTitle(data) {
+            return data.isLive === undefined
+                ? data.productName
+                : data.productName + getLiveText(data.isLive);
         }
 
         function getCasinoProductTitle(data) {
@@ -44,12 +97,39 @@
             return data.sportTypeName;
         }
 
+        function getSportTypeTitleLive(data) {
+            return data.sportTypeName
+                + getLiveText(data.isLive);
+        }
+
         function getSiteTitle(data) {
-            return data.betTypeName + ' ' + getSiteText(data.site);
+            var site = data.site === undefined ? "ALL" : data.site;
+            return data.betTypeName
+                + ' | '
+                + site
+                + ' Site';
+        }
+
+        function getSiteTitleLive(data) {
+            return data.betTypeName
+                + getLiveText(data.isLive)
+                + '| '
+                + data.site + ' Site';
         }
 
         function getMatchDetailTitle(data) {
             return data.betTypeName;
+        }
+
+        function getMatchDetailTitleLive(data) {
+            return data.betTypeName
+                + getLiveText(data.isLive);
+        }
+
+        function getLiveText(isLive) {
+            return ' "'
+                + (isLive ? 'Live' : 'Non-Live')
+                + '" ';
         }
     }
 })(angular);

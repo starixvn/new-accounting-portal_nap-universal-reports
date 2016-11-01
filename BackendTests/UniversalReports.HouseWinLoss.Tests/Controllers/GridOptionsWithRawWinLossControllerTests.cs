@@ -1,9 +1,9 @@
-﻿using Fanex.Excel.Models;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Web.Http.Results;
+using Fanex.Excel.Models;
+using NUnit.Framework;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -39,7 +39,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
                 "MetricGaming.Site.MetricGamingSiteController",
                 "NumberGame.MatchDetail.NumberGameMatchDetailController",
-                "NumberGame.Site.NumberGameSiteController",
                 "OtherSports.BetType.OtherSportsBetTypeController",
                 "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
                 "OtherSports.SportType.OtherSportsSportTypeController",
@@ -56,6 +55,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 "Soccer.MajorMinor.SoccerMajorMinorController",
                 "Soccer.SumBetType.SoccerSumBetTypeController",
                 "Sportsbook.Site.SportsbookSiteController",
+                "Universal.SportType.UniversalSportTypeController",
                 "Universal.BetType.UniversalBetTypeController",
                 "Universal.Site.UniversalSiteController",
                 "VirtualSports.BetType.VirtualSportsBetTypeController",

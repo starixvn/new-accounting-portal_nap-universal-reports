@@ -5,13 +5,13 @@
  * @author Contributors: https://github.com/cjohansen/Sinon.JS/blob/master/AUTHORS
  *
  * (The BSD License)
- * 
+ *
  * Copyright (c) 2010-2014, Christian Johansen, christian@cjohansen.no
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
+ *
  *     * Redistributions of source code must retain the above copyright notice,
  *       this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above copyright notice,
@@ -20,7 +20,7 @@
  *     * Neither the name of Christian Johansen nor the names of his contributors
  *       may be used to endorse or promote products derived from this software
  *       without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -157,7 +157,6 @@ define.amd = true;
         }
     }
 
-
     /**
      * @name samsam.deepEqual
      * @param Object obj1
@@ -174,7 +173,6 @@ define.amd = true;
      * Supports cyclic objects.
      */
     function deepEqualCyclic(obj1, obj2) {
-
         // used for cyclic comparison
         // contain already visited objects
         var objects1 = [],
@@ -194,14 +192,12 @@ define.amd = true;
          * only needed for cyclic logic
          */
         function isObject(value) {
-
             if (typeof value === 'object' && value !== null &&
                     !(value instanceof Boolean) &&
                     !(value instanceof Date)    &&
                     !(value instanceof Number)  &&
                     !(value instanceof RegExp)  &&
                     !(value instanceof String)) {
-
                 return true;
             }
 
@@ -214,7 +210,6 @@ define.amd = true;
          * only needed for cyclic logic
          */
         function getIndex(objects, obj) {
-
             var i;
             for (i = 0; i < objects.length; i++) {
                 if (objects[i] === obj) {
@@ -235,7 +230,6 @@ define.amd = true;
                     isNaN(obj1) || isNaN(obj2) ||
                     obj1 == null || obj2 == null ||
                     type1 !== "object" || type2 !== "object") {
-
                 return identical(obj1, obj2);
             }
 
@@ -335,7 +329,6 @@ define.amd = true;
             }
 
             return true;
-
         }(obj1, obj2, '$1', '$2'));
     }
 
@@ -421,7 +414,6 @@ define.amd = true;
     module.exports = m(require("samsam"));
 }) || function (m) { this.formatio = m(this.samsam); }
 )(function (samsam) {
-    
     var formatio = {
         excludeConstructors: ["Object", /^.$/],
         quoteStrings: true
@@ -1440,7 +1432,6 @@ var sinon = (function (formatio) {
     }
 }(typeof sinon == "object" && sinon || null));
 
-
 /**
   * @depend ../sinon.js
   * @depend call.js
@@ -2129,7 +2120,6 @@ var sinon = (function (formatio) {
             return this;
         },
 
-
         "throws": throwsException,
         throwsException: throwsException,
 
@@ -2669,7 +2659,6 @@ var sinon = (function (formatio) {
                 }
 
                 for (var i = 0, l = this.expectedArguments.length; i < l; i += 1) {
-
                     if (!verifyMatcher(this.expectedArguments[i],args[i])) {
                         sinon.expectation.fail(this.method + " received wrong arguments " + sinon.format(args) +
                             ", didn't match " + this.expectedArguments.toString());
@@ -3502,7 +3491,6 @@ if (typeof sinon == "undefined") {
             this.withCredentials = false;
         }
 
-
         var xhr = this;
         var events = ["loadstart", "load", "abort", "loadend"];
 
@@ -3991,7 +3979,6 @@ if (typeof sinon == "undefined") {
         if (xhr.supportsActiveX) {
             global.ActiveXObject = function ActiveXObject(objId) {
                 if (objId == "Microsoft.XMLHTTP" || /^Msxml2\.XMLHTTP/i.test(objId)) {
-
                     return new sinon.FakeXMLHttpRequest();
                 }
 
@@ -4003,7 +3990,6 @@ if (typeof sinon == "undefined") {
     };
 
     sinon.FakeXMLHttpRequest = FakeXMLHttpRequest;
-
 })(typeof global === "object" ? global : this);
 
 if (typeof module !== 'undefined' && module.exports) {

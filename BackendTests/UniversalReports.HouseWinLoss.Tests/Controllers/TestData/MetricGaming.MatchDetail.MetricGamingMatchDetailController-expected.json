@@ -459,7 +459,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -459200.0696,
+          "Value": -459200.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -469,7 +469,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 307254.2941,
+          "Value": 307254.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -479,7 +479,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 3149.8578,
+          "Value": 3149.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -489,7 +489,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -45448.7497,
+          "Value": -45448.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -499,7 +499,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -103347.1681,
+          "Value": -103347.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -509,7 +509,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -148795.9178,
+          "Value": -148795.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -519,7 +519,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 1117483.4711,
+          "Value": 1117483.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -529,7 +529,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 1471787.7157,
+          "Value": 1471787.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -606,7 +606,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -224669.8721,
+          "Value": -224669.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -616,7 +616,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 112543.114,
+          "Value": 112543.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -626,7 +626,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 3982.1846,
+          "Value": 3982.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -636,7 +636,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -15152.1957,
+          "Value": -15152.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -646,7 +646,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -92992.3778,
+          "Value": -92992.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -656,7 +656,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -108144.5735,
+          "Value": -108144.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -666,7 +666,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 1357553.7397,
+          "Value": 1357553.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -676,7 +676,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 1531782.3534,
+          "Value": 1531782.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -753,7 +753,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": 38259.4915,
+          "Value": 38259.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -763,7 +763,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": -57099.6327,
+          "Value": -57099.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -773,7 +773,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 3195.723,
+          "Value": 3195.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -783,7 +783,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -28719.0395,
+          "Value": -28719.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -793,7 +793,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 13074.6213,
+          "Value": 13074.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -803,7 +803,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -15644.4182,
+          "Value": -15644.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -813,7 +813,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 1556941.6722,
+          "Value": 1556941.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -823,7 +823,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 1819707.3014,
+          "Value": 1819707.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -900,7 +900,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -97217.5768,
+          "Value": -97217.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -910,7 +910,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 98758.0992,
+          "Value": 98758.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -920,7 +920,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 638.8951,
+          "Value": 638.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -930,7 +930,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -25813.5096,
+          "Value": -25813.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -940,7 +940,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 27992.927,
+          "Value": 27992.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -950,7 +950,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": 2179.4174,
+          "Value": 2179.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -960,7 +960,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 866018.6523,
+          "Value": 866018.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -970,7 +970,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 1020531.5833,
+          "Value": 1020531.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1047,7 +1047,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -342324.7618,
+          "Value": -342324.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1057,7 +1057,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 315756.7659,
+          "Value": 315756.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1067,7 +1067,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 1815.8675,
+          "Value": 1815.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1077,7 +1077,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -24144.1551,
+          "Value": -24144.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1087,7 +1087,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -607.9733,
+          "Value": -607.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1097,7 +1097,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -24752.1284,
+          "Value": -24752.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1107,7 +1107,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 830519.4047,
+          "Value": 830519.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1117,7 +1117,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 981706.7854,
+          "Value": 981706.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1164,7 +1164,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -1085152.7888,
+          "Value": -1085151.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1174,7 +1174,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 777212.6405,
+          "Value": 777212.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1184,7 +1184,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 12782.528,
+          "Value": 12779.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1194,7 +1194,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -139277.6496,
+          "Value": -139276.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1204,7 +1204,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -155879.9709,
+          "Value": -155880.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1214,7 +1214,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -295157.6205,
+          "Value": -295156.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1224,7 +1224,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 5728516.94,
+          "Value": 5728514.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1234,7 +1234,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 6825515.7392,
+          "Value": 6825513.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1339,7 +1339,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": 19605.6871,
+          "Value": 19605.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1349,7 +1349,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 6316.8616,
+          "Value": 6316.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1359,7 +1359,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 1168.8788,
+          "Value": 1168.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1369,7 +1369,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -3515.1933,
+          "Value": -3515.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1379,7 +1379,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 30606.6208,
+          "Value": 30606.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1389,7 +1389,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": 27091.4275,
+          "Value": 27091.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1399,7 +1399,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 409698.1617,
+          "Value": 409698.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1409,7 +1409,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 493673.8514,
+          "Value": 493673.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1456,7 +1456,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": 19605.6871,
+          "Value": 19605.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1466,7 +1466,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 6316.8616,
+          "Value": 6316.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1476,7 +1476,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 1168.8788,
+          "Value": 1168.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1486,7 +1486,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -3515.1933,
+          "Value": -3515.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1496,7 +1496,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 30606.6208,
+          "Value": 30606.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1506,7 +1506,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": 27091.4275,
+          "Value": 27091.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1516,7 +1516,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 409698.1617,
+          "Value": 409698.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1526,7 +1526,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 493673.8514,
+          "Value": 493673.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1575,7 +1575,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -1065547.1017,
+          "Value": -1065546.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1585,7 +1585,7 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 783529.5021,
+          "Value": 783528.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1595,7 +1595,7 @@
         },
         {
           "Name": "Commission",
-          "Value": 13951.4068,
+          "Value": 13947.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1605,7 +1605,7 @@
         },
         {
           "Name": "VarianceIncome",
-          "Value": -142792.8429,
+          "Value": -142791.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1615,7 +1615,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -125273.3501,
+          "Value": -125274.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1625,7 +1625,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -268066.193,
+          "Value": -268065.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1635,7 +1635,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 6138215.1017,
+          "Value": 6138212.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1645,7 +1645,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 7319189.5906,
+          "Value": 7319186.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

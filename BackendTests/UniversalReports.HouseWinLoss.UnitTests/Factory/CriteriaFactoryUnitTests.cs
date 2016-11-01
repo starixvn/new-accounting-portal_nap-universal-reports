@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using UniversalReports.HouseWinLoss.Factory;
+﻿using System;
+using NUnit.Framework;
+using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
 using UniversalReports.HouseWinLoss.VirtualSports.BetType;
 
@@ -13,7 +13,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Factory
         [Test]
         public void Transform_VirtualSportsBetTypeQueryModel_ReturnRightCriteria()
         {
-            // Arrange   
+            // Arrange
             var expectedCriteria = new Criteria
             {
                 StartDate = CreateDateTime(1),
@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Factory
                 SportType = 10
             };
 
-            // Act 
+            // Act
             var criteria = CriteriaFactory.Transform<Criteria>(model);
 
             // Assert

@@ -5,26 +5,26 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 {
     public interface CalculationService
     {
-        WinLoss FromRawWinLossByRowName(RawWinLoss rawWinLoss);
+        WinLoss FromRawWinLossByRowName(WinLossRaw rawWinLoss);
 
-        WinLoss FromRawWinLossByGroupName(RawWinLoss rawWinLoss);
+        WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss);
 
-        SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+        SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
-        SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+        SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
-        WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<RawWinLoss> rawWinLosses);
+        WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
-        IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<RawWinLoss> rawWinLosses);
+        IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
 
         decimal CalculateMargin(decimal income, decimal turnover);
 
         WinLoss CreateEmptyWinLoss(int id, string name);
 
-        IEnumerable<WinLoss> CalculateRM(IEnumerable<RawWinLoss> rawWinLosses);
+        IEnumerable<WinLoss> CalculateRM(IEnumerable<WinLossRaw> rawWinLosses);
 
-        SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<RawWinLoss> rawWinLosses);
+        SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<WinLossRaw> rawWinLosses);
 
-        RawWinLoss CalculateSum(IEnumerable<RawWinLoss> winlosses);
+        WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses);
     }
 }

@@ -1,10 +1,10 @@
-﻿using Fanex.Data.Repository;
-using Fanex.Repository;
-using NSubstitute;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using Fanex.Data.Repository;
+using Fanex.Repository;
+using NSubstitute;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
@@ -13,14 +13,14 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
     {
         internal ApiController GetControllerWithRawWinLoss(string controllerName)
         {
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>(controllerName, "fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>(controllerName, "fakeData");
             var fakeBalanceUpRange = new BalanceUpRange
             {
                 BalanceUpDate = new DateTime(2016, 01, 01),
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<SimpleRepository>();
-            repository.Fetch<RawWinLoss>(Arg.Any<ICriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Any<ICriteria>())
                 .Returns(fakeData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);

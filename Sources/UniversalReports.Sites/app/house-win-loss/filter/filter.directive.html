@@ -20,17 +20,17 @@
         <form class="form-inline">
             <div class="form-group" data-ng-show="vm.normalMode">
                 <label>Date</label>
-                <nap-date-picker data-ng-model="vm.date"></nap-date-picker>
+                <nap-date-picker data-ng-model="vm.date" data-min-date="vm.minDate" data-max-date="vm.today"></nap-date-picker>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.todayClicked()">{{vm.today | amDateFormat:'MMM DD, YYYY'}}</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History Report</button>
             </div>
             <div class="form-group"  data-ng-hide="vm.normalMode">
-                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-max-date="vm.yesterday"></nap-month-picker>
+                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-min-date="vm.minDate" data-max-date="vm.yesterday"></nap-month-picker>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Back</button>
             </div>
         </form>
-    </div>     
+    </div>
 </div>

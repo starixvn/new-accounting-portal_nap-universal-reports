@@ -1,7 +1,13 @@
-﻿using System;
+﻿#if !DEBUG
+using Fanex.NAP.Core.Business;
+using Fanex.NAP.Core.Web.Attribute;
+using UniversalReports.Sites.Settings;
+#endif
+
+using System;
 using System.Configuration;
 using System.Web.Mvc;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.Sites.Controllers
 {
@@ -14,8 +20,9 @@ namespace UniversalReports.Sites.Controllers
             this.balanceUpService = balanceUpService;
         }
 
-        // GET: Home
-        //[NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+#if !DEBUG
+        [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+#endif
         public ActionResult Index()
         {
             var appUri = new Uri(Request.Url, Url.Content("~/"));

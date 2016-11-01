@@ -1,17 +1,17 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
 
-    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'titleService', 'legacyService'];
-    function sportsbookMatchDetailService($http, httpResponseService, titleService, legacyService) {
+    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'legacyService', 'remoteDataService'];
+    function sportsbookMatchDetailService($http, httpResponseService, legacyService, remoteDataService) {
         var service = {
-            getTitle: titleService.getMatchDetailTitle,
             getMatchInformation: getMatchInformation,
-            getData: getData,
-            exportExcel: exportExcel
+            getData: remoteDataService.getData,
+            exportExcel: remoteDataService.exportExcel
         };
         return service;
 
@@ -27,48 +27,6 @@
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
-        }
-
-        function getData(data) {
-            var httpData = {
-                isLive: data.isLive,
-                isHedge: data.isHedge,
-                sportType:data.sportType,
-                betType: data.betType,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                normalMode: data.normalMode
-            };
-
-            var url = getServiceUrl(data.betType, data.productName);
-            return $http.post(url, httpData)
-                .then(httpResponseService.getDataComplete)
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(title, data, fileName) {
-            var httpData = {
-                title: title,
-                normalMode: data.normalMode
-            };
-            angular.extend(httpData, data);
-            var url = getServiceUrl(data.betType, data.productName) + '/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                .then(function (response) {
-                    httpResponseService.saveExcelFile(response.data, fileName);
-                })
-                .catch(httpResponseService.getDataFailed);
-        }
-
-        function getServiceUrl(betType, productName) {
-            if (productName === 'Metric Gaming - Superlive') {
-                return 'api/house-win-loss-by-products/metric-gaming-superlive/match-detail';
-            }
-            else {
-                return betType === 10
-                ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
-                    : 'api/house-win-loss-by-products/sportsbook/match-detail';
-            }
         }
     }
 })(angular);

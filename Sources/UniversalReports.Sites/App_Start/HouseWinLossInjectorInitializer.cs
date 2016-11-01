@@ -2,6 +2,7 @@
 
 using Fanex.Repository;
 using SimpleInjector;
+using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CasinoProduct = UniversalReports.HouseWinLoss.Casino.Product;
@@ -24,9 +25,7 @@ namespace UniversalReports.Sites
         {
             container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
 
-            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Transient);
-            container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Transient);
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>(Lifestyle.Transient);
+            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Transient);                        
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
             container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
@@ -40,7 +39,6 @@ namespace UniversalReports.Sites
             container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<NumberGames.BetType.Service, NumberGames.BetType.ServiceImp>(Lifestyle.Transient);
             container.Register<Products.Service, Products.ServiceImp>(Lifestyle.Transient);
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>(Lifestyle.Transient);
             container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);

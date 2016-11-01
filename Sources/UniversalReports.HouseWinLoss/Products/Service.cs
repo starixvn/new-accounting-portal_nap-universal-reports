@@ -6,9 +6,9 @@ namespace UniversalReports.HouseWinLoss.Products
 {
     public interface Service
     {
-        List<WinLoss> GetRMWinLoss(IEnumerable<RawWinLoss> rawWinLosses);
+        List<WinLoss> GetRMWinLoss(IEnumerable<WinLossRaw> rawWinLosses);
 
-        ProductGroupWinLoss GetProductGroup(IEnumerable<RawWinLoss> rawWinLosses, string groupName);
+        ProductGroupWinLoss GetProductGroup(IEnumerable<WinLossRaw> rawWinLosses, string groupName);
 
         ProductWinLoss Query(WinLossCriteria criteria);
     }

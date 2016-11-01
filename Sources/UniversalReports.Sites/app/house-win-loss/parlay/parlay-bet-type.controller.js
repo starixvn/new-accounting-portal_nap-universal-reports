@@ -1,8 +1,10 @@
-﻿(function (angular) {
+import angular from "angular";
+import moment from "moment";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .controller('ParlayBetTypeController', ParlayBetTypeController);
 
     ParlayBetTypeController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'legacyService'];
@@ -18,14 +20,26 @@
         $scope.generate = generate;
         $scope.generateSite = generateSite;
         $scope.viewMixParlayWindow = viewMixParlayWindow;
+        $scope.viewSetting = {};
+
+        function generate(viewSetting) {
+            $scope.viewSetting = viewSetting;
+            pane.service.getData(viewSetting, pane.data).then(function (data) {
+                showHideColumnBuilder.build(gridElement, data);
+                createLinks(data);
+                renderGrid(data);
+                pane.compileAll();
+            });
+        }
 
         function generateSite(betType, betTypeName, site) {
-            var data = {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site
-            };
-            angular.extend(data, pane.data);
+            });
             tab.goForward('site', data);
         }
 
@@ -35,14 +49,6 @@
             location.href = url;
         }
 
-        function generate() {
-            pane.service.getData(pane.data).then(function (data) {
-                showHideColumnBuilder.build(gridElement, data);
-                createLinks(data);
-                renderGrid(data);
-                pane.compileAll();
-            });
-        }
 
         function checkvalidLinks() {
             var balanceday = moment(napConfig.BalanceUp);
@@ -55,7 +61,7 @@
                 var betTypeName = betTypeRow.Columns[0].Value;
                 var betTypeId = parseInt(betTypeRow.Columns[0].CustomAttr);
                 var isEnableLink = checkvalidLinks();
-                if ((betTypeId === systemParlayBetType) && (isEnableLink == true) && (pane.data.normalMode == true)) {
+                if (betTypeId === systemParlayBetType && isEnableLink === true && pane.data.normalMode === true) {
                     betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName + '\',\'ALL\')">' + betTypeName + '</a>';
                     for (var j = 0; j < betTypeRow.SubRows.length; j++) {
                         var siteRow = data.bodyRows[i].SubRows[j];
@@ -85,7 +91,10 @@
 
         function exportExcel() {
             var title = tab.generateBreadcrumbText();
-            pane.service.exportExcel(title, pane.data, pane.getFileName());
+            var httpData = {};
+            angular.extend(httpData, pane.data);
+            angular.extend(httpData, { title: title });
+            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }
     }
 })(angular);

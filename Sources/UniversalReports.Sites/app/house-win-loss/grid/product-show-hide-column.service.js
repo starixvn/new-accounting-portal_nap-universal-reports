@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .service('productShowHideColumnService', productShowHideColumnService);
 
     productShowHideColumnService.$inject = ['$log', '$timeout'];
@@ -78,6 +79,6 @@
                     }
                 }
             }
-        };
+        }
     }
 })(angular);

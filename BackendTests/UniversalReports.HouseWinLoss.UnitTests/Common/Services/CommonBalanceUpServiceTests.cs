@@ -1,7 +1,7 @@
 ﻿using Fanex.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
+using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 {
@@ -46,7 +46,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
             // Assert
             dynamicRepository.Received(1).Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>());
 
-            // Clean 
+            // Clean
             balanceUpService.ClearCache();
         }
     }

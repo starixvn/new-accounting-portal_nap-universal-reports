@@ -1,6 +1,6 @@
-﻿using Fanex.Excel.Models;
+﻿using System.Collections.Generic;
+using Fanex.Excel.Models;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.ColumnBuilders

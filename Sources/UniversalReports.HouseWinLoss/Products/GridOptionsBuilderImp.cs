@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 using UniversalReports.HouseWinLoss.Common.Models;
@@ -51,7 +51,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return bodyRows;
         }
 
-        private List<GridDataRow> BuildProductGroup(ProductGroupWinLoss productGroupWinLoss)
+        private IEnumerable<GridDataRow> BuildProductGroup(ProductGroupWinLoss productGroupWinLoss)
         {
             var bodyRows = productGroupWinLoss
                 .Products
@@ -147,7 +147,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return productDataRow;
         }
 
-        private List<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
+        private IEnumerable<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
                 .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))

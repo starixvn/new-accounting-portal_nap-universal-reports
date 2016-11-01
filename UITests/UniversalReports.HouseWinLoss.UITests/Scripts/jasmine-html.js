@@ -51,7 +51,6 @@ jasmine.HtmlReporterHelpers.appendToSummary = function(child, childElement) {
   parentDiv.appendChild(childElement);
 };
 
-
 jasmine.HtmlReporterHelpers.addHelpers = function(ctor) {
   for(var fn in jasmine.HtmlReporterHelpers) {
     ctor.prototype[fn] = jasmine.HtmlReporterHelpers[fn];
@@ -299,7 +298,6 @@ jasmine.HtmlReporter.ReporterView = function(dom) {
   };
 
   this.refresh = function() {
-
     if (isUndefined(this.resultsMenu)) {
       this.createResultsMenu();
     }
@@ -381,11 +379,9 @@ jasmine.HtmlReporter.ReporterView = function(dom) {
     }
     return str;
   }
-
 };
 
 jasmine.HtmlReporterHelpers.addHelpers(jasmine.HtmlReporter.ReporterView);
-
 
 jasmine.HtmlReporter.SpecView = function(spec, dom, views) {
   this.spec = spec;
@@ -626,7 +622,6 @@ jasmine.TrivialReporter.prototype.reportSpecResults = function(spec) {
         href: '?spec=' + encodeURIComponent(spec.getFullName()),
         title: spec.getFullName()
       }, spec.description));
-
 
   var resultItems = results.getItems();
   var messagesDiv = this.createDom('div', { className: 'messages' });

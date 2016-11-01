@@ -1,12 +1,13 @@
-﻿(function (angular) {
+//import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('napTab', napTab);
 
-    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];
-    function napTab($rootScope, breadcrumbService, Pane) {
+    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane', 'titleService'];
+    function napTab($rootScope, breadcrumbService, Pane, titleService) {
         function Tab(panes) {
             this.panes = angular.isDefined(panes) ? panes : [];
             this.addPane = addPane;
@@ -15,8 +16,12 @@
             this.goBack = goBack;
             this.goForward = goForward;
             this.generateBreadcrumbList = generateBreadcrumbList;
+            this.generateBreadcrumbListWithModifiedLastItem = generateBreadcrumbListWithModifiedLastItem;
             this.generateBreadcrumbHtml = generateBreadcrumbHtml;
             this.generateBreadcrumbText = generateBreadcrumbText;
+            this.generateBreadcrumbTextWithSuffix = generateBreadcrumbTextWithSuffix;
+            this.generateBreadcrumbHtmlWithSuffix = generateBreadcrumbHtmlWithSuffix;
+            
 
             function addPane(pane) {
                 this.panes.push(pane);
@@ -63,12 +68,25 @@
                 this.addPane(pane);
             }
 
-            function generateBreadcrumbList() {
+            function generateBreadcrumbListWithModifiedLastItem() {
                 var list = [];
                 for (var i = 0; i < this.panes.length; i++) {
                     var pane = this.panes[i];
                     var isLast = i === this.panes.length - 1;
-                    var title = pane.service.getTitle(pane.data, isLast);
+                    var getTitleFunction = pane.viewSetting.getTitleFunction;
+                    var title = titleService[getTitleFunction](pane.data, isLast);
+                    list.push(title);
+                }
+
+                return list;
+            }
+
+            function generateBreadcrumbList() {
+                var list = [];
+                for (var i = 0; i < this.panes.length; i++) {
+                    var pane = this.panes[i];
+                    var getTitleFunction = pane.viewSetting.getTitleFunction;
+                    var title = titleService[getTitleFunction](pane.data, false);
                     list.push(title);
                 }
 
@@ -76,12 +94,24 @@
             }
 
             function generateBreadcrumbHtml() {
-                var list = this.generateBreadcrumbList();
+                var list = this.generateBreadcrumbListWithModifiedLastItem();
                 return breadcrumbService.generateHtml(list);
             }
 
             function generateBreadcrumbText() {
+                var list = this.generateBreadcrumbListWithModifiedLastItem();
+                return breadcrumbService.generateText(list);
+            }
+
+            function generateBreadcrumbHtmlWithSuffix(suffix) {
                 var list = this.generateBreadcrumbList();
+                list[list.length - 1] = list[list.length - 1] + suffix;
+                return breadcrumbService.generateHtml(list);
+            }
+
+            function generateBreadcrumbTextWithSuffix(suffix) {
+                var list = this.generateBreadcrumbList();
+                list[list.length - 1] = list[list.length - 1] + suffix;
                 return breadcrumbService.generateText(list);
             }
         }

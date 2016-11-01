@@ -1,8 +1,9 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .directive('napTab', napTab);
 
     napTab.$inject = ['napPane'];
@@ -28,6 +29,7 @@
 
         $scope.$on('nap-filter-generate', function (event, data) {
             if (tab.panes.length === 0) {
+                data.productName = "Main";
                 var mainPane = new Pane('product', data);
                 tab.addPane(mainPane);
             } else {

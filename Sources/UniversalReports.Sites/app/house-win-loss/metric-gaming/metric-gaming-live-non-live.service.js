@@ -1,53 +1,30 @@
-﻿(function (angular) {
+import angular from "angular";
+(function (angular) {
     'use strict';
 
     angular
-        .module('app.companyWinlossApp')
+        .module('app.houseWinlossApp')
         .factory('metricGamingLiveNonLiveService', metricGamingLiveNonLiveService);
 
-    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'companyWinlossService', 'titleService'];
-    function metricGamingLiveNonLiveService($http, httpResponseService, companyWinlossService, titleService) {
+    metricGamingLiveNonLiveService.$inject = ['$http', 'httpResponseService', 'houseWinlossService', 'titleService', 'remoteDataService'];
+    function metricGamingLiveNonLiveService($http, httpResponseService, houseWinlossService, titleService, remoteDataService) {
         var service = {
             getTitle: titleService.getProductLiveNonLiveTitle,
-            getData: getData,
+            getData: remoteDataService.getData,
             getBetTypeData: getBetTypeData,
-            exportExcel: exportExcel
-        }
+            exportExcel: remoteDataService.exportExcel
+        };
         return service;
 
-        function getData(data) {            
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live';
-            var httpData = {
-                normalMode: data.normalMode,
-                startDate: data.startDate,
-                endDate: data.endDate
-            };
-            return $http.post(url, httpData)
-                    .then(httpResponseService.getDataComplete)
-                    .catch(httpResponseService.getDataFailed);
-        }
+        function getBetTypeData(viewSetting, data) {
+            var httpData = {};
+            angular.extend(httpData, data);
+            angular.extend(httpData, viewSetting.mainParameters);
 
-        function getBetTypeData(data) {
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/bet-type';
+            var url = 'api/house-win-loss-by-products/metric-gaming-superlive/bet-type';
             return $http.post(url, data)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
-        }
-
-        function exportExcel(betTypeTitle, liveNonLiveTitle, data, fileName) {
-            var httpData = {
-                betTypeTitle: betTypeTitle,
-                liveNonLiveTitle: liveNonLiveTitle,
-                startDate: data.startDate,
-                endDate: data.endDate,
-                normalMode: data.normalMode
-            };
-            var url = 'api/house-win-loss-by-products/' + companyWinlossService.resolveProductPath(data.productName) + '/live-none-live/excel';
-            return $http.post(url, httpData, { responseType: "arraybuffer" })
-                        .then(function (response) {
-                            httpResponseService.saveExcelFile(response.data, fileName);
-                        })
-                        .catch(httpResponseService.getDataFailed);
         }
     }
 })(angular);

@@ -8,9 +8,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
     public class WinLossServiceImp : WinLossService
     {
+        private const int BetTypeChargedCom = 500;
         private readonly RawWinLossService rawWinLossService;
         private readonly CalculationService calculationService;
-        private const int BetTypeChargedCom = 500;
 
         public WinLossServiceImp(RawWinLossService rawWinLossService, CalculationService calculationService)
         {
@@ -41,7 +41,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
             };
         }
 
-        public ChargeCommissionModel CalculateSiteChargedCom(IEnumerable<RawWinLoss> rawWinLosses, IEnumerable<SiteWinLossSummary> chargedCommision)
+        public ChargeCommissionModel CalculateSiteChargedCom(IEnumerable<WinLossRaw> rawWinLosses, IEnumerable<SiteWinLossSummary> chargedCommision)
         {
             return new ChargeCommissionModel
             {

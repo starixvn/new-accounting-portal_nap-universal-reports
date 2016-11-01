@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Soccer.BaseService;
@@ -45,7 +45,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             {
                 winLoss.MainTotal,
                 winLoss.OtherTotal,
-                winLoss.HedgeTotal,
+                winLoss.HedgeTotal
             };
 
             var footer = BuildRowsFooter(rows);
@@ -56,7 +56,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             return footer;
         }
 
-        private List<GridDataRow> BuildRowsFooter(List<WinLoss> rows)
+        private List<GridDataRow> BuildRowsFooter(IEnumerable<WinLoss> rows)
         {
             return rows
                 .Where(r => r.RealTurnover != 0 || r.VirtualTurnover != 0)

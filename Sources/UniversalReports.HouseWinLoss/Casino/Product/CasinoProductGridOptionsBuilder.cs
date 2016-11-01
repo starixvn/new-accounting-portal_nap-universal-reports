@@ -1,6 +1,6 @@
-﻿using Fanex.Excel.Enums;
+﻿using System.Linq;
+using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
-using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 using UniversalReports.HouseWinLoss.Common.Models;

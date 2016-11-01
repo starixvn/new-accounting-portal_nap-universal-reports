@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,8 +42,8 @@
       <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Excel.2.2.0.3\lib\net40\Fanex.Excel.dll</HintPath>
+    <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Excel.2.2.1.0\lib\net40\Fanex.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -51,10 +52,6 @@
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -86,23 +83,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RemotingRef.1.0.0.10\lib\net40\RemotingRef.dll</HintPath>
+      <HintPath>..\..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.2.0\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.2.2\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.2.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.2.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.2.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.2.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.2.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.2.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -192,9 +189,7 @@
     <Compile Include="Common\MatchDetail\MatchDetailController.cs" />
     <Compile Include="Common\MatchDetail\WinLossModel.cs" />
     <Compile Include="Configuration\Constants.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpCriteria.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
@@ -214,7 +209,6 @@
     <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
-    <Compile Include="NumberGame\BetType\JsonResultModel.cs" />
     <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
     <Compile Include="OtherSports\NewCricket\Criteria.cs" />
     <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />
@@ -232,12 +226,10 @@
     <Compile Include="Parlay\Site\WinLossServiceImp.cs" />
     <Compile Include="Parlay\Site\WinLossService.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
-    <Compile Include="Common\Models\RawWinLoss.cs" />
+    <Compile Include="Common\Models\WinLossRaw.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpService.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpServiceImp.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserImp.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
@@ -275,23 +267,11 @@
     <Compile Include="Products\Service.cs" />
     <Compile Include="Products\ProductGroupWinLoss.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
-    <Compile Include="Factory\CriteriaFactory.cs" />
-    <Compile Include="NumberGame\BetType\ExcelQueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\ExcelQueryModel.cs" />
-    <Compile Include="NumberGame\Site\ExcelQueryModel.cs" />
     <Compile Include="Products\ExcelQueryModel.cs" />
-    <Compile Include="NumberGame\BetType\NumberGameBetTypeController.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />
     <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\Criteria.cs" />
-    <Compile Include="NumberGame\Site\NumberGameSiteController.cs" />
-    <Compile Include="NumberGame\Site\QueryModel.cs" />
-    <Compile Include="NumberGame\Site\Criteria.cs" />
-    <Compile Include="NumberGame\BetType\Criteria.cs" />
-    <Compile Include="NumberGame\BetType\Service.cs" />
-    <Compile Include="NumberGame\BetType\ServiceImp.cs" />
-    <Compile Include="NumberGame\BetType\WinLossModel.cs" />
-    <Compile Include="NumberGame\BetType\QueryModel.cs" />
     <Compile Include="Products\GridOptionsBuilder.cs" />
     <Compile Include="Products\GridOptionsBuilderImp.cs" />
     <Compile Include="Products\ProductController.cs" />
@@ -364,6 +344,11 @@
     <Compile Include="Common\MatchDetail\GridOptionsBuilderImp.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
+    <Compile Include="Universal\BetType\ExcelLiveNonLiveQueryModel.cs" />
+    <Compile Include="Universal\SportType\Criteria.cs" />
+    <Compile Include="Universal\SportType\ExcelQueryModel.cs" />
+    <Compile Include="Universal\SportType\QueryModel.cs" />
+    <Compile Include="Universal\SportType\UniversalSportTypeController.cs" />
     <Compile Include="Universal\BetType\UniversalBetTypeController.cs" />
     <Compile Include="Universal\BetType\Criteria.cs" />
     <Compile Include="Universal\BetType\ExcelQueryModel.cs" />
@@ -400,6 +385,10 @@
     <Compile Include="VirtualSports\SportType\VirtualSportsSportTypeController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>
@@ -416,7 +405,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
-    <Folder Include="Soccer\MainExcel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
