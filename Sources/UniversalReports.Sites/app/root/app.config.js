@@ -24,7 +24,7 @@ import angular from "angular";
                                 url = config.rootUrl + '/' + url;
                             }
                             if (extension.toLowerCase() === 'html') {
-                                url = url + "?v=1.0";
+                                url = url + "?v=1.1";
                             }
                         }
 
