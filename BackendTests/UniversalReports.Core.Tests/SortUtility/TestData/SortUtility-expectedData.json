@@ -9,9 +9,9 @@
   "TotalWins": 0.0,
   "GameIncome": 0.0,
   "GamePayout": 0.0,
-  "CompanyTurnover": 0.0,
-  "CompanyComm": 0.0,
-  "CompanyNetIncome": 0.0,
+  "HouseTurnover": 0.0,
+  "HouseComm": 0.0,
+  "HouseNetIncome": 0.0,
   "Rows": [
     {
       "Name": null,
@@ -24,9 +24,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Name": null,
@@ -39,9 +39,9 @@
           "TotalWins": 224465255.9676,
           "GameIncome": -162169933.6692,
           "GamePayout": 3.6032,
-          "CompanyTurnover": 10073029.5576,
-          "CompanyComm": 0.0000,
-          "CompanyNetIncome": -43381867.4352,
+          "HouseTurnover": 10073029.5576,
+          "HouseComm": 0.0000,
+          "HouseNetIncome": -43381867.4352,
           "Rows": [],
           "Total": null
         }
@@ -59,9 +59,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Name": null,
@@ -74,9 +74,9 @@
           "TotalWins": 256749268.4269,
           "GameIncome": -154592917.3892,
           "GamePayout": 2.5133,
-          "CompanyTurnover": 36406556.6861,
-          "CompanyComm": -649287.1405,
-          "CompanyNetIncome": -5694800.6424,
+          "HouseTurnover": 36406556.6861,
+          "HouseComm": -649287.1405,
+          "HouseNetIncome": -5694800.6424,
           "Rows": [],
           "Total": null
         }
@@ -94,9 +94,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Name": null,
@@ -109,9 +109,9 @@
           "TotalWins": 263796569.7133,
           "GameIncome": -258644559.7965,
           "GamePayout": 51.2027,
-          "CompanyTurnover": 6436789.9895,
-          "CompanyComm": 0.0000,
-          "CompanyNetIncome": -2015385.5399,
+          "HouseTurnover": 6436789.9895,
+          "HouseComm": 0.0000,
+          "HouseNetIncome": -2015385.5399,
           "Rows": [],
           "Total": null
         }
@@ -129,9 +129,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Name": null,
@@ -144,9 +144,9 @@
           "TotalWins": 143102618.9519,
           "GameIncome": -81843453.0841,
           "GamePayout": 2.3360,
-          "CompanyTurnover": 10318299.0939,
-          "CompanyComm": 0.0000,
-          "CompanyNetIncome": -9456872.1153,
+          "HouseTurnover": 10318299.0939,
+          "HouseComm": 0.0000,
+          "HouseNetIncome": -9456872.1153,
           "Rows": [],
           "Total": null
         }
@@ -164,9 +164,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Name": null,
@@ -179,9 +179,9 @@
           "TotalWins": 58935944.9165,
           "GameIncome": -27676938.0012,
           "GamePayout": 1.8854,
-          "CompanyTurnover": 5054519.1739,
-          "CompanyComm": 0.0000,
-          "CompanyNetIncome": -7403821.5855,
+          "HouseTurnover": 5054519.1739,
+          "HouseComm": 0.0000,
+          "HouseNetIncome": -7403821.5855,
           "Rows": [],
           "Total": null
         }
@@ -200,9 +200,9 @@
     "TotalWins": 947049657.9762,
     "GameIncome": -684927801.9402,
     "GamePayout": 3.61301294099692142,
-    "CompanyTurnover": 68289194.5010,
-    "CompanyComm": -649287.1405,
-    "CompanyNetIncome": -67952747.3183,
+    "HouseTurnover": 68289194.5010,
+    "HouseComm": -649287.1405,
+    "HouseNetIncome": -67952747.3183,
     "Rows": [],
     "Total": null
   }

@@ -92,22 +92,22 @@ namespace UniversalReports.NG2Statistic.GrandTotal
                 },
                 new Columns
                 {
-                    Name = "CompanyTurnover",
-                    Value = raw.CompanyTurnover,
+                    Name = "HouseTurnover",
+                    Value = raw.HouseTurnover,
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.Double
                 },
                 new Columns
                 {
-                    Name = "CompanyComm",
-                    Value = raw.CompanyComm,
+                    Name = "HouseComm",
+                    Value = raw.HouseComm,
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.DoubleRedNegative
                 },
                 new Columns
                 {
-                    Name = "CompanyNetIncome",
-                    Value = raw.CompanyNetIncome,
+                    Name = "HouseNetIncome",
+                    Value = raw.HouseNetIncome,
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.DoubleRedNegative
                 }

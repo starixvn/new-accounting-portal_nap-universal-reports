@@ -146,7 +146,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Company Turnover",
+      "HeaderText": "House Turnover",
       "ShowCollapseExpand": false,
       "Width": 150,
       "HeaderAlign": "center",
@@ -154,7 +154,7 @@
       "IsAbs": false,
       "Sort": true,
       "AllowTruncate": false,
-      "Name": "CompanyTurnover",
+      "Name": "HouseTurnover",
       "Value": null,
       "CssClass": null,
       "CustomAttr": null,
@@ -164,7 +164,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Company Comm",
+      "HeaderText": "House Comm",
       "ShowCollapseExpand": false,
       "Width": 130,
       "HeaderAlign": "center",
@@ -173,7 +173,7 @@
       "IsAbs": false,
       "Sort": true,
       "AllowTruncate": false,
-      "Name": "CompanyComm",
+      "Name": "HouseComm",
       "Value": null,
       "CssClass": null,
       "CustomAttr": null,
@@ -183,7 +183,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Company Net Income",
+      "HeaderText": "House Net Income",
       "ShowCollapseExpand": false,
       "Width": 150,
       "HeaderAlign": "center",
@@ -192,7 +192,7 @@
       "IsAbs": false,
       "Sort": true,
       "AllowTruncate": false,
-      "Name": "CompanyNetIncome",
+      "Name": "HouseNetIncome",
       "Value": null,
       "CssClass": null,
       "CustomAttr": null,
@@ -286,7 +286,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 230426287.0305,
           "CssClass": null,
           "CustomAttr": null,
@@ -296,7 +296,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": -5324.8864,
           "CssClass": null,
           "CustomAttr": null,
@@ -306,7 +306,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -91013497.7307,
           "CssClass": null,
           "CustomAttr": null,
@@ -402,7 +402,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 212234942.0176,
           "CssClass": null,
           "CustomAttr": null,
@@ -412,7 +412,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -422,7 +422,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -210603850.2642,
           "CssClass": null,
           "CustomAttr": null,
@@ -518,7 +518,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 136288785.5636,
           "CssClass": null,
           "CustomAttr": null,
@@ -528,7 +528,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -538,7 +538,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -21354775.122,
           "CssClass": null,
           "CustomAttr": null,
@@ -634,7 +634,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 176094226.7352,
           "CssClass": null,
           "CustomAttr": null,
@@ -644,7 +644,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": -2653740.4283,
           "CssClass": null,
           "CustomAttr": null,
@@ -654,7 +654,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -24065375.3763,
           "CssClass": null,
           "CustomAttr": null,
@@ -750,7 +750,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 29303198.457,
           "CssClass": null,
           "CustomAttr": null,
@@ -760,7 +760,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -770,7 +770,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -126201106.0098,
           "CssClass": null,
           "CustomAttr": null,
@@ -866,7 +866,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -876,7 +876,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -886,7 +886,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -982,7 +982,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -992,7 +992,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -1002,7 +1002,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -1098,7 +1098,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 660.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -1108,7 +1108,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": -1.38,
           "CssClass": null,
           "CustomAttr": null,
@@ -1118,7 +1118,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -232.98,
           "CssClass": null,
           "CustomAttr": null,
@@ -1216,7 +1216,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyTurnover",
+          "Name": "HouseTurnover",
           "Value": 784348099.8039,
           "CssClass": null,
           "CustomAttr": null,
@@ -1226,7 +1226,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyComm",
+          "Name": "HouseComm",
           "Value": -2659066.6947,
           "CssClass": null,
           "CustomAttr": null,
@@ -1236,7 +1236,7 @@
           "TextFont": []
         },
         {
-          "Name": "CompanyNetIncome",
+          "Name": "HouseNetIncome",
           "Value": -473238837.483,
           "CssClass": null,
           "CustomAttr": null,

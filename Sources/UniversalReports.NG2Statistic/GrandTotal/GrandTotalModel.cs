@@ -25,11 +25,11 @@ namespace UniversalReports.NG2Statistic.GrandTotal
 
         public decimal GamePayout { get; set; }
 
-        public decimal CompanyTurnover { get; set; }
+        public decimal HouseTurnover { get; set; }
 
-        public decimal CompanyComm { get; set; }
+        public decimal HouseComm { get; set; }
 
-        public decimal CompanyNetIncome { get; set; }
+        public decimal HouseNetIncome { get; set; }
 
         public List<GrandTotalModel> Rows { get; set; }
 

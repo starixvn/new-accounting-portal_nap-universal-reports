@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.NG2Statistic.BaseServices
 {
@@ -31,9 +31,9 @@ namespace UniversalReports.NG2Statistic.BaseServices
                 new HeaderColumns { HeaderText = "Total Wins", Width = 120, Name = "TotalWins", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "TotalWins" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Game Income", Width = 120, Name = "GameIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "GameIncome" ? queryModel.SortDirection : string.Empty },
                 new HeaderColumns { HeaderText = "Game Payout", Width = 120, Name = "GamePayout", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Percentage, Sort = true, SortDirection = queryModel.SortColumnName == "GamePayout" ? queryModel.SortDirection : string.Empty },
-                new HeaderColumns { HeaderText = "Company Turnover", Width = 150, Name = "CompanyTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double, Sort = true, SortDirection = queryModel.SortColumnName == "CompanyTurnover" ? queryModel.SortDirection : string.Empty },
-                new HeaderColumns { HeaderText = "Company Comm", Width = 130, Name = "CompanyComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "CompanyComm" ? queryModel.SortDirection : string.Empty },
-                new HeaderColumns { HeaderText = "Company Net Income", Width = 150, Name = "CompanyNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "CompanyNetIncome" ? queryModel.SortDirection : string.Empty }
+                new HeaderColumns { HeaderText = "House Turnover", Width = 150, Name = "HouseTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double, Sort = true, SortDirection = queryModel.SortColumnName == "HouseTurnover" ? queryModel.SortDirection : string.Empty },
+                new HeaderColumns { HeaderText = "House Comm", Width = 130, Name = "HouseComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "HouseComm" ? queryModel.SortDirection : string.Empty },
+                new HeaderColumns { HeaderText = "House Net Income", Width = 150, Name = "HouseNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative, Sort = true, SortDirection = queryModel.SortColumnName == "HouseNetIncome" ? queryModel.SortDirection : string.Empty }
             };
         }
     }

@@ -30,11 +30,11 @@ namespace UniversalReports.NG2Statistic.Daily
 
         public decimal GamePayout { get; set; }
 
-        public decimal CompanyTurnover { get; set; }
+        public decimal HouseTurnover { get; set; }
 
-        public decimal CompanyComm { get; set; }
+        public decimal HouseComm { get; set; }
 
-        public decimal CompanyNetIncome { get; set; }
+        public decimal HouseNetIncome { get; set; }
 
         public List<DailyModel> Rows { get; set; }
 

@@ -11,9 +11,9 @@
   "TotalWins": 0.0,
   "GameIncome": 0.0,
   "GamePayout": 0.0,
-  "CompanyTurnover": 0.0,
-  "CompanyComm": 0.0,
-  "CompanyNetIncome": 0.0,
+  "HouseTurnover": 0.0,
+  "HouseComm": 0.0,
+  "HouseNetIncome": 0.0,
   "Rows": [
     {
       "Sporttype": "N",
@@ -28,9 +28,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Sporttype": null,
@@ -45,9 +45,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -62,9 +62,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -84,9 +84,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -101,9 +101,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -123,9 +123,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -140,9 +140,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -162,9 +162,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -179,9 +179,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -201,9 +201,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -218,9 +218,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -240,9 +240,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -257,9 +257,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -279,9 +279,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -296,9 +296,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -318,9 +318,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -335,9 +335,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -357,9 +357,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -374,9 +374,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -396,9 +396,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -413,9 +413,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -435,9 +435,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -452,9 +452,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -474,9 +474,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -491,9 +491,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -513,9 +513,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -530,9 +530,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -552,9 +552,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -569,9 +569,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -591,9 +591,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -608,9 +608,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -630,9 +630,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -647,9 +647,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -669,9 +669,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -686,9 +686,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -708,9 +708,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -725,9 +725,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -747,9 +747,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -764,9 +764,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -786,9 +786,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -803,9 +803,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -825,9 +825,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "N",
@@ -842,9 +842,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -867,9 +867,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Sporttype": null,
@@ -884,9 +884,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -901,9 +901,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -923,9 +923,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -940,9 +940,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -962,9 +962,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -979,9 +979,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1001,9 +1001,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1018,9 +1018,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1040,9 +1040,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1057,9 +1057,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1079,9 +1079,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1096,9 +1096,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1118,9 +1118,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1135,9 +1135,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1157,9 +1157,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1174,9 +1174,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1196,9 +1196,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1213,9 +1213,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1235,9 +1235,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1252,9 +1252,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1274,9 +1274,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sa",
@@ -1291,9 +1291,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1316,9 +1316,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Sporttype": null,
@@ -1333,9 +1333,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1350,9 +1350,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1372,9 +1372,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1389,9 +1389,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1411,9 +1411,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1428,9 +1428,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1450,9 +1450,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1467,9 +1467,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1489,9 +1489,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1506,9 +1506,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1528,9 +1528,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1545,9 +1545,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1567,9 +1567,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1584,9 +1584,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1606,9 +1606,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1623,9 +1623,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1645,9 +1645,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1662,9 +1662,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1684,9 +1684,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1701,9 +1701,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1723,9 +1723,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sb",
@@ -1740,9 +1740,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1765,9 +1765,9 @@
       "TotalWins": 0.0,
       "GameIncome": 0.0,
       "GamePayout": 0.0,
-      "CompanyTurnover": 0.0,
-      "CompanyComm": 0.0,
-      "CompanyNetIncome": 0.0,
+      "HouseTurnover": 0.0,
+      "HouseComm": 0.0,
+      "HouseNetIncome": 0.0,
       "Rows": [
         {
           "Sporttype": null,
@@ -1782,9 +1782,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1799,9 +1799,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1821,9 +1821,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1838,9 +1838,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1860,9 +1860,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1877,9 +1877,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1899,9 +1899,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1916,9 +1916,9 @@
               "TotalWins": 18.6000,
               "GameIncome": -8.6000,
               "GamePayout": 1.8600,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": -1.2900,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": -1.2900,
               "Rows": [],
               "Total": null
             }
@@ -1938,9 +1938,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1955,9 +1955,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -1977,9 +1977,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -1994,9 +1994,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -2016,9 +2016,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -2033,9 +2033,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -2055,9 +2055,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -2072,9 +2072,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -2094,9 +2094,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -2111,9 +2111,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -2133,9 +2133,9 @@
           "TotalWins": 0.0,
           "GameIncome": 0.0,
           "GamePayout": 0.0,
-          "CompanyTurnover": 0.0,
-          "CompanyComm": 0.0,
-          "CompanyNetIncome": 0.0,
+          "HouseTurnover": 0.0,
+          "HouseComm": 0.0,
+          "HouseNetIncome": 0.0,
           "Rows": [
             {
               "Sporttype": "Sc",
@@ -2150,9 +2150,9 @@
               "TotalWins": 0.0000,
               "GameIncome": 10.0000,
               "GamePayout": 0.0000,
-              "CompanyTurnover": 1.5000,
-              "CompanyComm": 0.0000,
-              "CompanyNetIncome": 1.5000,
+              "HouseTurnover": 1.5000,
+              "HouseComm": 0.0000,
+              "HouseNetIncome": 1.5000,
               "Rows": [],
               "Total": null
             }
@@ -2176,9 +2176,9 @@
     "TotalWins": 0.0,
     "GameIncome": 0.0,
     "GamePayout": 0.0,
-    "CompanyTurnover": 0.0,
-    "CompanyComm": 0.0,
-    "CompanyNetIncome": 0.0,
+    "HouseTurnover": 0.0,
+    "HouseComm": 0.0,
+    "HouseNetIncome": 0.0,
     "Rows": [],
     "Total": null
   }

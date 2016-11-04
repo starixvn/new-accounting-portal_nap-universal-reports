@@ -137,22 +137,22 @@ namespace UniversalReports.NG2Statistic.Daily
             });
             columns.Add(new Columns
             {
-                Name = "CompanyTurnover",
-                Value = raw.CompanyTurnover,
+                Name = "HouseTurnover",
+                Value = raw.HouseTurnover,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
             columns.Add(new Columns
             {
-                Name = "CompanyComm",
-                Value = raw.CompanyComm,
+                Name = "HouseComm",
+                Value = raw.HouseComm,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
             columns.Add(new Columns
             {
-                Name = "CompanyNetIncome",
-                Value = raw.CompanyNetIncome,
+                Name = "HouseNetIncome",
+                Value = raw.HouseNetIncome,
                 CellAlignment = HAlignment.Right,
                 CustomCellType = ExcelCellType.DoubleRedNegative
             });
