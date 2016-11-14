@@ -20,7 +20,7 @@ import angular from "angular";
                 dataMember: null,
                 childrenMember: "children",
                 itemFormatter: null,
-                templateUrl: "fanex.directive.dropdowntree.template.html",
+                templateUrl: "app/root/components/fanex-dropdowntree/fanex.dropdowntree.directive.template.html",
                 sourceData: null,
                 checkedFilter: null, // function to checked item
                 width: 250,

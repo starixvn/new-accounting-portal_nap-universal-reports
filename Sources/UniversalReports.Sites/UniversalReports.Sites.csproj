@@ -634,6 +634,7 @@
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <Content Include="Views\NG2Statistic\Index.cshtml" />
     <Content Include="stylesheets\_bootstrap.scss" />
+    <Content Include="Views\Shared\_Piwik.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
