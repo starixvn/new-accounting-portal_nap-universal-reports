@@ -78,12 +78,24 @@
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
     <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
     </Setting>
     <Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
     </Setting>
     <Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
     </Setting>
     <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
     </Setting>
   </Function>
 </Functions>
