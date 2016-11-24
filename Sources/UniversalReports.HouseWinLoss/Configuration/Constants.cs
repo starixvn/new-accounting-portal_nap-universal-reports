@@ -39,7 +39,8 @@ namespace UniversalReports.HouseWinLoss.Configuration
             "Keno",
             "Bingo",
             "Gold Deluxe",
-            "Non-Sports Total"
+            "Non-Sports Total",
+            "NG2"
         };
 
         public static readonly List<string> CasinoProductsNonExtraPT = new List<string>
