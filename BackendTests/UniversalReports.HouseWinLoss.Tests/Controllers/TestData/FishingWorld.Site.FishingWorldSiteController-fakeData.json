@@ -1,0 +1,50 @@
+[
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "755555",
+    "IsLive": false,
+    "MemberWinLoss": -10,
+    "SMAWinLoss": 0,
+    "Commission": 1,
+    "RealIncome": -9,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 10,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "BEST-ODDS",
+    "IsLive": false,
+    "MemberWinLoss": -260,
+    "SMAWinLoss": 0,
+    "Commission": 31,
+    "RealIncome": -229,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 277,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "INDO",
+    "IsLive": false,
+    "MemberWinLoss": -0,
+    "SMAWinLoss": 0,
+    "Commission": 0,
+    "RealIncome": -0,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 0,
+    "VirtualTurnover": 0
+  }
+]

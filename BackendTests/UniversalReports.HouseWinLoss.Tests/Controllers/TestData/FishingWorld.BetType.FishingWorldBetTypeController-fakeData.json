@@ -1,0 +1,34 @@
+[
+  {
+    "GroupName": "Fishing World",
+    "GroupId": 1205,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": 67,
+    "SMAWinLoss": -67,
+    "Commission": 0,
+    "RealIncome": 0,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 466,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": "Fishing World",
+    "GroupId": 1205,
+    "RowName": "Deposit",
+    "IsLive": false,
+    "MemberWinLoss": 186,
+    "SMAWinLoss": -158,
+    "Commission": 0,
+    "RealIncome": 27,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 45,
+    "VirtualTurnover": 0
+  }
+]

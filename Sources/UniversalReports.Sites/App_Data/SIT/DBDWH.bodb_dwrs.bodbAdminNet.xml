@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
     </Setting>
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
@@ -72,6 +72,10 @@
     <Setting Key="HouseWinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
     <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    </Setting>
+    <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    </Setting>
+    <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
   </Function>
   <Function Name="NG2-Statistics">

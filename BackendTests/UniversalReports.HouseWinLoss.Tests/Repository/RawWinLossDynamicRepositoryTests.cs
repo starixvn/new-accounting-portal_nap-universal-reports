@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Data.Repository;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Fanex.Data.Repository;
-using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -115,7 +115,15 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 BetType = 1231,
                 SportType = 181
             };
-            var result = new List<WinLossCriteria>
+
+            var fishingWorldBetTypeCriteria = new FishingWorld.BetType.Criteria { };
+            var fishingWorldSiteCriteria = new FishingWorld.Site.Criteria
+            {
+                Site = "Deposit",
+                BetType = 1101
+            };
+
+            var criteriaList = new List<WinLossCriteria>
             {
                 betTradeBetTypeCriteria,
                 betTradeSiteCriteria,
@@ -146,9 +154,12 @@ namespace UniversalReports.HouseWinLoss.Tests.Repository
                 virtualSportsBetTypeCriteria,
                 virtualSportsSportTypeCriteria,
                 virtualSportsSiteCriteria,
-                virtualSportsRacingDetailCriteria
+                virtualSportsRacingDetailCriteria,
+                fishingWorldBetTypeCriteria,
+                fishingWorldSiteCriteria
             };
-            return result
+
+            return criteriaList
                 .Select(i => new[]
                 {
                     WinLossCriteriaFactory.CreateBetTransCriteria(i),

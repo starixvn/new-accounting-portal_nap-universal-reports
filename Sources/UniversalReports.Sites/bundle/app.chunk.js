@@ -26550,7 +26550,7 @@ webpackJsonp([0],[
 	                                url = config.rootUrl + '/' + url;
 	                            }
 	                            if (extension.toLowerCase() === 'html') {
-	                                url = url + "?v=1.11";
+	                                url = url + "?v=1.1";
 	                            }
 	                        }
 	

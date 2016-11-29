@@ -344,6 +344,14 @@
     <Compile Include="Common\MatchDetail\GridOptionsBuilderImp.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
+    <Compile Include="FishingWorld\BetType\Criteria.cs" />
+    <Compile Include="FishingWorld\BetType\ExcelQueryModel.cs" />
+    <Compile Include="FishingWorld\BetType\QueryModel.cs" />
+    <Compile Include="FishingWorld\BetType\FishingWorldBetTypeController.cs" />
+    <Compile Include="FishingWorld\Site\Criteria.cs" />
+    <Compile Include="FishingWorld\Site\ExcelQueryModel.cs" />
+    <Compile Include="FishingWorld\Site\QueryModel.cs" />
+    <Compile Include="FishingWorld\Site\FishingWorldSiteController.cs" />
     <Compile Include="Universal\BetType\ExcelLiveNonLiveQueryModel.cs" />
     <Compile Include="Universal\SportType\Criteria.cs" />
     <Compile Include="Universal\SportType\ExcelQueryModel.cs" />

@@ -108,6 +108,10 @@ webpackJsonp([2],{
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(function (angular) {
@@ -546,6 +550,25 @@ webpackJsonp([2],{
 	                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
 	                mainParameters: { productId: 23 },
 	                getTitleFunction: "getSiteTitleLive"
+	            }
+	        },
+	        "Fishing World": {
+	            mainView: "betType",
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/fishing-world/bet-type",
+	                mainParameters: { productId: 24, isLive: 2 },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            site: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SiteController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/fishing-world/site",
+	                mainParameters: { productId: 24, isLive: 2 },
+	                getTitleFunction: "getSiteTitle"
 	            }
 	        }
 	    };
