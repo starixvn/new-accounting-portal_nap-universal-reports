@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 using UniversalReports.HouseWinLoss.Common.Models;
@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Products
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpper(),
-                BodyRows = BuildBodyRows(winLoss),
+                BodyRows = winLoss.IsEmpty ? new List<GridDataRow>() : BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
