@@ -21,7 +21,7 @@ import angular from "angular";
             $scope.viewSetting = viewSetting;
             pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElement, data);
-                createLinks(data);
+                createLinks(data, pane.data.isLive);
                 renderGrid(data);
                 pane.compileAll();
             });
@@ -38,12 +38,12 @@ import angular from "angular";
             tab.goForward('betType', data);
         }
 
-        function createLinks(data) {
+        function createLinks(data, isLive) {
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
                 var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + sportTypeName + '</a>';
             }
         }
 
