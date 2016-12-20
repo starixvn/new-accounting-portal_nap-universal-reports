@@ -28,7 +28,7 @@ import angular from "angular";
 
                 var canViewMatchDetail = pane.data.endDate.diff(pane.data.startDate, 'days') <= 3;
                 if (canViewMatchDetail) {
-                    createDrilldownLinks(data.bodyRows);
+                    createDrilldownLinks(data.bodyRows, pane.data.isLive);
                 }
 
                 renderGrid(data);
