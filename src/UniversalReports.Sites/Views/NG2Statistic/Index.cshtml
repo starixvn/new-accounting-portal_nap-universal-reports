@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "NG2 Statistic";
+    ViewBag.AngularAppName = "numberGame2StatisticApp";
+    var contentVersion = HttpContext.Current.IsDebuggingEnabled ? "" : "min.";
+}
+
+<div class="page-header">
+    Gaming / <span class="active">@ViewBag.Title</span>
+</div>
+<div data-ng-view></div>
+<div data-nap-alert></div>
+<div data-nap-loading></div>
+@section Styles{
+<link href="~/bundle/ng2-statistic-style.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/bundle/ng2-statistic.chunk.js?v=1.0.1"></script>
+}
