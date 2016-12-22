@@ -89,8 +89,8 @@
       <HintPath>..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.NAP.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.NAP.Core.2.1.0.1\lib\net40\Fanex.NAP.Core.dll</HintPath>
+    <Reference Include="Fanex.NAP.Core, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.1.0.5\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -484,6 +484,7 @@
     </Content>
     <Content Include="App_Configuration\Web.LOCAL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Configuration\Web.MASTER.config">
       <DependentUpon>Web.config.tt</DependentUpon>
@@ -635,12 +636,6 @@
     <Content Include="Views\NG2Statistic\Index.cshtml" />
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="Views\Shared\_Piwik.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <Content Include="webpack.config.sh" />
   </ItemGroup>
   <ItemGroup>

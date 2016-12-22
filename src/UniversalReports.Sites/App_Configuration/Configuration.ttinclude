@@ -41,9 +41,9 @@
     class SiteInfo
     {
         public SiteEnvironment Environment { get; set; }
-                
+
         #region For Webconfig file
-        
+
         public string ErrorMode
         {
             get
@@ -66,7 +66,7 @@
                 }
             }
         }
-        
+
         public string DebugMode
         {
             get
@@ -89,7 +89,7 @@
             }
         }
 
-        public string EnvironmentSettings
+        public string NapEnvironment
         {
             get
             {
@@ -111,7 +111,7 @@
             }
         }
 
-        public string SiteIdSettings
+        public string NapSiteId
         {
             get
             {
@@ -128,50 +128,29 @@
             }
         }
 
-        public string UMAddress
+		public string NapEnableReCheckin
         {
             get
             {
                 switch(Environment)
                 {
-                    case SiteEnvironment.PRO:
-                        return "tcp://10.40.40.150:8990/UMControllerInterface";
-                    case SiteEnvironment.MNL:
-                        return "tcp://10.2.96.1:8990/UMControllerInterface";
-                    case SiteEnvironment.UAT:
-                        return "tcp://10.40.40.150:8990/UMControllerInterface";	
-					case SiteEnvironment.SIT:
-						return "http://172.16.4.106:8889/api";				
-                    default:
-                        return string.Empty;
-                }
-            }
-        }
-
-         public string EnableCheckUM
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                    case SiteEnvironment.MNL:
-                        return "true";
-
-                    case SiteEnvironment.UAT: 
-					case SiteEnvironment.SIT: 
-                    case SiteEnvironment.DEV:                  
-                    case SiteEnvironment.LOCAL:
+					case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
                     case SiteEnvironment.MASTER:
+						return "false";
+                    case SiteEnvironment.SIT:
+                    case SiteEnvironment.UAT:
+					case SiteEnvironment.PRO:
+						return "true";
+					case SiteEnvironment.MNL:
                         return "false";
-
-                    default:
+					default:
                         return string.Empty;
                 }
             }
         }
 
-        public string HubUrl
+        public string NapHubUrl
         {
             get
             {
@@ -197,6 +176,139 @@
             }
         }
 
+		public string NapServiceUrls
+		 {
+            get
+            {
+                switch(Environment)
+                {
+					case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.MASTER:
+						return "http://10.18.200.124:17101/api";
+                    case SiteEnvironment.SIT:
+						return "http://172.16.4.106:1710/api";
+                    case SiteEnvironment.UAT:
+						return "http://10.40.40.16:1710/api";
+					case SiteEnvironment.PRO:
+						return "http://10.40.40.22:1710/api";
+					case SiteEnvironment.MNL:
+                        return "http://10.2.98.3:1710/api";
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+		public string NapAccessKey
+		 {
+            get
+            {
+                switch(Environment)
+                {
+					case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.MASTER:
+						return "HTAiA6W/kzs0PjSnm3ll1kD7tXPyDyO0gTeD8Nz6078=";
+                    case SiteEnvironment.SIT:
+						return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
+                    case SiteEnvironment.UAT:
+					case SiteEnvironment.PRO:
+					case SiteEnvironment.MNL:
+                        return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+		public string NapDomainName
+        {
+            get
+            {
+                switch(Environment)
+                {
+					case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.MASTER:
+						return "localhost:9902";
+                    case SiteEnvironment.SIT:
+                        return "nap-report.playthefun.com";
+                    case SiteEnvironment.UAT:
+						return "qa-accrpt.starific.net";
+					case SiteEnvironment.PRO:
+                        return "58.86.55.10";
+					case SiteEnvironment.MNL:
+                        return "nap-report.ibcbk.com";
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+		public string NapDomainPath
+        {
+            get
+            {
+                switch(Environment)
+                {
+					case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.MASTER:
+                    case SiteEnvironment.SIT:
+                    case SiteEnvironment.UAT:
+					case SiteEnvironment.PRO:
+					case SiteEnvironment.MNL:
+						return "/AccReport";
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
+		public string UMAddress
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "tcp://10.40.40.150:8990/UMControllerInterface";
+                    case SiteEnvironment.MNL:
+                        return "tcp://10.2.96.1:8990/UMControllerInterface";
+                    case SiteEnvironment.UAT:
+                        return "tcp://10.40.40.150:8990/UMControllerInterface";
+					case SiteEnvironment.SIT:
+						return "http://172.16.4.106:8889/api";
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+        public string EnableCheckUM
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.MNL:
+                        return "true";
+
+                    case SiteEnvironment.UAT:
+					case SiteEnvironment.SIT:
+                    case SiteEnvironment.DEV:
+                    case SiteEnvironment.LOCAL:
+                    case SiteEnvironment.MASTER:
+                        return "false";
+
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
         public string StateConnectionString
         {
             get
@@ -211,32 +323,6 @@
                         return "stateConnectionString=\"tcpip=127.0.0.1:42424\"";
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
-                    default:
-                        return string.Empty;
-                }
-            }
-        }
-
-        public string AuthorizeDomain
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                        return "<add Name=\"58.86.55.10\" Path=\"/AccReport\"></add>";
-                    case SiteEnvironment.MNL:
-                        return "<add Name=\"10.2.12.8\" Path=\"/AccReport\"></add>";
-
-                    case SiteEnvironment.UAT:
-                        return "<add Name=\"58.86.55.10\" Path=\"/AccReport\"></add>";
-					case SiteEnvironment.SIT:
-						return "";
-                    case SiteEnvironment.DEV:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-                        return "<add Name=\"10.70.70.242:7123\" Path=\"/\" />";
-
                     default:
                         return string.Empty;
                 }
@@ -279,7 +365,7 @@
 					case SiteEnvironment.LOCAL:
 					case SiteEnvironment.DEV:
                         return @"FormatName:DIRECT=tcp://10.18.200.124/private$/entlib";
-						
+
 					case SiteEnvironment.UAT:
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";
 
@@ -313,7 +399,7 @@
 
                     case SiteEnvironment.PRO:
 						return "NAP-Report";
-					
+
 					case SiteEnvironment.SIT:
 						return "NAP-Report-SIT";
 
@@ -326,8 +412,8 @@
             }
         }
 
-        
-		
+
+
 
         #endregion End for Webconfig file
     }

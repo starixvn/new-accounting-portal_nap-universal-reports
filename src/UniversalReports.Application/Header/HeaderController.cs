@@ -1,4 +1,4 @@
-﻿using Fanex.NAP.Core.Model;
+﻿using Fanex.NAP.Core.Models;
 using Fanex.NAP.Core.Web.Session;
 using System.Collections.Generic;
 using System.Linq;
