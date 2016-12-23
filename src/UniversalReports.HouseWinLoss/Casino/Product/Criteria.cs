@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Casino.Product
 {
@@ -6,9 +6,6 @@ namespace UniversalReports.HouseWinLoss.Casino.Product
     {
         public int CasinoType { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Casino-Product-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Casino-Product-{Source}"; 
     }
 }

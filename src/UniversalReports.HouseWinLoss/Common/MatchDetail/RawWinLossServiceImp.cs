@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fanex.Repository;
+using Fanex.Data.Repository;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 
@@ -8,12 +8,12 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
     public class RawWinLossServiceImp : RawWinLossService
     {
-        private readonly SimpleRepository repository;
+        private readonly IDynamicRepository repository;
 
         private readonly BalanceUpSourceChooser balanceUpSourceChooser;
 
         public RawWinLossServiceImp(
-            SimpleRepository repository,
+            IDynamicRepository repository,
             BalanceUpSourceChooser balanceUpSourceChooser)
         {
             this.repository = repository;

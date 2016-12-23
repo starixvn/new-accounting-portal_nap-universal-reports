@@ -1,11 +1,11 @@
 ﻿using System.Web.Http;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
-using UniversalReports.Sites;
+using UniversalReports.Sites.App_Start;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(SimpleInjectorApiConfig), "Initialize")]
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     internal class SimpleInjectorApiConfig
     {

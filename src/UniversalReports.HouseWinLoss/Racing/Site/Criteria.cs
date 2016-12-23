@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Racing.Site
 {
@@ -10,9 +10,6 @@ namespace UniversalReports.HouseWinLoss.Racing.Site
 
         public string Site { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Racing-Site-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Racing-Site-{Source}";
     }
 }

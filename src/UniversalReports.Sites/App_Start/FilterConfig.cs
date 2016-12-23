@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     public static class FilterConfig
     {

@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Parlay.Site
 {
@@ -6,9 +6,6 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
     {
         public string Site { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-SystemParlay-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-SystemParlay-{Source}"; 
     }
 }

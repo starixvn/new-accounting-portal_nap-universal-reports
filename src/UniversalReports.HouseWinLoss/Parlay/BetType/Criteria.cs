@@ -1,12 +1,9 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Parlay.BetType
 {
     public class Criteria : WinLossCriteria
     {
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Parlay-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Parlay-{Source}"; 
     }
 }

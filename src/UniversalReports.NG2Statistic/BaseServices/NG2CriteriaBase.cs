@@ -1,5 +1,5 @@
-﻿using System;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
+using System;
 
 namespace UniversalReports.NG2Statistic.BaseServices
 {
@@ -21,9 +21,11 @@ namespace UniversalReports.NG2Statistic.BaseServices
 
         public bool IsRealTime { get; set; } = true;
 
-        public override bool IsValid()
+        public override bool IsValid() => true;
+
+        public override string GetSettingKey()
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

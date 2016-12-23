@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Universal.BetType
 {
@@ -10,10 +10,7 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
 
         public int IsLive { get; set; } = 2;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Universal-BetType-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Universal-BetType-{Source}"; 
 
         public Criteria Clone()
         {

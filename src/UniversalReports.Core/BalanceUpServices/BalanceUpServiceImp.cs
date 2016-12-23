@@ -1,5 +1,5 @@
 ﻿using Fanex.Caching;
-using Fanex.Repository;
+using Fanex.Data.Repository;
 
 namespace UniversalReports.Core.BalanceUpServices
 {
@@ -7,30 +7,28 @@ namespace UniversalReports.Core.BalanceUpServices
     {
         private const string BalanceUpRangeCacheKey = "CommonBalanceUpRangeCacheKey";
 
-        private readonly SimpleRepository repository;
+        private readonly IDynamicRepository repository;
 
-        private readonly ICache cacheService = CacheService.CreateInstance(CacheType.MemoryCache);
-
-        public BalanceUpServiceImp(SimpleRepository repository)
+        public BalanceUpServiceImp(IDynamicRepository repository)
         {
             this.repository = repository;
         }
 
         public void ClearCache()
         {
-            cacheService.Remove(BalanceUpRangeCacheKey);
+            CacheService.Remove(BalanceUpRangeCacheKey);
         }
 
         public BalanceUpRange Query()
         {
-            var balanceUpRange = cacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
+            var balanceUpRange = CacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
             if (balanceUpRange != null)
             {
                 return balanceUpRange;
             }
 
             balanceUpRange = QueryFromSource();
-            cacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
+            CacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
 
             return balanceUpRange;
         }

@@ -1,4 +1,4 @@
-﻿using UniversalReports.NG2Statistic.BaseServices;
+using UniversalReports.NG2Statistic.BaseServices;
 
 namespace UniversalReports.NG2Statistic.UserName
 {
@@ -6,9 +6,6 @@ namespace UniversalReports.NG2Statistic.UserName
     {
         public bool IsDrillDown { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return "NG2-Statistics-UserName";
-        }
+        public override string GetSettingKey() => "NG2-Statistics-UserName"; 
     }
 }

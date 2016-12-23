@@ -133,7 +133,7 @@ import moment from "moment";
             ngDialog.open({
                 template: 'templateId',
                 plain: false,
-                width: 1320,
+                width: 1335,
                 height: 650,
                 closeByDocument: false,
                 data: data

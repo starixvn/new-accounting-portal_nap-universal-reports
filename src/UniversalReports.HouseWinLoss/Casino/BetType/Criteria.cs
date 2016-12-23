@@ -1,4 +1,4 @@
-﻿using Fanex.Data.Repository;
+using Fanex.Data;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Casino.BetType
@@ -8,9 +8,6 @@ namespace UniversalReports.HouseWinLoss.Casino.BetType
         [SpParam(SqlParamName = "ProductId")]
         public int CasinoProductId { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Casino-BetType-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Casino-BetType-{Source}"; 
     }
 }

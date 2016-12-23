@@ -1,5 +1,6 @@
-﻿using Fanex.Data.Configuration;
-using Fanex.Repository;
+﻿using Fanex.Data;
+using Fanex.Data.OldConnectionStringProvider;
+using Fanex.Data.Repository;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
 
@@ -10,14 +11,21 @@ namespace UniversalReports.Core.Tests.BalanceUpServices
         [OneTimeSetUp]
         public void Init()
         {
-            DbSettingProviderManager.Current.Start();
+            DbSettingProviderManager
+          .StartNewSession()
+          .Use(new OldConnectionStringProvider())
+          .UseDefaultDbSettingProvider(
+            resourcePath: $"~/App_Data/LOCAL",
+            ignoreRedundantParameters: false,
+            enableWatching: true)
+          .Run();
         }
 
         [Test]
         [Category("RepositoryTests")]
         public void Get_Successful()
         {
-            var repository = new SimpleRepositoryImp();
+            var repository = new DynamicRepository();
             var criteria = new BalanceUpCriteria();
             repository.Get<BalanceUpRange>(criteria);
         }

@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.MetricGaming.Site
@@ -11,9 +11,6 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.Site
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-MetricGaming-Site-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-Site-{Source}"; 
     }
 }

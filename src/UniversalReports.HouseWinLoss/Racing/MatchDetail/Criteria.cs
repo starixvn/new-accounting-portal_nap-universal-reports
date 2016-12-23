@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Racing.MatchDetail
 {
@@ -8,9 +8,6 @@ namespace UniversalReports.HouseWinLoss.Racing.MatchDetail
 
         public int BetType { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Racing-MatchDetail-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Racing-MatchDetail-{Source}"; 
     }
 }

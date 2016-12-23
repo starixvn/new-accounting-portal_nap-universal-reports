@@ -1,12 +1,9 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Products
 {
     public class Criteria : WinLossCriteria
     {
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Products-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Products-{Source}"; 
     }
 }

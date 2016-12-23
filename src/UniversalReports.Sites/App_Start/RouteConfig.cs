@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     public static class RouteConfig
     {

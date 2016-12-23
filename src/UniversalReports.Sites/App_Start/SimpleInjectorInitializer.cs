@@ -1,15 +1,15 @@
-using Fanex.Repository;
+using Fanex.Data.Repository;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using System.Reflection;
 using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Sites;
+using UniversalReports.Sites.App_Start;
 
 [assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorInitializer), "Initialize")]
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     public static class SimpleInjectorInitializer
     {
@@ -30,7 +30,7 @@ namespace UniversalReports.Sites
 
         private static void InitializeContainer(Container container)
         {
-            container.Register<SimpleRepository, SimpleRepositoryImp>(Lifestyle.Scoped);
+            container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Scoped);
             container.Register<BalanceUpService, BalanceUpServiceImp>(Lifestyle.Scoped);
         }
     }

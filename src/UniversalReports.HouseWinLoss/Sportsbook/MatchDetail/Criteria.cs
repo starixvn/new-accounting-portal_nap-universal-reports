@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
@@ -13,9 +13,6 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-MatchDetail-{Source}"; 
     }
 }

@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
@@ -7,9 +7,6 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-MetricGaming-BetType-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-BetType-{Source}"; 
     }
 }

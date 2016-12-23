@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.VirtualSports.Site
 {
@@ -10,9 +10,6 @@ namespace UniversalReports.HouseWinLoss.VirtualSports.Site
 
         public string Site { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-VirtualSports-Site-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-VirtualSports-Site-{Source}"; 
     }
 }

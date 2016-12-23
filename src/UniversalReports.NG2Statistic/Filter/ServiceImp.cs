@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Data.Repository;
+using System.Collections.Generic;
 using System.Linq;
-using Fanex.Repository;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
     public class ServiceImp : Service
     {
-        private readonly SimpleRepository repository;
+        private readonly IDynamicRepository repository;
 
-        public ServiceImp(SimpleRepository repository)
+        public ServiceImp(IDynamicRepository repository)
         {
             this.repository = repository;
         }

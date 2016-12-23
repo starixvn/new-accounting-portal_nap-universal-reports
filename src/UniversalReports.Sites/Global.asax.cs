@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Configuration;
-using Fanex.Logging;
+﻿using Fanex.Logging;
 using System;
 using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
@@ -9,6 +8,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
+using UniversalReports.Sites.App_Start;
 
 namespace UniversalReports.Sites
 {
@@ -21,7 +21,7 @@ namespace UniversalReports.Sites
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            DbSettingProviderManager.Current.Start();
+            FanexData.Register();
         }
 
         protected void Application_PostAuthorizeRequest()

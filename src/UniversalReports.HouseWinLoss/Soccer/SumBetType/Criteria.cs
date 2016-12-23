@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
@@ -9,9 +9,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Soccer-BetType-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Soccer-BetType-{Source}"; 
     }
 }

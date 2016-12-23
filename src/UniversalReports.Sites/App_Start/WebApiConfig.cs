@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     public static class WebApiConfig
     {

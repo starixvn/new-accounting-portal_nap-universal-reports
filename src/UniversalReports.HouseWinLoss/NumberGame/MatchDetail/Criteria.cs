@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 {
@@ -8,9 +8,6 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 
         public bool IsLive { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-NumberGame-MatchDetail-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-NumberGame-MatchDetail-{Source}"; 
     }
 }

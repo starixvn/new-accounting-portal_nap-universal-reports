@@ -1,5 +1,6 @@
-﻿using System;
+﻿using Fanex.Data;
 using Fanex.Data.Repository;
+using System;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.Common.Criteria
@@ -16,16 +17,18 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
         [SpParam(Ignored = true)]
         public string Source { get; set; }
 
-        public override bool IsValid()
-        {
-            return true;
-        }
+        public override bool IsValid() => true;
 
         protected virtual void Update(BalanceUpSource source)
         {
             StartDate = source.StartDate;
             EndDate = source.EndDate;
             Source = source.Source;
+        }
+
+        public override string GetSettingKey()
+        {
+            throw new NotImplementedException();
         }
     }
 }

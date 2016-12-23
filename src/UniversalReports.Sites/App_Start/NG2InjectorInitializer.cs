@@ -6,7 +6,7 @@ using Filter = UniversalReports.NG2Statistic.Filter;
 using GrandTotalReport = UniversalReports.NG2Statistic.GrandTotal;
 using UserNameReport = UniversalReports.NG2Statistic.UserName;
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     internal static class NG2InjectorInitializer
     {

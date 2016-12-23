@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.VirtualSports.RacingDetail
 {
@@ -8,9 +8,6 @@ namespace UniversalReports.HouseWinLoss.VirtualSports.RacingDetail
 
         public int BetType { get; set; }
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-VirtualSports-Racing-MatchDetail-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-VirtualSports-Racing-MatchDetail-{Source}"; 
     }
 }

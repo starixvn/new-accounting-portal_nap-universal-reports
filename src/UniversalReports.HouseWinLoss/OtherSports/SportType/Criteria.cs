@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.SportType
@@ -7,9 +7,6 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-OtherSports-SportType-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-{Source}"; 
     }
 }

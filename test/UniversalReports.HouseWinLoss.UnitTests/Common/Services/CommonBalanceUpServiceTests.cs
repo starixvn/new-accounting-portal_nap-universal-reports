@@ -1,4 +1,4 @@
-﻿using Fanex.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
@@ -14,7 +14,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         {
             // Arrange
             var emptyBalanceUpRange = new BalanceUpRange();
-            var dynamicRepository = Substitute.For<SimpleRepository>();
+            var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>()).Returns(emptyBalanceUpRange);
 
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository);
@@ -33,7 +33,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         {
             // Arrange
             var emptyBalanceUpRange = new BalanceUpRange();
-            var dynamicRepository = Substitute.For<SimpleRepository>();
+            var dynamicRepository = Substitute.For<IDynamicRepository>();
             dynamicRepository.Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>()).Returns(emptyBalanceUpRange);
 
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository);

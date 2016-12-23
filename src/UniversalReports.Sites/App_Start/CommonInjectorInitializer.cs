@@ -2,7 +2,7 @@
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
-namespace UniversalReports.Sites
+namespace UniversalReports.Sites.App_Start
 {
     internal static class CommonInjectorInitializer
     {

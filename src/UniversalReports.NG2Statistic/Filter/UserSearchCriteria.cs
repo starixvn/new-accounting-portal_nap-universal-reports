@@ -1,4 +1,5 @@
-﻿using Fanex.Data.Repository;
+using Fanex.Data;
+using Fanex.Data.Repository;
 
 namespace UniversalReports.NG2Statistic.Filter
 {
@@ -20,14 +21,8 @@ namespace UniversalReports.NG2Statistic.Filter
             get; set;
         }
 
-        public override string GetSettingKey()
-        {
-            return "NG2-Statistics-UserSearchSuggestion";
-        }
+        public override string GetSettingKey() => "NG2-Statistics-UserSearchSuggestion";
 
-        public override bool IsValid()
-        {
-            return true;
-        }
+        public override bool IsValid() => true;
     }
 }

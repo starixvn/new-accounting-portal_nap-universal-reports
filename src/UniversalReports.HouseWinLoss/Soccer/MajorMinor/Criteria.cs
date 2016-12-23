@@ -1,4 +1,4 @@
-﻿using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
@@ -7,9 +7,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey()
-        {
-            return $"HouseWinLoss-Soccer-Major-Minor-{Source}";
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-Soccer-Major-Minor-{Source}"; 
     }
 }
