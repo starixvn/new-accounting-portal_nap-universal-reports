@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Excel;
+using Fanex.Excel.Models;
+using NPOI.SS.UserModel;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -6,9 +9,6 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Fanex.Excel;
-using Fanex.Excel.Models;
-using NPOI.SS.UserModel;
 
 namespace UniversalReports.MVC.Results
 {
@@ -33,17 +33,17 @@ namespace UniversalReports.MVC.Results
             using (var memoryStream = new MemoryStream())
             {
                 Workbook.Write(memoryStream);
-                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                using (var response = new HttpResponseMessage(HttpStatusCode.OK))
                 {
-                    Content = new ByteArrayContent(memoryStream.ToArray())
-                };
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                {
-                    FileName = "undefined.xls"
-                };
+                    response.Content = new ByteArrayContent(memoryStream.ToArray());
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                    {
+                        FileName = "undefined.xls"
+                    };
 
-                return Task.FromResult(response);
+                    return Task.FromResult(response);
+                }
             }
         }
     }

@@ -27,8 +27,8 @@ module.exports = {
             "./app/root/**/*.css"]),
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js", "./app/house-win-loss/**/*.js"]),
         "house-win-loss-style": ["./content/house-win-loss.scss", "./content/scoreInformation.scss"],
-        "ng2-statistic": glob.sync(["./app/ng2-statistic/*.js", "./app/ng2-statistic/**/*.js"]),
-        "ng2-statistic-style": ["./content/ng2-statistic.scss"]
+        "ng2-statistics": glob.sync(["./app/ng2-statistics/*.js", "./app/ng2-statistics/**/*.js"]),
+        "ng2-statistics-style": ["./content/ng2-statistics.scss"]
     },
     output: {
         path: path.join(__dirname, 'bundle'),

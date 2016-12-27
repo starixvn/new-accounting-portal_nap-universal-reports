@@ -6,7 +6,7 @@ using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.Tests.Repository
 {
-    public class RepositoryContext
+    public static class RepositoryContext
     {
         static RepositoryContext()
         {

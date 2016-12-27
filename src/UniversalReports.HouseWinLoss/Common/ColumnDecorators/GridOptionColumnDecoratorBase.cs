@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
+using System.Collections.Generic;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
@@ -35,16 +35,12 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 
         protected const int MatchDetailVirtualMarginIndex = 12;
 
-        protected GridOptionColumnDecoratorBase()
-        {
-        }
+        private readonly GridOptionColumnRemoval columnRemoval;
 
         protected GridOptionColumnDecoratorBase(GridOptionColumnRemoval columnRemoval)
         {
-            ColumnRemoval = columnRemoval;
+            this.columnRemoval = columnRemoval;
         }
-
-        protected GridOptionColumnRemoval ColumnRemoval { get; }
 
         protected void RemoveBodyAndFooterColumn(GridOptions gridOptions, params int[] indice)
         {
@@ -62,7 +58,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             }
         }
 
-        protected void RemoveColumn(List<GridDataRow> rows, int index)
+        private void RemoveColumn(List<GridDataRow> rows, int index)
         {
             foreach (var row in rows)
             {
@@ -70,9 +66,9 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             }
         }
 
-        protected void RemoveColumn(GridDataRow row, int index)
+        private void RemoveColumn(GridDataRow row, int index)
         {
-            ColumnRemoval.RemoveColumn(row.Columns, index);
+            columnRemoval.RemoveColumn(row.Columns, index);
             if (row.SubRows == null)
             {
                 return;

@@ -2,7 +2,7 @@
 using Fanex.Data.OldConnectionStringProvider;
 using System.Configuration;
 
-namespace UniversalReports.Sites.App_Start
+namespace UniversalReports.Sites
 {
     public static class FanexData
     {

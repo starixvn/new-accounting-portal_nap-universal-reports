@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
@@ -280,7 +280,6 @@
     <Compile Include="Parlay\Site\QueryModel.cs" />
     <Compile Include="Products\Service.cs" />
     <Compile Include="Products\ProductGroupWinLoss.cs" />
-    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="NumberGame\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Products\ExcelQueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />

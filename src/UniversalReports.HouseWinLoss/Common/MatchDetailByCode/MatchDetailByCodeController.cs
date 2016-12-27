@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -9,22 +9,22 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 {
     public abstract class MatchDetailByCodeController : ApiController
     {
+        private readonly WinLossService service;
+
+        private readonly GridOptionsBuilder builder;
+
+        private readonly MatchGridOptionColumnDecorator decorator;
+
         protected MatchDetailByCodeController()
         {
         }
 
         protected MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
         {
-            Service = service;
-            Builder = builder;
-            Decorator = decorator;
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
-
-        protected WinLossService Service { get; }
-
-        protected GridOptionsBuilder Builder { get; }
-
-        protected MatchGridOptionColumnDecorator Decorator { get; }
 
         public IHttpActionResult Json(WinLossCriteria criteria)
         {
@@ -38,12 +38,12 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
 
-        protected GridOptions GetGridOptions(WinLossCriteria criteria, string title)
+        private GridOptions GetGridOptions(WinLossCriteria criteria, string title)
         {
-            var winlosses = Service.Query(criteria);
-            var gridOptions = Builder.Build(winlosses, title);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, title);
 
-            return Decorator.Build(gridOptions);
+            return decorator.Build(gridOptions);
         }
     }
 }

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
 {
-    internal class ComparisonAssert
+    internal static class ComparisonAssert
     {
         internal static void AreEqual(object expected, object actual)
         {

@@ -9,15 +9,15 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
-        public GridOptions Build(WinLossModel winloss, string title)
+        public GridOptions Build(WinLossModel winLoss, string title)
         {
             var gridOptions = new GridOptions
             {
                 ShowTitle = true,
                 TitleInfoText = title.ToUpper(),
                 TitleType = TitleType.TwoLineBlue,
-                BodyRows = BuildBodyRows(winloss.Leagues),
-                FooterRows = BuildFooter(winloss),
+                BodyRows = BuildBodyRows(winLoss.Leagues),
+                FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowDistinctRow = false
             };

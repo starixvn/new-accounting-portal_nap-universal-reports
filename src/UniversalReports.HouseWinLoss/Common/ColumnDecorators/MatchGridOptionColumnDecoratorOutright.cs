@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
@@ -29,7 +29,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
           "SP2100:CodeLineMustNotBeLongerThan",
           Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns()
+        private List<HeaderColumns> BuildColumns()
         {
             return new List<HeaderColumns>
             {
@@ -48,7 +48,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        protected List<GroupHeaderRows> BuildGroupHeaderRows()
+        private List<GroupHeaderRows> BuildGroupHeaderRows()
         {
             var columns = new List<HeaderColumns>
             {

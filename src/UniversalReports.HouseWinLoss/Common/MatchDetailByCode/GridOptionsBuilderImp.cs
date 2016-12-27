@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
         {
             var leagueNameRow = BuildLeagueNameRow(league.Name);
             var matchRows = league.Matches.Select(m => BuildDataRow(m, HAlignment.Center));
-            league.Total.Name = league.Total.Name == string.Empty ? "Total" : league.Total.Name;
+            league.Total.Name = string.IsNullOrEmpty(league.Total.Name) ? "Total" : league.Total.Name;
             var totalRows = BuildDataRow(league.Total, HAlignment.Right);
             totalRows.CssClass = "total-row";
             totalRows.RowType = RowType.SubTotal;

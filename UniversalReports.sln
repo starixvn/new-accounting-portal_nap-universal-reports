@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.Tests", "test\UniversalReports.HouseWinLoss.Tests\UniversalReports.HouseWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistic", "src\UniversalReports.NG2Statistic\UniversalReports.NG2Statistic.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistics", "src\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core", "src\UniversalReports.Core\UniversalReports.Core.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
 EndProject
@@ -88,7 +88,7 @@ Global
 		{03740B18-F2B7-41A0-8357-FAA32CF3A06F} = {C074583A-B1D9-412C-8649-DD98B9234224}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

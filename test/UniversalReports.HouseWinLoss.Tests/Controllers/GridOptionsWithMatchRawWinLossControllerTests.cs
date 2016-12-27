@@ -1,6 +1,6 @@
-﻿using System.Web.Http.Results;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
 using NUnit.Framework;
+using System.Web.Http.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -34,7 +34,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             };
         }
 
-        internal object GetQueryModel(string controllerName)
+        private object GetQueryModel(string controllerName)
         {
             switch (controllerName)
             {

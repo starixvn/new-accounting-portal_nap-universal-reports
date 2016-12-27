@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             return winLoss.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
         }
 
-        protected virtual List<GridDataRow> BuildFooter(BasicWinLossModel model)
+        private List<GridDataRow> BuildFooter(BasicWinLossModel model)
         {
             var row = BuildTotalGroupDataRow(model.GrandTotal);
             var allRMRows = model.RM.Select(r => gridDataRowBuilder.BuildDataRow(r, HAlignment.Right));
@@ -61,7 +61,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             return row;
         }
 
-        protected virtual GridDataRow BuildTotalGroupDataRow(SiteWinLossSummary item)
+        private GridDataRow BuildTotalGroupDataRow(SiteWinLossSummary item)
         {
             var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
             row.RowType = RowType.ParentLevelOne;

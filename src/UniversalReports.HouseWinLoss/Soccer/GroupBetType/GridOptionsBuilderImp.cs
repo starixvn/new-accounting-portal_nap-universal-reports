@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
 using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Soccer.BaseService;
@@ -32,7 +32,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             };
         }
 
-        protected List<GridDataRow> BuildBodyRows(List<WinLossSummaryByBetTypeGroup> winLoss)
+        private List<GridDataRow> BuildBodyRows(List<WinLossSummaryByBetTypeGroup> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)

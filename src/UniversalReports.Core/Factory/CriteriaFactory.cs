@@ -18,13 +18,13 @@ namespace UniversalReports.Core.Factory
                 BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance);
             var gettingProperties = @object.GetType().GetProperties(
                 BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance);
-            var @instance = (T)Activator.CreateInstance(typeof(T));
+            var instance = (T)Activator.CreateInstance(typeof(T));
             foreach (var property in settingProperties)
             {
-                SetPropertyValue(@instance, @object, property, gettingProperties);
+                SetPropertyValue(instance, @object, property, gettingProperties);
             }
 
-            return @instance;
+            return instance;
         }
 
         private static void SetPropertyValue(object settingObject, object gettingObject, PropertyInfo settingProperty, IEnumerable<PropertyInfo> gettingProperties)

@@ -22,7 +22,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
         {
             var mainRawWinLosses = rawWinLosses
                 .Where(r => !r.GroupName.Contains("(hedge)"))
-                .Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+                .Where(r => Enum.IsDefined(typeof(GroupConstants.MainBetType), r.GroupId));
             return CalculateSumWinLoss(sumTitle, mainRawWinLosses);
         }
 
@@ -30,7 +30,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
         {
             var otherRawWinLosses = rawWinLosses
                 .Where(r => !r.GroupName.Contains("(hedge)") && r.GroupName != "RM")
-                .Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetTypes), r.GroupId));
+                .Where(r => !Enum.IsDefined(typeof(GroupConstants.MainBetType), r.GroupId));
             return CalculateSumWinLoss(sumTitle, otherRawWinLosses);
         }
 

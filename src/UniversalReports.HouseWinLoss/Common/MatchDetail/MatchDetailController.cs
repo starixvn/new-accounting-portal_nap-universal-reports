@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -41,7 +41,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
 
-        protected GridOptions GetGridOptions(WinLossCriteria criteria, string title)
+        private GridOptions GetGridOptions(WinLossCriteria criteria, string title)
         {
             var winlosses = Service.Query(criteria);
             var gridOptions = Builder.Build(winlosses, title);

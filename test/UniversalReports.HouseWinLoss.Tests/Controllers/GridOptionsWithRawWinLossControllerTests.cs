@@ -67,7 +67,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             };
         }
 
-        internal object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
+        private object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
         {
             var queryModelType = GetQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
@@ -78,7 +78,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 
         private Type GetQueryModelType(string controllerName)
         {
-            var lastPointIndex = controllerName.LastIndexOf(".");
+            var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
             var queryModelName = controllerName.Substring(0, lastPointIndex) + ".QueryModel";
             var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
             return Type.GetType(queryModelFullName);

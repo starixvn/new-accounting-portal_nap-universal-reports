@@ -241,53 +241,50 @@
   <ItemGroup>
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\CommonInjectorInitializer.cs" />
-    <Compile Include="App_Start\NG2InjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\CommonInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\NG2InjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\ApplicationInjectorInitializer.cs" />
-    <Compile Include="App_Start\HouseWinLossInjectorInitializer.cs" />
-    <Compile Include="App_Start\SimpleInjectorAPIConfig.cs" />
-    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\HouseWinLossInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
+    <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
-    <Compile Include="Controllers\NG2StatisticController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NG2StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Properties\GlobalSuppressions.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
-    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\house-win-loss\shared\bet-type.new-cricket.controller.js" />
     <Content Include="app\house-win-loss\shared\remote-data.service.js" />
-    <Content Include="app\ng2-statistic\app.config.js" />
-    <Content Include="app\ng2-statistic\app.js" />
-    <Content Include="app\ng2-statistic\bettype\bettype.controller.js" />
-    <Content Include="app\ng2-statistic\breadcrumb\breadcrumb.service.js" />
-    <Content Include="app\ng2-statistic\breadcrumb\title.service.js" />
-    <Content Include="app\ng2-statistic\common\common.controller.js" />
-    <Content Include="app\ng2-statistic\common\common.service.js" />
-    <Content Include="app\ng2-statistic\filter\filter.service.js" />
-    <Content Include="app\ng2-statistic\filter\filter.directive.html" />
-    <Content Include="app\ng2-statistic\filter\filter.directive.js" />
-    <Content Include="app\ng2-statistic\grandtotal\grandtotal.service.js" />
-    <Content Include="app\ng2-statistic\ng2-statistic.controller.js" />
-    <Content Include="app\ng2-statistic\ng2-statistic.html" />
+    <Content Include="app\ng2-statistics\app.config.js" />
+    <Content Include="app\ng2-statistics\app.js" />
+    <Content Include="app\ng2-statistics\bettype\bettype.controller.js" />
+    <Content Include="app\ng2-statistics\breadcrumb\breadcrumb.service.js" />
+    <Content Include="app\ng2-statistics\breadcrumb\title.service.js" />
+    <Content Include="app\ng2-statistics\common\common.controller.js" />
+    <Content Include="app\ng2-statistics\common\common.service.js" />
+    <Content Include="app\ng2-statistics\filter\filter.service.js" />
+    <Content Include="app\ng2-statistics\filter\filter.directive.html" />
+    <Content Include="app\ng2-statistics\filter\filter.directive.js" />
+    <Content Include="app\ng2-statistics\grandtotal\grandtotal.service.js" />
+    <Content Include="app\ng2-statistics\ng2-statistics.controller.js" />
+    <Content Include="app\ng2-statistics\ng2-statistics.html" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.js" />
-    <Content Include="app\ng2-statistic\shared\fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistic\tab\pane.directive.js" />
-    <Content Include="app\ng2-statistic\tab\pane.service.js" />
-    <Content Include="app\ng2-statistic\tab\tab.directive.html" />
-    <Content Include="app\ng2-statistic\tab\tab.directive.js" />
-    <Content Include="app\ng2-statistic\tab\tab.service.js" />
+    <Content Include="app\ng2-statistics\shared\fanex-grid-with-title.html" />
+    <Content Include="app\ng2-statistics\tab\pane.directive.js" />
+    <Content Include="app\ng2-statistics\tab\pane.service.js" />
+    <Content Include="app\ng2-statistics\tab\tab.directive.html" />
+    <Content Include="app\ng2-statistics\tab\tab.directive.js" />
+    <Content Include="app\ng2-statistics\tab\tab.service.js" />
     <Content Include="app\root\app.config.js" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.css" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.js" />
@@ -353,24 +350,23 @@
     <Content Include="App_Data\DEV\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\DEV\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LOCAL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
+    <Content Include="bundle\89889688147bd7575d6327160d64e760.svg" />
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
-    <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
     <Content Include="bundle\house-win-loss-style.chunk.js" />
     <Content Include="bundle\house-win-loss-style.css" />
     <Content Include="bundle\house-win-loss.chunk.js" />
     <Content Include="bundle\lib.chunk.js" />
-    <Content Include="bundle\ng2-statistic-style.chunk.js" />
-    <Content Include="bundle\ng2-statistic-style.css" />
-    <Content Include="bundle\ng2-statistic.chunk.js" />
+    <Content Include="bundle\ng2-statistics-style.chunk.js" />
+    <Content Include="bundle\ng2-statistics-style.css" />
+    <Content Include="bundle\ng2-statistics.chunk.js" />
     <Content Include="content\house-win-loss.css">
       <DependentUpon>house-win-loss.scss</DependentUpon>
     </Content>
@@ -393,12 +389,6 @@
     <Content Include="content\images\lastGoal.gif" />
     <Content Include="content\images\loading\loading.gif" />
     <Content Include="content\images\show-hide.png" />
-    <Content Include="content\ng2-statistic.css">
-      <DependentUpon>ng2-statistic.scss</DependentUpon>
-    </Content>
-    <Content Include="content\ng2-statistic.min.css">
-      <DependentUpon>ng2-statistic.css</DependentUpon>
-    </Content>
     <Content Include="content\scoreInformation.css">
       <DependentUpon>scoreInformation.scss</DependentUpon>
     </Content>
@@ -457,36 +447,31 @@
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <None Include="App_Configuration\SIT\Web.AppSettings.config" />
     <None Include="App_Configuration\SIT\Web.ConnectionString.config" />
-    <Content Include="App_Data\LOCAL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\MNL\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\SIT\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\SIT\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\SIT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\SIT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\PRO\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\UAT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\UAT\DBNAP.bodb_NAP.bodbAdminNet.xml" />
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="package.json" />
     <Content Include="content\house-win-loss.scss" />
-    <Content Include="content\ng2-statistic.scss" />
+    <Content Include="content\ng2-statistics.scss" />
     <Content Include="content\scoreInformation.scss" />
     <Content Include="content\site.scss" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
@@ -523,16 +508,6 @@
     <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="bundle\app-style.chunk.js.map" />
-    <Content Include="bundle\app-style.css.map" />
-    <Content Include="bundle\app.chunk.js.map" />
-    <Content Include="bundle\house-win-loss-style.chunk.js.map" />
-    <Content Include="bundle\house-win-loss-style.css.map" />
-    <Content Include="bundle\house-win-loss.chunk.js.map" />
-    <Content Include="bundle\lib.chunk.js.map" />
-    <Content Include="bundle\ng2-statistic-style.chunk.js.map" />
-    <Content Include="bundle\ng2-statistic-style.css.map" />
-    <Content Include="bundle\ng2-statistic.chunk.js.map" />
     <Content Include="app\root\app.constant.js" />
     <Content Include="app\root\crosscutting\fanex-grid.service.js" />
     <Content Include="app\root\crosscutting\logger.service.js" />
@@ -553,6 +528,16 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="bundle\app-style.chunk.js.map" />
+    <Content Include="bundle\app-style.css.map" />
+    <Content Include="bundle\app.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.chunk.js.map" />
+    <Content Include="bundle\house-win-loss-style.css.map" />
+    <Content Include="bundle\house-win-loss.chunk.js.map" />
+    <Content Include="bundle\lib.chunk.js.map" />
+    <Content Include="bundle\ng2-statistics-style.chunk.js.map" />
+    <Content Include="bundle\ng2-statistics-style.css.map" />
+    <Content Include="bundle\ng2-statistics.chunk.js.map" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Properties\PublishProfiles\Temp.pubxml" />
@@ -658,10 +643,10 @@
     <Content Include="Views\Common\SessionExpired.cshtml" />
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
-    <Content Include="Views\NG2Statistic\Index.cshtml" />
     <Content Include="Views\Shared\_Piwik.cshtml" />
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
+    <Content Include="Views\NG2Statistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -684,9 +669,9 @@
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.NG2Statistic\UniversalReports.NG2Statistic.csproj">
+    <ProjectReference Include="..\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
       <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
-      <Name>UniversalReports.NG2Statistic</Name>
+      <Name>UniversalReports.NG2Statistics</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -722,7 +707,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

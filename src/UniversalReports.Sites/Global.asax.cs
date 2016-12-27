@@ -8,7 +8,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
-using UniversalReports.Sites.App_Start;
 
 namespace UniversalReports.Sites
 {
@@ -57,20 +56,20 @@ namespace UniversalReports.Sites
                 return;
             }
 
-            var message = exception.Message +
-                          "\r\nType: " + exception.GetType() +
-                          "\r\nSource: " + exception.Source +
-                          "\r\nDomain: " + HttpContext.Current.Request.Headers["Host"] +
-                          "\r\nQuery String: " + Request.QueryString +
-                          "\r\nTarget Site: " + exception.TargetSite +
-                          "\r\nStack Trace: " + exception.StackTrace;
+            var message = $"{exception.Message}"
+                + $"\r\nType: {exception.GetType()}"
+                + $"\r\nSource: {exception.Source}"
+                          + $"\r\nDomain: {HttpContext.Current.Request.Headers["Host"]}"
+                          + $"\r\nQuery String: {Request.QueryString}"
+                          + $"\r\nTarget Site: {exception.TargetSite}"
+                          + $"\r\nStack Trace: {exception.StackTrace}";
 
             var sqlException = exception as SqlException;
             if (sqlException != null)
             {
-                message += "\r\nProcedure: " + sqlException.Procedure +
-                           "\r\nLine Number: " + sqlException.LineNumber +
-                           "\r\nServer: " + sqlException.Server;
+                message += $"\r\nProcedure: {sqlException.Procedure}"
+                           + $"\r\nLine Number: {sqlException.LineNumber}"
+                           + $"\r\nServer: {sqlException.Server}";
             }
 
             LogService.Error(message);

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
@@ -23,7 +23,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
             "SP2100:CodeLineMustNotBeLongerThan",
             Justification = "Reviewed. Suppression is OK here.")]
-        protected List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
+        private List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>
             {
@@ -43,7 +43,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        protected List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
+        private List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {

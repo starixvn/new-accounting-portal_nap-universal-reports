@@ -1,0 +1,94 @@
+﻿<div>
+    <div class="well well-sm">
+        <div class="legend-information">
+            <span class="information-button" data-toggle="modal" data-target="#legend-information-modal">
+            </span>
+            <div class="modal fade" id="legend-information-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog legend-information-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <div class="modal-title">NG Statistics Legend</div>
+                        </div>
+                        <div class="modal-body">
+                            <div data-nap-legend data-menu-id="506"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="form-inline">
+            <div class="row">
+                <div class="col-section">Search by</div>
+                <div class="col-label" data-ng-show="vm.normalMode">Date</div>
+                <div class="col-input" data-ng-show="vm.normalMode">
+                    <nap-date-picker data-ng-model="vm.date" min-date="vm.minDate" max-date="vm.today"></nap-date-picker>
+                </div>
+                <nap-date-range-picker data-ng-hide="vm.normalMode" data-start-date="vm.startDate" data-end-date="vm.endDate" min-date="vm.minDate" max-date="vm.yesterday"></nap-date-range-picker>
+            </div>
+
+            <div class="row">
+                <div class="col-section">&nbsp;</div>
+                <div class="col-label">Sport</div>
+                <div class="col-input">
+                    <dropdowntree class="dropdowntree"
+                                  ng-model="vm.sportItems"
+                                  settings="vm.sportSettings"
+                                  text-settings="vm.sportTextSettings"></dropdowntree>
+                </div>
+                <div class="col-label">Username</div>
+                <div class="col-input">
+                    <angucomplete-alt placeholder="Search All"
+                                      pause="400"
+                                      selected-object="vm.user"
+                                      title-field="UserName"
+                                      minlength="1"
+                                      remote-url="api/ng2-statistics/filter/usernameSuggestion?userName="
+                                      input-class="form-control form-control-small"
+                                      match-class="highlight"
+                                      override-suggestions="true"
+                                      clearSelected="clearSelected"
+                                      inputChanged="inputChangedFn">
+                    </angucomplete-alt>
+                </div>
+                <div class="col-label">Currency</div>
+                <div class="col-input">
+                    <select ng-model="vm.currency"
+                            ng-options="currency.Id as currency.Name for currency in vm.currencies"></select>
+
+                </div>
+
+            </div>
+            <div class="row report-by">
+                <div class="col-section">Report by</div>
+                <div class="col-label">&nbsp;</div>
+                <div class="col-input-full">
+                    <ul>
+                        <li><label><input type="radio" ng-model="vm.reportType" value="daily" ng-checked="true"/>Daily</label></li>
+                        <li><label><input type="radio" ng-model="vm.reportType" value="username" />Username</label></li>
+                        <li><label><input type="radio" ng-model="vm.reportType" value="bettype" />Bet type</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row col-button" data-ng-show="vm.normalMode">
+                <div class="col-section">&nbsp;</div>
+                <div class="col-label">&nbsp;</div>
+                <div class="col-input-full">
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.todayClicked()">{{vm.today | amDateFormat:'MMM DD, YYYY'}}</button>
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()">History</button>
+                </div>
+            </div>
+            <div class="row col-button" data-ng-hide="vm.normalMode">
+                <div class="col-section">&nbsp;</div>
+                <div class="col-label">&nbsp;</div>
+                <div class="col-input-full">
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()">Normal</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
