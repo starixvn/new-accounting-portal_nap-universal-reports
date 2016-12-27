@@ -5,7 +5,7 @@ import moment from "moment";
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp')
+        .module('app.ng2StatisticsApp')
         .controller('BettypeController', BettypeController);
 
     BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
@@ -17,13 +17,14 @@ import moment from "moment";
         $scope.generateCurrencyReport = generateCurrencyReport;
         $scope.generateGrandtotalReport = generateGrandtotalReport;
 
-        function generateCurrencyReport(idCurrency, betTypeId) {
+        function generateCurrencyReport(currency, betTypeId) {
 
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
                 drilldownType: "Currency",
-                currency: pane.data.currency === -1 ? -1: idCurrency,
+                currency: pane.data.currency === -1 ? -1: currency,
+                currencyName: pane.data.currencyName,
                 betType: betTypeId,
                 isDrilldown: true
             }
@@ -33,18 +34,19 @@ import moment from "moment";
         }
 
         function generateGrandtotalReport() {
-            var data = {
+            var model = {
                 drilldownType: "Grandtotal",
                 currency: pane.data.currency,
+                currencyName: pane.data.currencyName,
                 isDrilldown: true,
                 endDate: pane.data.endDate,
                 startDate: pane.data.startDate,
                 betType: pane.data.betType,
                 username: pane.data.username,
-                balanceUpDate: pane.data.balanceUpDate,
-            }
-            grandtotalService.getData(data).then(function (data) {
-                renderPopup(data);
+                balanceUpDate: pane.data.balanceUpDate
+            };
+            grandtotalService.getData(model).then(function (data) {
+                renderPopup(model, data);
             });
         }
 
@@ -60,7 +62,7 @@ import moment from "moment";
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
                 showExcelButton: true,
-                exportExcelFunction: exportExcel,
+                exportExcelFunction: exportExcel
             };
             var sortOptions = {
                 serverSortFunction: generateSort
@@ -69,6 +71,8 @@ import moment from "moment";
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.titleInfo = titleInfo;
             data.sortOption = sortOptions;
+            data.gridHeight = 575;
+            data.fullHeight = false;
             gridElement.fanexGrid(data);
         }
 
@@ -88,12 +92,14 @@ import moment from "moment";
                 for (var i = 0; i < data.bodyRows.length; i++) {
                     var row = data.bodyRows[i];
                     if(row.Columns.length > 1){
-                        var column = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
-                        var currencyId = column.CustomAttr;
-                        var betTypeId = row.Columns.length === 11 ? row.Columns[2] : row.Columns[1];
-                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\''
-                                                                                                            + betTypeId.CustomAttr + '\')">'
-                                                                                                            +column.Value + '</a>';
+                        var currencyColumn = row.Columns.length === 12 ? row.Columns[3] : row.Columns[2];
+                        var betTypeColumn= row.Columns.length === 12 ? row.Columns[2] : row.Columns[1];
+                        var currencyId = currencyColumn.CustomAttr;
+                        var currencyName = currencyColumn.Value;
+                        var betTypeId = betTypeColumn.CustomAttr;
+                        currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\''
+                                                                                                            + betTypeId + '\')">'
+                                                                                                            + currencyName + '</a>';
                     }
                 }
                 data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
@@ -106,23 +112,23 @@ import moment from "moment";
         }
 
         function exportExcelGrandTotal() {
-            var title = "GRAND TOTAL BY CURRENCY";
+            var title = grandtotalService.getTitle(pane.data);
             grandtotalService.exportExcel(title, pane.data, pane.getFileName());
         }
 
-        function renderPopup(data) {
+        function renderPopup(model, data) {
 
             var titleInfo = {
-                text: "GRAND TOTAL BY CURRENCY",
+                text: grandtotalService.getTitle(model),
                 showExcelButton: true,
-                exportExcelFunction: exportExcelGrandTotal,
+                exportExcelFunction: exportExcelGrandTotal
             };
 
             data.titleInfo = titleInfo;
             ngDialog.open({
                 template: 'templateId',
                 plain: false,
-                width: 1335,
+                width: 1245,
                 height: 650,
                 closeByDocument: false,
                 data: data

@@ -16358,9 +16358,9 @@ webpackJsonp([0],[
 	 * angular-ui-bootstrap
 	 * http://angular-ui.github.io/bootstrap/
 	
-	 * Version: 2.3.1 - 2016-12-10
+	 * Version: 2.1.4 - 2016-09-23
 	 * License: MIT
-	 */angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.collapse","ui.bootstrap.tabindex","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.dateparser","ui.bootstrap.isClass","ui.bootstrap.datepicker","ui.bootstrap.position","ui.bootstrap.datepickerPopup","ui.bootstrap.debounce","ui.bootstrap.multiMap","ui.bootstrap.dropdown","ui.bootstrap.stackedMap","ui.bootstrap.modal","ui.bootstrap.paging","ui.bootstrap.pager","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker","ui.bootstrap.typeahead"]);
+	 */angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.collapse","ui.bootstrap.tabindex","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.dateparser","ui.bootstrap.isClass","ui.bootstrap.datepicker","ui.bootstrap.position","ui.bootstrap.datepickerPopup","ui.bootstrap.debounce","ui.bootstrap.dropdown","ui.bootstrap.stackedMap","ui.bootstrap.modal","ui.bootstrap.paging","ui.bootstrap.pager","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker","ui.bootstrap.typeahead"]);
 	angular.module("ui.bootstrap.tpls", ["uib/template/accordion/accordion-group.html","uib/template/accordion/accordion.html","uib/template/alert/alert.html","uib/template/carousel/carousel.html","uib/template/carousel/slide.html","uib/template/datepicker/datepicker.html","uib/template/datepicker/day.html","uib/template/datepicker/month.html","uib/template/datepicker/year.html","uib/template/datepickerPopup/popup.html","uib/template/modal/window.html","uib/template/pager/pager.html","uib/template/pagination/pagination.html","uib/template/tooltip/tooltip-html-popup.html","uib/template/tooltip/tooltip-popup.html","uib/template/tooltip/tooltip-template-popup.html","uib/template/popover/popover-html.html","uib/template/popover/popover-template.html","uib/template/popover/popover.html","uib/template/progressbar/bar.html","uib/template/progressbar/progress.html","uib/template/progressbar/progressbar.html","uib/template/rating/rating.html","uib/template/tabs/tab.html","uib/template/tabs/tabset.html","uib/template/timepicker/timepicker.html","uib/template/typeahead/typeahead-match.html","uib/template/typeahead/typeahead-popup.html"]);
 	angular.module('ui.bootstrap.collapse', [])
 	
@@ -17397,15 +17397,6 @@ webpackJsonp([0],[
 	        formatter: function(date) { return dateFilter(date, 'G'); }
 	      }
 	    ];
-	
-	    if (angular.version.major >= 1 && angular.version.minor > 4) {
-	      formatCodeToRegex.push({
-	        key: 'LLLL',
-	        regex: $locale.DATETIME_FORMATS.STANDALONEMONTH.join('|'),
-	        apply: function(value) { this.month = $locale.DATETIME_FORMATS.STANDALONEMONTH.indexOf(value); },
-	        formatter: function(date) { return dateFilter(date, 'LLLL'); }
-	      });
-	    }
 	  };
 	
 	  this.init();
@@ -18573,7 +18564,7 @@ webpackJsonp([0],[
 	        var paddingRight = this.parseStyle(elemStyle.paddingRight);
 	        var paddingBottom = this.parseStyle(elemStyle.paddingBottom);
 	        var scrollParent = this.scrollParent(elem, false, true);
-	        var scrollbarWidth = this.scrollbarWidth(BODY_REGEX.test(scrollParent.tagName));
+	        var scrollbarWidth = this.scrollbarWidth(scrollParent, BODY_REGEX.test(scrollParent.tagName));
 	
 	        return {
 	          scrollbarWidth: scrollbarWidth,
@@ -19397,7 +19388,7 @@ webpackJsonp([0],[
 	    if (angular.isString(viewValue)) {
 	      var date = parseDateString(viewValue);
 	      if (!isNaN(date)) {
-	        return dateParser.toTimezone(date, ngModelOptions.timezone);
+	        return dateParser.fromTimezone(date, ngModelOptions.timezone);
 	      }
 	    }
 	
@@ -19533,92 +19524,17 @@ webpackJsonp([0],[
 	    };
 	  }]);
 	
-	angular.module('ui.bootstrap.multiMap', [])
-	/**
-	 * A helper, internal data structure that stores all references attached to key
-	 */
-	  .factory('$$multiMap', function() {
-	    return {
-	      createNew: function() {
-	        var map = {};
-	
-	        return {
-	          entries: function() {
-	            return Object.keys(map).map(function(key) {
-	              return {
-	                key: key,
-	                value: map[key]
-	              };
-	            });
-	          },
-	          get: function(key) {
-	            return map[key];
-	          },
-	          hasKey: function(key) {
-	            return !!map[key];
-	          },
-	          keys: function() {
-	            return Object.keys(map);
-	          },
-	          put: function(key, value) {
-	            if (!map[key]) {
-	              map[key] = [];
-	            }
-	
-	            map[key].push(value);
-	          },
-	          remove: function(key, value) {
-	            var values = map[key];
-	
-	            if (!values) {
-	              return;
-	            }
-	
-	            var idx = values.indexOf(value);
-	
-	            if (idx !== -1) {
-	              values.splice(idx, 1);
-	            }
-	
-	            if (!values.length) {
-	              delete map[key];
-	            }
-	          }
-	        };
-	      }
-	    };
-	  });
-	
-	angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.multiMap', 'ui.bootstrap.position'])
+	angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
 	
 	.constant('uibDropdownConfig', {
 	  appendToOpenClass: 'uib-dropdown-open',
 	  openClass: 'open'
 	})
 	
-	.service('uibDropdownService', ['$document', '$rootScope', '$$multiMap', function($document, $rootScope, $$multiMap) {
+	.service('uibDropdownService', ['$document', '$rootScope', function($document, $rootScope) {
 	  var openScope = null;
-	  var openedContainers = $$multiMap.createNew();
 	
-	  this.isOnlyOpen = function(dropdownScope, appendTo) {
-	    var openedDropdowns = openedContainers.get(appendTo);
-	    if (openedDropdowns) {
-	      var openDropdown = openedDropdowns.reduce(function(toClose, dropdown) {
-	        if (dropdown.scope === dropdownScope) {
-	          return dropdown;
-	        }
-	
-	        return toClose;
-	      }, {});
-	      if (openDropdown) {
-	        return openedDropdowns.length === 1;
-	      }
-	    }
-	
-	    return false;
-	  };
-	
-	  this.open = function(dropdownScope, element, appendTo) {
+	  this.open = function(dropdownScope, element) {
 	    if (!openScope) {
 	      $document.on('click', closeDropdown);
 	    }
@@ -19628,51 +19544,13 @@ webpackJsonp([0],[
 	    }
 	
 	    openScope = dropdownScope;
-	
-	    if (!appendTo) {
-	      return;
-	    }
-	
-	    var openedDropdowns = openedContainers.get(appendTo);
-	    if (openedDropdowns) {
-	      var openedScopes = openedDropdowns.map(function(dropdown) {
-	        return dropdown.scope;
-	      });
-	      if (openedScopes.indexOf(dropdownScope) === -1) {
-	        openedContainers.put(appendTo, {
-	          scope: dropdownScope
-	        });
-	      }
-	    } else {
-	      openedContainers.put(appendTo, {
-	        scope: dropdownScope
-	      });
-	    }
 	  };
 	
-	  this.close = function(dropdownScope, element, appendTo) {
+	  this.close = function(dropdownScope, element) {
 	    if (openScope === dropdownScope) {
+	      openScope = null;
 	      $document.off('click', closeDropdown);
 	      $document.off('keydown', this.keybindFilter);
-	      openScope = null;
-	    }
-	
-	    if (!appendTo) {
-	      return;
-	    }
-	
-	    var openedDropdowns = openedContainers.get(appendTo);
-	    if (openedDropdowns) {
-	      var dropdownToClose = openedDropdowns.reduce(function(toClose, dropdown) {
-	        if (dropdown.scope === dropdownScope) {
-	          return dropdown;
-	        }
-	
-	        return toClose;
-	      }, {});
-	      if (dropdownToClose) {
-	        openedContainers.remove(appendTo, dropdownToClose);
-	      }
 	    }
 	  };
 	
@@ -19705,11 +19583,6 @@ webpackJsonp([0],[
 	  };
 	
 	  this.keybindFilter = function(evt) {
-	    if (!openScope) {
-	      // see this.close as ESC could have been pressed which kills the scope so we can not proceed
-	      return;
-	    }
-	
 	    var dropdownElement = openScope.getDropdownElement();
 	    var toggleElement = openScope.getToggleElement();
 	    var dropdownElementTargeted = dropdownElement && dropdownElement[0].contains(evt.target);
@@ -19892,18 +19765,10 @@ webpackJsonp([0],[
 	    }
 	
 	    var openContainer = appendTo ? appendTo : $element;
-	    var dropdownOpenClass = appendTo ? appendToOpenClass : openClass;
-	    var hasOpenClass = openContainer.hasClass(dropdownOpenClass);
-	    var isOnlyOpen = uibDropdownService.isOnlyOpen($scope, appendTo);
+	    var hasOpenClass = openContainer.hasClass(appendTo ? appendToOpenClass : openClass);
 	
 	    if (hasOpenClass === !isOpen) {
-	      var toggleClass;
-	      if (appendTo) {
-	        toggleClass = !isOnlyOpen ? 'addClass' : 'removeClass';
-	      } else {
-	        toggleClass = isOpen ? 'addClass' : 'removeClass';
-	      }
-	      $animate[toggleClass](openContainer, dropdownOpenClass).then(function() {
+	      $animate[isOpen ? 'addClass' : 'removeClass'](openContainer, appendTo ? appendToOpenClass : openClass).then(function() {
 	        if (angular.isDefined(isOpen) && isOpen !== wasOpen) {
 	          toggleInvoker($scope, { open: !!isOpen });
 	        }
@@ -19926,8 +19791,9 @@ webpackJsonp([0],[
 	      }
 	
 	      scope.focusToggleElement();
-	      uibDropdownService.open(scope, $element, appendTo);
+	      uibDropdownService.open(scope, $element);
 	    } else {
+	      uibDropdownService.close(scope, $element);
 	      if (self.dropdownMenuTemplateUrl) {
 	        if (templateScope) {
 	          templateScope.$destroy();
@@ -20000,7 +19866,7 @@ webpackJsonp([0],[
 	        }
 	      };
 	
-	      element.on('click', toggleDropdown);
+	      element.bind('click', toggleDropdown);
 	
 	      // WAI-ARIA
 	      element.attr({ 'aria-haspopup': true, 'aria-expanded': false });
@@ -20009,7 +19875,7 @@ webpackJsonp([0],[
 	      });
 	
 	      scope.$on('$destroy', function() {
-	        element.off('click', toggleDropdown);
+	        element.unbind('click', toggleDropdown);
 	      });
 	    }
 	  };
@@ -20069,7 +19935,62 @@ webpackJsonp([0],[
 	      }
 	    };
 	  });
-	angular.module('ui.bootstrap.modal', ['ui.bootstrap.multiMap', 'ui.bootstrap.stackedMap', 'ui.bootstrap.position'])
+	angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.position'])
+	/**
+	 * A helper, internal data structure that stores all references attached to key
+	 */
+	  .factory('$$multiMap', function() {
+	    return {
+	      createNew: function() {
+	        var map = {};
+	
+	        return {
+	          entries: function() {
+	            return Object.keys(map).map(function(key) {
+	              return {
+	                key: key,
+	                value: map[key]
+	              };
+	            });
+	          },
+	          get: function(key) {
+	            return map[key];
+	          },
+	          hasKey: function(key) {
+	            return !!map[key];
+	          },
+	          keys: function() {
+	            return Object.keys(map);
+	          },
+	          put: function(key, value) {
+	            if (!map[key]) {
+	              map[key] = [];
+	            }
+	
+	            map[key].push(value);
+	          },
+	          remove: function(key, value) {
+	            var values = map[key];
+	
+	            if (!values) {
+	              return;
+	            }
+	
+	            var idx = values.indexOf(value);
+	
+	            if (idx !== -1) {
+	              values.splice(idx, 1);
+	            }
+	
+	            if (!values.length) {
+	              delete map[key];
+	            }
+	          }
+	        };
+	      }
+	    };
+	  })
+	
 	/**
 	 * Pluggable resolve mechanism for the modal resolve resolution
 	 * Supports UI Router's $resolve service
@@ -20179,7 +20100,7 @@ webpackJsonp([0],[
 	        // {@link Attribute#$observe} on it. For more details please see {@link TableColumnResize}.
 	        scope.$isRendered = true;
 	
-	        // Deferred object that will be resolved when this modal is rendered.
+	        // Deferred object that will be resolved when this modal is render.
 	        var modalRenderDeferObj = $q.defer();
 	        // Resolve render promise post-digest
 	        scope.$$postDigest(function() {
@@ -20212,7 +20133,7 @@ webpackJsonp([0],[
 	
 	            /**
 	             * If something within the freshly-opened modal already has focus (perhaps via a
-	             * directive that causes focus) then there's no need to try to focus anything.
+	             * directive that causes focus). then no need to try and focus anything.
 	             */
 	            if (!($document[0].activeElement && element[0].contains($document[0].activeElement))) {
 	              var inputWithAutofocus = element[0].querySelector('[autofocus]');
@@ -20270,7 +20191,6 @@ webpackJsonp([0],[
 	      };
 	      var topModalIndex = 0;
 	      var previousTopOpenedModal = null;
-	      var ARIA_HIDDEN_ATTRIBUTE_NAME = 'data-bootstrap-modal-aria-hidden-count';
 	
 	      //Modal focus behavior
 	      var tabbableSelector = 'a[href], area[href], input:not([disabled]):not([tabindex=\'-1\']), ' +
@@ -20572,74 +20492,25 @@ webpackJsonp([0],[
 	
 	        openedWindows.top().value.modalDomEl = angularDomEl;
 	        openedWindows.top().value.modalOpener = modalOpener;
-	
-	        applyAriaHidden(angularDomEl);
-	
-	        function applyAriaHidden(el) {
-	          if (!el || el[0].tagName === 'BODY') {
-	            return;
-	          }
-	
-	          getSiblings(el).forEach(function(sibling) {
-	            var elemIsAlreadyHidden = sibling.getAttribute('aria-hidden') === 'true',
-	              ariaHiddenCount = parseInt(sibling.getAttribute(ARIA_HIDDEN_ATTRIBUTE_NAME), 10);
-	
-	            if (!ariaHiddenCount) {
-	              ariaHiddenCount = elemIsAlreadyHidden ? 1 : 0;
-	            }
-	
-	            sibling.setAttribute(ARIA_HIDDEN_ATTRIBUTE_NAME, ariaHiddenCount + 1);
-	            sibling.setAttribute('aria-hidden', 'true');
-	          });
-	
-	          return applyAriaHidden(el.parent());
-	
-	          function getSiblings(el) {
-	            var children = el.parent() ? el.parent().children() : [];
-	
-	            return Array.prototype.filter.call(children, function(child) {
-	              return child !== el[0];
-	            });
-	          }
-	        }
 	      };
 	
 	      function broadcastClosing(modalWindow, resultOrReason, closing) {
 	        return !modalWindow.value.modalScope.$broadcast('modal.closing', resultOrReason, closing).defaultPrevented;
 	      }
 	
-	      function unhideBackgroundElements() {
-	        Array.prototype.forEach.call(
-	          document.querySelectorAll('[' + ARIA_HIDDEN_ATTRIBUTE_NAME + ']'),
-	          function(hiddenEl) {
-	            var ariaHiddenCount = parseInt(hiddenEl.getAttribute(ARIA_HIDDEN_ATTRIBUTE_NAME), 10),
-	              newHiddenCount = ariaHiddenCount - 1;
-	            hiddenEl.setAttribute(ARIA_HIDDEN_ATTRIBUTE_NAME, newHiddenCount);
-	
-	            if (!newHiddenCount) {
-	              hiddenEl.removeAttribute(ARIA_HIDDEN_ATTRIBUTE_NAME);
-	              hiddenEl.removeAttribute('aria-hidden');
-	            }
-	          }
-	        );
-	      }
-	
 	      $modalStack.close = function(modalInstance, result) {
 	        var modalWindow = openedWindows.get(modalInstance);
-	        unhideBackgroundElements();
 	        if (modalWindow && broadcastClosing(modalWindow, result, true)) {
 	          modalWindow.value.modalScope.$$uibDestructionScheduled = true;
 	          modalWindow.value.deferred.resolve(result);
 	          removeModalWindow(modalInstance, modalWindow.value.modalOpener);
 	          return true;
 	        }
-	
 	        return !modalWindow;
 	      };
 	
 	      $modalStack.dismiss = function(modalInstance, reason) {
 	        var modalWindow = openedWindows.get(modalInstance);
-	        unhideBackgroundElements();
 	        if (modalWindow && broadcastClosing(modalWindow, reason, false)) {
 	          modalWindow.value.modalScope.$$uibDestructionScheduled = true;
 	          modalWindow.value.deferred.reject(reason);
@@ -21335,7 +21206,6 @@ webpackJsonp([0],[
 	            var showTimeout;
 	            var hideTimeout;
 	            var positionTimeout;
-	            var adjustmentTimeout;
 	            var appendToBody = angular.isDefined(options.appendToBody) ? options.appendToBody : false;
 	            var triggers = getTriggers(undefined);
 	            var hasEnableExp = angular.isDefined(attrs[prefix + 'Enable']);
@@ -21368,13 +21238,12 @@ webpackJsonp([0],[
 	                    tooltip.addClass(options.placementClassPrefix + ttPosition.placement);
 	                  }
 	
-	                  adjustmentTimeout = $timeout(function() {
+	                  $timeout(function() {
 	                    var currentHeight = angular.isDefined(tooltip.offsetHeight) ? tooltip.offsetHeight : tooltip.prop('offsetHeight');
 	                    var adjustment = $position.adjustTop(placementClasses, elementPos, initialHeight, currentHeight);
 	                    if (adjustment) {
 	                      tooltip.css(adjustment);
 	                    }
-	                    adjustmentTimeout = null;
 	                  }, 0, false);
 	
 	                  // first time through tt element will have the
@@ -21539,11 +21408,7 @@ webpackJsonp([0],[
 	
 	              if (tooltip) {
 	                tooltip.remove();
-	                
 	                tooltip = null;
-	                if (adjustmentTimeout) {
-	                  $timeout.cancel(adjustmentTimeout);
-	                }
 	              }
 	
 	              openedTooltips.remove(ttScope);
@@ -22431,7 +22296,6 @@ webpackJsonp([0],[
 	})
 	
 	.controller('UibTimepickerController', ['$scope', '$element', '$attrs', '$parse', '$log', '$locale', 'uibTimepickerConfig', function($scope, $element, $attrs, $parse, $log, $locale, timepickerConfig) {
-	  var hoursModelCtrl, minutesModelCtrl, secondsModelCtrl;
 	  var selected = new Date(),
 	    watchers = [],
 	    ngModelCtrl = { $setViewValue: angular.noop }, // nullModelCtrl
@@ -22452,10 +22316,6 @@ webpackJsonp([0],[
 	    var hoursInputEl = inputs.eq(0),
 	        minutesInputEl = inputs.eq(1),
 	        secondsInputEl = inputs.eq(2);
-	
-	    hoursModelCtrl = hoursInputEl.controller('ngModel');
-	    minutesModelCtrl = minutesInputEl.controller('ngModel');
-	    secondsModelCtrl = secondsInputEl.controller('ngModel');
 	
 	    var mousewheel = angular.isDefined($attrs.mousewheel) ? $scope.$parent.$eval($attrs.mousewheel) : timepickerConfig.mousewheel;
 	
@@ -22636,21 +22496,21 @@ webpackJsonp([0],[
 	      return e.detail || delta > 0;
 	    };
 	
-	    hoursInputEl.on('mousewheel wheel', function(e) {
+	    hoursInputEl.bind('mousewheel wheel', function(e) {
 	      if (!disabled) {
 	        $scope.$apply(isScrollingUp(e) ? $scope.incrementHours() : $scope.decrementHours());
 	      }
 	      e.preventDefault();
 	    });
 	
-	    minutesInputEl.on('mousewheel wheel', function(e) {
+	    minutesInputEl.bind('mousewheel wheel', function(e) {
 	      if (!disabled) {
 	        $scope.$apply(isScrollingUp(e) ? $scope.incrementMinutes() : $scope.decrementMinutes());
 	      }
 	      e.preventDefault();
 	    });
 	
-	     secondsInputEl.on('mousewheel wheel', function(e) {
+	     secondsInputEl.bind('mousewheel wheel', function(e) {
 	      if (!disabled) {
 	        $scope.$apply(isScrollingUp(e) ? $scope.incrementSeconds() : $scope.decrementSeconds());
 	      }
@@ -22660,7 +22520,7 @@ webpackJsonp([0],[
 	
 	  // Respond on up/down arrowkeys
 	  this.setupArrowkeyEvents = function(hoursInputEl, minutesInputEl, secondsInputEl) {
-	    hoursInputEl.on('keydown', function(e) {
+	    hoursInputEl.bind('keydown', function(e) {
 	      if (!disabled) {
 	        if (e.which === 38) { // up
 	          e.preventDefault();
@@ -22674,7 +22534,7 @@ webpackJsonp([0],[
 	      }
 	    });
 	
-	    minutesInputEl.on('keydown', function(e) {
+	    minutesInputEl.bind('keydown', function(e) {
 	      if (!disabled) {
 	        if (e.which === 38) { // up
 	          e.preventDefault();
@@ -22688,7 +22548,7 @@ webpackJsonp([0],[
 	      }
 	    });
 	
-	    secondsInputEl.on('keydown', function(e) {
+	    secondsInputEl.bind('keydown', function(e) {
 	      if (!disabled) {
 	        if (e.which === 38) { // up
 	          e.preventDefault();
@@ -22716,23 +22576,14 @@ webpackJsonp([0],[
 	      ngModelCtrl.$setValidity('time', false);
 	      if (angular.isDefined(invalidHours)) {
 	        $scope.invalidHours = invalidHours;
-	        if (hoursModelCtrl) {
-	          hoursModelCtrl.$setValidity('hours', false);
-	        }
 	      }
 	
 	      if (angular.isDefined(invalidMinutes)) {
 	        $scope.invalidMinutes = invalidMinutes;
-	        if (minutesModelCtrl) {
-	          minutesModelCtrl.$setValidity('minutes', false);
-	        }
 	      }
 	
 	      if (angular.isDefined(invalidSeconds)) {
 	        $scope.invalidSeconds = invalidSeconds;
-	        if (secondsModelCtrl) {
-	          secondsModelCtrl.$setValidity('seconds', false);
-	        }
 	      }
 	    };
 	
@@ -22755,7 +22606,7 @@ webpackJsonp([0],[
 	      }
 	    };
 	
-	    hoursInputEl.on('blur', function(e) {
+	    hoursInputEl.bind('blur', function(e) {
 	      ngModelCtrl.$setTouched();
 	      if (modelIsEmpty()) {
 	        makeValid();
@@ -22787,7 +22638,7 @@ webpackJsonp([0],[
 	      }
 	    };
 	
-	    minutesInputEl.on('blur', function(e) {
+	    minutesInputEl.bind('blur', function(e) {
 	      ngModelCtrl.$setTouched();
 	      if (modelIsEmpty()) {
 	        makeValid();
@@ -22813,7 +22664,7 @@ webpackJsonp([0],[
 	      }
 	    };
 	
-	    secondsInputEl.on('blur', function(e) {
+	    secondsInputEl.bind('blur', function(e) {
 	      if (modelIsEmpty()) {
 	        makeValid();
 	      } else if (!$scope.invalidSeconds && $scope.seconds < 10) {
@@ -22855,18 +22706,6 @@ webpackJsonp([0],[
 	  }
 	
 	  function makeValid() {
-	    if (hoursModelCtrl) {
-	      hoursModelCtrl.$setValidity('hours', true);
-	    }
-	
-	    if (minutesModelCtrl) {
-	      minutesModelCtrl.$setValidity('minutes', true);
-	    }
-	
-	    if (secondsModelCtrl) {
-	      secondsModelCtrl.$setValidity('seconds', true);
-	    }
-	
 	    ngModelCtrl.$setValidity('time', true);
 	    $scope.invalidHours = false;
 	    $scope.invalidMinutes = false;
@@ -23438,7 +23277,7 @@ webpackJsonp([0],[
 	      }
 	    });
 	
-	    element.on('focus', function (evt) {
+	    element.bind('focus', function (evt) {
 	      hasFocus = true;
 	      if (minLength === 0 && !modelCtrl.$viewValue) {
 	        $timeout(function() {
@@ -23447,7 +23286,7 @@ webpackJsonp([0],[
 	      }
 	    });
 	
-	    element.on('blur', function(evt) {
+	    element.bind('blur', function(evt) {
 	      if (isSelectOnBlur && scope.matches.length && scope.activeIdx !== -1 && !selected) {
 	        selected = true;
 	        scope.$apply(function() {
@@ -24065,7 +23904,7 @@ webpackJsonp([0],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.6.1
+	 * @license AngularJS v1.5.8
 	 * (c) 2010-2016 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -24100,11 +23939,10 @@ webpackJsonp([0],[
 	
 	/* global shallowCopy: false */
 	
-	// `isArray` and `isObject` are necessary for `shallowCopy()` (included via `src/shallowCopy.js`).
+	// There are necessary for `shallowCopy()` (included via `src/shallowCopy.js`).
 	// They are initialized inside the `$RouteProvider`, to ensure `window.angular` is available.
 	var isArray;
 	var isObject;
-	var isDefined;
 	
 	/**
 	 * @ngdoc module
@@ -24121,22 +23959,14 @@ webpackJsonp([0],[
 	 *
 	 * <div doc-module-components="ngRoute"></div>
 	 */
-	/* global -ngRouteModule */
-	var ngRouteModule = angular.
-	  module('ngRoute', []).
-	  provider('$route', $RouteProvider).
-	  // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
-	  // event (unless explicitly disabled). This is necessary in case `ngView` is included in an
-	  // asynchronously loaded template.
-	  run(instantiateRoute);
-	var $routeMinErr = angular.$$minErr('ngRoute');
-	var isEagerInstantiationEnabled;
-	
+	 /* global -ngRouteModule */
+	var ngRouteModule = angular.module('ngRoute', ['ng']).
+	                        provider('$route', $RouteProvider),
+	    $routeMinErr = angular.$$minErr('ngRoute');
 	
 	/**
 	 * @ngdoc provider
 	 * @name $routeProvider
-	 * @this
 	 *
 	 * @description
 	 *
@@ -24151,7 +23981,6 @@ webpackJsonp([0],[
 	function $RouteProvider() {
 	  isArray = angular.isArray;
 	  isObject = angular.isObject;
-	  isDefined = angular.isDefined;
 	
 	  function inherit(parent, extra) {
 	    return angular.extend(Object.create(parent), extra);
@@ -24188,12 +24017,12 @@ webpackJsonp([0],[
 	   *
 	   *    Object properties:
 	   *
-	   *    - `controller` – `{(string|Function)=}` – Controller fn that should be associated with
+	   *    - `controller` – `{(string|function()=}` – Controller fn that should be associated with
 	   *      newly created scope or the name of a {@link angular.Module#controller registered
 	   *      controller} if passed as a string.
 	   *    - `controllerAs` – `{string=}` – An identifier name for a reference to the controller.
 	   *      If present, the controller will be published to scope under the `controllerAs` name.
-	   *    - `template` – `{(string|Function)=}` – html template as a string or a function that
+	   *    - `template` – `{string=|function()=}` – html template as a string or a function that
 	   *      returns an html template as a string which should be used by {@link
 	   *      ngRoute.directive:ngView ngView} or {@link ng.directive:ngInclude ngInclude} directives.
 	   *      This property takes precedence over `templateUrl`.
@@ -24203,9 +24032,7 @@ webpackJsonp([0],[
 	   *      - `{Array.<Object>}` - route parameters extracted from the current
 	   *        `$location.path()` by applying the current route
 	   *
-	   *      One of `template` or `templateUrl` is required.
-	   *
-	   *    - `templateUrl` – `{(string|Function)=}` – path or function that returns a path to an html
+	   *    - `templateUrl` – `{string=|function()=}` – path or function that returns a path to an html
 	   *      template that should be used by {@link ngRoute.directive:ngView ngView}.
 	   *
 	   *      If `templateUrl` is a function, it will be called with the following parameters:
@@ -24213,9 +24040,7 @@ webpackJsonp([0],[
 	   *      - `{Array.<Object>}` - route parameters extracted from the current
 	   *        `$location.path()` by applying the current route
 	   *
-	   *      One of `templateUrl` or `template` is required.
-	   *
-	   *    - `resolve` - `{Object.<string, Function>=}` - An optional map of dependencies which should
+	   *    - `resolve` - `{Object.<string, function>=}` - An optional map of dependencies which should
 	   *      be injected into the controller. If any of these dependencies are promises, the router
 	   *      will wait for them all to be resolved or one to be rejected before the controller is
 	   *      instantiated.
@@ -24235,7 +24060,7 @@ webpackJsonp([0],[
 	   *      The map object is:
 	   *
 	   *      - `key` – `{string}`: a name of a dependency to be injected into the controller.
-	   *      - `factory` - `{string|Function}`: If `string` then it is an alias for a service.
+	   *      - `factory` - `{string|function}`: If `string` then it is an alias for a service.
 	   *        Otherwise if function, then it is {@link auto.$injector#invoke injected}
 	   *        and the return value is treated as the dependency. If the result is a promise, it is
 	   *        resolved before its value is injected into the controller. Be aware that
@@ -24245,7 +24070,7 @@ webpackJsonp([0],[
 	   *    - `resolveAs` - `{string=}` - The name under which the `resolve` map will be available on
 	   *      the scope of the route. If omitted, defaults to `$resolve`.
 	   *
-	   *    - `redirectTo` – `{(string|Function)=}` – value to update
+	   *    - `redirectTo` – `{(string|function())=}` – value to update
 	   *      {@link ng.$location $location} path with and trigger route redirection.
 	   *
 	   *      If `redirectTo` is a function, it will be called with the following parameters:
@@ -24256,31 +24081,7 @@ webpackJsonp([0],[
 	   *      - `{Object}` - current `$location.search()`
 	   *
 	   *      The custom `redirectTo` function is expected to return a string which will be used
-	   *      to update `$location.url()`. If the function throws an error, no further processing will
-	   *      take place and the {@link ngRoute.$route#$routeChangeError $routeChangeError} event will
-	   *      be fired.
-	   *
-	   *      Routes that specify `redirectTo` will not have their controllers, template functions
-	   *      or resolves called, the `$location` will be changed to the redirect url and route
-	   *      processing will stop. The exception to this is if the `redirectTo` is a function that
-	   *      returns `undefined`. In this case the route transition occurs as though there was no
-	   *      redirection.
-	   *
-	   *    - `resolveRedirectTo` – `{Function=}` – a function that will (eventually) return the value
-	   *      to update {@link ng.$location $location} URL with and trigger route redirection. In
-	   *      contrast to `redirectTo`, dependencies can be injected into `resolveRedirectTo` and the
-	   *      return value can be either a string or a promise that will be resolved to a string.
-	   *
-	   *      Similar to `redirectTo`, if the return value is `undefined` (or a promise that gets
-	   *      resolved to `undefined`), no redirection takes place and the route transition occurs as
-	   *      though there was no redirection.
-	   *
-	   *      If the function throws an error or the returned promise gets rejected, no further
-	   *      processing will take place and the
-	   *      {@link ngRoute.$route#$routeChangeError $routeChangeError} event will be fired.
-	   *
-	   *      `redirectTo` takes precedence over `resolveRedirectTo`, so specifying both on the same
-	   *      route definition, will cause the latter to be ignored.
+	   *      to update `$location.path()` and `$location.search()`.
 	   *
 	   *    - `[reloadOnSearch=true]` - `{boolean=}` - reload route when only `$location.search()`
 	   *      or `$location.hash()` changes.
@@ -24314,7 +24115,7 @@ webpackJsonp([0],[
 	
 	    // create redirection for trailing slashes
 	    if (path) {
-	      var redirectPath = (path[path.length - 1] === '/')
+	      var redirectPath = (path[path.length - 1] == '/')
 	            ? path.substr(0, path.length - 1)
 	            : path + '/';
 	
@@ -24359,7 +24160,7 @@ webpackJsonp([0],[
 	
 	    path = path
 	      .replace(/([().])/g, '\\$1')
-	      .replace(/(\/)?:(\w+)(\*\?|[?*])?/g, function(_, slash, key, option) {
+	      .replace(/(\/)?:(\w+)(\*\?|[\?\*])?/g, function(_, slash, key, option) {
 	        var optional = (option === '?' || option === '*?') ? '?' : null;
 	        var star = (option === '*' || option === '*?') ? '*' : null;
 	        keys.push({ name: key, optional: !!optional });
@@ -24373,7 +24174,7 @@ webpackJsonp([0],[
 	          + ')'
 	          + (optional || '');
 	      })
-	      .replace(/([/$*])/g, '\\$1');
+	      .replace(/([\/$\*])/g, '\\$1');
 	
 	    ret.regexp = new RegExp('^' + path + '$', insensitive ? 'i' : '');
 	    return ret;
@@ -24397,47 +24198,6 @@ webpackJsonp([0],[
 	    }
 	    this.when(null, params);
 	    return this;
-	  };
-	
-	  /**
-	   * @ngdoc method
-	   * @name $routeProvider#eagerInstantiationEnabled
-	   * @kind function
-	   *
-	   * @description
-	   * Call this method as a setter to enable/disable eager instantiation of the
-	   * {@link ngRoute.$route $route} service upon application bootstrap. You can also call it as a
-	   * getter (i.e. without any arguments) to get the current value of the
-	   * `eagerInstantiationEnabled` flag.
-	   *
-	   * Instantiating `$route` early is necessary for capturing the initial
-	   * {@link ng.$location#$locationChangeStart $locationChangeStart} event and navigating to the
-	   * appropriate route. Usually, `$route` is instantiated in time by the
-	   * {@link ngRoute.ngView ngView} directive. Yet, in cases where `ngView` is included in an
-	   * asynchronously loaded template (e.g. in another directive's template), the directive factory
-	   * might not be called soon enough for `$route` to be instantiated _before_ the initial
-	   * `$locationChangeSuccess` event is fired. Eager instantiation ensures that `$route` is always
-	   * instantiated in time, regardless of when `ngView` will be loaded.
-	   *
-	   * The default value is true.
-	   *
-	   * **Note**:<br />
-	   * You may want to disable the default behavior when unit-testing modules that depend on
-	   * `ngRoute`, in order to avoid an unexpected request for the default route's template.
-	   *
-	   * @param {boolean=} enabled - If provided, update the internal `eagerInstantiationEnabled` flag.
-	   *
-	   * @returns {*} The current value of the `eagerInstantiationEnabled` flag if used as a getter or
-	   *     itself (for chaining) if used as a setter.
-	   */
-	  isEagerInstantiationEnabled = true;
-	  this.eagerInstantiationEnabled = function eagerInstantiationEnabled(enabled) {
-	    if (isDefined(enabled)) {
-	      isEagerInstantiationEnabled = enabled;
-	      return this;
-	    }
-	
-	    return isEagerInstantiationEnabled;
 	  };
 	
 	
@@ -24533,12 +24293,12 @@ webpackJsonp([0],[
 	     *      })
 	     *
 	     *      .controller('BookController', function($scope, $routeParams) {
-	     *          $scope.name = 'BookController';
+	     *          $scope.name = "BookController";
 	     *          $scope.params = $routeParams;
 	     *      })
 	     *
 	     *      .controller('ChapterController', function($scope, $routeParams) {
-	     *          $scope.name = 'ChapterController';
+	     *          $scope.name = "ChapterController";
 	     *          $scope.params = $routeParams;
 	     *      })
 	     *
@@ -24571,15 +24331,15 @@ webpackJsonp([0],[
 	     *     it('should load and compile correct template', function() {
 	     *       element(by.linkText('Moby: Ch1')).click();
 	     *       var content = element(by.css('[ng-view]')).getText();
-	     *       expect(content).toMatch(/controller: ChapterController/);
-	     *       expect(content).toMatch(/Book Id: Moby/);
-	     *       expect(content).toMatch(/Chapter Id: 1/);
+	     *       expect(content).toMatch(/controller\: ChapterController/);
+	     *       expect(content).toMatch(/Book Id\: Moby/);
+	     *       expect(content).toMatch(/Chapter Id\: 1/);
 	     *
 	     *       element(by.partialLinkText('Scarlet')).click();
 	     *
 	     *       content = element(by.css('[ng-view]')).getText();
-	     *       expect(content).toMatch(/controller: BookController/);
-	     *       expect(content).toMatch(/Book Id: Scarlet/);
+	     *       expect(content).toMatch(/controller\: BookController/);
+	     *       expect(content).toMatch(/Book Id\: Scarlet/);
 	     *     });
 	     *   </file>
 	     * </example>
@@ -24627,14 +24387,12 @@ webpackJsonp([0],[
 	     * @name $route#$routeChangeError
 	     * @eventType broadcast on root scope
 	     * @description
-	     * Broadcasted if a redirection function fails or any redirection or resolve promises are
-	     * rejected.
+	     * Broadcasted if any of the resolve promises are rejected.
 	     *
 	     * @param {Object} angularEvent Synthetic event object
 	     * @param {Route} current Current route information.
 	     * @param {Route} previous Previous route information.
-	     * @param {Route} rejection The thrown error or the rejection reason of the promise. Usually
-	     * the rejection reason is the error that caused the promise to get rejected.
+	     * @param {Route} rejection Rejection of the promise. Usually the error of the failed promise.
 	     */
 	
 	    /**
@@ -24775,101 +24533,35 @@ webpackJsonp([0],[
 	      } else if (nextRoute || lastRoute) {
 	        forceReload = false;
 	        $route.current = nextRoute;
+	        if (nextRoute) {
+	          if (nextRoute.redirectTo) {
+	            if (angular.isString(nextRoute.redirectTo)) {
+	              $location.path(interpolate(nextRoute.redirectTo, nextRoute.params)).search(nextRoute.params)
+	                       .replace();
+	            } else {
+	              $location.url(nextRoute.redirectTo(nextRoute.pathParams, $location.path(), $location.search()))
+	                       .replace();
+	            }
+	          }
+	        }
 	
-	        var nextRoutePromise = $q.resolve(nextRoute);
-	
-	        nextRoutePromise.
-	          then(getRedirectionData).
-	          then(handlePossibleRedirection).
-	          then(function(keepProcessingRoute) {
-	            return keepProcessingRoute && nextRoutePromise.
-	              then(resolveLocals).
-	              then(function(locals) {
-	                // after route change
-	                if (nextRoute === $route.current) {
-	                  if (nextRoute) {
-	                    nextRoute.locals = locals;
-	                    angular.copy(nextRoute.params, $routeParams);
-	                  }
-	                  $rootScope.$broadcast('$routeChangeSuccess', nextRoute, lastRoute);
-	                }
-	              });
-	          }).catch(function(error) {
-	            if (nextRoute === $route.current) {
+	        $q.when(nextRoute).
+	          then(resolveLocals).
+	          then(function(locals) {
+	            // after route change
+	            if (nextRoute == $route.current) {
+	              if (nextRoute) {
+	                nextRoute.locals = locals;
+	                angular.copy(nextRoute.params, $routeParams);
+	              }
+	              $rootScope.$broadcast('$routeChangeSuccess', nextRoute, lastRoute);
+	            }
+	          }, function(error) {
+	            if (nextRoute == $route.current) {
 	              $rootScope.$broadcast('$routeChangeError', nextRoute, lastRoute, error);
 	            }
 	          });
 	      }
-	    }
-	
-	    function getRedirectionData(route) {
-	      var data = {
-	        route: route,
-	        hasRedirection: false
-	      };
-	
-	      if (route) {
-	        if (route.redirectTo) {
-	          if (angular.isString(route.redirectTo)) {
-	            data.path = interpolate(route.redirectTo, route.params);
-	            data.search = route.params;
-	            data.hasRedirection = true;
-	          } else {
-	            var oldPath = $location.path();
-	            var oldSearch = $location.search();
-	            var newUrl = route.redirectTo(route.pathParams, oldPath, oldSearch);
-	
-	            if (angular.isDefined(newUrl)) {
-	              data.url = newUrl;
-	              data.hasRedirection = true;
-	            }
-	          }
-	        } else if (route.resolveRedirectTo) {
-	          return $q.
-	            resolve($injector.invoke(route.resolveRedirectTo)).
-	            then(function(newUrl) {
-	              if (angular.isDefined(newUrl)) {
-	                data.url = newUrl;
-	                data.hasRedirection = true;
-	              }
-	
-	              return data;
-	            });
-	        }
-	      }
-	
-	      return data;
-	    }
-	
-	    function handlePossibleRedirection(data) {
-	      var keepProcessingRoute = true;
-	
-	      if (data.route !== $route.current) {
-	        keepProcessingRoute = false;
-	      } else if (data.hasRedirection) {
-	        var oldUrl = $location.url();
-	        var newUrl = data.url;
-	
-	        if (newUrl) {
-	          $location.
-	            url(newUrl).
-	            replace();
-	        } else {
-	          newUrl = $location.
-	            path(data.path).
-	            search(data.search).
-	            replace().
-	            url();
-	        }
-	
-	        if (newUrl !== oldUrl) {
-	          // Exit out and don't process current next value,
-	          // wait for next location change from redirect
-	          keepProcessingRoute = false;
-	        }
-	      }
-	
-	      return keepProcessingRoute;
 	    }
 	
 	    function resolveLocals(route) {
@@ -24888,6 +24580,7 @@ webpackJsonp([0],[
 	      }
 	    }
 	
+	
 	    function getTemplateFor(route) {
 	      var template, templateUrl;
 	      if (angular.isDefined(template = route.template)) {
@@ -24905,6 +24598,7 @@ webpackJsonp([0],[
 	      }
 	      return template;
 	    }
+	
 	
 	    /**
 	     * @returns {Object} the current active route, by matching it against the URL
@@ -24945,14 +24639,6 @@ webpackJsonp([0],[
 	  }];
 	}
 	
-	instantiateRoute.$inject = ['$injector'];
-	function instantiateRoute($injector) {
-	  if (isEagerInstantiationEnabled) {
-	    // Instantiate `$route`
-	    $injector.get('$route');
-	  }
-	}
-	
 	ngRouteModule.provider('$routeParams', $RouteParamsProvider);
 	
 	
@@ -24960,7 +24646,6 @@ webpackJsonp([0],[
 	 * @ngdoc service
 	 * @name $routeParams
 	 * @requires $route
-	 * @this
 	 *
 	 * @description
 	 * The `$routeParams` service allows you to retrieve the current set of route parameters.
@@ -25019,6 +24704,13 @@ webpackJsonp([0],[
 	 * | {@link ng.$animate#leave leave}  | when the old element is removed from to the DOM  |
 	 *
 	 * The enter and leave animation occur concurrently.
+	 *
+	 * @knownIssue If `ngView` is contained in an asynchronously loaded template (e.g. in another
+	 *             directive's templateUrl or in a template loaded using `ngInclude`), then you need to
+	 *             make sure that `$route` is instantiated in time to capture the initial
+	 *             `$locationChangeStart` event and load the appropriate view. One way to achieve this
+	 *             is to have it as a dependency in a `.run` block:
+	 *             `myModule.run(['$route', function() {}]);`
 	 *
 	 * @scope
 	 * @priority 400
@@ -25130,17 +24822,17 @@ webpackJsonp([0],[
 	              $locationProvider.html5Mode(true);
 	          }])
 	          .controller('MainCtrl', ['$route', '$routeParams', '$location',
-	            function MainCtrl($route, $routeParams, $location) {
+	            function($route, $routeParams, $location) {
 	              this.$route = $route;
 	              this.$location = $location;
 	              this.$routeParams = $routeParams;
 	          }])
-	          .controller('BookCtrl', ['$routeParams', function BookCtrl($routeParams) {
-	            this.name = 'BookCtrl';
+	          .controller('BookCtrl', ['$routeParams', function($routeParams) {
+	            this.name = "BookCtrl";
 	            this.params = $routeParams;
 	          }])
-	          .controller('ChapterCtrl', ['$routeParams', function ChapterCtrl($routeParams) {
-	            this.name = 'ChapterCtrl';
+	          .controller('ChapterCtrl', ['$routeParams', function($routeParams) {
+	            this.name = "ChapterCtrl";
 	            this.params = $routeParams;
 	          }]);
 	
@@ -25150,15 +24842,15 @@ webpackJsonp([0],[
 	        it('should load and compile correct template', function() {
 	          element(by.linkText('Moby: Ch1')).click();
 	          var content = element(by.css('[ng-view]')).getText();
-	          expect(content).toMatch(/controller: ChapterCtrl/);
-	          expect(content).toMatch(/Book Id: Moby/);
-	          expect(content).toMatch(/Chapter Id: 1/);
+	          expect(content).toMatch(/controller\: ChapterCtrl/);
+	          expect(content).toMatch(/Book Id\: Moby/);
+	          expect(content).toMatch(/Chapter Id\: 1/);
 	
 	          element(by.partialLinkText('Scarlet')).click();
 	
 	          content = element(by.css('[ng-view]')).getText();
-	          expect(content).toMatch(/controller: BookCtrl/);
-	          expect(content).toMatch(/Book Id: Scarlet/);
+	          expect(content).toMatch(/controller\: BookCtrl/);
+	          expect(content).toMatch(/Book Id\: Scarlet/);
 	        });
 	      </file>
 	    </example>
@@ -25201,8 +24893,8 @@ webpackJsonp([0],[
 	          }
 	          if (currentElement) {
 	            previousLeaveAnimation = $animate.leave(currentElement);
-	            previousLeaveAnimation.done(function(response) {
-	              if (response !== false) previousLeaveAnimation = null;
+	            previousLeaveAnimation.then(function() {
+	              previousLeaveAnimation = null;
 	            });
 	            currentElement = null;
 	          }
@@ -25223,8 +24915,8 @@ webpackJsonp([0],[
 	            // function is called before linking the content, which would apply child
 	            // directives to non existing elements.
 	            var clone = $transclude(newScope, function(clone) {
-	              $animate.enter(clone, null, currentElement || $element).done(function onNgViewEnter(response) {
-	                if (response !== false && angular.isDefined(autoScrollExp)
+	              $animate.enter(clone, null, currentElement || $element).then(function onNgViewEnter() {
+	                if (angular.isDefined(autoScrollExp)
 	                  && (!autoScrollExp || scope.$eval(autoScrollExp))) {
 	                  $anchorScroll();
 	                }
@@ -25295,7 +24987,7 @@ webpackJsonp([0],[
 /***/ function(module, exports) {
 
 	/**
-	 * @license AngularJS v1.6.1
+	 * @license AngularJS v1.5.8
 	 * (c) 2010-2016 Google, Inc. http://angularjs.org
 	 * License: MIT
 	 */
@@ -25359,7 +25051,7 @@ webpackJsonp([0],[
 	 * @returns {string} Sanitized HTML.
 	 *
 	 * @example
-	   <example module="sanitizeExample" deps="angular-sanitize.js" name="sanitize-service">
+	   <example module="sanitizeExample" deps="angular-sanitize.js">
 	   <file name="index.html">
 	     <script>
 	         angular.module('sanitizeExample', ['ngSanitize'])
@@ -25408,19 +25100,19 @@ webpackJsonp([0],[
 	   </file>
 	   <file name="protractor.js" type="protractor">
 	     it('should sanitize the html snippet by default', function() {
-	       expect(element(by.css('#bind-html-with-sanitize div')).getAttribute('innerHTML')).
+	       expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
 	         toBe('<p>an html\n<em>click here</em>\nsnippet</p>');
 	     });
 	
 	     it('should inline raw snippet if bound to a trusted value', function() {
-	       expect(element(by.css('#bind-html-with-trust div')).getAttribute('innerHTML')).
+	       expect(element(by.css('#bind-html-with-trust div')).getInnerHtml()).
 	         toBe("<p style=\"color:blue\">an html\n" +
 	              "<em onmouseover=\"this.textContent='PWN3D!'\">click here</em>\n" +
 	              "snippet</p>");
 	     });
 	
 	     it('should escape snippet without any filter', function() {
-	       expect(element(by.css('#bind-default div')).getAttribute('innerHTML')).
+	       expect(element(by.css('#bind-default div')).getInnerHtml()).
 	         toBe("&lt;p style=\"color:blue\"&gt;an html\n" +
 	              "&lt;em onmouseover=\"this.textContent='PWN3D!'\"&gt;click here&lt;/em&gt;\n" +
 	              "snippet&lt;/p&gt;");
@@ -25429,11 +25121,11 @@ webpackJsonp([0],[
 	     it('should update', function() {
 	       element(by.model('snippet')).clear();
 	       element(by.model('snippet')).sendKeys('new <b onclick="alert(1)">text</b>');
-	       expect(element(by.css('#bind-html-with-sanitize div')).getAttribute('innerHTML')).
+	       expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
 	         toBe('new <b>text</b>');
-	       expect(element(by.css('#bind-html-with-trust div')).getAttribute('innerHTML')).toBe(
+	       expect(element(by.css('#bind-html-with-trust div')).getInnerHtml()).toBe(
 	         'new <b onclick="alert(1)">text</b>');
-	       expect(element(by.css('#bind-default div')).getAttribute('innerHTML')).toBe(
+	       expect(element(by.css('#bind-default div')).getInnerHtml()).toBe(
 	         "new &lt;b onclick=\"alert(1)\"&gt;text&lt;/b&gt;");
 	     });
 	   </file>
@@ -25444,7 +25136,6 @@ webpackJsonp([0],[
 	/**
 	 * @ngdoc provider
 	 * @name $sanitizeProvider
-	 * @this
 	 *
 	 * @description
 	 * Creates and configures {@link $sanitize} instance.
@@ -25522,7 +25213,7 @@ webpackJsonp([0],[
 	  // Regular Expressions for parsing tags and attributes
 	  var SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
 	    // Match everything outside of normal chars and " (quote character)
-	    NON_ALPHANUMERIC_REGEXP = /([^#-~ |!])/g;
+	    NON_ALPHANUMERIC_REGEXP = /([^\#-~ |!])/g;
 	
 	
 	  // Good source of info about elements and attributes
@@ -25531,36 +25222,36 @@ webpackJsonp([0],[
 	
 	  // Safe Void Elements - HTML5
 	  // http://dev.w3.org/html5/spec/Overview.html#void-elements
-	  var voidElements = toMap('area,br,col,hr,img,wbr');
+	  var voidElements = toMap("area,br,col,hr,img,wbr");
 	
 	  // Elements that you can, intentionally, leave open (and which close themselves)
 	  // http://dev.w3.org/html5/spec/Overview.html#optional-tags
-	  var optionalEndTagBlockElements = toMap('colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr'),
-	      optionalEndTagInlineElements = toMap('rp,rt'),
+	  var optionalEndTagBlockElements = toMap("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"),
+	      optionalEndTagInlineElements = toMap("rp,rt"),
 	      optionalEndTagElements = extend({},
 	                                              optionalEndTagInlineElements,
 	                                              optionalEndTagBlockElements);
 	
 	  // Safe Block Elements - HTML5
-	  var blockElements = extend({}, optionalEndTagBlockElements, toMap('address,article,' +
-	          'aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,' +
-	          'h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,section,table,ul'));
+	  var blockElements = extend({}, optionalEndTagBlockElements, toMap("address,article," +
+	          "aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5," +
+	          "h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,section,table,ul"));
 	
 	  // Inline Elements - HTML5
-	  var inlineElements = extend({}, optionalEndTagInlineElements, toMap('a,abbr,acronym,b,' +
-	          'bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,' +
-	          'samp,small,span,strike,strong,sub,sup,time,tt,u,var'));
+	  var inlineElements = extend({}, optionalEndTagInlineElements, toMap("a,abbr,acronym,b," +
+	          "bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s," +
+	          "samp,small,span,strike,strong,sub,sup,time,tt,u,var"));
 	
 	  // SVG Elements
 	  // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Elements
 	  // Note: the elements animate,animateColor,animateMotion,animateTransform,set are intentionally omitted.
 	  // They can potentially allow for arbitrary javascript to be executed. See #11290
-	  var svgElements = toMap('circle,defs,desc,ellipse,font-face,font-face-name,font-face-src,g,glyph,' +
-	          'hkern,image,linearGradient,line,marker,metadata,missing-glyph,mpath,path,polygon,polyline,' +
-	          'radialGradient,rect,stop,svg,switch,text,title,tspan');
+	  var svgElements = toMap("circle,defs,desc,ellipse,font-face,font-face-name,font-face-src,g,glyph," +
+	          "hkern,image,linearGradient,line,marker,metadata,missing-glyph,mpath,path,polygon,polyline," +
+	          "radialGradient,rect,stop,svg,switch,text,title,tspan");
 	
 	  // Blocked Elements (will be stripped)
-	  var blockedElements = toMap('script,style');
+	  var blockedElements = toMap("script,style");
 	
 	  var validElements = extend({},
 	                                     voidElements,
@@ -25569,7 +25260,7 @@ webpackJsonp([0],[
 	                                     optionalEndTagElements);
 	
 	  //Attributes that have href and hence need to be sanitized
-	  var uriAttrs = toMap('background,cite,href,longdesc,src,xlink:href');
+	  var uriAttrs = toMap("background,cite,href,longdesc,src,xlink:href");
 	
 	  var htmlAttrs = toMap('abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,' +
 	      'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,' +
@@ -25612,9 +25303,9 @@ webpackJsonp([0],[
 	  (function(window) {
 	    var doc;
 	    if (window.document && window.document.implementation) {
-	      doc = window.document.implementation.createHTMLDocument('inert');
+	      doc = window.document.implementation.createHTMLDocument("inert");
 	    } else {
-	      throw $sanitizeMinErr('noinert', 'Can\'t create an inert html document');
+	      throw $sanitizeMinErr('noinert', "Can't create an inert html document");
 	    }
 	    var docElement = doc.documentElement || doc.getDocumentElement();
 	    var bodyElements = docElement.getElementsByTagName('body');
@@ -25654,7 +25345,7 @@ webpackJsonp([0],[
 	    var mXSSAttempts = 5;
 	    do {
 	      if (mXSSAttempts === 0) {
-	        throw $sanitizeMinErr('uinput', 'Failed to sanitize html because the input is unstable');
+	        throw $sanitizeMinErr('uinput', "Failed to sanitize html because the input is unstable");
 	      }
 	      mXSSAttempts--;
 	
@@ -25679,7 +25370,7 @@ webpackJsonp([0],[
 	
 	      var nextNode;
 	      if (!(nextNode = node.firstChild)) {
-	        if (node.nodeType === 1) {
+	      if (node.nodeType == 1) {
 	          handler.end(node.nodeName.toLowerCase());
 	        }
 	        nextNode = node.nextSibling;
@@ -25688,7 +25379,7 @@ webpackJsonp([0],[
 	            node = node.parentNode;
 	            if (node === inertBodyElement) break;
 	            nextNode = node.nextSibling;
-	            if (node.nodeType === 1) {
+	          if (node.nodeType == 1) {
 	              handler.end(node.nodeName.toLowerCase());
 	            }
 	          }
@@ -25697,7 +25388,7 @@ webpackJsonp([0],[
 	      node = nextNode;
 	    }
 	
-	    while ((node = inertBodyElement.firstChild)) {
+	    while (node = inertBodyElement.firstChild) {
 	      inertBodyElement.removeChild(node);
 	    }
 	  }
@@ -25778,7 +25469,6 @@ webpackJsonp([0],[
 	          out(tag);
 	          out('>');
 	        }
-	        // eslint-disable-next-line eqeqeq
 	        if (tag == ignoreCurrentElement) {
 	          ignoreCurrentElement = false;
 	        }
@@ -25800,26 +25490,27 @@ webpackJsonp([0],[
 	   * @param node Root element to process
 	   */
 	  function stripCustomNsAttrs(node) {
-	    while (node) {
-	      if (node.nodeType === window.Node.ELEMENT_NODE) {
-	        var attrs = node.attributes;
-	        for (var i = 0, l = attrs.length; i < l; i++) {
-	          var attrNode = attrs[i];
-	          var attrName = attrNode.name.toLowerCase();
-	          if (attrName === 'xmlns:ns1' || attrName.lastIndexOf('ns1:', 0) === 0) {
-	            node.removeAttributeNode(attrNode);
-	            i--;
-	            l--;
-	          }
+	    if (node.nodeType === window.Node.ELEMENT_NODE) {
+	      var attrs = node.attributes;
+	      for (var i = 0, l = attrs.length; i < l; i++) {
+	        var attrNode = attrs[i];
+	        var attrName = attrNode.name.toLowerCase();
+	        if (attrName === 'xmlns:ns1' || attrName.lastIndexOf('ns1:', 0) === 0) {
+	          node.removeAttributeNode(attrNode);
+	          i--;
+	          l--;
 	        }
 	      }
+	    }
 	
-	      var nextNode = node.firstChild;
-	      if (nextNode) {
-	        stripCustomNsAttrs(nextNode);
-	      }
+	    var nextNode = node.firstChild;
+	    if (nextNode) {
+	      stripCustomNsAttrs(nextNode);
+	    }
 	
-	      node = node.nextSibling;
+	    nextNode = node.nextSibling;
+	    if (nextNode) {
+	      stripCustomNsAttrs(nextNode);
 	    }
 	  }
 	}
@@ -25865,7 +25556,7 @@ webpackJsonp([0],[
 	   <span ng-bind-html="linky_expression | linky"></span>
 	 *
 	 * @example
-	   <example module="linkyExample" deps="angular-sanitize.js" name="linky-filter">
+	   <example module="linkyExample" deps="angular-sanitize.js">
 	     <file name="index.html">
 	       <div ng-controller="ExampleController">
 	       Snippet: <textarea ng-model="snippet" cols="60" rows="3"></textarea>
@@ -25913,10 +25604,10 @@ webpackJsonp([0],[
 	       angular.module('linkyExample', ['ngSanitize'])
 	         .controller('ExampleController', ['$scope', function($scope) {
 	           $scope.snippet =
-	             'Pretty text with some links:\n' +
-	             'http://angularjs.org/,\n' +
-	             'mailto:us@somewhere.org,\n' +
-	             'another@somewhere.org,\n' +
+	             'Pretty text with some links:\n'+
+	             'http://angularjs.org/,\n'+
+	             'mailto:us@somewhere.org,\n'+
+	             'another@somewhere.org,\n'+
 	             'and one more: ftp://127.0.0.1/.';
 	           $scope.snippetWithSingleURL = 'http://angularjs.org/';
 	         }]);
@@ -27864,6 +27555,7 @@ webpackJsonp([0],[
 	            if (vm.nextDisabled) {
 	                return;
 	            }
+	
 	            selectedDate = vm.nextMonth;
 	            correctSelectedDate();
 	            generateViewModel();
@@ -27970,6 +27662,7 @@ webpackJsonp([0],[
 	            }
 	
 	            function generateYearOptions() {
+	
 	                var yearOptions = [];
 	                var beginYear = vm.minDate.year();
 	                var endYear = vm.maxDate.year();
@@ -28110,51 +27803,76 @@ webpackJsonp([0],[
 	        });
 	
 	        function changeTimePeriod() {
-	            var configuration = timePeriodConfiguration[vm.timePeriod];
-	            vm.datefrom = configuration.datefrom;
-	            vm.dateto = configuration.dateto;
 	
-	            vm.minDateFrom = vm.minDate;
-	            vm.maxDateFrom = vm.dateto;
+	            if (vm.timePeriod === 'specific-period') {
+	                changeSpecificTimePeriod();
+	            } else {
+	                changePredefinedTimePeriod();
+	            }
 	
-	            vm.minDateTo = vm.minDate;
-	            vm.maxDateTo = vm.maxDate;
+	            function changeSpecificTimePeriod() {
+	                vm.minDateFrom = vm.minDate;
+	                vm.maxDateFrom = vm.maxDate;
 	
-	            vm.startDate = vm.datefrom;
-	            vm.endDate = vm.dateto;
+	                vm.minDateTo = vm.minDate;
+	                vm.maxDateTo = vm.maxDate;
+	            }
+	
+	            function changePredefinedTimePeriod() {
+	                var configuration = timePeriodConfiguration[vm.timePeriod];
+	                vm.datefrom = configuration.datefrom;
+	                vm.dateto = configuration.dateto;
+	
+	                vm.minDateFrom = vm.minDate;
+	                vm.maxDateFrom = vm.dateto;
+	
+	                vm.minDateTo = vm.minDate;
+	                vm.maxDateTo = vm.maxDate;
+	
+	                vm.startDate = vm.datefrom;
+	                vm.endDate = vm.dateto;
+	            }
 	        }
 	
 	        function getTimePeriodConfiguration(config) {
 	            var yesterday = config.yesterday;
 	            var yesterdayConfig = {
 	                datefrom: moment.utc(yesterday),
-	                dateto: moment.utc(yesterday) };
+	                dateto: moment.utc(yesterday)
+	            };
 	            var currentWeekConfig = {
 	                datefrom: moment.utc(yesterday).startOf('week'),
 	                dateto: moment.utc(yesterday)
 	            };
 	            var lastWeekConfig = {
 	                datefrom: moment.utc(yesterday).subtract(7, 'days').startOf('week'),
-	                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week').subtract({ 'hours': 1 }) };
+	                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week').subtract({ 'hours': 1 })
+	            };
 	            var currentMonthConfig = {
 	                datefrom: moment.utc(yesterday).startOf('month'),
-	                dateto: moment.utc(yesterday) };
+	                dateto: moment.utc(yesterday)
+	            };
 	            var lastMonthConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
+	            };
 	            var sinceLastMonthConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday) };
+	                dateto: moment.utc(yesterday)
+	            };
 	            var specificDateConfig = yesterdayConfig;
 	            var last3MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(3, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
+	            };
 	            var last6MonthsConfig = {
 	                datefrom: moment.utc(yesterday).subtract(6, 'months').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
+	            };
 	            var last1YearConfig = {
 	                datefrom: moment.utc(yesterday).subtract(1, 'years').startOf('month'),
-	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 }) };
+	                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
+	            };
 	
 	            return {
 	                "yesterday": yesterdayConfig,
@@ -28163,7 +27881,7 @@ webpackJsonp([0],[
 	                "current-month": currentMonthConfig,
 	                "last-month": lastMonthConfig,
 	                "since-last-month": sinceLastMonthConfig,
-	                "specific-date": specificDateConfig,
+	                "specific-period": specificDateConfig,
 	                "last-3-months": last3MonthsConfig,
 	                "last-6-months": last6MonthsConfig,
 	                "last-1-year": last1YearConfig

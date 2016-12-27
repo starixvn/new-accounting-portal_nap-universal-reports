@@ -75,7 +75,7 @@ namespace UniversalReports.NG2Statistics.Bettype
                     Value = sportType,
                     Bold = true,
                     CellAlignment = HAlignment.Left,
-                    MergeColNumber = 11
+                    MergeColNumber = 12
                 }
             };
 

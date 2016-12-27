@@ -3,12 +3,13 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp')
-        .controller('NG2StatisticController', NG2StatisticController);
+        .module('app.ng2StatisticsApp')
+        .controller('NG2StatisticsController', NG2StatisticsController);
 
-    NG2StatisticController.$inject = [];
-    function NG2StatisticController() {
+    NG2StatisticsController.$inject = [];
+    function NG2StatisticsController() {
         var vm = this;
+        vm.xxx=10;
         vm.panes = [];
     }
 })(angular);

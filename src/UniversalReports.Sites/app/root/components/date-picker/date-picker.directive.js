@@ -25,10 +25,10 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope','$rootScope', '$element', '$document', 'moment'];
+    controller.$inject = ['$scope', '$rootScope', '$element', '$document', 'moment'];
     function controller($scope, $rootScope, $element, $document, moment) {
         var vm = this;
-        var selectedDate;        
+        var selectedDate;
         var startOfMonthOfMinDate = moment.utc(vm.minDate).startOf('month');
         var endOfMonthOfMaxDate = moment.utc(vm.maxDate).endOf('month');
 
@@ -51,6 +51,7 @@ import moment from "moment";
             if (vm.nextDisabled) {
                 return;
             }
+
             selectedDate = vm.nextMonth;
             correctSelectedDate();
             generateViewModel();
@@ -77,14 +78,14 @@ import moment from "moment";
             generateViewModel();
             vm.text = selectedDate.format('MMM DD, YYYY');
             vm.ngModel = moment.utc(selectedDate);
-            $rootScope.$broadcast('nap-date-picker-select', {selectedDate: selectedDate, name: vm.pickerName});
+            $rootScope.$broadcast('nap-date-picker-select', { selectedDate: selectedDate, name: vm.pickerName });
         };
 
         $scope.$on('$destroy', function () {
             $document.unbind('click', documentClickBind);
         });
 
-        $scope.$watchGroup(['vm.ngModel','vm.maxDate','vm.minDate'], function () {
+        $scope.$watchGroup(['vm.ngModel', 'vm.maxDate', 'vm.minDate'], function () {
             init();
         });
 
@@ -157,6 +158,7 @@ import moment from "moment";
             }
 
             function generateYearOptions() {
+
                 var yearOptions = [];
                 var beginYear = vm.minDate.year();
                 var endYear = vm.maxDate.year();
@@ -192,7 +194,7 @@ import moment from "moment";
                         dates: []
                     };
                     for (var j = 0; j < 7; j++) {
-                        var monthMoment = moment.utc(startDate).add((i * 7) + j, 'days');
+                        var monthMoment = moment.utc(startDate).add(i * 7 + j, 'days');
                         var date = {
                             value: monthMoment,
                             text: monthMoment.format('D'),

@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp')
+        .module('app.ng2StatisticsApp')
         .factory('napTab', napTab);
 
     napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];

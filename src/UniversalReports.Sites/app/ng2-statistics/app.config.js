@@ -14,7 +14,7 @@ import angular from "angular";
             $routeProvider
                 .when('/', {
                     templateUrl: 'app/ng2-statistics/ng2-statistics.html',
-                    controller: 'NG2StatisticController',
+                    controller: 'NG2StatisticsController',
                     controllerAs: 'vm'
                 })
                 .when('/about', {

@@ -7,21 +7,21 @@ namespace UniversalReports.Core.Factory
 {
     public static class CriteriaFactory
     {
-        public static T Transform<T>(object @object) where T : class
+        public static T Transform<T>(object value) where T : class
         {
-            if (@object == null)
+            if (value == null)
             {
                 return (T)Activator.CreateInstance(typeof(T));
             }
 
             var settingProperties = typeof(T).GetProperties(
                 BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance);
-            var gettingProperties = @object.GetType().GetProperties(
+            var gettingProperties = value.GetType().GetProperties(
                 BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance);
             var instance = (T)Activator.CreateInstance(typeof(T));
             foreach (var property in settingProperties)
             {
-                SetPropertyValue(instance, @object, property, gettingProperties);
+                SetPropertyValue(instance, value, property, gettingProperties);
             }
 
             return instance;

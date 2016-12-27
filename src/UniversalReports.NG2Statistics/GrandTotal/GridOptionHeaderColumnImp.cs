@@ -27,14 +27,14 @@ namespace UniversalReports.NG2Statistics.GrandTotal
                 new HeaderColumns { HeaderText = "No.PLayers", Width = 80, Name = "NoOfPlayers", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
                 new HeaderColumns { HeaderText = "Bet Count", Width = 80, Name = "BetCount", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
                 new HeaderColumns { HeaderText = "Currency", Width = 80, Name = "Currency", CellAlignment = HAlignment.Center },
-                new HeaderColumns { HeaderText = "Total Bets", Width = 100, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Total Bets", Width = 90, Name = "TotalBets", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Total Wins", Width = 100, Name = "TotalWins", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
                 new HeaderColumns { HeaderText = "Game Income", Width = 100, Name = "GameIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
                 new HeaderColumns { HeaderText = "Game Payout", Width = 100, Name = "GamePayout", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Percentage },
-                new HeaderColumns { HeaderText = "House Turnover", Width = 120, Name = "HouseTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "House Gross Income", Width = 120, Name = "HouseGrossIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
-                new HeaderColumns { HeaderText = "House Comm", Width = 120, Name = "HouseComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
-                new HeaderColumns { HeaderText = "House Net Income", Width = 120, Name = "HouseNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative }
+                new HeaderColumns { HeaderText = "House Turnover", Width = 100, Name = "HouseTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "House Gross Income", Width = 100, Name = "HouseGrossIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new HeaderColumns { HeaderText = "House Comm", Width = 100, Name = "HouseComm", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new HeaderColumns { HeaderText = "House Net Income", Width = 100, Name = "HouseNetIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative }
             };
         }
     }

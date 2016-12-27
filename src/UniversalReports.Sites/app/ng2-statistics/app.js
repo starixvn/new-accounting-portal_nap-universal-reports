@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp', [
+        .module('app.ng2StatisticsApp', [
             'app.core',
             'fanex.dropdowntree'
         ]);

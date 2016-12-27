@@ -33,17 +33,16 @@ namespace UniversalReports.MVC.Results
             using (var memoryStream = new MemoryStream())
             {
                 Workbook.Write(memoryStream);
-                using (var response = new HttpResponseMessage(HttpStatusCode.OK))
-                {
-                    response.Content = new ByteArrayContent(memoryStream.ToArray());
-                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                    {
-                        FileName = "undefined.xls"
-                    };
+                var response = new HttpResponseMessage(HttpStatusCode.OK);
 
-                    return Task.FromResult(response);
-                }
+                response.Content = new ByteArrayContent(memoryStream.ToArray());
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = "undefined.xls"
+                };
+
+                return Task.FromResult(response);
             }
         }
     }

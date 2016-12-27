@@ -3,7 +3,7 @@ import angular from "angular";
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp')
+        .module('app.ng2StatisticsApp')
         .factory('titleService', titleService);
 
     titleService.$inject = [];
@@ -16,18 +16,18 @@ import angular from "angular";
         };
         return service;
 
-        function getTitleReport(model){
-            return model.data.isDrilldown == true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
+        function getTitleReport(model) {
+            return model.data.isDrilldown === true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
         }
 
-        function getTitleDrilldown(data){
+        function getTitleDrilldown(data) {
 
             return data.drilldownType === "Currency" ? getReportbyCrurrencyTitle(data) : getGrandTotalTitle(data);
         }
 
-        function getReportbyTitlle(data){
+        function getReportbyTitlle(data) {
 
-            switch(data.reportType){
+            switch (data.reportType) {
                 case "daily":
                     return "Daily";
                 case "username":
@@ -37,19 +37,25 @@ import angular from "angular";
             }
         }
 
-        function getReportMainTitle(data){
+        function getReportMainTitle(data) {
 
-            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
+            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll') + " " + getCurrencyName(data);
         }
 
-        function getReportbyCrurrencyTitle(data){
+        function getReportbyCrurrencyTitle(data) {
 
-            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll');
+            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll') + " BY CURRENCY " + getCurrencyName(data);
         }
 
-        function  getGrandTotalTitle(){
+        function getGrandTotalTitle(data) {
 
-            return "GRAND TOTAL BY CURRENCY";
+            return "Grand Total By Currency From " + data.startDate.format('ll') + " To " + data.endDate.format('ll') + " " + getCurrencyName(data);
+        }
+
+        function getCurrencyName(data) {
+            return data.currency === 0 || data.currencyName.toUpperCase() === 'ALL'
+                ? "(Original currency)"
+                : "(" + data.currencyName + ")";
         }
     }
 })(angular);

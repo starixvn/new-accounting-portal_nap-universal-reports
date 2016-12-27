@@ -251,6 +251,7 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NG2StatisticController.cs" />
     <Compile Include="Controllers\NG2StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -356,10 +357,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
-    <Content Include="bundle\89889688147bd7575d6327160d64e760.svg" />
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
+    <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
     <Content Include="bundle\house-win-loss-style.chunk.js" />
     <Content Include="bundle\house-win-loss-style.css" />
     <Content Include="bundle\house-win-loss.chunk.js" />
@@ -528,6 +529,8 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <Content Include="bundle\app-style.chunk.js.map" />
     <Content Include="bundle\app-style.css.map" />
     <Content Include="bundle\app.chunk.js.map" />
@@ -538,12 +541,6 @@
     <Content Include="bundle\ng2-statistics-style.chunk.js.map" />
     <Content Include="bundle\ng2-statistics-style.css.map" />
     <Content Include="bundle\ng2-statistics.chunk.js.map" />
-    <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
-    <None Include="Properties\PublishProfiles\IIS.pubxml" />
-    <None Include="Properties\PublishProfiles\Temp.pubxml" />
-    <None Include="Properties\PublishProfiles\xx.pubxml" />
-    <Content Include="stylesheets\bootstrap\mixins\_background-variant.scss" />
-    <Content Include="stylesheets\bootstrap\mixins\_alerts.scss" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -675,6 +672,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>

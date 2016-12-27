@@ -45,7 +45,7 @@ webpackJsonp([4],{
 	        function configRouting() {
 	            $routeProvider.when('/', {
 	                templateUrl: 'app/ng2-statistics/ng2-statistics.html',
-	                controller: 'NG2StatisticController',
+	                controller: 'NG2StatisticsController',
 	                controllerAs: 'vm'
 	            }).when('/about', {
 	                templateUrl: 'app/about/about.html',
@@ -74,7 +74,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp', ['app.core', 'fanex.dropdowntree']);
+	    angular.module('app.ng2StatisticsApp', ['app.core', 'fanex.dropdowntree']);
 	})(_angular2.default);
 
 /***/ },
@@ -93,11 +93,12 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').controller('NG2StatisticController', NG2StatisticController);
+	    angular.module('app.ng2StatisticsApp').controller('NG2StatisticsController', NG2StatisticsController);
 	
-	    NG2StatisticController.$inject = [];
-	    function NG2StatisticController() {
+	    NG2StatisticsController.$inject = [];
+	    function NG2StatisticsController() {
 	        var vm = this;
+	        vm.xxx = 10;
 	        vm.panes = [];
 	    }
 	})(_angular2.default);
@@ -126,7 +127,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').controller('BettypeController', BettypeController);
+	    angular.module('app.ng2StatisticsApp').controller('BettypeController', BettypeController);
 	
 	    BettypeController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
 	    function BettypeController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
@@ -137,13 +138,14 @@ webpackJsonp([4],{
 	        $scope.generateCurrencyReport = generateCurrencyReport;
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
-	        function generateCurrencyReport(idCurrency, betTypeId) {
+	        function generateCurrencyReport(currency, betTypeId) {
 	
 	            var data = {};
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
 	                drilldownType: "Currency",
-	                currency: pane.data.currency === -1 ? -1 : idCurrency,
+	                currency: pane.data.currency === -1 ? -1 : currency,
+	                currencyName: pane.data.currencyName,
 	                betType: betTypeId,
 	                isDrilldown: true
 	            });
@@ -152,9 +154,10 @@ webpackJsonp([4],{
 	        }
 	
 	        function generateGrandtotalReport() {
-	            var data = {
+	            var model = {
 	                drilldownType: "Grandtotal",
 	                currency: pane.data.currency,
+	                currencyName: pane.data.currencyName,
 	                isDrilldown: true,
 	                endDate: pane.data.endDate,
 	                startDate: pane.data.startDate,
@@ -162,8 +165,8 @@ webpackJsonp([4],{
 	                username: pane.data.username,
 	                balanceUpDate: pane.data.balanceUpDate
 	            };
-	            grandtotalService.getData(data).then(function (data) {
-	                renderPopup(data);
+	            grandtotalService.getData(model).then(function (data) {
+	                renderPopup(model, data);
 	            });
 	        }
 	
@@ -188,6 +191,8 @@ webpackJsonp([4],{
 	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
 	            data.titleInfo = titleInfo;
 	            data.sortOption = sortOptions;
+	            data.gridHeight = 575;
+	            data.fullHeight = false;
 	            gridElement.fanexGrid(data);
 	        }
 	
@@ -207,10 +212,12 @@ webpackJsonp([4],{
 	                for (var i = 0; i < data.bodyRows.length; i++) {
 	                    var row = data.bodyRows[i];
 	                    if (row.Columns.length > 1) {
-	                        var column = row.Columns.length === 11 ? row.Columns[3] : row.Columns[2];
-	                        var currencyId = column.CustomAttr;
-	                        var betTypeId = row.Columns.length === 11 ? row.Columns[2] : row.Columns[1];
-	                        column.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\'' + betTypeId.CustomAttr + '\')">' + column.Value + '</a>';
+	                        var currencyColumn = row.Columns.length === 12 ? row.Columns[3] : row.Columns[2];
+	                        var betTypeColumn = row.Columns.length === 12 ? row.Columns[2] : row.Columns[1];
+	                        var currencyId = currencyColumn.CustomAttr;
+	                        var currencyName = currencyColumn.Value;
+	                        var betTypeId = betTypeColumn.CustomAttr;
+	                        currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(' + currencyId + ',\'' + betTypeId + '\')">' + currencyName + '</a>';
 	                    }
 	                }
 	                data.footerRows[0].Columns[0].Value = '<a class="drill-down" href data-nap-click="generateGrandtotalReport()">' + data.footerRows[0].Columns[0].Value + '</a>';
@@ -223,14 +230,14 @@ webpackJsonp([4],{
 	        }
 	
 	        function exportExcelGrandTotal() {
-	            var title = "GRAND TOTAL BY CURRENCY";
+	            var title = grandtotalService.getTitle(pane.data);
 	            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
-	        function renderPopup(data) {
+	        function renderPopup(model, data) {
 	
 	            var titleInfo = {
-	                text: "GRAND TOTAL BY CURRENCY",
+	                text: grandtotalService.getTitle(model),
 	                showExcelButton: true,
 	                exportExcelFunction: exportExcelGrandTotal
 	            };
@@ -239,7 +246,7 @@ webpackJsonp([4],{
 	            ngDialog.open({
 	                template: 'templateId',
 	                plain: false,
-	                width: 1335,
+	                width: 1245,
 	                height: 650,
 	                closeByDocument: false,
 	                data: data
@@ -270,7 +277,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('breadcrumbService', breadcrumbService);
+	    angular.module('app.ng2StatisticsApp').factory('breadcrumbService', breadcrumbService);
 	
 	    breadcrumbService.$inject = [];
 	    function breadcrumbService() {
@@ -317,7 +324,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('titleService', titleService);
+	    angular.module('app.ng2StatisticsApp').factory('titleService', titleService);
 	
 	    titleService.$inject = [];
 	    function titleService() {
@@ -330,7 +337,7 @@ webpackJsonp([4],{
 	        return service;
 	
 	        function getTitleReport(model) {
-	            return model.data.isDrilldown == true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
+	            return model.data.isDrilldown === true ? getTitleDrilldown(model.data) : getReportMainTitle(model.data);
 	        }
 	
 	        function getTitleDrilldown(data) {
@@ -352,17 +359,21 @@ webpackJsonp([4],{
 	
 	        function getReportMainTitle(data) {
 	
-	            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll');
+	            return getReportbyTitlle(data) + gameStatisticReport + "From " + data.startDate.format('ll') + " To " + data.endDate.format('ll') + " " + getCurrencyName(data);
 	        }
 	
 	        function getReportbyCrurrencyTitle(data) {
 	
-	            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll');
+	            return getReportbyTitlle(data) + gameStatisticReport + "On " + data.startDate.format('ll') + " BY CURRENCY " + getCurrencyName(data);
 	        }
 	
-	        function getGrandTotalTitle() {
+	        function getGrandTotalTitle(data) {
 	
-	            return "GRAND TOTAL BY CURRENCY";
+	            return "Grand Total By Currency From " + data.startDate.format('ll') + " To " + data.endDate.format('ll') + " " + getCurrencyName(data);
+	        }
+	
+	        function getCurrencyName(data) {
+	            return data.currency === 0 || data.currencyName.toUpperCase() === 'ALL' ? "(Original currency)" : "(" + data.currencyName + ")";
 	        }
 	    }
 	})(_angular2.default);
@@ -391,7 +402,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').controller('CommonController', CommonController);
+	    angular.module('app.ng2StatisticsApp').controller('CommonController', CommonController);
 	
 	    CommonController.$inject = ['$rootScope', '$element', '$scope', 'fanexGridService', 'ngDialog', '$injector', 'grandtotalService'];
 	    function CommonController($rootScope, $element, $scope, fanexGridService, ngDialog, $injector, grandtotalService) {
@@ -402,12 +413,13 @@ webpackJsonp([4],{
 	        $scope.generateCurrencyReport = generateCurrencyReport;
 	        $scope.generateGrandtotalReport = generateGrandtotalReport;
 	
-	        function generateCurrencyReport(idCurrency, dateCurrency) {
+	        function generateCurrencyReport(currency, dateCurrency) {
 	            var data = {};
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
 	                drilldownType: "Currency",
-	                currency: pane.data.currency === -1 ? -1 : idCurrency,
+	                currency: pane.data.currency === -1 ? -1 : currency,
+	                currencyName: pane.data.currencyName,
 	                startDate: _moment2.default.utc(dateCurrency).startOf('day'),
 	                endDate: _moment2.default.utc(dateCurrency).startOf('day'),
 	                isDrilldown: true
@@ -417,9 +429,10 @@ webpackJsonp([4],{
 	
 	        function generateGrandtotalReport() {
 	
-	            var data = {
+	            var model = {
 	                drilldownType: "Grandtotal",
 	                currency: pane.data.currency,
+	                currencyName: pane.data.currencyName,
 	                isDrilldown: true,
 	                endDate: pane.data.endDate,
 	                startDate: pane.data.startDate,
@@ -428,8 +441,8 @@ webpackJsonp([4],{
 	                balanceUpDate: pane.data.balanceUpDate
 	            };
 	
-	            grandtotalService.getData(data).then(function (data) {
-	                renderPopup(data);
+	            grandtotalService.getData(model).then(function (data) {
+	                renderPopup(model, data);
 	            });
 	        }
 	
@@ -459,6 +472,8 @@ webpackJsonp([4],{
 	                totalItem: data.bodyRows.length
 	            };
 	            data.sortOption = sortOptions;
+	            data.gridHeight = 575;
+	            data.fullHeight = false;
 	            gridElement.fanexGrid(data);
 	        }
 	
@@ -483,9 +498,9 @@ webpackJsonp([4],{
 	                for (var i = 0; i < data.bodyRows.length; i++) {
 	                    var row = data.bodyRows[i];
 	                    var currencyColumn = row.Columns.length === 12 ? row.Columns[3] : row.Columns[2];
-	                    var dateCurrency = row.Columns.length === 12 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
+	                    var date = row.Columns.length === 12 ? row.Columns[0].Value : row.Columns[1].CustomAttr;
 	
-	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(\'' + currencyColumn.CustomAttr + '\',\'' + dateCurrency + '\')">' + currencyColumn.Value + '</a>';
+	                    currencyColumn.Value = '<a class="drill-down" href data-nap-click="generateCurrencyReport(\'' + currencyColumn.CustomAttr + '\',\'' + date + '\')">' + currencyColumn.Value + '</a>';
 	                }
 	            }
 	
@@ -498,14 +513,14 @@ webpackJsonp([4],{
 	        }
 	
 	        function exportExcelGrandTotal() {
-	            var title = "GRAND TOTAL BY CURRENCY";
+	            var title = grandtotalService.getTitle(pane.data);
 	            grandtotalService.exportExcel(title, pane.data, pane.getFileName());
 	        }
 	
-	        function renderPopup(data) {
+	        function renderPopup(model, data) {
 	
 	            var titleInfo = {
-	                text: "GRAND TOTAL BY CURRENCY",
+	                text: grandtotalService.getTitle(model),
 	                showExcelButton: true,
 	                exportExcelFunction: exportExcelGrandTotal
 	            };
@@ -514,7 +529,7 @@ webpackJsonp([4],{
 	            ngDialog.open({
 	                template: 'templateId',
 	                plain: false,
-	                width: 1335,
+	                width: 1245,
 	                height: 650,
 	                closeByDocument: false,
 	                data: data
@@ -545,7 +560,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('commonService', commonService);
+	    angular.module('app.ng2StatisticsApp').factory('commonService', commonService);
 	
 	    commonService.$inject = ['$http', 'httpResponseService', 'titleService'];
 	    function commonService($http, httpResponseService, titleService) {
@@ -631,7 +646,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').directive('napFilter', napFilter);
+	    angular.module('app.ng2StatisticsApp').directive('napFilter', napFilter);
 	
 	    function napFilter() {
 	        var directive = {
@@ -693,7 +708,7 @@ webpackJsonp([4],{
 	
 	        function generateCurrency(data) {
 	            vm.currencies = data;
-	            vm.currency = -1;
+	            vm.currency = data[1];
 	        }
 	
 	        function generateDropdown(data) {
@@ -769,7 +784,8 @@ webpackJsonp([4],{
 	                startDate: dateRange.startDate,
 	                endDate: dateRange.endDate,
 	                username: vm.user === undefined ? "" : getUserName(),
-	                currency: vm.currency,
+	                currency: vm.currency.Id,
+	                currencyName: vm.currency.Name,
 	                balanceUpDate: vm.balanceUpDate,
 	                betType: getBetType(vm.sportItems)
 	            };
@@ -827,17 +843,14 @@ webpackJsonp([4],{
 	        }
 	
 	        function validDateRange(fromDate, toDate) {
-	            var gapYear = toDate.year() - fromDate.year();
-	            var gapMonth = toDate.month() - fromDate.month();
-	            var gapDay = toDate.date() - fromDate.date();
+	            var isValidRange = toDate.diff(fromDate, 'years') <= 1;
 	
-	            if (gapYear > 1 || gapYear === 1 && gapMonth > 0 || gapYear === 1 && gapMonth === 0 && gapDay > 0) {
+	            if (isValidRange) {
+	                return true;
+	            } else {
 	                var contentMsg = "Date range should not exceed 1 year";
 	                showErrorMsg(contentMsg);
 	                return false;
-	            } else {
-	
-	                return true;
 	            }
 	        }
 	
@@ -870,7 +883,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('filterService', filterService);
+	    angular.module('app.ng2StatisticsApp').factory('filterService', filterService);
 	
 	    filterService.$inject = ['$http', 'httpResponseService'];
 	    function filterService($http, httpResponseService) {
@@ -908,7 +921,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('grandtotalService', grandtotalService);
+	    angular.module('app.ng2StatisticsApp').factory('grandtotalService', grandtotalService);
 	
 	    grandtotalService.$inject = ['$http', 'httpResponseService', 'titleService'];
 	    function grandtotalService($http, httpResponseService, titleService) {
@@ -972,7 +985,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').directive('napPane', napPane);
+	    angular.module('app.ng2StatisticsApp').directive('napPane', napPane);
 	
 	    napPane.$inject = ['$templateRequest', '$compile', '$controller'];
 	    function napPane($templateRequest, $compile, $controller) {
@@ -1030,7 +1043,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('napPane', napPane);
+	    angular.module('app.ng2StatisticsApp').factory('napPane', napPane);
 	
 	    napPane.$inject = ['$log', '$compile', '$injector'];
 	    function napPane($log, $compile, $injector) {
@@ -1106,7 +1119,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').directive('napTab', napTab);
+	    angular.module('app.ng2StatisticsApp').directive('napTab', napTab);
 	
 	    napTab.$inject = ['napPane'];
 	    function napTab(Pane) {
@@ -1157,7 +1170,7 @@ webpackJsonp([4],{
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.numberGame2StatisticApp').factory('napTab', napTab);
+	    angular.module('app.ng2StatisticsApp').factory('napTab', napTab);
 	
 	    napTab.$inject = ['$rootScope', 'breadcrumbService', 'napPane'];
 	    function napTab($rootScope, breadcrumbService, Pane) {

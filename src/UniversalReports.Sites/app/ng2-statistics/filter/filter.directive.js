@@ -4,7 +4,7 @@ import moment from "moment";
     'use strict';
 
     angular
-        .module('app.numberGame2StatisticApp')
+        .module('app.ng2StatisticsApp')
         .directive('napFilter', napFilter);
 
     function napFilter() {
@@ -64,10 +64,10 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getReportCriteria = getReportCriteria;
         vm.updateDateRange = updateDateRange;
-         
+
         function generateCurrency(data) {
             vm.currencies = data;
-            vm.currency = -1;
+            vm.currency = data[1];
         }
 
         function generateDropdown(data) {
@@ -144,7 +144,8 @@ import moment from "moment";
                 startDate: dateRange.startDate,
                 endDate: dateRange.endDate,
                 username: vm.user === undefined ? "" : getUserName(),
-                currency: vm.currency,
+                currency: vm.currency.Id,
+                currencyName: vm.currency.Name,
                 balanceUpDate: vm.balanceUpDate,
                 betType: getBetType(vm.sportItems)
             };
@@ -200,23 +201,19 @@ import moment from "moment";
             else {
                 return true;
             }
-            
+
         }
 
         function validDateRange(fromDate, toDate) {
-            var gapYear = toDate.year() - fromDate.year();
-            var gapMonth = toDate.month() - fromDate.month();
-            var gapDay = toDate.date() - fromDate.date();
+            var isValidRange = toDate.diff(fromDate, 'years')<=1;
 
-            if ((gapYear > 1) || (gapYear === 1 && gapMonth > 0)
-                || (gapYear === 1 && gapMonth === 0) && gapDay > 0) {
+            if (isValidRange) {
+                return true;
+            }
+            else {
                 var contentMsg = "Date range should not exceed 1 year";
                 showErrorMsg(contentMsg);
                 return false;
-            }
-            else {
-
-                return true;
             }
         }
 

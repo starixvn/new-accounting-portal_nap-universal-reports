@@ -26,7 +26,6 @@
                 </div>
                 <nap-date-range-picker data-ng-hide="vm.normalMode" data-start-date="vm.startDate" data-end-date="vm.endDate" min-date="vm.minDate" max-date="vm.yesterday"></nap-date-range-picker>
             </div>
-
             <div class="row">
                 <div class="col-section">&nbsp;</div>
                 <div class="col-label">Sport</div>
@@ -54,17 +53,15 @@
                 <div class="col-label">Currency</div>
                 <div class="col-input">
                     <select ng-model="vm.currency"
-                            ng-options="currency.Id as currency.Name for currency in vm.currencies"></select>
-
+                            ng-options="s.Name for s in vm.currencies track by s.Id"></select>
                 </div>
-
             </div>
             <div class="row report-by">
                 <div class="col-section">Report by</div>
                 <div class="col-label">&nbsp;</div>
                 <div class="col-input-full">
                     <ul>
-                        <li><label><input type="radio" ng-model="vm.reportType" value="daily" ng-checked="true"/>Daily</label></li>
+                        <li><label><input type="radio" ng-model="vm.reportType" value="daily" ng-checked="true" />Daily</label></li>
                         <li><label><input type="radio" ng-model="vm.reportType" value="username" />Username</label></li>
                         <li><label><input type="radio" ng-model="vm.reportType" value="bettype" />Bet type</label></li>
                     </ul>
@@ -89,6 +86,5 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
