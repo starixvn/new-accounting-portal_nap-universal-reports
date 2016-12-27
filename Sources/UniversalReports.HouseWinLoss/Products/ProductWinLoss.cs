@@ -12,5 +12,16 @@ namespace UniversalReports.HouseWinLoss.Products
         public ProductGroupWinLoss NonSportsbook { get; set; }
 
         public SiteWinLossSummary GrandTotal { get; set; }
+
+        public bool IsEmpty
+        {
+            get
+            {
+                return GrandTotal.Credit.RealTurnover == 0
+                    && GrandTotal.Credit.VirtualTurnover == 0
+                    && GrandTotal.Deposit.RealTurnover == 0
+                    && GrandTotal.Deposit.VirtualTurnover == 0;
+            }
+        }
     }
 }

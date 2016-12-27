@@ -158,6 +158,12 @@
     <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-expected.json" />
     <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-fakeData.json" />
     <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-queryModel.json" />
+    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-expected.json" />
+    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-fakeData.json" />
+    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-queryModel.json" />
+    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-expected.json" />
+    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-fakeData.json" />
+    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-queryModel.json" />
     <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-expected.json" />
     <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-fakeData.json" />
     <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-queryModel.json" />

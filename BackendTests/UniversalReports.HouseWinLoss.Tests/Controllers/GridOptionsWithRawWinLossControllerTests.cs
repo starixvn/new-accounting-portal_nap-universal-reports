@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Fanex.Excel.Models;
+using NUnit.Framework;
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Web.Http.Results;
-using Fanex.Excel.Models;
-using NUnit.Framework;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -61,7 +61,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 "VirtualSports.BetType.VirtualSportsBetTypeController",
                 "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",
                 "VirtualSports.Site.VirtualSportsSiteController",
-                "VirtualSports.SportType.VirtualSportsSportTypeController"
+                "VirtualSports.SportType.VirtualSportsSportTypeController",
+                "FishingWorld.BetType.FishingWorldBetTypeController",
+                "FishingWorld.Site.FishingWorldSiteController",
             };
         }
 
