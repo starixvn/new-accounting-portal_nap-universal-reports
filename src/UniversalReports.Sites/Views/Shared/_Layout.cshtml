@@ -40,8 +40,8 @@
     <script type="text/javascript">
         var napConfig = @Html.Raw(Json.Encode(napConfig));
     </script>
-    <script src="~/bundle/lib.chunk.js"></script>
-    <script src="~/bundle/app.chunk.js"></script>
+    <script src="~/bundle/lib.chunk.js?v=1.0.3"></script>
+    <script src="~/bundle/app.chunk.js?v=1.0.3"></script>
     @RenderSection("Scripts", false)
     @Html.Partial("_Piwik")
 </body>
