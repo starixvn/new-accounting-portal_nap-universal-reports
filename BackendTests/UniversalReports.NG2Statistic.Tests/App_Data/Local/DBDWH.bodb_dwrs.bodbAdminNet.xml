@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Functions>
-  <Function Name="NG2-Statistics">
-    <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-    <Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBDWH.bodb_dwrs.bodbAdminNet"></Setting>
-  </Function>
-</Functions>

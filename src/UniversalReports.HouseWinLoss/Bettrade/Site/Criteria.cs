@@ -1,0 +1,11 @@
+using UniversalReports.HouseWinLoss.Common.Criteria;
+
+namespace UniversalReports.HouseWinLoss.Bettrade.Site
+{
+    public class Criteria : WinLossCriteria
+    {
+        public string Site { get; set; }
+
+        public override string GetSettingKey() => $"HouseWinLoss-Bettrade-Site-{Source}"; 
+    }
+}
