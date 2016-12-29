@@ -251,7 +251,6 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NG2StatisticController.cs" />
     <Compile Include="Controllers\NG2StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
