@@ -207,6 +207,7 @@
     <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MetricGaming\BetType\Criteria.cs" />
     <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\BetType\MetricGamingBetTypeController.cs" />
