@@ -8,7 +8,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
     {
         public enum MainBetType
         {
-            None = 0,
             Handicap = 1,
             FirstHandicap = 7,
             OverUnder2 = 3,
@@ -17,7 +16,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
         public enum BetTypeGroup1
         {
-            None = 0,
             Handicap = 1,
             OneXTwoBetType = 5,
             DoubleChanceBetType = 24,
@@ -31,7 +29,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
         public enum BetTypeGroup2
         {
-            None = 0,
             OverUnder2 = 3,
             TotalGoal = 6,
             OddEvenBetType = 2,
@@ -40,7 +37,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
         public enum BetTypeGroup3
         {
-            None = 0,
             FirstHandicap = 7,
             First1X2BetType = 15,
             FirstDoubleChange = 151,
