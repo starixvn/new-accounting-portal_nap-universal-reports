@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
+using UniversalReports.API.Attributes;
 
 namespace UniversalReports.Sites
 {
@@ -19,6 +20,9 @@ namespace UniversalReports.Sites
 
             configuration.Formatters.Clear();
             configuration.Formatters.Add(new JsonMediaTypeFormatter());
+
+            configuration.Filters.Add(new LogExceptionFilterAttribute());
+            configuration.Filters.Add(new AuthorizeAttribute());
         }
     }
 }

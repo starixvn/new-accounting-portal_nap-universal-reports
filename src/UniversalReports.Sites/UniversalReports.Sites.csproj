@@ -649,6 +649,10 @@
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.API\UniversalReports.API.csproj">
+      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
+      <Name>UniversalReports.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>
       <Name>UniversalReports.Application</Name>
