@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120"/>
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120" />
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Universal-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-VirtualSports-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Racing-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Racing-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-MetricGaming-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-MetricGaming-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-MetricGaming-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-OtherSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Sportsbook-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Universal-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Racing-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Racing-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-MetricGaming-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-MetricGaming-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-MetricGaming-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-OtherSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Sportsbook-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>
     <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
@@ -45,24 +45,24 @@
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
     </Setting>
     <Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
     </Setting>
     <Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
     </Setting>
     <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover"/>
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm"/>
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome"/>
+      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
     </Setting>
   </Function>
 </Functions>
