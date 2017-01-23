@@ -38,5 +38,5 @@ import moment from "moment";
             MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
             PERCENT_NUMBER: '0%'
         })
-        .constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts']);
+        .constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts', 'UniversalReports/NG2Statistics']);
 })(angular, moment);

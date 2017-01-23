@@ -23,10 +23,14 @@ import angular from "angular";
                     menu.Url = menu.Link;
                     for (var j = 0; j < menu.Children.length; j++) {
                         menu.Children[j].Url = getMenuUrl(menu.Children[j].Link);
+                        menu.Children[j].Reload = location.href.indexOf(menu.Children[j].Link) >= 0;
                     }
                 } else {
                     menu.Url = getMenuUrl(menu.Link);
+                    menu.Reload = location.href.indexOf(menu.Link) >= 0;
                 }
+
+
             }
 
             return menus;
@@ -39,13 +43,18 @@ import angular from "angular";
         }
 
         function getMenuUrl(url) {
+            return isUniversalMenu(url)
+            ? url
+                : legacyService.resolveUrl(url);
+        }
+
+        function isUniversalMenu(url) {
             for (var i = 0; i < universalMenus.length; i++) {
                 if (url.indexOf(universalMenus[i]) >= 0) {
-                    return url;
+                    return true;
                 }
             }
-
-            return legacyService.resolveUrl(url);
+            return false;
         }
     }
 })(angular);

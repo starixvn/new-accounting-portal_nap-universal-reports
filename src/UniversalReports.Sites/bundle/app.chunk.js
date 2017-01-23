@@ -26518,7 +26518,7 @@ webpackJsonp([0],[
 	        MMM_DD_YYYY_H_M_STRING: 'MMM DD, YYYY HH:mm',
 	        MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
 	        PERCENT_NUMBER: '0%'
-	    }).constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts']);
+	    }).constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts', 'UniversalReports/NG2Statistics']);
 	})(_angular2.default, _moment2.default);
 
 /***/ },
@@ -26556,7 +26556,7 @@ webpackJsonp([0],[
 	                                url = config.rootUrl + '/' + url;
 	                            }
 	                            if (extension.toLowerCase() === 'html') {
-	                                url = url + "?v=1.11";
+	                                url = url + "?v=1.12";
 	                            }
 	                        }
 	
@@ -28513,9 +28513,11 @@ webpackJsonp([0],[
 	                    menu.Url = menu.Link;
 	                    for (var j = 0; j < menu.Children.length; j++) {
 	                        menu.Children[j].Url = getMenuUrl(menu.Children[j].Link);
+	                        menu.Children[j].Reload = location.href.indexOf(menu.Children[j].Link) >= 0;
 	                    }
 	                } else {
 	                    menu.Url = getMenuUrl(menu.Link);
+	                    menu.Reload = location.href.indexOf(menu.Link) >= 0;
 	                }
 	            }
 	
@@ -28527,13 +28529,16 @@ webpackJsonp([0],[
 	        }
 	
 	        function getMenuUrl(url) {
+	            return isUniversalMenu(url) ? url : legacyService.resolveUrl(url);
+	        }
+	
+	        function isUniversalMenu(url) {
 	            for (var i = 0; i < universalMenus.length; i++) {
 	                if (url.indexOf(universalMenus[i]) >= 0) {
-	                    return url;
+	                    return true;
 	                }
 	            }
-	
-	            return legacyService.resolveUrl(url);
+	            return false;
 	        }
 	    }
 	})(_angular2.default);

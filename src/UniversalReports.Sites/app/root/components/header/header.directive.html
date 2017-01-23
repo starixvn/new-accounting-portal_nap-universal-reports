@@ -9,7 +9,8 @@
                 <a data-menu-id="{{item.Id}}" data-ng-href="{{item.Url}}" data-ng-if="!item.Children || item.Children.length === 0">{{item.Name}}</a>
                 <ul class="sub-menu" data-ng-if="item.Children && item.Children.length > 0">
                     <li data-ng-repeat="childItem in item.Children">
-                        <a data-menu-id="{{childItem.Id}}" data-ng-href="{{childItem.Url}}">{{childItem.Name}}</a>
+                        <a data-ng-if="!childItem.Reload" data-menu-id="{{childItem.Id}}" data-ng-href="{{childItem.Url}}">{{childItem.Name}}</a>
+                        <a data-ng-if="childItem.Reload" href="javascript:location.reload();">{{childItem.Name}}</a>
                     </li>
                 </ul>
             </li>

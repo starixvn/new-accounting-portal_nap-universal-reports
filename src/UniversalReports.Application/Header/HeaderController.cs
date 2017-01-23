@@ -15,6 +15,9 @@ namespace UniversalReports.Application.Header
             this.currentSession = currentSession;
         }
 
+#if DEBUG
+        [AllowAnonymous]
+#endif
         [Route("api/application/header")]
         public Header Index()
         {
