@@ -59,6 +59,7 @@ import angular from "angular";
                 text: tab.generateBreadcrumbHtmlWithSuffix(" MAJOR/MINOR"),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
+                showButtonsWhenNoData: true,
                 exportExcelFunction: exportExcel,
                 customButtons : showHideColumnBuilder.getButtonHtml()
             };
@@ -74,7 +75,7 @@ import angular from "angular";
                 showCollapseExpandButton: false,
                 showExcelButton: false
             };
-            
+
             data.titleInfo = titleInfo;
             data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
@@ -119,7 +120,7 @@ import angular from "angular";
 
             var majorMinorTitle = tab.generateBreadcrumbTextWithSuffix(" MAJOR/MINOR");
             var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" LIVE/NON-LIVE");
-            
+
             var httpData = {
                 majorMinorTitle: majorMinorTitle,
                 liveNonLiveTitle: liveNonLiveTitle

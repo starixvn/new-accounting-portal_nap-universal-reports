@@ -1309,6 +1309,7 @@ webpackJsonp([2],{
 	                text: tab.generateBreadcrumbHtmlWithSuffix(""),
 	                showCollapseExpandButton: true,
 	                showExcelButton: true,
+	                showButtonsWhenNoData: true,
 	                exportExcelFunction: exportExcel,
 	                customButtons: showHideColumnBuilder.getButtonHtml()
 	            };
@@ -1475,6 +1476,7 @@ webpackJsonp([2],{
 	                text: tab.generateBreadcrumbHtmlWithSuffix(""),
 	                showCollapseExpandButton: true,
 	                showExcelButton: true,
+	                showButtonsWhenNoData: true,
 	                exportExcelFunction: exportExcel,
 	                customButtons: showHideColumnBuilder.getButtonHtml()
 	            };
@@ -1993,6 +1995,7 @@ webpackJsonp([2],{
 	                text: tab.generateBreadcrumbHtmlWithSuffix(" Non-Live"),
 	                showCollapseExpandButton: true,
 	                showExcelButton: true,
+	                showButtonsWhenNoData: true,
 	                exportExcelFunction: exportExcel,
 	                customButtons: showHideColumnBuilder.getButtonHtml()
 	            };
@@ -2494,6 +2497,7 @@ webpackJsonp([2],{
 	                text: tab.generateBreadcrumbHtmlWithSuffix(" MAJOR/MINOR"),
 	                showCollapseExpandButton: true,
 	                showExcelButton: true,
+	                showButtonsWhenNoData: true,
 	                exportExcelFunction: exportExcel,
 	                customButtons: showHideColumnBuilder.getButtonHtml()
 	            };

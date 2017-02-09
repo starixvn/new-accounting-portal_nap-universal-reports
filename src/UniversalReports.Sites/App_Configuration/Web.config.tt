@@ -10,7 +10,7 @@
         var fileName = string.Format("Web.{0}.config", site.Environment);
 
         var appSettingsFileName = string.Format("App_Configuration\\{0}\\Web.AppSettings.config", site.Environment);
-        var connectionStringFileName = string.Format("App_Configuration\\{0}\\Web.ConnectionString.config", site.Environment);
+        var connectionStringFileName = string.Format("App_Configuration\\Web.ConnectionString.{0}.config", site.Environment);
 
         manager.StartNewFile(fileName);
 #>
@@ -46,14 +46,15 @@
 		</connectionSettings>
 	</Fanex.Caching>
 
-	<connectionStrings configSource="<#= connectionStringFileName #>"/>
-	<appSettings file="<#= appSettingsFileName #>">
+	<connectionStrings configSource="App_Configuration\Web.ConnectionString.<#=site.Environment#>.config"/>
+	<appSettings file="App_Configuration\Web.AppSettings.<#=site.Environment#>.config">
 		<add key="webpages:Version" value="2.0.0.0" />
 		<add key="webpages:Enabled" value="false" />
 		<add key="aspnet:UseHostHeaderForRequestUrl" value="True"/>
 		<add key="ClientValidationEnabled" value="true" />
 		<add key="UnobtrusiveJavaScriptEnabled" value="true" />
 		<add key="Environment" value="<#=site.Environment #>" />
+		<add key="StoredProcedurePath" value="App_Configuration" />
 	</appSettings>
 
 	<system.web>

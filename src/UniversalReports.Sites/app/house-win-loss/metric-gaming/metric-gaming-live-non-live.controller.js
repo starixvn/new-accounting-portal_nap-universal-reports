@@ -90,6 +90,7 @@ import angular from "angular";
                 text: tab.generateBreadcrumbHtmlWithSuffix(""),
                 showCollapseExpandButton: true,
                 showExcelButton: true,
+                showButtonsWhenNoData: true,
                 exportExcelFunction: exportExcel,
                 customButtons: showHideColumnBuilder.getButtonHtml()
             };
