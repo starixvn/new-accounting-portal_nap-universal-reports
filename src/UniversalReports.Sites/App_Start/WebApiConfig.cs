@@ -22,7 +22,9 @@ namespace UniversalReports.Sites
             configuration.Formatters.Add(new JsonMediaTypeFormatter());
 
             configuration.Filters.Add(new LogExceptionFilterAttribute());
+#if !DEBUG
             configuration.Filters.Add(new AuthorizeAttribute());
+#endif
         }
     }
 }

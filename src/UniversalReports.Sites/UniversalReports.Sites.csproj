@@ -445,8 +445,6 @@
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
-    <None Include="App_Configuration\SIT\Web.AppSettings.config" />
-    <None Include="App_Configuration\SIT\Web.ConnectionString.config" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
@@ -475,20 +473,6 @@
     <Content Include="content\scoreInformation.scss" />
     <Content Include="content\site.scss" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
-    <Content Include="App_Configuration\DEV\Web.AppSettings.config" />
-    <Content Include="App_Configuration\DEV\Web.ConnectionString.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Configuration\MASTER\Web.AppSettings.config" />
-    <Content Include="App_Configuration\MASTER\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\LOCAL\Web.AppSettings.config" />
-    <Content Include="App_Configuration\LOCAL\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\MNL\Web.AppSettings.config" />
-    <Content Include="App_Configuration\MNL\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\PRO\Web.AppSettings.config" />
-    <Content Include="App_Configuration\PRO\Web.ConnectionString.config" />
-    <Content Include="App_Configuration\UAT\Web.AppSettings.config" />
-    <Content Include="App_Configuration\UAT\Web.ConnectionString.config" />
     <Content Include="App_Configuration\Web.DEV.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
@@ -540,6 +524,53 @@
     <Content Include="bundle\ng2-statistics-style.chunk.js.map" />
     <Content Include="bundle\ng2-statistics-style.css.map" />
     <Content Include="bundle\ng2-statistics.chunk.js.map" />
+    <Content Include="App_Configuration\Web.AppSettings.config" />
+    <Content Include="App_Configuration\Web.AppSettings.DEV.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.LOCAL.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.MASTER.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.MNL.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.PRO.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.SIT.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.UAT.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.DEV.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.LOCAL.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.MASTER.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.MNL.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.PRO.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.SIT.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.UAT.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
