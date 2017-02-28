@@ -290,7 +290,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
-                        return "stateConnectionString=\"tcpip=10.40.40.135:42424\"";
+                        return "stateConnectionString=\"tcpip=10.40.40.22:42424\"";
                     case SiteEnvironment.MNL:
                         return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
                     case SiteEnvironment.UAT:
@@ -344,7 +344,7 @@
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";
 
                     case SiteEnvironment.PRO:
-                        return @"FormatName:DIRECT=http://10.40.40.127/msmq/Private$/entlib";
+                        return @"FormatName:DIRECT=http://10.40.40.22/msmq/Private$/entlib";
 
 					case SiteEnvironment.SIT:
                         return @"FormatName:DIRECT=tcp://172.16.4.106/private$/entlib";
