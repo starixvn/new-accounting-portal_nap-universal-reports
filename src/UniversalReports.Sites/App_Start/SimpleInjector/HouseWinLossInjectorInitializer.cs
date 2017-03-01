@@ -20,45 +20,45 @@ namespace UniversalReports.Sites.SimpleInjector
     {
         internal static Container RegisterHouseWinLossServices(this Container container)
         {
-            container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>(Lifestyle.Transient);
+            container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>();
 
-            container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Transient);
-            container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>(Lifestyle.Transient);
-            container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<Products.Service, Products.ServiceImp>(Lifestyle.Transient);
-            container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<Soccers.BaseService.CalculationService, Soccers.BaseService.CalculationServiceImp>(Lifestyle.Transient);
-            container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>(Lifestyle.Transient);
-            container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>(Lifestyle.Transient);
+            container.Register<IDynamicRepository, DynamicRepository>();
+            container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>();
+            container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>();
+            container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>();
+            container.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>();
+            container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>();
+            container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>();
+            container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>();
+            container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>();
+            container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>();
+            container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>();
+            container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>();
+            container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>();
+            container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
+            container.Register<Products.Service, Products.ServiceImp>();
+            container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
+            container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>();
+            container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>();
+            container.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>();
+            container.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>();
+            container.Register<Soccers.BaseService.CalculationService, Soccers.BaseService.CalculationServiceImp>();
+            container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
+            container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
+            container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
+            container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>();
 
-            container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>(Lifestyle.Transient);
-            container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>(Lifestyle.Transient);
-            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>(Lifestyle.Transient);
-            container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
-            container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(Lifestyle.Transient);
+            container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
+            container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
+            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>();
+            container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>();
+            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>();
+            container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>();
+            container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>();
+            container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>();
+            container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
+            container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
+            container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
 
             return container;
         }

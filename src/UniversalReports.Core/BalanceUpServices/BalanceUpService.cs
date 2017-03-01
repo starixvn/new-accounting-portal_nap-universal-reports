@@ -2,8 +2,8 @@
 {
     public interface BalanceUpService
     {
-        void ClearCache();
-
         BalanceUpRange Query();
+
+        BalanceUpRange QueryFromSource();
     }
 }

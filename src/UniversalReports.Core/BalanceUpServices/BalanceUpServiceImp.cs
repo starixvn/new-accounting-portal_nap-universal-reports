@@ -9,31 +9,22 @@ namespace UniversalReports.Core.BalanceUpServices
 
         private readonly IDynamicRepository repository;
 
-        public BalanceUpServiceImp(IDynamicRepository repository)
+        private readonly CacheService cacheService;
+
+        public BalanceUpServiceImp(IDynamicRepository repository, CacheService cacheService)
         {
             this.repository = repository;
-        }
-
-        public void ClearCache()
-        {
-            CacheService.Remove(BalanceUpRangeCacheKey);
+            this.cacheService = cacheService;
         }
 
         public BalanceUpRange Query()
         {
-            var balanceUpRange = CacheService.Get<BalanceUpRange>(BalanceUpRangeCacheKey);
-            if (balanceUpRange != null)
-            {
-                return balanceUpRange;
-            }
-
-            balanceUpRange = QueryFromSource();
-            CacheService.Set(BalanceUpRangeCacheKey, balanceUpRange);
-
-            return balanceUpRange;
+            return cacheService.GetOrSet(
+                BalanceUpRangeCacheKey,
+                QueryFromSource);
         }
 
-        private BalanceUpRange QueryFromSource()
+        public BalanceUpRange QueryFromSource()
         {
             var criteria = new BalanceUpCriteria();
             return repository.Get<BalanceUpRange>(criteria);

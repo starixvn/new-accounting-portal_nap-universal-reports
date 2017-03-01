@@ -12,20 +12,20 @@ namespace UniversalReports.Sites.SimpleInjector
     {
         internal static Container RegisterNG2Services(this Container container)
         {
-            container.Register<BaseGridOptionHeaderColumn, BaseGridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<Filter.Service, Filter.ServiceImp>(Lifestyle.Transient);
-            container.Register<DailyReport.GridOptionsBuilder, DailyReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>(Lifestyle.Transient);
-            container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>(Lifestyle.Transient);
-            container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<GrandTotalReport.GridOptionHeaderColumn, GrandTotalReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>(Lifestyle.Transient);
-            container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>(Lifestyle.Transient);
-            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>(Lifestyle.Transient);
-            container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>(Lifestyle.Transient);
-            container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>(Lifestyle.Transient);
-            container.Register<BettypeReport.SortingService, BettypeReport.SortingServiceImp>(Lifestyle.Transient);
+            container.Register<BaseGridOptionHeaderColumn, BaseGridOptionHeaderColumnImp>();
+            container.Register<Filter.Service, Filter.ServiceImp>();
+            container.Register<DailyReport.GridOptionsBuilder, DailyReport.GridOptionsBuilderImp>();
+            container.Register<DailyReport.DailyService, DailyReport.DailyServiceImp>();
+            container.Register<GrandTotalReport.GrandTotalService, GrandTotalReport.GrandTotalServiceImp>();
+            container.Register<GrandTotalReport.GridOptionsBuilder, GrandTotalReport.GridOptionsBuilderImp>();
+            container.Register<GrandTotalReport.GridOptionHeaderColumn, GrandTotalReport.GridOptionHeaderColumnImp>();
+            container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>();
+            container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>();
+            container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>();
+            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>();
+            container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>();
+            container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>();
+            container.Register<BettypeReport.SortingService, BettypeReport.SortingServiceImp>();
 
             return container;
         }

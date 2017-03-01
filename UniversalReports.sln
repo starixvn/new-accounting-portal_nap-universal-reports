@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C074583A-B1D9-412C-8649-DD98B9234224}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C074583A-B1D9-412C-8649-DD98B9234224}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.MVC", "src\UniversalReports.MVC\UniversalReports.MVC.csproj", "{21081CDE-E5A1-4A31-9EF0-E0AC65547881}"
 EndProject
@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Sites", "src\UniversalReports.Sites\UniversalReports.Sites.csproj", "{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.UnitTests", "test\UniversalReports.HouseWinLoss.UnitTests\UniversalReports.HouseWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04130658-BA17-4B8A-84E2-A077B68F00B3}"
 	ProjectSection(SolutionItems) = preProject
 		FXCop\FxCopDictionary.xml = FXCop\FxCopDictionary.xml
@@ -22,15 +20,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Application", "src\UniversalReports.Application\UniversalReports.Application.csproj", "{2592C02B-B254-4EDE-9A42-9A0094763EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.Tests", "test\UniversalReports.HouseWinLoss.Tests\UniversalReports.HouseWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistics", "src\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core", "src\UniversalReports.Core\UniversalReports.Core.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.Tests", "test\UniversalReports.Core.Tests\UniversalReports.Core.Tests.csproj", "{03740B18-F2B7-41A0-8357-FAA32CF3A06F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.API", "src\UniversalReports.API\UniversalReports.API.csproj", "{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{4EAF4282-993D-47AF-AA53-A4ECE6B1E3D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{C483DC63-7993-4863-8602-BE8EED4DF99C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.Tests", "tests\unit\UniversalReports.Core.Tests\UniversalReports.Core.Tests.csproj", "{03740B18-F2B7-41A0-8357-FAA32CF3A06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.UnitTests", "tests\unit\UniversalReports.HouseWinLoss.UnitTests\UniversalReports.HouseWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.Tests", "tests\integration\UniversalReports.HouseWinLoss.Tests\UniversalReports.HouseWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.DatabaseTests", "tests\database\UniversalReports.HouseWinLoss.DatabaseTests\UniversalReports.HouseWinLoss.DatabaseTests.csproj", "{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.DatabaseTests", "tests\database\UniversalReports.Core.DatabaseTests\UniversalReports.Core.DatabaseTests.csproj", "{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,18 +60,10 @@ Global
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,14 +72,30 @@ Global
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,13 +104,18 @@ Global
 		{21081CDE-E5A1-4A31-9EF0-E0AC65547881} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{399BC912-0469-423D-A587-E7F56E174EBC} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{2592C02B-B254-4EDE-9A42-9A0094763EFD} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{C92F93F9-051F-4531-97EC-0A66CFD44693} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{94BAB182-85DE-4715-B396-BB6696D8BC81} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{03740B18-F2B7-41A0-8357-FAA32CF3A06F} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{6A0FBC74-2D65-4E62-BADF-32F8D0575DA0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
+		{C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{4EAF4282-993D-47AF-AA53-A4ECE6B1E3D4} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{C483DC63-7993-4863-8602-BE8EED4DF99C} = {C074583A-B1D9-412C-8649-DD98B9234224}
+		{03740B18-F2B7-41A0-8357-FAA32CF3A06F} = {C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB}
+		{399BC912-0469-423D-A587-E7F56E174EBC} = {C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB}
+		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {4EAF4282-993D-47AF-AA53-A4ECE6B1E3D4}
+		{99D6C2B5-BAC6-423D-8F72-E905DFC3BDF6} = {C483DC63-7993-4863-8602-BE8EED4DF99C}
+		{0DE094B0-1B2C-4326-AE0C-0C92062C1C1E} = {C483DC63-7993-4863-8602-BE8EED4DF99C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
