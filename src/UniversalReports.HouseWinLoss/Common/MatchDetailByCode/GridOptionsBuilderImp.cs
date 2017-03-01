@@ -6,6 +6,11 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(WinLossModel winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         public GridOptions Build(WinLossModel winLoss, string title)

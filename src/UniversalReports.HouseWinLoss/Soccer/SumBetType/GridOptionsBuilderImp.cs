@@ -8,6 +8,11 @@ using UniversalReports.HouseWinLoss.Soccer.BaseService;
 
 namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions FromWinLossModel(WinLossModel winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : BaseGridOptionsBuilder, GridOptionsBuilder
     {
         public GridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)

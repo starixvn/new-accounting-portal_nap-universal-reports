@@ -4,6 +4,15 @@ using System.Linq;
 
 namespace UniversalReports.NG2Statistics.Filter
 {
+    public interface Service
+    {
+        List<Sport> QuerySports(SportCriteria criteria);
+
+        List<UserNameModel> QueryUserNames(UserSearchCriteria criteria);
+
+        List<Entity> QueryCurrency(CurrencyCriteria criteria);
+    }
+
     public class ServiceImp : Service
     {
         private readonly IDynamicRepository repository;

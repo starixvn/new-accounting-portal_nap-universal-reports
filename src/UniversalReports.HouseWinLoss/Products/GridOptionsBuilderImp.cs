@@ -7,6 +7,11 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Products
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(ProductWinLoss winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         private readonly BasicGridDataRowBuilder gridDataRowBuilder;

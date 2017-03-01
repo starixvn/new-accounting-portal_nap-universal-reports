@@ -6,6 +6,11 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 {
+    public interface WinLossService
+    {
+        WinLossModel Query(WinLossCriteria criteria);
+    }
+
     public class WinLossServiceImp : WinLossService
     {
         private readonly RawWinLossService rawWinLossService;

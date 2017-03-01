@@ -7,6 +7,15 @@ using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Products
 {
+    public interface Service
+    {
+        List<WinLoss> GetRMWinLoss(IEnumerable<WinLossRaw> rawWinLosses);
+
+        ProductGroupWinLoss GetProductGroup(IEnumerable<WinLossRaw> rawWinLosses, string groupName);
+
+        ProductWinLoss Query(WinLossCriteria criteria);
+    }
+
     public class ServiceImp : Service
     {
         private readonly RawWinLossService rawWinLossService;

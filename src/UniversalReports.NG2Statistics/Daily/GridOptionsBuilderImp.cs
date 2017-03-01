@@ -7,6 +7,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.NG2Statistics.Daily
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(DailyModel dailyModel, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         public GridOptions Build(DailyModel dailyModel, string title)

@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Parlay.Site
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(SiteParlayModel winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         private readonly BasicGridDataRowBuilder gridDataRowBuilder;

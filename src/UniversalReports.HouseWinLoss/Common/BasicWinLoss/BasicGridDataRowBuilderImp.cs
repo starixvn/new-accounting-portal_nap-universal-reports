@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 {
+    public interface BasicGridDataRowBuilder
+    {
+        GridDataRow BuildDataRow(WinLoss item, HAlignment mainTextAlignment);
+    }
+
     public class BasicGridDataRowBuilderImp : BasicGridDataRowBuilder
     {
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",

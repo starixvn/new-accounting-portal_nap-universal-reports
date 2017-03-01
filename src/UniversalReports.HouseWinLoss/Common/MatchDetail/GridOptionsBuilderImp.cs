@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(WinLossModel winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         public GridOptions Build(WinLossModel winLoss, string title)

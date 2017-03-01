@@ -5,6 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.NG2Statistics.BaseServices
 {
+    public interface BaseGridOptionHeaderColumn
+    {
+        GridOptions Build(GridOptions gridOptions, string mainColumnText, string mainColumnName, QueryModel queryModel);
+    }
+
     public class BaseGridOptionHeaderColumnImp : BaseGridOptionHeaderColumn
     {
         public GridOptions Build(GridOptions gridOptions, string mainColumnText, string mainColumnName, QueryModel queryModel)

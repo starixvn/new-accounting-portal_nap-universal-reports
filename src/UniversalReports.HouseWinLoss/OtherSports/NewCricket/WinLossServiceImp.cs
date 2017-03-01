@@ -6,6 +6,11 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
+    public interface WinLossService
+    {
+        WinLossModel Query(WinLossCriteria criteria);
+    }
+
     public class WinLossServiceImp : WinLossService
     {
         private const int BetTypeChargedCom = 500;

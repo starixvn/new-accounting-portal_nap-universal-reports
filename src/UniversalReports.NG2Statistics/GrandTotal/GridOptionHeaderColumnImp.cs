@@ -5,6 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.NG2Statistics.GrandTotal
 {
+    public interface GridOptionHeaderColumn
+    {
+        GridOptions Build(GridOptions gridOptions);
+    }
+
     public class GridOptionHeaderColumnImp : GridOptionHeaderColumn
     {
         public GridOptions Build(GridOptions gridOptions)

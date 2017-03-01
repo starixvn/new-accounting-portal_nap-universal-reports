@@ -4,6 +4,11 @@ using Fanex.Data;
 
 namespace UniversalReports.NG2Statistics.Bettype
 {
+    public interface Repository
+    {
+        BettypeModel QueryRawData(BettypeCriteria criteria);
+    }
+
     public class RepositoryImp : Repository
     {
         public BettypeModel QueryRawData(BettypeCriteria criteria)

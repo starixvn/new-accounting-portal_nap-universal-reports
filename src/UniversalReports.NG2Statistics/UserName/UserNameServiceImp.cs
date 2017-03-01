@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Fanex.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Fanex.Data;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Factory;
 using UniversalReports.Core.SortUtility;
@@ -9,6 +9,13 @@ using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.UserName
 {
+    public interface UserNameService
+    {
+        UserNameModel Query(QueryModel queryModel);
+
+        UserNameModel SortData(QueryModel queryModel);
+    }
+
     public class UserNameServiceImp : UserNameService
     {
         private readonly BalanceUpService balance;

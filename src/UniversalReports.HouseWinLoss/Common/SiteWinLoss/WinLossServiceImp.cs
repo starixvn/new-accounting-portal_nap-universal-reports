@@ -4,6 +4,11 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
 {
+    public interface WinLossService
+    {
+        SiteWinLossModel Query(WinLossCriteria criteria);
+    }
+
     public class WinLossServiceImp : WinLossService
     {
         private readonly RawWinLossService rawWinLossService;

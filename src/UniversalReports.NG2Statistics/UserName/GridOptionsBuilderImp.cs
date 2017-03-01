@@ -5,6 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.NG2Statistics.UserName
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(UserNameModel userNameModel, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         public GridOptions Build(UserNameModel userNameModel, string title)

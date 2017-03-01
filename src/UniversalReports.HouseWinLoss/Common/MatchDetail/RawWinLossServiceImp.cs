@@ -6,6 +6,11 @@ using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
+    public interface RawWinLossService
+    {
+        List<RawWinLoss> Query(WinLossCriteria criteria);
+    }
+
     public class RawWinLossServiceImp : RawWinLossService
     {
         private readonly IDynamicRepository repository;

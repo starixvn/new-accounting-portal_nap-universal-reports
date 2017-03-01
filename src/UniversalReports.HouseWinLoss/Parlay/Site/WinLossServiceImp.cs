@@ -6,6 +6,11 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Parlay.Site
 {
+    public interface WinLossService
+    {
+        SiteParlayModel Query(WinLossCriteria criteria);
+    }
+
     public class WinLossServiceImp : WinLossService
     {
         private readonly RawWinLossService rawWinLossService;

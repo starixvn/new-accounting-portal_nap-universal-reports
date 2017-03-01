@@ -2,6 +2,13 @@
 
 namespace UniversalReports.HouseWinLoss.Common.Services
 {
+    public interface RemotingRefService
+    {
+        string GetTeamName(int teamId, string defaultName);
+
+        string GetLeagueName(int leagueId);
+    }
+
     public class RemotingRefServiceImp : RemotingRefService
     {
         public string GetTeamName(int teamId, string defaultName = "")

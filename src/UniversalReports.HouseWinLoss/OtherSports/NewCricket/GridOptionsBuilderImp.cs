@@ -7,6 +7,11 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
+    public interface GridOptionsBuilder
+    {
+        GridOptions Build(WinLossModel winLoss, string title);
+    }
+
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
         private const string CssTotal = "grand-total";

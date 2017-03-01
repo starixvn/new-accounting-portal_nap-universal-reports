@@ -7,6 +7,11 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.Services
 {
+    public interface RawWinLossService
+    {
+        List<WinLossRaw> Query(WinLossCriteria criteria);
+    }
+
     public class RawWinLossServiceImp : RawWinLossService
     {
         private readonly IDynamicRepository repository;
