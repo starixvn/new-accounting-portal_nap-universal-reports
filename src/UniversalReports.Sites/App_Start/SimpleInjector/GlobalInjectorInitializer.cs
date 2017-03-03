@@ -4,6 +4,7 @@ using Fanex.NAP.Core.Service.Impl;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
+using MediatR;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
@@ -12,7 +13,7 @@ namespace UniversalReports.Sites.SimpleInjector
 {
     internal static class GlobalInjectorInitializer
     {
-        internal static Container RegiserCommonServices(this Container container)
+        internal static Container RegiserGlobalServices(this Container container)
         {
             container.Register<ICurrentContext, CurrentContext>();
             container.Register<IUserService, UserService>();
@@ -25,6 +26,9 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<CacheService>(() => new CacheServiceImpl());
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
+
+            container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
+            container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
 
             return container;
         }

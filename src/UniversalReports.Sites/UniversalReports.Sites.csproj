@@ -57,6 +57,10 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +103,10 @@
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.3.0.0\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -241,7 +249,12 @@
   <ItemGroup>
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\BetTypeProfile.cs" />
+    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\PunterAnalysisAutoMapper.cs" />
+    <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
+    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\SummaryProfile.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\NG2InjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\HouseWinLossInjectorInitializer.cs" />
@@ -703,6 +716,10 @@
     <ProjectReference Include="..\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
       <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
       <Name>UniversalReports.NG2Statistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
+      <Project>{57b473ff-1385-4d2e-9eb1-5e9a7c586cf0}</Project>
+      <Name>UniversalReports.PunterAnalysis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

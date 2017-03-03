@@ -127,6 +127,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetType\Model\BetTypeModelUnitTests.cs" />
+    <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +140,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TestCases\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>

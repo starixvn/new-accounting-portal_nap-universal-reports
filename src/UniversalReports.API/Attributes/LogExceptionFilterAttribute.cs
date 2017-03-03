@@ -1,6 +1,4 @@
-﻿using Fanex.Logging;
-using System.Data.SqlClient;
-using System.Web.Http.Filters;
+﻿using System.Web.Http.Filters;
 
 namespace UniversalReports.API.Attributes
 {
@@ -8,6 +6,7 @@ namespace UniversalReports.API.Attributes
     {
         public override void OnException(HttpActionExecutedContext context)
         {
+#if !DEBUG
             var exception = context.Exception;
             var message = $"{exception.Message}"
                 + $"\r\nType: {exception.GetType()}"
@@ -27,6 +26,7 @@ namespace UniversalReports.API.Attributes
             }
 
             LogService.Error(message);
+#endif
         }
     }
 }

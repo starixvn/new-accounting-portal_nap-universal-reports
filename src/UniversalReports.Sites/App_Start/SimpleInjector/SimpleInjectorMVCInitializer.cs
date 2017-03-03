@@ -17,9 +17,11 @@ namespace UniversalReports.Sites.SimpleInjector
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            container.RegiserCommonServices()
+            container.RegiserGlobalServices()
             .RegisterHouseWinLossServices()
-            .RegisterNG2Services();
+            .RegisterNG2Services()
+            .RegisterPunterAnalysisServices()
+            .RegisterMediator();
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
