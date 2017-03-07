@@ -40,6 +40,10 @@
       <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
@@ -97,6 +101,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetType\HandlerExcel.cs" />
+    <Compile Include="BetType\Model\HttpParameterExcel.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeController.cs" />
     <Compile Include="BetType\Handler.cs" />
     <Compile Include="BetType\Model\Criteria.cs" />
@@ -119,6 +125,10 @@
     <Folder Include="SportType\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.API\UniversalReports.API.csproj">
+      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
+      <Name>UniversalReports.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
       <Name>UniversalReports.Core</Name>
