@@ -101,8 +101,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Summary\Handler.cs" />
+    <Compile Include="Summary\Model\SummaryModel.cs" />
     <Compile Include="BetType\HandlerExcel.cs" />
     <Compile Include="BetType\Model\HttpParameterExcel.cs" />
+    <Compile Include="Summary\Model\Criteria.cs" />
+    <Compile Include="Summary\Model\HttpParameterJson.cs" />
+    <Compile Include="Summary\Model\ViewModelJson.cs" />
+    <Compile Include="Summary\PunterAnalysisBetTypeController.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeController.cs" />
     <Compile Include="BetType\Handler.cs" />
     <Compile Include="BetType\Model\Criteria.cs" />
