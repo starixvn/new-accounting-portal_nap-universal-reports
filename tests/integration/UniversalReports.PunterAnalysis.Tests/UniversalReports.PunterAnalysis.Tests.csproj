@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper">
       <HintPath>..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,10 @@
     </Reference>
     <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Repository.1.0.7\lib\Fanex.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MediatR.3.0.0\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
@@ -127,6 +135,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Summary\Model\SummaryModelUnitTests.cs" />
+    <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="BetType\Model\BetTypeModelUnitTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +163,10 @@
     <ProjectReference Include="..\..\..\src\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
+      <Project>{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}</Project>
+      <Name>UniversalReports.PunterAnalysis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

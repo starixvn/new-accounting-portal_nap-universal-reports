@@ -17,7 +17,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 
             // Act
             var controller = new PunterAnalysisBetTypeController(mediator);
-            var result = controller.Index(new HttpParameterJson());
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterJson>());
@@ -31,7 +30,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 
             // Act
             var controller = new PunterAnalysisBetTypeController(mediator);
-            var result = controller.Excel(new HttpParameterExcel());
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterExcel>());

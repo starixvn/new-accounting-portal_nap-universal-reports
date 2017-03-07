@@ -17,7 +17,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
 
             // Act
             var controller = new PunterAnalysisSummaryController(mediator);
-            var result = controller.Index(new HttpParameterJson());
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterJson>());
