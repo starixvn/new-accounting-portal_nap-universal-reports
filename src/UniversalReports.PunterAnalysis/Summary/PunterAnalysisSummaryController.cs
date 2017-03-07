@@ -6,11 +6,11 @@ using UniversalReports.PunterAnalysis.Summary.Model;
 namespace UniversalReports.PunterAnalysis.Summary
 {
     [RoutePrefix("api/punter-analysis/summary")]
-    public class PunterAnalysisBetTypeController : ApiController
+    public class PunterAnalysisSummaryController : ApiController
     {
         private readonly IMediator mediator;
 
-        public PunterAnalysisBetTypeController(IMediator mediator)
+        public PunterAnalysisSummaryController(IMediator mediator)
         {
             this.mediator = mediator;
         }
