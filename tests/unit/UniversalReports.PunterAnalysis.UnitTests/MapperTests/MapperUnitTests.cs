@@ -31,13 +31,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
         {
             // Arrange
             var modelBase = CreateModelBaseWithOneBetTypeModel();
-            var expected = CreateViewModelJsonWithOneBetTypeModel();
 
             // Act
             var mapper = CreateMapper();
             var viewModel = mapper.Map<ViewModelJson>(modelBase);
 
             // Assert
+            var expected = CreateViewModelJsonWithOneBetTypeModel();
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
