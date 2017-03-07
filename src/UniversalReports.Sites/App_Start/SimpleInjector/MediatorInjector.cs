@@ -36,6 +36,8 @@ namespace UniversalReports.Sites.SimpleInjector
             container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
 
             container.Register(() => Mapper.Instance);
+            container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
+            container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
         }
 
         private static IEnumerable<Assembly> GetAssemblies()

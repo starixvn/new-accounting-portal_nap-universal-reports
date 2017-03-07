@@ -1,10 +1,10 @@
 ﻿using Fanex.Caching;
+using Fanex.Data.Repository;
 using Fanex.NAP.Core.Context;
 using Fanex.NAP.Core.Service.Impl;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
-using MediatR;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
@@ -27,8 +27,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
-            container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
-            container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
+            container.Register<IDynamicRepository, DynamicRepository>();
 
             return container;
         }

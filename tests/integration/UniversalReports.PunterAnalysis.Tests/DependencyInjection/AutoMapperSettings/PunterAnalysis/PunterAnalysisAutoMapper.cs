@@ -1,0 +1,16 @@
+﻿using AutoMapper;
+
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
+{
+    public static class PunterAnalysisAutoMapper
+    {
+        public static void Initialize()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<SummaryProfile>();
+                cfg.AddProfile<BetTypeProfile>();
+            });
+        }
+    }
+}

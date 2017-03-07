@@ -249,10 +249,10 @@
   <ItemGroup>
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\BetTypeProfile.cs" />
-    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\PunterAnalysisAutoMapper.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\BetTypeProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\PunterAnalysisAutoMapper.cs" />
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
-    <Compile Include="App_Start\MediatorInjector\PunterAnalysis\SummaryProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\SummaryProfile.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\NG2InjectorInitializer.cs" />

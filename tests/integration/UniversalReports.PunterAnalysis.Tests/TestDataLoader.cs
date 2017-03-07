@@ -10,7 +10,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
         {
             var testDirectory = TestContext.CurrentContext.TestDirectory;
 
-            var dataFilePath = $"{testDirectory}\\TestCases\\{name}.json";
+            var dataFilePath = $"{testDirectory}\\TestCases\\{name}";
             var text = File.ReadAllText(dataFilePath);
 
             return JsonConvert.DeserializeObject<T>(text);
