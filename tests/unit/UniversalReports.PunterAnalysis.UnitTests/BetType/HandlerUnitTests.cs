@@ -1,36 +1,116 @@
-﻿//using Fanex.Data.Repository;
-//using NSubstitute;
-//using NUnit.Framework;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using UniversalReports.PunterAnalysis.BetType;
-//using UniversalReports.PunterAnalysis.BetType.Model;
-//using UniversalReports.PunterAnalysis.Core;
+﻿using AutoMapper;
+using Fanex.Data.Repository;
+using NSubstitute;
+using NUnit.CompareNetObjects;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UniversalReports.PunterAnalysis.BetType;
+using UniversalReports.PunterAnalysis.BetType.Model;
+using UniversalReports.PunterAnalysis.Core;
 
-//namespace UniversalReports.PunterAnalysis.UnitTests.BetType
-//{
-//    public class HandlerUnitTests
-//    {
+namespace UniversalReports.PunterAnalysis.UnitTests.BetType
+{
+    public class HandlerUnitTests
+    {
+        [Test]
+        public async Task Handle_ServiceReturnsEmptyModelBaseWithBetType_ReturnsEmptyViewModelJson()
+        {
+            // Arrange
+            var emptyModelBaseWithBetType = CreateEmptyModelBaseWithTypeModel();
+            var service = Substitute.For<PunterAnalysisService>();
+            service.Query<BetTypeModel>(Arg.Any<ICriteria>()).Returns(emptyModelBaseWithBetType);
 
-//        [OneTimeSetUp]
-//        public void Setup()
-//        {
+            var mapper = CreateMapper();
 
-//        }
+            // Act
+            var handler = new Handler(mapper, service);
+            var viewModel = await handler.Handle(new HttpParameterJson());
 
-//        [Test]
-//        public void Handle_PunterAnalysisServiceReturnsEmptyEntities_HandlerReturnsEmptyResult()
-//        {
-//            // Arrange
-//            var emptyEntities = new List<BetTypeModel>();
-//            var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-//            punterAnalysisService.Query<ModelBase<BetTypeModel>>(Arg.Any<ICriteria>()).Returns(emptyEntities);
+            // Assert
+            var expected = CreateEmptyViewModelJson();
+            Assert.That(viewModel, IsDeeplyEqual.To(expected));
+        }
 
-//            // Act
-//            var handler = new Handler()
-//        }
-//    }
-//}
+        private ModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
+        {
+            return new ModelBase<BetTypeModel>
+            {
+                Entities = new List<BetTypeModel>(),
+                Total = new BetTypeModel()
+            };
+        }
+
+        private ViewModelJson CreateEmptyViewModelJson()
+        {
+            return new ViewModelJson
+            {
+                Entities = new List<BetTypeModel>(),
+                Total = new BetTypeModel()
+            };
+        }
+
+        private IMapper CreateMapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<ModelBase<BetTypeModel>, ViewModelJson>();
+                cfg.CreateMap<HttpParameterJson, Criteria>();
+            });
+
+            config.AssertConfigurationIsValid();
+
+            return config.CreateMapper();
+        }
+
+        [Test]
+        public async Task Handle_ServiceReturnsNonEmptyModelBaseWithBetType_ReturnsNonEmptyViewModelJson()
+        {
+            // Arrange
+            var nonEmptyModelBaseWithBetTypeModel = CreateNonEmptyModelBaseWithBetTypeModel();
+            var service = Substitute.For<PunterAnalysisService>();
+            service.Query<BetTypeModel>(Arg.Any<ICriteria>()).Returns(nonEmptyModelBaseWithBetTypeModel);
+
+            var mapper = CreateMapper();
+
+            // Act
+            var handler = new Handler(mapper, service);
+            var viewModel = await handler.Handle(new HttpParameterJson());
+
+            // Assert
+            var expected = CreateNonEmptyViewModelJson();
+            Assert.That(viewModel, IsDeeplyEqual.To(expected));
+        }
+
+        private ModelBase<BetTypeModel> CreateNonEmptyModelBaseWithBetTypeModel()
+        {
+            return new ModelBase<BetTypeModel>
+            {
+                Entities = new List<BetTypeModel> { CreateBetTypeModel() },
+                Total = CreateBetTypeModel()
+            };
+        }
+
+        private ViewModelJson CreateNonEmptyViewModelJson()
+        {
+            return new ViewModelJson
+            {
+                Entities = new List<BetTypeModel> { CreateBetTypeModel() },
+                Total = CreateBetTypeModel()
+            };
+        }
+
+        private BetTypeModel CreateBetTypeModel()
+        {
+            return new BetTypeModel
+            {
+                BetCount = 1,
+                DrawCount = 1,
+                WinCount = 1,
+                WinLoss = 100,
+                Date = DateTime.MinValue
+            };
+        }
+    }
+}

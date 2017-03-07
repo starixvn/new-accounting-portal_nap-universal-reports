@@ -4,6 +4,7 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Core;
 
@@ -12,23 +13,49 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
     public class PunterAnalysisServiceImpUnitTests
     {
         [Test]
-        public async void Query_RepositoryReturnsListWithOneItem_ReturnsRightModelBaseWithBetType()
+        public async Task Query_RepositoryReturnsEmptyBetTypeModelList_ReturnsEmptyModelBaseWithBetTypeModel()
         {
             // Arrange
-            var betTypeModelListWithOneItem = CreateBetTypeModelListWithOneItem();
+            var emptyBetTypeModelList = new List<BetTypeModel>();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<BetTypeModel>(Arg.Any<ICriteria>()).Returns(betTypeModelListWithOneItem);
+            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(emptyBetTypeModelList);
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<ModelBase<BetTypeModel>>(Arg.Any<ICriteria>());
+            var modelBase = await punterAnalysisService.Query<BetTypeModel>(Arg.Any<ICriteria>());
 
             // Assert
-            var expected = CreateModelBaseWithOneBetTypeModel();
+            var expected = CreateEmptyModelBaseWithTypeModel();
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private List<BetTypeModel> CreateBetTypeModelListWithOneItem()
+        private ModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
+        {
+            return new ModelBase<BetTypeModel>
+            {
+                Entities = new List<BetTypeModel>(),
+                Total = new BetTypeModel()
+            };
+        }
+
+        [Test]
+        public async Task Query_RepositoryReturnsNonEmptyBetTypeModelList_ReturnsNonEmptyModelBaseWithBetTypeModel()
+        {
+            // Arrange
+            var nonEmptyBetTypeModelList = CreateNonEmptyBetTypeModelList();
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(nonEmptyBetTypeModelList);
+
+            // Act
+            var punterAnalysisService = new PunterAnalysisServiceImp(repository);
+            var modelBase = await punterAnalysisService.Query<BetTypeModel>(Arg.Any<ICriteria>());
+
+            // Assert
+            var expected = CreateNonEmptyModelBaseWithBetTypeModel();
+            Assert.That(modelBase, IsDeeplyEqual.To(expected));
+        }
+
+        private List<BetTypeModel> CreateNonEmptyBetTypeModelList()
         {
             return new List<BetTypeModel>
             {
@@ -48,38 +75,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             };
         }
 
-        private ModelBase<BetTypeModel> CreateModelBaseWithOneBetTypeModel()
+        private ModelBase<BetTypeModel> CreateNonEmptyModelBaseWithBetTypeModel()
         {
             return new ModelBase<BetTypeModel>
             {
-                Entities = CreateBetTypeModelListWithOneItem(),
+                Entities = CreateNonEmptyBetTypeModelList(),
                 Total = CreateBetTypeModel()
-            };
-        }
-
-        [Test]
-        public async void Query_RepositoryReturnsEmptyList_ReturnsEmptyModelBaseWithBetType()
-        {
-            // Arrange
-            var emptyBetTypeModelList = new List<BetTypeModel>();
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<BetTypeModel>(Arg.Any<ICriteria>()).Returns(emptyBetTypeModelList);
-
-            // Act
-            var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<ModelBase<BetTypeModel>>(Arg.Any<ICriteria>());
-
-            // Assert
-            var expected = CreateEmptyModelBaseWithTypeModel();
-            Assert.That(modelBase, IsDeeplyEqual.To(expected));
-        }
-
-        private ModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
-        {
-            return new ModelBase<BetTypeModel>
-            {
-                Entities = new List<BetTypeModel>(),
-                Total = new BetTypeModel()
             };
         }
     }
