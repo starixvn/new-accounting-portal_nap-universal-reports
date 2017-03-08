@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="Punter Analysis">
-    <Setting Key="Punter-Main-SelTopPunterSummary" SpName="Acc_SelTopPunterSummary" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
+    <Setting Key="Punter-Main-SelTopByUsername" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
     </Setting>    
   </Function>  
 </Functions>
