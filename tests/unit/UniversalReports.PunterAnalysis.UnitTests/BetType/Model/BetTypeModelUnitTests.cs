@@ -40,7 +40,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType.Model
 
             var expectedObject = new BetTypeModel
             {
-                BetType = "",
+                BetType = string.Empty,
                 NonLiveWinLoss = 150,
                 NonLiveTurnover = 300,
                 NonLiveBetCount = 3,

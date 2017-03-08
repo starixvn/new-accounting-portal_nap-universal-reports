@@ -5,9 +5,9 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Summary
 {

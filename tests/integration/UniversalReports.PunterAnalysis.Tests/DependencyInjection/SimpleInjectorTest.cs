@@ -3,7 +3,6 @@ using SimpleInjector;
 using System;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
-
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 {
     public class SimpleInjectorTest

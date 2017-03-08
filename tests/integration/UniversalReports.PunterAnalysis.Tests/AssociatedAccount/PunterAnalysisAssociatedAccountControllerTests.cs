@@ -18,10 +18,11 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string fakeRepositoryDataFileName = "AssociatedAccount-FileRepository.json";
-            const string expectedViewModelJsonFileName = "AssociatedAccount-ExpectedViewModelJson.json";
-            var fakeAssociatedAccountModelListFromRepository = TestDataLoader.Load<List<AssociatedAccountModel>>(fakeRepositoryDataFileName);
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
+            const string FakeRepositoryDataFileName = "AssociatedAccount-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "AssociatedAccount-ExpectedViewModelJson.json";
+
+            var fakeAssociatedAccountModelListFromRepository = TestDataLoader.Load<List<AssociatedAccountModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<AssociatedAccountModel>(Arg.Any<ICriteria>()).Returns(fakeAssociatedAccountModelListFromRepository);

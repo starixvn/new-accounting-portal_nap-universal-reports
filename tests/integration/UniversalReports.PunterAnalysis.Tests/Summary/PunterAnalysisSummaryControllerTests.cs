@@ -18,10 +18,11 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string fakeRepositoryDataFileName = "Summary-FileRepository.json";
-            const string expectedViewModelJsonFileName = "Summary-ExpectedViewModelJson.json";
-            var fakeSummaryModelListFromRepository = TestDataLoader.Load<List<SummaryModel>>(fakeRepositoryDataFileName);
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
+            const string FakeRepositoryDataFileName = "Summary-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "Summary-ExpectedViewModelJson.json";
+
+            var fakeSummaryModelListFromRepository = TestDataLoader.Load<List<SummaryModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(fakeSummaryModelListFromRepository);

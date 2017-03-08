@@ -18,10 +18,11 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string fakeRepositoryDataFileName = "BetType-FileRepository.json";
-            const string expectedViewModelJsonFileName = "BetType-ExpectedViewModelJson.json";
-            var fakeBetTypeModelListFromRepository = TestDataLoader.Load<List<BetTypeModel>>(fakeRepositoryDataFileName);
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
+            const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "BetType-ExpectedViewModelJson.json";
+
+            var fakeBetTypeModelListFromRepository = TestDataLoader.Load<List<BetTypeModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(fakeBetTypeModelListFromRepository);

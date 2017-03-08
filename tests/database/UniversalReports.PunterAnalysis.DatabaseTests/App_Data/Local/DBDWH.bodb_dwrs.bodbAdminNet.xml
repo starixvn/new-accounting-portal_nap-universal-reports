@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="Punter Analysis">
-    <Setting Key="Punter-Main-SelTopByUsername" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-    </Setting>    
-  </Function>  
+    <Setting Key="Punter-AssociatedAccount" SpName="Acc_Punter_GetAssociatedAccount" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>

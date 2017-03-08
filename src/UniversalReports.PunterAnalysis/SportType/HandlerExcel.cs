@@ -3,8 +3,8 @@ using MediatR;
 using OfficeOpenXml;
 using System;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.SportType.Model;
 
 namespace UniversalReports.PunterAnalysis.SportType
 {

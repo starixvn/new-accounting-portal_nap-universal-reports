@@ -1,0 +1,28 @@
+﻿using Fanex.Data.Repository;
+using System;
+
+namespace UniversalReports.PunterAnalysis.League.Model
+{
+    public class Criteria : CriteriaBase
+    {
+        public int PeriodType { get; set; }
+
+        public DateTime FromDate { get; set; }
+
+        public DateTime ToDate { get; set; }
+
+        public int CustId { get; set; }
+
+        public string ListCombinationId { get; set; }
+
+        public int SportId { get; set; }
+
+        public int BetTypeId { get; set; }
+
+        public int LiveStatusId { get; set; }
+
+        public override string GetSettingKey() => "Punter-League";
+
+        public override bool IsValid() => true;
+    }
+}

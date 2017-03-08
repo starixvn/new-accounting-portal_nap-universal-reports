@@ -18,10 +18,11 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string fakeRepositoryDataFileName = "BetCount-FileRepository.json";
-            const string expectedViewModelJsonFileName = "BetCount-ExpectedViewModelJson.json";
-            var fakeBetCountModelListFromRepository = TestDataLoader.Load<List<BetCountModel>>(fakeRepositoryDataFileName);
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
+            const string FakeRepositoryDataFileName = "BetCount-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "BetCount-ExpectedViewModelJson.json";
+
+            var fakeBetCountModelListFromRepository = TestDataLoader.Load<List<BetCountModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(fakeBetCountModelListFromRepository);

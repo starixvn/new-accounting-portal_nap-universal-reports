@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Summary.Model;
 using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {

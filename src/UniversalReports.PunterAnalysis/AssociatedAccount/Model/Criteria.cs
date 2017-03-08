@@ -4,7 +4,9 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
 {
     public class Criteria : CriteriaBase
     {
-        public override string GetSettingKey() => "Punter-Main-SelTopPunterSummary";
+        public string ListCustId { get; set; }
+
+        public override string GetSettingKey() => "Punter-AssociatedAccount";
 
         public override bool IsValid() => true;
     }

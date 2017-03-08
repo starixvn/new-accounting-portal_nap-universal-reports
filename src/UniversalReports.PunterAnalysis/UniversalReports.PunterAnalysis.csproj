@@ -128,6 +128,7 @@
     <Compile Include="Core\IPunterAnalysis.cs" />
     <Compile Include="Core\ModelBase.cs" />
     <Compile Include="Core\PunterAnalysisServiceImp.cs" />
+    <Compile Include="League\Model\Criteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportType\Handler.cs" />
     <Compile Include="SportType\HandlerExcel.cs" />

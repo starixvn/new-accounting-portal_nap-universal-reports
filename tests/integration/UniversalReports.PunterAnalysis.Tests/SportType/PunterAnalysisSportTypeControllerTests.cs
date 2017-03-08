@@ -18,10 +18,11 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string fakeRepositoryDataFileName = "SportType-FileRepository.json";
-            const string expectedViewModelJsonFileName = "SportType-ExpectedViewModelJson.json";
-            var fakeSportTypeModelListFromRepository = TestDataLoader.Load<List<SportTypeModel>>(fakeRepositoryDataFileName);
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
+            const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "SportType-ExpectedViewModelJson.json";
+
+            var fakeSportTypeModelListFromRepository = TestDataLoader.Load<List<SportTypeModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<SportTypeModel>(Arg.Any<ICriteria>()).Returns(fakeSportTypeModelListFromRepository);

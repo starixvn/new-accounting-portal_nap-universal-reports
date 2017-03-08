@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.SportType.Model;
 
 namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
 {
