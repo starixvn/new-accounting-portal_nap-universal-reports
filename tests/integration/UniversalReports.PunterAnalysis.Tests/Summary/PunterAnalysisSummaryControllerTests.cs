@@ -1,63 +1,40 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AutoMapper;
-using MediatR;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
+using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.PunterAnalysis.Core;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Http.Results;
+using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
+using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.Summary
 {
     public class PunterAnalysisSummaryControllerTests
     {
         [Test]
-        public async Task Index_Always_CallMediatorSend()
+        public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
-            // Arrange            
-            var viewModelJson = new ViewModelJson
-            {
-                Entities = CreateSummaryModelList(),
-                Total = CreateSummaryModelTotal()
-            };
+            // Arrange
+            const string fakeRepositoryDataFileName = "Summary-FileRepository.json";
+            const string expectedViewModelJsonFileName = "Summary-ExpectedViewModelJson.json";
+            var fakeSummaryModelListFromRepository = TestDataLoader.Load<List<SummaryModel>>(fakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(expectedViewModelJsonFileName);
 
-            var mediator = Substitute.For<IMediator>();
-            mediator.Send(Arg.Any<HttpParameterJson>()).Returns(viewModelJson);
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(fakeSummaryModelListFromRepository);
+
+            var simpleInjectorTest = new SimpleInjectorTest(repository);
 
             // Act
-            var controller = new PunterAnalysisSummaryController(mediator);
-            var result = controller.Index(Arg.Any<HttpParameterJson>());
+            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSummaryController)) as PunterAnalysisSummaryController;
+            var httpActionResult = await controller.Index(new HttpParameterJson());
+            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
-
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<ModelBase<SummaryModel>, ViewModelJson>();
-                cfg.CreateMap<HttpParameterJson, Criteria>();
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
-        }
-
-        private List<SummaryModel> CreateSummaryModelList()
-        {
-            return new List<SummaryModel>
-            {
-                new SummaryModel { UserName = "user1", WinLoss = 1000, Turnover = 500, BetCount = 1 },
-                new SummaryModel { UserName = "user2", WinLoss = 1000, Turnover = 500, BetCount = 1 },
-            };
-        }
-
-        private SummaryModel CreateSummaryModelTotal()
-        {
-            return new SummaryModel { WinLoss = 2000, Turnover = 1000, BetCount = 2 };
+            Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
         }
     }
 }

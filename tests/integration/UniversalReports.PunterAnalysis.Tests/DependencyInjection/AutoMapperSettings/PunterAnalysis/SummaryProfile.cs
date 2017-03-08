@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
 {
@@ -6,6 +8,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
     {
         public SummaryProfile()
         {
+            CreateMap<HttpParameterJson, Criteria>();
+            CreateMap<ModelBase<SummaryModel>, ViewModelJson>();
         }
     }
 }

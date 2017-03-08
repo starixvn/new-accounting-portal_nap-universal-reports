@@ -14,12 +14,27 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new HttpParameterJson();
+
+            // Act
+            var controller = new PunterAnalysisSummaryController(mediator);
+            await controller.Index(httpParameterJson);
+
+            // Assert
+            await mediator.Received().Send(Arg.Any<HttpParameterJson>());
+        }
+
+        [Test]
+        public async Task Excel_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
 
             // Act
             var controller = new PunterAnalysisSummaryController(mediator);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterJson>());
-        }      
+            await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
+        }
     }
 }

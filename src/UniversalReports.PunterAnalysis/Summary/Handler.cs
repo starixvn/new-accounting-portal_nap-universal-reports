@@ -24,7 +24,7 @@ namespace UniversalReports.PunterAnalysis.Summary
             var model = await punterAnalysisService.Query<SummaryModel>(criteria);
 
             var viewModel = mapper.Map<ViewModelJson>(model);
-            
+
             return viewModel;
         }
     }

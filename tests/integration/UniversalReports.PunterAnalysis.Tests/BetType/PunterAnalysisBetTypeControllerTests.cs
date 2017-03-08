@@ -12,7 +12,7 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetType
 {
-    public class PunterAnalysisBetTypeControllerTests
+    public class PunterAnalysisCountControllerTests
     {
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()

@@ -7,6 +7,7 @@ using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
+using UniversalReports.HouseWinLoss.Tests.TestDoubles;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using GridOptionsBuilder = UniversalReports.HouseWinLoss.Common.SiteWinLoss.GridOptionsBuilder;
@@ -32,7 +33,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register(() => repository);
 
             container.Register<CacheService>(() => new CacheServiceImpl());
-            container.Register<CommonServices.RemotingRefService, CommonServices.RemotingRefServiceImp>();
+            container.Register<CommonServices.RemotingRefService, RemotingRefServiceStub>();
 
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();

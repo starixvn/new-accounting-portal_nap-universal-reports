@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.BetType.Model;
+using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Core
@@ -13,59 +13,59 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
     public class PunterAnalysisServiceImpUnitTests
     {
         [Test]
-        public async Task Query_RepositoryReturnsEmptyBetTypeModelList_ReturnsEmptyModelBaseWithBetTypeModel()
+        public async Task Query_RepositoryReturnsEmptyBetCountModelList_ReturnsEmptyModelBaseWithBetCountModel()
         {
             // Arrange
-            var emptyBetTypeModelList = new List<BetTypeModel>();
+            var emptyBetCountModelList = new List<BetCountModel>();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(emptyBetTypeModelList);
+            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(emptyBetCountModelList);
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<BetTypeModel>(Arg.Any<ICriteria>());
+            var modelBase = await punterAnalysisService.Query<BetCountModel>(Arg.Any<ICriteria>());
 
             // Assert
             var expected = CreateEmptyModelBaseWithTypeModel();
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
+        private ModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<BetTypeModel>
+            return new ModelBase<BetCountModel>
             {
-                Entities = new List<BetTypeModel>(),
-                Total = new BetTypeModel()
+                Entities = new List<BetCountModel>(),
+                Total = new BetCountModel()
             };
         }
 
         [Test]
-        public async Task Query_RepositoryReturnsNonEmptyBetTypeModelList_ReturnsNonEmptyModelBaseWithBetTypeModel()
+        public async Task Query_RepositoryReturnsNonEmptyBetCountModelList_ReturnsNonEmptyModelBaseWithBetCountModel()
         {
             // Arrange
-            var nonEmptyBetTypeModelList = CreateNonEmptyBetTypeModelList();
+            var nonEmptyBetCountModelList = CreateNonEmptyBetCountModelList();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(nonEmptyBetTypeModelList);
+            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(nonEmptyBetCountModelList);
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<BetTypeModel>(Arg.Any<ICriteria>());
+            var modelBase = await punterAnalysisService.Query<BetCountModel>(Arg.Any<ICriteria>());
 
             // Assert
-            var expected = CreateNonEmptyModelBaseWithBetTypeModel();
+            var expected = CreateNonEmptyModelBaseWithBetCountModel();
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private List<BetTypeModel> CreateNonEmptyBetTypeModelList()
+        private List<BetCountModel> CreateNonEmptyBetCountModelList()
         {
-            return new List<BetTypeModel>
+            return new List<BetCountModel>
             {
-                CreateBetTypeModel()
+                CreateBetCountModel()
             };
         }
 
-        private BetTypeModel CreateBetTypeModel()
+        private BetCountModel CreateBetCountModel()
         {
-            return new BetTypeModel
+            return new BetCountModel
             {
                 BetCount = 1,
                 DrawCount = 1,
@@ -75,12 +75,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             };
         }
 
-        private ModelBase<BetTypeModel> CreateNonEmptyModelBaseWithBetTypeModel()
+        private ModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
         {
-            return new ModelBase<BetTypeModel>
+            return new ModelBase<BetCountModel>
             {
-                Entities = CreateNonEmptyBetTypeModelList(),
-                Total = CreateBetTypeModel()
+                Entities = CreateNonEmptyBetCountModelList(),
+                Total = CreateBetCountModel()
             };
         }
     }

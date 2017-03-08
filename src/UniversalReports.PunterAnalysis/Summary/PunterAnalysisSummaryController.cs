@@ -1,11 +1,12 @@
 ﻿using MediatR;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UniversalReports.API.Results;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
-    [RoutePrefix("api/punter-analysis/summary")]
+    [RoutePrefix("api/punter-analysis/bet-type")]
     public class PunterAnalysisSummaryController : ApiController
     {
         private readonly IMediator mediator;
@@ -16,11 +17,17 @@ namespace UniversalReports.PunterAnalysis.Summary
         }
 
         [Route("")]
-        [HttpGet]
         public async Task<IHttpActionResult> Index(HttpParameterJson parameter)
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
+        }
+
+        [Route("excel")]
+        public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
+        {
+            var excelPackage = await mediator.Send(parameter);
+            return new ExcelResult(excelPackage);
         }
     }
 }

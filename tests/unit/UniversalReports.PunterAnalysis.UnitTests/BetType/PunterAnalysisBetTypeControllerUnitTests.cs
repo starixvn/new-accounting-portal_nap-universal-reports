@@ -14,9 +14,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new HttpParameterJson();
 
             // Act
             var controller = new PunterAnalysisBetTypeController(mediator);
+            await controller.Index(httpParameterJson);
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterJson>());

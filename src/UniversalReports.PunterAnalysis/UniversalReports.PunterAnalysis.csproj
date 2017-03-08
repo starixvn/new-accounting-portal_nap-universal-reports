@@ -60,8 +60,8 @@
       <HintPath>..\..\packages\Linq.DynamicSum.1.0.0.1\lib\net461\Linq.DynamicSum.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MediatR, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MediatR.3.0.0\lib\net45\MediatR.dll</HintPath>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -101,14 +101,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Summary\Handler.cs" />
-    <Compile Include="Summary\Model\SummaryModel.cs" />
+    <Compile Include="AssociatedAccount\Handler.cs" />
+    <Compile Include="AssociatedAccount\HandlerExcel.cs" />
+    <Compile Include="AssociatedAccount\Model\AssociatedAccountModel.cs" />
+    <Compile Include="AssociatedAccount\Model\Criteria.cs" />
+    <Compile Include="AssociatedAccount\Model\HttpParameterExcel.cs" />
+    <Compile Include="AssociatedAccount\Model\HttpParameterJson.cs" />
+    <Compile Include="AssociatedAccount\Model\ViewModelJson.cs" />
+    <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountController.cs" />
+    <Compile Include="BetCount\Handler.cs" />
+    <Compile Include="BetCount\HandlerExcel.cs" />
+    <Compile Include="BetCount\Model\BetCountModel.cs" />
+    <Compile Include="BetCount\Model\Criteria.cs" />
+    <Compile Include="BetCount\Model\HttpParameterExcel.cs" />
+    <Compile Include="BetCount\Model\HttpParameterJson.cs" />
+    <Compile Include="BetCount\Model\ViewModelJson.cs" />
+    <Compile Include="BetCount\PunterAnalysisBetCountController.cs" />
     <Compile Include="BetType\HandlerExcel.cs" />
     <Compile Include="BetType\Model\HttpParameterExcel.cs" />
-    <Compile Include="Summary\Model\Criteria.cs" />
-    <Compile Include="Summary\Model\HttpParameterJson.cs" />
-    <Compile Include="Summary\Model\ViewModelJson.cs" />
-    <Compile Include="Summary\PunterAnalysisSummaryController.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeController.cs" />
     <Compile Include="BetType\Handler.cs" />
     <Compile Include="BetType\Model\Criteria.cs" />
@@ -119,17 +129,28 @@
     <Compile Include="Core\ModelBase.cs" />
     <Compile Include="Core\PunterAnalysisServiceImp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SportType\Handler.cs" />
+    <Compile Include="SportType\HandlerExcel.cs" />
+    <Compile Include="SportType\Model\SportTypeModel.cs" />
+    <Compile Include="SportType\Model\Criteria.cs" />
+    <Compile Include="SportType\Model\HttpParameterExcel.cs" />
+    <Compile Include="SportType\Model\HttpParameterJson.cs" />
+    <Compile Include="SportType\Model\ViewModelJson.cs" />
+    <Compile Include="SportType\PunterAnalysisSportTypeController.cs" />
+    <Compile Include="Summary\Handler.cs" />
+    <Compile Include="Summary\HandlerExcel.cs" />
+    <Compile Include="Summary\Model\SummaryModel.cs" />
+    <Compile Include="Summary\Model\Criteria.cs" />
+    <Compile Include="Summary\Model\HttpParameterExcel.cs" />
+    <Compile Include="Summary\Model\HttpParameterJson.cs" />
+    <Compile Include="Summary\Model\ViewModelJson.cs" />
+    <Compile Include="Summary\PunterAnalysisSummaryController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AssociatedAccount\" />
-    <Folder Include="BetCount\" />
-    <Folder Include="League\" />
-    <Folder Include="SportType\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\UniversalReports.API\UniversalReports.API.csproj">
       <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>

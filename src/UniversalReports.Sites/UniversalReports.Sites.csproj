@@ -107,8 +107,8 @@
       <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MediatR, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MediatR.3.0.0\lib\net45\MediatR.dll</HintPath>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -249,6 +249,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\AssociatedAccountProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\SportTypeProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\BetCountProfile.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\BetTypeProfile.cs" />

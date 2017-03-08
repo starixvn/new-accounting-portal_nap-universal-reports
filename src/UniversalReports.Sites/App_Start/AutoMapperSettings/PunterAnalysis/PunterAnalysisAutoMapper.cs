@@ -9,7 +9,10 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
             Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile<SummaryProfile>();
+                cfg.AddProfile<BetCountProfile>();
                 cfg.AddProfile<BetTypeProfile>();
+                cfg.AddProfile<SportTypeProfile>();
+                cfg.AddProfile<AssociatedAccountProfile>();
             });
         }
     }

@@ -3,7 +3,6 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Summary;
@@ -105,10 +104,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         {
             return new SummaryModel
             {
-                UserName = "user1",
-                WinLoss = 1000,
-                Turnover = 500,
-                BetCount = 1
+                Username = "User 1",
+                WinLoss = 100,
+                Turnover = 200,
+                BetCount = 2
             };
         }
     }

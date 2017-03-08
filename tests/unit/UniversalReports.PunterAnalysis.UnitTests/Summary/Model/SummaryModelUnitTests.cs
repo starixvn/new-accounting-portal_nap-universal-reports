@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using NUnit.CompareNetObjects;
+using NUnit.Framework;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Summary.Model
@@ -6,27 +7,38 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary.Model
     public class SummaryModelUnitTests
     {
         [Test]
-        public void SummaryModel_CalculateMarginWithTurnoverIsZero_ReturnMarginZero()
+        public void OperatorPlus_TwoSummaryModels_ReturnsCorrectSumValue()
         {
             // Arrange
-            var model = new SummaryModel { Turnover = 0, WinLoss = 500 };
-            var expected = 0;
-            var result = model.Margin;
+            var firstObject = new SummaryModel
+            {
+                Username = "User 1",
+                WinLoss = 100,
+                Turnover = 200,
+                BetCount = 2
+            };
+
+            var secondObject = new SummaryModel
+            {
+                Username = "User 2",
+                WinLoss = 200,
+                Turnover = 300,
+                BetCount = 3
+            };
+
+            var expectedObject = new SummaryModel
+            {
+                Username = string.Empty,
+                WinLoss = 300,
+                Turnover = 500,
+                BetCount = 5
+            };
+
+            // Act
+            var sumObject = firstObject + secondObject;
 
             // Assert
-            Assert.That(result.Equals(expected));
-        }
-
-        [Test]
-        public void SummaryModel_CalculateMarginWithTurnoverIsGreaterThanZero_ReturnMarginGreaterThanZero()
-        {
-            // Arrange
-            var model = new SummaryModel { Turnover = 1000, WinLoss = 500 };
-            var expected = 0.5m;
-            var result = model.Margin;
-
-            // Assert
-            Assert.That(result.Equals(expected));
+            Assert.That(sumObject, IsDeeplyEqual.To(expectedObject));
         }
     }
 }

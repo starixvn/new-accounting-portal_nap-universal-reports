@@ -3,7 +3,6 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType;
@@ -105,11 +104,16 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         {
             return new BetTypeModel
             {
-                BetCount = 1,
-                DrawCount = 1,
-                WinCount = 1,
-                WinLoss = 100,
-                Date = DateTime.MinValue
+                BetType = "Bet Type 1",
+                NonLiveWinLoss = 100,
+                NonLiveTurnover = 200,
+                NonLiveBetCount = 2,
+                LiveWinLoss = 200,
+                LiveTurnover = 300,
+                LiveBetCount = 3,
+                WinLoss = 300,
+                Turnover = 500,
+                BetCount = 5
             };
         }
     }

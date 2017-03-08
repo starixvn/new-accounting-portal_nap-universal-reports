@@ -1,7 +1,62 @@
-﻿namespace UniversalReports.PunterAnalysis.UnitTests.BetType.Model
+﻿using NUnit.CompareNetObjects;
+using NUnit.Framework;
+using UniversalReports.PunterAnalysis.BetType.Model;
+
+namespace UniversalReports.PunterAnalysis.UnitTests.BetType.Model
 {
     public class BetTypeModelUnitTests
     {
-        // Robert
+        [Test]
+        public void OperatorPlus_TwoBetTypeModels_ReturnsCorrectSumValue()
+        {
+            // Arrange
+            var firstObject = new BetTypeModel
+            {
+                BetType = "Bet Type 1",
+                NonLiveWinLoss = 100,
+                NonLiveTurnover = 200,
+                NonLiveBetCount = 2,
+                LiveWinLoss = 200,
+                LiveTurnover = 300,
+                LiveBetCount = 3,
+                WinLoss = 300,
+                Turnover = 500,
+                BetCount = 5
+            };
+
+            var secondObject = new BetTypeModel
+            {
+                BetType = "Bet Type 2",
+                NonLiveWinLoss = 50,
+                NonLiveTurnover = 100,
+                NonLiveBetCount = 1,
+                LiveWinLoss = 100,
+                LiveTurnover = 150,
+                LiveBetCount = 2,
+                WinLoss = 150,
+                Turnover = 250,
+                BetCount = 3
+            };
+
+            var expectedObject = new BetTypeModel
+            {
+                BetType = "",
+                NonLiveWinLoss = 150,
+                NonLiveTurnover = 300,
+                NonLiveBetCount = 3,
+                LiveWinLoss = 300,
+                LiveTurnover = 450,
+                LiveBetCount = 5,
+                WinLoss = 450,
+                Turnover = 750,
+                BetCount = 8
+            };
+
+            // Act
+            var sumObject = firstObject + secondObject;
+
+            // Assert
+            Assert.That(sumObject, IsDeeplyEqual.To(expectedObject));
+        }
     }
 }

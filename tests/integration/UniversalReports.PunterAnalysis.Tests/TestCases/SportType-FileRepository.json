@@ -1,0 +1,14 @@
+﻿[
+  {
+    "SportType": "Sport 1",
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  },
+  {
+    "SportType": "Sport 2",
+    "WinLoss": 150,
+    "Turnover": 250,
+    "BetCount": 3
+  }
+]

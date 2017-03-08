@@ -3,7 +3,7 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using UniversalReports.PunterAnalysis.BetType.Model;
+using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
@@ -11,7 +11,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
     public class MapperUnitTests
     {
         [Test]
-        public void Map_EmptyModelBaseOfBetTypeModel_CanMapToEmptyViewModelJsonOfBetTypeModel()
+        public void Map_EmptyModelBaseOfBetCountModel_CanMapToEmptyViewModelJsonOfBetCountModel()
         {
             // Arrange
             var modelBase = CreateEmptyModelBase();
@@ -27,44 +27,44 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
         }
 
         [Test]
-        public void Map_ModelBaseWithOneBetTypeModel_CanMapToViewModelJsonWithOneBetTypeModel()
+        public void Map_ModelBaseWithOneBetCountModel_CanMapToViewModelJsonWithOneBetCountModel()
         {
             // Arrange
-            var modelBase = CreateModelBaseWithOneBetTypeModel();
+            var modelBase = CreateModelBaseWithOneBetCountModel();
 
             // Act
             var mapper = CreateMapper();
             var viewModel = mapper.Map<ViewModelJson>(modelBase);
 
             // Assert
-            var expected = CreateViewModelJsonWithOneBetTypeModel();
+            var expected = CreateViewModelJsonWithOneBetCountModel();
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetTypeModel> CreateEmptyModelBase()
+        private ModelBase<BetCountModel> CreateEmptyModelBase()
         {
-            return new ModelBase<BetTypeModel>
+            return new ModelBase<BetCountModel>
             {
-                Entities = new List<BetTypeModel> { },
-                Total = new BetTypeModel()
+                Entities = new List<BetCountModel> { },
+                Total = new BetCountModel()
             };
         }
 
-        private ModelBase<BetTypeModel> CreateModelBaseWithOneBetTypeModel()
+        private ModelBase<BetCountModel> CreateModelBaseWithOneBetCountModel()
         {
-            return new ModelBase<BetTypeModel>
+            return new ModelBase<BetCountModel>
             {
-                Entities = new List<BetTypeModel>
+                Entities = new List<BetCountModel>
                 {
-                    CreateBetTypeModel()
+                    CreateBetCountModel()
                 },
-                Total = CreateBetTypeModel()
+                Total = CreateBetCountModel()
             };
         }
 
-        private BetTypeModel CreateBetTypeModel()
+        private BetCountModel CreateBetCountModel()
         {
-            return new BetTypeModel
+            return new BetCountModel
             {
                 BetCount = 1,
                 DrawCount = 1,
@@ -74,12 +74,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
             };
         }
 
-        private ViewModelJson CreateViewModelJsonWithOneBetTypeModel()
+        private ViewModelJson CreateViewModelJsonWithOneBetCountModel()
         {
             return new ViewModelJson
             {
-                Entities = new List<BetTypeModel> { CreateBetTypeModel() },
-                Total = CreateBetTypeModel()
+                Entities = new List<BetCountModel> { CreateBetCountModel() },
+                Total = CreateBetCountModel()
             };
         }
 
@@ -87,7 +87,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<BetTypeModel>, ViewModelJson>();
+                cfg.CreateMap<ModelBase<BetCountModel>, ViewModelJson>();
             });
 
             config.AssertConfigurationIsValid();
