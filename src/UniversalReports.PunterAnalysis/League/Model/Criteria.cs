@@ -5,7 +5,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
 {
     public class Criteria : CriteriaBase
     {
-        public int PeriodType { get; set; }
+        public int PeriodType { get; set; } = 1;
 
         public DateTime FromDate { get; set; }
 

@@ -7,7 +7,7 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public interface PunterAnalysisService
     {
-        Task<ModelBase<T>> Query<T>(ICriteria criteria) where T : class, new();
+        Task<ReportModelBase<T>> Query<T>(ICriteria criteria) where T : class, new();
     }
 
     public class PunterAnalysisServiceImp : PunterAnalysisService
@@ -19,10 +19,10 @@ namespace UniversalReports.PunterAnalysis.Core
             this.repository = repository;
         }
 
-        public async Task<ModelBase<T>> Query<T>(ICriteria criteria) where T : class, new()
+        public async Task<ReportModelBase<T>> Query<T>(ICriteria criteria) where T : class, new()
         {
             var entities = await repository.FetchAsync<T>(criteria);
-            return new ModelBase<T>
+            return new ReportModelBase<T>
             {
                 Entities = entities.ToList(),
                 Total = entities.DynamicSum()

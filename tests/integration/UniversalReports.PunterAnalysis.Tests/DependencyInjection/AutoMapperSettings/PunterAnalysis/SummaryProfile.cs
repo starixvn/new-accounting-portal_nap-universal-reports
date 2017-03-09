@@ -8,8 +8,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
     {
         public SummaryProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<SummaryModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+            CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

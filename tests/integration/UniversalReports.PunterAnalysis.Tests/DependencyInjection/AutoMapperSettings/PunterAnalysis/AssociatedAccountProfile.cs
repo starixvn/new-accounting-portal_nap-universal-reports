@@ -8,8 +8,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
     {
         public AssociatedAccountProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<AssociatedAccountModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, UserRoleQueryCriteria>(MemberList.Source);
+            CreateMap<ReportModelBase<UserRoleModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

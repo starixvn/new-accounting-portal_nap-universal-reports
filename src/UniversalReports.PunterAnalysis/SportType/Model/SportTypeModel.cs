@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace UniversalReports.PunterAnalysis.SportType.Model
+﻿namespace UniversalReports.PunterAnalysis.SportType.Model
 {
     public class SportTypeModel
     {
-        public string SportType { get; set; }
+        public int SportId { get; set; }
+
+        public string SportName { get; set; }
 
         public decimal WinLoss { get; set; }
 
@@ -18,7 +18,8 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
         {
             return new SportTypeModel
             {
-                SportType = string.Empty,
+                SportId = 0,
+                SportName = string.Empty,
                 WinLoss = firstObject.WinLoss + secondObject.WinLoss,
                 BetCount = firstObject.BetCount + secondObject.BetCount,
                 Turnover = firstObject.Turnover + secondObject.Turnover

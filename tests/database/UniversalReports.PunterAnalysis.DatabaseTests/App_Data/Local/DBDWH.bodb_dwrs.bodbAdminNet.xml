@@ -7,5 +7,7 @@
     <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-DatabaseReadiness" SpName="Acc_CheckDailyTaskReadiness" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-UserSiteQuery" SpName="Acc_Punter_GetSiteName" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

@@ -142,7 +142,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociatedAccount\FraudServiceWrapperImpTests.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerTests.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
+    <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
@@ -169,6 +172,12 @@
     <None Include="app.config" />
     <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
     <None Include="packages.config" />
+    <None Include="TestCases\League-ExpectedViewModelJson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\League-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Summary-ExpectedViewModelJson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

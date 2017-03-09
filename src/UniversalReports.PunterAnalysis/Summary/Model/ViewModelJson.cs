@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Summary.Model
 {
-    public class ViewModelJson : ModelBase<SummaryModel>
+    public class ViewModelJson : ReportModelBase<SummaryModel>
     {
     }
 }

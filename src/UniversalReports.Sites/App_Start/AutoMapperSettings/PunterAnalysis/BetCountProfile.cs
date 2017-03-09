@@ -8,8 +8,8 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
     {
         public BetCountProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<BetCountModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+            CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

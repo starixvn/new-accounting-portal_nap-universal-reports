@@ -32,9 +32,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
+        private ReportModelBase<BetTypeModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<BetTypeModel>
+            return new ReportModelBase<BetTypeModel>
             {
                 Entities = new List<BetTypeModel>(),
                 Total = new BetTypeModel()
@@ -54,8 +54,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<BetTypeModel>, ViewModelJson>();
-                cfg.CreateMap<HttpParameterJson, Criteria>();
+                cfg.CreateMap<ReportModelBase<BetTypeModel>, ViewModelJson>(MemberList.Source);
+                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             });
 
             config.AssertConfigurationIsValid();
@@ -82,9 +82,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetTypeModel> CreateNonEmptyModelBaseWithBetTypeModel()
+        private ReportModelBase<BetTypeModel> CreateNonEmptyModelBaseWithBetTypeModel()
         {
-            return new ModelBase<BetTypeModel>
+            return new ReportModelBase<BetTypeModel>
             {
                 Entities = new List<BetTypeModel> { CreateBetTypeModel() },
                 Total = CreateBetTypeModel()
@@ -104,16 +104,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         {
             return new BetTypeModel
             {
-                BetType = "Bet Type 1",
+                BetTypeName = "Bet Type 1",
                 NonLiveWinLoss = 100,
                 NonLiveTurnover = 200,
                 NonLiveBetCount = 2,
                 LiveWinLoss = 200,
                 LiveTurnover = 300,
-                LiveBetCount = 3,
-                WinLoss = 300,
-                Turnover = 500,
-                BetCount = 5
+                LiveBetCount = 3
             };
         }
     }

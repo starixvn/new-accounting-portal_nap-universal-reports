@@ -1,31 +1,46 @@
-﻿using AutoMapper;
+﻿using Fanex.Data.Repository;
 using MediatR;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
     public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModelJson>
     {
-        private readonly IMapper mapper;
+        private readonly IDynamicRepository repository;
 
-        private readonly PunterAnalysisService punterAnalysisService;
+        private readonly FraudServiceWrapper fraudServiceWrapper;
 
-        public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService)
+        public Handler(IDynamicRepository repository, FraudServiceWrapper fraudServiceWrapper)
         {
-            this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
+            this.repository = repository;
+            this.fraudServiceWrapper = fraudServiceWrapper;
         }
 
         public async Task<ViewModelJson> Handle(HttpParameterJson message)
         {
-            var criteria = mapper.Map<Criteria>(message);
-            var model = await punterAnalysisService.Query<AssociatedAccountModel>(criteria);
+            var siteName = await GetSiteName(message.CustId);
+            var userDevices = await fraudServiceWrapper.GetAssociatedUsers(message.Username, siteName);
+            var model = await GetAccountRoles(userDevices);
 
-            var viewModel = mapper.Map<ViewModelJson>(model);
+            return new ViewModelJson(model);
+        }
 
-            return viewModel;
+        private async Task<string> GetSiteName(int custId)
+        {
+            var criteria = new UserSiteQueryCriteria { CustId = custId };
+
+            return await repository.GetAsync<string>(criteria);
+        }
+
+        private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<UserDevice> userDevices)
+        {
+            var usernames = string.Join(",", userDevices.Select(u => u.Account));
+            var criteria = new UserRoleQueryCriteria { ListUserName = usernames };
+
+            return await repository.FetchAsync<UserRoleModel>(criteria);
         }
     }
 }

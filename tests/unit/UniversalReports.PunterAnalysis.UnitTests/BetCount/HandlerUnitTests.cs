@@ -33,9 +33,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
+        private ReportModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = new List<BetCountModel>(),
                 Total = new BetCountModel()
@@ -55,8 +55,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<BetCountModel>, ViewModelJson>();
-                cfg.CreateMap<HttpParameterJson, Criteria>();
+                cfg.CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>(MemberList.Source);
+                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             });
 
             config.AssertConfigurationIsValid();
@@ -83,9 +83,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
+        private ReportModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = new List<BetCountModel> { CreateBetCountModel() },
                 Total = CreateBetCountModel()

@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
-using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
+using UniversalReports.HouseWinLoss.Tests;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
@@ -21,11 +21,12 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
             const string FakeRepositoryDataFileName = "AssociatedAccount-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "AssociatedAccount-ExpectedViewModelJson.json";
 
-            var fakeAssociatedAccountModelListFromRepository = TestDataLoader.Load<List<AssociatedAccountModel>>(FakeRepositoryDataFileName);
+            var fakeUserRoleListFromRepository = TestDataLoader.Load<List<UserRoleModel>>(FakeRepositoryDataFileName);
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<AssociatedAccountModel>(Arg.Any<ICriteria>()).Returns(fakeAssociatedAccountModelListFromRepository);
+            repository.FetchAsync<UserRoleModel>(Arg.Any<UserRoleQueryCriteria>()).Returns(fakeUserRoleListFromRepository);
+            repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult(string.Empty));
 
             var simpleInjectorTest = new SimpleInjectorTest(repository);
 

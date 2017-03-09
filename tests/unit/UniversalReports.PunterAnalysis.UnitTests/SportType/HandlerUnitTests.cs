@@ -32,9 +32,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<SportTypeModel> CreateEmptyModelBaseWithTypeModel()
+        private ReportModelBase<SportTypeModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<SportTypeModel>
+            return new ReportModelBase<SportTypeModel>
             {
                 Entities = new List<SportTypeModel>(),
                 Total = new SportTypeModel()
@@ -54,8 +54,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<SportTypeModel>, ViewModelJson>();
-                cfg.CreateMap<HttpParameterJson, Criteria>();
+                cfg.CreateMap<ReportModelBase<SportTypeModel>, ViewModelJson>(MemberList.Source);
+                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             });
 
             config.AssertConfigurationIsValid();
@@ -82,9 +82,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<SportTypeModel> CreateNonEmptyModelBaseWithSportTypeModel()
+        private ReportModelBase<SportTypeModel> CreateNonEmptyModelBaseWithSportTypeModel()
         {
-            return new ModelBase<SportTypeModel>
+            return new ReportModelBase<SportTypeModel>
             {
                 Entities = new List<SportTypeModel> { CreateSportTypeModel() },
                 Total = CreateSportTypeModel()
@@ -104,7 +104,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         {
             return new SportTypeModel
             {
-                SportType = "Sport 1",
+                SportName = "Sport 1",
                 WinLoss = 100,
                 Turnover = 200,
                 BetCount = 2

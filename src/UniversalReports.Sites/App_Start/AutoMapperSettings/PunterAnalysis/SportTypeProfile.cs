@@ -8,8 +8,8 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
     {
         public SportTypeProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<SportTypeModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+            CreateMap<ReportModelBase<SportTypeModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

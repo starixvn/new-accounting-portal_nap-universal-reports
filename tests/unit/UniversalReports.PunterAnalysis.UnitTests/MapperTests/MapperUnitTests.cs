@@ -41,18 +41,18 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetCountModel> CreateEmptyModelBase()
+        private ReportModelBase<BetCountModel> CreateEmptyModelBase()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = new List<BetCountModel> { },
                 Total = new BetCountModel()
             };
         }
 
-        private ModelBase<BetCountModel> CreateModelBaseWithOneBetCountModel()
+        private ReportModelBase<BetCountModel> CreateModelBaseWithOneBetCountModel()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = new List<BetCountModel>
                 {
@@ -87,7 +87,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<BetCountModel>, ViewModelJson>();
+                cfg.CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>();
             });
 
             config.AssertConfigurationIsValid();

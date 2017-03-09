@@ -13,6 +13,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
                 cfg.AddProfile<BetTypeProfile>();
                 cfg.AddProfile<SportTypeProfile>();
                 cfg.AddProfile<AssociatedAccountProfile>();
+                cfg.AddProfile<LeagueProfile>();
             });
         }
     }

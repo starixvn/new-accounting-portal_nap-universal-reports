@@ -1,0 +1,42 @@
+﻿using Fanex.Data.Repository;
+using NSubstitute;
+using NUnit.CompareNetObjects;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Http.Results;
+using UniversalReports.HouseWinLoss.Tests;
+using UniversalReports.PunterAnalysis.League;
+using UniversalReports.PunterAnalysis.League.Model;
+using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
+
+namespace UniversalReports.PunterAnalysis.Tests.League
+{
+    public class PunterAnalysisLeagueControllerTests
+    {
+        [Test]
+        public async Task Index_FileRepository_ReturnsRightViewModelJson()
+        {
+            // Arrange
+            const string FakeRepositoryDataFileName = "League-FileRepository.json";
+            const string ExpectedViewModelJsonFileName = "League-ExpectedViewModelJson.json";
+
+            var fakeLeagueModelListFromRepository = TestDataLoader.Load<List<LeagueRawModel>>(FakeRepositoryDataFileName);
+            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(fakeLeagueModelListFromRepository);
+
+            var simpleInjectorTest = new SimpleInjectorTest(repository);
+
+            // Act
+            var httpParameterJson = new HttpParameterJson { PeriodType = 1 };
+            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisLeagueController)) as PunterAnalysisLeagueController;
+            var httpActionResult = await controller.Index(httpParameterJson);
+            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
+
+            // Assert
+            Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
+        }
+    }
+}

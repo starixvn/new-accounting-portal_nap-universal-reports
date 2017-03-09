@@ -1,0 +1,85 @@
+﻿{
+  "GroupNames": [
+    "Year 2016",
+    "November",
+    "December",
+    "Grand Total"
+  ],
+  "Entities": [
+    {
+      "LeagueName": "League 1",
+      "PeriodGroups": [
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        },
+        {
+          "BetCount": 0,
+          "WinLoss": 0,
+          "Turnover": 0
+        },
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        },
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        }
+      ]
+    },
+    {
+      "LeagueName": "League 2",
+      "PeriodGroups": [
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        },
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        },
+        {
+          "BetCount": 0,
+          "WinLoss": 0,
+          "Turnover": 0
+        },
+        {
+          "BetCount": 5,
+          "WinLoss": 100,
+          "Turnover": 500
+        }
+      ]
+    }
+  ],
+  "Total": {
+    "LeagueName": "",
+    "PeriodGroups": [
+      {
+        "BetCount": 10,
+        "WinLoss": 200,
+        "Turnover": 1000
+      },
+      {
+        "BetCount": 5,
+        "WinLoss": 100,
+        "Turnover": 500
+      },
+      {
+        "BetCount": 5,
+        "WinLoss": 100,
+        "Turnover": 500
+      },
+      {
+        "BetCount": 10,
+        "WinLoss": 200,
+        "Turnover": 1000
+      }
+    ]
+  }
+}

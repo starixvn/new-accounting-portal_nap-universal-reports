@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.IO;
 
-namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
+namespace UniversalReports.HouseWinLoss.Tests
 {
     internal class TestDataLoader
     {

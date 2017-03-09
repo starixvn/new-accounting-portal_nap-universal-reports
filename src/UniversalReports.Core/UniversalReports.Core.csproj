@@ -95,6 +95,7 @@
     <Compile Include="BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="BalanceUpServices\BalanceUpService.cs" />
     <Compile Include="BalanceUpServices\BalanceUpServiceImp.cs" />
+    <Compile Include="Configurations\ApplicationConfigurationServiceImp.cs" />
     <Compile Include="Factory\CriteriaFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortUtility\Sort.cs" />

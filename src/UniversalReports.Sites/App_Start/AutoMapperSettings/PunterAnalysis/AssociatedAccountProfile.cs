@@ -8,8 +8,8 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
     {
         public AssociatedAccountProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<AssociatedAccountModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, UserRoleQueryCriteria>(MemberList.Source);
+            CreateMap<ReportModelBase<UserRoleModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

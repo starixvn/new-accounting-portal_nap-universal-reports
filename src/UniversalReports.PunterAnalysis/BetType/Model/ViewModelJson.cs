@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.BetType.Model
 {
-    public class ViewModelJson : ModelBase<BetTypeModel>
+    public class ViewModelJson : ReportModelBase<BetTypeModel>
     {
     }
 }

@@ -8,8 +8,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
     {
         public SportTypeProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<SportTypeModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+            CreateMap<ReportModelBase<SportTypeModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

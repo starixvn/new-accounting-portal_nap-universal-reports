@@ -29,9 +29,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
+        private ReportModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = new List<BetCountModel>(),
                 Total = new BetCountModel()
@@ -75,9 +75,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             };
         }
 
-        private ModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
+        private ReportModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
         {
-            return new ModelBase<BetCountModel>
+            return new ReportModelBase<BetCountModel>
             {
                 Entities = CreateNonEmptyBetCountModelList(),
                 Total = CreateBetCountModel()

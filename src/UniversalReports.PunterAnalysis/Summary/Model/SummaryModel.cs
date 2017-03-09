@@ -2,6 +2,8 @@
 {
     public class SummaryModel
     {
+        public int CustId { get; set; }
+
         public string Username { get; set; }
 
         public decimal WinLoss { get; set; }

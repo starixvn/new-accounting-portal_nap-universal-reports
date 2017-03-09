@@ -32,9 +32,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<SummaryModel> CreateEmptyModelBaseWithTypeModel()
+        private ReportModelBase<SummaryModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ModelBase<SummaryModel>
+            return new ReportModelBase<SummaryModel>
             {
                 Entities = new List<SummaryModel>(),
                 Total = new SummaryModel()
@@ -54,8 +54,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ModelBase<SummaryModel>, ViewModelJson>();
-                cfg.CreateMap<HttpParameterJson, Criteria>();
+                cfg.CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);
+                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             });
 
             config.AssertConfigurationIsValid();
@@ -82,9 +82,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private ModelBase<SummaryModel> CreateNonEmptyModelBaseWithSummaryModel()
+        private ReportModelBase<SummaryModel> CreateNonEmptyModelBaseWithSummaryModel()
         {
-            return new ModelBase<SummaryModel>
+            return new ReportModelBase<SummaryModel>
             {
                 Entities = new List<SummaryModel> { CreateSummaryModel() },
                 Total = CreateSummaryModel()

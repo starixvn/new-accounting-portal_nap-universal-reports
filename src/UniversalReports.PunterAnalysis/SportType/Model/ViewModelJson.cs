@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.SportType.Model
 {
-    public class ViewModelJson : ModelBase<SportTypeModel>
+    public class ViewModelJson : ReportModelBase<SportTypeModel>
     {
     }
 }

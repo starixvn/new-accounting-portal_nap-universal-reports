@@ -12,7 +12,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType.Model
             // Arrange
             var firstObject = new SportTypeModel
             {
-                SportType = "Sport 1",
+                SportId = 1,
+                SportName = "Sport 1",
                 WinLoss = 100,
                 Turnover = 200,
                 BetCount = 2
@@ -20,7 +21,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType.Model
 
             var secondObject = new SportTypeModel
             {
-                SportType = "Sport 2",
+                SportId = 2,
+                SportName = "Sport 2",
                 WinLoss = 200,
                 Turnover = 300,
                 BetCount = 3
@@ -28,7 +30,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType.Model
 
             var expectedObject = new SportTypeModel
             {
-                SportType = string.Empty,
+                SportId = 0,
+                SportName = string.Empty,
                 WinLoss = 300,
                 Turnover = 500,
                 BetCount = 5

@@ -8,8 +8,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
     {
         public BetTypeProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>();
-            CreateMap<ModelBase<BetTypeModel>, ViewModelJson>();
+            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+            CreateMap<ReportModelBase<BetTypeModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

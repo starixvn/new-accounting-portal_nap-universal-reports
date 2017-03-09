@@ -2,9 +2,9 @@
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
 {
-    public class Criteria : CriteriaBase
+    public class UserRoleQueryCriteria : CriteriaBase
     {
-        public string ListCustId { get; set; }
+        public string ListUserName { get; set; }
 
         public override string GetSettingKey() => "Punter-AssociatedAccount";
 
