@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top navbar-toggleable">
+    <a class="navbar-brand" href="#">
+        <img src="UniversalReports/content/images/header/logo.png" width="133" height="17" alt="">
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let item of menus; let isLast = last" class="nav-item" [class.item-last]="isLast" [ngSwitch]="item.HasChildren">
+                <a *ngSwitchCase="false" class="nav-link" [href]="item.Link">{{item.Name}}</a>
+                <div *ngSwitchCase="true" class="nav-sub">
+                    <div class="nav-link">{{item.Name}}</div>
+                    <ul class="navbar-nav-sub">
+                        <li *ngFor="let childItem of item.Children" class="nav-item">
+                            <a class="nav-link" [href]="childItem.Link">{{childItem.Name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="user-container">
+            <div class="user-info">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="greeting">Welcome <span class="user-name">{{username}}</span></span>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </div>
+            <ul>
+                <li class="nav-item"><a class="nav-link" href="/UserControl/User/UserProfile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="/UserControl/User/ChangePassword">Change Password</a></li>
+                <li class="nav-item"><a class="nav-link" href="/UserLogin/Login/LogOut">Sign Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+$font-size-base: 0.8125rem;
+$line-height-base: 1.231;
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+body {
+    padding-top: 2.4rem;
+}
