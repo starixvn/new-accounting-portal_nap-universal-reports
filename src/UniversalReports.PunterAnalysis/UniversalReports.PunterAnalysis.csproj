@@ -101,6 +101,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetType\BetTypeExcelSettings.cs" />
+    <Compile Include="BetType\Model\BetTypeExcelModel.cs" />
+    <Compile Include="BetType\Model\ExcelViewModel.cs" />
+    <Compile Include="Core\ExcelSettings.cs" />
+    <Compile Include="Core\PunterAnalysisExcelBuilder.cs" />
     <Compile Include="AssociatedAccount\Handler.cs" />
     <Compile Include="AssociatedAccount\HandlerExcel.cs" />
     <Compile Include="AssociatedAccount\Model\AssociatedAccountModel.cs" />
@@ -160,6 +165,10 @@
     <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
       <Name>UniversalReports.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalReportsEpplusTemplate\UniversalReports.EpplusTemplate.csproj">
+      <Project>{b7a8e8d6-ce85-4d58-82c6-50339aeaeb95}</Project>
+      <Name>UniversalReports.EpplusTemplate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

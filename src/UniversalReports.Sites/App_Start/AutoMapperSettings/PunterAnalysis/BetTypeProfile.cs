@@ -10,6 +10,7 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
         {
             CreateMap<HttpParameterJson, Criteria>();
             CreateMap<ModelBase<BetTypeModel>, ViewModelJson>();
+            CreateMap<ModelBase<BetTypeModel>, ExcelViewModel>();
         }
     }
 }
