@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-x1">
+        <div class="col-label">
+            Period type
+        </div>
+        <div class="col-value">
+            <select class="form-control" [(ngModel)]="periodType">
+            <option *ngFor="let option of periodTypeOptions" [value]="option.value">{{option.text}}</option>
+        </select>
+        </div>
+    </div>
+    <div [ngSwitch]="periodType">
+        <div *ngSwitchCase="PeriodType.Daily">
+            <div class="col-x2">
+                <div class="col-label">
+                    From
+                </div>
+                <div class="col-value"></div>
+            </div>
+            <div class="col-x3">
+                <div class="col-label">
+                    To
+                </div>
+                <div class="col-value"></div>
+            </div>
+        </div>
+        <div *ngSwitchCase="PeriodType.Monthly">
+            <div class="col-x2">
+                <div class="col-label">
+                    Month
+                </div>
+                <div class="col-value"></div>
+            </div>
+            <div class="col-x3">
+                <div class="col-label">
+                    Year
+                </div>
+                <div class="col-value"></div>
+            </div>
+        </div>
+        <div *ngSwitchCase="PeriodType.Annually">
+            <div class="col-x2">
+                <div class="col-label">
+                    Year
+                </div>
+                <div class="col-value"></div>
+            </div>
+        </div>
+        <div *ngSwitchCase="PeriodType.MonthRange">
+            <div class="col-x2">
+                <div class="col-label">
+                    From
+                </div>
+                <div class="col-value"></div>
+            </div>
+            <div class="col-x3">
+                <div class="col-label">
+                    To
+                </div>
+                <div class="col-value"></div>
+            </div>
+        </div>
+    </div>
+</div>

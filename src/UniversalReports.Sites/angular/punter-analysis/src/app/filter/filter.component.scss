@@ -1,0 +1,49 @@
+.row {
+    .col-label {
+        float: left;
+        text-align: right;
+        font-weight: bold;
+        padding: 0.2rem 0.5rem;
+    }
+    .col-x1 {
+        float: left;
+        width: 320px;
+        $margin: 90px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x2 {
+        float: left;
+        width: 300px;
+        $margin: 120px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x3 {
+        float: left;
+        width: 320px;
+        $margin: 80px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    select.order-by {
+        float: left;
+        width: 100px;
+        margin-right: 0.5rem;
+    }
+    select.order {
+        width: 120px;
+    }
+}

@@ -1,0 +1,12 @@
+.filter-container {
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    border: solid 1px #cecccd;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+    & > .row {
+        margin: 0.2rem 0;
+        >* {
+            float: left;
+        }
+    }
+}

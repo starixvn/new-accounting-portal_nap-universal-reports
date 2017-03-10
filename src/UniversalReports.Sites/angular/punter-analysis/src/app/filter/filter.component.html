@@ -1,0 +1,64 @@
+<div class="jumbotron filter-container">
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+                Search by
+            </div>
+            <div class="col-value">
+                <div class="form-check form-check-inline" *ngFor="let option of searchByOptions">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="searchBy" id="optionsRadios1" value="option1" checked /> {{option.text}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-x2">
+            <div class="col-label">
+                Top rows
+            </div>
+            <div class="col-value">
+                <input style="width: 80px" class="form-control" type="number" [(ngModel)]="topRows" />
+            </div>
+        </div>
+        <div class="col-x3">
+            <div class="col-label">
+                Order by
+            </div>
+            <div class="col-value">
+                <select class="form-control order-by" [(ngModel)]="orderBy">
+                    <option *ngFor="let option of orderByOptions" [value]="option.value">{{option.text}}</option>
+                </select>
+                <select class="form-control order" [(ngModel)]="order">
+                    <option *ngFor="let option of orderOptions" [value]="option.value">{{option.text}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <nap-period-type></nap-period-type>
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+                Depth
+            </div>
+            <div class="col-value">
+                <select class="form-control" [(ngModel)]="depth">
+                    <option *ngFor="let option of depthOptions" [value]="option.value">{{option.text}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-x2">
+            <div class="col-label">
+                Account name
+            </div>
+            <div class="col-value">
+                <input class="form-control" type="text" [(ngModel)]="userName" [placeholder]="userNamePlaceholder" />
+            </div>
+        </div>
+        <div class="col-x3">
+            <div class="col-label">
+                Product
+            </div>
+            <div class="col-value"></div>
+        </div>
+    </div>
+</div>

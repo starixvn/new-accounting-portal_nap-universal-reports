@@ -2,6 +2,10 @@
 
 $font-size-base: 0.8125rem;
 $line-height-base: 1.231;
+$btn-padding-x: .6rem;
+$btn-padding-y: .3rem;
+$input-padding-x: .6rem;
+$input-padding-y: .3rem;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 body {
     padding-top: 2.4rem;

@@ -13,10 +13,14 @@ import { ToastService } from '../../../components/src/toast';
 import { SpinnerService } from '../../../components/src/spinner';
 
 import { AppComponent } from './app.component';
+import { FilterComponent } from './filter/filter.component';
+import { PeriodTypeComponent } from './filter/period-type/period-type.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterComponent,
+    PeriodTypeComponent
   ],
   imports: [
     BrowserModule,
