@@ -7,7 +7,7 @@
             <div class="col-value">
                 <div class="form-check form-check-inline" *ngFor="let option of searchByOptions">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="searchBy" id="optionsRadios1" value="option1" checked /> {{option.text}}
+                        <input type="radio" class="form-check-input" name="searchBy" [(ngModel)]="searchBy" [value]="option.value" /> {{option.text}}
                     </label>
                 </div>
             </div>
@@ -42,16 +42,17 @@
             </div>
             <div class="col-value">
                 <select class="form-control" [(ngModel)]="depth">
-                    <option *ngFor="let option of depthOptions" [value]="option.value">{{option.text}}</option>
+                    <option *ngFor="let option of depthOptions" [ngValue]="option.value">{{option.text}}</option>
                 </select>
             </div>
         </div>
         <div class="col-x2">
             <div class="col-label">
-                Account name
+                Account name<span class="text-danger">*</span>
             </div>
             <div class="col-value">
-                <input class="form-control" type="text" [(ngModel)]="userName" [placeholder]="userNamePlaceholder" />
+                <input class="form-control text-placeholder" type="text" [(ngModel)]="userName" [placeholder]="depth === Role.Agent ? 'Agent name' : 'Member name'"
+                />
             </div>
         </div>
         <div class="col-x3">
@@ -59,6 +60,15 @@
                 Product
             </div>
             <div class="col-value"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+            </div>
+            <div class="col-value">
+                <button type="submit" class="btn btn-primary" (click)="generate()">GENERATE</button>
+            </div>
         </div>
     </div>
 </div>

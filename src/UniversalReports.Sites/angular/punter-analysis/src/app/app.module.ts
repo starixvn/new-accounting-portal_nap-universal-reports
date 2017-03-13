@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpService } from '../../../components/src/http.service';
 import { LegacyService } from '../../../components/src/legacy.service';
@@ -15,18 +16,23 @@ import { SpinnerService } from '../../../components/src/spinner';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { PeriodTypeComponent } from './filter/period-type/period-type.component';
+import { DatePickerComponent } from './filter/period-type/date-picker/date-picker.component';
+import { WeekPickerComponent } from './filter/period-type/week-picker/week-picker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
-    PeriodTypeComponent
+    PeriodTypeComponent,
+    DatePickerComponent,
+    WeekPickerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     CommonModule,
+    NgbModule.forRoot(),
     HeaderModule.forRoot()
   ],
   providers: [

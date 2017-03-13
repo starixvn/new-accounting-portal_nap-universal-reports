@@ -10,29 +10,33 @@ import { SearchBy, OptionItem, PeriodType, Role, Order, OrderBy } from './filter
     ]
 })
 export class FilterComponent {
+    Role = Role;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
     depth = Role.Agent;
     depthOptions = this.getDepthOptions();
     topRows = 10;
     userName = '';
-    userNamePlaceholder = 'Agent name';
     order = Order.Descending;
     orderOptions = this.getOrderOptions();
     orderBy = OrderBy.WinLoss;
     orderByOptions = this.getOrderByOptions();
 
+    generate() {
+        console.log(this.searchBy);
+    }
+
     private getSearchByOptions(): OptionItem[] {
         return [{
             text: 'User',
             value: SearchBy.User
-        }, {
+        }/*, {
             text: 'League',
             value: SearchBy.League
         }, {
             text: 'Performance',
             value: SearchBy.Performance
-        }];
+        }*/];
     }
 
     private getDepthOptions(): OptionItem[] {
@@ -45,7 +49,7 @@ export class FilterComponent {
         }];
     }
 
-    private getOrderOptions() : OptionItem[] {
+    private getOrderOptions(): OptionItem[] {
         return [{
             text: 'Ascending',
             value: Order.Ascending
@@ -55,7 +59,7 @@ export class FilterComponent {
         }];
     }
 
-    private getOrderByOptions() : OptionItem[] {
+    private getOrderByOptions(): OptionItem[] {
         return [{
             text: 'Win Loss',
             value: OrderBy.WinLoss

@@ -1,12 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
+// apply variables of sm
 $font-size-base: 0.8125rem;
-$line-height-base: 1.231;
-$btn-padding-x: .6rem;
-$btn-padding-y: .3rem;
-$input-padding-x: .6rem;
-$input-padding-y: .3rem;
+$line-height-base: 1.5;
+$input-line-height: 1.5;
+$input-height: 1.487rem;
+$btn-padding-x: 1rem;
+$btn-padding-y: .244rem;
+$input-padding-x: .3rem;
+$input-padding-y: .15rem;
+$border-radius: .2rem;
+$font-family-base: Tahoma,
+Arial,
+Helvetica,
+sans-serif;
+$font-family-sans-serif: $font-family-base;
+$font-family-serif: $font-family-base;
+$form-check-margin-bottom: 0;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 body {
     padding-top: 2.4rem;
+}
+
+select,
+button {
+    cursor: pointer;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: $font-family-base;
+}
+
+input.text-placeholder {
+    &::-webkit-input-placeholder {
+        font-style: italic;
+    }
+    &::-moz-placeholder {
+        font-style: italic;
+    }
+    &:-ms-input-placeholder {
+        font-style: italic;
+    }
 }

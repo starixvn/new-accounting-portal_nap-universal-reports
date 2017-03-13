@@ -15,13 +15,35 @@
                 <div class="col-label">
                     From
                 </div>
-                <div class="col-value"></div>
+                <div class="col-value">
+                    <nap-date-picker></nap-date-picker>
+                </div>
             </div>
             <div class="col-x3">
                 <div class="col-label">
                     To
                 </div>
-                <div class="col-value"></div>
+                <div class="col-value">
+                    <nap-date-picker></nap-date-picker>
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="PeriodType.Weekly">
+            <div class="col-x2">
+                <div class="col-label">
+                    From
+                </div>
+                <div class="col-value">
+                    <nap-week-picker></nap-week-picker>
+                </div>
+            </div>
+            <div class="col-x3">
+                <div class="col-label">
+                    To
+                </div>
+                <div class="col-value">
+                    <nap-week-picker></nap-week-picker>
+                </div>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.Monthly">
