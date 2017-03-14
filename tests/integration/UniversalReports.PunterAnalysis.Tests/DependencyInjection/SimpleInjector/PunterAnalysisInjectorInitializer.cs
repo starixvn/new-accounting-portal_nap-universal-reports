@@ -15,6 +15,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
             container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
+            container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
 
             return container;
         }

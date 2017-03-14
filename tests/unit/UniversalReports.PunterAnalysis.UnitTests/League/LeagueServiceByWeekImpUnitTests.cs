@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(emptyLeagueRawModelList);
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -49,7 +49,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var dateTimeService = new DateTimeServiceImp();
 
             // Act
-            var service = new LeagueServiceByWeekImp(repository, dateTimeService);
+            var service = new LeagueServiceByWeek(repository, dateTimeService);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -72,7 +72,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var dateTimeService = new DateTimeServiceImp();
 
             // Act
-            var service = new LeagueServiceByWeekImp(repository, dateTimeService);
+            var service = new LeagueServiceByWeek(repository, dateTimeService);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -95,7 +95,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var dateTimeService = new DateTimeServiceImp();
 
             // Act
-            var service = new LeagueServiceByWeekImp(repository, dateTimeService);
+            var service = new LeagueServiceByWeek(repository, dateTimeService);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -198,7 +198,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var dateTimeService = new DateTimeServiceImp();
 
             // Act
-            var service = new LeagueServiceByWeekImp(repository, dateTimeService);
+            var service = new LeagueServiceByWeek(repository, dateTimeService);
 
             return service.GetGroupNames(weekGroups).ToList();
         }

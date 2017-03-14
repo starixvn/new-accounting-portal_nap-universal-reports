@@ -25,7 +25,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(emptyLeagueRawModelList);
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -47,7 +47,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForOneYearOneMonth);
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -68,7 +68,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForOneYearTwoMonths);
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -89,7 +89,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForTwoYearsTwoMonths);
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var reportModel = await service.Query(Arg.Any<ICriteria>());
 
             // Assert
@@ -192,7 +192,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
 
             return service.GetGroupNames(monthGroups).ToList();
         }

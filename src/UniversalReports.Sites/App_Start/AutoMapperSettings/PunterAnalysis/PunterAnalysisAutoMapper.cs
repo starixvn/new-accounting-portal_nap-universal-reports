@@ -14,6 +14,7 @@ namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
                 cfg.AddProfile<SportTypeProfile>();
                 cfg.AddProfile<AssociatedAccountProfile>();
                 cfg.AddProfile<LeagueProfile>();
+                cfg.AddProfile<FilterProfile>();
             });
         }
     }

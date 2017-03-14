@@ -1,0 +1,18 @@
+﻿[
+  {
+    "ProductId": 1,
+    "ProductName": "Product 1",
+    "SportId": 1,
+    "SportName": "Sport 1",
+    "BetTypeId": 1,
+    "BetTypeName": "Bet Type 1"
+  },
+  {
+    "ProductId": 2,
+    "ProductName": "Product 2",
+    "SportId": 2,
+    "SportName": "Sport 2",
+    "BetTypeId": 2,
+    "BetTypeName": "Bet Type 2"
+  }
+]

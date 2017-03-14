@@ -10,10 +10,14 @@ using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Summary.Model;
 using AssociatedAccountCriteria = UniversalReports.PunterAnalysis.AssociatedAccount.Model.UserRoleQueryCriteria;
+using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
+using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using BetCountCriteria = UniversalReports.PunterAnalysis.BetCount.Model.Criteria;
 using BetTypeCriteria = UniversalReports.PunterAnalysis.BetType.Model.Criteria;
 using DatabaseStatusCriteria = UniversalReports.PunterAnalysis.DatabaseStatus.Model.Criteria;
 using LeagueCriteria = UniversalReports.PunterAnalysis.League.Model.Criteria;
+using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
+using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using SportTypeCriteria = UniversalReports.PunterAnalysis.SportType.Model.Criteria;
 using SummaryCriteria = UniversalReports.PunterAnalysis.Summary.Model.Criteria;
 
@@ -208,7 +212,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task UserSiteSp_Test_ReturnNotNullSiteName()
+        public async Task UserSiteSp_Test_ReturnsNotNullSiteName()
         {
             // Arrange
             var criteria = new UserSiteQueryCriteria
@@ -223,6 +227,76 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Assert
             Assert.That(site, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task PunterProductSportBetTypeSp_Test_ColumnIsMapCorrectly()
+        {
+            // Arrange
+            var criteria = new ProductSportBetTypeFilter.QueryCriteria();
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<ProductSportBetTypeFilter.Entity>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.ProductId, Is.GreaterThanOrEqualTo(0));
+            Assert.That(firstModel.SportId, Is.Not.Zero);
+            Assert.That(firstModel.BetTypeId, Is.Not.Zero);
+            Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task PunterLeagueSp_Test_ColumnIsMapCorrectly()
+        {
+            // Arrange
+            var criteria = new LeagueFilter.QueryCriteria
+            {
+                FromDate = DateTime.Today.AddYears(-2),
+                ToDate = DateTime.Today,
+                SportId = 1
+            };
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<LeagueFilter.Entity>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.Id, Is.Not.Zero);
+            Assert.That(firstModel.Name, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public async Task PunterAvailableDatabaseSp_Test_ReturnsTrue()
+        {
+            // Arrange
+            var criteria = new AvailableDatabaseFilter.QueryCriteria();
+
+            // Act
+            var repository = new DynamicRepository();
+            var available = await repository.GetAsync<bool>(criteria);
+
+            // Assert
+            Assert.True(available);
+        }
+
+        [Test]
+        public async Task PunterAvailableDateRangeSp_Test_ReturnsNonNullDateRange()
+        {
+            // Arrange
+            var criteria = new AvailableDateRangeFilter.QueryCriteria();
+
+            // Act
+            var repository = new DynamicRepository();
+            var range = await repository.GetAsync<AvailableDateRangeFilter.Entity>(criteria);
+
+            // Assert
+            Assert.That(range.MinDate, Is.GreaterThan(DateTime.MinValue));
+            Assert.That(range.MaxDate, Is.GreaterThan(DateTime.MinValue));
         }
     }
 }

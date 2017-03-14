@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var mappingGroups = service.GetMappingGroups(emptyLeagueMappingModelList);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(emptyGroup));
@@ -39,7 +39,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));
@@ -56,7 +56,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));
@@ -74,7 +74,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonthImp(repository);
+            var service = new LeagueServiceByMonth(repository);
             var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));

@@ -8,7 +8,7 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public interface PunterAnalysisExcelBuilder
     {
-        Task<ExcelPackage> CreateExcelPackage<T>(ModelBase<T> model, ExcelSettings settings) where T : class, new();
+        Task<ExcelPackage> CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSettings settings) where T : class, new();
     }
 
     public class PunterAnalysisExcelBuilderImp : PunterAnalysisExcelBuilder
@@ -23,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private ExcelPackage ExcelPackage { get; set; }
 
-        public async Task<ExcelPackage> CreateExcelPackage<T>(ModelBase<T> model, ExcelSettings settings) where T : class, new()
+        public async Task<ExcelPackage> CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSettings settings) where T : class, new()
         {
             LoadTemplate(settings.TemplatePath);
             ApplySetting();
@@ -54,7 +54,7 @@ namespace UniversalReports.PunterAnalysis.Core
             ExcelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
         }
 
-        private void Build<T>(ModelBase<T> model, ExcelSettings settings) where T : class, new()
+        private void Build<T>(ReportModelBase<T> model, ExcelSettings settings) where T : class, new()
         {
             SetRowIndex(settings.StartRowIndex);
             SetSheetName(settings.SheetName);

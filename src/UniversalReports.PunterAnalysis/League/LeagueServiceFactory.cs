@@ -26,12 +26,12 @@ namespace UniversalReports.PunterAnalysis.League
             switch (periodTypeEnum)
             {
                 case PeriodTypeEnum.Weekly:
-                    return new LeagueServiceByWeekImp(repository, dateTimeService);
+                    return new LeagueServiceByWeek(repository, dateTimeService);
                 case PeriodTypeEnum.Annually:
                 case PeriodTypeEnum.Daily:
                 case PeriodTypeEnum.Monthly:
                 case PeriodTypeEnum.MonthRange:
-                    return new LeagueServiceByMonthImp(repository);
+                    return new LeagueServiceByMonth(repository);
                 default:
                     throw new NotImplementedException();
             }

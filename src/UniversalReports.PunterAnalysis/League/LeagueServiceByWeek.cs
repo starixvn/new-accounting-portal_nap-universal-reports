@@ -1,15 +1,18 @@
 ﻿using Fanex.Data.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class LeagueServiceByMonthImp : LeagueServiceBaseImp, LeagueService
+    public class LeagueServiceByWeek : LeagueServiceBase, LeagueService
     {
-        public LeagueServiceByMonthImp(IDynamicRepository repository) : base(repository)
+        private readonly DateTimeService dateTimeService;
+
+        public LeagueServiceByWeek(IDynamicRepository repository, DateTimeService dateTimeService) : base(repository)
         {
+            this.dateTimeService = dateTimeService;
         }
 
         protected override LeagueMappingModel Transform(LeagueRawModel rawModel)
@@ -19,27 +22,27 @@ namespace UniversalReports.PunterAnalysis.League
                 LeagueId = rawModel.LeagueId,
                 LeagueName = rawModel.LeagueName,
                 Year = rawModel.Year,
-                MonthOrWeek = rawModel.Month,
+                MonthOrWeek = rawModel.Week,
                 WinLoss = rawModel.WinLoss,
                 Turnover = rawModel.Turnover,
                 BetCount = rawModel.BetCount
             };
         }
 
-        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> monthGroups)
+        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> weekGroups)
         {
-            foreach (var year in monthGroups.Keys)
+            foreach (var year in weekGroups.Keys)
             {
                 yield return $"Year {year}";
-                var months = monthGroups[year];
-                foreach (var month in months)
+                var weeks = weekGroups[year];
+                foreach (var week in weeks)
                 {
-                    var beginOfMonth = new DateTime(year, month, 1);
-                    yield return beginOfMonth.ToString("MMMM");
+                    var beginOfWeek = dateTimeService.GetFirstDateOfWeekISO8601(year, week);
+                    yield return $"Week {week} ({beginOfWeek:MMM dd, yyyy})";
                 }
             }
 
-            if (monthGroups.Any())
+            if (weekGroups.Any())
             {
                 yield return "Grand Total";
             }

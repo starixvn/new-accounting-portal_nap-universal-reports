@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\AssociatedAccountProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\FilterProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\SportTypeProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\BetCountProfile.cs" />

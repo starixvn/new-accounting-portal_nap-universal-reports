@@ -9,11 +9,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
     public class LeagueServiceFactoryImpUnitTests
     {
         [Test]
-        [TestCase(1, ExpectedResult = "LeagueServiceByMonthImp")]
-        [TestCase(2, ExpectedResult = "LeagueServiceByWeekImp")]
-        [TestCase(3, ExpectedResult = "LeagueServiceByMonthImp")]
-        [TestCase(4, ExpectedResult = "LeagueServiceByMonthImp")]
-        [TestCase(5, ExpectedResult = "LeagueServiceByMonthImp")]
+        [TestCase(1, ExpectedResult = "LeagueServiceByMonth")]
+        [TestCase(2, ExpectedResult = "LeagueServiceByWeek")]
+        [TestCase(3, ExpectedResult = "LeagueServiceByMonth")]
+        [TestCase(4, ExpectedResult = "LeagueServiceByMonth")]
+        [TestCase(5, ExpectedResult = "LeagueServiceByMonth")]
         public string CreateLeagueService_Test(int periodType)
         {
             var repository = Substitute.For<IDynamicRepository>();

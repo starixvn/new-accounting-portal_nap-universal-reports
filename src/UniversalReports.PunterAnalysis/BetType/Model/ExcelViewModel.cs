@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.BetType.Model
 {
-    public class ExcelViewModel : ModelBase<BetTypeExcelModel>
+    public class ExcelViewModel : ReportModelBase<BetTypeExcelModel>
     {
     }
 }

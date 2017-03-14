@@ -7,11 +7,11 @@ using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public abstract class LeagueServiceBaseImp
+    public abstract class LeagueServiceBase
     {
         private readonly IDynamicRepository repository;
 
-        public LeagueServiceBaseImp(IDynamicRepository repository)
+        public LeagueServiceBase(IDynamicRepository repository)
         {
             this.repository = repository;
         }
