@@ -2,7 +2,7 @@
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public class SummaryProfile : Profile
     {

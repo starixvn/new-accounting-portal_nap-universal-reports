@@ -12,9 +12,9 @@ public class FanexDataOneTimeSetUp
        .StartNewSession()
        .Use(new OldConnectionStringProvider())
        .UseDefaultDbSettingProvider(
-         resourcePath: $"~/App_Data/LOCAL",
-         ignoreRedundantParameters: false,
-         enableWatching: true)
+         "~/App_Data/LOCAL",
+         false,
+         true)
        .Run();
     }
 }

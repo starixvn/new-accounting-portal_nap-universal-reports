@@ -15,6 +15,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
         public async Task Handle_RepositoryAndFraudServiceReturnEmptyData_ReturnsEmptyViewModelJson()
         {
             // Arrange
+            // ReSharper disable once CollectionNeverUpdated.Local
             var emptyListOfUserRoleModel = new List<UserRoleModel>();
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<UserRoleModel>(Arg.Any<UserRoleQueryCriteria>()).Returns(emptyListOfUserRoleModel);

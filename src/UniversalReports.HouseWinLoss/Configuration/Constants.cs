@@ -16,18 +16,12 @@
 
         public static readonly string RM = "RM";
 
-        public static string[] NameSportsbook
+        public static string[] NameSportsbook => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    "Soccer",
-                    "Metric Gaming - Superlive",
-                    "Other Sports",
-                    "Parlay"
-                };
-            }
-        }
+            "Soccer",
+            "Metric Gaming - Superlive",
+            "Other Sports",
+            "Parlay"
+        };
     }
 }

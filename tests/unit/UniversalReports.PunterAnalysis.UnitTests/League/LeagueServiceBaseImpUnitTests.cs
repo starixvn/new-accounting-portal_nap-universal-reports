@@ -3,7 +3,6 @@ using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using System.Collections.Generic;
-using UniversalReports.HouseWinLoss.UnitTests;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
 

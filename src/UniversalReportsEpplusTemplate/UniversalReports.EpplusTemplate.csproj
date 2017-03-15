@@ -7,8 +7,8 @@
     <ProjectGuid>{B7A8E8D6-CE85-4D58-82C6-50339AEAEB95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EpplusTemplate</RootNamespace>
-    <AssemblyName>EpplusTemplate</AssemblyName>
+    <RootNamespace>UniversalReports.EpplusTemplate</RootNamespace>
+    <AssemblyName>UniversalReports.EpplusTemplate</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

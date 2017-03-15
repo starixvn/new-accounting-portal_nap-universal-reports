@@ -11,7 +11,7 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private readonly IDynamicRepository repository;
 
-        public LeagueServiceBase(IDynamicRepository repository)
+        protected LeagueServiceBase(IDynamicRepository repository)
         {
             this.repository = repository;
         }
@@ -35,7 +35,7 @@ namespace UniversalReports.PunterAnalysis.League
         {
             var entities = await repository.FetchAsync<LeagueRawModel>(criteria);
             return entities
-                .Select(e => Transform(e))
+                .Select(Transform)
                 .ToList();
         }
 

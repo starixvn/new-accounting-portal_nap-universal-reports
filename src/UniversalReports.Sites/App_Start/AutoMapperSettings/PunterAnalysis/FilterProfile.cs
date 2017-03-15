@@ -3,7 +3,7 @@ using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public class FilterProfile : Profile
     {

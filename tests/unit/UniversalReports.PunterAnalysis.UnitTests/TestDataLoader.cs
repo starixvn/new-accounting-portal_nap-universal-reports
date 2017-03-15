@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using NUnit.Framework;
-using System.IO;
 
-namespace UniversalReports.HouseWinLoss.UnitTests
+namespace UniversalReports.PunterAnalysis.UnitTests
 {
     internal class TestDataLoader
     {

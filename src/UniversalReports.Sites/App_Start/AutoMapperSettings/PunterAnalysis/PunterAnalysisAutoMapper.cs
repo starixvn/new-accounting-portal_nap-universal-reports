@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public static class PunterAnalysisAutoMapper
     {

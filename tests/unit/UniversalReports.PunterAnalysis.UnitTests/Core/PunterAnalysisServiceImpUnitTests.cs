@@ -16,9 +16,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
         public async Task Query_RepositoryReturnsEmptyBetCountModelList_ReturnsEmptyModelBaseWithBetCountModel()
         {
             // Arrange
-            var emptyBetCountModelList = new List<BetCountModel>();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(emptyBetCountModelList);
+            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(new List<BetCountModel>());
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);

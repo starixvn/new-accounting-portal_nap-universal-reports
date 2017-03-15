@@ -2,7 +2,7 @@
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public class BetTypeProfile : Profile
     {

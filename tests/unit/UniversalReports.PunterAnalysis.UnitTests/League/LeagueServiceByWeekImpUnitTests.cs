@@ -5,7 +5,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.HouseWinLoss.UnitTests;
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
@@ -19,10 +18,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         {
             // Arrange
             var emptyReportModel = new ReportModel();
-            var emptyLeagueRawModelList = new List<LeagueRawModel>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(emptyLeagueRawModelList);
+            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(new List<LeagueRawModel>());
 
             // Act
             var service = new LeagueServiceByMonth(repository);
@@ -105,9 +103,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public void GetGroupNames_EmptyGroup_ReturnEmptyGroupNames()
         {
             // Arrange
-            var emptyGroup = new Dictionary<int, List<int>>
-            {
-            };
+            var emptyGroup = new Dictionary<int, List<int>>();
 
             var emptyGroupNames = new List<string>();
 

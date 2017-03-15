@@ -1,11 +1,10 @@
-﻿using Fanex.Data.Repository;
-using NSubstitute;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
-using UniversalReports.HouseWinLoss.Tests;
+using Fanex.Data.Repository;
+using NSubstitute;
+using NUnit.Framework;
 using UniversalReports.PunterAnalysis.Filter;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
@@ -14,7 +13,7 @@ using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
-namespace UniversalReports.PunterAnalysis.Tests.League
+namespace UniversalReports.PunterAnalysis.Tests.Filter
 {
     public class PunterAnalysisFilterControllerTests
     {

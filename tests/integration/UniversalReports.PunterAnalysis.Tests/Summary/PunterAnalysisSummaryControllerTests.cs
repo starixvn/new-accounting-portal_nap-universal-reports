@@ -5,7 +5,6 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
-using UniversalReports.HouseWinLoss.Tests;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;

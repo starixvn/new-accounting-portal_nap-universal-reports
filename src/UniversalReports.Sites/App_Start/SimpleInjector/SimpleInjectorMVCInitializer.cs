@@ -5,11 +5,11 @@ using System.Reflection;
 using System.Web.Mvc;
 using UniversalReports.Sites.SimpleInjector;
 
-[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMVCInitializer), "Initialize")]
+[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMvcInitializer), "Initialize")]
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    public static class SimpleInjectorMVCInitializer
+    public static class SimpleInjectorMvcInitializer
     {
         /// <summary>Initialize the container and register it as MVC3 Dependency Resolver.</summary>
         public static void Initialize()

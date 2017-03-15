@@ -111,7 +111,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 SportType = 181
             };
 
-            var fishingWorldBetTypeCriteria = new FishingWorld.BetType.Criteria { };
+            var fishingWorldBetTypeCriteria = new FishingWorld.BetType.Criteria();
             var fishingWorldSiteCriteria = new FishingWorld.Site.Criteria
             {
                 Site = "Deposit",

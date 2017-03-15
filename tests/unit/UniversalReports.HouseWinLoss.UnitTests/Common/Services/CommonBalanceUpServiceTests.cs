@@ -33,7 +33,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         public void QueryFromSource_Always_CallDynamicRepository()
         {
             // Arrange
-            var emptyBalanceUpRange = new BalanceUpRange();
             var dynamicRepository = Substitute.For<IDynamicRepository>();
             var cacheService = Substitute.For<CacheService>();
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository, cacheService);

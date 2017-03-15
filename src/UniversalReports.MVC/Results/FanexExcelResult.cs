@@ -33,9 +33,11 @@ namespace UniversalReports.MVC.Results
             using (var memoryStream = new MemoryStream())
             {
                 Workbook.Write(memoryStream);
-                var response = new HttpResponseMessage(HttpStatusCode.OK);
+                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(memoryStream.ToArray())
+                };
 
-                response.Content = new ByteArrayContent(memoryStream.ToArray());
                 response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {

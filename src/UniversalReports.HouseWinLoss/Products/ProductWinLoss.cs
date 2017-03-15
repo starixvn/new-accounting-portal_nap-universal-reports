@@ -13,15 +13,9 @@ namespace UniversalReports.HouseWinLoss.Products
 
         public SiteWinLossSummary GrandTotal { get; set; }
 
-        public bool IsEmpty
-        {
-            get
-            {
-                return GrandTotal.Credit.RealTurnover == 0
-                    && GrandTotal.Credit.VirtualTurnover == 0
-                    && GrandTotal.Deposit.RealTurnover == 0
-                    && GrandTotal.Deposit.VirtualTurnover == 0;
-            }
-        }
+        public bool IsEmpty => GrandTotal.Credit.RealTurnover == 0
+                               && GrandTotal.Credit.VirtualTurnover == 0
+                               && GrandTotal.Deposit.RealTurnover == 0
+                               && GrandTotal.Deposit.VirtualTurnover == 0;
     }
 }

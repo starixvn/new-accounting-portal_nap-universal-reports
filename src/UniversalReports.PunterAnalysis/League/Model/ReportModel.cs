@@ -4,7 +4,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
 {
     public class ReportModel
     {
-        public List<LeagueModel> Entities { get; set; } = new List<LeagueModel> { };
+        public List<LeagueModel> Entities { get; set; } = new List<LeagueModel>();
 
         public LeagueModel Total { get; set; } = new LeagueModel();
 

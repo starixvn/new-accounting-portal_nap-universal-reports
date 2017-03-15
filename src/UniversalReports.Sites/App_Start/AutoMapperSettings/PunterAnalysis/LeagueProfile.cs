@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using UniversalReports.PunterAnalysis.League.Model;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public class LeagueProfile : Profile
     {

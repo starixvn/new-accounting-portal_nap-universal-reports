@@ -45,7 +45,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
         {
             return new ReportModelBase<BetCountModel>
             {
-                Entities = new List<BetCountModel> { },
+                Entities = new List<BetCountModel>(),
                 Total = new BetCountModel()
             };
         }

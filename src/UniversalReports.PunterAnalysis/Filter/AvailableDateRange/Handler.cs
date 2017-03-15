@@ -1,7 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using MediatR;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 
 namespace UniversalReports.PunterAnalysis.Filter.AvailableDateRange
 {

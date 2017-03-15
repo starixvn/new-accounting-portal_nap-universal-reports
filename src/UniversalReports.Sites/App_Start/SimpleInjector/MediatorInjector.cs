@@ -4,7 +4,7 @@ using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PunterAnalysis.Core;
-using UniversalReports.Sites.MediatorInjector.PunterAnalysis;
+using UniversalReports.Sites.AutoMapperSettings.PunterAnalysis;
 
 namespace UniversalReports.Sites.SimpleInjector
 {

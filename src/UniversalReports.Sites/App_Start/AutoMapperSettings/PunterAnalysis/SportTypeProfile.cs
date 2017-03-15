@@ -2,7 +2,7 @@
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
-namespace UniversalReports.Sites.MediatorInjector.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
 {
     public class SportTypeProfile : Profile
     {
