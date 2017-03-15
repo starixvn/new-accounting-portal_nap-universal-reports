@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { OptionItem } from 'nap-components/src/model';
 import { SearchBy, PeriodType, Role, Order, OrderBy } from './filter.model';
+import { FilterService } from './filter.service';
 
 @Component({
     selector: 'nap-filter',
@@ -8,6 +10,9 @@ import { SearchBy, PeriodType, Role, Order, OrderBy } from './filter.model';
     styleUrls: [
         '../../../../components/src/style/filter.scss',
         './filter.component.scss'
+    ],
+    providers: [
+        FilterService
     ]
 })
 export class FilterComponent {
@@ -22,6 +27,18 @@ export class FilterComponent {
     orderOptions = this.getOrderOptions();
     orderBy = OrderBy.WinLoss;
     orderByOptions = this.getOrderByOptions();
+    minDate: NgbDateStruct = { year: 2015, month: 4, day: 1 };
+    maxDate: NgbDateStruct = { year: 2017, month: 9, day: 30 };
+
+    constructor(
+        private service: FilterService
+    ) { }
+
+    ngOnInit() {
+        this.service.queryDataWarehouseDateRange().subscribe(model => {
+
+        });
+    }
 
     generate() {
         console.log(this.searchBy);

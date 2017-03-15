@@ -6,7 +6,7 @@
 </template>
 <div class="input-group">
     <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [showWeekNumbers]="true" [dayTemplate]="dt"
-        [(ngModel)]="date">
+        [(ngModel)]="date" (ngModelChange)="onModelChange()">
     <div class="input-group-addon" (click)="d.toggle()">
         <i class="fa fa-calendar" aria-hidden="true"></i>
     </div>

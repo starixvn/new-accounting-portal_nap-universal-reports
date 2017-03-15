@@ -1,0 +1,16 @@
+<div class="col-label">
+    <label class="col-form-label">Month</label>
+</div>
+<div class="col-value">
+    <div class="d-inline-block">
+        <select class="form-control" [(ngModel)]="month" (ngModelChange)="onMonthChange()">
+            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
+        </select>
+    </div>
+    <div class="float-right d-inline-block">
+        <select class="form-control" [(ngModel)]="year" (ngModelChange)="onYearChange()">
+            <option *ngFor="let option of years" [ngValue]="option">{{option}}</option>
+        </select>
+    </div>
+    <label class="float-right col-form-label">Year</label>
+</div>

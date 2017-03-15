@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from '../../components/http.service';
+import { HttpService } from '../components/http.service';
 
 export interface DataWarehouseDateRange {
     fromDate: string;
@@ -8,7 +8,7 @@ export interface DataWarehouseDateRange {
 }
 
 @Injectable()
-export class PeriodTypeService {
+export class FilterService {
     constructor(
         private httpService: HttpService
     ) { }

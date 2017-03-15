@@ -1,5 +1,5 @@
-import { Component, Renderer, Input } from '@angular/core';
-import { NgbDateStruct,NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Renderer, Input, Output, EventEmitter } from '@angular/core';
+import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { WeekDateParserFormatter } from './week-date-parser-formatter';
 
 @Component({
@@ -17,6 +17,7 @@ export class WeekPickerComponent {
     @Input() minDate: NgbDateStruct;
     @Input() maxDate: NgbDateStruct;
     @Input() date: NgbDateStruct;
+    @Output() dateChange = new EventEmitter<NgbDateStruct>();
     private currentWeekElement: HTMLElement;
 
     constructor(
@@ -42,6 +43,10 @@ export class WeekPickerComponent {
                 this.renderer.setElementClass(this.currentWeekElement, 'week-hover', false);
             }
         }
+    }
+
+    onModelChange() {
+        this.dateChange.emit(this.date);
     }
 
     private getWeekElement(eventTarget: EventTarget): HTMLElement {

@@ -1,18 +1,22 @@
-.row {
-    .col-label {
-        float: left;
-        text-align: right;
-        font-weight: bold;
-        padding-right: .5rem;
-    }
+:host /deep/ .col-form-label {
+    font-weight: bold;
+    padding-right: .5rem;
+}
+
+:host /deep/ .col-label {
+    float: left;
+    text-align: right;
+}
+
+:host /deep/ .row {
     .col-x1 {
         float: left;
         width: 330px;
         $margin: 100px;
-        > .col-label {
+        .col-label {
             width: $margin;
         }
-        > .col-value {
+        .col-value {
             margin-left: $margin;
         }
     }
@@ -20,10 +24,10 @@
         float: left;
         width: 330px;
         $margin: 120px;
-        > .col-label {
+        .col-label {
             width: $margin;
         }
-        > .col-value {
+        .col-value {
             margin-left: $margin;
         }
     }
@@ -31,10 +35,10 @@
         float: left;
         width: 290px;
         $margin: 80px;
-        > .col-label {
+        .col-label {
             width: $margin;
         }
-        > .col-value {
+        .col-value {
             margin-left: $margin;
         }
     }

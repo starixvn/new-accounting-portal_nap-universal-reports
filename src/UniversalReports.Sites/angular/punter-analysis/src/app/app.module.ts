@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpService } from './components/http.service';
 import { HttpService as HttpService2 } from 'nap-components/src/http.service';
@@ -15,27 +14,20 @@ import { SpinnerService } from 'nap-components/src/spinner';
 
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
-import { PeriodTypeComponent } from './filter/period-type/period-type.component';
-import { DatePickerToggle } from './filter/period-type/date-picker-toggle/date-picker-toggle.directive';
-import { DatePickerComponent } from './filter/period-type/date-picker/date-picker.component';
-import { WeekPickerComponent } from './filter/period-type/week-picker/week-picker.component';
+import { PeriodTypeModule } from './filter/period-type/period-type.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilterComponent,
-    PeriodTypeComponent,
-    DatePickerComponent,
-    WeekPickerComponent,
-    DatePickerToggle
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     CommonModule,
-    NgbModule.forRoot(),
-    HeaderModule.forRoot()
+    HeaderModule.forRoot(),
+    PeriodTypeModule
   ],
   providers: [
     HttpService,

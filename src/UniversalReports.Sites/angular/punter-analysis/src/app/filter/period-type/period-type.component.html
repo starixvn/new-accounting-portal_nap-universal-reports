@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-x1">
         <div class="col-label">
-            Period type
+            <label class="col-form-label">Period type</label>
         </div>
         <div class="col-value">
             <select class="form-control" [(ngModel)]="periodType">
@@ -13,109 +13,55 @@
         <div *ngSwitchCase="PeriodType.Daily">
             <div class="col-x2">
                 <div class="col-label">
-                    From
+                    <label class="col-form-label">From</label>
                 </div>
                 <div class="col-value">
-                    <nap-date-picker [(date)]="dailyFromDate" [maxDate]="dailyToDate"></nap-date-picker>
+                    <nap-date-picker [(date)]="dailyFromDate" [minDate]="minDate" [maxDate]="dailyToDate" (dateChange)="onDailyDateChange()"></nap-date-picker>
                 </div>
             </div>
             <div class="col-x3">
                 <div class="col-label">
-                    To
+                    <label class="col-form-label">To</label>
                 </div>
                 <div class="col-value">
-                    <nap-date-picker [(date)]="dailyToDate" [minDate]="dailyFromDate"></nap-date-picker>
+                    <nap-date-picker [(date)]="dailyToDate" [minDate]="dailyFromDate" [maxDate]="maxDate" (dateChange)="onDailyDateChange()"></nap-date-picker>
                 </div>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.Weekly">
             <div class="col-x2">
                 <div class="col-label">
-                    From
+                    <label class="col-form-label">From</label>
                 </div>
                 <div class="col-value">
-                    <nap-week-picker [(date)]="weeklyFromDate" [maxDate]="weeklyToDate"></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyFromDate" [minDate]="minDate" [maxDate]="weeklyToDate" (dateChange)="onWeeklyDateChange()"></nap-week-picker>
                 </div>
             </div>
             <div class="col-x3">
                 <div class="col-label">
-                    To
+                    <label class="col-form-label">To</label>
                 </div>
                 <div class="col-value">
-                    <nap-week-picker [(date)]="weeklyToDate" [minDate]="weeklyFromDate"></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyToDate" [minDate]="weeklyFromDate" [maxDate]="maxDate" (dateChange)="onWeeklyDateChange()"></nap-week-picker>
                 </div>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.Monthly">
             <div class="col-x2">
-                <div class="col-label">
-                    Month
-                </div>
-                <div class="col-value">
-                    <div class="d-inline-block">
-                        <select class="form-control" [(ngModel)]="month">
-                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <div class="float-right d-inline-block">
-                        <select class="form-control" [(ngModel)]="year">
-                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <label class="float-right col-label">Year</label>
-                </div>
+                <nap-month-picker [(date)]="monthlyDate" [minDate]="minDate" [maxDate]="maxDate" (dateChange)="onMonthlyDateChange()"></nap-month-picker>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.Annually">
             <div class="col-x2">
-                <div class="col-label">
-                    Year
-                </div>
-                <div class="col-value">
-                    <div class="d-inline-block">
-                        <select class="form-control" [(ngModel)]="year">
-                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                </div>
+                <nap-year-picker [(date)]="annuallyDate" [minDate]="minDate" [maxDate]="maxDate" (dateChange)="onAnnuallyDateChange()"></nap-year-picker>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.MonthRange">
             <div class="col-x2">
-                <div class="col-label">
-                    From
-                </div>
-                <div class="col-value">
-                    <div class="d-inline-block">
-                        <select class="form-control" [(ngModel)]="month">
-                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <div class="float-right d-inline-block">
-                        <select class="form-control" [(ngModel)]="year">
-                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <label class="float-right col-label">Year</label>
-                </div>
+                <nap-month-picker [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate" (dateChange)="onMonthRangeDateChange()"></nap-month-picker>
             </div>
             <div class="col-x3">
-                <div class="col-label">
-                    To
-                </div>
-                <div class="col-value">
-                    <div class="d-inline-block">
-                        <select class="form-control" [(ngModel)]="month">
-                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <div class="float-right d-inline-block">
-                        <select class="form-control" [(ngModel)]="year">
-                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
-                        </select>
-                    </div>
-                    <label class="float-right col-label">Year</label>
-                </div>
+                <nap-month-picker [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate" (dateChange)="onMonthRangeDateChange()"></nap-month-picker>
             </div>
         </div>
     </div>
