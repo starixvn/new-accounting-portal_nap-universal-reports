@@ -6,7 +6,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
     {
         public string ListUserName { get; set; }
 
-        public override string GetSettingKey() => "Punter-AssociatedAccount";
+        public override string GetSettingKey() => "Punter-RoleQuery";
 
         public override bool IsValid() => true;
     }

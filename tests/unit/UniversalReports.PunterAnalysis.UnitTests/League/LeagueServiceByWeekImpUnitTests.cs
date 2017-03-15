@@ -18,7 +18,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public async Task Query_RepositoryReturnsEmptyLeagueRawModelList_ReturnsEmptyReportModel()
         {
             // Arrange
-
             var emptyReportModel = new ReportModel();
             var emptyLeagueRawModelList = new List<LeagueRawModel>();
 

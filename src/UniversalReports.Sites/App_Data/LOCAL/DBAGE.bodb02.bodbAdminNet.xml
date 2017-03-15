@@ -11,4 +11,7 @@
     </Setting>
     <Setting Key="NG2-Statistics-UserSearchSuggestion" SpName="Acc_CustomerSelUserSearch" DbName="DBAGE.bodb02.bodbAdminNet" />
   </Function>
+  <Function Name="Punter Analysis">
+    <Setting Key="Punter-UserNameSuggestion" SpName="Acc_CustomerSelUserSearch" DbName="DBAGE.bodb02.bodbAdminNet" />
+  </Function>
 </Functions>

@@ -4,7 +4,6 @@ using MediatR;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-
 namespace UniversalReports.PunterAnalysis.Filter.League
 {
     public class LeagueHandler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<Entity>>

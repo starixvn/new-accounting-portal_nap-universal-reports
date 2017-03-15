@@ -1,18 +1,10 @@
-﻿using AutoMapper;
-using NSubstitute;
-using NUnit.Framework;
-using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.BetType;
-using UniversalReports.PunterAnalysis.BetType.Model;
-using UniversalReports.PunterAnalysis.Core;
-
-namespace UniversalReports.PunterAnalysis.UnitTests.BetType
+﻿namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 {
     public class HandlerExcelUnitTests
     {
-        //[Test]
-        //public async Task Handle_WithAnyParametters_ExecuteCreatePackage()
-        //{
+        // [Test]
+        // public async Task Handle_WithAnyParametters_ExecuteCreatePackage()
+        // {
         //    // Arrange
         //    var mapper = Substitute.For<IMapper>();
         //    var punterAnalysisService = Substitute.For<PunterAnalysisService>();
@@ -25,11 +17,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 
         //    // Assert
         //    await excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSettings>());
-        //}
+        // }
 
-        //[Test]
-        //public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
-        //{
+        // [Test]
+        // public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
+        // {
         //    // Arrange
         //    var emptyExcelViewModel = new ExcelViewModel();
         //    var settings = new ExcelSettings
@@ -55,6 +47,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 
         //    // Assert
         //    await excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
-        //}
+        // }
     }
 }

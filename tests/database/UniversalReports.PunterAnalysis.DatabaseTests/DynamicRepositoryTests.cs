@@ -20,6 +20,7 @@ using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using SportTypeCriteria = UniversalReports.PunterAnalysis.SportType.Model.Criteria;
 using SummaryCriteria = UniversalReports.PunterAnalysis.Summary.Model.Criteria;
+using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
 namespace UniversalReports.PunterAnalysis.DatabaseTests
 {
@@ -224,7 +225,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var repository = new DynamicRepository();
             var site = await repository.GetAsync<string>(criteria);
 
-
             // Assert
             Assert.That(site, Is.Not.Null.And.Not.Empty);
         }
@@ -297,6 +297,20 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Assert
             Assert.That(range.MinDate, Is.GreaterThan(DateTime.MinValue));
             Assert.That(range.MaxDate, Is.GreaterThan(DateTime.MinValue));
+        }
+
+        [Test]
+        public async Task PunterUsernameSuggestionSp_Test_ReturnsNonEmptyListOfUsername()
+        {
+            // Arrange
+            var criteria = new UsernameSuggestionFilter.QueryCriteria { CustId = 0, Username = "a" };
+
+            // Act
+            var repository = new DynamicRepository();
+            var usernames = await repository.FetchAsync<string>(criteria);
+
+            // Assert
+            Assert.That(usernames, Has.Count.GreaterThan(0));
         }
     }
 }

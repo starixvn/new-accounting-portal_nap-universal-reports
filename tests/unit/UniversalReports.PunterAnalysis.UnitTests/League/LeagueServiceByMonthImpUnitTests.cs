@@ -17,7 +17,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public async Task Query_RepositoryReturnsEmptyLeagueRawModelList_ReturnsEmptyReportModel()
         {
             // Arrange
-
             var emptyReportModel = new ReportModel();
             var emptyLeagueRawModelList = new List<LeagueRawModel>();
 
@@ -31,7 +30,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             // Assert
             Assert.That(reportModel, IsDeeplyEqual.To(emptyReportModel));
         }
-
 
         [Test]
         public async Task Query_RepositoryReturnsLeagueRawModelForOneYearOneMonth_ReturnsReportModelWithOneYearOneMonthAndGrandTotal()
@@ -112,7 +110,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             // Assert
             Assert.That(groupNames, IsDeeplyEqual.To(emptyGroupNames));
         }
-
 
         [Test]
         public void GetGroupNames_TwoYearsTwoMonths_ReturnCorrectGroupNames()

@@ -1,5 +1,4 @@
-﻿
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -13,6 +12,7 @@ using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.Available
 using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
+using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
 namespace UniversalReports.PunterAnalysis.Tests.League
 {
@@ -102,6 +102,26 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             // Assert
             Assert.That(viewModelJson.MinDate, Is.GreaterThan(DateTime.MinValue));
             Assert.That(viewModelJson.MaxDate, Is.GreaterThan(DateTime.MinValue));
+        }
+
+        [Test]
+        public async Task UsernameSuggestion_RepositoryReturnsNonEmptyListOfUsername_ReturnsNonEmptyListOfUsername()
+        {
+            // Arrange
+            var nonEmptyListOfUsername = new List<string> { "Username 1", "Username 2" };
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<string>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUsername);
+
+            var simpleInjectorTest = new SimpleInjectorTest(repository);
+
+            // Act
+            var httpParameterJson = new UsernameSuggestionFilter.HttpParameterJson();
+            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            var httpActionResult = await controller.UsernameSuggestion(httpParameterJson);
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<string>>).Content;
+
+            // Assert
+            Assert.That(viewModelJson, Has.Count.GreaterThan(0));
         }
     }
 }

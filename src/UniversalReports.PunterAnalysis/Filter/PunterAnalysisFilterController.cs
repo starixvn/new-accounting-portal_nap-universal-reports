@@ -5,7 +5,7 @@ using HttpParameterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.Av
 using HttpParameterAvailableDataRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.HttpParameterJson;
 using HttpParameterLeague = UniversalReports.PunterAnalysis.Filter.League.HttpParameterJson;
 using HttpParameterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType.HttpParameterJson;
-
+using HttpParameterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion.HttpParameterJson;
 
 namespace UniversalReports.PunterAnalysis.Filter
 {
@@ -42,6 +42,13 @@ namespace UniversalReports.PunterAnalysis.Filter
 
         [Route("available-date-range")]
         public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
+        {
+            var viewModel = await mediator.Send(parameter);
+            return Json(viewModel);
+        }
+
+        [Route("username-suggestion")]
+        public async Task<IHttpActionResult> UsernameSuggestion(HttpParameterUsernameSuggestion parameter)
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);

@@ -16,7 +16,6 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
             container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
 
-
             return container;
         }
     }

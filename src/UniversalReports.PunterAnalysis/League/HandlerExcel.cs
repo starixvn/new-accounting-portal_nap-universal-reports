@@ -3,8 +3,8 @@ using MediatR;
 using OfficeOpenXml;
 using System;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {

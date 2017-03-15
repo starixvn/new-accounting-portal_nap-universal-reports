@@ -51,7 +51,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 
             var nonEmptyListOfUserDevice = new List<UserDevice>()
             {
-                new UserDevice { Account="User 1" }
+                new UserDevice { Account = "User 1" }
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
             fraudService.GetAssociatedUsers(Arg.Any<string>(), Arg.Any<string>()).Returns(nonEmptyListOfUserDevice);

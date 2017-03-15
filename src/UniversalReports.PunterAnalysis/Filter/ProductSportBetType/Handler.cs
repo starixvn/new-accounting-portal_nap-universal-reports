@@ -2,9 +2,8 @@
 using MediatR;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 
-namespace UniversalReports.PunterAnalysis.Filter
+namespace UniversalReports.PunterAnalysis.Filter.ProductSportBetType
 {
     public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<Entity>>
     {
@@ -20,7 +19,5 @@ namespace UniversalReports.PunterAnalysis.Filter
             var criteria = new QueryCriteria();
             return await repository.FetchAsync<Entity>(criteria);
         }
-
-
     }
 }

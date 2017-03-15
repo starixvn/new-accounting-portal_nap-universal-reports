@@ -46,6 +46,10 @@
       <HintPath>..\..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data">
       <HintPath>..\..\..\packages\Fanex.Data.2.0.3\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,10 @@
     </Reference>
     <Reference Include="Fanex.Excel">
       <HintPath>..\..\..\packages\Fanex.Excel.2.2.1.0\lib\net40\Fanex.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.NAP.Core, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.1.1.0.5\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -148,6 +156,7 @@
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerTests.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
+    <Compile Include="Mocks\CurrentSessionMock.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
