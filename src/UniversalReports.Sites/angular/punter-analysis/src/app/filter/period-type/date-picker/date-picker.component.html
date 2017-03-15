@@ -1,5 +1,5 @@
 <div class="input-group">
-    <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="model" (click)="d.toggle()">
+    <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxnDate" [(ngModel)]="date">
     <div class="input-group-addon" (click)="d.toggle()">
         <i class="fa fa-calendar" aria-hidden="true"></i>
     </div>

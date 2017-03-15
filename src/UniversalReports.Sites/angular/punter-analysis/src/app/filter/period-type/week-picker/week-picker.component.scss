@@ -3,6 +3,10 @@ input,
     cursor: pointer;
 }
 
+:host /deep/ .small {
+    font-size: 90%;
+}
+
 :host /deep/ .ngb-dp-day>div {
     text-align: center;
     width: 2rem;

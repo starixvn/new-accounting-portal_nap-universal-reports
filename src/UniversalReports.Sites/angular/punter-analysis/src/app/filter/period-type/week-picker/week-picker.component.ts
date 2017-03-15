@@ -1,11 +1,22 @@
-import { Component, Renderer } from '@angular/core';
+import { Component, Renderer, Input } from '@angular/core';
+import { NgbDateStruct,NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { WeekDateParserFormatter } from './week-date-parser-formatter';
 
 @Component({
     selector: 'nap-week-picker',
     templateUrl: './week-picker.component.html',
-    styleUrls: ['./week-picker.component.scss']
+    styleUrls: ['./week-picker.component.scss'],
+    providers: [
+        {
+            provide: NgbDateParserFormatter,
+            useFactory: () => new WeekDateParserFormatter('longDate')
+        }
+    ]
 })
 export class WeekPickerComponent {
+    @Input() minDate: NgbDateStruct;
+    @Input() maxDate: NgbDateStruct;
+    @Input() date: NgbDateStruct;
     private currentWeekElement: HTMLElement;
 
     constructor(

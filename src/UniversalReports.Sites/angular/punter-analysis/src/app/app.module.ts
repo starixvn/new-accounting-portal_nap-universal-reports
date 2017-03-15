@@ -5,17 +5,18 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpService } from '../../../components/src/http.service';
-import { LegacyService } from '../../../components/src/legacy.service';
-import { ExceptionService } from '../../../components/src/exception.service';
-import { HeaderComponent } from '../../../components/src/header/header.component';
-import { HeaderModule } from '../../../components/src/header/header.module';
-import { ToastService } from '../../../components/src/toast';
-import { SpinnerService } from '../../../components/src/spinner';
+import { HttpService } from './components/http.service';
+import { HttpService as HttpService2 } from 'nap-components/src/http.service';
+import { LegacyService } from 'nap-components/src/legacy.service';
+import { ExceptionService } from 'nap-components/src/exception.service';
+import { HeaderModule } from 'nap-components/src/header';
+import { ToastService } from 'nap-components/src/toast';
+import { SpinnerService } from 'nap-components/src/spinner';
 
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { PeriodTypeComponent } from './filter/period-type/period-type.component';
+import { DatePickerToggle } from './filter/period-type/date-picker-toggle/date-picker-toggle.directive';
 import { DatePickerComponent } from './filter/period-type/date-picker/date-picker.component';
 import { WeekPickerComponent } from './filter/period-type/week-picker/week-picker.component';
 
@@ -25,7 +26,8 @@ import { WeekPickerComponent } from './filter/period-type/week-picker/week-picke
     FilterComponent,
     PeriodTypeComponent,
     DatePickerComponent,
-    WeekPickerComponent
+    WeekPickerComponent,
+    DatePickerToggle
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { WeekPickerComponent } from './filter/period-type/week-picker/week-picke
   ],
   providers: [
     HttpService,
+    HttpService2,
     ExceptionService,
     LegacyService,
     ToastService,

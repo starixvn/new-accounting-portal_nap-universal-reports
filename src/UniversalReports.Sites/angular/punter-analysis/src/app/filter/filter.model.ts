@@ -4,11 +4,6 @@ export enum SearchBy {
     Performance
 }
 
-export interface OptionItem {
-    text: string;
-    value: any;
-}
-
 export enum PeriodType {
     Daily,
     Weekly,

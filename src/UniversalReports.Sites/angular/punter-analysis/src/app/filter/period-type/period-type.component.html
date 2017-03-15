@@ -16,7 +16,7 @@
                     From
                 </div>
                 <div class="col-value">
-                    <nap-date-picker></nap-date-picker>
+                    <nap-date-picker [(date)]="dailyFromDate" [maxDate]="dailyToDate"></nap-date-picker>
                 </div>
             </div>
             <div class="col-x3">
@@ -24,7 +24,7 @@
                     To
                 </div>
                 <div class="col-value">
-                    <nap-date-picker></nap-date-picker>
+                    <nap-date-picker [(date)]="dailyToDate" [minDate]="dailyFromDate"></nap-date-picker>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     From
                 </div>
                 <div class="col-value">
-                    <nap-week-picker></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyFromDate" [maxDate]="weeklyToDate"></nap-week-picker>
                 </div>
             </div>
             <div class="col-x3">
@@ -42,7 +42,7 @@
                     To
                 </div>
                 <div class="col-value">
-                    <nap-week-picker></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyToDate" [minDate]="weeklyFromDate"></nap-week-picker>
                 </div>
             </div>
         </div>
@@ -51,13 +51,19 @@
                 <div class="col-label">
                     Month
                 </div>
-                <div class="col-value"></div>
-            </div>
-            <div class="col-x3">
-                <div class="col-label">
-                    Year
+                <div class="col-value">
+                    <div class="d-inline-block">
+                        <select class="form-control" [(ngModel)]="month">
+                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <div class="float-right d-inline-block">
+                        <select class="form-control" [(ngModel)]="year">
+                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <label class="float-right col-label">Year</label>
                 </div>
-                <div class="col-value"></div>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.Annually">
@@ -65,7 +71,13 @@
                 <div class="col-label">
                     Year
                 </div>
-                <div class="col-value"></div>
+                <div class="col-value">
+                    <div class="d-inline-block">
+                        <select class="form-control" [(ngModel)]="year">
+                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <div *ngSwitchCase="PeriodType.MonthRange">
@@ -73,13 +85,37 @@
                 <div class="col-label">
                     From
                 </div>
-                <div class="col-value"></div>
+                <div class="col-value">
+                    <div class="d-inline-block">
+                        <select class="form-control" [(ngModel)]="month">
+                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <div class="float-right d-inline-block">
+                        <select class="form-control" [(ngModel)]="year">
+                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <label class="float-right col-label">Year</label>
+                </div>
             </div>
             <div class="col-x3">
                 <div class="col-label">
                     To
                 </div>
-                <div class="col-value"></div>
+                <div class="col-value">
+                    <div class="d-inline-block">
+                        <select class="form-control" [(ngModel)]="month">
+                            <option *ngFor="let option of monthOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <div class="float-right d-inline-block">
+                        <select class="form-control" [(ngModel)]="year">
+                            <option *ngFor="let option of yearOptions" [ngValue]="option.value">{{option.text}}</option>
+                        </select>
+                    </div>
+                    <label class="float-right col-label">Year</label>
+                </div>
             </div>
         </div>
     </div>

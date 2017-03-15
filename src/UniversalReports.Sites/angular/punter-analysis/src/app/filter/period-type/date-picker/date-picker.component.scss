@@ -2,3 +2,7 @@ input,
 .input-group-addon {
     cursor: pointer;
 }
+
+:host /deep/ .small {
+    font-size: 90%;
+}

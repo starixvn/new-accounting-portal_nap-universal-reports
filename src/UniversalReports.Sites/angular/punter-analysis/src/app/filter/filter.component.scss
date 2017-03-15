@@ -3,47 +3,39 @@
         float: left;
         text-align: right;
         font-weight: bold;
-        padding: 0.2rem 0.5rem;
+        padding-right: .5rem;
     }
     .col-x1 {
         float: left;
         width: 330px;
         $margin: 100px;
-        .col-label {
+        > .col-label {
             width: $margin;
         }
-        .col-value {
+        > .col-value {
             margin-left: $margin;
         }
     }
     .col-x2 {
         float: left;
-        width: 300px;
+        width: 330px;
         $margin: 120px;
-        .col-label {
+        > .col-label {
             width: $margin;
         }
-        .col-value {
+        > .col-value {
             margin-left: $margin;
         }
     }
     .col-x3 {
         float: left;
-        width: 320px;
+        width: 290px;
         $margin: 80px;
-        .col-label {
+        > .col-label {
             width: $margin;
         }
-        .col-value {
+        > .col-value {
             margin-left: $margin;
         }
-    }
-    select.order-by {
-        float: left;
-        width: 100px;
-        margin-right: 0.5rem;
-    }
-    select.order {
-        width: 120px;
     }
 }

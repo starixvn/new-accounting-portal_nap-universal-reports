@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SearchBy, OptionItem, PeriodType, Role, Order, OrderBy } from './filter.model';
+import { OptionItem } from 'nap-components/src/model';
+import { SearchBy, PeriodType, Role, Order, OrderBy } from './filter.model';
 
 @Component({
     selector: 'nap-filter',
