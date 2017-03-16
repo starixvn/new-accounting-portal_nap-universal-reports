@@ -15,6 +15,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
             container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
+            container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
 
             return container;
         }
