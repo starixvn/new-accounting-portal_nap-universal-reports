@@ -17,7 +17,8 @@ export class WeekDateParserFormatter extends NgbDateParserFormatter {
         }
         try {
             const weekNumber = this.getWeekNumber(date);
-            const dateString = this.datePipe.transform(Helper.convertDateStructToDate(date), this.dateFormatString);
+            const firstDayOfWeek = Helper.getFirstDayOfWeek(date);
+            const dateString = this.datePipe.transform(Helper.convertDateStructToDate(firstDayOfWeek), this.dateFormatString);
             return `${weekNumber} (${dateString})`;
         } catch (e) {
             return '';

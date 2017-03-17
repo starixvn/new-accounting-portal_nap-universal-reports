@@ -1,3 +1,4 @@
+import { RoleId, Order } from 'nap-components/src/model';
 import { NgbDateStruct } from './period-type/period-type.model';
 
 export enum SearchBy {
@@ -14,20 +15,10 @@ export enum PeriodType {
     MonthRange
 }
 
-export enum Role {
-    Agent,
-    Member
-}
-
 export enum OrderBy {
     WinLoss,
     Turnover,
     Margin
-}
-
-export enum Order {
-    Ascending,
-    Descending
 }
 
 export interface FilterModel {
@@ -38,6 +29,6 @@ export interface FilterModel {
     periodType: PeriodType,
     fromDate: NgbDateStruct,
     toDate: NgbDateStruct,
-    depth: Role,
+    depth: RoleId,
     userName: string
 }

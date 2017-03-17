@@ -26,7 +26,7 @@ export class HttpService {
             .finally(() => this.spinnerService.hide());
     }
 
-    post<T>(url: string, body: any): Observable<T> {
+    post<T>(url: string, body = {}): Observable<T> {
         this.toastService.deactivate();
         this.spinnerService.show();
         return this.http.post(url, body)

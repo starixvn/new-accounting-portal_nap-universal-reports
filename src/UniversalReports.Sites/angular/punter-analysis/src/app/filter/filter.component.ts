@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { OptionItem } from 'nap-components/src/model';
-import { SearchBy, PeriodType, Role, Order, OrderBy, FilterModel } from './filter.model';
+import { OptionItem, RoleId, Order } from 'nap-components/src/model';
+import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
 import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type/period-type.model';
+import { TypeaheadQuery } from '../components/dropdown-typeahead';
+import { Helper } from './period-type/helper';
 
 @Component({
     selector: 'nap-filter',
@@ -16,13 +18,14 @@ import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type/peri
     ]
 })
 export class FilterComponent {
-    Role = Role;
+    RoleId = RoleId;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
-    depth = Role.Agent;
+    depth = RoleId.Agent;
     depthOptions = this.getDepthOptions();
     topRows = 10;
     userName = '';
+    userNameTypeaheadQuery = this.buildUserNameTypeaheadQuery();
     order = Order.Descending;
     orderOptions = this.getOrderOptions();
     orderBy = OrderBy.WinLoss;
@@ -41,7 +44,8 @@ export class FilterComponent {
 
     ngOnInit() {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
-
+            this.minDate = Helper.convertDateToDateStruct(Helper.convertStringToDate(model.MinDate));
+            this.maxDate = Helper.convertDateToDateStruct(Helper.convertStringToDate(model.MaxDate));
         });
     }
 
@@ -50,7 +54,14 @@ export class FilterComponent {
     }
 
     generate() {
-        console.log(this.searchBy);
+        const model = this.createModel();
+        console.log(model);
+    }
+
+    private buildUserNameTypeaheadQuery(): TypeaheadQuery {
+        return new TypeaheadQuery(term => {
+            return this.service.queryUserNameSuggestion(term, this.depth);
+        });
     }
 
     private createModel(): FilterModel {
@@ -83,10 +94,10 @@ export class FilterComponent {
     private getDepthOptions(): OptionItem[] {
         return [{
             text: 'Agent',
-            value: Role.Agent
+            value: RoleId.Agent
         }, {
             text: 'Member',
-            value: Role.Member
+            value: RoleId.Member
         }];
     }
 

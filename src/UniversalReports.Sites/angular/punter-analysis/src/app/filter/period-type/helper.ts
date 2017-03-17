@@ -5,7 +5,8 @@ export let Helper = {
     getFirstDayOfWeek: getFirstDayOfWeek,
     getLastDayOfWeek: getLastDayOfWeek,
     convertDateStructToDate: convertDateStructToDate,
-    convertDateToDateStruct: convertDateToDateStruct
+    convertDateToDateStruct: convertDateToDateStruct,
+    convertStringToDate: convertStringToDate
 };
 
 function getWeekRangeOfDate(dateStruct: NgbDateStruct): WeekRange {
@@ -45,4 +46,8 @@ function convertDateStructToDate(dateStruct: NgbDateStruct): Date {
 
 function convertDateToDateStruct(date: Date): NgbDateStruct {
     return { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+}
+
+function convertStringToDate(dateString: string): Date {
+    return new Date(Date.parse(dateString));
 }

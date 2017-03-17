@@ -55,8 +55,7 @@
                 <label class="col-form-label">Account name<span class="text-danger">*</span></label>
             </div>
             <div class="col-value">
-                <input class="form-control text-placeholder" type="text" [(ngModel)]="userName" [placeholder]="depth === Role.Agent ? 'Agent name' : 'Member name'"
-                />
+                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'Member name'"></nap-dropdown-typeahead>
             </div>
         </div>
         <div class="col-x3">

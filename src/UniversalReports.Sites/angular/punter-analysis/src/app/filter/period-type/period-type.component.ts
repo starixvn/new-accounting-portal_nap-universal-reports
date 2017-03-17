@@ -62,21 +62,17 @@ export class PeriodTypeComponent implements OnChanges {
         });
     }
 
-    onWeeklyFromDateChange() {
+    onWeeklyDateChange() {
         this.periodTypeChange.emit({
             periodType: this.periodType,
-            fromDate: this.weeklyFromDate,
+            fromDate: Helper.getFirstDayOfWeek(this.weeklyFromDate),
             toDate: this.weeklyToDate
         });
     }
 
     onWeeklyToDateChange() {
         this.weeklyMaxFromDate = this.getWeeklyMaxFromDate();
-        this.periodTypeChange.emit({
-            periodType: this.periodType,
-            fromDate: this.weeklyFromDate,
-            toDate: this.weeklyToDate
-        });
+        this.onWeeklyDateChange();
     }
 
     onMonthlyDateChange() {
