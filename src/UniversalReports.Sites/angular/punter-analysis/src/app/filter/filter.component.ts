@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { OptionItem } from 'nap-components/src/model';
-import { SearchBy, PeriodType, Role, Order, OrderBy } from './filter.model';
+import { SearchBy, PeriodType, Role, Order, OrderBy, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
+import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type/period-type.model';
 
 @Component({
     selector: 'nap-filter',
@@ -27,12 +27,17 @@ export class FilterComponent {
     orderOptions = this.getOrderOptions();
     orderBy = OrderBy.WinLoss;
     orderByOptions = this.getOrderByOptions();
-    minDate: NgbDateStruct = { year: 2015, month: 4, day: 1 };
-    maxDate: NgbDateStruct = { year: 2017, month: 9, day: 30 };
+    minDate: NgbDateStruct;
+    maxDate: NgbDateStruct;
+    private periodTypeEventModel: PeriodTypeEventModel;
 
     constructor(
         private service: FilterService
-    ) { }
+    ) {
+        const todayNgbDate = NgbDate.fromToday();
+        this.minDate = { year: todayNgbDate.year - 1, month: todayNgbDate.month, day: todayNgbDate.day };
+        this.maxDate = todayNgbDate.toDateStruct();
+    }
 
     ngOnInit() {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
@@ -40,8 +45,26 @@ export class FilterComponent {
         });
     }
 
+    onPeriodTypeChange(model: PeriodTypeEventModel) {
+        this.periodTypeEventModel = model;
+    }
+
     generate() {
         console.log(this.searchBy);
+    }
+
+    private createModel(): FilterModel {
+        return {
+            searchBy: this.searchBy,
+            topRows: this.topRows,
+            orderBy: this.orderBy,
+            order: this.order,
+            periodType: this.periodTypeEventModel.periodType,
+            fromDate: this.periodTypeEventModel.fromDate,
+            toDate: this.periodTypeEventModel.toDate,
+            depth: this.depth,
+            userName: this.userName
+        }
     }
 
     private getSearchByOptions(): OptionItem[] {

@@ -9,6 +9,7 @@ import { HttpService as HttpService2 } from 'nap-components/src/http.service';
 import { LegacyService } from 'nap-components/src/legacy.service';
 import { ExceptionService } from 'nap-components/src/exception.service';
 import { HeaderModule } from 'nap-components/src/header';
+import { DropdownSelectModule } from 'nap-components/src/dropdown-select';
 import { ToastService } from 'nap-components/src/toast';
 import { SpinnerService } from 'nap-components/src/spinner';
 
@@ -27,6 +28,7 @@ import { PeriodTypeModule } from './filter/period-type/period-type.module';
     HttpModule,
     CommonModule,
     HeaderModule.forRoot(),
+    DropdownSelectModule.forRoot(),
     PeriodTypeModule
   ],
   providers: [

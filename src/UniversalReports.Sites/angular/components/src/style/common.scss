@@ -1,0 +1,28 @@
+body {
+    padding-top: 2.4rem;
+}
+
+select,
+button {
+    cursor: pointer;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: $font-family-base;
+}
+
+input.text-placeholder {
+    &::-webkit-input-placeholder {
+        font-style: italic;
+    }
+    &::-moz-placeholder {
+        font-style: italic;
+    }
+    &:-ms-input-placeholder {
+        font-style: italic;
+    }
+}

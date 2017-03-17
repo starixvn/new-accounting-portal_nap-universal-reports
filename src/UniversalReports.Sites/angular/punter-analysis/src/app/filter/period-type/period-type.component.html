@@ -5,7 +5,7 @@
         </div>
         <div class="col-value">
             <select class="form-control" [(ngModel)]="periodType">
-            <option *ngFor="let option of periodTypeOptions" [value]="option.value">{{option.text}}</option>
+            <option *ngFor="let option of periodTypeOptions" [ngValue]="option.value">{{option.text}}</option>
         </select>
         </div>
     </div>
@@ -34,7 +34,7 @@
                     <label class="col-form-label">From</label>
                 </div>
                 <div class="col-value">
-                    <nap-week-picker [(date)]="weeklyFromDate" [minDate]="minDate" [maxDate]="weeklyToDate" (dateChange)="onWeeklyDateChange()"></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyFromDate" [minDate]="minDate" [maxDate]="weeklyMaxFromDate" (dateChange)="onWeeklyFromDateChange()"></nap-week-picker>
                 </div>
             </div>
             <div class="col-x3">
@@ -42,7 +42,7 @@
                     <label class="col-form-label">To</label>
                 </div>
                 <div class="col-value">
-                    <nap-week-picker [(date)]="weeklyToDate" [minDate]="weeklyFromDate" [maxDate]="maxDate" (dateChange)="onWeeklyDateChange()"></nap-week-picker>
+                    <nap-week-picker [(date)]="weeklyToDate" [minDate]="weeklyFromDate" [maxDate]="maxDate" (dateChange)="onWeeklyToDateChange()"></nap-week-picker>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct } from '../period-type.model';
 import { DateParserFormatter } from './date-parser-formatter';
 
 @Component({
@@ -14,8 +14,7 @@ import { DateParserFormatter } from './date-parser-formatter';
         }
     ]
 })
-export class DatePickerComponent implements OnInit {
-    private datePipe = new DatePipe('en-US');
+export class DatePickerComponent {
     @Input() minDate: NgbDateStruct;
     @Input() maxDate: NgbDateStruct;
     @Input() date: NgbDateStruct;
@@ -24,9 +23,6 @@ export class DatePickerComponent implements OnInit {
     constructor(
         private ngbDateParserFormatter: NgbDateParserFormatter
     ) { }
-
-    ngOnInit() {
-    }
 
     onModelChange() {
         this.dateChange.emit(this.date);

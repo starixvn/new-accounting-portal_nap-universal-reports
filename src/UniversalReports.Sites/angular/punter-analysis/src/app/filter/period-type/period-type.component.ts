@@ -1,12 +1,10 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgbDatepickerConfig, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import * as _ from 'lodash';
 import { OptionItem } from 'nap-components/src/model';
 import { PeriodType } from '../filter.model';
-
-interface DateRange {
-    fromDate: NgbDateStruct,
-    toDate: NgbDateStruct
-}
+import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type.model';
+import { Helper } from './helper';
 
 @Component({
     selector: 'nap-period-type',
@@ -16,10 +14,10 @@ interface DateRange {
         'period-type.component.scss'
     ]
 })
-export class PeriodTypeComponent implements OnInit {
+export class PeriodTypeComponent implements OnChanges {
     @Input() minDate: NgbDateStruct;
     @Input() maxDate: NgbDateStruct;
-    @Output() dateRangeChange = new EventEmitter<DateRange>();
+    @Output() periodTypeChange = new EventEmitter<PeriodTypeEventModel>();
     periodType = PeriodType.Daily;
     PeriodType = PeriodType;
     periodTypeOptions = this.getPeriodTypeOptions();
@@ -27,6 +25,7 @@ export class PeriodTypeComponent implements OnInit {
     dailyFromDate: NgbDateStruct;
     dailyToDate: NgbDateStruct;
     weeklyFromDate: NgbDateStruct;
+    weeklyMaxFromDate: NgbDateStruct;
     weeklyToDate: NgbDateStruct;
     monthlyDate: NgbDateStruct;
     annuallyDate: NgbDateStruct;
@@ -34,43 +33,104 @@ export class PeriodTypeComponent implements OnInit {
     monthRangeToDate: NgbDateStruct;
 
     constructor() {
-        const date = this.getCurrentDate();
-        this.dailyFromDate = date;
-        this.dailyToDate = date;
-        this.weeklyFromDate = date;
-        this.weeklyToDate = date;
-        this.monthlyDate = this.getCurrentDate();
-        this.annuallyDate = this.getCurrentDate();
-        this.monthRangeFromDate = date;
-        this.monthRangeToDate = date;
+        const todayNgbDate = NgbDate.fromToday();
+        this.initDefaultDate(todayNgbDate.toDateStruct());
     }
 
-    ngOnInit() {
-        console.log('test');
+    ngOnChanges(changes: SimpleChanges) {
+        const maxDateChange = changes['maxDate'];
+        if (maxDateChange) {
+            const maxDateStruct: NgbDateStruct = maxDateChange.currentValue;
+            const maxDate = NgbDate.from(maxDateStruct);
+            const todayDate = NgbDate.fromToday();
+            if (maxDate.before(todayDate)) {
+                this.initDefaultDate(maxDateStruct);
+            }
+        }
+
+        const minDateChange = changes['minDate'];
+        if (minDateChange) {
+            this.weeklyMaxFromDate = this.getWeeklyMaxFromDate();
+        }
     }
 
     onDailyDateChange() {
-
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.dailyFromDate,
+            toDate: this.dailyToDate
+        });
     }
 
-    onWeeklyDateChange() {
+    onWeeklyFromDateChange() {
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.weeklyFromDate,
+            toDate: this.weeklyToDate
+        });
+    }
 
+    onWeeklyToDateChange() {
+        this.weeklyMaxFromDate = this.getWeeklyMaxFromDate();
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.weeklyFromDate,
+            toDate: this.weeklyToDate
+        });
     }
 
     onMonthlyDateChange() {
-
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.monthlyDate,
+            toDate: this.monthlyDate
+        });
     }
 
     onAnnuallyDateChange() {
-
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.annuallyDate,
+            toDate: this.annuallyDate
+        });
     }
 
     onMonthRangeDateChange() {
-
+        this.periodTypeChange.emit({
+            periodType: this.periodType,
+            fromDate: this.monthRangeFromDate,
+            toDate: this.monthRangeToDate
+        });
     }
 
-    private getCurrentDate(): NgbDateStruct {
-        return { year: 2017, month: 3, day: 1 };
+    private initDefaultDate(date: NgbDateStruct) {
+        this.dailyFromDate = _.clone(date);
+        this.dailyToDate = _.clone(date);
+        this.weeklyFromDate = _.clone(date);
+        this.weeklyToDate = _.clone(date);
+        this.monthlyDate = _.clone(date);
+        this.annuallyDate = _.clone(date);
+        this.monthRangeFromDate = _.clone(date);
+        this.monthRangeToDate = _.clone(date);
+    }
+
+    private getWeeklyMaxFromDate(): NgbDateStruct {
+        if (this.weeklyToDate) {
+            const lastDayOfWeek = Helper.getLastDayOfWeek(this.weeklyToDate);
+            if (this.maxDate) {
+                const maxNgbDate = NgbDate.fromDateStruct(this.maxDate);
+                const lastNgDayOfWeek = NgbDate.fromDateStruct(lastDayOfWeek);
+                if (maxNgbDate.after(lastNgDayOfWeek)) {
+                    return lastNgDayOfWeek;
+                } else {
+                    return this.maxDate;
+                }
+            } else {
+                return lastDayOfWeek;
+            }
+        }
+
+        return this.maxDate;
     }
 
     private getPeriodTypeOptions(): OptionItem[] {

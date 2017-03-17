@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <nap-period-type [minDate]="minDate" [maxDate]="maxDate"></nap-period-type>
+    <nap-period-type [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
     <div class="row">
         <div class="col-x1">
             <div class="col-label">

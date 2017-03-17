@@ -1,3 +1,5 @@
+@import "../../../../../../components/src/style/mixins";
+
 input,
 .input-group-addon {
     cursor: pointer;
@@ -15,8 +17,15 @@ input,
     border-radius: 0.25rem;
 }
 
-:host /deep/ .ngb-dp-week.week-hover>.ngb-dp-day>div {
-    color: #292b2c;
-    background-color: #e6e6e6;
-    border-color: #adadad;
+:host /deep/ .ngb-dp-day .day-active.btn-secondary {
+    background: $brand-primary !important;
+    color: #fff !important;
+}
+
+:host /deep/ .ngb-dp-week.week-hover>.ngb-dp-day {
+    >.btn-secondary {
+        color: #292b2c;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }
 }

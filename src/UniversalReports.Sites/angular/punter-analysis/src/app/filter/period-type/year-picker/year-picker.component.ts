@@ -1,6 +1,6 @@
-import { Component, Input, Output, OnChanges, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnChanges, EventEmitter, SimpleChanges } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct } from '../period-type.model';
 
 @Component({
     selector: 'nap-year-picker',
@@ -14,16 +14,26 @@ export class YearPickerComponent implements OnChanges {
     year: number;
     years: number[];
 
-    ngOnChanges() {
-        this.buildModel();
+    ngOnChanges(changes: SimpleChanges) {
+        const dateChange = changes['date'];
+        if (dateChange) {
+            this.date.day = 1;
+            this.date.month = 1;
+        }
+
+        const maxDateChange = changes['maxDate'];
+        const minDateChange = changes['minDate'];
+        if (maxDateChange || minDateChange || dateChange) {
+            this.generateYears();
+        }
     }
 
     onYearChange() {
-        this.date.year = this.year;
+        this.date = { year: this.year, month: this.date.month, day: this.date.day };
         this.dateChange.emit(this.date);
     }
 
-    private buildModel() {
+    private generateYears() {
         this.year = this.date.year;
         this.years = [];
         const fromYear = this.minDate.year;

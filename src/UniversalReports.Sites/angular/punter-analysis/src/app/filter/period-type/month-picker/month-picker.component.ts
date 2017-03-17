@@ -1,8 +1,8 @@
-import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import { OptionItem } from 'nap-components/src/model';
+import { NgbDateStruct } from '../period-type.model';
 
 @Component({
     selector: 'nap-month-picker',
@@ -14,41 +14,51 @@ export class MonthPickerComponent implements OnChanges {
     @Input() date: NgbDateStruct;
     @Output() dateChange = new EventEmitter<NgbDateStruct>();
     month: number;
-    monthOptions: OptionItem[];
+    months: number[];
     year: number;
     years: number[];
 
-    ngOnChanges() {
-        this.buildModel();
+    ngOnChanges(changes: SimpleChanges) {
+        const dateChange = changes['date'];
+        if (dateChange) {
+            this.date.day = 1;
+        }
+
+        const maxDateChange = changes['maxDate'];
+        const minDateChange = changes['minDate'];
+        if (maxDateChange || minDateChange || dateChange) {
+            this.generateYears();
+            this.generateMonths();
+        }
     }
 
-    onMonthChange() {
-        this.date.month = this.month;
+    onMonthChange(month: string) {
+        this.month = parseInt(month);
+        this.date = { year: this.date.year, month: this.month, day: this.date.day };
         this.dateChange.emit(this.date);
     }
 
-    onYearChange() {
-        this.date.year = this.year;
+    onYearChange(year: string) {
+        this.year = parseInt(year);
+        let month = this.date.month;
         if (this.year === this.minDate.year) {
-            this.date.month = Math.max(this.minDate.month, this.month);
+            month = Math.max(this.minDate.month, this.month);
         }
         if (this.year === this.maxDate.year) {
-            this.date.month = Math.min(this.maxDate.month, this.month);
+            month = Math.min(this.maxDate.month, this.month);
         }
-        if (this.month !== this.date.month) {
-            this.buildMonths();
-        }
+        this.date = { year: this.year, month: month, day: this.date.day };
         this.dateChange.emit(this.date);
     }
 
-    private buildModel() {
-        this.buildMonths();
-        this.buildYears();
+    getMonthName(month: number) {
+        const monthFullNames = moment.months();
+        return monthFullNames[month - 1];
     }
 
-    private buildMonths() {
+    private generateMonths() {
         this.month = this.date.month;
-        this.monthOptions = [];
+        this.months = [];
         let fromMonth = 1;
         let toMonth = 12;
         if (this.date.year === this.minDate.year) {
@@ -59,14 +69,11 @@ export class MonthPickerComponent implements OnChanges {
         }
         const monthFullNames = moment.months();
         for (let month = fromMonth; month <= toMonth; month++) {
-            this.monthOptions.push({
-                text: monthFullNames[month - 1],
-                value: month
-            });
+            this.months.push(month);
         }
     }
 
-    private buildYears() {
+    private generateYears() {
         this.year = this.date.year;
         this.years = [];
         const fromYear = this.minDate.year;

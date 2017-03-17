@@ -1,3 +1,5 @@
+import { NgbDateStruct } from './period-type/period-type.model';
+
 export enum SearchBy {
     User,
     League,
@@ -26,4 +28,16 @@ export enum OrderBy {
 export enum Order {
     Ascending,
     Descending
+}
+
+export interface FilterModel {
+    searchBy: SearchBy,
+    topRows: number,
+    orderBy: OrderBy,
+    order: Order,
+    periodType: PeriodType,
+    fromDate: NgbDateStruct,
+    toDate: NgbDateStruct,
+    depth: Role,
+    userName: string
 }
