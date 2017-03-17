@@ -36,10 +36,14 @@ export class WeekPickerComponent {
                 const minNgbDate = NgbDate.fromDateStruct(this.minDate);
                 const fromNgbDate = NgbDate.fromDateStruct(this.weekRange.fromDate);
                 if (minNgbDate.after(fromNgbDate)) {
-                    day = minNgbDate.day;
+                    this.updateDate(this.minDate);
+                } else {
+                    this.updateDate(this.weekRange.fromDate);
                 }
             }
-            this.date.day = day;
+            else {
+                this.updateDate(this.weekRange.fromDate);
+            }
         }
     }
 
@@ -90,6 +94,15 @@ export class WeekPickerComponent {
         const lastNgbDateOfWeek = NgbDate.fromDateStruct(lastDayOfWeek);
         return (ngbDate.equals(firstNgbDateOfWeek) || ngbDate.after(firstNgbDateOfWeek)) &&
             (ngbDate.equals(lastNgbDateOfWeek) || ngbDate.before(lastNgbDateOfWeek));
+    }
+
+    private updateDate(date: NgbDateStruct) {
+        const ngbDate = NgbDate.fromDateStruct(date);
+        const currentNgbDate = NgbDate.fromDateStruct(this.date);
+        if (!ngbDate.equals(currentNgbDate)) {
+            this.date = date;
+            this.dateChange.emit(date);
+        }
     }
 
     private getWeekElement(eventTarget: EventTarget): HTMLElement {
