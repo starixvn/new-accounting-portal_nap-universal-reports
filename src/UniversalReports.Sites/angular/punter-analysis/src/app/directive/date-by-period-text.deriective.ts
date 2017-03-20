@@ -28,7 +28,7 @@ export class DateByPeriodTextDirective {
       case PeriodType.Monthly:
         return moment(this.date).format("MM/YYYY");
       case PeriodType.Daily:
-        return moment(this.date).format("YYYY-MM-DD");
+        return moment(this.date).format("YYYY/MM/DD");
       case PeriodType.Weekly:
         return moment(this.date).format("MM/YYYY") + " - Week " + moment(this.date).format("W");
       default:

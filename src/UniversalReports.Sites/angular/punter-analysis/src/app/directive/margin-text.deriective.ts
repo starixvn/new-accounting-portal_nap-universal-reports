@@ -14,7 +14,7 @@ export class MarginTextDirective {
 
   ngOnInit() {
     let className: string = this.winLoss < 0 ? "negative" : "positive";
-    let innerHTML: string = this.turnover === 0 ? "N/A" : this.getMarginText();
+    let innerHTML: string = this.isTurnoverZero() ? "N/A" : this.getMarginText();
     this.renderer.setElementClass(this.el.nativeElement, className, true || false);
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
@@ -29,5 +29,9 @@ export class MarginTextDirective {
     let margin: number = this.winLoss * 100 / this.turnover;
 
     return decimalFormater.format(margin) + "%";
+  }
+
+  private isTurnoverZero(): boolean {
+    return this.turnover === null || this.turnover === undefined || this.turnover === 0;
   }
 }
