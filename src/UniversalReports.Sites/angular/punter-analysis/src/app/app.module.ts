@@ -14,14 +14,38 @@ import { DropdownTypeaheadModule } from './components/dropdown-typeahead';
 import { ToastService } from 'nap-components/src/toast';
 import { SpinnerService } from 'nap-components/src/spinner';
 
+import { DecimalTextDirective } from './directive/decimal-text.deriective';
+import { IntegerTextDirective } from './directive/integer-text.deriective';
+import { MarginTextDirective } from './directive/margin-text.deriective';
+import { DateByPeriodTextDirective } from './directive/date-by-period-text.deriective';
+
+
 import { AppComponent } from './app.component';
+import { PagingComponent } from '../../../components/src/paging/paging.component'
 import { FilterComponent } from './filter/filter.component';
 import { PeriodTypeModule } from './filter/period-type/period-type.module';
+import { SummaryGridComponent } from './grid/summary-grid/summary-grid.component';
+import { BetCountGridComponent } from './grid/bet-count-grid/bet-count-grid.component';
+import { AssociatedAccountGridComponent } from './grid/associated-account-grid/associated-account-grid.component';
+import { SportTypeGridComponent } from './grid/sport-type-grid/sport-type-grid.component';
+import { BetTypeGridComponent } from './grid/bet-type-grid/bet-type-grid.component';
+import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
 
 @NgModule({
   declarations: [
+    DecimalTextDirective,
+    IntegerTextDirective,
+    MarginTextDirective,
+    DateByPeriodTextDirective,
     AppComponent,
-    FilterComponent
+    FilterComponent,
+    PagingComponent,
+    SummaryGridComponent,
+    BetCountGridComponent,
+    AssociatedAccountGridComponent,
+    SportTypeGridComponent,
+    BetTypeGridComponent,
+    LeagueGridComponent
   ],
   imports: [
     BrowserModule,

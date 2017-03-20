@@ -1,0 +1,59 @@
+<div style="width: auto" class="grid">
+    <div class="header">
+        <table style="width: 640px">
+            <colgroup>
+                <col style="width: 140px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 140px" />
+            </colgroup>
+            <tr>
+                <th>Date</th>
+                <th>Bet Count</th>
+                <th>Win Count</th>
+                <th>Draw Count</th>
+                <th>Win Loss</th>
+            </tr>
+            <tr *ngIf="rowCount == 0">
+                <th class="empty-data" colspan="5">There is no data</th>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="rowCount > 0" class="body" style="width: 640px">
+        <table style="width: 620px">
+            <colgroup>
+                <col style="width: 140px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+            </colgroup>
+            <tr *ngFor="let betCountItem of betCountItems">
+                <td class="string" date-by-period-text [period-type]="periodType" [date]="betCountItem.Date"></td>
+                <td class="number" integer-text [integer]="betCountItem.BetCount"></td>
+                <td class="number" integer-text [integer]="betCountItem.WinCount"></td>
+                <td class="number" integer-text [integer]="betCountItem.DrawCount"></td>
+                <td class="number" decimal-text [decimal]="betCountItem.WinLoss"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer" *ngIf="rowCount > 0" style="width: 640px">
+        <table style="width: 640px">
+            <colgroup>
+                <col style="width: 140px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 140px" />
+            </colgroup>
+            <tr>
+                <td style="text-align: right" class="string">Total</td>
+                <td class="number">3131</td>
+                <td class="number">3131</td>
+                <td class="number">3131</td>
+                <td class="number">3131</td>
+            </tr>
+        </table>
+    </div>
+</div>

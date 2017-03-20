@@ -1,0 +1,70 @@
+<div style="width: auto" class="grid">
+    <div class="header">
+        <table style="width: 710px">
+             <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 140px" />
+            </colgroup>
+            <tr>
+                <th>Username</th>
+                <th>Win Loss</th>
+                <th>Turnover</th>
+                <th>Margin</th>
+                <th>Bet Count</th>
+                <th>Associated Account</th>
+            </tr>
+            <tr *ngIf="rowCount == 0">
+                <th class="empty-data" colspan="6">There is no data</th>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="rowCount > 0" class="body" style="width: 710px">
+        <table style="width: 690px">
+            <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+            </colgroup>
+            <tr *ngFor="let summaryItem of showingItems">
+                <td class="string"><a href="javascript:;" (click)="onShowSportType(summaryItem.CustId)">{{ summaryItem.Username }}</a></td>
+                <td class="number" decimal-text [decimal]="summaryItem.WinLoss" ></td>
+                <td class="number" decimal-text [decimal]="summaryItem.Turnover"></td>
+                <td class="number" margin-text [turnover]="summaryItem.Turnover" [win-loss]="summaryItem.WinLoss"></td>
+                <td class="number"><a href="javascript:;" (click)="onShowBetCount(summaryItem.CustId)" integer-text [integer]="summaryItem.BetCount" ></a></td>
+                <td class="string-same-length"><a href="javascript:;" (click)="onShowAssociatedAccount(summaryItem.CustId)">view</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer" *ngIf="rowCount > 0" style="width: 710px">
+        <table style="width: 705px">
+            <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 140px" />
+            </colgroup>
+            <tr>
+                <td style="text-align: right" class="string">Total</td>
+                <td class="number">xxx</td>
+                <td class="number">YYY</td>
+                <td class="string-same-length">dsd</td>
+                <td class="number">dsad</td>
+                <td class="string-same-length"></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <nap-paging [pagingModel]="pagingModel" (changePagingEvent)="changePagingEvent($event)"></nap-paging>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

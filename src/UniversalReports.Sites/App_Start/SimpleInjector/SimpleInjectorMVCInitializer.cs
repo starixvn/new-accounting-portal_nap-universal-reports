@@ -25,7 +25,7 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
-            container.Verify();
+            // container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }

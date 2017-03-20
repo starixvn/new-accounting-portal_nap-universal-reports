@@ -22,7 +22,7 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
-            container.Verify();
+            // container.Verify();
 
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
         }

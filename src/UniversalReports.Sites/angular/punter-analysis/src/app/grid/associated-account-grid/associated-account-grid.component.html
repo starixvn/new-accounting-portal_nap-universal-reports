@@ -1,0 +1,29 @@
+<div style="width: auto" class="grid">
+    <div class="header">
+        <table style="width: 440px">
+            <colgroup>
+                <col style="width: 300px" />
+                <col style="width: 140px" />
+            </colgroup>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            <tr *ngIf="rowCount == 0">
+                <th class="empty-data" colspan="2">There is no data</th>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="rowCount > 0" class="body" style="width: 440px">
+        <table style="width: 420px">
+            <colgroup>
+                <col style="width: 300px" />
+                <col style="width: 120px" />
+            </colgroup>
+            <tr *ngFor="let userRoleItem of userRoleItems">
+                <td class="string">{{ userRoleItem.Username }}</td>
+                <td class="string-same-length">{{ userRoleItem.RoleName }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

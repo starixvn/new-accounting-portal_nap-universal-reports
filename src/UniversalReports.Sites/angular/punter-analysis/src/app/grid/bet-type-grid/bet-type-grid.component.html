@@ -1,0 +1,132 @@
+<div style="width: auto" class="grid">
+    <div class="header">
+        <table style="width: 1490px">
+            <colgroup>
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:140px" />
+            </colgroup>
+            <tr>
+                <th rowspan="2">Bet Type</th>
+                <th colspan="4">Non-Live</th>
+                <th colspan="4">Live</th>
+                <th colspan="4">Non-Live &amp; Live</th>
+            </tr>
+            <tr>
+                <th>Win Loss</th>
+                <th>Turnover</th>
+                <th>Margin</th>
+                <th>Bet Count</th>
+                <th>Win Loss</th>
+                <th>Turnover</th>
+                <th>Margin</th>
+                <th>Bet Count</th>
+                <th>Win Loss</th>
+                <th>Turnover</th>
+                <th>Margin</th>
+                <th>Bet Count</th>
+            </tr>
+            <tr *ngIf="rowCount == 0">
+                <th class="empty-data" colspan="13">There is no data</th>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="rowCount > 0" class="body" style="width: 1490px">
+        <table style="width: 1470px">
+            <colgroup>
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+            </colgroup>
+            <tr *ngFor="let betTypeItem of betTypeItems">
+                <td class="string">{{ betTypeItem.BetTypeName }}</td>
+                <td class="number">
+                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.NonLiveWinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueNonLive(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.NonLiveWinLoss"></a>
+                </td>
+                <td class="number" decimal-text [decimal]="betTypeItem.NonLiveTurnover"></td>
+                <td class="number" margin-text [turnover]="betTypeItem.NonLiveTurnover" [win-loss]="betTypeItem.NonLiveWinLoss">
+                </td>
+                <td class="number">
+                    <a href="javascript:;" (click)="onShowBetCountNonLive(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.NonLiveBetCount"></a>
+                </td>
+                <td class="number">
+                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.LiveWinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueLive(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.LiveWinLoss"></a>
+                </td>
+                <td class="number" decimal-text [decimal]="betTypeItem.LiveTurnover"></td>
+                <td class="number" margin-text [turnover]="betTypeItem.LiveTurnover" [win-loss]="betTypeItem.LiveWinLoss">
+                </td>
+                <td class="number">
+                    <a href="javascript:;" (click)="onShowBetCountLive(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.LiveBetCount"></a>
+                </td>
+                <td class="number">
+                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.WinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeague(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.WinLoss"></a>
+                </td>
+                <td class="number" decimal-text [decimal]="betTypeItem.Turnover"></td>
+                <td class="number" margin-text [turnover]="betTypeItem.Turnover" [win-loss]="betTypeItem.WinLoss">
+                </td>
+                <td class="number">
+                    <a href="javascript:;" (click)="onShowBetCount(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.BetCount"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer" *ngIf="rowCount > 0" style="width: 1490px">
+        <table style="width: 1490px">
+            <colgroup>
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:90px" />
+                <col style="width:140px" />
+            </colgroup>
+
+            <tr>
+                <td style="text-align: right" class="string">Total</td>
+                <td class="number"></td>
+                <td class="number"></td>
+                <td class="number"> </td>
+                <td class="number"> </td>
+                <td class="number"></td>
+                <td class="number"></td>
+                <td class="number"> </td>
+                <td class="number"> </td>
+                <td class="number"></td>
+                <td class="number"></td>
+                <td class="number"> </td>
+                <td class="number"> </td>
+            </tr>
+        </table>
+    </div>
+</div>
