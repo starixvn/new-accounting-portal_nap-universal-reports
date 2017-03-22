@@ -55,14 +55,18 @@
                 <label class="col-form-label">Account name<span class="text-danger">*</span></label>
             </div>
             <div class="col-value">
-                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'Member name'"></nap-dropdown-typeahead>
+                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'Member name'">
+                </nap-dropdown-typeahead>
             </div>
         </div>
         <div class="col-x3">
             <div class="col-label">
                 <label class="col-form-label">Product</label>
             </div>
-            <div class="col-value"></div>
+            <div class="col-value">
+                <leo-dropdown-treeview [items]="productTreeviewItems" [config]="productTreeviewConfig" (selectedChange)="onProductSelectedChange($event)">
+                </leo-dropdown-treeview>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -70,7 +74,7 @@
             <div class="col-label">
             </div>
             <div class="col-value">
-                <button type="submit" class="btn btn-primary" (click)="generate()">GENERATE</button>
+                <button type="submit" class="btn btn-primary" (click)="onGenerate()">GENERATE</button>
             </div>
         </div>
     </div>

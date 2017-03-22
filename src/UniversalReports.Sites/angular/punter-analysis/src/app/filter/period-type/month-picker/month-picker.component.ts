@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
 import { OptionItem } from 'nap-components/src/model';
-import { NgbDateStruct } from '../period-type.model';
+import { NgbDateStruct } from 'nap-components/src/date';
 
 @Component({
     selector: 'nap-month-picker',

@@ -241,12 +241,12 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.ProductId, Is.GreaterThanOrEqualTo(0));
-            Assert.That(firstModel.SportId, Is.Not.Zero);
-            Assert.That(firstModel.BetTypeId, Is.Not.Zero);
             Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.SportGroup, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Value, Is.Not.Zero);
+            Assert.That(firstModel.RenderType, Is.GreaterThanOrEqualTo(1));
         }
 
         [Test]

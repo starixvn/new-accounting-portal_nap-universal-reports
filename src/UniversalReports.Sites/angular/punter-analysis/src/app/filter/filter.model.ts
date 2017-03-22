@@ -1,5 +1,5 @@
-import { RoleId, Order } from 'nap-components/src/model';
-import { NgbDateStruct } from './period-type/period-type.model';
+import { RoleId, SortBy } from 'nap-components/src/model';
+import { NgbDateStruct } from 'nap-components/src/date';
 
 export enum SearchBy {
     User,
@@ -8,27 +8,28 @@ export enum SearchBy {
 }
 
 export enum PeriodType {
-    Daily,
-    Weekly,
-    Monthly,
-    Annually,
-    MonthRange
+    Daily = 1,
+    Weekly = 2,
+    Monthly = 3,
+    Annually = 4,
+    MonthRange = 5
 }
 
 export enum OrderBy {
-    WinLoss,
-    Turnover,
-    Margin
+    WinLoss = 1,
+    Turnover = 2,
+    Margin = 3
 }
 
 export interface FilterModel {
     searchBy: SearchBy,
-    topRows: number,
+    topRow: number,
     orderBy: OrderBy,
-    order: Order,
+    sortBy: SortBy,
     periodType: PeriodType,
     fromDate: NgbDateStruct,
     toDate: NgbDateStruct,
     depth: RoleId,
-    userName: string
+    userName: string,
+    productBetTypes: number[];
 }

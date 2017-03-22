@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { OptionItem, RoleId, Order } from 'nap-components/src/model';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { TreeviewItem, TreeviewConfig } from 'ng2-dropdown-treeview';
+import { OptionItem, RoleId, SortBy } from 'nap-components/src/model';
+import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
 import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
-import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type/period-type.model';
+import { PeriodTypeEventModel } from './period-type/period-type.model';
 import { TypeaheadQuery } from '../components/dropdown-typeahead';
-import { Helper } from './period-type/helper';
 
 @Component({
     selector: 'nap-filter',
@@ -18,6 +19,7 @@ import { Helper } from './period-type/helper';
     ]
 })
 export class FilterComponent {
+    @Output() generate = new EventEmitter<FilterModel>();
     RoleId = RoleId;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
@@ -26,12 +28,20 @@ export class FilterComponent {
     topRows = 10;
     userName = '';
     userNameTypeaheadQuery = this.buildUserNameTypeaheadQuery();
-    order = Order.Descending;
+    order = SortBy.Descending;
     orderOptions = this.getOrderOptions();
     orderBy = OrderBy.WinLoss;
     orderByOptions = this.getOrderByOptions();
     minDate: NgbDateStruct;
     maxDate: NgbDateStruct;
+    productTreeviewItems: TreeviewItem[];
+    productTreeviewConfig: TreeviewConfig = {
+        isShowAllCheckBox: true,
+        isShowCollapseExpand: true,
+        isShowFilter: true,
+        maxHeight: 500
+    };
+    private productBetTypes: number[];
     private periodTypeEventModel: PeriodTypeEventModel;
 
     constructor(
@@ -44,18 +54,23 @@ export class FilterComponent {
 
     ngOnInit() {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
-            this.minDate = Helper.convertDateToDateStruct(Helper.convertStringToDate(model.MinDate));
-            this.maxDate = Helper.convertDateToDateStruct(Helper.convertStringToDate(model.MaxDate));
+            this.minDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MinDate));
+            this.maxDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MaxDate));
         });
+        this.service.queryProductTreeviewItems().subscribe(treeItems => this.productTreeviewItems = treeItems);
     }
 
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
     }
 
-    generate() {
+    onProductSelectedChange(productBetTypes: number[]) {
+        this.productBetTypes = productBetTypes;
+    }
+
+    onGenerate() {
         const model = this.createModel();
-        console.log(model);
+        this.generate.emit(model);
     }
 
     private buildUserNameTypeaheadQuery(): TypeaheadQuery {
@@ -67,14 +82,15 @@ export class FilterComponent {
     private createModel(): FilterModel {
         return {
             searchBy: this.searchBy,
-            topRows: this.topRows,
+            topRow: this.topRows,
             orderBy: this.orderBy,
-            order: this.order,
+            sortBy: this.order,
             periodType: this.periodTypeEventModel.periodType,
             fromDate: this.periodTypeEventModel.fromDate,
             toDate: this.periodTypeEventModel.toDate,
             depth: this.depth,
-            userName: this.userName
+            userName: this.userName,
+            productBetTypes: this.productBetTypes
         }
     }
 
@@ -104,10 +120,10 @@ export class FilterComponent {
     private getOrderOptions(): OptionItem[] {
         return [{
             text: 'Ascending',
-            value: Order.Ascending
+            value: SortBy.Ascending
         }, {
             text: 'Descending',
-            value: Order.Descending
+            value: SortBy.Descending
         }];
     }
 

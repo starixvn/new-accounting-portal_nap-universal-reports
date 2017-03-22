@@ -10,7 +10,7 @@ export enum RoleId {
     Super = 4
 }
 
-export enum Order {
-    Ascending,
-    Descending
+export enum SortBy {
+    Ascending = 1,
+    Descending = 2
 }

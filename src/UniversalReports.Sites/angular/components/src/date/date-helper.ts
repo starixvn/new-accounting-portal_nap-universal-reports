@@ -1,12 +1,13 @@
-import { NgbDateStruct, NgbDate, WeekRange } from './period-type.model';
+import { NgbDateStruct, WeekRange } from './date-model';
 
-export let Helper = {
+export let DateHelper = {
     getWeekRangeOfDate: getWeekRangeOfDate,
     getFirstDayOfWeek: getFirstDayOfWeek,
     getLastDayOfWeek: getLastDayOfWeek,
     convertDateStructToDate: convertDateStructToDate,
     convertDateToDateStruct: convertDateToDateStruct,
-    convertStringToDate: convertStringToDate
+    convertStringToDate: convertStringToDate,
+    convertDateStructToString: convertDateStructToString
 };
 
 function getWeekRangeOfDate(dateStruct: NgbDateStruct): WeekRange {
@@ -48,6 +49,15 @@ function convertDateToDateStruct(date: Date): NgbDateStruct {
     return { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
 }
 
+/// example input: '2016-11-02T00:00:00'
 function convertStringToDate(dateString: string): Date {
     return new Date(Date.parse(dateString));
+}
+
+/// example output: '2016-11-02T00:00:00'
+function convertDateStructToString(dateStruct: NgbDateStruct): string {
+    const yearString = dateStruct.year.toString();
+    const monthString = ('0' + dateStruct.month).slice(-2);
+    const dayString = ('0' + dateStruct.day).slice(-2);
+    return `${yearString}-${monthString}-${dayString}T00:00:00`;
 }

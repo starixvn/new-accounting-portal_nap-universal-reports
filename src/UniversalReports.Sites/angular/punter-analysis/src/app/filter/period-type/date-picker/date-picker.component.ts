@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct } from '../period-type.model';
+import { NgbDateStruct } from 'nap-components/src/date';
 import { DateParserFormatter } from './date-parser-formatter';
 
 @Component({

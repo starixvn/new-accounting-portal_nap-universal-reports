@@ -26,3 +26,11 @@ input[placeholder] {
         font-style: italic;
     }
 }
+
+button.btn.dropdown-toggle {
+    padding-left: .6rem;
+    padding-right: .6rem;
+    &::after {
+        margin-top: .4rem !important;
+    }
+}

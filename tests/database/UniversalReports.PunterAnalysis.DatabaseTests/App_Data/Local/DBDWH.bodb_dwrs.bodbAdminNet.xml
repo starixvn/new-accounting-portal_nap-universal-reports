@@ -10,13 +10,13 @@
     <Setting Key="Punter-DatabaseReadiness" SpName="Acc_CheckDailyTaskReadiness" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-UserSiteQuery" SpName="Acc_Punter_GetSiteName" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
 
-    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_SelBettypesbySports_DW" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="ind" ObjectProperty="ProductId" />
-      <Mapping DataField="Product" ObjectProperty="ProductName" />
-      <Mapping DataField="sporttype" ObjectProperty="SportId" />
+    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+      <Mapping DataField="ProductName" ObjectProperty="ProductName" />
+      <Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
       <Mapping DataField="SportName" ObjectProperty="SportName" />
-      <Mapping DataField="bettype" ObjectProperty="BetTypeId" />
-      <Mapping DataField="bettypename" ObjectProperty="BetTypeName" />
+      <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
+      <Mapping DataField="Value" ObjectProperty="Value" />
+      <Mapping DataField="RenderType" ObjectProperty="RenderType" />
     </Setting>
     <Setting Key="Punter-LeagueQuery" SpName="Acc_TopPunterSelLeagues" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
       <Mapping DataField="leagueid" ObjectProperty="Id" />

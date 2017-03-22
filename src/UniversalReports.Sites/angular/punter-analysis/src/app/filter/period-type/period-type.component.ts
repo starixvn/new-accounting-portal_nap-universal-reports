@@ -2,9 +2,9 @@ import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from
 import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
 import { OptionItem } from 'nap-components/src/model';
+import { DateHelper, NgbDateStruct, NgbDate } from 'nap-components/src/date';
 import { PeriodType } from '../filter.model';
-import { NgbDateStruct, NgbDate, PeriodTypeEventModel } from './period-type.model';
-import { Helper } from './helper';
+import { PeriodTypeEventModel } from './period-type.model';
 
 @Component({
     selector: 'nap-period-type',
@@ -52,6 +52,8 @@ export class PeriodTypeComponent implements OnChanges {
         if (minDateChange) {
             this.weeklyMaxFromDate = this.getWeeklyMaxFromDate();
         }
+
+        this.onDailyDateChange();
     }
 
     onDailyDateChange() {
@@ -65,7 +67,7 @@ export class PeriodTypeComponent implements OnChanges {
     onWeeklyDateChange() {
         this.periodTypeChange.emit({
             periodType: this.periodType,
-            fromDate: Helper.getFirstDayOfWeek(this.weeklyFromDate),
+            fromDate: DateHelper.getFirstDayOfWeek(this.weeklyFromDate),
             toDate: this.weeklyToDate
         });
     }
@@ -112,7 +114,7 @@ export class PeriodTypeComponent implements OnChanges {
 
     private getWeeklyMaxFromDate(): NgbDateStruct {
         if (this.weeklyToDate) {
-            const lastDayOfWeek = Helper.getLastDayOfWeek(this.weeklyToDate);
+            const lastDayOfWeek = DateHelper.getLastDayOfWeek(this.weeklyToDate);
             if (this.maxDate) {
                 const maxNgbDate = NgbDate.fromDateStruct(this.maxDate);
                 const lastNgDayOfWeek = NgbDate.fromDateStruct(lastDayOfWeek);

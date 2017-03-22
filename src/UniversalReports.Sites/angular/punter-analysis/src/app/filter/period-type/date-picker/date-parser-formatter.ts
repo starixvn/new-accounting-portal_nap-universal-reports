@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct } from '../period-type.model';
-import { Helper } from '../helper';
+import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
 
 export class DateParserFormatter extends NgbDateParserFormatter {
     private datePipe = new DatePipe('en-US');
@@ -16,7 +15,7 @@ export class DateParserFormatter extends NgbDateParserFormatter {
             return '';
         }
         try {
-            return this.datePipe.transform(Helper.convertDateStructToDate(date), this.dateFormatString);
+            return this.datePipe.transform(DateHelper.convertDateStructToDate(date), this.dateFormatString);
         } catch (e) {
             return '';
         }

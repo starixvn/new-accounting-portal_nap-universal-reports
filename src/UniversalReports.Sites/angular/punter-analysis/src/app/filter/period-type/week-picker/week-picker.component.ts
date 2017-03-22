@@ -1,8 +1,7 @@
 import { Component, Renderer, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDateParserFormatter, NgbInputDatepicker, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct, NgbDate, WeekRange } from '../period-type.model';
+import { DateHelper, NgbDateStruct, NgbDate, WeekRange } from 'nap-components/src/date';
 import { WeekDateParserFormatter } from './week-date-parser-formatter';
-import { Helper } from '../helper';
 
 @Component({
     selector: 'nap-week-picker',
@@ -30,7 +29,7 @@ export class WeekPickerComponent {
     ngOnChanges(changes: SimpleChanges) {
         const dateChange = changes['date'];
         if (dateChange && dateChange.isFirstChange()) {
-            this.weekRange = Helper.getWeekRangeOfDate(this.date);
+            this.weekRange = DateHelper.getWeekRangeOfDate(this.date);
             let day = this.weekRange.fromDate.day;
             if (this.minDate) {
                 const minNgbDate = NgbDate.fromDateStruct(this.minDate);
@@ -89,7 +88,7 @@ export class WeekPickerComponent {
 
     isSelected(dateStruct: NgbDateStruct) {
         const ngbDate = NgbDate.fromDateStruct(dateStruct);
-        const lastDayOfWeek = Helper.getLastDayOfWeek(this.date);
+        const lastDayOfWeek = DateHelper.getLastDayOfWeek(this.date);
         const firstNgbDateOfWeek = NgbDate.fromDateStruct(this.date);
         const lastNgbDateOfWeek = NgbDate.fromDateStruct(lastDayOfWeek);
         return (ngbDate.equals(firstNgbDateOfWeek) || ngbDate.after(firstNgbDateOfWeek)) &&

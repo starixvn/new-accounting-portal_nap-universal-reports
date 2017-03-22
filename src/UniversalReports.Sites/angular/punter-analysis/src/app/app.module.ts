@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 
 import { HttpService } from './components/http.service';
 import { HttpService as HttpService2 } from 'nap-components/src/http.service';
@@ -52,6 +53,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     FormsModule,
     HttpModule,
     CommonModule,
+    DropdownTreeviewModule.forRoot(),
     HeaderModule.forRoot(),
     DropdownSelectModule.forRoot(),
     DropdownTypeaheadModule.forRoot(),
