@@ -1,7 +1,7 @@
 .grid {
     font-family: Tahoma, Arial, Helvetica, sans-serif;
     font-size: 0.8125rem;
-    overflow-x: scroll;
+    overflow-x: auto;
     table {
         table-layout: fixed;
         border-collapse: collapse;
@@ -28,9 +28,8 @@
     }
     .body {
         max-height: 500px;
-        overflow-y: scroll;
+        overflow-y: auto;
         box-sizing: border-box;
-        border-right: 1px solid #c5c5c5;
         td {
             height: 21px;
             border: 1px solid #c5c5c5;
@@ -43,6 +42,7 @@
         font-weight: bold;
         td {
             border: 1px solid #c5c5c5;
+            padding: 2px 5px;
         }
     }
     .number {

@@ -1,13 +1,13 @@
 <div style="width: auto" class="grid">
-    <div class="header">
-        <table style="width: 710px">
+    <div class="header" style="width: 690px">
+        <table style="width: 690px">
              <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
                 <col style="width: 120px" />
-                <col style="width: 140px" />
+                <col style="width: 120px" />
             </colgroup>
             <tr>
                 <th>Username</th>
@@ -17,12 +17,12 @@
                 <th>Bet Count</th>
                 <th>Associated Account</th>
             </tr>
-            <tr *ngIf="rowCount == 0">
+            <tr *ngIf="this.viewModelItem.Entities.length === 0">
                 <th class="empty-data" colspan="6">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="rowCount > 0" class="body" style="width: 710px">
+    <div *ngIf="this.viewModelItem.Entities.length > 0" class="body" style="width: 710px">
         <table style="width: 690px">
             <colgroup>
                 <col style="width: 120px" />
@@ -42,23 +42,23 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="rowCount > 0" style="width: 710px">
-        <table style="width: 705px">
+    <div class="footer" *ngIf="this.viewModelItem.Entities.length > 0" style="width: 690px">
+        <table style="width: 69px">
             <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
                 <col style="width: 120px" />
-                <col style="width: 140px" />
+                <col style="width: 120px" />
             </colgroup>
             <tr>
                 <td style="text-align: right" class="string">Total</td>
-                <td class="number">xxx</td>
-                <td class="number">YYY</td>
-                <td class="string-same-length">dsd</td>
-                <td class="number">dsad</td>
-                <td class="string-same-length"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.WinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.Turnover"></td>
+                <td class="number" margin-text [turnover]="viewModelItem.Total.Turnover" [win-loss]="viewModelItem.Total.WinLoss"></td>
+                <td class="number" integer-text [integer]="viewModelItem.Total.BetCount" ></td>
+                <td></td>
             </tr>
             <tr>
                 <td colspan="6">

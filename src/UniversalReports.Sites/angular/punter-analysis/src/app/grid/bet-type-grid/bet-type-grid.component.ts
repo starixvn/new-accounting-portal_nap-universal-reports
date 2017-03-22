@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BetTypeItem, ProductHasLeague } from './bet-type-grid.model'
+import { ViewModelItem, BetTypeItem, ProductHasLeague } from './bet-type-grid.model'
 
 @Component({
     selector: 'nap-bet-type-grid',
@@ -10,37 +10,12 @@ import { BetTypeItem, ProductHasLeague } from './bet-type-grid.model'
     ]
 })
 export class BetTypeGridComponent {
-    private betTypeItems: BetTypeItem[];
-    private rowCount: number;
+    private viewModelItem: ViewModelItem;
     private productId: number;
 
     constructor() {
-        this.betTypeItems = [];
-        this.rowCount = 5;
+        this.viewModelItem = this.createFakeData();
         this.productId = 1;
-
-        for (var i = 0; i < this.rowCount; i++) {
-            let betTypeItem: BetTypeItem = {
-                BetTypeId: i,
-                BetTypeName: "Bet " + i,
-
-                NonLiveWinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                NonLiveTurnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                NonLiveMargin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                NonLiveBetCount: 1321310 + i,
-
-                LiveWinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                LiveTurnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                LiveMargin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                LiveBetCount: 1321310 + i,
-
-                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                BetCount: 1321310 + i,
-            };
-            this.betTypeItems.push(betTypeItem);
-        }
     }
 
     private onShowLeagueNonLive(betTypeId: number) {
@@ -50,7 +25,7 @@ export class BetTypeGridComponent {
     private onShowLeagueLive(betTypeId: number) {
         alert(betTypeId);
     }
-    
+
     private onShowLeague(betTypeId: number) {
         alert(betTypeId);
     }
@@ -73,5 +48,56 @@ export class BetTypeGridComponent {
             || this.productId === ProductHasLeague.RACING
             || this.productId === ProductHasLeague.VIRTUAL_SPORTS
             || this.productId === ProductHasLeague.LIVE_CASINO;
+    }
+
+    private createFakeData(): ViewModelItem {
+
+        let entities: BetTypeItem[] = [];
+        for (var i = 0; i < 100; i++) {
+            let betTypeItem: BetTypeItem = {
+                BetTypeId: i,
+                BetTypeName: "Bet " + i,
+
+                NonLiveWinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
+                NonLiveTurnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
+                NonLiveMargin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
+                NonLiveBetCount: 1321310 + i,
+
+                LiveWinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
+                LiveTurnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
+                LiveMargin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
+                LiveBetCount: 1321310 + i,
+
+                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
+                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
+                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
+                BetCount: 1321310 + i,
+            };
+
+            entities.push(betTypeItem);
+        }
+
+        return {
+            Entities: entities,
+            Total: {
+                BetTypeId: 0,
+                BetTypeName: "",
+
+                NonLiveWinLoss: -13281.321356,
+                NonLiveTurnover: 10321324.235323,
+                NonLiveMargin: 0.0341232,
+                NonLiveBetCount: 1321310,
+
+                LiveWinLoss: -13281.321356,
+                LiveTurnover: 10321324.235323,
+                LiveMargin: 0.0341232,
+                LiveBetCount: 1321310,
+
+                WinLoss: -13281.321356,
+                Turnover: 10321324.235323,
+                Margin: 0.0341232,
+                BetCount: 1321310 + i,
+            }
+        };
     }
 }

@@ -1,20 +1,20 @@
 <div style="width: auto" class="grid">
-    <div class="header">
-        <table style="width: 440px">
+    <div class="header" style="width: 420px">
+        <table style="width: 420px">
             <colgroup>
                 <col style="width: 300px" />
-                <col style="width: 140px" />
+                <col style="width: 120px" />
             </colgroup>
             <tr>
                 <th>Username</th>
                 <th>Role</th>
             </tr>
-            <tr *ngIf="rowCount == 0">
+            <tr *ngIf="userRoleItems.length === 0">
                 <th class="empty-data" colspan="2">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="rowCount > 0" class="body" style="width: 440px">
+    <div *ngIf="userRoleItems.length > 0" class="body" style="width: 440px">
         <table style="width: 420px">
             <colgroup>
                 <col style="width: 300px" />

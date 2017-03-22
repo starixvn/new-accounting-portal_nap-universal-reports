@@ -12,17 +12,22 @@ import { UserRoleItem } from './associated-account-grid.model'
 })
 export class AssociatedAccountGridComponent {
     private userRoleItems: UserRoleItem[];
-    private rowCount: number;
+    
     constructor() {
-        this.userRoleItems = [];
-        this.rowCount = 12;
+        this.userRoleItems = this.createFakeData();
+    }
 
-        for (var i = 0; i < this.rowCount; i++) {
+    private createFakeData(): UserRoleItem[] {
+        var entities: UserRoleItem[] = [];
+        for (var i = 0; i < 50; i++) {
             let betCountItem: UserRoleItem = {
-                Username: "User"+i,
-                RoleName:"member"
+                Username: "User" + i,
+                RoleName: "member"
             };
-            this.userRoleItems.push(betCountItem);
+
+            entities.push(betCountItem);
         }
+
+        return entities;
     }
 }

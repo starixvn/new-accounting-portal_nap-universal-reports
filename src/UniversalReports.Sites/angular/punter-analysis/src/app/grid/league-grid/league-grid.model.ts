@@ -10,7 +10,7 @@ export interface LeagueItem {
     PeriodGroups: PeriodGroupItem[]
 }
 
-export interface ReportItem {
+export interface ViewModelItem {
     Entities: LeagueItem[];
     Total: LeagueItem;
     GroupNames: string[]

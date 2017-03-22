@@ -6,3 +6,8 @@ export interface SummaryItem {
     Margin: number;
     BetCount: number;
 }
+
+export interface ViewModelItem {
+    Entities: SummaryItem[];
+    Total: SummaryItem;
+}

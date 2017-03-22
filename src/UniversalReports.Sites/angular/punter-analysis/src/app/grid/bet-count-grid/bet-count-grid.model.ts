@@ -5,3 +5,8 @@ export interface BetCountItem {
     WinCount: number;
     DrawCount: number;
 }
+
+export interface ViewModelItem {
+    Entities: BetCountItem[];
+    Total: BetCountItem;
+}

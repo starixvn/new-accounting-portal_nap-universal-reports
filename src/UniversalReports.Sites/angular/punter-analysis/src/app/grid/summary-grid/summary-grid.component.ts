@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SummaryItem } from './summary-grid.model'
+import { ViewModelItem, SummaryItem } from './summary-grid.model'
 import { PagingModel, PagingEvent } from '../../../../../components/src/paging/paging.model'
 
 @Component({
@@ -11,31 +11,17 @@ import { PagingModel, PagingEvent } from '../../../../../components/src/paging/p
     ]
 })
 export class SummaryGridComponent {
-    private summaryItems: SummaryItem[];
+    private viewModelItem: ViewModelItem;
     private showingItems: SummaryItem[];
-    private rowCount: number;
     private pagingModel: PagingModel;
 
     constructor() {
-        this.summaryItems = [];
-        this.rowCount = 5;
+        this.viewModelItem = this.createFakeData();
         this.pagingModel = {
-            totalItems: this.rowCount,
+            totalItems: this.viewModelItem.Entities.length,
             pageSize: 50,
             pageIndex: 0
         };
-
-        for (var i = 0; i < this.rowCount; i++) {
-            let summaryItem: SummaryItem = {
-                Username: "Username " + i,
-                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                BetCount: 1321310 + i,
-                CustId: 1 + i
-            };
-            this.summaryItems.push(summaryItem);
-        }
 
         this.showSummaryItems(0, 50);
     }
@@ -59,6 +45,33 @@ export class SummaryGridComponent {
     private showSummaryItems(pageIndex: number, pageSize: number) {
         var begin = pageIndex * pageSize;
         var end = (pageIndex + 1) * pageSize + 1;
-        this.showingItems = this.summaryItems.slice(begin, end);
+        this.showingItems = this.viewModelItem.Entities.slice(begin, end);
+    }
+
+    private createFakeData(): ViewModelItem {
+        let entities: SummaryItem[] = [];
+        for (var i = 0; i < 500; i++) {
+            let summaryItem: SummaryItem = {
+                Username: "Username " + i,
+                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
+                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
+                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
+                BetCount: 1321310 + i,
+                CustId: 1 + i
+            };
+            entities.push(summaryItem);
+        }
+
+        return {
+            Entities: entities,
+            Total: {
+                Username: "",
+                WinLoss: -13281.321356 + i,
+                Turnover: 10321324.235323,
+                Margin: 0.0341232,
+                BetCount: 1321310,
+                CustId: 0
+            }
+        };
     }
 }

@@ -1,6 +1,6 @@
 <div style="width: auto" class="grid">
-    <div class="header">
-        <table style="width: 1490px">
+    <div class="header" style="width: 1470px">
+        <table style="width: 1470px">
             <colgroup>
                 <col style="width:120px" />
                 <col style="width:120px" />
@@ -15,7 +15,7 @@
                 <col style="width:120px" />
                 <col style="width:120px" />
                 <col style="width:90px" />
-                <col style="width:140px" />
+                <col style="width:120px" />
             </colgroup>
             <tr>
                 <th rowspan="2">Bet Type</th>
@@ -37,12 +37,12 @@
                 <th>Margin</th>
                 <th>Bet Count</th>
             </tr>
-            <tr *ngIf="rowCount == 0">
+            <tr *ngIf="viewModelItem.Entities.length === 0">
                 <th class="empty-data" colspan="13">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="rowCount > 0" class="body" style="width: 1490px">
+    <div *ngIf="viewModelItem.Entities.length > 0" class="body" style="width: 1490px">
         <table style="width: 1470px">
             <colgroup>
                 <col style="width:120px" />
@@ -59,7 +59,7 @@
                 <col style="width:90px" />
                 <col style="width:120px" />
             </colgroup>
-            <tr *ngFor="let betTypeItem of betTypeItems">
+            <tr *ngFor="let betTypeItem of viewModelItem.Entities">
                 <td class="string">{{ betTypeItem.BetTypeName }}</td>
                 <td class="number">
                     <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.NonLiveWinLoss"></span>
@@ -94,8 +94,8 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="rowCount > 0" style="width: 1490px">
-        <table style="width: 1490px">
+    <div class="footer" *ngIf="viewModelItem.Entities.length > 0" style="width: 1470px">
+        <table style="width: 1470px">
             <colgroup>
                 <col style="width:120px" />
                 <col style="width:120px" />
@@ -109,23 +109,26 @@
                 <col style="width:120px" />
                 <col style="width:120px" />
                 <col style="width:90px" />
-                <col style="width:140px" />
+                <col style="width:120px" />
             </colgroup>
 
             <tr>
                 <td style="text-align: right" class="string">Total</td>
-                <td class="number"></td>
-                <td class="number"></td>
-                <td class="number"> </td>
-                <td class="number"> </td>
-                <td class="number"></td>
-                <td class="number"></td>
-                <td class="number"> </td>
-                <td class="number"> </td>
-                <td class="number"></td>
-                <td class="number"></td>
-                <td class="number"> </td>
-                <td class="number"> </td>
+
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveWinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveTurnover"></td>
+                <td class="number" margin-text [turnover]="viewModelItem.Total.NonLiveTurnover" [win-loss]="viewModelItem.Total.NonLiveWinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveBetCount"></td>
+
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveWinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveTurnover"></td>
+                <td class="number" margin-text [turnover]="viewModelItem.Total.LiveTurnover" [win-loss]="viewModelItem.Total.LiveWinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveBetCount"></td>
+
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.WinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.Turnover"></td>
+                <td class="number" margin-text [turnover]="viewModelItem.Total.Turnover" [win-loss]="viewModelItem.Total.WinLoss"></td>
+                <td class="number" decimal-text [decimal]="viewModelItem.Total.BetCount"></td>
             </tr>
         </table>
     </div>

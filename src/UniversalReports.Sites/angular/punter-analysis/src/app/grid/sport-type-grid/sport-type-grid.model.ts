@@ -6,3 +6,8 @@ export interface SportTypeItem {
     Margin: number;
     BetCount: number;
 }
+
+export interface ViewModelItem {
+    Entities: SportTypeItem[];
+    Total: SportTypeItem;
+}

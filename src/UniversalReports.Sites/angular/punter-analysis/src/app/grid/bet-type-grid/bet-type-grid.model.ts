@@ -18,6 +18,11 @@ export interface BetTypeItem {
     BetCount: number;
 }
 
+export interface ViewModelItem {
+    Entities: BetTypeItem[];
+    Total: BetTypeItem;
+}
+
 export class ProductHasLeague {
     public static get SPORTSBOOK(): number { return 1; }
     public static get LIVE_CASINO(): number { return 4; }
