@@ -2,6 +2,7 @@
 
 namespace UniversalReports.Sites.Controllers
 {
+    [AllowAnonymous]
     public class CommonController : Controller
     {
         public ActionResult SessionExpired()

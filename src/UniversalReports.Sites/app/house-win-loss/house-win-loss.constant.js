@@ -468,6 +468,25 @@ import moment from "moment";
                 mainParameters: { productId: 24, isLive: 2 },
                 getTitleFunction: "getSiteTitle"
             }
+        },
+        "Cash Out": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 25, isLive: 2 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 25, isLive: 2 },
+                getTitleFunction: "getSiteTitle"
+            }
         }
     };
     angular
