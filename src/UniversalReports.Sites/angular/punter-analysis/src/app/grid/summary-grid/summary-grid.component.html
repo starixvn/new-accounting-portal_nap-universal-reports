@@ -1,7 +1,7 @@
 <div style="width: auto" class="grid">
     <div class="header" style="width: 690px">
         <table style="width: 690px">
-             <colgroup>
+            <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
@@ -17,12 +17,12 @@
                 <th>Bet Count</th>
                 <th>Associated Account</th>
             </tr>
-            <tr *ngIf="this.viewModelItem.Entities.length === 0">
+            <tr *ngIf="items.length === 0">
                 <th class="empty-data" colspan="6">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="this.viewModelItem.Entities.length > 0" class="body" style="width: 710px">
+    <div *ngIf="items.length > 0" class="body" style="width: 710px">
         <table style="width: 690px">
             <colgroup>
                 <col style="width: 120px" />
@@ -32,17 +32,19 @@
                 <col style="width: 120px" />
                 <col style="width: 120px" />
             </colgroup>
-            <tr *ngFor="let summaryItem of showingItems">
-                <td class="string"><a href="javascript:;" (click)="onShowSportType(summaryItem.CustId)">{{ summaryItem.Username }}</a></td>
-                <td class="number" decimal-text [decimal]="summaryItem.WinLoss" ></td>
-                <td class="number" decimal-text [decimal]="summaryItem.Turnover"></td>
-                <td class="number" margin-text [turnover]="summaryItem.Turnover" [win-loss]="summaryItem.WinLoss"></td>
-                <td class="number"><a href="javascript:;" (click)="onShowBetCount(summaryItem.CustId)" integer-text [integer]="summaryItem.BetCount" ></a></td>
-                <td class="string-same-length"><a href="javascript:;" (click)="onShowAssociatedAccount(summaryItem.CustId)">view</a></td>
+            <tr *ngFor="let item of items">
+                <td class="string"><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
+                <td class="number" decimal-text [decimal]="item.WinLoss"></td>
+                <td class="number" decimal-text [decimal]="item.Turnover"></td>
+                <td class="number" margin-text [turnover]="item.Turnover" [win-loss]="item.WinLoss"></td>
+                <td class="number">
+                    <a href="javascript:;" (click)="onShowBetCount(item.CustId)" integer-text [integer]="item.BetCount"></a>
+                </td>
+                <td class="string-same-length"><a href="javascript:;" (click)="onShowAssociatedAccount(item.CustId)">view</a></td>
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="this.viewModelItem.Entities.length > 0" style="width: 690px">
+    <div class="footer" *ngIf="items.length > 0" style="width: 690px">
         <table style="width: 69px">
             <colgroup>
                 <col style="width: 120px" />
@@ -54,10 +56,10 @@
             </colgroup>
             <tr>
                 <td style="text-align: right" class="string">Total</td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.WinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.Turnover"></td>
-                <td class="number" margin-text [turnover]="viewModelItem.Total.Turnover" [win-loss]="viewModelItem.Total.WinLoss"></td>
-                <td class="number" integer-text [integer]="viewModelItem.Total.BetCount" ></td>
+                <td class="number" decimal-text [decimal]="data.Total.WinLoss"></td>
+                <td class="number" decimal-text [decimal]="data.Total.Turnover"></td>
+                <td class="number" margin-text [turnover]="data.Total.Turnover" [win-loss]="data.Total.WinLoss"></td>
+                <td class="number" integer-text [integer]="data.Total.BetCount"></td>
                 <td></td>
             </tr>
             <tr>

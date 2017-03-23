@@ -6,7 +6,6 @@ import { PagingText, PagingCssClass, PagingModel, ItemPageList, PagingEvent } fr
     templateUrl: './paging.component.html',
     styleUrls: ['paging.component.scss']
 })
-
 export class PagingComponent implements OnChanges {
     @Input() pagingModel: PagingModel;
     @Output() changePagingEvent = new EventEmitter<PagingEvent>();
@@ -125,7 +124,7 @@ export class PagingComponent implements OnChanges {
     }
 
     goToPage() {
-        if (this.pageNumber > 0 && (this.pageNumber - 1) !== this.pagingModel.pageIndex) {            
+        if (this.pageNumber > 0 && (this.pageNumber - 1) !== this.pagingModel.pageIndex) {
             this.pageNumber = this.pageNumber > this.maxNumber ? this.maxNumber : this.pageNumber;
             this.pagingEvent.pageIndex = this.pageNumber - 1;
             this.pagingEvent.pageSize = this.pagingModel.pageSize;

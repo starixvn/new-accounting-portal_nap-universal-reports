@@ -7,7 +7,7 @@ export interface SummaryItem {
     BetCount: number;
 }
 
-export interface ViewModelItem {
+export interface SummaryData {
     Entities: SummaryItem[];
     Total: SummaryItem;
 }

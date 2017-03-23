@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from './app.service';
 import { FilterModel } from './filter/filter.model';
+import { SummaryData } from './grid/summary-grid/summary-grid.model';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ import { FilterModel } from './filter/filter.model';
   ]
 })
 export class AppComponent {
+  summaryData: SummaryData;
+
   constructor(private service: AppService) { }
 
   onGenerate(filterModel: FilterModel) {
-    this.service.querySummary(filterModel).subscribe(result => {
-      console.log(result);
-    });
+    this.service.querySummary(filterModel).subscribe(data => this.summaryData = data);
   }
 }
