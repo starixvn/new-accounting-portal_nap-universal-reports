@@ -17,12 +17,12 @@
                 <th>Bet Count</th>
                 <th>Associated Account</th>
             </tr>
-            <tr *ngIf="items.length === 0">
+            <tr *ngIf="data.Entities.length === 0">
                 <th class="empty-data" colspan="6">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="items.length > 0" class="body" style="width: 710px">
+    <div *ngIf="data.Entities.length > 0" class="body" style="width: 710px">
         <table style="width: 690px">
             <colgroup>
                 <col style="width: 120px" />
@@ -32,7 +32,7 @@
                 <col style="width: 120px" />
                 <col style="width: 120px" />
             </colgroup>
-            <tr *ngFor="let item of items">
+            <tr *ngFor="let item of data.Entities | paginate: config">
                 <td class="string"><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
                 <td class="number" decimal-text [decimal]="item.WinLoss"></td>
                 <td class="number" decimal-text [decimal]="item.Turnover"></td>
@@ -44,7 +44,7 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="items.length > 0" style="width: 690px">
+    <div class="footer" *ngIf="data.Entities.length > 0" style="width: 690px">
         <table style="width: 69px">
             <colgroup>
                 <col style="width: 120px" />
@@ -64,7 +64,43 @@
             </tr>
             <tr>
                 <td colspan="6">
-                    <nap-paging [pagingModel]="pagingModel" (changePagingEvent)="changePagingEvent($event)"></nap-paging>
+                    <pagination-template #p="paginationApi" [id]="config.id" (pageChange)="config.currentPage = $event">
+                        <nav aria-label="Page navigation">
+                            <span>Page size</span>
+                            <div class="d-inline-block">
+                                <select class="form-control" [(ngModel)]="pageSizeSelected" (ngModelChange)="clickSelect()">
+                                    <option *ngFor="let item of pageSizeOption">{{item}}</option>
+                                </select>
+                            </div>
+                            <div class="d-inline-block">
+                                <ul class="pagination">
+                                    <li class="page-item" [class.disabled]="p.isFirstPage()">
+                                        <a (click)="p.previous()" class="page-link" href="javascript:;" aria-label="Previous">
+                                            <span aria-hidden="true">&lt;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item" *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value">
+                                        <a class="page-link" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value" href="javascript:;">
+                                            {{ page.label }}
+                                        </a>
+                                        <div class="page-link" *ngIf="p.getCurrent() === page.value">
+                                            {{ page.label }}
+                                        </div>
+                                    </li>
+                                    <li class="page-item" [class.disabled]="p.isLastPage()">
+                                        <a (click)="p.next() " class="page-link " href="javascript:;" aria-label="Next ">
+                                            <span aria-hidden="true ">&gt;</span>
+                                            <span class="sr-only ">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pull-right">
+                                <!--<span>Displaying <b>{{start}}</b> to <b>{{end}}</b> of <b>{{config | json}}</b> item(s)</span>-->
+                            </div>
+                        </nav>
+                    </pagination-template>
                 </td>
             </tr>
         </table>

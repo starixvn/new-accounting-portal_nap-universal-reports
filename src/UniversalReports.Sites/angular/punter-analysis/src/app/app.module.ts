@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
+import { Ng2PaginationModule } from 'ng2-pagination';
 
 import { HttpService } from './components/http.service';
 import { HttpService as HttpService2 } from 'nap-components/src/http.service';
@@ -20,9 +21,8 @@ import { IntegerTextDirective } from './directive/integer-text.deriective';
 import { MarginTextDirective } from './directive/margin-text.deriective';
 import { DateByPeriodTextDirective } from './directive/date-by-period-text.deriective';
 
-
 import { AppComponent } from './app.component';
-import { PagingComponent } from '../../../components/src/paging/paging.component'
+import { PagingComponent } from '../../../components/src/paging/paging.component';
 import { FilterComponent } from './filter/filter.component';
 import { PeriodTypeModule } from './filter/period-type/period-type.module';
 import { SummaryGridComponent } from './grid/summary-grid/summary-grid.component';
@@ -39,8 +39,8 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     MarginTextDirective,
     DateByPeriodTextDirective,
     AppComponent,
-    FilterComponent,
     PagingComponent,
+    FilterComponent,
     SummaryGridComponent,
     BetCountGridComponent,
     AssociatedAccountGridComponent,
@@ -54,6 +54,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     HttpModule,
     CommonModule,
     DropdownTreeviewModule.forRoot(),
+    Ng2PaginationModule,
     HeaderModule.forRoot(),
     DropdownSelectModule.forRoot(),
     DropdownTypeaheadModule.forRoot(),

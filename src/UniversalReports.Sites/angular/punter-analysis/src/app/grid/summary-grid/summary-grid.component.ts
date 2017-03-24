@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as _ from 'lodash';
+import { PaginationInstance } from 'ng2-pagination';
 import { SummaryData, SummaryItem } from './summary-grid.model'
-import { PagingModel, PagingEvent } from '../../../../../components/src/paging/paging.model'
 
 @Component({
     selector: 'nap-summary-grid',
@@ -11,21 +11,13 @@ import { PagingModel, PagingEvent } from '../../../../../components/src/paging/p
         '../grid.scss'
     ]
 })
-export class SummaryGridComponent implements OnChanges {
+export class SummaryGridComponent {
     @Input() data: SummaryData;
-    items: SummaryItem[] = [];
-    pagingModel: PagingModel;
-
-    ngOnChanges() {
-        if (!_.isNil(this.data)) {
-            this.pagingModel = {
-                totalItems: this.data.Entities.length,
-                pageSize: 50,
-                pageIndex: 0
-            };
-            this.showSummaryItems(0, 50);
-        }
-    }
+    config: PaginationInstance = {
+        id: 'custom',
+        itemsPerPage: 10,
+        currentPage: 1
+    };
 
     private onShowSportType(custId: number) {
         alert(custId);
@@ -37,15 +29,5 @@ export class SummaryGridComponent implements OnChanges {
 
     private onShowAssociatedAccount(custId: number): void {
         alert(custId);
-    }
-
-    private changePagingEvent(pagingEvent: PagingEvent) {
-        this.showSummaryItems(pagingEvent.pageIndex, pagingEvent.pageSize);
-    }
-
-    private showSummaryItems(pageIndex: number, pageSize: number) {
-        var begin = pageIndex * pageSize;
-        var end = (pageIndex + 1) * pageSize + 1;
-        this.items = _.slice(this.data.Entities, begin, end);
     }
 }

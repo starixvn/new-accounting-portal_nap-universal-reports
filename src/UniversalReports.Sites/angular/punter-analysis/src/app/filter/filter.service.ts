@@ -51,7 +51,7 @@ export class FilterService {
             const productItems: TreeviewItem[] = [];
             const productNames = _.uniq(list.map(x => x.ProductName));
             productNames.forEach(productName => {
-                const productItem = new TreeviewItem({ text: productName, value: productName });
+                const productItem = new TreeviewItem({ text: productName, value: productName, collapsed: true });
                 const listByProductName = list.filter(x => x.ProductName === productName);
                 const renderTypeByProductName = listByProductName[0].RenderType;
                 switch (renderTypeByProductName) {
@@ -59,12 +59,12 @@ export class FilterService {
                         const sportGroupItems: TreeviewItem[] = [];
                         const sportGroups = _.uniq(listByProductName.map(x => x.SportGroup));
                         sportGroups.forEach(sportGroup => {
-                            const sportGroupItem = new TreeviewItem({ text: sportGroup, value: sportGroup });
+                            const sportGroupItem = new TreeviewItem({ text: sportGroup, value: sportGroup, collapsed: true });
                             const listBySportGroup = listByProductName.filter(x => x.SportGroup === sportGroup);
                             const sportNames = _.uniq(listBySportGroup.map(x => x.SportName));
                             const sportNameItems: TreeviewItem[] = [];
                             sportNames.forEach(sportName => {
-                                const sportNameItem = new TreeviewItem({ text: sportName, value: sportName });
+                                const sportNameItem = new TreeviewItem({ text: sportName, value: sportName, collapsed: true });
                                 const listBySportName = listBySportGroup.filter(x => x.SportName === sportName);
                                 sportNameItem.children = listBySportName.map(x => new TreeviewItem({ text: x.BetTypeName, value: x.Value }));
                                 sportNameItems.push(sportNameItem);
@@ -78,7 +78,7 @@ export class FilterService {
                         const sportNames = _.uniq(listByProductName.map(x => x.SportName));
                         const sportNameItems: TreeviewItem[] = [];
                         sportNames.forEach(sportName => {
-                            const sportNameItem = new TreeviewItem({ text: sportName, value: sportName });
+                            const sportNameItem = new TreeviewItem({ text: sportName, value: sportName, collapsed: true });
                             const listBySportName = listByProductName.filter(x => x.SportName === sportName);
                             sportNameItem.children = listBySportName.map(x => new TreeviewItem({ text: x.BetTypeName, value: x.Value }));
                             sportNameItems.push(sportNameItem);

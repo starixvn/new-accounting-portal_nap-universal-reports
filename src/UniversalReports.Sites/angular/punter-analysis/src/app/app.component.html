@@ -5,7 +5,7 @@
     <span class="active">Punter Analysis</span>
   </div>
   <nap-filter (generate)="onGenerate($event)"></nap-filter>
-  <nap-summary-grid [data]="summaryData"></nap-summary-grid>
+  <nap-summary-grid *ngIf="summaryData" [data]="summaryData"></nap-summary-grid>
   <!--<nap-associated-account-grid></nap-associated-account-grid>-->
   <!--<nap-sport-type-grid></nap-sport-type-grid>-->
   <!--<nap-bet-type-grid></nap-bet-type-grid>-->

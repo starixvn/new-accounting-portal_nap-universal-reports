@@ -15,6 +15,10 @@ textarea {
     font-family: $font-family-base;
 }
 
+ul {
+    margin-bottom: 0;
+}
+
 input[placeholder] {
     &::-webkit-input-placeholder {
         font-style: italic;
