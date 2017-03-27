@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PaginationInstance } from 'ng2-pagination';
-import { PagingModel } from '../../../components/src/paging/paging.model';
 import { AppService } from './app.service';
 import { FilterModel } from './filter/filter.model';
 import { SummaryData } from './grid/summary-grid/summary-grid.model';
@@ -18,7 +17,6 @@ import { SummaryData } from './grid/summary-grid/summary-grid.model';
 })
 export class AppComponent {
   summaryData: SummaryData;
-  pagingModel: PagingModel;
   meals: string[];
 
   constructor(private service: AppService) {
