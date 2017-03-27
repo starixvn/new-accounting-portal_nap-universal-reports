@@ -14,6 +14,7 @@ import { PaginationModule } from 'nap-components/src/pagination';
 import { DropdownSelectModule } from 'nap-components/src/dropdown-select';
 import { ToastService, ToastModule } from 'nap-components/src/toast';
 import { SpinnerService, SpinnerModule } from 'nap-components/src/spinner';
+import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
 
 import { DropdownTypeaheadModule } from './components/dropdown-typeahead';
 import { HttpService } from './components/http.service';
@@ -35,6 +36,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
 
 @NgModule({
   declarations: [
+    InputIntegerDirective,
     DecimalTextDirective,
     IntegerTextDirective,
     MarginTextDirective,

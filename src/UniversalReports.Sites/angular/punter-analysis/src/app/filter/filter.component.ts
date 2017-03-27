@@ -82,6 +82,11 @@ export class FilterComponent {
     }
 
     private validateModel(model: FilterModel): boolean {
+        if (model.topRow > 9999) {
+            this.toastService.activate('Top row should be greater than 0 and less than 10,000!');
+            return false;
+        }
+
         if (model.periodType === PeriodType.Daily || model.periodType === PeriodType.Weekly) {
             const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
             const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
