@@ -1,0 +1,19 @@
+.modal-body {
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+#lengendContentContainer {
+    br {
+        display: none;
+    }
+
+    .title-tab {
+        font-size: 1.0em !important;
+    }
+
+    ul {
+        font-size: 1.0em !important;
+        list-style-type: inherit;
+    }
+}

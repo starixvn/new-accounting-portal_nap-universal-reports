@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 import { Ng2PaginationModule } from 'ng2-pagination';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpService as HttpService2 } from 'nap-components/src/http.service';
 import { LegacyService } from 'nap-components/src/legacy.service';
@@ -17,6 +18,7 @@ import { SpinnerService, SpinnerModule } from 'nap-components/src/spinner';
 import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
 
 import { DropdownTypeaheadModule } from './components/dropdown-typeahead';
+import { LegendModule } from './components/legend';
 import { HttpService } from './components/http.service';
 
 import { DecimalTextDirective } from './directive/decimal-text.deriective';
@@ -55,6 +57,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     FormsModule,
     HttpModule,
     CommonModule,
+    NgbModalModule.forRoot(),
     DropdownTreeviewModule.forRoot(),
     PaginationModule.forRoot(),
     SpinnerModule.forRoot(),
@@ -62,6 +65,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     HeaderModule.forRoot(),
     DropdownSelectModule.forRoot(),
     DropdownTypeaheadModule.forRoot(),
+    LegendModule.forRoot(),
     PeriodTypeModule
   ],
   providers: [
