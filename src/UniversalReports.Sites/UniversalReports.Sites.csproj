@@ -737,7 +737,6 @@
     <Content Include="Views\Common\SessionExpired.cshtml" />
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
-    <Content Include="Views\Shared\_Piwik.cshtml" />
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="Views\NG2Statistics\Index.cshtml" />
