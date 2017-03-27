@@ -4,7 +4,8 @@ import { SpinnerState, SpinnerService } from './spinner.service';
 
 @Component({
     selector: 'nap-spinner',
-    templateUrl: './spinner.component.html'
+    templateUrl: './spinner.component.html',
+    styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent {
     isHide: boolean = true;

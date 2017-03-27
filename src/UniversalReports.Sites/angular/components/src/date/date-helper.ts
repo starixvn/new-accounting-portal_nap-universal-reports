@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import { NgbDateStruct, WeekRange } from './date-model';
 
 export let DateHelper = {
@@ -7,7 +8,8 @@ export let DateHelper = {
     convertDateStructToDate: convertDateStructToDate,
     convertDateToDateStruct: convertDateToDateStruct,
     convertStringToDate: convertStringToDate,
-    convertDateStructToString: convertDateStructToString
+    convertDateStructToString: convertDateStructToString,
+    convertDateStructToMoment: convertDateStructToMoment
 };
 
 function getWeekRangeOfDate(dateStruct: NgbDateStruct): WeekRange {
@@ -60,4 +62,8 @@ function convertDateStructToString(dateStruct: NgbDateStruct): string {
     const monthString = ('0' + dateStruct.month).slice(-2);
     const dayString = ('0' + dateStruct.day).slice(-2);
     return `${yearString}-${monthString}-${dayString}T00:00:00`;
+}
+
+function convertDateStructToMoment(dateStruct: NgbDateStruct): moment.Moment {
+    return moment.utc([dateStruct.year, dateStruct.month, dateStruct.day]);
 }

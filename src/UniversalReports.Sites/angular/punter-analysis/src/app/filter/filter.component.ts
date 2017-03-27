@@ -1,5 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { TreeviewItem, TreeviewConfig } from 'ng2-dropdown-treeview';
+import * as _ from 'lodash';
+import * as moment from 'moment';
+import { ToastService } from 'nap-components/src/toast';
 import { OptionItem, RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
 import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
@@ -20,6 +23,7 @@ import { TypeaheadQuery } from '../components/dropdown-typeahead';
 })
 export class FilterComponent {
     @Output() generate = new EventEmitter<FilterModel>();
+    @Output() reset = new EventEmitter();
     RoleId = RoleId;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
@@ -45,7 +49,8 @@ export class FilterComponent {
     private periodTypeEventModel: PeriodTypeEventModel;
 
     constructor(
-        private service: FilterService
+        private service: FilterService,
+        private toastService: ToastService
     ) {
         const todayNgbDate = NgbDate.fromToday();
         this.minDate = { year: todayNgbDate.year - 1, month: todayNgbDate.month, day: todayNgbDate.day };
@@ -69,8 +74,41 @@ export class FilterComponent {
     }
 
     onGenerate() {
+        this.reset.emit();
         const model = this.createModel();
-        this.generate.emit(model);
+        if (this.validateModel(model)) {
+            this.generate.emit(model);
+        }
+    }
+
+    private validateModel(model: FilterModel): boolean {
+        if (model.periodType === PeriodType.Daily || model.periodType === PeriodType.Weekly) {
+            const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
+            const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
+            if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
+                this.toastService.activate('Date range should not exceed 1 month!');
+                return false;
+            }
+        } else if (model.periodType === PeriodType.MonthRange) {
+            const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
+            const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
+            if (momentFromDate.add(1, 'year').isBefore(momentToDate)) {
+                this.toastService.activate('Date range should not exceed 1 year!');
+                return false;
+            }
+        }
+
+        if (model.userName === '') {
+            this.toastService.activate('Account name field is required!');
+            return false;
+        }
+
+        if (model.productBetTypes.length === 0) {
+            this.toastService.activate('Please select at least one Product!');
+            return false;
+        }
+
+        return true;
     }
 
     private buildUserNameTypeaheadQuery(): TypeaheadQuery {
@@ -89,7 +127,7 @@ export class FilterComponent {
             fromDate: this.periodTypeEventModel.fromDate,
             toDate: this.periodTypeEventModel.toDate,
             depth: this.depth,
-            userName: this.userName,
+            userName: _.trim(this.userName),
             productBetTypes: this.productBetTypes
         }
     }

@@ -4,9 +4,7 @@ import { PaginationInstance } from 'ng2-pagination';
 @Component({
     selector: 'nap-pagination',
     templateUrl: './pagination.component.html',
-    styleUrls: [
-        './pagination.component.scss'
-    ]
+    styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent {
     @Input() config: PaginationInstance = {

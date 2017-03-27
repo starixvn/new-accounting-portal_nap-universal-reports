@@ -22,6 +22,10 @@ export class AppComponent {
   constructor(private service: AppService) {
   }
 
+  onReset(){
+    this.summaryData = undefined;
+  }
+
   onGenerate(filterModel: FilterModel) {
     this.service.querySummary(filterModel).subscribe(data => this.summaryData = data);
   }
