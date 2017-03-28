@@ -8,7 +8,7 @@
         box-sizing: border-box;
     }
     .header {
-        font-weight: bold;        
+        font-weight: bold;
         box-sizing: border-box;
         th {
             box-sizing: border-box;
@@ -45,19 +45,13 @@
             padding: 2px 5px;
         }
     }
-    .number {
-        text-align: right;
-    }
     .date {
         text-align: center;
     }
-    .string {
-        text-align: left;
+    .number {
+        text-align: right;
     }
-    .string-same-length {
-        text-align: center;
-    }
-    .negative {
+    .number-negative {
         color: red;
     }
 }

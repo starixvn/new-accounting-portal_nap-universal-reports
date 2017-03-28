@@ -1,14 +1,14 @@
-import * as moment from 'moment';
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { DateByPeriodTextDirective } from './date-by-period-text.deriective';
+import * as moment from 'moment';
+import { DateByPeriodTextDirective } from './date-by-period-text.directive';
 
 @Component({
   selector: 'nap-test',
-  template: `<span class="daily-text" date-by-period-text [date]="date" [period-type]="0"></span>
+  template: `
+  <span class="daily-text" date-by-period-text [date]="date" [period-type]="0"></span>
   <span class="weekly-text" date-by-period-text [date]="date" [period-type]="1"></span>
   <span class="monthly-text" date-by-period-text [date]="date" [period-type]="2"></span>
   <span class="anually-text" date-by-period-text [date]="date" [period-type]="3"></span>
@@ -26,9 +26,10 @@ describe('DateByPeriodTextDirective', () => {
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [DateByPeriodTextDirective, TestComponent]
-    })
-      .createComponent(TestComponent);
+      declarations: [
+        DateByPeriodTextDirective,
+        TestComponent]
+    }).createComponent(TestComponent);
 
     fixture.detectChanges();
 

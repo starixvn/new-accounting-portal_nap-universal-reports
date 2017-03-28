@@ -1,14 +1,13 @@
-
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { MarginTextDirective } from './margin-text.deriective';
+import { PercentFormatDirective } from './percent-format.directive';
 
 @Component({
   selector: 'nap-test',
-  template: `<span class="positive-win-loss-text" margin-text [win-loss]="positiveValue" [turnover]="100"></span>
+  template: `
+  <span class="positive-win-loss-text" margin-text [win-loss]="positiveValue" [turnover]="100"></span>
   <span class="negative-win-loss-text" margin-text [win-loss]="negativeValue" [turnover]="100"></span>
   <span class="zero-win-loss-text" margin-text [win-loss]="0" [turnover]="100"></span>
   <span class="zero-turnover-text" margin-text [win-loss]="12.321" [turnover]="0"></span>
@@ -26,9 +25,10 @@ describe('MarginTextDirective', () => {
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [MarginTextDirective, TestComponent]
-    })
-      .createComponent(TestComponent);
+      declarations: [
+        PercentFormatDirective,
+        TestComponent]
+    }).createComponent(TestComponent);
 
     fixture.detectChanges();
   }));

@@ -2,12 +2,12 @@
     <div class="header" style="width: 690px">
         <table style="width: 690px">
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 170px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
-                <col style="width: 120px" />
-                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 100px" />
             </colgroup>
             <tr>
                 <th>Username</th>
@@ -15,7 +15,7 @@
                 <th>Turnover</th>
                 <th>Margin</th>
                 <th>Bet Count</th>
-                <th>Associated Account</th>
+                <th>Associated Accounts</th>
             </tr>
             <tr *ngIf="data.Entities.length === 0">
                 <th class="empty-data" colspan="6">There is no data</th>
@@ -25,41 +25,41 @@
     <div *ngIf="data.Entities.length > 0" class="body" style="width: 710px">
         <table style="width: 690px">
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 170px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
-                <col style="width: 120px" />
-                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 100px" />
             </colgroup>
             <tr *ngFor="let item of data.Entities | paginate: config">
-                <td class="string"><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
-                <td class="number" decimal-text [decimal]="item.WinLoss"></td>
-                <td class="number" decimal-text [decimal]="item.Turnover"></td>
-                <td class="number" margin-text [turnover]="item.Turnover" [win-loss]="item.WinLoss"></td>
-                <td class="number">
-                    <a href="javascript:;" (click)="onShowBetCount(item.CustId)" integer-text [integer]="item.BetCount"></a>
+                <td><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
+                <td [napDecimalFormat]="item.WinLoss"></td>
+                <td [napDecimalFormat]="item.Turnover"></td>
+                <td [napPercentFormat]="item.WinLoss/item.Turnover"></td>
+                <td class="text-right">
+                    <a href="javascript:;" (click)="onShowBetCount(item.CustId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
-                <td class="string-same-length"><a href="javascript:;" (click)="onShowAssociatedAccount(item.CustId)">view</a></td>
+                <td class="text-center"><a href="javascript:;" (click)="onShowAssociatedAccount(item.CustId)">view</a></td>
             </tr>
         </table>
     </div>
     <div class="footer" *ngIf="data.Entities.length > 0" style="width: 690px">
         <table style="width: 69px">
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 170px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
-                <col style="width: 120px" />
-                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 100px" />
             </colgroup>
             <tr>
-                <td style="text-align: right" class="string">Total</td>
-                <td class="number" decimal-text [decimal]="data.Total.WinLoss"></td>
-                <td class="number" decimal-text [decimal]="data.Total.Turnover"></td>
-                <td class="number" margin-text [turnover]="data.Total.Turnover" [win-loss]="data.Total.WinLoss"></td>
-                <td class="number" integer-text [integer]="data.Total.BetCount"></td>
+                <td class="text-right">Total</td>
+                <td [napDecimalFormat]="data.Total.WinLoss"></td>
+                <td [napDecimalFormat]="data.Total.Turnover"></td>
+                <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
+                <td [napIntegerFormat]="data.Total.BetCount"></td>
                 <td></td>
             </tr>
             <tr>

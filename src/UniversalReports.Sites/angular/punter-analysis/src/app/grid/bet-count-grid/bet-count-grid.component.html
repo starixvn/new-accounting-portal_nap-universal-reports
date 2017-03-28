@@ -30,11 +30,11 @@
                 <col style="width: 120px" />
             </colgroup>
             <tr *ngFor="let betCountItem of viewModelItem.Entities">
-                <td class="string" date-by-period-text [period-type]="periodType" [date]="betCountItem.Date"></td>
-                <td class="number" integer-text [integer]="betCountItem.BetCount"></td>
-                <td class="number" integer-text [integer]="betCountItem.WinCount"></td>
-                <td class="number" integer-text [integer]="betCountItem.DrawCount"></td>
-                <td class="number" decimal-text [decimal]="betCountItem.WinLoss"></td>
+                <td date-by-period-text [period-type]="periodType" [date]="betCountItem.Date"></td>
+                <td [napIntegerFormat]="betCountItem.BetCount"></td>
+                <td [napIntegerFormat]="betCountItem.WinCount"></td>
+                <td [napIntegerFormat]="betCountItem.DrawCount"></td>
+                <td [napDecimalFormat]="betCountItem.WinLoss"></td>
             </tr>
         </table>
     </div>
@@ -49,10 +49,10 @@
             </colgroup>
             <tr>
                 <td style="text-align: right" class="string">Total</td>
-                <td class="number" integer-text [integer]="viewModelItem.Total.BetCount"></td>
-                <td class="number" integer-text [integer]="viewModelItem.Total.WinCount"></td>
-                <td class="number" integer-text [integer]="viewModelItem.Total.DrawCount"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.WinLoss"></td>
+                <td [napIntegerFormat]="viewModelItem.Total.BetCount"></td>
+                <td [napIntegerFormat]="viewModelItem.Total.WinCount"></td>
+                <td [napIntegerFormat]="viewModelItem.Total.DrawCount"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.WinLoss"></td>
             </tr>
         </table>
     </div>

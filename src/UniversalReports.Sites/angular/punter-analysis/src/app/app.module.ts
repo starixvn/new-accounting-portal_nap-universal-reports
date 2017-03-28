@@ -21,10 +21,10 @@ import { InputIntegerDirective } from 'nap-components/src/number/input-integer.d
 import { DropdownTypeaheadModule } from './components/dropdown-typeahead';
 import { HttpService } from './components/http.service';
 
-import { DecimalTextDirective } from './directive/decimal-text.deriective';
-import { IntegerTextDirective } from './directive/integer-text.deriective';
-import { MarginTextDirective } from './directive/margin-text.deriective';
-import { DateByPeriodTextDirective } from './directive/date-by-period-text.deriective';
+import { DecimalFormatDirective } from './directives/decimal-format.directive';
+import { IntegerFormatDirective } from './directives/integer-format.directive';
+import { PercentFormatDirective } from './directives/percent-format.directive';
+import { DateByPeriodTextDirective } from './directives/date-by-period-text.directive';
 
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
@@ -39,9 +39,9 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
 @NgModule({
   declarations: [
     InputIntegerDirective,
-    DecimalTextDirective,
-    IntegerTextDirective,
-    MarginTextDirective,
+    DecimalFormatDirective,
+    IntegerFormatDirective,
+    PercentFormatDirective,
     DateByPeriodTextDirective,
     AppComponent,
     FilterComponent,

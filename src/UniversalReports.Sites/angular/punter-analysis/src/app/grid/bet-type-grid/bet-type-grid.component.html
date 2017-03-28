@@ -60,36 +60,36 @@
                 <col style="width:120px" />
             </colgroup>
             <tr *ngFor="let betTypeItem of viewModelItem.Entities">
-                <td class="string">{{ betTypeItem.BetTypeName }}</td>
-                <td class="number">
-                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.NonLiveWinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueNonLive(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.NonLiveWinLoss"></a>
+                <td>{{ betTypeItem.BetTypeName }}</td>
+                <td>
+                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="betTypeItem.NonLiveWinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueNonLive(betTypeItem.BetTypeId)" [napDecimalFormat]="betTypeItem.NonLiveWinLoss"></a>
                 </td>
-                <td class="number" decimal-text [decimal]="betTypeItem.NonLiveTurnover"></td>
-                <td class="number" margin-text [turnover]="betTypeItem.NonLiveTurnover" [win-loss]="betTypeItem.NonLiveWinLoss">
+                <td [napDecimalFormat]="betTypeItem.NonLiveTurnover"></td>
+                <td [napPercentFormat]="betTypeItem.NonLiveWinLoss/betTypeItem.NonLiveTurnover">
                 </td>
-                <td class="number">
-                    <a href="javascript:;" (click)="onShowBetCountNonLive(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.NonLiveBetCount"></a>
+                <td>
+                    <a href="javascript:;" (click)="onShowBetCountNonLive(betTypeItem.BetTypeId)" [napIntegerFormat]="betTypeItem.NonLiveBetCount"></a>
                 </td>
-                <td class="number">
-                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.LiveWinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueLive(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.LiveWinLoss"></a>
+                <td>
+                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="betTypeItem.LiveWinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueLive(betTypeItem.BetTypeId)" [napDecimalFormat]="betTypeItem.LiveWinLoss"></a>
                 </td>
-                <td class="number" decimal-text [decimal]="betTypeItem.LiveTurnover"></td>
-                <td class="number" margin-text [turnover]="betTypeItem.LiveTurnover" [win-loss]="betTypeItem.LiveWinLoss">
+                <td [napDecimalFormat]="betTypeItem.LiveTurnover"></td>
+                <td [napPercentFormat]="betTypeItem.LiveWinLoss/betTypeItem.LiveTurnover">
                 </td>
-                <td class="number">
-                    <a href="javascript:;" (click)="onShowBetCountLive(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.LiveBetCount"></a>
+                <td>
+                    <a href="javascript:;" (click)="onShowBetCountLive(betTypeItem.BetTypeId)" [napIntegerFormat]="betTypeItem.LiveBetCount"></a>
                 </td>
-                <td class="number">
-                    <span *ngIf="!isLeagueAvailable()" decimal-text [decimal]="betTypeItem.WinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeague(betTypeItem.BetTypeId)" decimal-text [decimal]="betTypeItem.WinLoss"></a>
+                <td>
+                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="betTypeItem.WinLoss"></span>
+                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeague(betTypeItem.BetTypeId)" [napDecimalFormat]="betTypeItem.WinLoss"></a>
                 </td>
-                <td class="number" decimal-text [decimal]="betTypeItem.Turnover"></td>
-                <td class="number" margin-text [turnover]="betTypeItem.Turnover" [win-loss]="betTypeItem.WinLoss">
+                <td [napDecimalFormat]="betTypeItem.Turnover"></td>
+                <td [napPercentFormat]="betTypeItem.WinLoss/betTypeItem.Turnover">
                 </td>
-                <td class="number">
-                    <a href="javascript:;" (click)="onShowBetCount(betTypeItem.BetTypeId)" integer-text [integer]="betTypeItem.BetCount"></a>
+                <td>
+                    <a href="javascript:;" (click)="onShowBetCount(betTypeItem.BetTypeId)" [napIntegerFormat]="betTypeItem.BetCount"></a>
                 </td>
             </tr>
         </table>
@@ -111,24 +111,20 @@
                 <col style="width:90px" />
                 <col style="width:120px" />
             </colgroup>
-
             <tr>
-                <td style="text-align: right" class="string">Total</td>
-
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveWinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveTurnover"></td>
-                <td class="number" margin-text [turnover]="viewModelItem.Total.NonLiveTurnover" [win-loss]="viewModelItem.Total.NonLiveWinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.NonLiveBetCount"></td>
-
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveWinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveTurnover"></td>
-                <td class="number" margin-text [turnover]="viewModelItem.Total.LiveTurnover" [win-loss]="viewModelItem.Total.LiveWinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.LiveBetCount"></td>
-
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.WinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.Turnover"></td>
-                <td class="number" margin-text [turnover]="viewModelItem.Total.Turnover" [win-loss]="viewModelItem.Total.WinLoss"></td>
-                <td class="number" decimal-text [decimal]="viewModelItem.Total.BetCount"></td>
+                <td class="text-right">Total</td>
+                <td [napDecimalFormat]="viewModelItem.Total.NonLiveWinLoss"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.NonLiveTurnover"></td>
+                <td [napPercentFormat]="viewModelItem.Total.NonLiveWinLoss/viewModelItem.Total.NonLiveTurnover"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.NonLiveBetCount"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.LiveWinLoss"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.LiveTurnover"></td>
+                <td [napPercentFormat]="viewModelItem.Total.LiveWinLoss/viewModelItem.Total.LiveTurnover"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.LiveBetCount"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.WinLoss"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.Turnover"></td>
+                <td [napPercentFormat]="viewModelItem.Total.WinLoss/viewModelItem.Total.Turnover"></td>
+                <td [napDecimalFormat]="viewModelItem.Total.BetCount"></td>
             </tr>
         </table>
     </div>

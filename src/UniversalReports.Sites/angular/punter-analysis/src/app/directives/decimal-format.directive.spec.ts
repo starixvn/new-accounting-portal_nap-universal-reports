@@ -1,17 +1,16 @@
-
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { DecimalTextDirective } from './decimal-text.deriective';
+import { DecimalFormatDirective } from './decimal-format.directive';
 
 @Component({
   selector: 'nap-test',
-  template: `<span class="positive-decimal-text" decimal-text [decimal]="positiveValue"></span>
-  <span class="negative-decimal-text" decimal-text [decimal]="negativeValue"></span>
-  <span class="zero-decimal-text" decimal-text [decimal]="0"></span>
-  <span class="undefined-decimal-text" decimal-text [decimal]=""></span>  
+  template: `
+  <span class="positive-decimal-text" [napDecimalFormat]="positiveValue"></span>
+  <span class="negative-decimal-text" [napDecimalFormat]="negativeValue"></span>
+  <span class="zero-decimal-text" [napDecimalFormat]="0"></span>
+  <span class="undefined-decimal-text" [napDecimalFormat]=""></span>  
   `,
 })
 class TestComponent {
@@ -24,9 +23,10 @@ describe('DecimalTextDirective', () => {
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [DecimalTextDirective, TestComponent]
-    })
-      .createComponent(TestComponent);
+      declarations: [
+        DecimalFormatDirective,
+        TestComponent]
+    }).createComponent(TestComponent);
 
     fixture.detectChanges();
   }));

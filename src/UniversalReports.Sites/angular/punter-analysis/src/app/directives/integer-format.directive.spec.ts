@@ -1,18 +1,17 @@
-
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { IntegerTextDirective } from './integer-text.deriective';
+import { IntegerFormatDirective } from './integer-format.directive';
 
 @Component({
   selector: 'nap-test',
-  template: `<span class="positive-integer-text" integer-text [integer]="positiveValue"></span>
-  <span class="negative-integer-text" integer-text [integer]="negativeValue"></span>
-  <span class="zero-integer-text" integer-text [integer]="0"></span>
-  <span class="undefined-integer-text" integer-text [integer]=""></span>  
-  `,
+  template: `
+  <span class="positive-integer-text" [napIntegerFormat]="positiveValue"></span>
+  <span class="negative-integer-text" [napIntegerFormat]="negativeValue"></span>
+  <span class="zero-integer-text" [napIntegerFormat]="0"></span>
+  <span class="undefined-integer-text" [napIntegerFormat]=""></span>
+  `
 })
 class TestComponent {
   private positiveValue: number = 153256.321962;
@@ -24,9 +23,10 @@ describe('IntegerTextDirective', () => {
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [IntegerTextDirective, TestComponent]
-    })
-      .createComponent(TestComponent);
+      declarations: [
+        IntegerFormatDirective,
+        TestComponent]
+    }).createComponent(TestComponent);
 
     fixture.detectChanges();
   }));
