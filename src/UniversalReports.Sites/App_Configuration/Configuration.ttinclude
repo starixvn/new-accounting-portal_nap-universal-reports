@@ -303,33 +303,6 @@
             }
         }
 
-        public string SPName
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                    case SiteEnvironment.MNL:
-                        return "~/App_Data/PRO/";
-
-                    case SiteEnvironment.UAT:
-                        return "~/App_Data/UAT/";
-					case SiteEnvironment.SIT:
-                        return "~/App_Data/SIT/";
-                    case SiteEnvironment.DEV:
-                        return "~/App_Data/DEV/";
-                    case SiteEnvironment.LOCAL:
-                        return "~/App_Data/LOCAL/";
-                    case SiteEnvironment.MASTER:
-                        return "~/App_Data/MASTER/";
-
-                    default:
-                        return string.Empty;
-                }
-            }
-        }
-
 		public string FanexLogMSMQ
 		{
 			get
