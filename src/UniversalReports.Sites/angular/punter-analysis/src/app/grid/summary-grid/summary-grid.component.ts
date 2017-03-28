@@ -5,11 +5,7 @@ import { SummaryData, SummaryItem } from './summary-grid.model'
 
 @Component({
     selector: 'nap-summary-grid',
-    templateUrl: './summary-grid.component.html',
-    styleUrls: [
-        './summary-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './summary-grid.component.html'
 })
 export class SummaryGridComponent implements OnChanges {
     @Input() data: SummaryData;

@@ -3,11 +3,7 @@ import { ViewModelItem, SportTypeItem } from './sport-type-grid.model'
 
 @Component({
     selector: 'nap-sport-type-grid',
-    templateUrl: './sport-type-grid.component.html',
-    styleUrls: [
-        './sport-type-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './sport-type-grid.component.html'
 })
 export class SportTypeGridComponent {
     private viewModelItem: ViewModelItem;

@@ -1,0 +1,17 @@
+<div *ngIf="filterModel" class="d-inline-block">
+    <div class="header">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Main</a></li>
+            <li class="breadcrumb-item active">Library</li>
+        </ol>
+        <div class="toolbox">
+            <i class="icon-excel" title="Export excel" (click)="onExportExcel()"></i>
+        </div>
+    </div>
+    <nap-summary-grid *ngIf="summaryData" [data]="summaryData"></nap-summary-grid>
+    <!--<nap-associated-account-grid></nap-associated-account-grid>-->
+    <!--<nap-sport-type-grid></nap-sport-type-grid>-->
+    <!--<nap-bet-type-grid></nap-bet-type-grid>-->
+    <!--<nap-league-grid></nap-league-grid>-->
+    <!--<nap-bet-count-grid></nap-bet-count-grid>-->
+</div>

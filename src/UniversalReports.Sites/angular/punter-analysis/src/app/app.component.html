@@ -6,11 +6,6 @@
   </div>
   <nap-filter (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
   <nap-toast></nap-toast>
-  <nap-summary-grid *ngIf="summaryData" [data]="summaryData"></nap-summary-grid>
-  <!--<nap-associated-account-grid></nap-associated-account-grid>-->
-  <!--<nap-sport-type-grid></nap-sport-type-grid>-->
-  <!--<nap-bet-type-grid></nap-bet-type-grid>-->
-  <!--<nap-league-grid></nap-league-grid>-->
-  <!--<nap-bet-count-grid></nap-bet-count-grid>-->
+  <nap-grid [filterModel]="filterModel"></nap-grid>
 </div>
 <nap-spinner></nap-spinner>

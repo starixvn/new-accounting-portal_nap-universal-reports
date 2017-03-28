@@ -5,11 +5,7 @@ import { ViewModelItem, BetCountItem } from './bet-count-grid.model'
 
 @Component({
     selector: 'nap-bet-count-grid',
-    templateUrl: './bet-count-grid.component.html',
-    styleUrls: [
-        './bet-count-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './bet-count-grid.component.html'
 })
 export class BetCountGridComponent {
     private periodType: PeriodType;

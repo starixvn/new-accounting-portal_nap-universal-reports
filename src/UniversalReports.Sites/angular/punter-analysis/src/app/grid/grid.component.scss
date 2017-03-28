@@ -1,4 +1,25 @@
-.grid {
+.header {
+    background: -webkit-linear-gradient(#ffcc33, #ffcc35);
+    display: flex;
+    margin-bottom: .1rem;
+    .breadcrumb {
+        margin-right: auto;
+        background-color: transparent;
+    }
+    .toolbox {
+        margin-top: .5rem;
+        margin-right: .5rem;
+        .icon-excel {
+            background: url("images/excel.png") no-repeat scroll 0 0 transparent;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+        }
+    }
+}
+
+:host /deep/ .grid {
     font-family: Tahoma, Arial, Helvetica, sans-serif;
     font-size: 0.8125rem;
     overflow-x: auto;

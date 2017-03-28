@@ -4,11 +4,7 @@ import { UserRoleItem } from './associated-account-grid.model'
 
 @Component({
     selector: 'nap-associated-account-grid',
-    templateUrl: './associated-account-grid.component.html',
-    styleUrls: [
-        './associated-account-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './associated-account-grid.component.html'
 })
 export class AssociatedAccountGridComponent {
     private userRoleItems: UserRoleItem[];

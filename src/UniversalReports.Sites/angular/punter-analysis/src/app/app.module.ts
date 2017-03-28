@@ -29,6 +29,7 @@ import { DateByPeriodTextDirective } from './directives/date-by-period-text.dire
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { PeriodTypeModule } from './filter/period-type/period-type.module';
+import { GridComponent } from './grid/grid.component';
 import { SummaryGridComponent } from './grid/summary-grid/summary-grid.component';
 import { BetCountGridComponent } from './grid/bet-count-grid/bet-count-grid.component';
 import { AssociatedAccountGridComponent } from './grid/associated-account-grid/associated-account-grid.component';
@@ -45,6 +46,7 @@ import { LeagueGridComponent } from './grid/league-grid/league-grid.component';
     DateByPeriodTextDirective,
     AppComponent,
     FilterComponent,
+    GridComponent,
     SummaryGridComponent,
     BetCountGridComponent,
     AssociatedAccountGridComponent,

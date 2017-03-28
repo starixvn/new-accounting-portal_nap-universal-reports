@@ -3,11 +3,7 @@ import { ViewModelItem, BetTypeItem, ProductHasLeague } from './bet-type-grid.mo
 
 @Component({
     selector: 'nap-bet-type-grid',
-    templateUrl: './bet-type-grid.component.html',
-    styleUrls: [
-        './bet-type-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './bet-type-grid.component.html'
 })
 export class BetTypeGridComponent {
     private viewModelItem: ViewModelItem;

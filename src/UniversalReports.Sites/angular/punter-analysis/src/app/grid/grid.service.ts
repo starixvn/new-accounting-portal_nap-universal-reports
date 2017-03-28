@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DateHelper } from 'nap-components/src/date';
-import { HttpService } from './components/http.service';
-import { FilterModel } from './filter/filter.model';
+import { HttpService } from '../components/http.service';
+import { FilterModel } from '../filter/filter.model';
 
 @Injectable()
-export class AppService {
+export class GridService {
     constructor(
         private httpService: HttpService
     ) { }

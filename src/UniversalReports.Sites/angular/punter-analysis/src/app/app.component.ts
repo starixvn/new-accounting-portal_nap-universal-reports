@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { PaginationInstance } from 'ng2-pagination';
-import { AppService } from './app.service';
 import { FilterModel } from './filter/filter.model';
-import { SummaryData } from './grid/summary-grid/summary-grid.model';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +7,16 @@ import { SummaryData } from './grid/summary-grid/summary-grid.model';
   styleUrls: [
     '../../../components/src/style/layout.scss',
     '../../../components/src/style/header.scss'
-  ],
-  providers: [
-    AppService
   ]
 })
 export class AppComponent {
-  summaryData: SummaryData;
-  meals: string[];
+  filterModel: FilterModel;
 
-  constructor(private service: AppService) {
-  }
-
-  onReset(){
-    this.summaryData = undefined;
+  onReset() {
+    this.filterModel = undefined;
   }
 
   onGenerate(filterModel: FilterModel) {
-    this.service.querySummary(filterModel).subscribe(data => this.summaryData = data);
+    this.filterModel = filterModel;
   }
 }

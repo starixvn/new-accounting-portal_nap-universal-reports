@@ -3,11 +3,7 @@ import { LeagueItem, PeriodGroupItem, ViewModelItem } from './league-grid.model'
 
 @Component({
     selector: 'nap-league-grid',
-    templateUrl: './league-grid.component.html',
-    styleUrls: [
-        './league-grid.component.scss',
-        '../grid.scss'
-    ]
+    templateUrl: './league-grid.component.html'
 })
 export class LeagueGridComponent {
     private viewModelItem: ViewModelItem;
