@@ -33,7 +33,7 @@
                 <col style="width: 100px" />
             </colgroup>
             <tr *ngFor="let item of data.Entities | paginate: config">
-                <td><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
+                <td class="word-break-all"><a href="javascript:;" (click)="onShowSportType(item.CustId)">{{ item.Username }}</a></td>
                 <td [napDecimalFormat]="item.WinLoss"></td>
                 <td [napDecimalFormat]="item.Turnover"></td>
                 <td [napPercentFormat]="item.WinLoss/item.Turnover"></td>

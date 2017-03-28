@@ -10,11 +10,8 @@ export class LegendService {
     ) {
     }
 
-    query(menuName: string): Observable<string> {
-        let url = 'LegendManagement/Legend/GetReportLegend';
-        let params = new URLSearchParams();
-        params.set('menuName', menuName);
-        //return this.httpService.get<string>(url, { search: params });
-        return Observable.of<string>('<div>Test</div>');
+    query(id: string): Observable<string> {
+        let url = `http://58.86.55.10/NAP-Reports-Legend-API/api/legend/${id}`;
+        return this.httpService.get<string>(url);
     }
 }
