@@ -1,5 +1,5 @@
 <div class="jumbotron filter-container">
-    <nap-legend [menuName]="'PunterAnalysis'" [menuTitle]="'Punter Analysis Legend'"></nap-legend>
+    <nap-legend [legendId]="1" [legendTitle]="'Punter Analysis Legend'"></nap-legend>
     <div class="row">
         <div class="col-x1">
             <div class="col-label">
@@ -18,7 +18,7 @@
                 <label class="col-form-label">Top rows</label>
             </div>
             <div class="col-value">
-                <input style="width: 80px" class="form-control" type="text" [(ngModel)]="topRows" [napInputInteger] />
+                <input style="width: 80px" class="form-control" type="text" [(ngModel)]="topRows" [napInputInteger]="{max: 9999}" />
             </div>
         </div>
         <div class="col-x3">

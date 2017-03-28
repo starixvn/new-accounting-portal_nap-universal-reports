@@ -15,8 +15,8 @@ import { LegendModalComponent } from './legend-modal.component';
 })
 export class LegendComponent {
     private body: SafeHtml;
-    @Input() menuName: string;
-    @Input() menuTitle: string;
+    @Input() legendId: string;
+    @Input() legendTitle: string;
 
     constructor(
         private sanitized: DomSanitizer,
@@ -28,11 +28,11 @@ export class LegendComponent {
     show() {
         const modalRef = this.modalService.open(LegendModalComponent);
         const instance = modalRef.componentInstance as LegendModalComponent;
-        instance.title = this.menuTitle;
+        instance.title = this.legendTitle;
         if (!_.isNil(this.body)) {
             instance.body = this.body;
         } else {
-            this.legendService.query(this.menuName).subscribe(body => {
+            this.legendService.query(this.legendId).subscribe(body => {
                 this.body = this.sanitized.bypassSecurityTrustHtml(body);
                 instance.body = this.body;
             });

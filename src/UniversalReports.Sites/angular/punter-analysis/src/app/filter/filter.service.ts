@@ -96,4 +96,9 @@ export class FilterService {
             return productItems;
         });
     }
+
+    checkDatabaseAvailable(): Observable<boolean> {
+        let url = 'UniversalReports/api/punter-analysis/filter/available-database';
+        return this.httpService.post<boolean>(url);
+    }
 }

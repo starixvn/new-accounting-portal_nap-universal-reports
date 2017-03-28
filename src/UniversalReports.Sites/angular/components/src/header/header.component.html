@@ -23,9 +23,9 @@
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
             </div>
             <ul>
-                <li class="nav-item"><a class="nav-link" href="/UserControl/User/UserProfile">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="/UserControl/User/ChangePassword">Change Password</a></li>
-                <li class="nav-item"><a class="nav-link" href="/UserLogin/Login/LogOut">Sign Out</a></li>
+                <li class="nav-item"><a class="nav-link" [href]="resolveLegacyUrl('/UserControl/User/UserProfile')">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" [href]="resolveLegacyUrl('/UserControl/User/ChangePassword')">Change Password</a></li>
+                <li class="nav-item"><a class="nav-link" [href]="resolveLegacyUrl('/UserLogin/Login/LogOut')">Sign Out</a></li>
             </ul>
         </div>
     </div>

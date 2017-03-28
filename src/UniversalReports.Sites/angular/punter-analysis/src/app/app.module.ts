@@ -13,12 +13,12 @@ import { ExceptionService } from 'nap-components/src/exception.service';
 import { HeaderModule } from 'nap-components/src/header';
 import { PaginationModule } from 'nap-components/src/pagination';
 import { DropdownSelectModule } from 'nap-components/src/dropdown-select';
+import { LegendModule } from 'nap-components/src/legend';
 import { ToastService, ToastModule } from 'nap-components/src/toast';
 import { SpinnerService, SpinnerModule } from 'nap-components/src/spinner';
 import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
 
 import { DropdownTypeaheadModule } from './components/dropdown-typeahead';
-import { LegendModule } from './components/legend';
 import { HttpService } from './components/http.service';
 
 import { DecimalTextDirective } from './directive/decimal-text.deriective';

@@ -9,8 +9,7 @@ export class HeaderService {
     constructor(
         private httpService: HttpService,
         private legacyService: LegacyService
-    ) {
-    }
+    ) { }
 
     query() {
         let url = 'UniversalReports/api/application/header';
