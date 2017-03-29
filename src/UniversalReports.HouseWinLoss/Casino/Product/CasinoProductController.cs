@@ -8,7 +8,7 @@ namespace UniversalReports.HouseWinLoss.Casino.Product
     [RoutePrefix("api/house-win-loss-by-products/casino/product")]
     public class CasinoProductController : BasicWinLossController
     {
-        public CasinoProductController(BasicWinLossService service, CasinoProductGridOptionsBuilder builder, GridOptionColumnDecoratorExtraPT decorator)
+        public CasinoProductController(BasicWinLossService service, BasicGridOptionsBuilder builder, GridOptionColumnDecoratorExtraPT decorator)
         : base(service, builder, decorator)
         {
         }

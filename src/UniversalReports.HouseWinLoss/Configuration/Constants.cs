@@ -29,45 +29,5 @@
                 };
             }
         }
-
-        public static string[] ProductsExtraPT
-        {
-            get
-            {
-                return new[]
-                {
-                    "Soccer",
-                    "Metric Gaming - Superlive",
-                    "Other Sports",
-                    "Parlay",
-                    "Sportsbook Total",
-                    "Number Game",
-                    "Casino",
-                    "Live Casino",
-                    "MBC_RNG Casino",
-                    "Virtual Sports",
-                    "Keno",
-                    "Bingo",
-                    "Gold Deluxe",
-                    "Non-Sports Total",
-                    "NG2"
-                };
-            }
-        }
-
-        public static string[] CasinoProductsNonExtraPT
-        {
-            get
-            {
-                return new[]
-                {
-                    "Microgaming - Live Casino",
-                    "AG Casino",
-                    "Allbet",
-                    "Microgaming - RNG Casino",
-                    "Macau"
-                };
-            }
-        }
     }
 }

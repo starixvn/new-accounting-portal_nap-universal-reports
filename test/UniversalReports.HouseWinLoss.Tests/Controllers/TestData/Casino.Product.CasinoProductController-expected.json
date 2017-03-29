@@ -338,7 +338,7 @@
         },
         {
           "Name": "ExtraPT",
-          "Value": "N/A",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -434,7 +434,7 @@
             },
             {
               "Name": "ExtraPT",
-              "Value": "N/A",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -530,7 +530,7 @@
             },
             {
               "Name": "ExtraPT",
-              "Value": "N/A",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",

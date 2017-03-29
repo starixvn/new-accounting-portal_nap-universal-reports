@@ -6,7 +6,6 @@ using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
-using CasinoProduct = UniversalReports.HouseWinLoss.Casino.Product;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using GridOptionsBuilder = UniversalReports.HouseWinLoss.Common.SiteWinLoss.GridOptionsBuilder;
@@ -102,10 +101,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container
                 .Register
                 <Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(
-                    Lifestyle.Transient);
-
-            container
-                .Register<CasinoProduct.CasinoProductGridOptionsBuilder, CasinoProduct.CasinoProductGridOptionsBuilder>(
                     Lifestyle.Transient);
 
             container.Verify();
