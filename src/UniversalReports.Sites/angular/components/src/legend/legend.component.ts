@@ -15,7 +15,7 @@ import { LegendModalComponent } from './legend-modal.component';
 })
 export class LegendComponent {
     private body: SafeHtml;
-    @Input() legendId: string;
+    @Input() legendId: number;
     @Input() legendTitle: string;
 
     constructor(
@@ -26,16 +26,20 @@ export class LegendComponent {
     }
 
     show() {
-        const modalRef = this.modalService.open(LegendModalComponent);
-        const instance = modalRef.componentInstance as LegendModalComponent;
-        instance.title = this.legendTitle;
         if (!_.isNil(this.body)) {
-            instance.body = this.body;
+            this.showModal();
         } else {
             this.legendService.query(this.legendId).subscribe(body => {
                 this.body = this.sanitized.bypassSecurityTrustHtml(body);
-                instance.body = this.body;
+                this.showModal();
             });
         }
+    }
+
+    private showModal() {
+        const modalRef = this.modalService.open(LegendModalComponent);
+        const instance = modalRef.componentInstance as LegendModalComponent;
+        instance.title = this.legendTitle;
+        instance.body = this.body;
     }
 }

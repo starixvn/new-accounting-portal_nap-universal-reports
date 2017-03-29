@@ -10,7 +10,7 @@ export class LegendService {
     ) {
     }
 
-    query(id: string): Observable<string> {
+    query(id: number): Observable<string> {
         let url = `http://58.86.55.10/NAP-Reports-Legend-API/api/legend/${id}`;
         return this.httpService.get<string>(url);
     }
