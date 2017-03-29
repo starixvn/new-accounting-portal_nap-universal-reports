@@ -7,11 +7,12 @@ using UniversalReports.Sites.SimpleInjector;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    internal class SimpleInjectorApiConfig
+    internal static class SimpleInjectorApiConfig
     {
+        private static Container container = new Container();
+
         internal static void Initialize()
         {
-            var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
             container.RegiserGlobalServices()
@@ -23,7 +24,6 @@ namespace UniversalReports.Sites.SimpleInjector
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
             // container.Verify();
-
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
         }
     }

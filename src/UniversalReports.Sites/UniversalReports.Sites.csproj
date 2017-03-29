@@ -707,31 +707,31 @@
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UniversalReports.API\UniversalReports.API.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
       <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
       <Name>UniversalReports.API</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.Application\UniversalReports.Application.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>
       <Name>UniversalReports.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
       <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
       <Name>UniversalReports.NG2Statistics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
       <Project>{57b473ff-1385-4d2e-9eb1-5e9a7c586cf0}</Project>
       <Name>UniversalReports.PunterAnalysis</Name>
     </ProjectReference>

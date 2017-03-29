@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
-using UniversalReports.API.Attributes;
+using UniversalReports.WebAPI.Attributes;
 
 namespace UniversalReports.Sites
 {
