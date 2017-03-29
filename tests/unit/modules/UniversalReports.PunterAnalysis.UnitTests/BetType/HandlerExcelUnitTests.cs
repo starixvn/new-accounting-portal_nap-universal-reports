@@ -1,22 +1,30 @@
-﻿namespace UniversalReports.PunterAnalysis.UnitTests.BetType
+﻿using AutoMapper;
+using NSubstitute;
+using NUnit.Framework;
+using System.Threading.Tasks;
+using UniversalReports.PunterAnalysis.BetType;
+using UniversalReports.PunterAnalysis.BetType.Model;
+using UniversalReports.PunterAnalysis.Core;
+
+namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 {
     public class HandlerExcelUnitTests
     {
-        /*[Test]
+        [Test]
         public async Task Handle_WithAnyParametters_ExecuteCreatePackage()
         {
             // Arrange
             var mapper = Substitute.For<IMapper>();
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSettings = Substitute.For<BetTypeExcelSettings>();
+            var excelSetting = Substitute.For<IExcelSetting>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSettings, excelBuilder);
+            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSettings>());
+            await excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSetting>());
         }
 
         [Test]
@@ -24,29 +32,30 @@
         {
             // Arrange
             var emptyExcelViewModel = new ExcelViewModel();
-            var settings = new ExcelSettings
+            var setting = new ExcelSetting
             {
-                SheetName = "aaa",
-                StartRowIndex = 5,
-                TemplatePath = "bbb",
-                Title = "ccc",
-                TitleCellRange = "A1:C3",
-                Description = "dddd",
-                DescriptionCellRange = "A4:C8"
+                SheetName = "AnySheetName",
+                StartRowIndex = 9,
+                TemplatePath = "AnyTemplatePath",
+                Title = "Any Title",
+                TitleCellRange = "A1:M2",
+                Filter = "Any Filter",
+                FilterCellRange = "A3:M5"
             };
+
             var mapper = Substitute.For<IMapper>();
             mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<BetTypeModel>>()).Returns(emptyExcelViewModel);
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSettings = Substitute.For<BetTypeExcelSettings>();
-            excelSettings.CreateSettings().Returns(settings);
+            var excelSetting = Substitute.For<IExcelSetting>();
+            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSettings, excelBuilder);
+            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
-        }*/
+            await excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(setting));
+        }
     }
 }

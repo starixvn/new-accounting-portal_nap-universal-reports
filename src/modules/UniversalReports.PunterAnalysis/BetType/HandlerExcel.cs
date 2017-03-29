@@ -13,12 +13,15 @@ namespace UniversalReports.PunterAnalysis.BetType
 
         private readonly PunterAnalysisService punterAnalysisService;
 
+        private readonly IExcelSetting setting;
+
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, PunterAnalysisExcelBuilder excelBuilder)
+        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.punterAnalysisService = punterAnalysisService;
+            this.setting = setting;
             this.excelBuilder = excelBuilder;
         }
 
@@ -27,8 +30,9 @@ namespace UniversalReports.PunterAnalysis.BetType
             var criteria = mapper.Map<Criteria>(message);
             var model = await punterAnalysisService.Query<BetTypeModel>(criteria);
             var excelViewModel = mapper.Map<ExcelViewModel>(model);
-            var excelSettings = new ExcelSettings();
-            return await excelBuilder.CreateExcelPackage(excelViewModel, excelSettings);
+            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
+            var excelSetting = await setting.CreateSetting(excelSettingParams);
+            return await excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
         }
     }
 }

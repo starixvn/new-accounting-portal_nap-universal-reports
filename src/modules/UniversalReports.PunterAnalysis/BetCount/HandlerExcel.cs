@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using OfficeOpenXml;
-using System;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Core;
@@ -14,15 +13,26 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         private readonly PunterAnalysisService punterAnalysisService;
 
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService)
+        private readonly IExcelSetting setting;
+
+        private readonly PunterAnalysisExcelBuilder excelBuilder;
+
+        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.punterAnalysisService = punterAnalysisService;
+            this.setting = setting;
+            this.excelBuilder = excelBuilder;
         }
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            throw new NotImplementedException();
+            var criteria = mapper.Map<Criteria>(message);
+            var model = await punterAnalysisService.Query<BetCountModel>(criteria);
+            var excelViewModel = mapper.Map<ExcelViewModel>(model);
+            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
+            var excelSettings = await setting.CreateSetting(excelSettingParams);
+            return await excelBuilder.CreateExcelPackage(excelViewModel, excelSettings);
         }
     }
 }

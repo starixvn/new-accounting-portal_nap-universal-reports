@@ -598,6 +598,10 @@
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
     </Content>
     <Content Include="punter-analysis\dist\index.cshtml" />
+    <Content Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Bettype.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Sporttype.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Summary.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

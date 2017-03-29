@@ -129,6 +129,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetCount\HandlerExcelUnitTests.cs" />
     <Compile Include="BetType\HandlerExcelUnitTests.cs" />
     <Compile Include="Core\DateTimeServiceImpUnitTests.cs" />
     <Compile Include="League\HandlerUnitTests.cs" />
@@ -139,6 +140,8 @@
     <Compile Include="League\Model\LeagueModelUnitTests.cs" />
     <Compile Include="League\Model\PeriodGroupUnitTests.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerUnitTests.cs" />
+    <Compile Include="SportType\HandlerExcelUnitTests.cs" />
+    <Compile Include="Summary\HandlerExcelUnitTests.cs" />
     <Compile Include="Summary\HandlerUnitTests.cs" />
     <Compile Include="Summary\Model\SummaryModelUnitTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerUnitTests.cs" />

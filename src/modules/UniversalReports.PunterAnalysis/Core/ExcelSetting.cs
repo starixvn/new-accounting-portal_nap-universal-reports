@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.PunterAnalysis.Core
 {
-    public class ExcelSettings
+    public class ExcelSetting
     {
         public string TemplatePath { get; set; }
 
@@ -12,8 +12,8 @@
 
         public string TitleCellRange { get; set; }
 
-        public string Description { get; set; }
+        public string Filter { get; set; }
 
-        public string DescriptionCellRange { get; set; }
+        public string FilterCellRange { get; set; }
     }
 }

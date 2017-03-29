@@ -105,10 +105,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetType\BetTypeExcelSettings.cs" />
+    <Compile Include="BetCount\BetCountExcelSettingImp.cs" />
+    <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
+    <Compile Include="BetCount\Model\ExcelViewModel.cs" />
+    <Compile Include="BetType\BetTypeExcelSettingImp.cs" />
     <Compile Include="BetType\Model\BetTypeExcelModel.cs" />
     <Compile Include="BetType\Model\ExcelViewModel.cs" />
-    <Compile Include="Core\ExcelSettings.cs" />
+    <Compile Include="Core\ExcelSetting.cs" />
+    <Compile Include="Core\ExcelSettingParams.cs" />
+    <Compile Include="Core\IExcelSetting.cs" />
     <Compile Include="Core\PunterAnalysisExcelBuilder.cs" />
     <Compile Include="AssociatedAccount\Handler.cs" />
     <Compile Include="AssociatedAccount\HandlerExcel.cs" />
@@ -185,20 +190,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportType\Handler.cs" />
     <Compile Include="SportType\HandlerExcel.cs" />
+    <Compile Include="SportType\Model\ExcelViewModel.cs" />
+    <Compile Include="SportType\Model\SportTypeExcelModel.cs" />
     <Compile Include="SportType\Model\SportTypeModel.cs" />
     <Compile Include="SportType\Model\Criteria.cs" />
     <Compile Include="SportType\Model\HttpParameterExcel.cs" />
     <Compile Include="SportType\Model\HttpParameterJson.cs" />
     <Compile Include="SportType\Model\ViewModelJson.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeController.cs" />
+    <Compile Include="SportType\SportTypeExcelSettingImp.cs" />
     <Compile Include="Summary\Handler.cs" />
     <Compile Include="Summary\HandlerExcel.cs" />
+    <Compile Include="Summary\Model\ExcelViewModel.cs" />
+    <Compile Include="Summary\Model\SummaryExcelModel.cs" />
     <Compile Include="Summary\Model\SummaryModel.cs" />
     <Compile Include="Summary\Model\Criteria.cs" />
     <Compile Include="Summary\Model\HttpParameterExcel.cs" />
     <Compile Include="Summary\Model\HttpParameterJson.cs" />
     <Compile Include="Summary\Model\ViewModelJson.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryController.cs" />
+    <Compile Include="Summary\SummaryExcelSettingImp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
