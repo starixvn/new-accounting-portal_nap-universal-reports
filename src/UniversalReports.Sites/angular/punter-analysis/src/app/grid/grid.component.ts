@@ -14,6 +14,7 @@ import { SummaryData } from './summary-grid/summary-grid.model';
 export class GridComponent implements OnChanges {
     @Input() filterModel: FilterModel;
     summaryData: SummaryData;
+    breadcrumbItems: string[] = ['Main', 'Library'];
 
     constructor(private service: GridService) { }
 

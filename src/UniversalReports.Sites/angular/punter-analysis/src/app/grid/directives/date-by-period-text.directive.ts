@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { PeriodType } from '../filter/filter.model'
+import { PeriodType } from '../../filter/filter.model'
 
 @Directive({
   selector: '[date-by-period-text]'
