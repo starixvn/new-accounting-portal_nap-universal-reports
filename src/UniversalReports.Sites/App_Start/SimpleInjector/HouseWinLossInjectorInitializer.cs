@@ -60,8 +60,6 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>(Lifestyle.Transient);
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>(Lifestyle.Transient);
 
-            container.Register<CasinoProduct.CasinoProductGridOptionsBuilder, CasinoProduct.CasinoProductGridOptionsBuilder>(Lifestyle.Transient);
-
             return container;
         }
     }

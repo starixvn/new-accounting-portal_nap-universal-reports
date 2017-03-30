@@ -3,9 +3,7 @@ using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
-using UniversalReports.HouseWinLoss.Common.Extensions;
 using UniversalReports.HouseWinLoss.Common.Models;
-using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Products
 {
@@ -85,14 +83,6 @@ namespace UniversalReports.HouseWinLoss.Products
 
         private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary winloss)
         {
-            var gridDataRow = BuildRawSiteWinLossSummary(winloss);
-            DecorateExtraPT(gridDataRow, winloss);
-
-            return gridDataRow;
-        }
-
-        private GridDataRow BuildRawSiteWinLossSummary(SiteWinLossSummary winloss)
-        {
             var productDataRow = gridDataRowBuilder.BuildDataRow(winloss.Total, HAlignment.Left);
             productDataRow.RowType = RowType.ParentLevelOne;
             productDataRow.CustomAttr = "product";
@@ -106,24 +96,6 @@ namespace UniversalReports.HouseWinLoss.Products
             productDataRow.SubRows.Add(depositRow);
 
             return productDataRow;
-        }
-
-        private void DecorateExtraPT(GridDataRow gridDataRow, SiteWinLossSummary item)
-        {
-            var itemHasExtraPT = ItemHasExtraPT(item.Total);
-            DecorateExtraPT(gridDataRow, item.Total, itemHasExtraPT);
-            DecorateExtraPT(gridDataRow.SubRows[0], item.Credit, itemHasExtraPT);
-            DecorateExtraPT(gridDataRow.SubRows[1], item.Deposit, itemHasExtraPT);
-        }
-
-        private void DecorateExtraPT(GridDataRow gridDataRow, WinLoss item, bool itemHasExtraPT)
-        {
-            gridDataRow.Columns.First(c => c.Name == "ExtraPT").Value = item.ExcelExtraPT(itemHasExtraPT);
-        }
-
-        private bool ItemHasExtraPT(WinLoss item)
-        {
-            return Constants.ProductsExtraPT.Contains(item.Name);
         }
 
         private GridDataRow BuildSiteWinLossSummaryForTotalRow(SiteWinLossSummary productWinLoss)
@@ -158,14 +130,7 @@ namespace UniversalReports.HouseWinLoss.Products
                 r.CssClass = "total-row-main";
             });
 
-            rows.ForEach(DecorateExtraPTForRMRows);
-
             return rows;
-        }
-
-        private void DecorateExtraPTForRMRows(GridDataRow gridDataRow)
-        {
-            gridDataRow.Columns.First(c => c.Name == "ExtraPT").Value = "N/A";
         }
 
         private List<GridDataRow> BuildFooter(SiteWinLossSummary item)

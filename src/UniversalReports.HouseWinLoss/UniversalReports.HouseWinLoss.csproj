@@ -162,7 +162,6 @@
     <Compile Include="Casino\BetType\CasinoBetTypeController.cs" />
     <Compile Include="Casino\BetType\ExcelQueryModel.cs" />
     <Compile Include="Casino\BetType\QueryModel.cs" />
-    <Compile Include="Casino\Product\CasinoProductGridOptionsBuilder.cs" />
     <Compile Include="Casino\Site\Criteria.cs" />
     <Compile Include="Casino\Site\CasinoSiteController.cs" />
     <Compile Include="Casino\Site\ExcelQueryModel.cs" />
