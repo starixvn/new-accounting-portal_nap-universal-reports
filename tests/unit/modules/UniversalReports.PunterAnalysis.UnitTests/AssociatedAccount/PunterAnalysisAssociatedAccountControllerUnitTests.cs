@@ -23,18 +23,5 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterJson>());
         }
-
-        [Test]
-        public async Task Excel_Always_CallMediatorSend()
-        {
-            // Arrange
-            var mediator = Substitute.For<IMediator>();
-
-            // Act
-            var controller = new PunterAnalysisAssociatedAccountController(mediator);
-
-            // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
-        }
     }
 }

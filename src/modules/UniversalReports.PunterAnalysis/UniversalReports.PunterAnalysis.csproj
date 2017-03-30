@@ -116,11 +116,9 @@
     <Compile Include="Core\IExcelSetting.cs" />
     <Compile Include="Core\PunterAnalysisExcelBuilder.cs" />
     <Compile Include="AssociatedAccount\Handler.cs" />
-    <Compile Include="AssociatedAccount\HandlerExcel.cs" />
     <Compile Include="AssociatedAccount\Model\UserRoleModel.cs" />
     <Compile Include="AssociatedAccount\Model\UserSiteQueryCriteria.cs" />
     <Compile Include="AssociatedAccount\Model\UserRoleQueryCriteria.cs" />
-    <Compile Include="AssociatedAccount\Model\HttpParameterExcel.cs" />
     <Compile Include="AssociatedAccount\Model\HttpParameterJson.cs" />
     <Compile Include="AssociatedAccount\Model\ViewModelJson.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountController.cs" />
@@ -171,6 +169,8 @@
     <Compile Include="Filter\UsernameSuggestion\QueryCriteria.cs" />
     <Compile Include="League\Handler.cs" />
     <Compile Include="League\HandlerExcel.cs" />
+    <Compile Include="League\LeagueExcelBuilder.cs" />
+    <Compile Include="League\LeagueExcelSettingImp.cs" />
     <Compile Include="League\LeagueService.cs" />
     <Compile Include="League\LeagueServiceBase.cs" />
     <Compile Include="League\LeagueServiceByWeek.cs" />

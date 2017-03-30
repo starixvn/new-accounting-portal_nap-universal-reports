@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
-using UniversalReports.WebAPI.Results;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
@@ -21,13 +20,6 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
-        }
-
-        [Route("excel")]
-        public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
-        {
-            var excelPackage = await mediator.Send(parameter);
-            return new ExcelResult(excelPackage);
         }
     }
 }

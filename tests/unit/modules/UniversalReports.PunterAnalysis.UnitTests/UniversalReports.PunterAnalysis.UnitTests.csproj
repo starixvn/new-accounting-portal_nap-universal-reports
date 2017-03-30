@@ -132,6 +132,7 @@
     <Compile Include="BetCount\HandlerExcelUnitTests.cs" />
     <Compile Include="BetType\HandlerExcelUnitTests.cs" />
     <Compile Include="Core\DateTimeServiceImpUnitTests.cs" />
+    <Compile Include="League\HandlerExcelUnitTests.cs" />
     <Compile Include="League\HandlerUnitTests.cs" />
     <Compile Include="League\LeagueServiceBaseImpUnitTests.cs" />
     <Compile Include="League\LeagueServiceByWeekImpUnitTests.cs" />

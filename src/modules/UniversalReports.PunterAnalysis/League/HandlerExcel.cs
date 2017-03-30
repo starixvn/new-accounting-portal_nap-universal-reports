@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using OfficeOpenXml;
-using System;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
@@ -12,17 +11,28 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private readonly IMapper mapper;
 
-        private readonly PunterAnalysisService punterAnalysisService;
+        private readonly LeagueServiceFactory leagueServiceFactory;
 
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService)
+        private readonly IExcelSetting setting;
+
+        private readonly LeagueExcelBuilder excelBuilder;
+
+        public HandlerExcel(IMapper mapper, LeagueServiceFactory leagueServiceFactory, IExcelSetting setting, LeagueExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
+            this.leagueServiceFactory = leagueServiceFactory;
+            this.setting = setting;
+            this.excelBuilder = excelBuilder;
         }
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            throw new NotImplementedException();
+            var criteria = mapper.Map<Criteria>(message);
+            var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
+            var model = await leagueService.Query(criteria);
+            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
+            var excelSetting = await setting.CreateSetting(excelSettingParams);
+            return await excelBuilder.CreateExcelPackage(model, excelSetting);
         }
     }
 }
