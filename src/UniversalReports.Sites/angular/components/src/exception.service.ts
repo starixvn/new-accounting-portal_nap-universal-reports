@@ -22,8 +22,11 @@ export class ExceptionService {
         if (contentType === 'text/html; charset=utf-8') {
             errorMessage = defaultMessage;
         } else {
-            let error = response.json();
-            errorMessage = error.errorMessage || defaultMessage;
+            errorMessage = response.statusText;
+            if (!errorMessage) {
+                let error = response.json();
+                errorMessage = error.errorMessage || defaultMessage;
+            }
         }
 
         this.toastService.activate(errorMessage);

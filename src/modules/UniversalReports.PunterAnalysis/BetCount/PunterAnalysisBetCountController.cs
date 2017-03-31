@@ -6,7 +6,7 @@ using UniversalReports.WebAPI.Results;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
-    [RoutePrefix("api/punter-analysis/bet-type")]
+    [RoutePrefix("api/punter-analysis/bet-count")]
     public class PunterAnalysisBetCountController : ApiController
     {
         private readonly IMediator mediator;

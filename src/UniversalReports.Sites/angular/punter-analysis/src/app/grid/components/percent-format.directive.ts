@@ -15,11 +15,14 @@ export class PercentFormatDirective implements OnInit {
     maximumFractionDigits: 2
   });
 
-  constructor(private el: ElementRef, private renderer: Renderer) { }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer
+  ) { }
 
   ngOnInit() {
     let innerHTML = '';
-    if (this.isValid()) {
+    if (this.isValidNumber()) {
       innerHTML = PercentFormatDirective.percentFormat.format(this.value);
       if (this.value < 0) {
         this.renderer.setElementClass(this.el.nativeElement, 'number-negative', true);
@@ -30,7 +33,7 @@ export class PercentFormatDirective implements OnInit {
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
 
-  private isValid(): boolean {
+  private isValidNumber(): boolean {
     return _.isNumber(this.value) && this.value !== Infinity;
   }
 }

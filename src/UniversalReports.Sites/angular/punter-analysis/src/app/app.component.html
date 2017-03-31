@@ -6,6 +6,6 @@
   </div>
   <nap-filter (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
   <nap-toast></nap-toast>
-  <nap-grid [filterModel]="filterModel"></nap-grid>
+  <nap-grid *ngIf="filterModel" [filterModel]="filterModel"></nap-grid>
 </div>
 <nap-spinner></nap-spinner>

@@ -1,51 +1,48 @@
 import { Component } from '@angular/core';
-import { ViewModelItem, SportTypeItem } from './sport-type-grid.model'
+import { GridService } from '../grid.service';
+import { Grid, GridType } from '../grid.model';
+import { SportTypeData, SportTypeItem } from './sport-type-grid.model';
+import { SportTypeGridService } from './sport-type-grid.service';
+import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
+import { BetTypeGridService } from '../bet-type-grid/bet-type-grid.service';
 
 @Component({
     selector: 'nap-sport-type-grid',
     templateUrl: './sport-type-grid.component.html'
 })
-export class SportTypeGridComponent {
-    private viewModelItem: ViewModelItem;
+export class SportTypeGridComponent implements Grid {
+    data: SportTypeData;
 
-    constructor() {
-        this.viewModelItem = this.createFakeData();
+    constructor(
+        private gridService: GridService,
+        private service: SportTypeGridService,
+        private betCountGridService: BetCountGridService,
+        private betTypeGridService: BetTypeGridService
+    ) { }
+
+    query() {
+        this.service.query().subscribe(data => this.data = data);
+    }
+
+    excel() {
+
+    }
+
+    get hasExcel(): boolean {
+        return true;
+    }
+
+    get title(): string {
+        return 'Main - Punter Analysis';
     }
 
     private onShowBetType(sportId: number) {
-        alert(sportId);
+        this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId);
+        this.gridService.showGrid(GridType.BetType);
     }
 
     private onShowBetCount(sportId: number): void {
-        alert(sportId);
-    }
-
-    private createFakeData():ViewModelItem{
-        let entities :SportTypeItem[]=[];
-        
-        for (var i = 0; i < 5; i++) {
-            let sportTypeItem: SportTypeItem = {
-                SportId:  i,
-                SportName: "Sport "+ i,
-                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                BetCount: 1321310 + i
-            };
-            
-            entities.push(sportTypeItem);
-        }
-
-        return {
-            Entities: entities,
-            Total: {
-                SportId:  0,
-                SportName: "",
-                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                Turnover: i % 5 == 0 ? 0 : 10321324.235323 + i,
-                Margin: (i % 2 == 0) ? 0.0341232 : 0.1341554,
-                BetCount: 1321310 + i
-            }
-        };
+        this.betCountGridService.model = this.service.createBetCountGridModel(sportId);
+        this.gridService.showGrid(GridType.BetCount);
     }
 }

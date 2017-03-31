@@ -5,7 +5,7 @@ using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
-    [RoutePrefix("api/punter-analysis/bet-type")]
+    [RoutePrefix("api/punter-analysis/associated-account")]
     public class PunterAnalysisAssociatedAccountController : ApiController
     {
         private readonly IMediator mediator;

@@ -1,4 +1,4 @@
-<div style="width: auto" class="grid">
+<div *ngIf="data" style="width: auto" class="grid">
     <div class="header">
         <table style="width: 570px">
             <colgroup>
@@ -15,12 +15,12 @@
                 <th>Margin</th>
                 <th>Bet Count</th>
             </tr>
-            <tr *ngIf="viewModelItem.Entities.length === 0">
+            <tr *ngIf="data.Entities.length === 0">
                 <th class="empty-data" colspan="5">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="viewModelItem.Entities.length > 0" class="body" style="width: 590px">
+    <div *ngIf="data.Entities.length > 0" class="body" style="width: 590px">
         <table style="width: 570px">
             <colgroup>
                 <col style="width: 120px" />
@@ -29,18 +29,18 @@
                 <col style="width: 90px" />
                 <col style="width: 120px" />
             </colgroup>
-            <tr *ngFor="let sportTypeItem of viewModelItem.Entities">
-                <td><a href="javascript:;" (click)="onShowBetType(sportTypeItem.SportId)">{{ sportTypeItem.SportName }}</a></td>
-                <td [napDecimalFormat]="sportTypeItem.WinLoss"></td>
-                <td [napDecimalFormat]="sportTypeItem.Turnover"></td>
-                <td [napPercentFormat]="sportTypeItem.WinLoss/sportTypeItem.Turnover"></td>
-                <td>
-                    <a href="javascript:;" (click)="onShowBetCount(sportTypeItem.CustId)" [napIntegerFormat]="sportTypeItem.BetCount"></a>
+            <tr *ngFor="let item of data.Entities">
+                <td><a href="javascript:;" (click)="onShowBetType(item.SportId)">{{ item.SportName }}</a></td>
+                <td [napDecimalFormat]="item.WinLoss"></td>
+                <td [napDecimalFormat]="item.Turnover"></td>
+                <td [napPercentFormat]="item.WinLoss/item.Turnover"></td>
+                <td class="text-right">
+                    <a href="javascript:;" (click)="onShowBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="viewModelItem.Entities.length > 0" style="width: 570px">
+    <div class="footer" *ngIf="data.Entities.length > 0" style="width: 570px">
         <table style="width: 570px">
             <colgroup>
                 <col style="width: 120px" />
@@ -51,10 +51,10 @@
             </colgroup>
             <tr>
                 <td style="width:120px" class="text-right">Total</td>
-                <td [napDecimalFormat]="viewModelItem.Total.WinLoss"></td>
-                <td [napDecimalFormat]="viewModelItem.Total.Turnover"></td>
-                <td [napPercentFormat]="viewModelItem.Total.WinLoss/viewModelItem.Total.Turnover"></td>
-                <td [napDecimalFormat]="viewModelItem.Total.BetCount"></td>
+                <td [napDecimalFormat]="data.Total.WinLoss"></td>
+                <td [napDecimalFormat]="data.Total.Turnover"></td>
+                <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
+                <td [napDecimalFormat]="data.Total.BetCount"></td>
             </tr>
         </table>
     </div>

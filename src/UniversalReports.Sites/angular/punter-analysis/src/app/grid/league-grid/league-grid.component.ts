@@ -1,15 +1,34 @@
 import { Component } from '@angular/core';
-import { LeagueItem, PeriodGroupItem, ViewModelItem } from './league-grid.model'
+import { Grid } from '../grid.model';
+import { LeagueItem, PeriodGroupItem, ViewModelItem } from './league-grid.model';
+import { LeagueGridService } from './league-grid.service';
 
 @Component({
     selector: 'nap-league-grid',
     templateUrl: './league-grid.component.html'
 })
-export class LeagueGridComponent {
+export class LeagueGridComponent implements Grid {
     private viewModelItem: ViewModelItem;
 
-    constructor() {
+    constructor(
+        private service: LeagueGridService
+    ) {
         this.viewModelItem = this.createFakeData();
+    }
+
+    query() {
+    }
+
+    excel() {
+
+    }
+
+    get hasExcel(): boolean {
+        return true;
+    }
+
+    get title(): string {
+        return 'Main - Punter Analysis';
     }
 
     private createFakeData(): ViewModelItem {

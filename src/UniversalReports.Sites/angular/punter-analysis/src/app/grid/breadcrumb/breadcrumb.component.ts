@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { GridService } from '../grid.service';
 
 @Component({
     selector: 'nap-breadcrumb',
@@ -8,7 +9,11 @@ import { Component, Input } from '@angular/core';
 export class BreadcrumbComponent {
     @Input() items: string[];
 
-    onClick(index: number) {
+    constructor(
+        private gridService: GridService
+    ) { }
 
+    onExportExcel(index: number) {
+        this.gridService.activeGrid.excel();
     }
 }

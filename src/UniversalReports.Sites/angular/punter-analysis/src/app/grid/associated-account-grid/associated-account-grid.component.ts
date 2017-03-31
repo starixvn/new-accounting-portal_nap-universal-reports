@@ -1,29 +1,33 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { UserRoleItem } from './associated-account-grid.model'
+import { Grid } from '../grid.model';
+import { UserRoleItem } from './associated-account-grid.model';
+import { AssociatedAccountGridService } from './associated-account-grid.service';
 
 @Component({
     selector: 'nap-associated-account-grid',
     templateUrl: './associated-account-grid.component.html'
 })
-export class AssociatedAccountGridComponent {
-    private userRoleItems: UserRoleItem[];
-    
-    constructor() {
-        this.userRoleItems = this.createFakeData();
+export class AssociatedAccountGridComponent implements Grid {
+    private data: UserRoleItem[];
+
+    constructor(
+        private service: AssociatedAccountGridService
+    ) { }
+
+    query() {
+        this.service.query().subscribe(data => this.data = data);
     }
 
-    private createFakeData(): UserRoleItem[] {
-        var entities: UserRoleItem[] = [];
-        for (var i = 0; i < 50; i++) {
-            let betCountItem: UserRoleItem = {
-                Username: "User" + i,
-                RoleName: "member"
-            };
+    excel() {
 
-            entities.push(betCountItem);
-        }
+    }
 
-        return entities;
+    get hasExcel(): boolean {
+        return true;
+    }
+
+    get title(): string {
+        return 'Main - Punter Analysis';
     }
 }

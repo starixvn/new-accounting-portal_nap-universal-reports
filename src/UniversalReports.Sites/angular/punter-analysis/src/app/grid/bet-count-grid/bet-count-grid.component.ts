@@ -1,47 +1,38 @@
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { PeriodType } from '../../filter/filter.model'
-import { ViewModelItem, BetCountItem } from './bet-count-grid.model'
+import { PeriodType } from '../../filter/filter.model';
+import { Grid } from '../grid.model';
+import { GridService } from '../grid.service';
+import { BetCountData, BetCountItem } from './bet-count-grid.model';
+import { BetCountGridService } from './bet-count-grid.service';
 
 @Component({
     selector: 'nap-bet-count-grid',
     templateUrl: './bet-count-grid.component.html'
 })
-export class BetCountGridComponent {
+export class BetCountGridComponent implements Grid {
     private periodType: PeriodType;
-    private viewModelItem: ViewModelItem;
+    private data: BetCountData;
 
-    constructor() {
-        this.periodType = PeriodType.Weekly;
-        this.viewModelItem = this.createFakeData();
+    constructor(
+        private gridService: GridService,
+        private service: BetCountGridService
+    ) { }
+
+    query() {
+        this.periodType = this.gridService.filterModel.periodType;
+        this.service.query().subscribe(data => this.data = data);
     }
 
-    private createFakeData(): ViewModelItem {
+    excel() {
 
-        let entities: BetCountItem[] = [];
-        var startDate = moment("2015-11-25");;
-        for (var i = 0; i < 12; i++) {
-            var date = startDate.add(17, 'days').toDate();
-            let betCountItem: BetCountItem = {
-                Date: date,
-                WinLoss: i % 5 == 0 ? -13281.321356 + i : 13281.321356 + i,
-                BetCount: 1321310 + i,
-                WinCount: 32321,
-                DrawCount: 67657
-            };
+    }
 
-            entities.push(betCountItem);
-        }
+    get hasExcel(): boolean {
+        return true;
+    }
 
-        return {
-            Entities: entities,
-            Total: {
-                Date: startDate.toDate(),
-                WinLoss: -13281.321356,
-                BetCount: 1321310,
-                WinCount: 32321,
-                DrawCount: 67657
-            }
-        };
+    get title(): string {
+        return 'Main - Punter Analysis';
     }
 }

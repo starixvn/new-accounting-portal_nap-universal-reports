@@ -1,27 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DateHelper } from 'nap-components/src/date';
-import { HttpService } from '../components/http.service';
+import { Subject } from 'rxjs';
 import { FilterModel } from '../filter/filter.model';
+import { Grid, GridType } from './grid.model';
+import { BetCountGridModel } from './bet-count-grid/bet-count-grid.model';
+import { AssociatedAccountGridModel } from './associated-account-grid/associated-account-grid.model';
 
 @Injectable()
 export class GridService {
-    constructor(
-        private httpService: HttpService
-    ) { }
+    filterModel: FilterModel;
+    activeGrid: Grid;
+    show = new Subject<GridType>();
 
-    querySummary(filterModel: FilterModel): Observable<any> {
-        let url = 'UniversalReports/api/punter-analysis/summary';
-        return this.httpService.post<any>(url, {
-            topRow: filterModel.topRow,
-            orderBy: filterModel.orderBy,
-            sortBy: filterModel.sortBy,
-            periodType: filterModel.periodType,
-            fromDate: DateHelper.convertDateStructToString(filterModel.fromDate),
-            toDate: DateHelper.convertDateStructToString(filterModel.toDate),
-            depth: filterModel.depth,
-            userName: filterModel.userName,
-            listCombinationId: filterModel.productBetTypes.join(',')
-        });
+    showGrid(gridType: GridType) {
+        this.show.next(gridType);
     }
 }

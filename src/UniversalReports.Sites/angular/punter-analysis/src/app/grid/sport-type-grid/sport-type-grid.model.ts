@@ -1,3 +1,7 @@
+export interface SportTypeGridModel {
+    custId: number;
+}
+
 export interface SportTypeItem {
     SportId: number;
     SportName: string;
@@ -7,7 +11,7 @@ export interface SportTypeItem {
     BetCount: number;
 }
 
-export interface ViewModelItem {
+export interface SportTypeData {
     Entities: SportTypeItem[];
     Total: SportTypeItem;
 }

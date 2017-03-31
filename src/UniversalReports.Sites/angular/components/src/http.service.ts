@@ -23,7 +23,7 @@ export class HttpService {
             .finally(() => this.spinnerService.hide());
     }
 
-    post<T>(url: string, body: any): Observable<T> {
+    post<T>(url: string, body = {}): Observable<T> {
         this.toastService.deactivate();
         this.spinnerService.show();
         return this.http.post(url, body)
@@ -32,7 +32,7 @@ export class HttpService {
             .finally(() => this.spinnerService.hide());
     }
 
-    download(url: string, body: any): Observable<Response> {
+    download(url: string, body = {}): Observable<Response> {
         this.toastService.deactivate();
         this.spinnerService.show();
         return this.http.post(

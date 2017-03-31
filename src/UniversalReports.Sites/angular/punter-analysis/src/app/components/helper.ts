@@ -1,3 +1,5 @@
+import { Response } from '@angular/http';
+
 function saveExcel(response: Response, fileName: string) {
     const contentType = 'application/vnd.ms-excel';
     const blob = response.blob();

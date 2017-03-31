@@ -14,7 +14,10 @@ export class DecimalFormatDirective implements OnInit {
     maximumFractionDigits: 2
   });
 
-  constructor(private el: ElementRef, private renderer: Renderer) { }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer
+  ) { }
 
   ngOnInit() {
     if (this.value < 0) {
