@@ -11,7 +11,7 @@ namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>(MemberList.Source);
             CreateMap<ReportModelBase<BetCountModel>, ExcelViewModel>(MemberList.Source);
-            CreateMap<HttpParameterExcel, ExcelSetting>(MemberList.Source);
+            CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
         }
     }
 }
