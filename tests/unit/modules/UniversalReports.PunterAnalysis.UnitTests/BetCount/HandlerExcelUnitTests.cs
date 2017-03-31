@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             // Arrange
             var mapper = Substitute.For<IMapper>();
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSetting = Substitute.For<BetCountExcelSettingImp>();
+            var excelSetting = Substitute.For<IExcelSetting>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
 
