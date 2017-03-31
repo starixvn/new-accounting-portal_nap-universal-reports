@@ -12,7 +12,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
         [TestCase(2012, 52, ExpectedResult = "12/24/2012")]
         [TestCase(2012, 53, ExpectedResult = "12/31/2012")]
 
-        public string GetFirstDateOfWeekISO8601_Test(int year, int week)
+        public string GetFirstDateOfWeekIso8601_Test(int year, int week)
         {
             var service = new DateTimeServiceImp();
             var firstDateOfWeekISO8601 = service.GetFirstDateOfWeekISO8601(year, week);
