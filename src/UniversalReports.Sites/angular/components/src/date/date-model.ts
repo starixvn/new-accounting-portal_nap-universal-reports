@@ -76,7 +76,9 @@ export class NgbDate {
         return { year: this.year, month: this.month, day: this.day };
     }
 
-    toString() { return `${this.year}-${this.month}-${this.day}`; }
+    toString() {
+        return `${this.year}-${this.month}-${this.day}`;
+    }
 }
 
 export interface WeekRange {

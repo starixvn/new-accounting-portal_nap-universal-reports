@@ -45,6 +45,8 @@ export class SummaryGridService {
     excel(): Observable<Response> {
         let url = 'UniversalReports/api/punter-analysis/summary/excel';
         const queryModel = this.createQueryModel();
+        queryModel.title = this.getTitle();
+        queryModel.filter = '';
         return this.httpService.download(url, queryModel);
     }
 
@@ -61,5 +63,10 @@ export class SummaryGridService {
             userName: model.userName,
             listCombinationId: model.productBetTypes.join(',')
         };
+    }
+
+    private getTitle(): string {
+        const dateTitle = this.gridService.getDateTitle();
+        return `Punter Analysis ${dateTitle}`;
     }
 }

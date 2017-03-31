@@ -51,7 +51,11 @@ export class SummaryGridComponent implements Grid {
     }
 
     get title(): string {
-        return 'Main - Punter Analysis';
+        if (this.gridService.activeGrid === this) {
+            return 'Main - Punter Analysis';
+        } else {
+            return 'Main';
+        }
     }
 
     private onShowSportType(custId: number) {
