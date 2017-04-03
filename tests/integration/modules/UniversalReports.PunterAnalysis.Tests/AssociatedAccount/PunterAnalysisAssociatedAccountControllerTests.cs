@@ -27,10 +27,13 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
             repository.FetchAsync<UserRoleModel>(Arg.Any<UserRoleQueryCriteria>()).Returns(fakeUserRoleListFromRepository);
             repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult(string.Empty));
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisAssociatedAccountController)) as PunterAnalysisAssociatedAccountController;
+            PunterAnalysisAssociatedAccountController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisAssociatedAccountController)) as PunterAnalysisAssociatedAccountController;
+            }
+
             var httpActionResult = await controller.Index(new HttpParameterJson());
             var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 

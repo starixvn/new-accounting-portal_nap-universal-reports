@@ -26,10 +26,13 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<SportTypeModel>(Arg.Any<ICriteria>()).Returns(fakeSportTypeModelListFromRepository);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSportTypeController)) as PunterAnalysisSportTypeController;
+            PunterAnalysisSportTypeController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSportTypeController)) as PunterAnalysisSportTypeController;
+            }
+
             var httpActionResult = await controller.Index(new HttpParameterJson());
             var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 

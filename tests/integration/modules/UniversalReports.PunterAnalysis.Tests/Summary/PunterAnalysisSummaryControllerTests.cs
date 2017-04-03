@@ -26,10 +26,13 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(fakeSummaryModelListFromRepository);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSummaryController)) as PunterAnalysisSummaryController;
+            PunterAnalysisSummaryController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSummaryController)) as PunterAnalysisSummaryController;
+            }
+
             var httpActionResult = await controller.Index(new HttpParameterJson());
             var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 

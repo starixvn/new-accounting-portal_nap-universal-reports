@@ -26,10 +26,13 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(fakeBetTypeModelListFromRepository);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetTypeController)) as PunterAnalysisBetTypeController;
+            PunterAnalysisBetTypeController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetTypeController)) as PunterAnalysisBetTypeController;
+            }
+
             var httpActionResult = await controller.Index(new HttpParameterJson());
             var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 

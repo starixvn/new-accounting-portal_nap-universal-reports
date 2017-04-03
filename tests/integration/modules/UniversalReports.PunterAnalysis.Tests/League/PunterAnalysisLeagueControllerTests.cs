@@ -26,11 +26,14 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(fakeLeagueModelListFromRepository);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisLeagueController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisLeagueController)) as PunterAnalysisLeagueController;
+            }
+
             var httpParameterJson = new HttpParameterJson { PeriodType = 1 };
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisLeagueController)) as PunterAnalysisLeagueController;
             var httpActionResult = await controller.Index(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 

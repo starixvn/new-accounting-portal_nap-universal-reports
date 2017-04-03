@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Fanex.Data.Repository;
+using NSubstitute;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
-using Fanex.Data.Repository;
-using NSubstitute;
-using NUnit.Framework;
 using UniversalReports.PunterAnalysis.Filter;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
@@ -28,11 +28,14 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(Arg.Any<ICriteria>()).Returns(fakeProductSportBetTypeList);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisFilterController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            }
+
             var httpParameterJson = new ProductSportBetTypeFilter.HttpParameterJson();
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.ProductSportBetType(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>).Content;
 
@@ -51,11 +54,14 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<LeagueFilter.LeagueEntity>(Arg.Any<ICriteria>()).Returns(fakeLeagueList);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisFilterController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            }
+
             var httpParameterJson = new LeagueFilter.HttpParameterJson();
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.League(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<LeagueFilter.LeagueEntity>>).Content;
 
@@ -70,11 +76,14 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var repository = Substitute.For<IDynamicRepository>();
             repository.GetAsync<bool>(Arg.Any<ICriteria>()).Returns(true);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisFilterController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            }
+
             var httpParameterJson = new AvailableDatabaseFilter.HttpParameterJson();
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.AvailableDatabase(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<bool>).Content;
 
@@ -90,11 +99,14 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var repository = Substitute.For<IDynamicRepository>();
             repository.GetAsync<AvailableDateRangeFilter.DateRange>(Arg.Any<ICriteria>()).Returns(nonNullRange);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisFilterController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            }
+
             var httpParameterJson = new AvailableDateRangeFilter.HttpParameterJson();
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.AvailableDateRange(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<AvailableDateRangeFilter.DateRange>).Content;
 
@@ -111,11 +123,14 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<string>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUsername);
 
-            var simpleInjectorTest = new SimpleInjectorTest(repository);
-
             // Act
+            PunterAnalysisFilterController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+            }
+
             var httpParameterJson = new UsernameSuggestionFilter.HttpParameterJson();
-            var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.UsernameSuggestion(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<string>>).Content;
 
