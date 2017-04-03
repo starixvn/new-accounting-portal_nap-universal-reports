@@ -35,8 +35,6 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
                 viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
 
-
-
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
         }
