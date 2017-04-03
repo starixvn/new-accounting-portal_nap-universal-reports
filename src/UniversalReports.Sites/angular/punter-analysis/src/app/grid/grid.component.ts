@@ -1,8 +1,7 @@
 import {
     Component, Input, OnInit, OnChanges, ComponentFactoryResolver, Injector, ViewContainerRef,
-    ComponentRef, ElementRef, ViewChild, SimpleChanges, OnDestroy, ApplicationRef, ComponentFactory
+    ComponentRef, ViewChild, SimpleChanges, OnDestroy, ComponentFactory, Renderer
 } from '@angular/core';
-import { Subscription } from 'rxjs';
 import * as _ from 'lodash';
 import { FilterModel } from '../filter/filter.model';
 import { GridService } from './grid.service';
@@ -28,31 +27,23 @@ import { LeagueGridComponent } from './league-grid/league-grid.component';
     ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
-    static subcription: Subscription = null;
     @Input() filterModel: FilterModel;
     @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
     GridType = GridType;
     gridType = GridType.UserName;
     breadcrumbItems: string[] = ['Main', 'Library'];
-    private component: ComponentRef<Grid>;
+    private components: ComponentRef<Grid>[] = [];
 
     constructor(
-        private applicationRef: ApplicationRef,
         private componentFactoryResolver: ComponentFactoryResolver,
         private injector: Injector,
+        private renderer: Renderer,
         private service: GridService
     ) { }
 
     ngOnInit() {
-        if (GridComponent.subcription) {
-            GridComponent.subcription.unsubscribe();
-            GridComponent.subcription = null;
-        }
-
-        GridComponent.subcription = this.service.show.subscribe(gridType => {
-            this.gridType = gridType;
-            this.createGrid();
-        });
+        this.service.generate = (gridType: GridType) => this.generate(gridType);
+        this.service.goBack = (index: number) => this.goBack(index);
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -62,47 +53,71 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.removeGrid();
+        this.container.clear();
     }
 
-    private removeGrid() {
-        if (!_.isNil(this.component)) {
-            this.container.clear();
-            this.component.destroy();
-            this.component = null;
+    private generate(gridType: GridType) {
+        this.gridType = gridType;
+        this.createGrid();
+    }
+
+    private goBack(index: number) {
+        while (this.components.length - 1 > index) {
+            const component = this.components.pop();
+            component.destroy();
+        }
+        this.afterGridChange();
+    }
+
+    private getComponentFactory(): ComponentFactory<Grid> {
+        switch (this.gridType) {
+            case GridType.UserName:
+                return this.componentFactoryResolver.resolveComponentFactory(SummaryGridComponent);
+            case GridType.BetCount:
+                return this.componentFactoryResolver.resolveComponentFactory(BetCountGridComponent);
+            case GridType.AssociatedAccount:
+                return this.componentFactoryResolver.resolveComponentFactory(AssociatedAccountGridComponent);
+            case GridType.SportType:
+                return this.componentFactoryResolver.resolveComponentFactory(SportTypeGridComponent);
+            case GridType.BetType:
+                return this.componentFactoryResolver.resolveComponentFactory(BetTypeGridComponent);
+            case GridType.League:
+                return this.componentFactoryResolver.resolveComponentFactory(LeagueGridComponent);
+            default:
+                throw new Error('Not implemented yet');
         }
     }
 
     private createGrid() {
-        this.removeGrid();
+        const factory = this.getComponentFactory();
+        const component = this.container.createComponent(factory);
+        this.components.push(component);
+        const grid = component.instance;
+        grid.query();
+        this.afterGridChange();
+    }
 
-        let factory: ComponentFactory<Grid>;
-        switch (this.gridType) {
-            case GridType.UserName:
-                factory = this.componentFactoryResolver.resolveComponentFactory(SummaryGridComponent);
-                break;
-            case GridType.BetCount:
-                factory = this.componentFactoryResolver.resolveComponentFactory(BetCountGridComponent);
-                break;
-            case GridType.AssociatedAccount:
-                factory = this.componentFactoryResolver.resolveComponentFactory(AssociatedAccountGridComponent);
-                break;
-            case GridType.SportType:
-                factory = this.componentFactoryResolver.resolveComponentFactory(SportTypeGridComponent);
-                break;
-            case GridType.BetType:
-                factory = this.componentFactoryResolver.resolveComponentFactory(BetTypeGridComponent);
-                break;
-            case GridType.League:
-                factory = this.componentFactoryResolver.resolveComponentFactory(LeagueGridComponent);
-                break;
-        }
+    private afterGridChange() {
+        this.service.activeGrid = this.components[this.components.length - 1].instance;
+        this.updateBreadcrumb();
+        this.showCurrentAndHideLast();
+    }
 
-        if (factory) {
-            this.component = this.container.createComponent(factory);
-            const grid = this.component.instance;
-            grid.query();
-            this.service.activeGrid = grid;
+    private updateBreadcrumb() {
+        this.breadcrumbItems = [];
+        this.components.forEach(component => {
+            const componentTitle = component.instance.title;
+            this.breadcrumbItems.push(componentTitle);
+        });
+    }
+
+    private showCurrentAndHideLast() {
+        const length = this.components.length;
+        const currentComponent = this.components[length - 1];
+        this.renderer.setElementAttribute(currentComponent.location.nativeElement, 'hidden', null);
+        if (length > 1) {
+            const lastComponent = this.components[length - 2];
+            this.renderer.setElementAttribute(lastComponent.location.nativeElement, 'hidden', 'hidden');
         }
     }
 }

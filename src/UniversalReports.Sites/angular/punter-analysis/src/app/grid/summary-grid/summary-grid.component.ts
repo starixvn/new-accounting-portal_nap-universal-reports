@@ -40,7 +40,7 @@ export class SummaryGridComponent implements Grid {
     }
 
     exportExcel() {
-        this.service.excel();
+        this.service.exportExcel();
     }
 
     get hasExcel(): boolean {
@@ -55,18 +55,18 @@ export class SummaryGridComponent implements Grid {
         }
     }
 
-    private onShowSportType(custId: number) {
-        this.sportTypeGridService.model = this.service.createSportTypeGridModel(custId);
-        this.gridService.showGrid(GridType.SportType);
+    private showSportType(custId: number, custName: string) {
+        this.sportTypeGridService.model = this.service.createSportTypeGridModel(custId, custName);
+        this.gridService.generate(GridType.SportType);
     }
 
-    private onShowBetCount(custId: number): void {
-        this.betCountGridService.model = this.service.createBetCountGridModel(custId);
-        this.gridService.showGrid(GridType.BetCount);
+    private showBetCount(custId: number, custName: string): void {
+        this.betCountGridService.model = this.service.createBetCountGridModel(custId, custName);
+        this.gridService.generate(GridType.BetCount);
     }
 
-    private onShowAssociatedAccount(custId: number, userName: string): void {
-        this.associatedAccountGridService.model = this.service.createAssociatedAccountGridModel(custId, userName);
-        this.gridService.showGrid(GridType.AssociatedAccount);
+    private showAssociatedAccount(custId: number, custName: string): void {
+        this.associatedAccountGridService.model = this.service.createAssociatedAccountGridModel(custId, custName);
+        this.gridService.generate(GridType.AssociatedAccount);
     }
 }

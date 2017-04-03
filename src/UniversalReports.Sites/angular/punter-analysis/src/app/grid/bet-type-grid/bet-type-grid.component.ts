@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { Grid } from '../grid.model';
-import { BetTypeData, BetTypeItem, ProductHasLeague } from './bet-type-grid.model';
+import * as _ from 'lodash';
+import { Grid, GridType, LiveStatus } from '../grid.model';
+import { GridService } from '../grid.service';
+import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
+import { LeagueGridService } from '../league-grid/league-grid.service';
+import { BetTypeData, BetTypeItem } from './bet-type-grid.model';
 import { BetTypeGridService } from './bet-type-grid.service';
 
 @Component({
@@ -8,28 +12,39 @@ import { BetTypeGridService } from './bet-type-grid.service';
     templateUrl: './bet-type-grid.component.html'
 })
 export class BetTypeGridComponent implements Grid {
+    LiveStatus = LiveStatus;
     data: BetTypeData;
-    private productId: number;
 
     constructor(
-        private service: BetTypeGridService
-    ) {
-        this.productId = 1;
-    }
+        private gridService: GridService,
+        private service: BetTypeGridService,
+        private betCountGridService: BetCountGridService,
+        private leagueGridService: LeagueGridService
+    ) { }
 
     query() {
         this.service.query().subscribe(data => this.data = data);
     }
 
     exportExcel() {
-
+        this.service.exportExcel();
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {
-        return 'Main - Punter Analysis';
+        return this.service.model.sportName;
+    }
+
+    showBetCount(betTypeId: number, betTypeName: string, liveStatusId: LiveStatus) {
+        this.betCountGridService.model = this.service.createBetCountGridService(betTypeId, liveStatusId);
+        this.gridService.generate(GridType.BetCount);
+    }
+
+    showLeague(betTypeId: number, betTypeName: string, liveStatusId: LiveStatus) {
+        this.leagueGridService.model = this.service.createLeagueGridService(betTypeId, betTypeName, liveStatusId);
+        this.gridService.generate(GridType.League);
     }
 }

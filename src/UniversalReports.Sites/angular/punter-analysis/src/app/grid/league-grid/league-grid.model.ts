@@ -1,3 +1,12 @@
+import { LiveStatus } from '../grid.model';
+import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
+
+export interface LeagueGridModel extends BetTypeGridModel {
+    betTypeId: number;
+    betTypeName: string;
+    liveStatusId: LiveStatus;
+}
+
 export interface PeriodGroupItem {
     WinLoss: number;
     Turnover: number;

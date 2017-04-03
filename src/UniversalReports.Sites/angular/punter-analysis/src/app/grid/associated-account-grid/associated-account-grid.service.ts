@@ -16,7 +16,7 @@ export class AssociatedAccountGridService {
         let url = 'UniversalReports/api/punter-analysis/associated-account';
         return this.httpService.post<any>(url, {
             custId: this.model.custId,
-            userName: this.model.userName
+            userName: this.model.custName
         });
     }
 }

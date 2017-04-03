@@ -1,6 +1,6 @@
 export interface AssociatedAccountGridModel {
     custId: number;
-    userName: string;
+    custName: string;
 }
 
 export interface UserRoleItem {

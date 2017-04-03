@@ -11,7 +11,6 @@
                 <col style="width:120px" />
                 <col style="width:90px" />
                 <col style="width:120px" />
-
                 <col style="width:120px" />
                 <col style="width:120px" />
                 <col style="width:90px" />
@@ -61,35 +60,36 @@
             </colgroup>
             <tr *ngFor="let item of data.Entities">
                 <td>{{ item.BetTypeName }}</td>
-                <td>
-                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="item.NonLiveWinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueNonLive(item.BetTypeId)" [napDecimalFormat]="item.NonLiveWinLoss"></a>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napDecimalFormat]="item.NonLiveWinLoss"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showLeague(item.BetTypeId, item.BetTypeName, LiveStatus.NonLive)" [napDecimalFormat]="item.NonLiveWinLoss"></a>
                 </td>
                 <td [napDecimalFormat]="item.NonLiveTurnover"></td>
-                <td [napPercentFormat]="item.NonLiveWinLoss/item.NonLiveTurnover">
+                <td [napPercentFormat]="item.NonLiveWinLoss/item.NonLiveTurnover"></td>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napIntegerFormat]="item.NonLiveBetCount"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showBetCount(item.BetTypeId, LiveStatus.NonLive)" [napIntegerFormat]="item.NonLiveBetCount"></a>
                 </td>
-                <td class="text-right">
-                    <a href="javascript:;" (click)="onShowBetCountNonLive(item.BetTypeId)" [napIntegerFormat]="item.NonLiveBetCount"></a>
-                </td>
-                <td>
-                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="item.LiveWinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeagueLive(item.BetTypeId)" [napDecimalFormat]="item.LiveWinLoss"></a>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napDecimalFormat]="item.LiveWinLoss"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showLeague(item.BetTypeId, item.BetTypeName, LiveStatus.Live)" [napDecimalFormat]="item.LiveWinLoss"></a>
                 </td>
                 <td [napDecimalFormat]="item.LiveTurnover"></td>
-                <td [napPercentFormat]="item.LiveWinLoss/item.LiveTurnover">
+                <td [napPercentFormat]="item.LiveWinLoss/item.LiveTurnover"></td>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napIntegerFormat]="item.LiveBetCount"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showBetCount(item.BetTypeId, LiveStatus.Live)" [napIntegerFormat]="item.LiveBetCount"></a>
                 </td>
-                <td class="text-right">
-                    <a href="javascript:;" (click)="onShowBetCountLive(item.BetTypeId)" [napIntegerFormat]="item.LiveBetCount"></a>
-                </td>
-                <td class="text-right">
-                    <span *ngIf="!isLeagueAvailable()" [napDecimalFormat]="item.WinLoss"></span>
-                    <a *ngIf="isLeagueAvailable()" href="javascript:;" (click)="onShowLeague(item.BetTypeId)" [napDecimalFormat]="item.WinLoss"></a>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napDecimalFormat]="item.WinLoss"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showLeague(item.BetTypeId, item.BetTypeName)" [napDecimalFormat]="item.WinLoss"></a>
                 </td>
                 <td [napDecimalFormat]="item.Turnover"></td>
                 <td [napPercentFormat]="item.WinLoss/item.Turnover">
                 </td>
-                <td>
-                    <a href="javascript:;" (click)="onShowBetCount(betTypeItem.BetTypeId)" [napIntegerFormat]="betTypeItem.BetCount"></a>
+                <td class="text-right" [ngSwitch]="item.HasLeague">
+                    <span *ngSwitchCase="false" [napIntegerFormat]="item.LiveBetCount"></span>
+                    <a *ngSwitchCase="true" href="javascript:;" (click)="showBetCount(item.BetTypeId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
             </tr>
         </table>
@@ -116,15 +116,15 @@
                 <td [napDecimalFormat]="data.Total.NonLiveWinLoss"></td>
                 <td [napDecimalFormat]="data.Total.NonLiveTurnover"></td>
                 <td [napPercentFormat]="data.Total.NonLiveWinLoss/data.Total.NonLiveTurnover"></td>
-                <td [napDecimalFormat]="data.Total.NonLiveBetCount"></td>
+                <td [napIntegerFormat]="data.Total.NonLiveBetCount"></td>
                 <td [napDecimalFormat]="data.Total.LiveWinLoss"></td>
                 <td [napDecimalFormat]="data.Total.LiveTurnover"></td>
                 <td [napPercentFormat]="data.Total.LiveWinLoss/data.Total.LiveTurnover"></td>
-                <td [napDecimalFormat]="data.Total.LiveBetCount"></td>
+                <td [napIntegerFormat]="data.Total.LiveBetCount"></td>
                 <td [napDecimalFormat]="data.Total.WinLoss"></td>
                 <td [napDecimalFormat]="data.Total.Turnover"></td>
                 <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
-                <td [napDecimalFormat]="data.Total.BetCount"></td>
+                <td [napIntegerFormat]="data.Total.BetCount"></td>
             </tr>
         </table>
     </div>

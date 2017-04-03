@@ -13,3 +13,8 @@ export interface Grid {
     query(): void;
     exportExcel(): void;
 }
+
+export enum LiveStatus {
+    Live = 1,
+    NonLive = 2
+}

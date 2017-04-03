@@ -30,12 +30,12 @@
                 <col style="width: 120px" />
             </colgroup>
             <tr *ngFor="let item of data.Entities">
-                <td><a href="javascript:;" (click)="onShowBetType(item.SportId)">{{ item.SportName }}</a></td>
+                <td><a href="javascript:;" (click)="showBetType(item.SportId, item.SportName)">{{ item.SportName }}</a></td>
                 <td [napDecimalFormat]="item.WinLoss"></td>
                 <td [napDecimalFormat]="item.Turnover"></td>
                 <td [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                 <td class="text-right">
-                    <a href="javascript:;" (click)="onShowBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
+                    <a href="javascript:;" (click)="showBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
             </tr>
         </table>

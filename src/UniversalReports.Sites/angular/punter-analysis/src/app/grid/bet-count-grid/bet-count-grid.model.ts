@@ -1,11 +1,13 @@
 import { NgbDateStruct } from 'nap-components/src/date';
 import { PeriodType } from '../../filter/filter.model';
+import { LiveStatus } from '../grid.model';
 
 export interface BetCountGridModel {
-    custId: number,
-    sportId?: number,
-    betTypeId?: number,
-    liveStatusId?: number
+    custId: number;
+    custName: string;
+    sportId?: number;
+    betTypeId?: number;
+    liveStatusId?: LiveStatus;
 }
 
 export interface BetCountItem {

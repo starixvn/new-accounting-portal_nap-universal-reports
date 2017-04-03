@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as moment from 'moment';
+import * as _ from 'lodash';
 import { PeriodType } from '../../filter/filter.model';
 import { Grid } from '../grid.model';
 import { GridService } from '../grid.service';
@@ -25,14 +25,15 @@ export class BetCountGridComponent implements Grid {
     }
 
     exportExcel() {
-
+        this.service.exportExcel();
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {
-        return 'Main - Punter Analysis';
+        const model = this.service.model;
+        return `Punter ${model.custName} by bet count`;
     }
 }

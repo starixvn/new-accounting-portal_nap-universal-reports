@@ -26,7 +26,7 @@ export class SportTypeGridComponent implements Grid {
     }
 
     exportExcel() {
-
+        this.service.exportExcel();
     }
 
     get hasExcel(): boolean {
@@ -34,16 +34,16 @@ export class SportTypeGridComponent implements Grid {
     }
 
     get title(): string {
-        return 'Main - Punter Analysis';
+        return this.service.model.custName;
     }
 
-    private onShowBetType(sportId: number) {
-        this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId);
-        this.gridService.showGrid(GridType.BetType);
+    private showBetType(sportId: number, sportName: string) {
+        this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
+        this.gridService.generate(GridType.BetType);
     }
 
-    private onShowBetCount(sportId: number): void {
+    private showBetCount(sportId: number): void {
         this.betCountGridService.model = this.service.createBetCountGridModel(sportId);
-        this.gridService.showGrid(GridType.BetCount);
+        this.gridService.generate(GridType.BetCount);
     }
 }

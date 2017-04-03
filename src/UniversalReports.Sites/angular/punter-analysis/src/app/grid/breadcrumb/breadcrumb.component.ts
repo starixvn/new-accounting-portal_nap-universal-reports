@@ -17,7 +17,11 @@ export class BreadcrumbComponent {
         return this.gridService.activeGrid.hasExcel;
     }
 
-    exportExcel(index: number) {
+    exportExcel() {
         this.gridService.activeGrid.exportExcel();
+    }
+
+    goBack(index: number) {
+        this.gridService.goBack(index);
     }
 }

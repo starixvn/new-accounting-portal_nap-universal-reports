@@ -117,7 +117,7 @@ export class FilterModelWrapper {
         }
     }
 
-    get dateTitle(): string {
+    get dateFromToTitle(): string {
         const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
         const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
         const dateFormat = 'MMM DD, YYYY';
@@ -126,7 +126,7 @@ export class FilterModelWrapper {
         return `from ${fromDateString} to ${toDateString} ${this.periodTitle}`;
     }
 
-    get dateFileName(): string {
+    get dateFromToFileName(): string {
         const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
         const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
         const dateFormat = 'MMM_DD_YYYY';

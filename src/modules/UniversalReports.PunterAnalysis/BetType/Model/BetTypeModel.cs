@@ -6,6 +6,8 @@
 
         public string BetTypeName { get; set; }
 
+        public bool HasLeague { get; set; }
+
         public decimal NonLiveWinLoss { get; set; }
 
         public decimal NonLiveTurnover { get; set; }

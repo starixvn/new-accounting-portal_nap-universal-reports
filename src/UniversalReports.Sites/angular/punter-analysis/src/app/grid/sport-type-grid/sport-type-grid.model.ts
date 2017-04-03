@@ -1,5 +1,6 @@
 export interface SportTypeGridModel {
     custId: number;
+    custName: string;
 }
 
 export interface SportTypeItem {
