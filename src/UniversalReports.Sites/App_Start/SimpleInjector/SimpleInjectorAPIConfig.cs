@@ -1,5 +1,6 @@
 ﻿using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Lifestyles;
 using System.Web.Http;
 using UniversalReports.Sites.SimpleInjector;
 
@@ -13,7 +14,7 @@ namespace UniversalReports.Sites.SimpleInjector
 
         internal static void Initialize()
         {
-            container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
+            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             container.RegiserGlobalServices()
                 .RegisterHouseWinLossServices()

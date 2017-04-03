@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.Core;
+
 namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {
     public class BetCountExcelSettingFactoryUnitTests

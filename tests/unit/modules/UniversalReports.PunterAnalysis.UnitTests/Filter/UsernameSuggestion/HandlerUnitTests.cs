@@ -12,6 +12,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.UsernameSuggestion
 {
     public class HandlerUnitTests
     {
+        public static IEnumerable<IEnumerable<string>> UsernameTestCases
+        {
+            get
+            {
+                yield return new List<string>();
+                yield return new List<string> { "Any Username" };
+            }
+        }
+
         [Test]
         [TestCaseSource(typeof(HandlerUnitTests), nameof(UsernameTestCases))]
         public async Task Handle_Always_ReturnsTheValueWhichIsReturnedByRepository(IEnumerable<string> valueFromRepository)
@@ -30,18 +39,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.UsernameSuggestion
             var parameter = new HttpParameterJson { RoleId = 1, Username = "Any Username" };
             var handler = new Handler(mapper, currentSession, repository);
 
-            var usernames= await handler.Handle(parameter);
+            var usernames = await handler.Handle(parameter);
 
             Assert.That(usernames, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        public static IEnumerable<IEnumerable<string>> UsernameTestCases
-        {
-            get
-            {
-                yield return new List<string>();
-                yield return new List<string> { "Any Username" };
-            }
         }
 
         private IMapper CreateMapper()

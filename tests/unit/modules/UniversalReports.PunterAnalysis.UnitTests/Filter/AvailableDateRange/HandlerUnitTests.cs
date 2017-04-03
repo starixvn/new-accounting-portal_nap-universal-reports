@@ -11,6 +11,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AvailableDateRange
 {
     public class HandlerUnitTests
     {
+        public static IEnumerable<DateRange> DateRanges
+        {
+            get
+            {
+                yield return new DateRange { MinDate = DateTime.MinValue, MaxDate = DateTime.MaxValue };
+                yield return new DateRange { MinDate = DateTime.Today, MaxDate = DateTime.Today };
+            }
+        }
+
         [Test]
         [TestCaseSource(typeof(HandlerUnitTests), nameof(DateRanges))]
         public async Task Handle_Always_ReturnsTheValueWhichIsReturnedByRepository(DateRange valueFromRepository)
@@ -26,15 +35,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AvailableDateRange
             var dateRange = await handler.Handle(parameter);
 
             Assert.That(dateRange, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        public static IEnumerable<DateRange> DateRanges
-        {
-            get
-            {
-                yield return new DateRange { MinDate = DateTime.MinValue, MaxDate = DateTime.MaxValue };
-                yield return new DateRange { MinDate = DateTime.Today, MaxDate = DateTime.Today };
-            }
         }
     }
 }

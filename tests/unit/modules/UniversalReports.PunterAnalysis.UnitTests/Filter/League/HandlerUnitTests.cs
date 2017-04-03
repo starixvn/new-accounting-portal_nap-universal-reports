@@ -12,6 +12,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.League
 {
     public class HandlerUnitTests
     {
+        public static IEnumerable<IEnumerable<LeagueEntity>> LeagueTestCases
+        {
+            get
+            {
+                yield return new List<LeagueEntity>();
+                yield return new List<LeagueEntity> { new LeagueEntity { Id = 1, Name = "Any League Name" } };
+            }
+        }
+
         [Test]
         [TestCaseSource(typeof(HandlerUnitTests), nameof(LeagueTestCases))]
         public async Task Handle_Always_ReturnsTheValueWhichIsReturnedByRepository(IEnumerable<LeagueEntity> valueFromRepository)
@@ -29,15 +38,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.League
             var result = await handler.Handle(parameter);
 
             Assert.That(result, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        public static IEnumerable<IEnumerable<LeagueEntity>> LeagueTestCases
-        {
-            get
-            {
-                yield return new List<LeagueEntity>();
-                yield return new List<LeagueEntity> { new LeagueEntity { Id = 1, Name = "Any League Name" } };
-            }
         }
 
         private IMapper CreateMapper()

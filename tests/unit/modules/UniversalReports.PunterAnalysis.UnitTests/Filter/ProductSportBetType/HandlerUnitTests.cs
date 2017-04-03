@@ -10,6 +10,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.ProductSportBetType
 {
     public class HandlerUnitTests
     {
+        public static IEnumerable<IEnumerable<ProductSportBetTypeEntity>> ProductSportBetTypeTestCases
+        {
+            get
+            {
+                yield return new List<ProductSportBetTypeEntity>();
+                yield return new List<ProductSportBetTypeEntity> { CreateProductSportBetTypeEntity() };
+            }
+        }
+
         [Test]
         [TestCaseSource(typeof(HandlerUnitTests), nameof(ProductSportBetTypeTestCases))]
         public async Task Handle_Always_ReturnsTheValueWhichIsReturnedByRepository(IEnumerable<ProductSportBetTypeEntity> valueFromRepository)
@@ -25,15 +34,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.ProductSportBetType
 
             var result = await handler.Handle(parameter);
             Assert.That(result, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        public static IEnumerable<IEnumerable<ProductSportBetTypeEntity>> ProductSportBetTypeTestCases
-        {
-            get
-            {
-                yield return new List<ProductSportBetTypeEntity>();
-                yield return new List<ProductSportBetTypeEntity> { CreateProductSportBetTypeEntity() };
-            }
         }
 
         private static ProductSportBetTypeEntity CreateProductSportBetTypeEntity()
