@@ -14,7 +14,6 @@ using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.Available
 using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using BetCountCriteria = UniversalReports.PunterAnalysis.BetCount.Model.Criteria;
 using BetTypeCriteria = UniversalReports.PunterAnalysis.BetType.Model.Criteria;
-using DatabaseStatusCriteria = UniversalReports.PunterAnalysis.DatabaseStatus.Model.Criteria;
 using LeagueCriteria = UniversalReports.PunterAnalysis.League.Model.Criteria;
 using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
@@ -27,10 +26,10 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
     public class DynamicRepositoryTests
     {
         [Test]
-        public async Task DatabaseStatusSp_Test_ColumnIsMapCorrectly()
+        public async Task AvailableDatabaseSp_Test_ColumnIsMapCorrectly()
         {
             // Arrange
-            var criteria = new DatabaseStatusCriteria();
+            var criteria = new AvailableDatabaseFilter.QueryCriteria();
 
             // Act
             var repository = new DynamicRepository();

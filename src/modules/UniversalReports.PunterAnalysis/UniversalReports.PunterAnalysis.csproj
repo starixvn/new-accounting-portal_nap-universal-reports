@@ -143,10 +143,6 @@
     <Compile Include="Core\ReportModelBase.cs" />
     <Compile Include="Core\PunterAnalysisService.cs" />
     <Compile Include="Core\DateTimeService.cs" />
-    <Compile Include="DatabaseStatus\Handler.cs" />
-    <Compile Include="DatabaseStatus\Model\Criteria.cs" />
-    <Compile Include="DatabaseStatus\Model\HttpParameterJson.cs" />
-    <Compile Include="DatabaseStatus\PunterAnalysisDatabaseStatusController.cs" />
     <Compile Include="AssociatedAccount\FraudServiceWrapperImp.cs" />
     <Compile Include="Filter\AvailableDateRange\Handler.cs" />
     <Compile Include="Filter\AvailableDatabase\QueryCriteria.cs" />

@@ -32,9 +32,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
                 var path = $"{baseAddress}/associatedaccounts/{username}/{siteName}";
                 var response = await client.GetAsync(path);
-                return response.IsSuccessStatusCode
-                    ? await response.Content.ReadAsAsync<List<UserDevice>>()
-                    : new List<UserDevice>();
+                return await response.Content.ReadAsAsync<List<UserDevice>>();
             }
         }
     }
