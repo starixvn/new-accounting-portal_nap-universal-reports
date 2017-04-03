@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.PunterAnalysis.Filter.League
 {
-    public class Entity
+    public class LeagueEntity
     {
         public int Id { get; set; }
 

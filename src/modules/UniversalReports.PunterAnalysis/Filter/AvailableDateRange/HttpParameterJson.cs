@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Filter.AvailableDateRange
 {
-    public class HttpParameterJson : IRequest<Entity>
+    public class HttpParameterJson : IRequest<DateRange>
     {
     }
 }

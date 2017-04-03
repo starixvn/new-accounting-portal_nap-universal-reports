@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Filter.AvailableDateRange
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, Entity>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, DateRange>
     {
         private readonly IDynamicRepository repository;
 
@@ -13,10 +13,10 @@ namespace UniversalReports.PunterAnalysis.Filter.AvailableDateRange
             this.repository = repository;
         }
 
-        public async Task<Entity> Handle(HttpParameterJson message)
+        public async Task<DateRange> Handle(HttpParameterJson message)
         {
             var criteria = new QueryCriteria();
-            return await repository.GetAsync<Entity>(criteria);
+            return await repository.GetAsync<DateRange>(criteria);
         }
     }
 }

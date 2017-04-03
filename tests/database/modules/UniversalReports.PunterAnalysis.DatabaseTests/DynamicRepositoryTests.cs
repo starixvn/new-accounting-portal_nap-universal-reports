@@ -236,7 +236,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<ProductSportBetTypeFilter.Entity>(criteria);
+            var models = await repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(criteria);
             var firstModel = models.First();
 
             // Assert
@@ -261,7 +261,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<LeagueFilter.Entity>(criteria);
+            var models = await repository.FetchAsync<LeagueFilter.LeagueEntity>(criteria);
             var firstModel = models.First();
 
             // Assert
@@ -291,7 +291,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var range = await repository.GetAsync<AvailableDateRangeFilter.Entity>(criteria);
+            var range = await repository.GetAsync<AvailableDateRangeFilter.DateRange>(criteria);
 
             // Assert
             Assert.That(range.MinDate, Is.GreaterThan(DateTime.MinValue));

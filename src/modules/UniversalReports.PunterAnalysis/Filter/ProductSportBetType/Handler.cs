@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Filter.ProductSportBetType
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<Entity>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<ProductSportBetTypeEntity>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,10 +14,10 @@ namespace UniversalReports.PunterAnalysis.Filter.ProductSportBetType
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<Entity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<ProductSportBetTypeEntity>> Handle(HttpParameterJson message)
         {
             var criteria = new QueryCriteria();
-            return await repository.FetchAsync<Entity>(criteria);
+            return await repository.FetchAsync<ProductSportBetTypeEntity>(criteria);
         }
     }
 }

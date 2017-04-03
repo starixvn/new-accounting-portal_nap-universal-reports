@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace UniversalReports.PunterAnalysis.Filter.League
 {
-    public class HttpParameterJson : IRequest<IEnumerable<Entity>>
+    public class HttpParameterJson : IRequest<IEnumerable<LeagueEntity>>
     {
         public DateTime FromDate { get; set; }
 

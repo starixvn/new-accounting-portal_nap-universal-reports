@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.PunterAnalysis.Filter.ProductSportBetType
 {
-    public class Entity
+    public class ProductSportBetTypeEntity
     {
         public string ProductName { get; set; }
 

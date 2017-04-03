@@ -23,10 +23,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             // Arrange
             const string FakeRepositoryDataFileName = "Filter-ProductSportBetType-FileRepository.json";
 
-            var fakeProductSportBetTypeList = TestDataLoader.Load<List<ProductSportBetTypeFilter.Entity>>(FakeRepositoryDataFileName);
+            var fakeProductSportBetTypeList = TestDataLoader.Load<List<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>(FakeRepositoryDataFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ProductSportBetTypeFilter.Entity>(Arg.Any<ICriteria>()).Returns(fakeProductSportBetTypeList);
+            repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(Arg.Any<ICriteria>()).Returns(fakeProductSportBetTypeList);
 
             var simpleInjectorTest = new SimpleInjectorTest(repository);
 
@@ -34,7 +34,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var httpParameterJson = new ProductSportBetTypeFilter.HttpParameterJson();
             var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.ProductSportBetType(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.Entity>>).Content;
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));
@@ -46,10 +46,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             // Arrange
             const string FakeRepositoryDataFileName = "Filter-League-FileRepository.json";
 
-            var fakeLeagueList = TestDataLoader.Load<List<LeagueFilter.Entity>>(FakeRepositoryDataFileName);
+            var fakeLeagueList = TestDataLoader.Load<List<LeagueFilter.LeagueEntity>>(FakeRepositoryDataFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueFilter.Entity>(Arg.Any<ICriteria>()).Returns(fakeLeagueList);
+            repository.FetchAsync<LeagueFilter.LeagueEntity>(Arg.Any<ICriteria>()).Returns(fakeLeagueList);
 
             var simpleInjectorTest = new SimpleInjectorTest(repository);
 
@@ -57,7 +57,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var httpParameterJson = new LeagueFilter.HttpParameterJson();
             var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.League(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<LeagueFilter.Entity>>).Content;
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<LeagueFilter.LeagueEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));
@@ -86,9 +86,9 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task AvailableDateRange_RepositoryReturnsNonNullRange_ReturnsNonNullRange()
         {
             // Arrange
-            var nonNullRange = new AvailableDateRangeFilter.Entity { MinDate = DateTime.MaxValue, MaxDate = DateTime.MaxValue };
+            var nonNullRange = new AvailableDateRangeFilter.DateRange { MinDate = DateTime.MaxValue, MaxDate = DateTime.MaxValue };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<AvailableDateRangeFilter.Entity>(Arg.Any<ICriteria>()).Returns(nonNullRange);
+            repository.GetAsync<AvailableDateRangeFilter.DateRange>(Arg.Any<ICriteria>()).Returns(nonNullRange);
 
             var simpleInjectorTest = new SimpleInjectorTest(repository);
 
@@ -96,7 +96,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var httpParameterJson = new AvailableDateRangeFilter.HttpParameterJson();
             var controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
             var httpActionResult = await controller.AvailableDateRange(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<AvailableDateRangeFilter.Entity>).Content;
+            var viewModelJson = (httpActionResult as JsonResult<AvailableDateRangeFilter.DateRange>).Content;
 
             // Assert
             Assert.That(viewModelJson.MinDate, Is.GreaterThan(DateTime.MinValue));

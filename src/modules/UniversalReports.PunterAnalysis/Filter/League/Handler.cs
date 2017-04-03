@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Filter.League
 {
-    public class LeagueHandler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<Entity>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<LeagueEntity>>
     {
         private readonly IMapper mapper;
 
         private readonly IDynamicRepository repository;
 
-        public LeagueHandler(IMapper mapper, IDynamicRepository repository)
+        public Handler(IMapper mapper, IDynamicRepository repository)
         {
             this.mapper = mapper;
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<Entity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<LeagueEntity>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<QueryCriteria>(message);
-            return await repository.FetchAsync<Entity>(criteria);
+            return await repository.FetchAsync<LeagueEntity>(criteria);
         }
     }
 }

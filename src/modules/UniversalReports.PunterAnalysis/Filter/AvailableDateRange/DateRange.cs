@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Filter.AvailableDateRange
 {
-    public class Entity
+    public class DateRange
     {
         public DateTime MinDate { get; set; }
 
