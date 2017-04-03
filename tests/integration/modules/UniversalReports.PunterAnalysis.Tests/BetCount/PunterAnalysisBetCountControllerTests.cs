@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
+            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "BetCount-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "BetCount-ExpectedViewModelJson.json";
 
@@ -30,10 +31,11 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetCountController)) as PunterAnalysisBetCountController;
+                var httpActionResult = await controller.Index(new HttpParameterJson());
+                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
 
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
+
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));

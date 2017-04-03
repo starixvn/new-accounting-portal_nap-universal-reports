@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
+            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "SportType-ExpectedViewModelJson.json";
 
@@ -31,10 +32,9 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSportTypeController)) as PunterAnalysisSportTypeController;
+                var httpActionResult = await controller.Index(new HttpParameterJson());
+                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
-
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));

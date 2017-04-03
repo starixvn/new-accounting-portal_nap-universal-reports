@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
+            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "AssociatedAccount-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "AssociatedAccount-ExpectedViewModelJson.json";
 
@@ -25,17 +26,16 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<UserRoleModel>(Arg.Any<UserRoleQueryCriteria>()).Returns(fakeUserRoleListFromRepository);
-            repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult(string.Empty));
+            repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("12bet"));
 
             // Act
             PunterAnalysisAssociatedAccountController controller;
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisAssociatedAccountController)) as PunterAnalysisAssociatedAccountController;
+                var httpActionResult = await controller.Index(new HttpParameterJson { Username = "sa", CustId = 8 });
+                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
-
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));

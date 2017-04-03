@@ -29,9 +29,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var httpParameterExcel = new HttpParameterExcel();
 
             // Act
             var controller = new PunterAnalysisLeagueController(mediator);
+            await controller.Excel(httpParameterExcel);
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterExcel>());

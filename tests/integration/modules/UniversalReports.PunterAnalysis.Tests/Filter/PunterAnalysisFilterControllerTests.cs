@@ -21,6 +21,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task ProductSportBetType_FileRepository_ReturnsNonEmptyListOfProductSportBetType()
         {
             // Arrange
+            IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity> viewModelJson = null;
             const string FakeRepositoryDataFileName = "Filter-ProductSportBetType-FileRepository.json";
 
             var fakeProductSportBetTypeList = TestDataLoader.Load<List<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>(FakeRepositoryDataFileName);
@@ -33,11 +34,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+                var httpParameterJson = new ProductSportBetTypeFilter.HttpParameterJson();
+                var httpActionResult = await controller.ProductSportBetType(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>).Content;
             }
-
-            var httpParameterJson = new ProductSportBetTypeFilter.HttpParameterJson();
-            var httpActionResult = await controller.ProductSportBetType(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));
@@ -47,6 +47,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task League_FileRepository_ReturnsNonEmptyListOfLeague()
         {
             // Arrange
+            IEnumerable<LeagueFilter.LeagueEntity> viewModelJson = null;
             const string FakeRepositoryDataFileName = "Filter-League-FileRepository.json";
 
             var fakeLeagueList = TestDataLoader.Load<List<LeagueFilter.LeagueEntity>>(FakeRepositoryDataFileName);
@@ -59,11 +60,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+                var httpParameterJson = new LeagueFilter.HttpParameterJson();
+                var httpActionResult = await controller.League(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<IEnumerable<LeagueFilter.LeagueEntity>>).Content;
             }
-
-            var httpParameterJson = new LeagueFilter.HttpParameterJson();
-            var httpActionResult = await controller.League(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<LeagueFilter.LeagueEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));
@@ -73,6 +73,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task AvailableDatabase_RepositoryReturnsTrue_ReturnsTrue()
         {
             // Arrange
+            bool viewModelJson = false;
             var repository = Substitute.For<IDynamicRepository>();
             repository.GetAsync<bool>(Arg.Any<ICriteria>()).Returns(true);
 
@@ -81,11 +82,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+                var httpParameterJson = new AvailableDatabaseFilter.HttpParameterJson();
+                var httpActionResult = await controller.AvailableDatabase(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<bool>).Content;
             }
-
-            var httpParameterJson = new AvailableDatabaseFilter.HttpParameterJson();
-            var httpActionResult = await controller.AvailableDatabase(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<bool>).Content;
 
             // Assert
             Assert.True(viewModelJson);
@@ -95,6 +95,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task AvailableDateRange_RepositoryReturnsNonNullRange_ReturnsNonNullRange()
         {
             // Arrange
+            AvailableDateRangeFilter.DateRange viewModelJson = null;
             var nonNullRange = new AvailableDateRangeFilter.DateRange { MinDate = DateTime.MaxValue, MaxDate = DateTime.MaxValue };
             var repository = Substitute.For<IDynamicRepository>();
             repository.GetAsync<AvailableDateRangeFilter.DateRange>(Arg.Any<ICriteria>()).Returns(nonNullRange);
@@ -104,11 +105,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+                var httpParameterJson = new AvailableDateRangeFilter.HttpParameterJson();
+                var httpActionResult = await controller.AvailableDateRange(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<AvailableDateRangeFilter.DateRange>).Content;
             }
-
-            var httpParameterJson = new AvailableDateRangeFilter.HttpParameterJson();
-            var httpActionResult = await controller.AvailableDateRange(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<AvailableDateRangeFilter.DateRange>).Content;
 
             // Assert
             Assert.That(viewModelJson.MinDate, Is.GreaterThan(DateTime.MinValue));
@@ -119,6 +119,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task UsernameSuggestion_RepositoryReturnsNonEmptyListOfUsername_ReturnsNonEmptyListOfUsername()
         {
             // Arrange
+            IEnumerable<string> viewModelJson = null;
             var nonEmptyListOfUsername = new List<string> { "Username 1", "Username 2" };
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<string>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUsername);
@@ -128,11 +129,10 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisFilterController)) as PunterAnalysisFilterController;
+                var httpParameterJson = new UsernameSuggestionFilter.HttpParameterJson();
+                var httpActionResult = await controller.UsernameSuggestion(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<IEnumerable<string>>).Content;
             }
-
-            var httpParameterJson = new UsernameSuggestionFilter.HttpParameterJson();
-            var httpActionResult = await controller.UsernameSuggestion(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<string>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));

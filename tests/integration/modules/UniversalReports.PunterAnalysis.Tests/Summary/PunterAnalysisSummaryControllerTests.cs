@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
+            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "Summary-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "Summary-ExpectedViewModelJson.json";
 
@@ -31,10 +32,9 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisSummaryController)) as PunterAnalysisSummaryController;
+                var httpActionResult = await controller.Index(new HttpParameterJson());
+                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
-
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));

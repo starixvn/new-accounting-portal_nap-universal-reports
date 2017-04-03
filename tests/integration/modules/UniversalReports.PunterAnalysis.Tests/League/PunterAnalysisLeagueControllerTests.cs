@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.League
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
+            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "League-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "League-ExpectedViewModelJson.json";
 
@@ -31,11 +32,10 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             using (var simpleInjectorTest = new SimpleInjectorTest(repository))
             {
                 controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisLeagueController)) as PunterAnalysisLeagueController;
+                var httpParameterJson = new HttpParameterJson { PeriodType = 1 };
+                var httpActionResult = await controller.Index(httpParameterJson);
+                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
             }
-
-            var httpParameterJson = new HttpParameterJson { PeriodType = 1 };
-            var httpActionResult = await controller.Index(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));

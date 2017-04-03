@@ -29,9 +29,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var httpParameterExcel = new HttpParameterExcel();
 
             // Act
             var controller = new PunterAnalysisBetTypeController(mediator);
+            await controller.Excel(httpParameterExcel);
 
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
