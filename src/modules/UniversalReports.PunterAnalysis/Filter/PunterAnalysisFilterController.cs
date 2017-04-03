@@ -19,8 +19,15 @@ namespace UniversalReports.PunterAnalysis.Filter
             this.mediator = mediator;
         }
 
-        [Route("product-sport-bet-type")]
-        public async Task<IHttpActionResult> ProductSportBetType(HttpParameterProductSportBetType parameter)
+        [Route("available-database")]
+        public async Task<IHttpActionResult> AvailableDatabase(HttpParameterAvailableDatabase parameter)
+        {
+            var viewModel = await mediator.Send(parameter);
+            return Json(viewModel);
+        }
+
+        [Route("available-date-range")]
+        public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
@@ -33,15 +40,8 @@ namespace UniversalReports.PunterAnalysis.Filter
             return Json(viewModel);
         }
 
-        [Route("available-database")]
-        public async Task<IHttpActionResult> AvailableDatabase(HttpParameterAvailableDatabase parameter)
-        {
-            var viewModel = await mediator.Send(parameter);
-            return Json(viewModel);
-        }
-
-        [Route("available-date-range")]
-        public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
+        [Route("product-sport-bet-type")]
+        public async Task<IHttpActionResult> ProductSportBetType(HttpParameterProductSportBetType parameter)
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);

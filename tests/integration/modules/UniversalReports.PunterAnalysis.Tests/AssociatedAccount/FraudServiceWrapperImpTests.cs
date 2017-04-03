@@ -13,7 +13,7 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         {
             // Arrage
             var applicationConfigurationService = Substitute.For<ApplicationConfigurationService>();
-            applicationConfigurationService.FraudSystemApi.Returns("http://ha.nexdev.net:7704/api2");
+            applicationConfigurationService.FraudSystemApi.Returns("http://ha.nexdev.net:7704");
             var fraudService = new FraudServiceWrapperImp(applicationConfigurationService);
 
             // Act
