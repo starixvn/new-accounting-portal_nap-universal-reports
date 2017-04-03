@@ -51,11 +51,14 @@ export class FilterService {
             const productItems: TreeviewItem[] = [];
             const productNames = _.uniq(list.map(x => x.ProductName));
             productNames.forEach(productName => {
+                const listByProductName = list.filter(x => x.ProductName === productName);
+                const renderTypeByProductName = listByProductName[0].RenderType;
+                const productChildren = ProductChildrenByRenderType.createProductChildren(renderTypeByProductName);
                 const productItem = new TreeviewItem({
                     text: productName,
-                    value: productName,
+                    value: renderTypeByProductName,
                     collapsed: true,
-                    children: this.getProductChildren(list, productName)
+                    children: productChildren.getChildren(listByProductName)
                 });
                 productItems.push(productItem);
             });
@@ -67,13 +70,6 @@ export class FilterService {
     checkDatabaseAvailable(): Observable<boolean> {
         let url = 'UniversalReports/api/punter-analysis/filter/available-database';
         return this.httpService.post<boolean>(url);
-    }
-
-    private getProductChildren(list: ProductSportTypeBetType[], productName: string): TreeviewItem[] {
-        const listByProductName = list.filter(x => x.ProductName === productName);
-        const renderTypeByProductName = listByProductName[0].RenderType;
-        const productChildren = ProductChildrenByRenderType.createProductChildren(renderTypeByProductName);
-        return productChildren.getChildren(listByProductName);
     }
 }
 

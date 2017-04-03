@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import * as _ from 'lodash';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
-import { SportTypeData, SportTypeItem } from './sport-type-grid.model';
-import { SportTypeGridService } from './sport-type-grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { BetTypeGridService } from '../bet-type-grid/bet-type-grid.service';
+import { SportTypeData, SportTypeItem } from './sport-type-grid.model';
+import { SportTypeGridService } from './sport-type-grid.service';
 
 @Component({
     selector: 'nap-sport-type-grid',
@@ -24,12 +25,12 @@ export class SportTypeGridComponent implements Grid {
         this.service.query().subscribe(data => this.data = data);
     }
 
-    excel() {
+    exportExcel() {
 
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {

@@ -13,7 +13,11 @@ export class BreadcrumbComponent {
         private gridService: GridService
     ) { }
 
-    onExportExcel(index: number) {
-        this.gridService.activeGrid.excel();
+    get hasExcel(): boolean {
+        return this.gridService.activeGrid.hasExcel;
+    }
+
+    exportExcel(index: number) {
+        this.gridService.activeGrid.exportExcel();
     }
 }

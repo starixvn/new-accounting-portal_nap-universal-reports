@@ -24,7 +24,7 @@ export class BetCountGridComponent implements Grid {
         this.service.query().subscribe(data => this.data = data);
     }
 
-    excel() {
+    exportExcel() {
 
     }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import * as _ from 'lodash';
 import { Grid } from '../grid.model';
-import { LeagueItem, PeriodGroupItem, ViewModelItem } from './league-grid.model';
+import { LeagueItem, PeriodGroupItem, LeagueData } from './league-grid.model';
 import { LeagueGridService } from './league-grid.service';
 
 @Component({
@@ -8,30 +9,30 @@ import { LeagueGridService } from './league-grid.service';
     templateUrl: './league-grid.component.html'
 })
 export class LeagueGridComponent implements Grid {
-    private viewModelItem: ViewModelItem;
+    private data: LeagueData;
 
     constructor(
         private service: LeagueGridService
     ) {
-        this.viewModelItem = this.createFakeData();
+        this.data = this.createFakeData();
     }
 
     query() {
     }
 
-    excel() {
+    exportExcel() {
 
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {
         return 'Main - Punter Analysis';
     }
 
-    private createFakeData(): ViewModelItem {
+    private createFakeData(): LeagueData {
 
         var leagues: LeagueItem[] = [];
         for (var i = 0; i < 100; i++) {

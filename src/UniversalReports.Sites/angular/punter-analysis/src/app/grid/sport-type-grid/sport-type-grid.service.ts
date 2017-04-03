@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from '../../components/http.service';
+import { FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { SportTypeGridModel } from './sport-type-grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
@@ -33,11 +33,12 @@ export class SportTypeGridService {
     query(): Observable<any> {
         let url = 'UniversalReports/api/punter-analysis/sport-type';
         const filterModel = this.gridService.filterModel;
+        const wrapper = new FilterModelWrapper(filterModel);
         return this.httpService.post<any>(url, {
             periodType: filterModel.periodType,
-            fromDate: DateHelper.convertDateStructToString(filterModel.fromDate),
-            toDate: DateHelper.convertDateStructToString(filterModel.toDate),
-            listCombinationId: filterModel.productBetTypes.join(','),
+            fromDate: wrapper.fromDateQueryString,
+            toDate: wrapper.toDateQueryString,
+            listCombinationId: wrapper.listCombinationId,
             custId: this.model.custId
         });
     }

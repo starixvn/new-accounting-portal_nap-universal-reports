@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { TreeviewItem, TreeviewConfig } from 'ng2-dropdown-treeview';
+import { TreeviewItem, TreeviewConfig, TreeviewEventParser, DownlineTreeviewEventParser, DownlineTreeviewItem } from 'ng2-dropdown-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { ToastService } from 'nap-components/src/toast';
@@ -18,7 +18,8 @@ import { TypeaheadQuery } from '../components/dropdown-typeahead';
         './filter.component.scss'
     ],
     providers: [
-        FilterService
+        FilterService,
+        { provide: TreeviewEventParser, useClass: DownlineTreeviewEventParser }
     ]
 })
 export class FilterComponent {
@@ -45,7 +46,7 @@ export class FilterComponent {
         isShowFilter: true,
         maxHeight: 500
     };
-    private productBetTypes: number[];
+    private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
 
     constructor(
@@ -69,8 +70,8 @@ export class FilterComponent {
         this.periodTypeEventModel = model;
     }
 
-    onProductSelectedChange(productBetTypes: number[]) {
-        this.productBetTypes = productBetTypes;
+    onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
+        this.selectedBetTypeTreeviewItems = downlineTreeviewItems;
     }
 
     onGenerate() {
@@ -110,7 +111,7 @@ export class FilterComponent {
             return false;
         }
 
-        if (model.productBetTypes.length === 0) {
+        if (model.selectedBetTypeTreeviewItems.length === 0) {
             this.toastService.activate('Please select at least one Product!');
             return false;
         }
@@ -135,7 +136,7 @@ export class FilterComponent {
             toDate: this.periodTypeEventModel.toDate,
             depth: this.depth,
             userName: _.trim(this.userName),
-            productBetTypes: this.productBetTypes
+            selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems
         }
     }
 

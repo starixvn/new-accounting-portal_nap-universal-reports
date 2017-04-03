@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
 import { PaginationInstance } from 'ng2-pagination';
-import { Helper } from '../../components/helper';
 import { FilterModel } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
@@ -40,14 +39,12 @@ export class SummaryGridComponent implements Grid {
         });
     }
 
-    excel() {
-        this.service.excel().subscribe(response => {
-            Helper.saveExcel(response, 'test.xls');
-        });
+    exportExcel() {
+        this.service.excel();
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {

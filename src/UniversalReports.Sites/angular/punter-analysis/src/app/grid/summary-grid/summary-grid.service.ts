@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
-import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from '../../components/http.service';
-import { FilterModel } from '../../filter/filter.model';
+import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
+import { Helper } from '../../components/helper';
 import { GridService } from '../grid.service';
-import { SummaryData } from './summary-grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';
 import { SportTypeGridModel } from '../sport-type-grid/sport-type-grid.model';
+import { SummaryData } from './summary-grid.model';
 
 @Injectable()
 export class SummaryGridService {
@@ -42,31 +42,37 @@ export class SummaryGridService {
         return this.httpService.post<SummaryData>(url, queryModel);
     }
 
-    excel(): Observable<Response> {
+    excel() {
         let url = 'UniversalReports/api/punter-analysis/summary/excel';
+        const model = this.gridService.filterModel;
+        const wrapper = new FilterModelWrapper(model);
         const queryModel = this.createQueryModel();
-        queryModel.title = this.getTitle();
-        queryModel.filter = '';
-        return this.httpService.download(url, queryModel);
+        queryModel.title = `Punter Analysis ${wrapper.dateTitle}`;
+        const filterLines = [
+            `Depth: ${wrapper.depthTitle} - Account name: ${wrapper.userNameTitle}`,
+            `Top rows: ${model.topRow} - Order by: ${wrapper.orderByTitle}, ${wrapper.sortByTitle}`,
+            `Sport Type: ${wrapper.selectedSportTypes}`
+        ];
+        queryModel.filter = filterLines.join('\n');
+        this.httpService.download(url, queryModel).subscribe(response => {
+            const fileName = `Top_Punter_Summary_${wrapper.searchByFileName}_${wrapper.dateFileName}.xlsx`;
+            Helper.saveExcel(response, fileName);
+        });
     }
 
     private createQueryModel(): any {
         const model = this.gridService.filterModel;
+        const wrapper = new FilterModelWrapper(model);
         return {
             topRow: model.topRow,
             orderBy: model.orderBy,
             sortBy: model.sortBy,
             periodType: model.periodType,
-            fromDate: DateHelper.convertDateStructToString(model.fromDate),
-            toDate: DateHelper.convertDateStructToString(model.toDate),
+            fromDate: wrapper.fromDateQueryString,
+            toDate: wrapper.toDateQueryString,
             depth: model.depth,
             userName: model.userName,
-            listCombinationId: model.productBetTypes.join(',')
+            listCombinationId: wrapper.listCombinationId
         };
-    }
-
-    private getTitle(): string {
-        const dateTitle = this.gridService.getDateTitle();
-        return `Punter Analysis ${dateTitle}`;
     }
 }

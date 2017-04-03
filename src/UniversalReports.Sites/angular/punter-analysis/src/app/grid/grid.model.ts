@@ -11,5 +11,5 @@ export interface Grid {
     hasExcel: boolean;
     title: string;
     query(): void;
-    excel(): void;
+    exportExcel(): void;
 }
