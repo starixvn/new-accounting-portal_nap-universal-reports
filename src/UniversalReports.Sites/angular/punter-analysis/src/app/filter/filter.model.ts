@@ -123,7 +123,7 @@ export class FilterModelWrapper {
         const dateFormat = 'MMM DD, YYYY';
         const fromDateString = momentFromDate.format(dateFormat);
         const toDateString = momentToDate.format(dateFormat);
-        return `from ${fromDateString} to ${toDateString} ${this.periodTitle}`;
+        return `from ${fromDateString} to ${toDateString} (${this.periodTitle})`;
     }
 
     get dateFromToFileName(): string {

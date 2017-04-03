@@ -27,7 +27,7 @@ export class BetCountGridService {
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Punter Analysis - ${this.model.custName} by bet count ${filterModelWrapper.dateFromToTitle}`;
-        queryModel.filter = `Sport Type: ${filterModelWrapper.selectedSportTypes}`
+        queryModel.filter = `Sport Type: ${filterModelWrapper.selectedSportTypes}`;
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_Summary_Bet_Count_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
             Helper.saveExcel(response, fileName);

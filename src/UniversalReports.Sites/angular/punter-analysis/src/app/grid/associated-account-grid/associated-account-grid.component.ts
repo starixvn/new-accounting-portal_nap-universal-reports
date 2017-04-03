@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import * as moment from 'moment';
+import * as _ from 'lodash';
+import { DateHelper } from 'nap-components/src/date';
 import { Grid } from '../grid.model';
+import { FilterModelWrapper } from '../../filter/filter.model';
+import { GridService } from '../grid.service';
 import { UserRoleItem } from './associated-account-grid.model';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
 
@@ -12,6 +15,7 @@ export class AssociatedAccountGridComponent implements Grid {
     private data: UserRoleItem[];
 
     constructor(
+        private gridService: GridService,
         private service: AssociatedAccountGridService
     ) { }
 
@@ -20,14 +24,25 @@ export class AssociatedAccountGridComponent implements Grid {
     }
 
     exportExcel() {
-
+        this.service.exportExcel();
     }
 
     get hasExcel(): boolean {
-        return true;
+        return !_.isNil(this.data) && this.data.length > 0;
     }
 
     get title(): string {
-        return 'Main - Punter Analysis';
+        const filterModel = this.gridService.filterModel;
+        return `Associated accounts of Punter ${this.service.model.custName} ${this.getDateFromToTitle()}`;
+    }
+
+    private getDateFromToTitle(): string {
+        const filterModel = this.gridService.filterModel;
+        const momentFromDate = DateHelper.convertDateStructToMoment(filterModel.fromDate);
+        const momentToDate = DateHelper.convertDateStructToMoment(filterModel.toDate);
+        const dateFormat = 'MM/DD/YYYY';
+        const fromDateString = momentFromDate.format(dateFormat);
+        const toDateString = momentToDate.format(dateFormat);
+        return `from ${fromDateString} to ${toDateString}`;
     }
 }

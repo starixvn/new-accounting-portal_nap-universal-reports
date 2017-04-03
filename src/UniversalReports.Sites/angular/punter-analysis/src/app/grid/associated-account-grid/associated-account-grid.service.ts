@@ -2,21 +2,48 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from '../../components/http.service';
+import { Helper } from '../../components/helper';
+import { FilterModelWrapper } from '../../filter/filter.model';
+import { GridService } from '../grid.service';
 import { AssociatedAccountGridModel } from './associated-account-grid.model';
 
 @Injectable()
 export class AssociatedAccountGridService {
+    private url = 'UniversalReports/api/punter-analysis/associated-account';
     model: AssociatedAccountGridModel;
 
     constructor(
-        private httpService: HttpService
+        private httpService: HttpService,
+        private gridService: GridService
     ) { }
 
     query(): Observable<any> {
-        let url = 'UniversalReports/api/punter-analysis/associated-account';
-        return this.httpService.post<any>(url, {
+        const queryModel = this.createQueryModel();
+        return this.httpService.post<any>(this.url, queryModel);
+    }
+
+    exportExcel() {
+        const url = `${this.url}/excel`;
+        const filterModel = this.gridService.filterModel;
+        const filterModelWrapper = new FilterModelWrapper(filterModel);
+        const queryModel = this.createQueryModel();
+        queryModel.title = `Associated Account of Punter ${this.model.custName} ${filterModelWrapper.dateFromToTitle}`;
+        const filterLines = [
+            `User Name: ${this.model.custName}`,
+            `Top rows: ${filterModel.topRow} - Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
+            `Sport Type: ${filterModelWrapper.selectedSportTypes}`
+        ];
+        queryModel.filter = filterLines.join('\n');
+        this.httpService.download(url, queryModel).subscribe(response => {
+            const fileName = `Associated_Account_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
+            Helper.saveExcel(response, fileName);
+        });
+    }
+
+    private createQueryModel(): any {
+        return {
             custId: this.model.custId,
             userName: this.model.custName
-        });
+        };
     }
 }

@@ -34,6 +34,6 @@ export class PercentFormatDirective implements OnInit {
   }
 
   private isValidNumber(): boolean {
-    return _.isNumber(this.value) && this.value !== Infinity;
+    return !_.isNaN(this.value) && _.isFinite(this.value) && _.isNumber(this.value);
   }
 }
