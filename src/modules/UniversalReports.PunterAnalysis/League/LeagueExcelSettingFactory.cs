@@ -2,15 +2,15 @@
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.PunterAnalysis.BetCount
+namespace UniversalReports.PunterAnalysis.League
 {
-    public class BetCountExcelSettingImp : IExcelSetting
+    public class LeagueExcelSettingFactory : IExcelSetting
     {
-        private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\BetCount.xlsx";
+        private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\League.xlsx";
 
         private readonly ApplicationConfigurationService configurationService;
 
-        public BetCountExcelSettingImp(ApplicationConfigurationService configurationService)
+        public LeagueExcelSettingFactory(ApplicationConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }
@@ -21,12 +21,12 @@ namespace UniversalReports.PunterAnalysis.BetCount
                 new ExcelSetting
                 {
                     SheetName = "Punter Analysis",
-                    StartRowIndex = 7,
+                    StartRowIndex = 8,
                     TemplatePath = $"{configurationService.CurrentDirectory}\\{TemplatePath}",
                     Title = excelSettingParams.Title,
                     TitleCellRange = "A1:E2",
                     Filter = excelSettingParams.Filter,
-                    FilterCellRange = "A3:E4"
+                    FilterCellRange = "A3:E5"
                 });
         }
     }

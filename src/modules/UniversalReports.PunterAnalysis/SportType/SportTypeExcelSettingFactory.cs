@@ -4,13 +4,13 @@ using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.SportType
 {
-    public class SportTypeExcelSettingImp : IExcelSetting
+    public class SportTypeExcelSettingFactory : IExcelSetting
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Sporttype.xlsx";
 
         private readonly ApplicationConfigurationService configurationService;
 
-        public SportTypeExcelSettingImp(ApplicationConfigurationService configurationService)
+        public SportTypeExcelSettingFactory(ApplicationConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }

@@ -105,10 +105,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetCount\BetCountExcelSettingImp.cs" />
+    <Compile Include="BetCount\BetCountExcelSettingFactory.cs" />
     <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
     <Compile Include="BetCount\Model\ExcelViewModel.cs" />
-    <Compile Include="BetType\BetTypeExcelSettingImp.cs" />
+    <Compile Include="BetType\BetTypeExcelSettingFactory.cs" />
     <Compile Include="BetType\Model\BetTypeExcelModel.cs" />
     <Compile Include="BetType\Model\ExcelViewModel.cs" />
     <Compile Include="Core\ExcelSetting.cs" />
@@ -166,7 +166,7 @@
     <Compile Include="League\Handler.cs" />
     <Compile Include="League\HandlerExcel.cs" />
     <Compile Include="League\LeagueExcelBuilder.cs" />
-    <Compile Include="League\LeagueExcelSettingImp.cs" />
+    <Compile Include="League\LeagueExcelSettingFactory.cs" />
     <Compile Include="League\LeagueService.cs" />
     <Compile Include="League\LeagueServiceBase.cs" />
     <Compile Include="League\LeagueServiceByWeek.cs" />
@@ -194,7 +194,7 @@
     <Compile Include="SportType\Model\HttpParameterJson.cs" />
     <Compile Include="SportType\Model\ViewModelJson.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeController.cs" />
-    <Compile Include="SportType\SportTypeExcelSettingImp.cs" />
+    <Compile Include="SportType\SportTypeExcelSettingFactory.cs" />
     <Compile Include="Summary\Handler.cs" />
     <Compile Include="Summary\HandlerExcel.cs" />
     <Compile Include="Summary\Model\ExcelViewModel.cs" />
@@ -205,7 +205,7 @@
     <Compile Include="Summary\Model\HttpParameterJson.cs" />
     <Compile Include="Summary\Model\ViewModelJson.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryController.cs" />
-    <Compile Include="Summary\SummaryExcelSettingImp.cs" />
+    <Compile Include="Summary\SummaryExcelSettingFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

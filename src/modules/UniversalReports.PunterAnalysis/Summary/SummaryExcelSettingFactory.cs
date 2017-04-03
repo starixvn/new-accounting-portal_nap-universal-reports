@@ -2,15 +2,15 @@
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.PunterAnalysis.League
+namespace UniversalReports.PunterAnalysis.Summary
 {
-    public class LeagueExcelSettingImp : IExcelSetting
+    public class SummaryExcelSettingFactory : IExcelSetting
     {
-        private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\League.xlsx";
+        private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Summary.xlsx";
 
         private readonly ApplicationConfigurationService configurationService;
 
-        public LeagueExcelSettingImp(ApplicationConfigurationService configurationService)
+        public SummaryExcelSettingFactory(ApplicationConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }
