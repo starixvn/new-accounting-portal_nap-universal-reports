@@ -153,7 +153,6 @@
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerTests.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
-    <Compile Include="Mocks\CurrentSessionMock.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
