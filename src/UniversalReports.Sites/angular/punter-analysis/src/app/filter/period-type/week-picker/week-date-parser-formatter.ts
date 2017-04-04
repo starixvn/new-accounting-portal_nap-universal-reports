@@ -30,8 +30,8 @@ export class WeekDateParserFormatter extends NgbDateParserFormatter {
             returnVal = null;
         } else {
             try {
-                let dateParts = this.datePipe.transform(value, 'M-d-y').split('-');
-                returnVal = { year: parseInt(dateParts[2]), month: parseInt(dateParts[0]), day: parseInt(dateParts[1]) };
+                const dateParts = this.datePipe.transform(value, 'M-d-y').split('-');
+                returnVal = { year: parseInt(dateParts[2], 10), month: parseInt(dateParts[0], 10), day: parseInt(dateParts[1], 10) };
             } catch (e) {
                 returnVal = null;
             }
@@ -40,7 +40,7 @@ export class WeekDateParserFormatter extends NgbDateParserFormatter {
     }
 
     private getWeekNumber(date: NgbDateStruct): number {
-        let jsDate = DateHelper.convertDateStructToDate(date);
+        const jsDate = DateHelper.convertDateStructToDate(date);
         if (!isNaN(jsDate.getTime())) {
             jsDate.setFullYear(date.year);
         }

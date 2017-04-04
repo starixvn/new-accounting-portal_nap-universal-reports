@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { HttpService } from '../../components/http.service';
 import { FilterModelWrapper } from '../../filter/filter.model';
 import { Helper } from '../../components/helper';
@@ -9,7 +9,7 @@ import { BetCountGridModel, BetCountData } from './bet-count-grid.model';
 @Injectable()
 export class BetCountGridService {
     model: BetCountGridModel;
-    private url = 'UniversalReports/api/punter-analysis/bet-count';
+    private url = 'api/punter-analysis/bet-count';
 
     constructor(
         private httpService: HttpService,
@@ -24,12 +24,12 @@ export class BetCountGridService {
     exportExcel() {
         const url = `${this.url}/excel`;
         const filterModel = this.gridService.filterModel;
-        const filterModelWrapper = new FilterModelWrapper(filterModel);
+        const wrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
-        queryModel.title = `Punter Analysis - ${this.model.custName} by bet count ${filterModelWrapper.dateFromToTitle}`;
-        queryModel.filter = `Sport Type: ${filterModelWrapper.selectedSportTypes}`;
+        queryModel.title = `Punter Analysis - ${this.model.custName} by bet count ${wrapper.dateFromToTitle}`;
+        queryModel.filter = `Sport Type: ${wrapper.selectedSportTypes}`;
         this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `Top_Punter_Summary_Bet_Count_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
+            const fileName = `Top_Punter_Summary_Bet_Count_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
             Helper.saveExcel(response, fileName);
         });
     }

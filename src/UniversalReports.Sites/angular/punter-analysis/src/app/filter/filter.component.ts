@@ -1,5 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { TreeviewItem, TreeviewConfig, TreeviewEventParser, DownlineTreeviewEventParser, DownlineTreeviewItem } from 'ng2-dropdown-treeview';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import {
+    TreeviewItem, TreeviewConfig, TreeviewEventParser,
+    DownlineTreeviewEventParser, DownlineTreeviewItem
+} from 'ng2-dropdown-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { ToastService } from 'nap-components/src/toast';
@@ -22,7 +25,7 @@ import { TypeaheadQuery } from '../components/dropdown-typeahead';
         { provide: TreeviewEventParser, useClass: DownlineTreeviewEventParser }
     ]
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
     @Output() generate = new EventEmitter<FilterModel>();
     @Output() reset = new EventEmitter();
     RoleId = RoleId;
@@ -33,8 +36,8 @@ export class FilterComponent {
     topRows = 10;
     userName = '';
     userNameTypeaheadQuery = this.buildUserNameTypeaheadQuery();
-    order = SortBy.Descending;
-    orderOptions = this.getOrderOptions();
+    sortBy = SortBy.Descending;
+    sortByOptions = this.getSortByOptions();
     orderBy = OrderBy.WinLoss;
     orderByOptions = this.getOrderByOptions();
     minDate: NgbDateStruct;
@@ -81,11 +84,10 @@ export class FilterComponent {
             this.service.checkDatabaseAvailable().subscribe(isAvailable => {
                 if (isAvailable) {
                     this.generate.emit(model);
-                }
-                else {
+                } else {
                     this.toastService.activate('Data is being processed.... Please try again after 10 minutes!');
                 }
-            })
+            });
         }
     }
 
@@ -130,14 +132,18 @@ export class FilterComponent {
             searchBy: this.searchBy,
             topRow: this.topRows,
             orderBy: this.orderBy,
-            sortBy: this.order,
+            sortBy: this.sortBy,
             periodType: this.periodTypeEventModel.periodType,
             fromDate: this.periodTypeEventModel.fromDate,
             toDate: this.periodTypeEventModel.toDate,
             depth: this.depth,
             userName: _.trim(this.userName),
-            selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems
-        }
+            selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
+            searchByOptions: this.searchByOptions,
+            depthOptions: this.depthOptions,
+            orderByOptions: this.orderByOptions,
+            sortByOptions: this.sortByOptions
+        };
     }
 
     private getSearchByOptions(): OptionItem[] {
@@ -163,7 +169,7 @@ export class FilterComponent {
         }];
     }
 
-    private getOrderOptions(): OptionItem[] {
+    private getSortByOptions(): OptionItem[] {
         return [{
             text: 'Ascending',
             value: SortBy.Ascending

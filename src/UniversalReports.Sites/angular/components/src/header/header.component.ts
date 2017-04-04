@@ -23,11 +23,11 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         this.headerService.query().subscribe(header => {
             this.menus = this.headerService.compileMenus(header.Menus);
-            this.username = header.Username || 'sa';
+            this.username = header.Username || 'user';
         });
     }
 
-    resolveLegacyUrl(url: string) {
+    resolveLegacyUrl(url: string): string {
         return this.legacyService.resolveUrl(url);
     }
 }

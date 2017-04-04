@@ -14,8 +14,8 @@ import { DecimalFormatDirective } from './decimal-format.directive';
   `,
 })
 class TestComponent {
-  private positiveValue: number = 153256.321962;
-  private negativeValue: number = -153256.321962;
+  positiveValue = 153256.321962;
+  negativeValue = -153256.321962;
 }
 
 describe('DecimalTextDirective', () => {
@@ -32,32 +32,32 @@ describe('DecimalTextDirective', () => {
   }));
 
   it('should mark the negative value with class negative', () => {
-    let negativeSpan: DebugElement = fixture.debugElement.query(By.css(".negative-decimal-text"));
+    const negativeSpan: DebugElement = fixture.debugElement.query(By.css('.negative-decimal-text'));
     expect(negativeSpan.nativeElement.className).toContain('negative');
   });
 
   it('should mark the positive  value with class positive', () => {
-    let positiveSpan: DebugElement = fixture.debugElement.query(By.css(".positive-decimal-text"));
+    const positiveSpan: DebugElement = fixture.debugElement.query(By.css('.positive-decimal-text'));
     expect(positiveSpan.nativeElement.className).toContain('positive');
   });
 
   it('should mark the zero  value with class positive', () => {
-    let zeroSpan: DebugElement = fixture.debugElement.query(By.css(".undefined-decimal-text"));
+    const zeroSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-decimal-text'));
     expect(zeroSpan.nativeElement.className).toContain('positive');
   });
 
   it('should mark the undefined  value with class positive', () => {
-    let undefinedSpan: DebugElement = fixture.debugElement.query(By.css(".undefined-decimal-text"));
+    const undefinedSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-decimal-text'));
     expect(undefinedSpan.nativeElement.className).toContain('positive');
   });
 
   it('should format negative value with thousand seperator and 2 decimal digits', () => {
-    let negativeSpan: DebugElement = fixture.debugElement.query(By.css(".negative-decimal-text"));
+    const negativeSpan: DebugElement = fixture.debugElement.query(By.css('.negative-decimal-text'));
     expect(negativeSpan.nativeElement.innerText).toBe('-153,256.32');
   });
 
   it('should format positive value with thousand seperator and 2 decimal digits', () => {
-    let positiveSpan: DebugElement = fixture.debugElement.query(By.css(".positive-decimal-text"));
+    const positiveSpan: DebugElement = fixture.debugElement.query(By.css('.positive-decimal-text'));
     expect(positiveSpan.nativeElement.innerText).toBe('153,256.32');
   });
 });

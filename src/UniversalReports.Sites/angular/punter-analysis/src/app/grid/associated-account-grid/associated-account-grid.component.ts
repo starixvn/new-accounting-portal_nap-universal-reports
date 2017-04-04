@@ -12,7 +12,7 @@ import { AssociatedAccountGridService } from './associated-account-grid.service'
     templateUrl: './associated-account-grid.component.html'
 })
 export class AssociatedAccountGridComponent implements Grid {
-    private data: UserRoleItem[];
+    data: UserRoleItem[];
 
     constructor(
         private gridService: GridService,

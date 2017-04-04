@@ -14,7 +14,7 @@ import { WeekDateParserFormatter } from './week-date-parser-formatter';
         }
     ]
 })
-export class WeekPickerComponent {
+export class WeekPickerComponent implements OnChanges {
     @Input() minDate: NgbDateStruct;
     @Input() maxDate: NgbDateStruct;
     @Input() date: NgbDateStruct;
@@ -30,7 +30,7 @@ export class WeekPickerComponent {
         const dateChange = changes['date'];
         if (dateChange && dateChange.isFirstChange()) {
             this.weekRange = DateHelper.getWeekRangeOfDate(this.date);
-            let day = this.weekRange.fromDate.day;
+            const day = this.weekRange.fromDate.day;
             if (this.minDate) {
                 const minNgbDate = NgbDate.fromDateStruct(this.minDate);
                 const fromNgbDate = NgbDate.fromDateStruct(this.weekRange.fromDate);
@@ -39,15 +39,16 @@ export class WeekPickerComponent {
                 } else {
                     this.updateDate(this.weekRange.fromDate);
                 }
-            }
-            else {
+            } else {
                 this.updateDate(this.weekRange.fromDate);
             }
         }
     }
 
     onClick(event: MouseEvent, disabled: boolean) {
-        if (disabled) return;
+        if (disabled) {
+            return;
+        }
 
         const weekElement = this.getWeekElement(event.target);
         const firstActiveDayElement = this.getFirstActiveDayElement(weekElement);

@@ -16,12 +16,12 @@ function getWeekRangeOfDate(dateStruct: NgbDateStruct): WeekRange {
     return {
         fromDate: getFirstDayOfWeek(dateStruct),
         toDate: getLastDayOfWeek(dateStruct)
-    }
+    };
 }
 
 function getFirstDayOfWeek(dateStruct: NgbDateStruct): NgbDateStruct {
-    let date = convertDateStructToDate(dateStruct);
-    let day = date.getDay();
+    const date = convertDateStructToDate(dateStruct);
+    const day = date.getDay();
     if (day === 0) {
         date.setDate(dateStruct.day - 6);
     } else {
@@ -32,8 +32,8 @@ function getFirstDayOfWeek(dateStruct: NgbDateStruct): NgbDateStruct {
 }
 
 function getLastDayOfWeek(dateStruct: NgbDateStruct): NgbDateStruct {
-    let date = convertDateStructToDate(dateStruct);
-    let day = date.getDay();
+    const date = convertDateStructToDate(dateStruct);
+    const day = date.getDay();
     if (day === 0) {
         date.setDate(dateStruct.day);
     } else {

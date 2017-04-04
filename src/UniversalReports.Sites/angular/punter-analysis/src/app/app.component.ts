@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FilterModel } from './filter/filter.model';
 
 @Component({
-  selector: 'app-root',
+  selector: 'nap-root',
   templateUrl: './app.component.html',
   styleUrls: [
     '../../../components/src/style/layout.scss',

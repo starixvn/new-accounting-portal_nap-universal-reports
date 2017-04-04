@@ -476,6 +476,13 @@
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\punter-analysis\index.html" />
+    <Content Include="wwwroot\punter-analysis\inline.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\main.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\polyfills.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
+    <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
@@ -712,6 +719,15 @@
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="Views\NG2Statistics\Index.cshtml" />
     <Content Include="Views\PunterAnalysis\Index.cshtml" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_AngularLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

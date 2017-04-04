@@ -37,12 +37,12 @@ export class SportTypeGridComponent implements Grid {
         return this.service.model.custName;
     }
 
-    private showBetType(sportId: number, sportName: string) {
+    showBetType(sportId: number, sportName: string) {
         this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
         this.gridService.generate(GridType.BetType);
     }
 
-    private showBetCount(sportId: number): void {
+    showBetCount(sportId: number): void {
         this.betCountGridService.model = this.service.createBetCountGridModel(sportId);
         this.gridService.generate(GridType.BetCount);
     }

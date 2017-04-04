@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
 import { LegendService } from './legend.service';
@@ -22,8 +22,7 @@ export class LegendComponent {
         private sanitized: DomSanitizer,
         private modalService: NgbModal,
         private legendService: LegendService
-    ) {
-    }
+    ) { }
 
     show() {
         if (!_.isNil(this.body)) {

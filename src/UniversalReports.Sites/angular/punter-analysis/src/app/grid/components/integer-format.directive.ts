@@ -1,18 +1,16 @@
-import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnInit, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: '[napIntegerFormat]',
-  host: {
-    'class': 'number'
-  }
+  selector: '[napIntegerFormat]'
 })
 export class IntegerFormatDirective implements OnInit {
-  @Input('napIntegerFormat') value: number;
   private static integerFormat = new Intl.NumberFormat('en-US', {
     style: 'decimal',
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
   });
+  @HostBinding('class') elementClass = 'number';
+  @Input('napIntegerFormat') value: number;
 
   constructor(
     private el: ElementRef,

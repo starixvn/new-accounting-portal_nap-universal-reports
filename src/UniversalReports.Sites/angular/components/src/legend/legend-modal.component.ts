@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector: 'ngbd-modal-content',
+    selector: 'nap-legend-content',
     templateUrl: './legend-modal.component.html',
     styleUrls: ['./legend-modal.component.scss']
 })

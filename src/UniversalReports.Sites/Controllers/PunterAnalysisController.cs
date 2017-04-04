@@ -28,7 +28,7 @@ namespace UniversalReports.Sites.Controllers
             ViewBag.LegacyPath = LegacyUrlResolver.LegacyRootUri;
             ViewBag.BalanceUp = balanceUpService.Query();
 
-            return View();
+            return View("~/wwwroot/punter-analysis/index.cshtml");
         }
     }
 }

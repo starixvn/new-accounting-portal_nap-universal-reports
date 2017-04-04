@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { SpinnerState, SpinnerService } from './spinner.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { SpinnerState, SpinnerService } from './spinner.service';
     styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent {
-    isHide: boolean = true;
+    isHide = true;
     private spinnerStateChanged: Subscription;
 
     constructor(

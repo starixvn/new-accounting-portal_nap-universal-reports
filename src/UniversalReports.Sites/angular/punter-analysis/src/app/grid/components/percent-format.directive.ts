@@ -1,19 +1,17 @@
-import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnInit, HostBinding } from '@angular/core';
 import * as _ from 'lodash';
 
 @Directive({
-  selector: '[napPercentFormat]',
-  host: {
-    'class': 'number'
-  }
+  selector: '[napPercentFormat]'
 })
 export class PercentFormatDirective implements OnInit {
-  @Input('napPercentFormat') value: number;
   private static percentFormat = new Intl.NumberFormat('en-US', {
     style: 'percent',
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
+  @HostBinding('class') elementClass = 'number';
+  @Input('napPercentFormat') value: number;
 
   constructor(
     private el: ElementRef,

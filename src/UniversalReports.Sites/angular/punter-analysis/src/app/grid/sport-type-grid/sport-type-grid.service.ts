@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpService } from '../../components/http.service';
 import { Helper } from '../../components/helper';
@@ -11,7 +11,7 @@ import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
 
 @Injectable()
 export class SportTypeGridService {
-    private url = 'UniversalReports/api/punter-analysis/sport-type';
+    private url = 'api/punter-analysis/sport-type';
     model: SportTypeGridModel;
 
     constructor(

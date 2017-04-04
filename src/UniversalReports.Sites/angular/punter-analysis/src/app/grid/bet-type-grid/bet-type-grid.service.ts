@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpService } from '../../components/http.service';
 import { Helper } from '../../components/helper';
@@ -12,7 +12,7 @@ import { BetTypeGridModel, BetTypeData } from './bet-type-grid.model';
 
 @Injectable()
 export class BetTypeGridService {
-    private url = 'UniversalReports/api/punter-analysis/bet-type';
+    private url = 'api/punter-analysis/bet-type';
     model: BetTypeGridModel;
 
     constructor(
@@ -71,6 +71,6 @@ export class BetTypeGridService {
             listCombinationId: wrapper.listCombinationId,
             custId: this.model.custId,
             sportId: this.model.sportId
-        }
+        };
     }
 }

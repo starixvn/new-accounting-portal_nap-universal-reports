@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { TreeviewItem } from 'ng2-dropdown-treeview';
 import { RoleId } from 'nap-components/src/model';
@@ -33,12 +33,12 @@ export class FilterService {
     ) { }
 
     queryDataWarehouseDateRange(): Observable<DataWarehouseDateRange> {
-        let url = 'UniversalReports/api/punter-analysis/filter/available-date-range';
+        const url = 'api/punter-analysis/filter/available-date-range';
         return this.httpService.post<DataWarehouseDateRange>(url);
     }
 
     queryUserNameSuggestion(userName: string, roleId: RoleId): Observable<string[]> {
-        let url = 'UniversalReports/api/punter-analysis/filter/username-suggestion';
+        const url = 'api/punter-analysis/filter/username-suggestion';
         return this.httpService.post<string[]>(url, {
             userName: userName,
             roleId: roleId
@@ -46,7 +46,7 @@ export class FilterService {
     }
 
     queryProductTreeviewItems(): Observable<TreeviewItem[]> {
-        let url = 'UniversalReports/api/punter-analysis/filter/product-sport-bet-type';
+        const url = 'api/punter-analysis/filter/product-sport-bet-type';
         return this.httpService.post<ProductSportTypeBetType[]>(url).map(list => {
             const productItems: TreeviewItem[] = [];
             const productNames = _.uniq(list.map(x => x.ProductName));
@@ -68,7 +68,7 @@ export class FilterService {
     }
 
     checkDatabaseAvailable(): Observable<boolean> {
-        let url = 'UniversalReports/api/punter-analysis/filter/available-database';
+        const url = 'api/punter-analysis/filter/available-database';
         return this.httpService.post<boolean>(url);
     }
 }

@@ -4,12 +4,13 @@ import { NgbInputDatepicker, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 @Directive({
     selector: '[napDatePickerToggle]'
 })
-export class DatePickerToggle {
+export class DatePickerToggleDirective {
+    @Input() ngbInputDatepicker: NgbInputDatepicker;
+
     constructor(
         private elementRef: ElementRef
     ) { }
 
-    @Input() ngbInputDatepicker: NgbInputDatepicker;
     @HostListener('click', ['$event']) onClick(event: MouseEvent) {
         const targetElement = event.target as HTMLElement;
         if (this.isDayElement(targetElement)) {
@@ -22,7 +23,6 @@ export class DatePickerToggle {
         } else {
             const element = this.elementRef.nativeElement as HTMLElement;
             const ngbDatePickerElement = element.children[1];
-            const targetElement = event.target as HTMLElement;
             if (ngbDatePickerElement.contains(targetElement)) {
                 event.stopPropagation();
             }

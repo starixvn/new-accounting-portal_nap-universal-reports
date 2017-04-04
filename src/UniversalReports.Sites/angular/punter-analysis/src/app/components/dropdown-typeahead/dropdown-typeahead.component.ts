@@ -53,7 +53,7 @@ export class DropdownTypeaheadComponent {
     onModelChange() {
         this.index = -1;
         this.textChange.emit(this.text);
-        let term = this.text;
+        const term = this.text;
         if (term.length >= this.minLengthHasSuggestion) {
             this.search(term);
         } else {

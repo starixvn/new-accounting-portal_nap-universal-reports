@@ -33,13 +33,13 @@ export class MonthPickerComponent implements OnChanges {
     }
 
     onMonthChange(month: string) {
-        this.month = parseInt(month);
+        this.month = parseInt(month, 10);
         this.date = { year: this.date.year, month: this.month, day: this.date.day };
         this.dateChange.emit(this.date);
     }
 
     onYearChange(year: string) {
-        this.year = parseInt(year);
+        this.year = parseInt(year, 10);
         let month = this.date.month;
         if (this.year === this.minDate.year) {
             month = Math.max(this.minDate.month, this.month);

@@ -16,11 +16,11 @@ export interface PeriodGroupItem {
 
 export interface LeagueItem {
     LeagueName: string;
-    PeriodGroups: PeriodGroupItem[]
+    PeriodGroups: PeriodGroupItem[];
 }
 
 export interface LeagueData {
     Entities: LeagueItem[];
     Total: LeagueItem;
-    GroupNames: string[]
+    GroupNames: string[];
 }

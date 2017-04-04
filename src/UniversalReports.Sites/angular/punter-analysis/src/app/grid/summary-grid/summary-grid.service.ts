@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { HttpService } from '../../components/http.service';
 import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
 import { Helper } from '../../components/helper';
@@ -12,7 +12,7 @@ import { SummaryData } from './summary-grid.model';
 
 @Injectable()
 export class SummaryGridService {
-    private url = 'UniversalReports/api/punter-analysis/summary';
+    private url = 'api/punter-analysis/summary';
 
     constructor(
         private httpService: HttpService,

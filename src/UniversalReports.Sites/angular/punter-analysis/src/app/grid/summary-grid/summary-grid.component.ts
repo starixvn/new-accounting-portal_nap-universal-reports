@@ -4,7 +4,7 @@ import { PaginationInstance } from 'ng2-pagination';
 import { FilterModel } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
-import { SummaryData, SummaryItem } from './summary-grid.model'
+import { SummaryData, SummaryItem } from './summary-grid.model';
 import { SummaryGridService } from './summary-grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { AssociatedAccountGridService } from '../associated-account-grid/associated-account-grid.service';
@@ -55,17 +55,17 @@ export class SummaryGridComponent implements Grid {
         }
     }
 
-    private showSportType(custId: number, custName: string) {
+    showSportType(custId: number, custName: string) {
         this.sportTypeGridService.model = this.service.createSportTypeGridModel(custId, custName);
         this.gridService.generate(GridType.SportType);
     }
 
-    private showBetCount(custId: number, custName: string): void {
+    showBetCount(custId: number, custName: string): void {
         this.betCountGridService.model = this.service.createBetCountGridModel(custId, custName);
         this.gridService.generate(GridType.BetCount);
     }
 
-    private showAssociatedAccount(custId: number, custName: string): void {
+    showAssociatedAccount(custId: number, custName: string): void {
         this.associatedAccountGridService.model = this.service.createAssociatedAccountGridModel(custId, custName);
         this.gridService.generate(GridType.AssociatedAccount);
     }

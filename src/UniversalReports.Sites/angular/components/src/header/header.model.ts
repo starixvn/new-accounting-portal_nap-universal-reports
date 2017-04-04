@@ -8,5 +8,5 @@ export interface Menu {
 
 export interface Header {
     Username: string;
-    Menus: Menu[]
+    Menus: Menu[];
 }

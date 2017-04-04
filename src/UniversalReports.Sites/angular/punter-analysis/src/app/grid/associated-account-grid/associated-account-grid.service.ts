@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from '../../components/http.service';
 import { Helper } from '../../components/helper';
@@ -9,7 +9,7 @@ import { AssociatedAccountGridModel } from './associated-account-grid.model';
 
 @Injectable()
 export class AssociatedAccountGridService {
-    private url = 'UniversalReports/api/punter-analysis/associated-account';
+    private url = 'api/punter-analysis/associated-account';
     model: AssociatedAccountGridModel;
 
     constructor(

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { FilterModelWrapper } from '../../filter/filter.model';
 import { HttpService } from '../../components/http.service';
@@ -10,7 +10,7 @@ import { LeagueGridModel, LeagueData } from './league-grid.model';
 
 @Injectable()
 export class LeagueGridService {
-    private url = 'UniversalReports/api/punter-analysis/league';
+    private url = 'api/punter-analysis/league';
     model: LeagueGridModel;
 
     constructor(
@@ -65,6 +65,6 @@ export class LeagueGridService {
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
             liveStatusId: this.model.liveStatusId
-        }
+        };
     }
 }

@@ -82,6 +82,6 @@ export class NgbDate {
 }
 
 export interface WeekRange {
-    fromDate: NgbDateStruct,
-    toDate: NgbDateStruct
+    fromDate: NgbDateStruct;
+    toDate: NgbDateStruct;
 }

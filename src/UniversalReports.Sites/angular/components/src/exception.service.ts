@@ -1,11 +1,11 @@
 ﻿import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { ToastService } from './toast/toast.service';
 
 @Injectable()
 export class ExceptionService {
-
     constructor(
         private toastService: ToastService
     ) { }
@@ -18,13 +18,13 @@ export class ExceptionService {
     private handleError(response: Response) {
         const defaultMessage = 'Sorry, an error occurred while processing your request, please notify the administrators.';
         let errorMessage = '';
-        let contentType = response.headers.get('content-type');
+        const contentType = response.headers.get('content-type');
         if (contentType === 'text/html; charset=utf-8') {
             errorMessage = defaultMessage;
         } else {
             errorMessage = response.statusText;
             if (!errorMessage) {
-                let error = response.json();
+                const error = response.json();
                 errorMessage = error.errorMessage || defaultMessage;
             }
         }

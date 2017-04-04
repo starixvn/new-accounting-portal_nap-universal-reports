@@ -1,6 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs, RequestOptions, ResponseContentType, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/finally';
 import { SpinnerService } from './spinner/spinner.service';
 import { ToastService } from './toast/toast.service';
 import { ExceptionService } from './exception.service';

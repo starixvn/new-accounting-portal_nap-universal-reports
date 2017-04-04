@@ -11,8 +11,8 @@ import { BetCountGridService } from './bet-count-grid.service';
     templateUrl: './bet-count-grid.component.html'
 })
 export class BetCountGridComponent implements Grid {
-    private periodType: PeriodType;
-    private data: BetCountData;
+    periodType: PeriodType;
+    data: BetCountData;
 
     constructor(
         private gridService: GridService,

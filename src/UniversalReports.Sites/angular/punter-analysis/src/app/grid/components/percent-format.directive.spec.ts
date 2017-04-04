@@ -16,8 +16,8 @@ import { PercentFormatDirective } from './percent-format.directive';
   `,
 })
 class TestComponent {
-  private positiveValue: number = 15.323;
-  private negativeValue: number = -15.323;
+  positiveValue = 15.323;
+  negativeValue = -15.323;
 }
 
 describe('MarginTextDirective', () => {
@@ -34,42 +34,42 @@ describe('MarginTextDirective', () => {
   }));
 
   it('should mark the negative win loss with class negative', () => {
-    let negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".negative-win-loss-text"));
+    const negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.negative-win-loss-text'));
     expect(negativeWinLossSpan.nativeElement.className).toContain('negative');
   });
 
   it('should mark the positive win loss with class positive', () => {
-    let positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".positive-win-loss-text"));
+    const positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.positive-win-loss-text'));
     expect(positiveWinLossSpan.nativeElement.className).toContain('positive');
   });
 
   it('should mark the zero win loss with class positive', () => {
-    let zeroWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".zero-win-loss-text"));
+    const zeroWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.zero-win-loss-text'));
     expect(zeroWinLossSpan.nativeElement.className).toContain('positive');
   });
 
   it('should mark the undefined win loss with class positive', () => {
-    let undefinedWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".undefined-win-loss-text"));
+    const undefinedWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-win-loss-text'));
     expect(undefinedWinLossSpan.nativeElement.className).toContain('positive');
   });
 
   it('should mark the zero turnover as N/A', () => {
-    let zeroTurnoverSpan: DebugElement = fixture.debugElement.query(By.css(".zero-turnover-text"));
+    const zeroTurnoverSpan: DebugElement = fixture.debugElement.query(By.css('.zero-turnover-text'));
     expect(zeroTurnoverSpan.nativeElement.innerText).toBe('N/A');
   });
 
   it('should mark the undefined turnover as N/A', () => {
-    let undefinedTurnoverSpan: DebugElement = fixture.debugElement.query(By.css(".undefined-turnover-text"));
+    const undefinedTurnoverSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-turnover-text'));
     expect(undefinedTurnoverSpan.nativeElement.innerText).toBe('N/A');
   });
 
   it('should format negative margin with 2 decimal digits and percentage sign', () => {
-    let negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".negative-win-loss-text"));
+    const negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.negative-win-loss-text'));
     expect(negativeWinLossSpan.nativeElement.innerText).toBe('-15.32%');
   });
 
   it('should format positive margin with 2 decimal digits and percentage sign', () => {
-    let positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css(".positive-win-loss-text"));
+    const positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.positive-win-loss-text'));
     expect(positiveWinLossSpan.nativeElement.innerText).toBe('15.32%');
   });
 });

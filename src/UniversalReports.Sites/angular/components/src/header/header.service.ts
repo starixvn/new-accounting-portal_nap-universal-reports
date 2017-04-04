@@ -12,7 +12,7 @@ export class HeaderService {
     ) { }
 
     query() {
-        let url = 'UniversalReports/api/application/header';
+        const url = 'api/application/header';
         return this.httpService.post<Header>(url, {});
     }
 
@@ -24,7 +24,7 @@ export class HeaderService {
                 menu.Children.forEach(childMenu => {
                     childMenu.HasChildren = false;
                     childMenu.Link = this.legacyService.resolveUrl(childMenu.Link);
-                })
+                });
             }
         });
 

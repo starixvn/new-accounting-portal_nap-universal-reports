@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import { DownlineTreeviewItem } from 'ng2-dropdown-treeview';
-import { RoleId, SortBy } from 'nap-components/src/model';
+import { RoleId, SortBy, OptionItem } from 'nap-components/src/model';
 import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
 
 export enum SearchBy {
@@ -34,6 +34,10 @@ export interface FilterModel {
     depth: RoleId;
     userName: string;
     selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
+    searchByOptions: OptionItem[];
+    depthOptions: OptionItem[];
+    orderByOptions: OptionItem[];
+    sortByOptions: OptionItem[];
 }
 
 export class FilterModelWrapper {
@@ -42,12 +46,7 @@ export class FilterModelWrapper {
     ) { }
 
     get depthTitle(): string {
-        switch (this.filterModel.depth) {
-            case RoleId.Member:
-                return 'Member';
-            case RoleId.Agent:
-                return 'Agent';
-        }
+        return this.filterModel.depthOptions.filter(option => option.value === this.filterModel.depth)[0].text;
     }
 
     get userNameTitle(): string {
@@ -84,23 +83,11 @@ export class FilterModelWrapper {
     }
 
     get orderByTitle(): string {
-        switch (this.filterModel.orderBy) {
-            case OrderBy.Margin:
-                return 'Margin';
-            case OrderBy.Turnover:
-                return 'Turnover';
-            case OrderBy.WinLoss:
-                return 'Win Loss';
-        }
+        return this.filterModel.orderByOptions.filter(option => option.value === this.filterModel.orderBy)[0].text;
     }
 
     get sortByTitle(): string {
-        switch (this.filterModel.sortBy) {
-            case SortBy.Ascending:
-                return 'Ascending';
-            case SortBy.Descending:
-                return 'Descending';
-        }
+        return this.filterModel.sortByOptions.filter(option => option.value === this.filterModel.sortBy)[0].text;
     }
 
     get periodTitle(): string {
@@ -136,14 +123,7 @@ export class FilterModelWrapper {
     }
 
     get searchByTitle(): string {
-        switch (this.filterModel.searchBy) {
-            case SearchBy.League:
-                return 'League';
-            case SearchBy.Performance:
-                return 'Performance';
-            case SearchBy.User:
-                return 'User';
-        }
+        return this.filterModel.searchByOptions.filter(option => option.value === this.filterModel.searchBy)[0].text;
     }
 
     get searchByFileName(): string {

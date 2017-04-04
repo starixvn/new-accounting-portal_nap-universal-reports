@@ -29,7 +29,7 @@ export class LeagueGridComponent implements Grid {
 
     get title(): string {
         const model = this.service.model;
-        let liveStatusTitle = this.service.getLiveStatusTitle();
+        const liveStatusTitle = this.service.getLiveStatusTitle();
         return `${model.betTypeName} - ${liveStatusTitle}`;
     }
 }

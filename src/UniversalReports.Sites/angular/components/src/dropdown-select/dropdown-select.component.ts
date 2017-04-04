@@ -20,7 +20,7 @@ export class DropdownSelectComponent implements OnChanges {
 
     private updateModel() {
         if (!_.isNil(this.items)) {
-            for (let item of this.items) {
+            for (const item of this.items) {
                 if (item.value === this.value || _.isEqual(item.value, this.value)) {
                     this.onModelChange(item.value);
                     return;
