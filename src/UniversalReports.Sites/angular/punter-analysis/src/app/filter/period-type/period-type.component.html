@@ -4,7 +4,7 @@
             <label class="col-form-label">Period type</label>
         </div>
         <div class="col-value">
-            <select class="form-control" [(ngModel)]="periodType">
+            <select class="form-control" [(ngModel)]="periodType" (ngModelChange)="onTypeChange()">
             <option *ngFor="let option of periodTypeOptions" [ngValue]="option.value">{{option.text}}</option>
         </select>
         </div>

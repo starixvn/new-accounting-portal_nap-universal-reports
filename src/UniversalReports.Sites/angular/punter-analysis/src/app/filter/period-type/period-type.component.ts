@@ -56,6 +56,26 @@ export class PeriodTypeComponent implements OnChanges {
         this.onDailyDateChange();
     }
 
+    onTypeChange() {
+        switch (this.periodType) {
+            case PeriodType.Daily:
+                this.onDailyDateChange();
+                break;
+            case PeriodType.Weekly:
+                this.onWeeklyDateChange();
+                break;
+            case PeriodType.Monthly:
+                this.onMonthlyDateChange();
+                break;
+            case PeriodType.MonthRange:
+                this.onMonthRangeDateChange();
+                break;
+            case PeriodType.Annually:
+                this.onAnnuallyDateChange();
+                break;
+        }
+    }
+
     onDailyDateChange() {
         this.periodTypeChange.emit({
             periodType: this.periodType,

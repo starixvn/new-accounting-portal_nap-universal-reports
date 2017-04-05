@@ -10,8 +10,14 @@ export class PercentFormatDirective implements OnInit {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
-  @HostBinding('class') elementClass = 'number';
   @Input('napPercentFormat') value: number;
+  @HostBinding('class') get elementClass(): string {
+    if (this.value < 0) {
+      return 'number number-negative';
+    } else {
+      return 'number';
+    }
+  }
 
   constructor(
     private el: ElementRef,
@@ -22,9 +28,6 @@ export class PercentFormatDirective implements OnInit {
     let innerHTML = '';
     if (this.isValidNumber()) {
       innerHTML = PercentFormatDirective.percentFormat.format(this.value);
-      if (this.value < 0) {
-        this.renderer.setElementClass(this.el.nativeElement, 'number-negative', true);
-      }
     } else {
       innerHTML = 'N/A';
     }

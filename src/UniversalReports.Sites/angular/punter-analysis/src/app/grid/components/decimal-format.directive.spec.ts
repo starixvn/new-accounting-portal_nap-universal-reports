@@ -1,3 +1,4 @@
+///<reference path="../../../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
@@ -7,57 +8,50 @@ import { DecimalFormatDirective } from './decimal-format.directive';
 @Component({
   selector: 'nap-test',
   template: `
-  <span class="positive-decimal-text" [napDecimalFormat]="positiveValue"></span>
-  <span class="negative-decimal-text" [napDecimalFormat]="negativeValue"></span>
-  <span class="zero-decimal-text" [napDecimalFormat]="0"></span>
-  <span class="undefined-decimal-text" [napDecimalFormat]=""></span>  
-  `,
+  <div [napDecimalFormat]=""></div>
+  <div [napDecimalFormat]="0"></div>
+  <div [napDecimalFormat]="153256.321962"></div>
+  <div [napDecimalFormat]="-153256.321962"></div>
+  `
 })
-class TestComponent {
-  positiveValue = 153256.321962;
-  negativeValue = -153256.321962;
-}
+class TestComponent { }
 
-describe('DecimalTextDirective', () => {
+describe('DecimalFormatDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
+  let des: DebugElement[];
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
         DecimalFormatDirective,
-        TestComponent]
+        TestComponent
+      ]
     }).createComponent(TestComponent);
 
     fixture.detectChanges();
+    des = fixture.debugElement.queryAll(By.directive(DecimalFormatDirective));
   }));
 
-  it('should mark the negative value with class negative', () => {
-    const negativeSpan: DebugElement = fixture.debugElement.query(By.css('.negative-decimal-text'));
-    expect(negativeSpan.nativeElement.className).toContain('negative');
+  function expectElement(index: number, elementClasses: string[], text: string) {
+    elementClasses.forEach(elementClass => {
+      expect(des[index].nativeElement).toHaveCssClass(elementClass);
+    });
+    expect(des[index].nativeElement).toHaveText(text);
+  }
+
+  it('should mark first element has class "number" and text "NaN"', () => {
+    expectElement(0, ['number'], 'NaN');
   });
 
-  it('should mark the positive  value with class positive', () => {
-    const positiveSpan: DebugElement = fixture.debugElement.query(By.css('.positive-decimal-text'));
-    expect(positiveSpan.nativeElement.className).toContain('positive');
+  it('should mark second element has class "number" and text "0.00"', () => {
+    expectElement(1, ['number'], '0.00');
   });
 
-  it('should mark the zero  value with class positive', () => {
-    const zeroSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-decimal-text'));
-    expect(zeroSpan.nativeElement.className).toContain('positive');
+  it('should mark third element has class "number" and text "153,256.32"', () => {
+    expectElement(2, ['number'], '153,256.32');
   });
 
-  it('should mark the undefined  value with class positive', () => {
-    const undefinedSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-decimal-text'));
-    expect(undefinedSpan.nativeElement.className).toContain('positive');
-  });
-
-  it('should format negative value with thousand seperator and 2 decimal digits', () => {
-    const negativeSpan: DebugElement = fixture.debugElement.query(By.css('.negative-decimal-text'));
-    expect(negativeSpan.nativeElement.innerText).toBe('-153,256.32');
-  });
-
-  it('should format positive value with thousand seperator and 2 decimal digits', () => {
-    const positiveSpan: DebugElement = fixture.debugElement.query(By.css('.positive-decimal-text'));
-    expect(positiveSpan.nativeElement.innerText).toBe('153,256.32');
+  it('should mark forth element has class "number, number-negative" and text "-153,256.32"', () => {
+    expectElement(3, ['number', 'number-negative'], '-153,256.32');
   });
 });

@@ -7,69 +7,65 @@ import { PercentFormatDirective } from './percent-format.directive';
 @Component({
   selector: 'nap-test',
   template: `
-  <span class="positive-win-loss-text" margin-text [win-loss]="positiveValue" [turnover]="100"></span>
-  <span class="negative-win-loss-text" margin-text [win-loss]="negativeValue" [turnover]="100"></span>
-  <span class="zero-win-loss-text" margin-text [win-loss]="0" [turnover]="100"></span>
-  <span class="zero-turnover-text" margin-text [win-loss]="12.321" [turnover]="0"></span>
-  <span class="undefined-win-loss-text" margin-text [win-loss]="" [turnover]="100"></span>  
-  <span class="undefined-turnover-text" margin-text [win-loss]="" [turnover]=""></span>  
+  <div [napPercentFormat]=""></div>
+  <div [napPercentFormat]="0"></div>
+  <div [napPercentFormat]="0/0"></div>
+  <div [napPercentFormat]="1/0"></div>
+  <div [napPercentFormat]="-1/0"></div>
+  <div [napPercentFormat]="0.15323"></div>
+  <div [napPercentFormat]="-0.15323"></div>
   `,
 })
-class TestComponent {
-  positiveValue = 15.323;
-  negativeValue = -15.323;
-}
+class TestComponent { }
 
-describe('MarginTextDirective', () => {
+describe('PercentFormatDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
+  let des: DebugElement[];
 
   beforeEach(async(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
         PercentFormatDirective,
-        TestComponent]
+        TestComponent
+      ]
     }).createComponent(TestComponent);
 
     fixture.detectChanges();
+    des = fixture.debugElement.queryAll(By.directive(PercentFormatDirective));
   }));
 
-  it('should mark the negative win loss with class negative', () => {
-    const negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.negative-win-loss-text'));
-    expect(negativeWinLossSpan.nativeElement.className).toContain('negative');
+  function expectElement(index: number, elementClasses: string[], text: string) {
+    elementClasses.forEach(elementClass => {
+      expect(des[index].nativeElement).toHaveCssClass(elementClass);
+    });
+    expect(des[index].nativeElement).toHaveText(text);
+  }
+
+  it('should mark first element has class "number" and text "N/A"', () => {
+    expectElement(0, ['number'], 'N/A');
   });
 
-  it('should mark the positive win loss with class positive', () => {
-    const positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.positive-win-loss-text'));
-    expect(positiveWinLossSpan.nativeElement.className).toContain('positive');
+  it('should mark second element has class "number" and text "0.00%"', () => {
+    expectElement(1, ['number'], '0.00%');
   });
 
-  it('should mark the zero win loss with class positive', () => {
-    const zeroWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.zero-win-loss-text'));
-    expect(zeroWinLossSpan.nativeElement.className).toContain('positive');
+  it('should mark third element has class "number" and text "N/A"', () => {
+    expectElement(2, ['number'], 'N/A');
   });
 
-  it('should mark the undefined win loss with class positive', () => {
-    const undefinedWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-win-loss-text'));
-    expect(undefinedWinLossSpan.nativeElement.className).toContain('positive');
+  it('should mark forth element has class "number" and text "N/A"', () => {
+    expectElement(3, ['number'], 'N/A');
   });
 
-  it('should mark the zero turnover as N/A', () => {
-    const zeroTurnoverSpan: DebugElement = fixture.debugElement.query(By.css('.zero-turnover-text'));
-    expect(zeroTurnoverSpan.nativeElement.innerText).toBe('N/A');
+  it('should mark fifth element has class "number" and text "N/A"', () => {
+    expectElement(4, ['number'], 'N/A');
   });
 
-  it('should mark the undefined turnover as N/A', () => {
-    const undefinedTurnoverSpan: DebugElement = fixture.debugElement.query(By.css('.undefined-turnover-text'));
-    expect(undefinedTurnoverSpan.nativeElement.innerText).toBe('N/A');
+  it('should mark sixth element has class "number" and text "15.32%"', () => {
+    expectElement(5, ['number'], '15.32%');
   });
 
-  it('should format negative margin with 2 decimal digits and percentage sign', () => {
-    const negativeWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.negative-win-loss-text'));
-    expect(negativeWinLossSpan.nativeElement.innerText).toBe('-15.32%');
-  });
-
-  it('should format positive margin with 2 decimal digits and percentage sign', () => {
-    const positiveWinLossSpan: DebugElement = fixture.debugElement.query(By.css('.positive-win-loss-text'));
-    expect(positiveWinLossSpan.nativeElement.innerText).toBe('15.32%');
+  it('should mark seventh element has class "number, number-negative" and text "-15.32%"', () => {
+    expectElement(6, ['number', 'number-negative'], '-15.32%');
   });
 });

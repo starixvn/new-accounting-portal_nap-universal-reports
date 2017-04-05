@@ -9,8 +9,14 @@ export class DecimalFormatDirective implements OnInit {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
-  @HostBinding('class') elementClass = 'number';
   @Input('napDecimalFormat') value: number;
+  @HostBinding('class') get elementClass(): string {
+    if (this.value < 0) {
+      return 'number number-negative';
+    } else {
+      return 'number';
+    }
+  }
 
   constructor(
     private el: ElementRef,
@@ -18,9 +24,6 @@ export class DecimalFormatDirective implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.value < 0) {
-      this.renderer.setElementClass(this.el.nativeElement, 'number-negative', true);
-    }
     const innerHTML = DecimalFormatDirective.decimalFormat.format(this.value);
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
