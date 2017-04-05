@@ -77,11 +77,13 @@ namespace UniversalReports.PunterAnalysis.Core
         private void ApplyTitle(string title, string titleCellRange)
         {
             statisticSheet.Cells[titleCellRange].Value = title;
+            statisticSheet.Cells[titleCellRange].Merge = true;
         }
 
         private void ApplyDescription(string description, string descriptionCellRange)
         {
             statisticSheet.Cells[descriptionCellRange].Value = description;
+            statisticSheet.Cells[descriptionCellRange].Merge = true;
         }
 
         private void ApplyBody<T>(List<T> statistics) where T : class, new()

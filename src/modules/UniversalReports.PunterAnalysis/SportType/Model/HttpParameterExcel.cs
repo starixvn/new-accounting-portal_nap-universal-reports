@@ -19,5 +19,9 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
         public int OrderBy { get; set; } = 1;
 
         public int SortBy { get; set; } = 1;
+
+        public string Title { get; set; }
+
+        public string Filter { get; set; }
     }
 }

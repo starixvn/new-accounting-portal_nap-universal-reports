@@ -10,6 +10,11 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<BetTypeModel>, ViewModelJson>(MemberList.Source);
+            CreateMap<ReportModelBase<BetTypeModel>, ExcelViewModel>();
+            CreateMap<ReportModelBase<BetTypeModel>, ExcelViewModel>(MemberList.Source);
+            CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
+            CreateMap<BetTypeModel, BetTypeExcelModel>(MemberList.Source);
+            CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }
     }
 }

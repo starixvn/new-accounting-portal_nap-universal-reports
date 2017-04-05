@@ -42,6 +42,10 @@
       <HintPath>..\..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Caching">
       <HintPath>..\..\..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
@@ -179,7 +183,43 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
+    <None Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\Bettype.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\Sporttype.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\Summary.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
+    <None Include="TestCases\BetCount-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetCount-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetCount-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetCount-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetType-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetType-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetType-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetType-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Filter-League-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -190,6 +230,30 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\League-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\SportType-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\SportType-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\SportType-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\SportType-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedTotal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\Summary-ExpectedViewModelJson.json">
@@ -236,6 +300,10 @@
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
       <Project>{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}</Project>
       <Name>UniversalReports.PunterAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
+      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
+      <Name>UniversalReports.WebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

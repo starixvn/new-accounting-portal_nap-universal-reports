@@ -2,16 +2,18 @@
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using OfficeOpenXml;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
+using UniversalReports.WebAPI.Results;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetType
 {
-    public class PunterAnalysisCountControllerTests
+    public class PunterAnalysisBetTypeControllerTests
     {
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
@@ -38,6 +40,46 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
+        }
+
+        [Test]
+        public async Task Excel_FileRepository_ReturnsRightExcelPackage()
+        {
+            // Arrange
+            ExcelPackage excelPackage = null;
+            ExcelWorksheet workSheet = null;
+            const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
+
+            var fakeSportTypeModelListFromRepository = TestDataLoader.Load<List<BetTypeModel>>(FakeRepositoryDataFileName);
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(fakeSportTypeModelListFromRepository);
+
+            var expectedTitle = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTitle.json");
+            var expectedFilter = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedFilter.json");
+            var expectedBody = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedBody.json");
+            var expectedTotal = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTotal.json");
+
+            // Act
+            PunterAnalysisBetTypeController controller;
+            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
+            {
+                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetTypeController)) as PunterAnalysisBetTypeController;
+                var httpActionResult = await controller.Excel(new HttpParameterExcel { Title = "Any Title", Filter = "Any Filter" });
+                excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
+                workSheet = excelPackage.Workbook.Worksheets[1];
+            }
+
+            // Assert
+            Assert.That(workSheet.Name, Is.EqualTo("Punter Analysis"));
+
+            Assert.True(workSheet.Cells["A1:M2"].Merge);
+            Assert.True(workSheet.Cells["A3:M5"].Merge);
+
+            Assert.AreEqual(workSheet.Cells["A1:M2"].Value, expectedTitle);
+            Assert.AreEqual(workSheet.Cells["A3:M5"].Value, expectedFilter);
+            Assert.AreEqual(workSheet.Cells["A9:M10"].Value, expectedBody);
+            Assert.AreEqual(workSheet.Cells["A11:M11"].Value, expectedTotal);
         }
     }
 }
