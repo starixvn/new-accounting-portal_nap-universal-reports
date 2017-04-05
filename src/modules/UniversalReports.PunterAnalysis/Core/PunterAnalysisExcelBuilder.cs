@@ -58,8 +58,8 @@ namespace UniversalReports.PunterAnalysis.Core
         {
             SetRowIndex(setting.StartRowIndex);
             SetSheetName(setting.SheetName);
-            ApplyTitle(setting.Title, setting.TitleCellRange);
-            ApplyTitle(setting.Filter, setting.FilterCellRange);
+            ApplyDescription(setting.Title, setting.TitleCellRange);
+            ApplyDescription(setting.Filter, setting.FilterCellRange);
             ApplyBody(model.Entities);
             ApplyFooter(model.Total);
         }
@@ -72,12 +72,6 @@ namespace UniversalReports.PunterAnalysis.Core
         private void SetSheetName(string sheetName)
         {
             statisticSheet.Name = sheetName;
-        }
-
-        private void ApplyTitle(string title, string titleCellRange)
-        {
-            statisticSheet.Cells[titleCellRange].Value = title;
-            statisticSheet.Cells[titleCellRange].Merge = true;
         }
 
         private void ApplyDescription(string description, string descriptionCellRange)

@@ -31,8 +31,8 @@ namespace UniversalReports.PunterAnalysis.League
             LoadTemplate(setting.TemplatePath);
             ApplySetting();
             SetRowIndex(setting.StartRowIndex);
-            ApplyTitle(setting.Title, setting.TitleCellRange);
-            ApplyTitle(setting.Filter, setting.FilterCellRange);
+            ApplyDescription(setting.Title, setting.TitleCellRange);
+            ApplyDescription(setting.Filter, setting.FilterCellRange);
             CreateHeader(model.GroupNames);
             CreateBody(model.Entities);
             CreateFooter(model.Total);
@@ -69,9 +69,9 @@ namespace UniversalReports.PunterAnalysis.League
             this.RowIndex = rowIndex;
         }
 
-        private void ApplyTitle(string title, string titleCellRange)
+        private void ApplyDescription(string description, string descriptionCellRange)
         {
-            statisticSheet.Cells[titleCellRange].Value = title;
+            statisticSheet.Cells[descriptionCellRange].Value = description;
         }
 
         private void CreateHeader(List<string> groupNames)
