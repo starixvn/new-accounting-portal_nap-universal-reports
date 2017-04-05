@@ -4,19 +4,15 @@ using Fanex.NAP.Core.Web.Attribute;
 using UniversalReports.Sites.Settings;
 #endif
 
-using System;
 using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.Sites.Controllers
 {
-    public class PunterAnalysisController : Controller
+    public class PunterAnalysisController : LegacyPathAdapterController
     {
-        private readonly BalanceUpService balanceUpService;
-
-        public PunterAnalysisController(BalanceUpService balanceUpService)
+        public PunterAnalysisController(BalanceUpService balanceUpService) : base(balanceUpService)
         {
-            this.balanceUpService = balanceUpService;
         }
 
 #if !DEBUG
@@ -24,10 +20,7 @@ namespace UniversalReports.Sites.Controllers
 #endif
         public ActionResult Index()
         {
-            ViewBag.RootUrl = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath;
-            ViewBag.LegacyPath = LegacyUrlResolver.LegacyRootUri;
-            ViewBag.BalanceUp = balanceUpService.Query();
-
+            SetupGlobalJsObject();
             return View("~/wwwroot/punter-analysis/index.cshtml");
         }
     }

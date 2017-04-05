@@ -273,6 +273,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
     <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
@@ -443,12 +444,6 @@
     <Content Include="javascripts\bootstrap\tab.js" />
     <Content Include="javascripts\bootstrap\tooltip.js" />
     <Content Include="javascripts\bootstrap\transition.js" />
-    <Content Include="punter-analysis\dist\index.html" />
-    <Content Include="punter-analysis\dist\inline.bundle.js" />
-    <Content Include="punter-analysis\dist\main.bundle.js" />
-    <Content Include="punter-analysis\dist\polyfills.bundle.js" />
-    <Content Include="punter-analysis\dist\styles.bundle.css" />
-    <Content Include="punter-analysis\dist\vendor.bundle.js" />
     <Content Include="Scripts\Fanex.Grid.css" />
     <Content Include="Scripts\Fanex.Pagination.css" />
     <Content Include="Scripts\images\back-icon.png" />
@@ -610,7 +605,6 @@
     <Content Include="App_Configuration\Web.ConnectionString.UAT.config">
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
     </Content>
-    <Content Include="punter-analysis\dist\index.cshtml" />
     <Content Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx" />
     <Content Include="ExcelTemplate\PunterAnalysis\Bettype.xlsx" />
     <Content Include="ExcelTemplate\PunterAnalysis\Sporttype.xlsx" />

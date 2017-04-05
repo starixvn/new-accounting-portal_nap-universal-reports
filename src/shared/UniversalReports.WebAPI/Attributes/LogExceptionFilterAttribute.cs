@@ -1,4 +1,8 @@
-﻿using System.Web.Http.Filters;
+﻿#if !DEBUG
+using Fanex.Logging;
+using System.Data.SqlClient;
+#endif
+using System.Web.Http.Filters;
 
 namespace UniversalReports.WebAPI.Attributes
 {

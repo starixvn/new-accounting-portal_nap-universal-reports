@@ -3,19 +3,15 @@ using Fanex.NAP.Core.Business;
 using Fanex.NAP.Core.Web.Attribute;
 using UniversalReports.Sites.Settings;
 #endif
-using System;
 using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.Sites.Controllers
 {
-    public class NG2StatisticsController : Controller
+    public class NG2StatisticsController : LegacyPathAdapterController
     {
-        private readonly BalanceUpService balanceUpService;
-
-        public NG2StatisticsController(BalanceUpService balanceUpService)
+        public NG2StatisticsController(BalanceUpService balanceUpService) : base(balanceUpService)
         {
-            this.balanceUpService = balanceUpService;
         }
 
 #if !DEBUG
@@ -23,9 +19,7 @@ namespace UniversalReports.Sites.Controllers
 #endif
         public ActionResult Index()
         {
-            ViewBag.RootUrl = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath;
-            ViewBag.LegacyPath = LegacyUrlResolver.LegacyRootUri;
-            ViewBag.BalanceUp = balanceUpService.Query();
+            SetupGlobalJsObject();
 
             return View();
         }
