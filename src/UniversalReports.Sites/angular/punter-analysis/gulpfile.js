@@ -3,17 +3,19 @@ let gulp = require('gulp'),
     gutil = require('gulp-util'),
     fs = require('fs'),
     cheerio = require('cheerio'),
-    ejs = require('ejs');
+    ejs = require('ejs'),
+    argv = require('yargs').argv,
+    rimraf = require('rimraf');
 
 let encoding = 'utf8';
 
-function transform() {
+function transform(transformFolder) {
     let outputFolder = getOutputFolder();
-    changeFileNames(outputFolder);
-    let options = readOptions(outputFolder);
+    let options = readOptions(outputFolder, transformFolder);
+    changeFileNames(outputFolder, transformFolder);
     let template = fs.readFileSync('./src/index.ejs', encoding);
     let output = ejs.render(template, options);
-    fs.writeFileSync(outputFolder + '/index.cshtml', output, encoding);
+    fs.writeFileSync(transformFolder + '/index.cshtml', output, encoding);
 }
 
 function getOutputFolder() {
@@ -22,7 +24,7 @@ function getOutputFolder() {
     return json.apps[0].outDir;
 }
 
-function changeFileNames(outputFolder) {
+function changeFileNames(outputFolder, transformFolder) {
     let fileNames = fs.readdirSync(outputFolder);
     let files = {
         css: [],
@@ -37,7 +39,11 @@ function changeFileNames(outputFolder) {
             let bundle = words[1];
             let newFileName = fileName.replace('.' + bundle, '');
             let oldPath = outputFolder + '/' + fileName;
-            let newPath = outputFolder + '/' + newFileName;
+            let newPath = transformFolder + '/' + newFileName;
+            fs.renameSync(oldPath, newPath);
+        } else {
+            let oldPath = outputFolder + '/' + fileName;
+            let newPath = transformFolder + '/' + fileName;
             fs.renameSync(oldPath, newPath);
         }
     });
@@ -45,8 +51,8 @@ function changeFileNames(outputFolder) {
     return files;
 }
 
-function readOptions(outputFolder) {
-    let resourceDir = outputFolder.replace(/\.\.\//g, '');
+function readOptions(outputFolder, transformFolder) {
+    let resourceDir = transformFolder.replace(/\.\.\//g, '');
     let content = fs.readFileSync(outputFolder + '/index.html', encoding);
     let $ = cheerio.load(content);
     let files = {
@@ -84,7 +90,13 @@ function changeBundle(fileName) {
 }
 
 gulp.task('transform', () => {
-    gutil.log('Transform started');
-    transform();
-    gutil.log('Transform completed');
+    if (argv.path) {
+        gutil.log('Transform started');
+        rimraf.sync(argv.path);
+        fs.mkdirSync(argv.path);
+        transform(argv.path);
+        gutil.log('Transform completed');
+    } else {
+        throw new Error('Missing path');
+    }
 });

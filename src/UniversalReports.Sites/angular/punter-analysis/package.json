@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod --aot=false & gulp transform",
+    "build": "ng build --prod --aot=false & gulp transform --path \"../../wwwroot/punter-analysis\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -50,9 +50,11 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.0",
+    "rimraf": "^2.6.1",
     "rxjs": "^5.3.0",
     "ts-node": "^3.0.2",
     "tslint": "4.5.1",
-    "typescript": "^2.2.2"
+    "typescript": "^2.2.2",
+    "yargs": "^7.0.2"
   }
 }

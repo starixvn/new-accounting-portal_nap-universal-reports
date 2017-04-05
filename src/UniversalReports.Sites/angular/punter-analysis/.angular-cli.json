@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../../wwwroot/punter-analysis",
+      "outDir": "dist",
       "assets": [
         "assets"
       ],
