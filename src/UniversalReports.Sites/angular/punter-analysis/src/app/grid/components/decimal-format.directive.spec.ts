@@ -1,4 +1,3 @@
-///<reference path="../../../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';

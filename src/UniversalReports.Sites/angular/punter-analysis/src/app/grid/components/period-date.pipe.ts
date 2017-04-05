@@ -8,21 +8,18 @@ import { PeriodType } from '../../filter/filter.model';
 })
 export class PeriodDatePipe implements PipeTransform {
     transform(date: any, periodType: PeriodType): string {
-        if (_.isNil(date)) {
+        if (_.isNil(date) || _.isNil(periodType)) {
             return '';
         }
 
-        if (_.isNil(periodType)) {
-            return date;
-        }
-
         switch (periodType) {
-            case PeriodType.Annually:
+            case PeriodType.Daily:
+                return moment.utc(date).format('YYYY/MM/DD');
             case PeriodType.MonthRange:
             case PeriodType.Monthly:
                 return moment.utc(date).format('MM/YYYY');
-            case PeriodType.Daily:
-                return moment.utc(date).format('YYYY/MM/DD');
+            case PeriodType.Annually:
+                return moment.utc(date).format('YYYY');
             case PeriodType.Weekly:
                 return moment.utc(date).format('MM/YYYY') + ' - Week ' + moment(date).format('W');
         }

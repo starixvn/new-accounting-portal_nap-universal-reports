@@ -17,6 +17,11 @@ import { ɵgetDOM as getDOM } from '@angular/platform-browser';
  */
 export interface NgMatchers extends jasmine.Matchers<any> {
     /**
+     * Invert the matchers.
+     */
+    not: NgMatchers;
+
+    /**
      * Expect the value to be a `Promise`.
      *
      * ## Example
@@ -78,11 +83,6 @@ export interface NgMatchers extends jasmine.Matchers<any> {
      * {@example testing/ts/matchers.ts region='toContainError'}
      */
     toContainError(expected: any): boolean;
-
-    /**
-     * Invert the matchers.
-     */
-    not: NgMatchers;
 }
 
 const _global = <any>(typeof window === 'undefined' ? global : window);
@@ -162,7 +162,7 @@ _global.beforeEach(function () {
                 compare: function (actual: any, expectedText: string) {
                     const actualText = elementText(actual);
                     return {
-                        pass: actualText == expectedText,
+                        pass: actualText === expectedText,
                         get message() { return 'Expected ' + actualText + ' to be equal to ' + expectedText; }
                     };
                 }
@@ -175,7 +175,7 @@ _global.beforeEach(function () {
             function buildError(isNot: boolean) {
                 return function (actual: any, className: string) {
                     return {
-                        pass: getDOM().hasClass(actual, className) == !isNot,
+                        pass: getDOM().hasClass(actual, className) === !isNot,
                         get message() {
                             return `Expected ${actual.outerHTML} ${isNot ? 'not ' : ''}to contain the CSS class "${className}"`;
                         }
@@ -202,7 +202,7 @@ _global.beforeEach(function () {
                         get message() {
                             const expectedValueStr = typeof styles === 'string' ? styles : JSON.stringify(styles);
                             return `Expected ${actual.outerHTML} ${!allPassed ? ' ' : 'not '}to contain the
-                      CSS ${typeof styles === 'string' ? 'property' : 'styles'} "${expectedValueStr}"`;
+                                CSS ${typeof styles === 'string' ? 'property' : 'styles'} "${expectedValueStr}"`;
                         }
                     };
                 }
@@ -228,11 +228,13 @@ _global.beforeEach(function () {
 
                     const missedMethods: any[] = [];
                     intProps.forEach((k) => {
-                        if (!actualObject.constructor.prototype[k]) missedMethods.push(k);
+                        if (!actualObject.constructor.prototype[k]) {
+                            missedMethods.push(k);
+                        }
                     });
 
                     return {
-                        pass: missedMethods.length == 0,
+                        pass: missedMethods.length === 0,
                         get message() {
                             return 'Expected ' + actualObject + ' to have the following methods: ' +
                                 missedMethods.join(', ');
@@ -245,8 +247,8 @@ _global.beforeEach(function () {
 });
 
 function elementText(n: any): string {
-    const hasNodes = (n: any) => {
-        const children = getDOM().childNodes(n);
+    const hasNodes = (node: any) => {
+        const children = getDOM().childNodes(node);
         return children && children.length > 0;
     };
 
@@ -258,7 +260,7 @@ function elementText(n: any): string {
         return '';
     }
 
-    if (getDOM().isElementNode(n) && getDOM().tagName(n) == 'CONTENT') {
+    if (getDOM().isElementNode(n) && getDOM().tagName(n) === 'CONTENT') {
         return elementText(Array.prototype.slice.apply(getDOM().getDistributedNodes(n)));
     }
 
