@@ -153,6 +153,9 @@
   <ItemGroup>
     <Compile Include="AssociatedAccount\FraudServiceWrapperImpTests.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerTests.cs" />
+    <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
+    <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
+    <Compile Include="DependencyInjection\ApiControllerFactoryMethodGetAsync.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\FilterProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerTests.cs" />
@@ -167,7 +170,7 @@
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\PunterAnalysisAutoMapper.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\SportTypeProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysis\SummaryProfile.cs" />
-    <Compile Include="DependencyInjection\SimpleInjectorTest.cs" />
+    <Compile Include="DependencyInjection\ApiControllerFactoryMethod.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjectorInitializer.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\PunterAnalysisInjectorInitializer.cs" />

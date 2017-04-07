@@ -1,9 +1,5 @@
-﻿using Fanex.Data.Repository;
-using NSubstitute;
-using NUnit.CompareNetObjects;
+﻿using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using OfficeOpenXml;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.BetType;
@@ -19,56 +15,43 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "BetType-ExpectedViewModelJson.json";
 
-            var fakeBetTypeModelListFromRepository = TestDataLoader.Load<List<BetTypeModel>>(FakeRepositoryDataFileName);
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(fakeBetTypeModelListFromRepository);
+            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var controller = factory.CreateController<PunterAnalysisBetTypeController, BetTypeModel>(FakeRepositoryDataFileName);
 
             // Act
-            PunterAnalysisBetTypeController controller;
-            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
-            {
-                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetTypeController)) as PunterAnalysisBetTypeController;
-                var httpActionResult = await controller.Index(new HttpParameterJson());
-                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
-            }
+            var httpActionResult = await controller.Index(new HttpParameterJson());
+            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
+
+            // Release
+            factory.Dispose();
         }
 
         [Test]
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            ExcelPackage excelPackage = null;
-            ExcelWorksheet workSheet = null;
             const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
-
-            var fakeSportTypeModelListFromRepository = TestDataLoader.Load<List<BetTypeModel>>(FakeRepositoryDataFileName);
-
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetTypeModel>(Arg.Any<ICriteria>()).Returns(fakeSportTypeModelListFromRepository);
 
             var expectedTitle = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTitle.json");
             var expectedFilter = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedFilter.json");
             var expectedBody = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedBody.json");
             var expectedTotal = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTotal.json");
 
+            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var controller = factory.CreateController<PunterAnalysisBetTypeController, BetTypeModel>(FakeRepositoryDataFileName);
+
             // Act
-            PunterAnalysisBetTypeController controller;
-            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
-            {
-                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisBetTypeController)) as PunterAnalysisBetTypeController;
-                var httpActionResult = await controller.Excel(new HttpParameterExcel { Title = "Any Title", Filter = "Any Filter" });
-                excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
-                workSheet = excelPackage.Workbook.Worksheets[1];
-            }
+            var httpActionResult = await controller.Excel(new HttpParameterExcel { Title = "Any Title", Filter = "Any Filter" });
+            var excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
+            var workSheet = excelPackage.Workbook.Worksheets[1];
 
             // Assert
             Assert.That(workSheet.Name, Is.EqualTo("Punter Analysis"));
@@ -80,6 +63,9 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
             Assert.AreEqual(workSheet.Cells["A3:M5"].Value, expectedFilter);
             Assert.AreEqual(workSheet.Cells["A9:M10"].Value, expectedBody);
             Assert.AreEqual(workSheet.Cells["A11:M11"].Value, expectedTotal);
+
+            // Release
+            factory.Dispose();
         }
     }
 }

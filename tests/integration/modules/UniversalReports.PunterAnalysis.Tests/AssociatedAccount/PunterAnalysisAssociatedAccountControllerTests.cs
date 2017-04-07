@@ -17,7 +17,6 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            ViewModelJson viewModelJson = null;
             const string FakeRepositoryDataFileName = "AssociatedAccount-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "AssociatedAccount-ExpectedViewModelJson.json";
 
@@ -29,16 +28,16 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
             repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("12bet"));
 
             // Act
-            PunterAnalysisAssociatedAccountController controller;
-            using (var simpleInjectorTest = new SimpleInjectorTest(repository))
-            {
-                controller = simpleInjectorTest.GetInstance(typeof(PunterAnalysisAssociatedAccountController)) as PunterAnalysisAssociatedAccountController;
-                var httpActionResult = await controller.Index(new HttpParameterJson { Username = "sa", CustId = 8 });
-                viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
-            }
+            var factory = new ApiControllerFactoryMethodAbsoluteRepository();
+            var controller = factory.CreateController<PunterAnalysisAssociatedAccountController>(repository);
+            var httpActionResult = await controller.Index(new HttpParameterJson { Username = "sa", CustId = 8 });
+            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
 
             // Assert
             Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
+
+            // Release
+            factory.Dispose();
         }
     }
 }
