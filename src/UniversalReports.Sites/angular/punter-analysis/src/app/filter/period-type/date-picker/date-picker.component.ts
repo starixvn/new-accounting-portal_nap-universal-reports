@@ -7,12 +7,10 @@ import { DateParserFormatter } from './date-parser-formatter';
     selector: 'nap-date-picker',
     templateUrl: './date-picker.component.html',
     styleUrls: ['./date-picker.component.scss'],
-    providers: [
-        {
-            provide: NgbDateParserFormatter,
-            useFactory: () => new DateParserFormatter('longDate')
-        }
-    ]
+    providers: [{
+        provide: NgbDateParserFormatter,
+        useFactory: () => new DateParserFormatter('longDate')
+    }]
 })
 export class DatePickerComponent {
     @Input() minDate: NgbDateStruct;

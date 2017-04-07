@@ -10,15 +10,12 @@ export class DateParserFormatter extends NgbDateParserFormatter {
         super();
     }
 
-    format(date: NgbDateStruct): string {
-        if (date === null) {
+    format(dateStruct: NgbDateStruct): string {
+        if (dateStruct === null) {
             return '';
         }
-        try {
-            return this.datePipe.transform(DateHelper.convertDateStructToDate(date), this.dateFormatString);
-        } catch (e) {
-            return '';
-        }
+        const date = DateHelper.convertDateStructToDate(dateStruct);
+        return this.datePipe.transform(date, this.dateFormatString);
     }
 
     parse(value: string): NgbDateStruct {
@@ -28,7 +25,11 @@ export class DateParserFormatter extends NgbDateParserFormatter {
         } else {
             try {
                 const dateParts = this.datePipe.transform(value, 'M-d-y').split('-');
-                returnVal = { year: parseInt(dateParts[2], 10), month: parseInt(dateParts[0], 10), day: parseInt(dateParts[1], 10) };
+                returnVal = {
+                    year: parseInt(dateParts[2], 10),
+                    month: parseInt(dateParts[0], 10),
+                    day: parseInt(dateParts[1], 10)
+                };
             } catch (e) {
                 returnVal = null;
             }

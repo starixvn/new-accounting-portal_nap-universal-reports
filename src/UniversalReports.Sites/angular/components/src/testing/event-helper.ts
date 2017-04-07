@@ -4,7 +4,7 @@ export const eventHelper = {
     raiseKeydown: raiseKeydown
 };
 
-function raiseClick(element: HTMLElement){
+function raiseClick(element: HTMLElement) {
     element.click();
 }
 

@@ -7,12 +7,10 @@ import { WeekDateParserFormatter } from './week-date-parser-formatter';
     selector: 'nap-week-picker',
     templateUrl: './week-picker.component.html',
     styleUrls: ['./week-picker.component.scss'],
-    providers: [
-        {
-            provide: NgbDateParserFormatter,
-            useFactory: () => new WeekDateParserFormatter('longDate')
-        }
-    ]
+    providers: [{
+        provide: NgbDateParserFormatter,
+        useFactory: () => new WeekDateParserFormatter('longDate')
+    }]
 })
 export class WeekPickerComponent implements OnChanges {
     @Input() minDate: NgbDateStruct;

@@ -20,7 +20,7 @@ class Page {
 }
 
 describe('DropdownTypeaheadComponent', () => {
-    let query = new TypeaheadQuery(term => {
+    const query = new TypeaheadQuery(term => {
         return Observable.of(['1', '2']);
     });
     let fixture: ComponentFixture<DropdownTypeaheadComponent>;
@@ -159,6 +159,18 @@ describe('DropdownTypeaheadComponent', () => {
             tick();
             fixture.detectChanges();
             expect(page.input.value).toBe('1');
+        }));
+
+        it('should raise textChange event when item is selected', fakeAsync(() => {
+            let selectedItem: string;
+            component.index = 0;
+            component.textChange.subscribe(text => selectedItem = text);
+            fixture.detectChanges();
+            eventHelper.raiseKeydown(page.input, 'Enter');
+            fixture.detectChanges();
+            tick();
+            fixture.detectChanges();
+            expect(selectedItem).toBe('1');
         }));
     });
 });
