@@ -19,7 +19,7 @@ describe('DecimalFormatDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let des: DebugElement[];
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
         DecimalFormatDirective,
@@ -29,7 +29,7 @@ describe('DecimalFormatDirective', () => {
 
     fixture.detectChanges();
     des = fixture.debugElement.queryAll(By.directive(DecimalFormatDirective));
-  }));
+  });
 
   function expectElement(index: number, elementClasses: string[], text: string) {
     elementClasses.forEach(elementClass => {

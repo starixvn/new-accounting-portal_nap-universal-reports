@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { IntegerFormatDirective } from './integer-format.directive';
@@ -19,7 +19,7 @@ describe('IntegerFormatDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let des: DebugElement[];
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
         IntegerFormatDirective,
@@ -29,7 +29,7 @@ describe('IntegerFormatDirective', () => {
 
     fixture.detectChanges();
     des = fixture.debugElement.queryAll(By.directive(IntegerFormatDirective));
-  }));
+  });
 
   function expectElement(index: number, elementClasses: string[], text: string) {
     elementClasses.forEach(elementClass => {
