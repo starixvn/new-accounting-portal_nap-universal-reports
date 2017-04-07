@@ -1,4 +1,3 @@
-///<reference path="../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';

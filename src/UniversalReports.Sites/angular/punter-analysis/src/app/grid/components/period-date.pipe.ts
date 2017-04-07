@@ -23,7 +23,5 @@ export class PeriodDatePipe implements PipeTransform {
             case PeriodType.Weekly:
                 return moment.utc(date).format('MM/YYYY') + ' - Week ' + moment(date).format('W');
         }
-
-        return '';
     }
 }
