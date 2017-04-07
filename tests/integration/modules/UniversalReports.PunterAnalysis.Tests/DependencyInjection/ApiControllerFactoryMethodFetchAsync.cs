@@ -1,12 +1,51 @@
 using Fanex.Data.Repository;
 using NSubstitute;
+using SimpleInjector;
+using SimpleInjector.Lifestyles;
+using System;
 using System.Collections.Generic;
+using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 {
-    public class ApiControllerFactoryMethodFetchAsync : ApiControllerFactoryMethod
+    public class ApiControllerFactoryMethodFetchAsync : IDisposable
     {
-        protected override IDynamicRepository CreateRepository<Model>(string fakeDatabaseFile)
+        private Container container = new Container();
+
+        public Controller CreateController<Controller, Model>(string fakeDatabaseFile)
+        {
+            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+
+            var repository = CreateRepository<Model>(fakeDatabaseFile);
+            RegisterDependency(repository);
+
+            return (Controller)container.GetInstance(typeof(Controller));
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                container.Dispose();
+            }
+        }
+
+        private void RegisterDependency(IDynamicRepository repository)
+        {
+            container.Register(() => repository);
+            container.RegiserGlobalServices()
+                    .RegisterPunterAnalysisServices()
+                    .RegisterMediator();
+            container.Verify();
+        }
+
+        private IDynamicRepository CreateRepository<Model>(string fakeDatabaseFile)
         {
             var fakeData = TestDataLoader.Load<List<Model>>(fakeDatabaseFile);
 
