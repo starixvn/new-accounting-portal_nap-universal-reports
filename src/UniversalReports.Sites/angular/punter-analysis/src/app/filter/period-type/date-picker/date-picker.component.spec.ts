@@ -19,10 +19,10 @@ class TestComponent {
 }
 
 class Page {
-    input: HTMLInputElement;
+    inputDebugEl: DebugElement;
 
     constructor(fixture: ComponentFixture<TestComponent>) {
-        this.input = fixture.debugElement.query(By.css('input')).nativeElement;
+        this.inputDebugEl = fixture.debugElement.query(By.css('input'));
     }
 }
 
@@ -54,7 +54,7 @@ describe('DatePickerComponent', () => {
         fixture.detectChanges();
         tick();
         fixture.detectChanges();
-        expect(page.input.value).toBe('November 2, 2016');
+        expect(page.inputDebugEl.nativeElement.value).toBe('November 2, 2016');
     }));
 
     it('should emit event dateChange when change input value', fakeAsync(() => {
@@ -62,8 +62,7 @@ describe('DatePickerComponent', () => {
         tick();
         fixture.detectChanges();
         const spy = spyOn(component, 'onDateChange').and.callThrough();
-        const inputDebugEl = fixture.debugElement.query(By.css('input'));
-        inputDebugEl.triggerEventHandler('change', { target: { value: 'November 3, 2016' } });
+        page.inputDebugEl.triggerEventHandler('change', { target: { value: 'November 3, 2016' } });
         fixture.detectChanges();
         tick();
         fixture.detectChanges();

@@ -28,7 +28,8 @@ export class YearPickerComponent implements OnChanges {
         }
     }
 
-    onYearChange() {
+    onYearChange(year: string) {
+        this.year = parseInt(year, 10);
         this.date = { year: this.year, month: this.date.month, day: this.date.day };
         this.dateChange.emit(this.date);
     }
