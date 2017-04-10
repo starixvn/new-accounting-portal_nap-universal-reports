@@ -1,5 +1,5 @@
 ﻿using System;
-using UniversalReports.EpplusTemplate.Annotations;
+using Epplus.Mapper.Annotations;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model
 {

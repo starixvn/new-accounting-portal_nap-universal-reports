@@ -44,6 +44,10 @@
       <HintPath>..\..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Epplus.Mapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Epplus.Mapper.1.0.0.0\lib\net461\Epplus.Mapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Common">
       <HintPath>..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
@@ -220,10 +224,6 @@
     <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
       <Name>UniversalReports.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\shared\UniversalReports.EpplusTemplate\UniversalReports.EpplusTemplate.csproj">
-      <Project>{b7a8e8d6-ce85-4d58-82c6-50339aeaeb95}</Project>
-      <Name>UniversalReports.EpplusTemplate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

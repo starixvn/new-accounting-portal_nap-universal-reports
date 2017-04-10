@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using UniversalReports.EpplusTemplate.Extensions;
+using Epplus.Mapper.Extensions;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
