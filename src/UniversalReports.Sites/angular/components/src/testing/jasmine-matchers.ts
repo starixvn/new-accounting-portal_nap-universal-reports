@@ -160,7 +160,7 @@ _global.beforeEach(function () {
         toHaveText: function () {
             return {
                 compare: function (actual: any, expectedText: string) {
-                    const actualText = elementText(actual);
+                    const actualText = elementText(actual).trim();
                     return {
                         pass: actualText === expectedText,
                         get message() { return 'Expected ' + actualText + ' to be equal to ' + expectedText; }

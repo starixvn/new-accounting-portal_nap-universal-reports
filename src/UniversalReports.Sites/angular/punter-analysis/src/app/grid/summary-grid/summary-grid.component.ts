@@ -1,10 +1,9 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
 import { PaginationInstance } from 'ng2-pagination';
-import { FilterModel } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
-import { SummaryData, SummaryItem } from './summary-grid.model';
+import { SummaryData } from './summary-grid.model';
 import { SummaryGridService } from './summary-grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { AssociatedAccountGridService } from '../associated-account-grid/associated-account-grid.service';
@@ -15,7 +14,6 @@ import { SportTypeGridService } from '../sport-type-grid/sport-type-grid.service
     templateUrl: './summary-grid.component.html'
 })
 export class SummaryGridComponent implements Grid {
-    @Input() filterModel: FilterModel;
     config: PaginationInstance;
     data: SummaryData;
 
