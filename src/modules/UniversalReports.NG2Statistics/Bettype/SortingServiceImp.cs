@@ -1,5 +1,5 @@
-﻿using UniversalReports.Core.SortUtility;
-using UniversalReports.NG2Statistics.BaseServices;
+﻿using UniversalReports.NG2Statistics.BaseServices;
+using UniversalReports.NG2Statistics.SortUtility;
 
 namespace UniversalReports.NG2Statistics.Bettype
 {

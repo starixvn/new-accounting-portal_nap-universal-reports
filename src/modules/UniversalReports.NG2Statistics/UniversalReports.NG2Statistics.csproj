@@ -175,6 +175,8 @@
     <Compile Include="GrandTotal\GridOptionsBuilderImp.cs" />
     <Compile Include="BaseServices\BaseGridOptionHeaderColumnImp.cs" />
     <Compile Include="BaseServices\QueryModel.cs" />
+    <Compile Include="SortUtility\Sort.cs" />
+    <Compile Include="SortUtility\SortDirectionConstants.cs" />
     <Compile Include="UserName\GridOptionHeaderColumnImp.cs" />
     <Compile Include="UserName\GridOptionsBuilderImp.cs" />
     <Compile Include="UserName\UserNameController.cs" />

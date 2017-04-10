@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Factory;
-using UniversalReports.Core.SortUtility;
 using UniversalReports.NG2Statistics.BaseServices;
+using UniversalReports.NG2Statistics.SortUtility;
 
 namespace UniversalReports.NG2Statistics.UserName
 {

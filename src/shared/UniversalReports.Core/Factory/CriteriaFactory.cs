@@ -9,11 +9,6 @@ namespace UniversalReports.Core.Factory
     {
         public static T Transform<T>(object value) where T : class
         {
-            if (value == null)
-            {
-                return (T)Activator.CreateInstance(typeof(T));
-            }
-
             var settingProperties = typeof(T).GetProperties(
                 BindingFlags.GetProperty | BindingFlags.Public | BindingFlags.Instance);
             var gettingProperties = value.GetType().GetProperties(

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UniversalReports.Core.SortUtility
+namespace UniversalReports.NG2Statistics.SortUtility
 {
     public static class Sort
     {
@@ -13,7 +13,7 @@ namespace UniversalReports.Core.SortUtility
                 return;
             }
 
-            Comparison<T> compare = delegate(T a, T b)
+            Comparison<T> compare = delegate (T a, T b)
             {
                 var isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
                 var valueA = isAsc ? propInfo.GetValue(a, null) : propInfo.GetValue(b, null);
