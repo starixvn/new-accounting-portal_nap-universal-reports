@@ -1,24 +1,26 @@
 <div *ngIf="data" style="width: auto" class="grid">
-    <div class="header" style="width: 420px">
-        <table style="width: 420px">
+    <div class="header" style="width: 541px">
+        <table>
             <colgroup>
-                <col style="width: 300px" />
-                <col style="width: 120px" />
+                <col style="width: 360px" />
+                <col style="width: 160px" />
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <th>Username</th>
                 <th>Role</th>
+                <th></th>
             </tr>
-            <tr *ngIf="data.length === 0">
-                <th class="empty-data" colspan="2">There is no data</th>
+            <tr *ngIf="!hasData">
+                <th class="empty-data" colspan="3">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="data.length > 0" class="body" style="width: 440px">
-        <table style="width: 420px">
+    <div *ngIf="hasData" class="body" style="width: 541px">
+        <table>
             <colgroup>
-                <col style="width: 300px" />
-                <col style="width: 120px" />
+                <col style="width: 360px" />
+                <col style="width: 160px" />
             </colgroup>
             <tr *ngFor="let item of data">
                 <td>{{ item.Username }}</td>

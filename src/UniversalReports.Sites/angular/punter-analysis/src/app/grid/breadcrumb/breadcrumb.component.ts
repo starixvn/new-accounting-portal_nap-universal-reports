@@ -13,8 +13,8 @@ export class BreadcrumbComponent {
         private gridService: GridService
     ) { }
 
-    get hasExcel(): boolean {
-        return this.gridService.activeGrid.hasExcel;
+    get hasData(): boolean {
+        return this.gridService.activeGrid.hasData;
     }
 
     exportExcel() {

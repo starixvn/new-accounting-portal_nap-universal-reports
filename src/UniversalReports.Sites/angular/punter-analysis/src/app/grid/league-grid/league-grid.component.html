@@ -1,19 +1,20 @@
 <div *ngIf="data" style="width: 100%;" class="grid">
-    <div class="header" [ngStyle]="{'width.px': 120 + data.GroupNames.length * 450 }">
-        <table [ngStyle]="{'width.px': 120 + data.GroupNames.length * 450 }">
+    <div class="header" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+        <table>
             <colgroup>
-                <col style="width:120px" />
+                <col style="width: 120px" />
                 <template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width:120px" />
-                    <col style="width:120px" />
-                    <col style="width:90px" />
-                    <col style="width:120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 90px" />
+                    <col style="width: 120px" />
                 </template>
-
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <th rowspan="2">League</th>
                 <th *ngFor="let groupName of data.GroupNames" colspan="4">{{groupName}}</th>
+                <th rowspan="2"></th>
             </tr>
             <tr>
                 <template ngFor let-groupName [ngForOf]="data.GroupNames">
@@ -23,20 +24,20 @@
                     <th>Bet Count</th>
                 </template>
             </tr>
-            <tr *ngIf="data.Entities.length === 0">
-                <th class="empty-data" [colSpan]="1 + data.GroupNames.length * 4">There is no data</th>
+            <tr *ngIf="!hasData">
+                <th class="empty-data" [colSpan]="2 + data.GroupNames.length * 4">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="data.Entities.length > 0" class="body" [ngStyle]="{'width.px': 140 + data.GroupNames.length * 450 }">
-        <table [ngStyle]="{'width.px': 120 + data.GroupNames.length * 450 }">
+    <div *ngIf="hasData" class="body" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+        <table>
             <colgroup>
-                <col style="width:120px" />
+                <col style="width: 120px" />
                 <template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width:120px" />
-                    <col style="width:120px" />
-                    <col style="width:90px" />
-                    <col style="width:120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 90px" />
+                    <col style="width: 120px" />
                 </template>
             </colgroup>
             <tr *ngFor="let leagueItem of data.Entities">
@@ -50,16 +51,17 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="data.Entities.length > 0" [ngStyle]="{'width.px': 120 + data.GroupNames.length * 450 }">
-        <table [ngStyle]="{'width.px': 120 + data.GroupNames.length * 450 }">
+    <div class="footer" *ngIf="hasData" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+        <table>
             <colgroup>
-                <col style="width:120px" />
+                <col style="width: 120px" />
                 <template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width:120px" />
-                    <col style="width:120px" />
-                    <col style="width:90px" />
-                    <col style="width:120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 120px" />
+                    <col style="width: 90px" />
+                    <col style="width: 120px" />
                 </template>
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <td style="text-align: right" class="string">Total</td>
@@ -69,6 +71,7 @@
                     <td [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>
                     <td [napIntegerFormat]="data.Total.PeriodGroups[i].BetCount"></td>
                 </template>
+                <td></td>
             </tr>
         </table>
     </div>

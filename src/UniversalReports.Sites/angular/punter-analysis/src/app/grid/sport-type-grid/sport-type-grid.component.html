@@ -1,12 +1,13 @@
 <div *ngIf="data" style="width: auto" class="grid">
-    <div class="header">
-        <table style="width: 570px">
+    <div class="header" style="width: 591px">
+        <table>
             <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
                 <col style="width: 120px" />
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <th>Sport Type</th>
@@ -14,14 +15,15 @@
                 <th>Turnover</th>
                 <th>Margin</th>
                 <th>Bet Count</th>
+                <th></th>
             </tr>
-            <tr *ngIf="data.Entities.length === 0">
-                <th class="empty-data" colspan="5">There is no data</th>
+            <tr *ngIf="!hasData">
+                <th class="empty-data" colspan="6">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="data.Entities.length > 0" class="body" style="width: 590px">
-        <table style="width: 570px">
+    <div *ngIf="hasData" class="body" style="width: 591px">
+        <table>
             <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
@@ -40,14 +42,15 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="data.Entities.length > 0" style="width: 570px">
-        <table style="width: 570px">
+    <div class="footer" *ngIf="hasData" style="width: 591px">
+        <table>
             <colgroup>
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 120px" />
                 <col style="width: 90px" />
                 <col style="width: 120px" />
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <td style="width:120px" class="text-right">Total</td>
@@ -55,6 +58,7 @@
                 <td [napDecimalFormat]="data.Total.Turnover"></td>
                 <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
                 <td [napDecimalFormat]="data.Total.BetCount"></td>
+                <td></td>
             </tr>
         </table>
     </div>

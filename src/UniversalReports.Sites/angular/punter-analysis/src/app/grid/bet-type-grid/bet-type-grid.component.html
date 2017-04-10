@@ -1,26 +1,28 @@
 <div *ngIf="data" style="width: auto" class="grid">
-    <div class="header" style="width: 1470px">
-        <table style="width: 1470px">
+    <div class="header" style="width: 1491px">
+        <table>
             <colgroup>
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <th rowspan="2">Bet Type</th>
                 <th colspan="4">Non-Live</th>
                 <th colspan="4">Live</th>
                 <th colspan="4">Non-Live &amp; Live</th>
+                <th rowspan="2"></th>
             </tr>
             <tr>
                 <th>Win Loss</th>
@@ -36,27 +38,27 @@
                 <th>Margin</th>
                 <th>Bet Count</th>
             </tr>
-            <tr *ngIf="data.Entities.length === 0">
-                <th class="empty-data" colspan="13">There is no data</th>
+            <tr *ngIf="!hasData">
+                <th class="empty-data" colspan="14">There is no data</th>
             </tr>
         </table>
     </div>
-    <div *ngIf="data.Entities.length > 0" class="body" style="width: 1490px">
-        <table style="width: 1470px">
+    <div *ngIf="hasData" class="body" style="width: 1491px">
+        <table>
             <colgroup>
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
             </colgroup>
             <tr *ngFor="let item of data.Entities">
                 <td>{{ item.BetTypeName }}</td>
@@ -94,22 +96,23 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="data.Entities.length > 0" style="width: 1470px">
-        <table style="width: 1470px">
+    <div class="footer" *ngIf="hasData" style="width: 1491px">
+        <table>
             <colgroup>
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:120px" />
-                <col style="width:90px" />
-                <col style="width:120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 90px" />
+                <col style="width: 120px" />
+                <col style="width: 20px" />
             </colgroup>
             <tr>
                 <td class="text-right">Total</td>
@@ -125,6 +128,7 @@
                 <td [napDecimalFormat]="data.Total.Turnover"></td>
                 <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
                 <td [napIntegerFormat]="data.Total.BetCount"></td>
+                <td></td>
             </tr>
         </table>
     </div>
