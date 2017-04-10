@@ -281,6 +281,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\FakeLoginController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
     <Compile Include="Controllers\PunterAnalysisController.cs" />
@@ -730,6 +731,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Shared\_AngularLayout.cshtml" />
+    <Content Include="Views\FakeLogin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
