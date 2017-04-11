@@ -1,0 +1,146 @@
+///<reference path="../../../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
+import { Component, DebugElement } from '@angular/core';
+import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
+import { BrowserModule, By } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import * as _ from 'lodash';
+import { PaginationInstance } from 'ng2-pagination';
+import { GridService } from '../grid.service';
+import { GridType } from '../grid.model';
+import { SportTypeGridService } from './sport-type-grid.service';
+import { SportTypeGridModel } from './sport-type-grid.model';
+import { SportTypeGridComponent } from './sport-type-grid.component';
+import { SportTypeData } from './sport-type-grid.model';
+import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
+import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
+import { BetTypeGridService } from '../bet-type-grid/bet-type-grid.service';
+import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
+
+import { AppModule } from '../../app.module';
+
+class Page {
+    constructor(
+        private fixture: ComponentFixture<SportTypeGridComponent>
+    ) { }
+
+    queryEntityRow(rowIndex: number): DebugElement {
+        const tableDebugElements = this.fixture.debugElement.queryAll(By.css('table'));
+        return tableDebugElements[1].query(By.css('tr'));
+    }
+}
+
+describe('SportTypeGridComponent', () => {
+    let fixture: ComponentFixture<SportTypeGridComponent>;
+    let component: SportTypeGridComponent;
+    let page: Page;
+
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                AppModule
+            ]
+        }).compileComponents();
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SportTypeGridComponent);
+        component = fixture.componentInstance;
+        page = new Page(fixture);
+    });
+
+    it('should have no table if no binding data', () => {
+        fixture.detectChanges();
+        const tableDebugElements = fixture.debugElement.queryAll(By.css('table'));
+        expect(tableDebugElements.length).toBe(0);
+    });
+
+    it('should have one table to show message "There is no data"', () => {
+        component.data = {
+            Entities: [],
+            Total: null
+        };
+        fixture.detectChanges();
+        const tableDebugElements = fixture.debugElement.queryAll(By.css('table'));
+        expect(tableDebugElements.length).toBe(1);
+        const rowDebugElements = tableDebugElements[0].queryAll(By.css('tr'));
+        expect(rowDebugElements[1].nativeElement).toHaveText('There is no data');
+    });
+
+    describe('mock', () => {
+        let gridService: GridService;
+        let selectedGridType: GridType;
+        let service: SportTypeGridService;
+
+        beforeEach(() => {
+            gridService = fixture.debugElement.injector.get(GridService);
+            gridService.generate = (gridType) => selectedGridType = gridType;
+
+            const fakeSportTypeGridModel: SportTypeGridModel = {
+                custId: 1,
+                custName: "Customer 1"
+            };
+
+            const fakeData: SportTypeData = {
+                Entities: [
+                    { SportId: 1, SportName: 'Sport 1', WinLoss: 13024.2343, Turnover: 2490.1800, Margin: 5.2302380952380952380952380952, BetCount: 10 },
+                    { SportId: 2, SportName: 'Sport 2', WinLoss: 12337.5491, Turnover: 2712.8971, Margin: 4.5477394258705942072038043758, BetCount: 31 }
+                ],
+                Total: { SportId: 0, SportName: '', WinLoss: 25361.7834, Turnover: 5203.0771, Margin: 4.8743816231360477053088450294, BetCount: 41 }
+            };
+
+            service = fixture.debugElement.injector.get(SportTypeGridService);
+            service.model = fakeSportTypeGridModel;
+            spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
+
+            component.query();
+            fixture.detectChanges();
+        });
+
+        it('should have title "Customer 1"', () => {
+            expect(component.title).toBe('Customer 1');
+        });
+
+        it('should invoke exportExcel in service when call exportExcel', () => {
+            const spy = spyOn(service, 'exportExcel').and.callFake(() => { });
+            component.exportExcel();
+            expect(spy.calls.count()).toBe(1);
+        });
+
+        it('should have 3 tables', () => {
+            const tables = fixture.debugElement.queryAll(By.css('table'));
+            expect(tables.length).toBe(3);
+        });
+
+        it('should invoke to generate BetType when click on the first cell', () => {
+            const row = page.queryEntityRow(0);
+            const tds = row.queryAll(By.css('td'));
+            const link = tds[0].query(By.css('a'));
+            link.triggerEventHandler('click', {});
+            expect(selectedGridType).toBe(GridType.BetType);
+            const betTypeGridService = fixture.debugElement.injector.get(BetTypeGridService);
+            const expectedModel: BetTypeGridModel = {
+                custId: 1,
+                custName: "Customer 1",
+                sportId: 1,
+                sportName: 'Sport 1'
+            };
+            expect(betTypeGridService.model).toEqual(expectedModel);
+        });
+
+        it('should invoke to generate BetCount when click on the fifth cell', () => {
+            const row = page.queryEntityRow(0);
+            const tds = row.queryAll(By.css('td'));
+            const link = tds[4].query(By.css('a'));
+            link.triggerEventHandler('click', {});
+            expect(selectedGridType).toBe(GridType.BetCount);
+            const betCountGridService = fixture.debugElement.injector.get(BetCountGridService);
+            const expectedModel: BetCountGridModel = {
+                custId: 1,
+                custName: 'Customer 1',
+                sportId: 1
+            };
+            expect(betCountGridService.model).toEqual(expectedModel);
+        });
+    });
+});

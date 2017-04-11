@@ -129,7 +129,7 @@ describe('SummaryGridComponent', () => {
                 custId: 23266239,
                 custName: 'HecbetRMB011154'
             };
-            expect(_.isEqual(sportTypeGridService.model, expectedModel)).toBe(true);
+            expect(sportTypeGridService.model).toEqual(expectedModel);
         });
 
         it('should invoke to generate BetCount when click on the fifth cell', () => {
@@ -143,7 +143,7 @@ describe('SummaryGridComponent', () => {
                 custId: 23266239,
                 custName: 'HecbetRMB011154'
             };
-            expect(_.isEqual(betCountGridService.model, expectedModel)).toBe(true);
+            expect(betCountGridService.model).toEqual(expectedModel);
         });
 
         it('should invoke to generate AssociatedAccount when click on the last cell', () => {
@@ -152,12 +152,13 @@ describe('SummaryGridComponent', () => {
             const link = tds[tds.length - 1].query(By.css('a'));
             link.triggerEventHandler('click', {});
             expect(selectedGridType).toBe(GridType.AssociatedAccount);
-            const sssociatedAccountGridService = fixture.debugElement.injector.get(AssociatedAccountGridService);
+            const asssociatedAccountGridService = fixture.debugElement.injector.get(AssociatedAccountGridService);
             const expectedModel: AssociatedAccountGridModel = {
                 custId: 23266239,
                 custName: 'HecbetRMB011154'
             };
-            expect(_.isEqual(sssociatedAccountGridService.model, expectedModel)).toBe(true);
+            
+            expect(asssociatedAccountGridService.model).toEqual(expectedModel);
         });
     });
 });
