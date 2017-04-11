@@ -4,22 +4,19 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
 {
     public class SummaryExcelModel
     {
-        [Cell("A1")]
-        public int CustId { get; set; }
-
-        [Cell("B1")]
+        [Cell("A8")]
         public string Username { get; set; }
 
-        [Cell("C1")]
+        [Cell("B8")]
         public decimal WinLoss { get; set; }
 
-        [Cell("D1")]
+        [Cell("C8")]
         public decimal Turnover { get; set; }
 
-        [Cell("E1")]
+        [Cell("D8")]
         public decimal Margin { get; set; }
 
-        [Cell("F1")]
+        [Cell("E8")]
         public int BetCount { get; set; }
     }
 }

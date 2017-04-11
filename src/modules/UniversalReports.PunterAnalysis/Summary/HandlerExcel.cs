@@ -31,8 +31,9 @@ namespace UniversalReports.PunterAnalysis.Summary
             var model = await punterAnalysisService.Query<SummaryModel>(criteria);
             var excelViewModel = mapper.Map<ExcelViewModel>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
-            var excelSetting = await setting.CreateSetting(excelSettingParams);
-            return await excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
+            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
+            return await Task.FromResult(excelPackage);
         }
     }
 }

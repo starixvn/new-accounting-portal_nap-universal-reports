@@ -1,7 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.Core;
@@ -11,7 +10,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
     public class BetCountExcelSettingFactoryUnitTests
     {
         [Test]
-        public async Task CreateSetting_WithExcelSettingParametters_ReturnRightBetCountSetting()
+        public void CreateSetting_WithExcelSettingParametters_ReturnRightBetCountSetting()
         {
             // Arrange
             var excelSettingParams = new ExcelSettingParams
@@ -37,7 +36,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var setting = new BetCountExcelSettingFactory(configurationService);
 
             // Act
-            var result = await setting.CreateSetting(excelSettingParams);
+            var result = setting.CreateSetting(excelSettingParams);
 
             // Assert
             Assert.That(result, IsDeeplyEqual.To(expectedExcelSetting));

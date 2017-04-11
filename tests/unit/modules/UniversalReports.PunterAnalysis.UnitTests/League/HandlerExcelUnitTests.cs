@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             await handleExcel.Handle(new HttpParameterExcel());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModel>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModel>(), Arg.Any<ExcelSetting>());
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             await handleExcel.Handle(new HttpParameterExcel());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
+            excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
         }
 
         private LeagueServiceFactory CreateLeagueServiceFactory(ReportModel reportModel)

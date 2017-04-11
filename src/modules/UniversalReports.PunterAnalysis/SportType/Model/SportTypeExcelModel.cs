@@ -4,19 +4,19 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
 {
     public class SportTypeExcelModel
     {
-        [Cell("A1")]
+        [Cell("A8")]
         public string SportName { get; set; }
 
-        [Cell("B1")]
+        [Cell("B8")]
         public decimal WinLoss { get; set; }
 
-        [Cell("C1")]
+        [Cell("C8")]
         public decimal Turnover { get; set; }
 
-        [Cell("D1")]
+        [Cell("D8")]
         public decimal Margin { get; set; }
 
-        [Cell("E1")]
+        [Cell("E8")]
         public int BetCount { get; set; }
     }
 }

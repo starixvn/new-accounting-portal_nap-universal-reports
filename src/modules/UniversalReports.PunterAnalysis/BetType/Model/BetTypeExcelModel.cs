@@ -4,43 +4,43 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
 {
     public class BetTypeExcelModel
     {
-        [Cell("A1")]
+        [Cell("A9")]
         public string BetTypeName { get; set; }
 
-        [Cell("B1")]
+        [Cell("B9")]
         public decimal NonLiveWinLoss { get; set; }
 
-        [Cell("C1")]
+        [Cell("C9")]
         public decimal NonLiveTurnover { get; set; }
 
-        [Cell("D1")]
+        [Cell("D9")]
         public decimal NonLiveMargin { get; set; }
 
-        [Cell("E1")]
+        [Cell("E9")]
         public int NonLiveBetCount { get; set; }
 
-        [Cell("F1")]
+        [Cell("F9")]
         public decimal LiveWinLoss { get; set; }
 
-        [Cell("G1")]
+        [Cell("G9")]
         public decimal LiveTurnover { get; set; }
 
-        [Cell("H1")]
+        [Cell("H9")]
         public decimal LiveMargin { get; set; }
 
-        [Cell("I1")]
+        [Cell("I9")]
         public int LiveBetCount { get; set; }
 
-        [Cell("J1")]
+        [Cell("J9")]
         public decimal WinLoss { get; set; }
 
-        [Cell("K1")]
+        [Cell("K9")]
         public decimal Turnover { get; set; }
 
-        [Cell("L1")]
+        [Cell("L9")]
         public decimal Margin { get; set; }
 
-        [Cell("M1")]
+        [Cell("M9")]
         public int BetCount { get; set; }
     }
 }

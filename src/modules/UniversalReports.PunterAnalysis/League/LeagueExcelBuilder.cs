@@ -1,7 +1,6 @@
 ﻿using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
 
@@ -9,11 +8,13 @@ namespace UniversalReports.PunterAnalysis.League
 {
     public interface LeagueExcelBuilder
     {
-        Task<ExcelPackage> CreateExcelPackage(ReportModel model, ExcelSetting setting);
+        ExcelPackage CreateExcelPackage(ReportModel model, ExcelSetting setting);
     }
 
     public class LeagueExcelBuilderImp : LeagueExcelBuilder
     {
+        private const int WinLossColumnIndex = 2;
+
         private ExcelWorksheet statisticSheet;
 
         private ExcelWorksheet templateSheet;
@@ -26,18 +27,19 @@ namespace UniversalReports.PunterAnalysis.League
 
         private ExcelPackage ExcelPackage { get; set; }
 
-        public async Task<ExcelPackage> CreateExcelPackage(ReportModel model, ExcelSetting setting)
+        public ExcelPackage CreateExcelPackage(ReportModel model, ExcelSetting setting)
         {
             LoadTemplate(setting.TemplatePath);
             ApplySetting();
             SetRowIndex(setting.StartRowIndex);
-            ApplyDescription(setting.Title, setting.TitleCellRange);
-            ApplyDescription(setting.Filter, setting.FilterCellRange);
+            SetColumnWidth(model.GroupNames.Count);
+            ApplyTitle(setting.Title, setting.TitleCellRange);
+            ApplyFilter(setting.Filter, setting.FilterCellRange);
             CreateHeader(model.GroupNames);
             CreateBody(model.Entities);
             CreateFooter(model.Total);
             ClearTemplate();
-            return await Task.FromResult(ExcelPackage);
+            return ExcelPackage;
         }
 
         private void LoadTemplate(string templatePath)
@@ -66,39 +68,62 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void SetRowIndex(int rowIndex)
         {
-            this.RowIndex = rowIndex;
+            RowIndex = rowIndex;
         }
 
-        private void ApplyDescription(string description, string descriptionCellRange)
+        private void SetColumnWidth(int numberGroup)
         {
-            statisticSheet.Cells[descriptionCellRange].Value = description;
+            int numberColumns = (numberGroup * 4) + 1;
+            for (int i = 0; i < numberColumns; i++)
+            {
+                statisticSheet.Column(i + 1).Width = 18;
+            }
+
+            statisticSheet.Column(1).Width = 50;
+        }
+
+        private void ApplyTitle(string title, string titleCellRange)
+        {
+            headerTemplateSheet.Cells["A1:E2"].Copy(statisticSheet.Cells[titleCellRange]);
+            statisticSheet.Cells[titleCellRange].Value = title;
+            statisticSheet.Cells[titleCellRange].Merge = true;
+        }
+
+        private void ApplyFilter(string filter, string filterCellRange)
+        {
+            headerTemplateSheet.Cells["A3:E5"].Copy(statisticSheet.Cells[filterCellRange]);
+            statisticSheet.Cells[filterCellRange].Value = filter;
+            statisticSheet.Cells[filterCellRange].Merge = true;
         }
 
         private void CreateHeader(List<string> groupNames)
         {
-            int columnIndex = 1;
+            int columnIndex = WinLossColumnIndex;
+            headerTemplateSheet.Cells["A7:A8"].Copy(statisticSheet.Cells["A7:A8"]);
             statisticSheet.Cells["A7:A8"].Value = "League";
+            statisticSheet.Cells["A7:A8"].Merge = true;
             groupNames.ForEach(groupName =>
             {
-                headerTemplateSheet.Cells["A1:D1"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                headerTemplateSheet.Cells["B7:E7"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                 statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3].Value = groupName;
                 statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3].Merge = true;
-                headerTemplateSheet.Cells["A2:D2"].Copy(statisticSheet.Cells[RowIndex + 1, columnIndex, RowIndex + 1, columnIndex + 3]);
+                headerTemplateSheet.Cells["B8:E8"].Copy(statisticSheet.Cells[RowIndex + 1, columnIndex, RowIndex + 1, columnIndex + 3]);
                 columnIndex += 4;
             });
 
-            RowIndex++;
+            RowIndex += 2;
         }
 
         private void CreateBody(List<LeagueModel> model)
         {
             model.ForEach(league =>
             {
-                int columnIndex = 1;
+                int columnIndex = WinLossColumnIndex;
+                templateSheet.Cells["A9:A9"].Copy(statisticSheet.Cells[$"A{RowIndex}"]);
                 statisticSheet.Cells[$"A{RowIndex}"].Value = league.LeagueName;
                 league.PeriodGroups.ForEach(group =>
                 {
-                    templateSheet.Cells["A1:D1"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                    templateSheet.Cells["B9:E9"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                     MappGroupValue(group, columnIndex);
                     columnIndex += 4;
                 });
@@ -109,11 +134,12 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void CreateFooter(LeagueModel model)
         {
-            int columnIndex = 1;
-            statisticSheet.Cells[$"A{RowIndex}"].Value = "Grand Total";
+            int columnIndex = WinLossColumnIndex;
+            totalTemplateSheet.Cells["A9:A9"].Copy(statisticSheet.Cells[$"A{RowIndex}"]);
+            statisticSheet.Cells[$"A{RowIndex}"].Value = "Total";
             model.PeriodGroups.ForEach(group =>
             {
-                totalTemplateSheet.Cells["A1:D1"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                totalTemplateSheet.Cells["B9:E9"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                 MappGroupValue(group, columnIndex);
                 columnIndex += 4;
             });

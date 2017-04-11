@@ -31,8 +31,9 @@ namespace UniversalReports.PunterAnalysis.BetCount
             var model = await punterAnalysisService.Query<BetCountModel>(criteria);
             var excelViewModel = mapper.Map<ExcelViewModel>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
-            var excelSettings = await setting.CreateSetting(excelSettingParams);
-            return await excelBuilder.CreateExcelPackage(excelViewModel, excelSettings);
+            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
+            return await Task.FromResult(excelPackage);
         }
     }
 }

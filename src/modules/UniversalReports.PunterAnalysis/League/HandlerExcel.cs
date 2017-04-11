@@ -31,8 +31,9 @@ namespace UniversalReports.PunterAnalysis.League
             var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
             var model = await leagueService.Query(criteria);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
-            var excelSetting = await setting.CreateSetting(excelSettingParams);
-            return await excelBuilder.CreateExcelPackage(model, excelSetting);
+            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);
+            return await Task.FromResult(excelPackage);
         }
     }
 }

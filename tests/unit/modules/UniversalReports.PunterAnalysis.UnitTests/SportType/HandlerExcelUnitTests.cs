@@ -24,7 +24,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSetting>());
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            await excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
+            excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
         }
     }
 }

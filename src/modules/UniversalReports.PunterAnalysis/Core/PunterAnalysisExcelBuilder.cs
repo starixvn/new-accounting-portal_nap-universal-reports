@@ -1,14 +1,13 @@
 ﻿using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using Epplus.Mapper.Extensions;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
     public interface PunterAnalysisExcelBuilder
     {
-        Task<ExcelPackage> CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new();
+        ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new();
     }
 
     public class PunterAnalysisExcelBuilderImp : PunterAnalysisExcelBuilder
@@ -23,13 +22,13 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private ExcelPackage ExcelPackage { get; set; }
 
-        public async Task<ExcelPackage> CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
+        public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
         {
             LoadTemplate(settings.TemplatePath);
             ApplySetting();
             Build(model, settings);
             ClearTemplate();
-            return await Task.FromResult(ExcelPackage);
+            return ExcelPackage;
         }
 
         private void LoadTemplate(string templatePath)
@@ -66,7 +65,7 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void SetRowIndex(int rowIndex)
         {
-            this.RowIndex = rowIndex;
+            RowIndex = rowIndex;
         }
 
         private void SetSheetName(string sheetName)
@@ -92,6 +91,7 @@ namespace UniversalReports.PunterAnalysis.Core
         private void ApplyFooter<T>(T total) where T : class, new()
         {
             statisticSheet.ApplyModel(totalTemplateSheet, RowIndex, total);
+            statisticSheet.Cells[$"A{RowIndex}"].Value = "Total";
         }
     }
 }

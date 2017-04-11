@@ -1,7 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.Summary;
@@ -11,7 +10,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
     public class SummaryExcelSettingFactoryUnitTests
     {
         [Test]
-        public async Task CreateSetting_WithExcelSettingParametters_ReturnRightSummarySetting()
+        public void CreateSetting_WithExcelSettingParametters_ReturnRightSummarySetting()
         {
             // Arrange
             var excelSettingParams = new ExcelSettingParams
@@ -37,7 +36,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             var setting = new SummaryExcelSettingFactory(configurationService);
 
             // Act
-            var result = await setting.CreateSetting(excelSettingParams);
+            var result = setting.CreateSetting(excelSettingParams);
 
             // Assert
             Assert.That(result, IsDeeplyEqual.To(expectedExcelSetting));
