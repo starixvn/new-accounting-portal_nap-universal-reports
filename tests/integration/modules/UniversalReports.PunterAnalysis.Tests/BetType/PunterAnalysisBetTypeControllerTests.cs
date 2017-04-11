@@ -11,11 +11,12 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
 {
     public class PunterAnalysisBetTypeControllerTests
     {
+        private const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
+
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "BetType-ExpectedViewModelJson.json";
 
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
@@ -38,8 +39,6 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
-
             var expectedTitle = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTitle.json");
             var expectedFilter = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedFilter.json");
             var expectedBody = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedBody.json");

@@ -12,11 +12,12 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
 {
     public class PunterAnalysisSummaryControllerTests
     {
+        private const string FakeRepositoryDataFileName = "Summary-FileRepository.json";
+
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "Summary-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "Summary-ExpectedViewModelJson.json";
 
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
@@ -39,8 +40,6 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "Summary-FileRepository.json";
-
             var fakeSummaryModelListFromRepository = TestDataLoader.Load<List<SummaryModel>>(FakeRepositoryDataFileName);
 
             var expectedTitle = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedTitle.json");

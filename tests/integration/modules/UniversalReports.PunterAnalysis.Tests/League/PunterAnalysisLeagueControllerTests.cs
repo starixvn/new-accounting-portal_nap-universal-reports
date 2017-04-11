@@ -11,11 +11,12 @@ namespace UniversalReports.PunterAnalysis.Tests.League
 {
     public class PunterAnalysisLeagueControllerTests
     {
+        private const string FakeRepositoryDataFileName = "League-FileRepository.json";
+
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "League-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "League-ExpectedViewModelJson.json";
 
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
@@ -38,8 +39,6 @@ namespace UniversalReports.PunterAnalysis.Tests.League
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "League-FileRepository.json";
-
             var expectedTitle = TestDataLoader.Load<object[,]>("League-Excel-ExpectedTitle.json");
             var expectedFilter = TestDataLoader.Load<object[,]>("League-Excel-ExpectedFilter.json");
             var expectedBody = TestDataLoader.Load<object[,]>("League-Excel-ExpectedBody.json");
@@ -63,7 +62,7 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             Assert.AreEqual(workSheet.Cells["A3:E5"].Value, expectedFilter);
             Assert.AreEqual(workSheet.Cells["A7:E8"].Value, expectedBody);
             Assert.AreEqual(workSheet.Cells["A9:E9"].Value, expectedTotal);
-
+            
             // Release
             factory.Dispose();
         }

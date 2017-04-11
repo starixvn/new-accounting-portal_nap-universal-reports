@@ -11,11 +11,12 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
 {
     public class PunterAnalysisSportTypeControllerTests
     {
+        private const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
+
         [Test]
         public async Task Index_FileRepository_ReturnsRightViewModelJson()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
             const string ExpectedViewModelJsonFileName = "SportType-ExpectedViewModelJson.json";
 
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
@@ -38,8 +39,6 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
-
             var expectedTitle = TestDataLoader.Load<object[,]>("SportType-Excel-ExpectedTitle.json");
             var expectedFilter = TestDataLoader.Load<object[,]>("SportType-Excel-ExpectedFilter.json");
             var expectedBody = TestDataLoader.Load<object[,]>("SportType-Excel-ExpectedBody.json");
