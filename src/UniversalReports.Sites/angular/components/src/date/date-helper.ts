@@ -65,5 +65,5 @@ function convertDateStructToString(dateStruct: NgbDateStruct): string {
 }
 
 function convertDateStructToMoment(dateStruct: NgbDateStruct): moment.Moment {
-    return moment.utc([dateStruct.year, dateStruct.month, dateStruct.day]);
+    return moment.utc([dateStruct.year, dateStruct.month - 1, dateStruct.day]);
 }

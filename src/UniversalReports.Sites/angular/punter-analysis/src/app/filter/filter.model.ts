@@ -4,9 +4,9 @@ import { RoleId, SortBy, OptionItem } from 'nap-components/src/model';
 import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
 
 export enum SearchBy {
-    User,
-    League,
-    Performance
+    User = 1,
+    League = 2,
+    Performance = 3
 }
 
 export enum PeriodType {
