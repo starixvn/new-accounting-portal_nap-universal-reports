@@ -38,6 +38,7 @@
             {
                 BetTypeId = 0,
                 BetTypeName = string.Empty,
+                HasLeague = false,
                 LiveBetCount = firstObject.LiveBetCount + secondObject.LiveBetCount,
                 LiveWinLoss = firstObject.LiveWinLoss + secondObject.LiveWinLoss,
                 LiveTurnover = firstObject.LiveTurnover + secondObject.LiveTurnover,

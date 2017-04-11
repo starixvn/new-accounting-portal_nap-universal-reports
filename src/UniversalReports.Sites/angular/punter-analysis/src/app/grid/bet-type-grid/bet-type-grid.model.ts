@@ -20,6 +20,7 @@ export interface BetTypeItem {
     Turnover: number;
     Margin: number;
     BetCount: number;
+    HasLeague: boolean;
 }
 
 export interface BetTypeData {

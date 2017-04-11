@@ -1,9 +1,9 @@
-<template #dt let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled">
+<ng-template #dt let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled">
     <div (mouseenter)="onMouseEnter($event, disabled)" (mouseleave)="onMouseLeave($event, disabled)" (click)="onClick($event, disabled)" [class.day-active]="isSelected(date)"
         [class.bg-primary]="selected" [class.text-white]="selected" [class.text-muted]="disabled" [class.btn-secondary]="!disabled">
         {{date.day}}
     </div>
-</template>
+</ng-template>
 <div class="input-group">
     <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [showWeekNumbers]="true" [dayTemplate]="dt"
         [(ngModel)]="date" [minDate]="minDate" [maxDate]="maxDate" (ngModelChange)="onModelChange()">

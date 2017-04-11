@@ -67,6 +67,10 @@ describe('SummaryGridComponent', () => {
         expect(rowDebugElements[1].nativeElement).toHaveText('There is no data');
     });
 
+    it('should mark hasData as true if entities is empty', () => {
+        expect(component.hasData).toBe(false);
+    });
+
     describe('mock', () => {
         let gridService: GridService;
         let selectedGridType: GridType;
@@ -86,6 +90,10 @@ describe('SummaryGridComponent', () => {
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
             component.query();
             fixture.detectChanges();
+        });
+
+        it('should mark hasData as true if entities is not empty', () => {
+            expect(component.hasData).toBe(true);
         });
 
         it('should have 2 items for pagination', () => {
@@ -157,7 +165,7 @@ describe('SummaryGridComponent', () => {
                 custId: 23266239,
                 custName: 'HecbetRMB011154'
             };
-            
+
             expect(asssociatedAccountGridService.model).toEqual(expectedModel);
         });
     });
