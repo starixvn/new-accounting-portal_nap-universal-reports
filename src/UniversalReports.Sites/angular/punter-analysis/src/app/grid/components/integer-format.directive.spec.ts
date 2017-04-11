@@ -38,19 +38,19 @@ describe('IntegerFormatDirective', () => {
     expect(des[index].nativeElement).toHaveText(text);
   }
 
-  it('should mark first element has class "number" and text "NaN"', () => {
+  it('should mark empty value as text "NaN" and class "number"', () => {
     expectElement(0, ['number'], 'NaN');
   });
 
-  it('should mark second element has class "number" and text "0"', () => {
+  it('should mark value 0 as text "0" and class "number"', () => {
     expectElement(1, ['number'], '0');
   });
 
-  it('should mark third element has class "number" and text "153,256"', () => {
+  it('should mark value 153256.321962 as text "153,256" and class "number"', () => {
     expectElement(2, ['number'], '153,256');
   });
 
-  it('should mark forth element has class "number, number-negative" and text "-153,256"', () => {
+  it('should mark value -153256.321962 as text "-153,256" and class "number, number-negative"', () => {
     expectElement(3, ['number', 'number-negative'], '-153,256');
   });
 });

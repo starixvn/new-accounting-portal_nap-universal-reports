@@ -41,31 +41,31 @@ describe('PercentFormatDirective', () => {
     expect(des[index].nativeElement).toHaveText(text);
   }
 
-  it('should mark first element has class "number" and text "N/A"', () => {
+  it('should mark empty value as text "N/A" and class "number"', () => {
     expectElement(0, ['number'], 'N/A');
   });
 
-  it('should mark second element has class "number" and text "0.00%"', () => {
+  it('should mark value 0 as text "0.00%" and class "number"', () => {
     expectElement(1, ['number'], '0.00%');
   });
 
-  it('should mark third element has class "number" and text "N/A"', () => {
+  it('should mark value 0/0 as text "N/A" and class "number"', () => {
     expectElement(2, ['number'], 'N/A');
   });
 
-  it('should mark forth element has class "number" and text "N/A"', () => {
+  it('should mark value 1/0 as text "N/A" and class "number"', () => {
     expectElement(3, ['number'], 'N/A');
   });
 
-  it('should mark fifth element has class "number" and text "N/A"', () => {
+  it('should mark value -1/0 as text "N/A" and class "number"', () => {
     expectElement(4, ['number'], 'N/A');
   });
 
-  it('should mark sixth element has class "number" and text "15.32%"', () => {
+  it('should mark value 0.15323 as text "15.32%" and class "number"', () => {
     expectElement(5, ['number'], '15.32%');
   });
 
-  it('should mark seventh element has class "number, number-negative" and text "-15.32%"', () => {
+  it('should mark value -0.15323 as text "-15.32%" and class "number, number-negative"', () => {
     expectElement(6, ['number', 'number-negative'], '-15.32%');
   });
 });
