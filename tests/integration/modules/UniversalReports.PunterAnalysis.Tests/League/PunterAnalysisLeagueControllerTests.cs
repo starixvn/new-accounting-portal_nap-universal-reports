@@ -60,9 +60,9 @@ namespace UniversalReports.PunterAnalysis.Tests.League
 
             Assert.AreEqual(workSheet.Cells["A1:E2"].Value, expectedTitle);
             Assert.AreEqual(workSheet.Cells["A3:E5"].Value, expectedFilter);
-            Assert.AreEqual(workSheet.Cells["A7:E8"].Value, expectedBody);
-            Assert.AreEqual(workSheet.Cells["A9:E9"].Value, expectedTotal);
-            
+            Assert.AreEqual(workSheet.Cells["A9:U10"].Value, expectedBody);
+            Assert.AreEqual(workSheet.Cells["A11:U11"].Value, expectedTotal);
+
             // Release
             factory.Dispose();
         }
