@@ -98,7 +98,7 @@ describe('SummaryGridComponent', () => {
                 currentPage: 1,
                 totalItems: 2
             };
-            expect(_.isEqual(component.config, expectedConfig)).toBe(true);
+            expect(component.config).toEqual(expectedConfig);
         });
 
         it('should have title "Main - Punter Analysis" if it is the last grid', () => {

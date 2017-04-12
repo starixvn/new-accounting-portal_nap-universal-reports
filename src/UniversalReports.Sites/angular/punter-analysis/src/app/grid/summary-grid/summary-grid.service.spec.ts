@@ -9,43 +9,11 @@ import { HttpService } from '../../components/http.service';
 import { GridService } from '../grid.service';
 import { SummaryGridService } from './summary-grid.service';
 import { SummaryData } from './summary-grid.model';
-import { AppModule } from '../../app.module';
 import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
+import { fakeFilterModel } from '../../filter/filter.model.spec';
+import { AppModule } from '../../app.module';
 
 describe('SummaryGridService', () => {
-    const filterModel = {
-        searchBy: SearchBy.User,
-        topRow: 2,
-        orderBy: OrderBy.WinLoss,
-        sortBy: SortBy.Ascending,
-        periodType: PeriodType.Daily,
-        fromDate: { year: 2016, month: 1, day: 1 },
-        toDate: { year: 2016, month: 2, day: 2 },
-        depth: RoleId.Agent,
-        userName: 'ABC',
-        selectedBetTypeTreeviewItems: [
-            {
-                item: new TreeviewItem({ text: 'BetType1', value: 1 }),
-                parent: { item: new TreeviewItem({ text: 'SportType1', value: 1 }), parent: null }
-            },
-            {
-                item: new TreeviewItem({ text: 'BetType2', value: 2 }),
-                parent: { item: new TreeviewItem({ text: 'SportType2', value: 1 }), parent: null }
-            }
-        ],
-        searchByOptions: [
-            { text: 'User', value: SearchBy.User }
-        ],
-        depthOptions: [
-            { text: 'Agent', value: RoleId.Agent }
-        ],
-        orderByOptions: [
-            { text: 'WinLoss', value: OrderBy.WinLoss }
-        ],
-        sortByOptions: [
-            { text: 'Ascending', value: SortBy.Ascending }
-        ]
-    };
     const expectedQueryModel = {
         topRow: 2,
         orderBy: 1,
@@ -75,7 +43,7 @@ describe('SummaryGridService', () => {
     });
 
     beforeEach(inject([GridService], (gridService: GridService) => {
-        gridService.filterModel = filterModel;
+        gridService.filterModel = fakeFilterModel;
     }));
 
     it('query', inject([HttpService, SummaryGridService], (httpService: HttpService, service: SummaryGridService) => {
