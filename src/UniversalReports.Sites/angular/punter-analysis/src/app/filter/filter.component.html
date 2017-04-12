@@ -53,10 +53,10 @@
         </div>
         <div class="col-x2">
             <div class="col-label">
-                <label class="col-form-label">Account name<span class="text-danger">*</span></label>
+                <label class="col-form-label">Account name<span *ngIf="depth === RoleId.Agent" class="text-danger">*</span></label>
             </div>
             <div class="col-value">
-                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'Member name'">
+                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'All'">
                 </nap-dropdown-typeahead>
             </div>
         </div>

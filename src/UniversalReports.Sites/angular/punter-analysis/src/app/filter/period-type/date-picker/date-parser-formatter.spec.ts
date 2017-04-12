@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { NgbDateStruct } from 'nap-components/src/date';
 import { DateParserFormatter } from './date-parser-formatter';
 
@@ -36,7 +35,7 @@ describe('DateParserFormatter', () => {
         it('should parse a valid input to valid object', () => {
             const dateStruct = formatter.parse('November 2, 2016');
             const expectedDate: NgbDateStruct = { year: 2016, month: 11, day: 2 };
-            expect(_.isEqual(dateStruct, expectedDate)).toBe(true);
+            expect(dateStruct).toEqual(expectedDate);
         });
     });
 });

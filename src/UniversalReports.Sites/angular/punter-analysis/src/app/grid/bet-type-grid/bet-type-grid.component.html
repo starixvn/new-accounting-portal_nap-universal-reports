@@ -90,7 +90,7 @@
                 <td [napPercentFormat]="item.WinLoss/item.Turnover">
                 </td>
                 <td class="text-right" [ngSwitch]="item.HasLeague">
-                    <span *ngSwitchCase="false" [napIntegerFormat]="item.LiveBetCount"></span>
+                    <span *ngSwitchCase="false" [napIntegerFormat]="item.BetCount"></span>
                     <a *ngSwitchCase="true" href="javascript:;" (click)="showBetCount(item.BetTypeId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
             </tr>

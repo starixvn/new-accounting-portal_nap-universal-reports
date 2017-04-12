@@ -84,7 +84,7 @@ describe('SummaryGridService', () => {
         const mostRecentCall = spy.calls.mostRecent();
         const args = mostRecentCall.args;
         expect(args[0]).toBe('api/punter-analysis/summary');
-        expect(_.isEqual(args[1], expectedQueryModel)).toBe(true);
+        expect(args[1]).toEqual(expectedQueryModel);
     }));
 
     it('exportExcel', inject([HttpService, SummaryGridService], (httpService: HttpService, service: SummaryGridService) => {
@@ -94,7 +94,7 @@ describe('SummaryGridService', () => {
         let mostRecentCall = downloadSpy.calls.mostRecent();
         let args = mostRecentCall.args;
         expect(args[0]).toBe('api/punter-analysis/summary/excel');
-        expect(_.isEqual(args[1], expectedExcelModel)).toBe(true);
+        expect(args[1]).toEqual(expectedExcelModel);
         mostRecentCall = saveSpy.calls.mostRecent();
         args = mostRecentCall.args;
         const expectedFileName = 'Top_Punter_Summary_Search_by_User_From_Jan_01_2016_To_Feb_02_2016.xlsx';

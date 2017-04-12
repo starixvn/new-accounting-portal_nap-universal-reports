@@ -108,7 +108,7 @@ export class FilterComponent implements OnInit {
             }
         }
 
-        if (model.userName === '') {
+        if (model.depth === RoleId.Agent && model.userName === '') {
             this.toastService.activate('Account name field is required!');
             return false;
         }

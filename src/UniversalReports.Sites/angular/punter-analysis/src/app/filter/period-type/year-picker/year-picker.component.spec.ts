@@ -3,7 +3,6 @@ import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import * as _ from 'lodash';
 import { eventHelper } from 'nap-components/src/testing';
 import { NgbDateStruct } from 'nap-components/src/date';
 import { YearPickerComponent } from './year-picker.component';
@@ -69,6 +68,6 @@ describe('MonthPickerComponent', () => {
         fixture.detectChanges();
         const date = component.selectedDate;
         const expectedDate: NgbDateStruct = { year: 2017, month: 1, day: 1 };
-        expect(_.isEqual(date, expectedDate)).toBe(true);
+        expect(date).toEqual(expectedDate);
     }));
 });
