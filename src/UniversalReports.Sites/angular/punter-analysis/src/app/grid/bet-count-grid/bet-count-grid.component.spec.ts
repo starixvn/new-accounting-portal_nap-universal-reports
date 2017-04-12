@@ -94,7 +94,7 @@ describe('BetCountGridComponent', () => {
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeBetCountGridModel: BetCountGridModel = {
                 custId: 1,
-                custName: "Customer 1",
+                custName: 'Customer 1',
                 sportId: 1,
                 liveStatusId: 2,
                 betTypeId: 1

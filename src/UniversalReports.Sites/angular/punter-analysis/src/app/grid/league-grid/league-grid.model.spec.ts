@@ -1,15 +1,15 @@
 import { LeagueData } from './league-grid.model';
 export let fakeData: LeagueData = {
   GroupNames: [
-    "Year 2016",
-    "December",
-    "Year 2017",
-    "January",
-    "Grand Total"
+    'Year 2016',
+    'December',
+    'Year 2017',
+    'January',
+    'Grand Total'
   ],
   Entities: [
     {
-      LeagueName: "League 1",
+      LeagueName: 'League 1',
       PeriodGroups: [
         {
           BetCount: 5,
@@ -44,7 +44,7 @@ export let fakeData: LeagueData = {
       ]
     },
     {
-      LeagueName: "League 2",
+      LeagueName: 'League 2',
       PeriodGroups: [
         {
           BetCount: 0,
@@ -80,7 +80,7 @@ export let fakeData: LeagueData = {
     }
   ],
   Total: {
-    LeagueName: "",
+    LeagueName: '',
     PeriodGroups: [
       {
         BetCount: 5,

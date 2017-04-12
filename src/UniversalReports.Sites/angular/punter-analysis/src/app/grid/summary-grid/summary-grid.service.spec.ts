@@ -13,7 +13,7 @@ import { AppModule } from '../../app.module';
 import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
 
 describe('SummaryGridService', () => {
-    let filterModel = {
+    const filterModel = {
         searchBy: SearchBy.User,
         topRow: 2,
         orderBy: OrderBy.WinLoss,
@@ -24,8 +24,14 @@ describe('SummaryGridService', () => {
         depth: RoleId.Agent,
         userName: 'ABC',
         selectedBetTypeTreeviewItems: [
-            { item: new TreeviewItem({ text: 'BetType1', value: 1 }), parent: { item: new TreeviewItem({ text: 'SportType1', value: 1 }), parent: null } },
-            { item: new TreeviewItem({ text: 'BetType2', value: 2 }), parent: { item: new TreeviewItem({ text: 'SportType2', value: 1 }), parent: null } }
+            {
+                item: new TreeviewItem({ text: 'BetType1', value: 1 }),
+                parent: { item: new TreeviewItem({ text: 'SportType1', value: 1 }), parent: null }
+            },
+            {
+                item: new TreeviewItem({ text: 'BetType2', value: 2 }),
+                parent: { item: new TreeviewItem({ text: 'SportType2', value: 1 }), parent: null }
+            }
         ],
         searchByOptions: [
             { text: 'User', value: SearchBy.User }
@@ -40,7 +46,7 @@ describe('SummaryGridService', () => {
             { text: 'Ascending', value: SortBy.Ascending }
         ]
     };
-    let expectedQueryModel = {
+    const expectedQueryModel = {
         topRow: 2,
         orderBy: 1,
         sortBy: 1,
@@ -51,7 +57,7 @@ describe('SummaryGridService', () => {
         userName: 'ABC',
         listCombinationId: '1,2'
     };
-    let expectedExcelModel = _.extend({}, expectedQueryModel, {
+    const expectedExcelModel = _.extend({}, expectedQueryModel, {
         title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
         filter: [
             'Depth: Agent - Account name: ABC',

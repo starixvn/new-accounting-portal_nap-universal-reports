@@ -13,7 +13,7 @@ import { LeagueGridService } from './league-grid.service';
 import { LeagueGridModel } from './league-grid.model';
 import { LeagueGridComponent } from './league-grid.component';
 import { LeagueData } from './league-grid.model';
-import { fakeData } from './league-grid.model.spec'
+import { fakeData } from './league-grid.model.spec';
 
 import { AppModule } from '../../app.module';
 
@@ -77,16 +77,15 @@ describe('LeagueGridComponent', () => {
 
         beforeEach(() => {
             gridService = fixture.debugElement.injector.get(GridService);
-          
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeLeagueGridModel: LeagueGridModel = {
                 betTypeId: 1,
-                betTypeName: "Bet Type 1",
+                betTypeName: 'Bet Type 1',
                 liveStatusId: LiveStatus.NonLive,
                 sportId: 1,
-                sportName: "Sport 1",
+                sportName: 'Sport 1',
                 custId: 1,
-                custName: "Customer 1"
+                custName: 'Customer 1'
             };
 
             service = fixture.debugElement.injector.get(LeagueGridService);

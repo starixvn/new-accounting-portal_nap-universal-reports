@@ -16,7 +16,7 @@ import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { BetTypeGridService } from '../bet-type-grid/bet-type-grid.service';
 import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
-
+import { fakeData } from './sport-type-grid.model.spec';
 import { AppModule } from '../../app.module';
 
 class Page {
@@ -82,15 +82,7 @@ describe('SportTypeGridComponent', () => {
 
             const fakeSportTypeGridModel: SportTypeGridModel = {
                 custId: 1,
-                custName: "Customer 1"
-            };
-
-            const fakeData: SportTypeData = {
-                Entities: [
-                    { SportId: 1, SportName: 'Sport 1', WinLoss: 13024.2343, Turnover: 2490.1800, Margin: 5.2302380952380952380952380952, BetCount: 10 },
-                    { SportId: 2, SportName: 'Sport 2', WinLoss: 12337.5491, Turnover: 2712.8971, Margin: 4.5477394258705942072038043758, BetCount: 31 }
-                ],
-                Total: { SportId: 0, SportName: '', WinLoss: 25361.7834, Turnover: 5203.0771, Margin: 4.8743816231360477053088450294, BetCount: 41 }
+                custName: 'Customer 1'
             };
 
             service = fixture.debugElement.injector.get(SportTypeGridService);
@@ -129,7 +121,7 @@ describe('SportTypeGridComponent', () => {
             const betTypeGridService = fixture.debugElement.injector.get(BetTypeGridService);
             const expectedModel: BetTypeGridModel = {
                 custId: 1,
-                custName: "Customer 1",
+                custName: 'Customer 1',
                 sportId: 1,
                 sportName: 'Sport 1'
             };

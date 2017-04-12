@@ -3,7 +3,7 @@ import { NgbDateStruct } from 'nap-components/src/date';
 import { DateParserFormatter } from './date-parser-formatter';
 
 describe('DateParserFormatter', () => {
-    let formatter = new DateParserFormatter('longDate');
+    const formatter = new DateParserFormatter('longDate');
 
     describe('format', () => {
         it('should format a null input to empty string', () => {
