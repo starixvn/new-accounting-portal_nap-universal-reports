@@ -92,12 +92,12 @@ describe('AssociatedAccountGridComponent', () => {
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeAssociatedAccountGridModel: AssociatedAccountGridModel = {
                 custId: 1,
-                custName: "Customer 1"
+                custName: 'Customer 1'
             };
 
             const fakeData: UserRoleItem[] = [
-                { Username: "User 1", RoleName: "master" },
-                { Username: "User 2", RoleName: "member" }
+                { Username: 'User 1', RoleName: 'master' },
+                { Username: 'User 2', RoleName: 'member' }
             ];
 
             service = fixture.debugElement.injector.get(AssociatedAccountGridService);

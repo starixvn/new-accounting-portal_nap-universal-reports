@@ -27,7 +27,7 @@ namespace UniversalReports.Sites
         {
             var request = HttpContext.Current.Request;
             if (request.Url.ToString().Contains("api/application/header")
-                || request.Url.ToString().Contains("api/punter-analysis/filter/user-suggestion"))
+                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             }
