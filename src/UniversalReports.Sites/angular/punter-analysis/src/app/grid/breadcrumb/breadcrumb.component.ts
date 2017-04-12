@@ -1,5 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { BreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
 import { GridService } from '../grid.service';
+import { Grid } from '../grid.model';
+
+function hasFilter(grid: any): grid is BreadcrumbFilter {
+    return (grid as BreadcrumbFilter).getColumnFilter !== undefined;
+}
 
 @Component({
     selector: 'nap-breadcrumb',
@@ -8,6 +15,8 @@ import { GridService } from '../grid.service';
 })
 export class BreadcrumbComponent {
     @Input() items: string[];
+    filterItems: TreeviewItem[];
+    isShowFilter = false;
 
     constructor(
         private gridService: GridService
@@ -23,5 +32,27 @@ export class BreadcrumbComponent {
 
     goBack(index: number) {
         this.gridService.goBack(index);
+    }
+
+    get hasFilter(): boolean {
+        const activeGrid = this.gridService.activeGrid;
+        return hasFilter(activeGrid);
+    }
+
+    toggleFilter() {
+        this.isShowFilter = !this.isShowFilter;
+        const activeGrid = this.gridService.activeGrid;
+        if (hasFilter(activeGrid)) {
+            if (!this.filterItems) {
+                this.filterItems = activeGrid.getColumnFilter();
+            }
+        }
+    }
+
+    onFilterSelectedChange(groupNames: string[]) {
+        const activeGrid = this.gridService.activeGrid;
+        if (hasFilter(activeGrid)) {
+            activeGrid.filterColumns(groupNames);
+        }
     }
 }

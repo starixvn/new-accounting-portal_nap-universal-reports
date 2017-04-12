@@ -14,14 +14,13 @@ export class PeriodDatePipe implements PipeTransform {
 
         switch (periodType) {
             case PeriodType.Daily:
-                return moment.utc(date).format('YYYY/MM/DD');
-            case PeriodType.MonthRange:
-            case PeriodType.Monthly:
-                return moment.utc(date).format('MM/YYYY');
-            case PeriodType.Annually:
-                return moment.utc(date).format('YYYY');
+                return moment.utc(date).format('YYYY-MM-DD');
             case PeriodType.Weekly:
                 return moment.utc(date).format('MM/YYYY') + ' - Week ' + moment(date).format('W');
+            case PeriodType.MonthRange:
+            case PeriodType.Monthly:
+            case PeriodType.Annually:
+                return moment.utc(date).format('MM/YYYY');
         }
     }
 }

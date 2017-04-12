@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 
 import { PaginationModule } from 'nap-components/src/pagination';
 
@@ -28,6 +29,7 @@ import { LeagueGridService } from './league-grid/league-grid.service';
     imports: [
         CommonModule,
         FormsModule,
+        DropdownTreeviewModule.forRoot(),
         PaginationModule.forRoot()
     ],
     declarations: [

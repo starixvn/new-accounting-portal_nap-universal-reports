@@ -32,7 +32,7 @@
                 <col style="width: 120px" />
             </colgroup>
             <tr *ngFor="let item of data.Entities">
-                <td>{{ item.Date | napPeriodDate: this.periodType}}</td>
+                <td class="text-center">{{ item.Date | napPeriodDate: this.periodType}}</td>
                 <td [napIntegerFormat]="item.BetCount"></td>
                 <td [napIntegerFormat]="item.WinCount"></td>
                 <td [napIntegerFormat]="item.DrawCount"></td>
@@ -51,7 +51,7 @@
                 <col style="width: 20px" />
             </colgroup>
             <tr>
-                <td style="text-align: right" class="string">Total</td>
+                <td class="text-right">Total</td>
                 <td [napIntegerFormat]="data.Total.BetCount"></td>
                 <td [napIntegerFormat]="data.Total.WinCount"></td>
                 <td [napIntegerFormat]="data.Total.DrawCount"></td>
