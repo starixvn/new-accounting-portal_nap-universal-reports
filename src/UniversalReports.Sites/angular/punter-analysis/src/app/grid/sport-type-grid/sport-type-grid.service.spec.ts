@@ -75,7 +75,7 @@ describe('SportTypeGridService', () => {
 
         mostRecentCall = saveSpy.calls.mostRecent();
         args = mostRecentCall.args;
-        const expectedFileName = 'Top_Punter_Sporttype_Search_by_User_From_Jan_01_2016_To_Feb_02_2016.xlsx';
+        const expectedFileName = 'Top_Punter_Sporttype_Search_by_User_from_Jan_01_2016_to_Feb_02_2016.xlsx';
         expect(args[0]).toBe(null);
         expect(args[1]).toBe(expectedFileName);
     }));
