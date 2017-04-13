@@ -1,8 +1,8 @@
 <div *ngIf="data" style="width: 100%; max-width: 100vw;" class="grid">
-    <div class="header" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+    <div class="header" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
         <table>
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 250px" />
                 <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
                     <col style="width: 120px" />
                     <col style="width: 120px" />
@@ -29,10 +29,10 @@
             </tr>
         </table>
     </div>
-    <div *ngIf="hasData" class="body" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+    <div *ngIf="hasData" class="body" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
         <table>
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 250px" />
                 <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
                     <col style="width: 120px" />
                     <col style="width: 120px" />
@@ -51,10 +51,10 @@
             </tr>
         </table>
     </div>
-    <div class="footer" *ngIf="hasData" [ngStyle]="{'width.px': 141 + data.GroupNames.length * 450 }">
+    <div class="footer" *ngIf="hasData" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
         <table>
             <colgroup>
-                <col style="width: 120px" />
+                <col style="width: 250px" />
                 <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
                     <col style="width: 120px" />
                     <col style="width: 120px" />
