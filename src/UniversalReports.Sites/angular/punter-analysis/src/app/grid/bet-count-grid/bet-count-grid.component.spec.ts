@@ -23,7 +23,13 @@ class Page {
 
     queryEntityRow(rowIndex: number): DebugElement {
         const tableDebugElements = this.fixture.debugElement.queryAll(By.css('table'));
-        return tableDebugElements[1].query(By.css('tr'));
+        const trs = tableDebugElements[1].queryAll(By.css('tr'));
+        return trs[rowIndex];
+    }
+
+    queryTotalRow(): DebugElement {
+        const tableDebugElements = this.fixture.debugElement.queryAll(By.css('table'));
+        return tableDebugElements[2].query(By.css('tr'));
     }
 }
 
@@ -133,6 +139,45 @@ describe('BetCountGridComponent', () => {
         it('should have 3 tables', () => {
             const tables = fixture.debugElement.queryAll(By.css('table'));
             expect(tables.length).toBe(3);
+        });
+
+        it('all cells of first row should match', () => {
+            let cellValues = [];
+            let expectedCellValue=['2016-12-19', '10', '6', '4', '13,024.23'];
+            const row = page.queryEntityRow(0);
+            const tds = row.queryAll(By.css('td'));
+
+            for (let td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
+        });
+       
+        it('all cells of second row should match', () => {
+            let cellValues = [];
+            let expectedCellValue=['2016-12-26', '31', '24', '7', '12,337.55'];
+            const row = page.queryEntityRow(1);
+            const tds = row.queryAll(By.css('td'));
+
+            for (let td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
+        });
+
+        it('all cells of total row should match', () => {
+            let cellValues = [];
+            let expectedCellValue=['Total', '41', '30', '11', '25,361.78', ''];
+            const row = page.queryTotalRow();
+            const tds = row.queryAll(By.css('td'));
+
+            for (let td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
         });
     });
 });
