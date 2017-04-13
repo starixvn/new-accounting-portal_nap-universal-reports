@@ -55,9 +55,6 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
             // Assert
             Assert.That(workSheet.Name, Is.EqualTo("Punter Analysis"));
 
-            Assert.True(workSheet.Cells["A1:E2"].Merge);
-            Assert.True(workSheet.Cells["A3:E5"].Merge);
-
             Assert.AreEqual(workSheet.Cells["A1:E2"].Value, expectedTitle);
             Assert.AreEqual(workSheet.Cells["A3:E5"].Value, expectedFilter);
             Assert.AreEqual(workSheet.Cells["A8:E9"].Value, expectedBody);

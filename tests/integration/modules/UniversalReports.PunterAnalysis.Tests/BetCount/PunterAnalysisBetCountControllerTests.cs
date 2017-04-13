@@ -55,9 +55,6 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             // Assert
             Assert.That(workSheet.Name, Is.EqualTo("Punter Analysis"));
 
-            Assert.True(workSheet.Cells["A1:E2"].Merge);
-            Assert.True(workSheet.Cells["A3:E4"].Merge);
-
             Assert.AreEqual(workSheet.Cells["A1:E2"].Value, expectedTitle);
             Assert.AreEqual(workSheet.Cells["A3:E4"].Value, expectedFilter);
             Assert.AreEqual(workSheet.Cells["A7:E8"].Value, expectedBody);

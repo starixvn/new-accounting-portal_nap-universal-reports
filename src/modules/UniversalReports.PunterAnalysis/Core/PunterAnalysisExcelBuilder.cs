@@ -1,7 +1,7 @@
-﻿using OfficeOpenXml;
+﻿using Epplus.Mapper.Extensions;
+using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using Epplus.Mapper.Extensions;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
@@ -76,7 +76,6 @@ namespace UniversalReports.PunterAnalysis.Core
         private void ApplyDescription(string description, string descriptionCellRange)
         {
             statisticSheet.Cells[descriptionCellRange].Value = description;
-            statisticSheet.Cells[descriptionCellRange].Merge = true;
         }
 
         private void ApplyBody<T>(List<T> statistics) where T : class, new()
