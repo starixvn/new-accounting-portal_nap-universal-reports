@@ -29,20 +29,21 @@ namespace UniversalReports.PunterAnalysis.League
             };
         }
 
-        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> weekGroups)
+
+        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> indexGroups)
         {
-            foreach (var year in weekGroups.Keys)
+            foreach (var year in indexGroups.Keys)
             {
                 yield return $"Year {year}";
-                var weeks = weekGroups[year];
+                var weeks = indexGroups[year];
                 foreach (var week in weeks)
                 {
-                    var beginOfWeek = dateTimeService.GetFirstDateOfWeekISO8601(year, week);
+                    var beginOfWeek = dateTimeService.GetFirstDateOfWeekIso8601(year, week);
                     yield return $"Week {week} ({beginOfWeek:MMM dd, yyyy})";
                 }
             }
 
-            if (weekGroups.Any())
+            if (indexGroups.Any())
             {
                 yield return "Grand Total";
             }

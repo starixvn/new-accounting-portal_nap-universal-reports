@@ -32,20 +32,54 @@
 
         public int BetCount => LiveBetCount + NonLiveBetCount;
 
-        public static BetTypeModel operator +(BetTypeModel firstObject, BetTypeModel secondObject)
+        public static BetTypeModel operator +(BetTypeModel a, BetTypeModel b)
+        {
+            return Add(a, b);
+        }
+
+        public static BetTypeModel Add(BetTypeModel a, BetTypeModel b)
         {
             return new BetTypeModel
             {
                 BetTypeId = 0,
                 BetTypeName = string.Empty,
                 HasLeague = false,
-                LiveBetCount = firstObject.LiveBetCount + secondObject.LiveBetCount,
-                LiveWinLoss = firstObject.LiveWinLoss + secondObject.LiveWinLoss,
-                LiveTurnover = firstObject.LiveTurnover + secondObject.LiveTurnover,
-                NonLiveBetCount = firstObject.NonLiveBetCount + secondObject.NonLiveBetCount,
-                NonLiveWinLoss = firstObject.NonLiveWinLoss + secondObject.NonLiveWinLoss,
-                NonLiveTurnover = firstObject.NonLiveTurnover + secondObject.NonLiveTurnover
+                LiveBetCount = a.LiveBetCount + b.LiveBetCount,
+                LiveWinLoss = a.LiveWinLoss + b.LiveWinLoss,
+                LiveTurnover = a.LiveTurnover + b.LiveTurnover,
+                NonLiveBetCount = a.NonLiveBetCount + b.NonLiveBetCount,
+                NonLiveWinLoss = a.NonLiveWinLoss + b.NonLiveWinLoss,
+                NonLiveTurnover = a.NonLiveTurnover + b.NonLiveTurnover
             };
+        }
+
+        public static bool operator ==(BetTypeModel a, BetTypeModel b)
+        {
+            return a.BetTypeId == b.BetTypeId
+                && a.BetTypeName == b.BetTypeName
+                && a.HasLeague == b.HasLeague
+                && a.LiveBetCount == b.LiveBetCount
+                && a.LiveWinLoss == b.LiveWinLoss
+                && a.LiveTurnover == b.LiveTurnover
+                && a.NonLiveBetCount == b.NonLiveBetCount
+                && a.NonLiveWinLoss == b.NonLiveWinLoss
+                && a.NonLiveTurnover == b.NonLiveTurnover;
+        }
+
+        public static bool operator !=(BetTypeModel a, BetTypeModel b)
+        {
+            return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var good = obj as BetTypeModel;
+            return obj != null && this == good;
         }
     }
 }

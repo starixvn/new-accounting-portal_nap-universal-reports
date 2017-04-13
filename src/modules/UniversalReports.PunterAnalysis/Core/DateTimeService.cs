@@ -5,12 +5,12 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public interface DateTimeService
     {
-        DateTime GetFirstDateOfWeekISO8601(int year, int weekOfYear);
+        DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
     }
 
     public class DateTimeServiceImp : DateTimeService
     {
-        public DateTime GetFirstDateOfWeekISO8601(int year, int weekOfYear)
+        public DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear)
         {
             var january = new DateTime(year, 1, 1);
             var daysOffset = DayOfWeek.Thursday - january.DayOfWeek;

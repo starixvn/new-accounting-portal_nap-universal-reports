@@ -26,12 +26,12 @@ namespace UniversalReports.PunterAnalysis.League
             };
         }
 
-        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> monthGroups)
+        public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> indexGroups)
         {
-            foreach (var year in monthGroups.Keys)
+            foreach (var year in indexGroups.Keys)
             {
                 yield return $"Year {year}";
-                var months = monthGroups[year];
+                var months = indexGroups[year];
                 foreach (var month in months)
                 {
                     var beginOfMonth = new DateTime(year, month, 1);
@@ -39,7 +39,7 @@ namespace UniversalReports.PunterAnalysis.League
                 }
             }
 
-            if (monthGroups.Any())
+            if (indexGroups.Any())
             {
                 yield return "Grand Total";
             }

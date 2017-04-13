@@ -15,7 +15,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
         public string GetFirstDateOfWeekIso8601_Test(int year, int week)
         {
             var service = new DateTimeServiceImp();
-            var firstDateOfWeekISO8601 = service.GetFirstDateOfWeekISO8601(year, week);
+            var firstDateOfWeekISO8601 = service.GetFirstDateOfWeekIso8601(year, week);
 
             return firstDateOfWeekISO8601.ToShortDateString();
         }

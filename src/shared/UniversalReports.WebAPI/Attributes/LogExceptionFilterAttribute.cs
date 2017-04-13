@@ -2,22 +2,24 @@
 using Fanex.Logging;
 using System.Data.SqlClient;
 #endif
+using System;
 using System.Web.Http.Filters;
 
 namespace UniversalReports.WebAPI.Attributes
 {
-    public class LogExceptionFilterAttribute : ExceptionFilterAttribute
+    [AttributeUsage(AttributeTargets.All)]
+    public sealed class LogExceptionFilterAttribute : ExceptionFilterAttribute
     {
-        public override void OnException(HttpActionExecutedContext context)
+        public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
 #if !DEBUG
-            var exception = context.Exception;
+            var exception = actionExecutedContext.Exception;
             var message = $"{exception.Message}"
                 + $"\r\nType: {exception.GetType()}"
                 + $"\r\nSource: {exception.Source}"
-                          + $"\r\nDomain: {context.Request.Headers.Host}"
-                          + $"\r\nRequestUri: {context.Request.RequestUri}"
-                          + $"\r\nContent: {context.Request.Content.ReadAsStringAsync().Result}"
+                          + $"\r\nDomain: {actionExecutedContext.Request.Headers.Host}"
+                          + $"\r\nRequestUri: {actionExecutedContext.Request.RequestUri}"
+                          + $"\r\nContent: {actionExecutedContext.Request.Content.ReadAsStringAsync().Result}"
                           + $"\r\nTarget Site: {exception.TargetSite}"
                           + $"\r\nStack Trace: {exception.StackTrace}";
 

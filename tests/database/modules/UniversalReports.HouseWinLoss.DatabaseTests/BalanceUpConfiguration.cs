@@ -4,7 +4,7 @@ using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.DatabaseTests
 {
-    public class BalanceUpConfiguration
+    public static class BalanceUpConfiguration
     {
         private static BalanceUpRange balanceUpRange;
 

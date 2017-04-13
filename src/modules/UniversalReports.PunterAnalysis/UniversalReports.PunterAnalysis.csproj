@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -142,7 +143,7 @@
     <Compile Include="BetType\Model\ViewModelJson.cs" />
     <Compile Include="BetType\Model\HttpParameterJson.cs" />
     <Compile Include="BetType\Model\BetTypeModel.cs" />
-    <Compile Include="Core\IPunterAnalysis.cs" />
+    <Compile Include="Core\PunterAnalysisAttribute.cs" />
     <Compile Include="Core\PeriodTypeEnum.cs" />
     <Compile Include="Core\ReportModelBase.cs" />
     <Compile Include="Core\PunterAnalysisService.cs" />

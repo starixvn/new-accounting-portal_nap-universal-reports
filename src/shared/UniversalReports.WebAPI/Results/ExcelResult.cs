@@ -22,17 +22,17 @@ namespace UniversalReports.WebAPI.Results
         {
             using (var memoryStream = new MemoryStream(ExcelPackage.GetAsByteArray()))
             {
-                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                using (var response = new HttpResponseMessage(HttpStatusCode.OK))
                 {
-                    Content = new ByteArrayContent(memoryStream.ToArray())
-                };
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                {
-                    FileName = "Excel.xlsx"
-                };
+                    response.Content = new ByteArrayContent(memoryStream.ToArray());
+                    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+                    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                    {
+                        FileName = "Excel.xlsx"
+                    };
 
-                return Task.FromResult(response);
+                    return Task.FromResult(response);
+                }
             }
         }
     }

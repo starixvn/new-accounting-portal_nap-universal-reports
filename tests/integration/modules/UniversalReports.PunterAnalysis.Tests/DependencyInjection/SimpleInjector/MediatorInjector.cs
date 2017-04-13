@@ -43,7 +43,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
         private static IEnumerable<Assembly> GetAssemblies()
         {
             yield return typeof(IMediator).GetTypeInfo().Assembly;
-            yield return typeof(IPunterAnalysis).GetTypeInfo().Assembly;
+            yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
         }
     }
 }

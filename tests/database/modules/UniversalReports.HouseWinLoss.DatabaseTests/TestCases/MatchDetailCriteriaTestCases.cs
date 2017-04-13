@@ -11,52 +11,52 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
         static MatchDetailCriteriaTestCases()
         {
             FanexDataConfiguration.Initialize();
-            CriteriaCases = CreateTestCases();
         }
 
-        public static ICriteria[] CriteriaCases { get; }
-
-        private static ICriteria[] CreateTestCases()
+        public static ICriteria[] CriteriaCases
         {
-            var metricGamingMatchDetailCriteria = new Criteria
+            get
             {
-                BetType = 1,
-                IsLive = 2
-            };
-            var sportsbookMatchDetailCriteria = new Sportsbook.MatchDetail.Criteria
-            {
-                BetType = 1,
-                SportType = 1,
-                IsLive = 2,
-                IsHedge = 2
-            };
-            var sportsbookOutrightMatchDetailCriteria = new Sportsbook.OutrightMatchDetail.Criteria
-            {
-                SportType = 1
-            };
+                var metricGamingMatchDetailCriteria = new Criteria
+                {
+                    BetType = 1,
+                    IsLive = 2
+                };
+                var sportsbookMatchDetailCriteria = new Sportsbook.MatchDetail.Criteria
+                {
+                    BetType = 1,
+                    SportType = 1,
+                    IsLive = 2,
+                    IsHedge = 2
+                };
+                var sportsbookOutrightMatchDetailCriteria = new Sportsbook.OutrightMatchDetail.Criteria
+                {
+                    SportType = 1
+                };
 
-            var virtualSportsSportsbookDetailCriteria = new VirtualSports.SportsbookDetail.Criteria
-            {
-                BetType = 1231,
-                SportType = 181
-            };
+                var virtualSportsSportsbookDetailCriteria = new VirtualSports.SportsbookDetail.Criteria
+                {
+                    BetType = 1231,
+                    SportType = 181
+                };
 
-            var result = new List<WinLossCriteria>
+                var result = new List<WinLossCriteria>
             {
                 metricGamingMatchDetailCriteria,
                 sportsbookMatchDetailCriteria,
                 sportsbookOutrightMatchDetailCriteria,
                 virtualSportsSportsbookDetailCriteria
             };
-            return result
-                .Select(i => new[]
-                {
+                return result
+                    .Select(i => new[]
+                    {
                     WinLossCriteriaFactory.CreateBetTransCriteria(i),
                     WinLossCriteriaFactory.CreateBetTrans14Criteria(i),
                     WinLossCriteriaFactory.CreateWarehouseCriteria(i)
-                })
-                .SelectMany(l => l)
-                .ToArray();
+                    })
+                    .SelectMany(l => l)
+                    .ToArray();
+            }
         }
     }
 }
