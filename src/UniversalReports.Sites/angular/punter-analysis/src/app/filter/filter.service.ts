@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem, TreeItem } from 'ng2-dropdown-treeview';
 import { RoleId } from 'nap-components/src/model';
 import { HttpService } from '../components/http.service';
 import { FilterModel } from './filter.model';
@@ -48,22 +48,7 @@ export class FilterService {
     queryProductTreeviewItems(): Observable<TreeviewItem[]> {
         const url = 'api/punter-analysis/filter/product-sport-bet-type';
         return this.httpService.post<ProductSportTypeBetType[]>(url).map(list => {
-            const productItems: TreeviewItem[] = [];
-            const productNames = _.uniq(list.map(x => x.ProductName));
-            productNames.forEach(productName => {
-                const listByProductName = list.filter(x => x.ProductName === productName);
-                const renderTypeByProductName = listByProductName[0].RenderType;
-                const productChildren = ProductChildrenByRenderType.createProductChildren(renderTypeByProductName);
-                const productItem = new TreeviewItem({
-                    text: productName,
-                    value: renderTypeByProductName,
-                    collapsed: true,
-                    children: productChildren.getChildren(listByProductName)
-                });
-                productItems.push(productItem);
-            });
-
-            return productItems;
+            return this.buildProductTreeviewItems(list);
         });
     }
 
@@ -71,63 +56,67 @@ export class FilterService {
         const url = 'api/punter-analysis/filter/available-database';
         return this.httpService.post<boolean>(url);
     }
-}
 
-class ProductChildrenByRenderType {
-    static createProductChildren(renderType: RenderType): ProductChildren {
-        switch (renderType) {
-            case RenderType.Product_SportGroup_Sport_BetType:
-                return new ProductSportGroupSportBetTypeChildren();
-            case RenderType.Product_Sport_BetType:
-                return new ProductSportBetTypeChildren();
-            case RenderType.Product_BetType:
-                return new ProductBetTypeChildren();
-        }
-    }
-}
-
-interface ProductChildren {
-    getChildren(listByProductName: ProductSportTypeBetType[]): TreeviewItem[];
-}
-
-class ProductSportGroupSportBetTypeChildren implements ProductChildren {
-    getChildren(listByProductName: ProductSportTypeBetType[]): TreeviewItem[] {
-        const sportGroupItems: TreeviewItem[] = [];
-        const sportGroups = _.uniq(listByProductName.map(x => x.SportGroup));
-        sportGroups.forEach(sportGroup => {
-            const sportGroupItem = new TreeviewItem({ text: sportGroup, value: sportGroup, collapsed: true });
-            const listBySportGroup = listByProductName.filter(x => x.SportGroup === sportGroup);
-            const sportNames = _.uniq(listBySportGroup.map(x => x.SportName));
-            const sportNameItems: TreeviewItem[] = [];
-            sportNames.forEach(sportName => {
-                const sportNameItem = new TreeviewItem({ text: sportName, value: sportName, collapsed: true });
-                const listBySportName = listBySportGroup.filter(x => x.SportName === sportName);
-                sportNameItem.children = listBySportName.map(x => new TreeviewItem({ text: x.BetTypeName, value: x.Value }));
-                sportNameItems.push(sportNameItem);
+    private buildProductTreeviewItems(list: ProductSportTypeBetType[]): TreeviewItem[] {
+        const productItems: TreeviewItem[] = [];
+        const productNames = _.uniq(list.map(x => x.ProductName));
+        productNames.forEach(productName => {
+            const productItem = new TreeviewItem({
+                text: productName,
+                value: productName,
+                collapsed: true
             });
-            sportGroupItem.children = sportNameItems;
-            sportGroupItems.push(sportGroupItem);
+            productItems.push(productItem);
+            const listByProductName = list.filter(x => x.ProductName === productName);
+            listByProductName.forEach(item => {
+                let currentTreeviewItem = productItem;
+                const treeItems = this.getProductTreeItems(item);
+                treeItems.forEach(treeItem => {
+                    let childItem: TreeviewItem;
+                    if (currentTreeviewItem.children) {
+                        for (let i = 0; i < currentTreeviewItem.children.length; i++) {
+                            const child = currentTreeviewItem.children[i];
+                            if (child.text === treeItem.text && child.value === treeItem.value) {
+                                childItem = child;
+                                break;
+                            }
+                        }
+                    }
+                    if (!childItem) {
+                        childItem = new TreeviewItem(treeItem);
+                        if (currentTreeviewItem.children) {
+                            currentTreeviewItem.children.push(childItem);
+                        } else {
+                            currentTreeviewItem.children = [childItem];
+                        }
+                    }
+                    currentTreeviewItem = childItem;
+                });
+            });
         });
-        return sportGroupItems;
-    }
-}
 
-class ProductSportBetTypeChildren implements ProductChildren {
-    getChildren(listByProductName: ProductSportTypeBetType[]): TreeviewItem[] {
-        const sportNames = _.uniq(listByProductName.map(x => x.SportName));
-        const sportNameItems: TreeviewItem[] = [];
-        sportNames.forEach(sportName => {
-            const sportNameItem = new TreeviewItem({ text: sportName, value: sportName, collapsed: true });
-            const listBySportName = listByProductName.filter(x => x.SportName === sportName);
-            sportNameItem.children = listBySportName.map(x => new TreeviewItem({ text: x.BetTypeName, value: x.Value }));
-            sportNameItems.push(sportNameItem);
+        return productItems;
+    }
+
+    private getProductTreeItems(item: ProductSportTypeBetType): TreeItem[] {
+        let renderTypeNodes: string[] = [];
+        switch (item.RenderType) {
+            case RenderType.Product_SportGroup_Sport_BetType:
+                renderTypeNodes = [item.SportGroup, item.SportName];
+                break;
+            case RenderType.Product_Sport_BetType:
+                renderTypeNodes = [item.SportName];
+                break;
+        }
+
+        let treeItems = renderTypeNodes.map(node => <TreeItem>{
+            text: node,
+            value: item.RenderType
         });
-        return sportNameItems;
-    }
-}
-
-class ProductBetTypeChildren implements ProductChildren {
-    getChildren(listByProductName: ProductSportTypeBetType[]): TreeviewItem[] {
-        return listByProductName.map(x => new TreeviewItem({ text: x.BetTypeName, value: x.Value }));
+        treeItems.push({
+            text: item.BetTypeName,
+            value: item.Value
+        });
+        return treeItems;
     }
 }

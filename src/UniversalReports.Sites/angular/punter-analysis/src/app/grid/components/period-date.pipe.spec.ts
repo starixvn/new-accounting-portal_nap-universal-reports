@@ -13,18 +13,15 @@ describe('PeriodDatePipe', () => {
         expect(pipe.transform(date, undefined)).toBe('');
     });
 
-    it('transform date to "2016/11/02" with Daily', () => {
-        expect(pipe.transform(date, PeriodType.Daily)).toBe('2016/11/02');
+    it('transform date to "2016-11-02" with Daily', () => {
+        expect(pipe.transform(date, PeriodType.Daily)).toBe('2016-11-02');
     });
 
-    it('transform date to "11/2016" with Monthly & MonthRange', () => {
+    it('transform date to "11/2016" with Monthly, MonthRange & Annually', () => {
         const expected = '11/2016';
         expect(pipe.transform(date, PeriodType.Monthly)).toBe(expected);
         expect(pipe.transform(date, PeriodType.MonthRange)).toBe(expected);
-    });
-
-    it('transform date to "2016" with Annually', () => {
-        expect(pipe.transform(date, PeriodType.Annually)).toBe('2016');
+        expect(pipe.transform(date, PeriodType.Annually)).toBe(expected);
     });
 
     it('transform date to "11/2016 - Week 44" with Weekly', () => {

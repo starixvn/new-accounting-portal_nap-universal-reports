@@ -33,16 +33,6 @@ export class AssociatedAccountGridComponent implements Grid {
 
     get title(): string {
         const filterModel = this.gridService.filterModel;
-        return `Associated accounts of Punter ${this.service.model.custName} ${this.getDateFromToTitle()}`;
-    }
-
-    private getDateFromToTitle(): string {
-        const filterModel = this.gridService.filterModel;
-        const momentFromDate = DateHelper.convertDateStructToMoment(filterModel.fromDate);
-        const momentToDate = DateHelper.convertDateStructToMoment(filterModel.toDate);
-        const dateFormat = 'MM/DD/YYYY';
-        const fromDateString = momentFromDate.format(dateFormat);
-        const toDateString = momentToDate.format(dateFormat);
-        return `from ${fromDateString} to ${toDateString}`;
+        return `Associated accounts of Punter ${this.service.model.custName}`;
     }
 }

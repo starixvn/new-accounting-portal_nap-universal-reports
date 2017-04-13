@@ -112,8 +112,8 @@ describe('AssociatedAccountGridComponent', () => {
             expect(component.hasData).toBe(true);
         });
 
-        it('should have title "Associated accounts of Punter Customer 1 from 01/01/2016 to 01/10/2016"', () => {
-            expect(component.title).toBe('Associated accounts of Punter Customer 1 from 01/01/2016 to 01/10/2016');
+        it('should have title "Associated accounts of Punter Customer 1', () => {
+            expect(component.title).toBe('Associated accounts of Punter Customer 1');
         });
 
         it('should invoke exportExcel in service when call exportExcel', () => {
