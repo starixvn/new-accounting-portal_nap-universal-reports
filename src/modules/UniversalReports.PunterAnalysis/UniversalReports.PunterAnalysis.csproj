@@ -168,6 +168,7 @@
     <Compile Include="Filter\UsernameSuggestion\Handler.cs" />
     <Compile Include="Filter\UsernameSuggestion\HttpParameterJson.cs" />
     <Compile Include="Filter\UsernameSuggestion\QueryCriteria.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\Handler.cs" />
     <Compile Include="League\HandlerExcel.cs" />
     <Compile Include="League\LeagueExcelBuilder.cs" />

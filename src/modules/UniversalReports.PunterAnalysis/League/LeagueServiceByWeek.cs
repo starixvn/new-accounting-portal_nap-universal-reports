@@ -29,7 +29,6 @@ namespace UniversalReports.PunterAnalysis.League
             };
         }
 
-
         public override IEnumerable<string> GetGroupNames(IDictionary<int, List<int>> indexGroups)
         {
             foreach (var year in indexGroups.Keys)

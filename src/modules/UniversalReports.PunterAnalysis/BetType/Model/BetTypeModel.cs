@@ -34,11 +34,6 @@
 
         public static BetTypeModel operator +(BetTypeModel a, BetTypeModel b)
         {
-            return Add(a, b);
-        }
-
-        public static BetTypeModel Add(BetTypeModel a, BetTypeModel b)
-        {
             return new BetTypeModel
             {
                 BetTypeId = 0,
@@ -51,35 +46,6 @@
                 NonLiveWinLoss = a.NonLiveWinLoss + b.NonLiveWinLoss,
                 NonLiveTurnover = a.NonLiveTurnover + b.NonLiveTurnover
             };
-        }
-
-        public static bool operator ==(BetTypeModel a, BetTypeModel b)
-        {
-            return a.BetTypeId == b.BetTypeId
-                && a.BetTypeName == b.BetTypeName
-                && a.HasLeague == b.HasLeague
-                && a.LiveBetCount == b.LiveBetCount
-                && a.LiveWinLoss == b.LiveWinLoss
-                && a.LiveTurnover == b.LiveTurnover
-                && a.NonLiveBetCount == b.NonLiveBetCount
-                && a.NonLiveWinLoss == b.NonLiveWinLoss
-                && a.NonLiveTurnover == b.NonLiveTurnover;
-        }
-
-        public static bool operator !=(BetTypeModel a, BetTypeModel b)
-        {
-            return !(a == b);
-        }
-
-        public override int GetHashCode()
-        {
-            return 0;
-        }
-
-        public override bool Equals(object obj)
-        {
-            var good = obj as BetTypeModel;
-            return obj != null && this == good;
         }
     }
 }
