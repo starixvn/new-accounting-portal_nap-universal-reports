@@ -9,6 +9,9 @@
 }
 
 :host /deep/ .row {
+    .text-danger {
+        vertical-align: middle;
+    }
     .col-x1 {
         float: left;
         width: 330px;

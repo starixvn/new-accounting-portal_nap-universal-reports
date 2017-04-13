@@ -105,21 +105,14 @@ export class FilterModelWrapper {
     }
 
     get dateFromToTitle(): string {
-        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-        const dateFormat = 'MMM DD, YYYY';
-        const fromDateString = momentFromDate.format(dateFormat);
-        const toDateString = momentToDate.format(dateFormat);
-        return `from ${fromDateString} to ${toDateString} (${this.periodTitle})`;
+        const dateFromToDateString = this.getDateFromToString();
+        return `${dateFromToDateString} (${this.periodTitle})`;
     }
 
     get dateFromToFileName(): string {
-        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-        const dateFormat = 'MMM_DD_YYYY';
-        const fromDateString = momentFromDate.format(dateFormat);
-        const toDateString = momentToDate.format(dateFormat);
-        return `From_${fromDateString}_To_${toDateString}`;
+        let dateFromToDateString = this.getDateFromToString();
+        dateFromToDateString = dateFromToDateString.replace(/ /g, '_').replace(/,/g, '');
+        return dateFromToDateString;
     }
 
     get searchByTitle(): string {
@@ -128,5 +121,29 @@ export class FilterModelWrapper {
 
     get searchByFileName(): string {
         return `Search_by_${this.searchByTitle}`;
+    }
+
+    private getDateFromToString(): string {
+        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
+        switch (this.filterModel.periodType) {
+            case PeriodType.Daily:
+            case PeriodType.Weekly:
+                const dateFormat = 'MMM DD, YYYY';
+                const fromDateString = momentFromDate.format(dateFormat);
+                const toDateString = momentToDate.format(dateFormat);
+                return `from ${fromDateString} to ${toDateString}`;
+            case PeriodType.Monthly:
+                const monthDateString = momentFromDate.format('MMM YYYY');
+                return `in ${monthDateString}`;
+            case PeriodType.MonthRange:
+                const monthFormat = 'MMM YYYY';
+                const fromMonthDateString = momentFromDate.format(monthFormat);
+                const toMonthDateString = momentToDate.format(monthFormat);
+                return `from ${fromMonthDateString} to ${toMonthDateString}`;
+            case PeriodType.Annually:
+                const yearDateString = momentFromDate.format('YYYY');
+                return `in ${yearDateString}`;
+        }
     }
 }

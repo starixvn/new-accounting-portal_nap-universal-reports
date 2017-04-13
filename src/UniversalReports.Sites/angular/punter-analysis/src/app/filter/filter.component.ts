@@ -99,13 +99,6 @@ export class FilterComponent implements OnInit {
                 this.toastService.activate('Date range should not exceed 1 month!');
                 return false;
             }
-        } else if (model.periodType === PeriodType.MonthRange) {
-            const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
-            const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
-            if (momentFromDate.add(1, 'year').isBefore(momentToDate)) {
-                this.toastService.activate('Date range should not exceed 1 year!');
-                return false;
-            }
         }
 
         if (model.depth === RoleId.Agent && model.userName === '') {
