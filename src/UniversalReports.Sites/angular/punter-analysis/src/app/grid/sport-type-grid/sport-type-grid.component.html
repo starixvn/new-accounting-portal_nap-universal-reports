@@ -33,9 +33,9 @@
             </colgroup>
             <tr *ngFor="let item of data.Entities">
                 <td><a href="javascript:;" (click)="showBetType(item.SportId, item.SportName)">{{ item.SportName }}</a></td>
-                <td [napDecimalFormat]="item.WinLoss"></td>
-                <td [napDecimalFormat]="item.Turnover"></td>
-                <td [napPercentFormat]="item.WinLoss/item.Turnover"></td>
+                <td class="number" [napDecimalFormat]="item.WinLoss"></td>
+                <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
+                <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                 <td class="text-right">
                     <a href="javascript:;" (click)="showBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
                 </td>
@@ -54,10 +54,10 @@
             </colgroup>
             <tr>
                 <td style="width:120px" class="text-right">Total</td>
-                <td [napDecimalFormat]="data.Total.WinLoss"></td>
-                <td [napDecimalFormat]="data.Total.Turnover"></td>
-                <td [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
-                <td [napDecimalFormat]="data.Total.BetCount"></td>
+                <td class="number" [napDecimalFormat]="data.Total.WinLoss"></td>
+                <td class="text-right" [napDecimalFormat]="data.Total.Turnover"></td>
+                <td class="number" [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
+                <td class="text-right" [napDecimalFormat]="data.Total.BetCount"></td>
                 <td></td>
             </tr>
         </table>

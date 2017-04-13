@@ -31,7 +31,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
     GridType = GridType;
     gridType = GridType.UserName;
-    breadcrumbItems: string[] = ['Main', 'Library'];
+    breadcrumbItems: string[];
     private components: ComponentRef<Grid>[] = [];
 
     constructor(

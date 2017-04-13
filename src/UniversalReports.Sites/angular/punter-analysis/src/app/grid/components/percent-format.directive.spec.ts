@@ -34,38 +34,36 @@ describe('PercentFormatDirective', () => {
     des = fixture.debugElement.queryAll(By.directive(PercentFormatDirective));
   });
 
-  function expectElement(index: number, elementClasses: string[], text: string) {
-    elementClasses.forEach(elementClass => {
-      expect(des[index].nativeElement).toHaveCssClass(elementClass);
-    });
+  function expectElement(index: number, className: string, text: string) {
+    expect(des[index].nativeElement.className).toBe(className);
     expect(des[index].nativeElement).toHaveText(text);
   }
 
-  it('should mark empty value as text "N/A" and class "number"', () => {
-    expectElement(0, ['number'], 'N/A');
+  it('should mark empty value as text "N/A" and className ""', () => {
+    expectElement(0, '', 'N/A');
   });
 
-  it('should mark value 0 as text "0.00%" and class "number"', () => {
-    expectElement(1, ['number'], '0.00%');
+  it('should mark value 0 as text "0.00%" and className ""', () => {
+    expectElement(1, '', '0.00%');
   });
 
-  it('should mark value 0/0 as text "N/A" and class "number"', () => {
-    expectElement(2, ['number'], 'N/A');
+  it('should mark value 0/0 as text "N/A" and className ""', () => {
+    expectElement(2, '', 'N/A');
   });
 
-  it('should mark value 1/0 as text "N/A" and class "number"', () => {
-    expectElement(3, ['number'], 'N/A');
+  it('should mark value 1/0 as text "N/A" and className ""', () => {
+    expectElement(3, '', 'N/A');
   });
 
-  it('should mark value -1/0 as text "N/A" and class "number"', () => {
-    expectElement(4, ['number'], 'N/A');
+  it('should mark value -1/0 as text "N/A" and className ""', () => {
+    expectElement(4, '', 'N/A');
   });
 
-  it('should mark value 0.15323 as text "15.32%" and class "number"', () => {
-    expectElement(5, ['number'], '15.32%');
+  it('should mark value 0.15323 as text "15.32%" and className "number-positive"', () => {
+    expectElement(5, 'number-positive', '15.32%');
   });
 
-  it('should mark value -0.15323 as text "-15.32%" and class "number, number-negative"', () => {
-    expectElement(6, ['number', 'number-negative'], '-15.32%');
+  it('should mark value -0.15323 as text "-15.32%" and className "number-negative"', () => {
+    expectElement(6, 'number-negative', '-15.32%');
   });
 });

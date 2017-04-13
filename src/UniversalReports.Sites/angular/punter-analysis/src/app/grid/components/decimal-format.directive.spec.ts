@@ -31,26 +31,24 @@ describe('DecimalFormatDirective', () => {
     des = fixture.debugElement.queryAll(By.directive(DecimalFormatDirective));
   });
 
-  function expectElement(index: number, elementClasses: string[], text: string) {
-    elementClasses.forEach(elementClass => {
-      expect(des[index].nativeElement).toHaveCssClass(elementClass);
-    });
+  function expectElement(index: number, className: string, text: string) {
+    expect(des[index].nativeElement.className).toBe(className);
     expect(des[index].nativeElement).toHaveText(text);
   }
 
-  it('should mark empty value as text "NaN" and class "number"', () => {
-    expectElement(0, ['number'], 'NaN');
+  it('should mark empty value as text "NaN" and className ""', () => {
+    expectElement(0, '', 'NaN');
   });
 
-  it('should mark value 0 as text "0.00" and class "number"', () => {
-    expectElement(1, ['number'], '0.00');
+  it('should mark value 0 as text "0.00" and className ""', () => {
+    expectElement(1, '', '0.00');
   });
 
-  it('should mark value 153256.321962 as text "153,256.32" and class "number"', () => {
-    expectElement(2, ['number'], '153,256.32');
+  it('should mark value 153256.321962 as text "153,256.32" and className "number-positive"', () => {
+    expectElement(2, 'number-positive', '153,256.32');
   });
 
-  it('should mark value  -153256.321962 as text "-153,256.32" and class "number, number-negative"', () => {
-    expectElement(3, ['number', 'number-negative'], '-153,256.32');
+  it('should mark value  -153256.321962 as text "-153,256.32" and className "number-negative"', () => {
+    expectElement(3, 'number-negative', '-153,256.32');
   });
 });

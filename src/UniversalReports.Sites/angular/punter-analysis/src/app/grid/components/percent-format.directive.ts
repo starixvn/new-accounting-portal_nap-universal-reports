@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer, OnInit, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 
 @Directive({
@@ -11,13 +11,6 @@ export class PercentFormatDirective implements OnInit {
     maximumFractionDigits: 2
   });
   @Input('napPercentFormat') value: number;
-  @HostBinding('class') get elementClass(): string {
-    if (this.value < 0) {
-      return 'number number-negative';
-    } else {
-      return 'number';
-    }
-  }
 
   constructor(
     private el: ElementRef,
@@ -28,6 +21,15 @@ export class PercentFormatDirective implements OnInit {
     let innerHTML = '';
     if (this.isValidNumber()) {
       innerHTML = PercentFormatDirective.percentFormat.format(this.value);
+      let className = '';
+      if (this.value < 0) {
+        className = 'number-negative';
+      } else if (this.value > 0) {
+        className = 'number-positive';
+      }
+      if (className !== '') {
+        this.renderer.setElementClass(this.el.nativeElement, className, true);
+      }
     } else {
       innerHTML = 'N/A';
     }

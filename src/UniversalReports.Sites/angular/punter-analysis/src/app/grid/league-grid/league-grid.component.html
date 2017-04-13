@@ -43,10 +43,10 @@
             <tr *ngFor="let leagueItem of data.Entities">
                 <td>{{ leagueItem.LeagueName }}</td>
                 <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
-                    <td [napDecimalFormat]="leagueItem.PeriodGroups[i].WinLoss"></td>
-                    <td [napDecimalFormat]="leagueItem.PeriodGroups[i].Turnover"></td>
-                    <td [napPercentFormat]="leagueItem.PeriodGroups[i].WinLoss/leagueItem.PeriodGroups[i].Turnover"></td>
-                    <td [napIntegerFormat]="leagueItem.PeriodGroups[i].BetCount"></td>
+                    <td class="number" [napDecimalFormat]="leagueItem.PeriodGroups[i].WinLoss"></td>
+                    <td class="text-right" [napDecimalFormat]="leagueItem.PeriodGroups[i].Turnover"></td>
+                    <td class="number" [napPercentFormat]="leagueItem.PeriodGroups[i].WinLoss/leagueItem.PeriodGroups[i].Turnover"></td>
+                    <td class="text-right" [napIntegerFormat]="leagueItem.PeriodGroups[i].BetCount"></td>
                 </ng-template>
             </tr>
         </table>
@@ -66,10 +66,10 @@
             <tr>
                 <td class="text-right">Total</td>
                 <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
-                    <td [napDecimalFormat]="data.Total.PeriodGroups[i].WinLoss"></td>
-                    <td [napDecimalFormat]="data.Total.PeriodGroups[i].Turnover"></td>
-                    <td [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>
-                    <td [napIntegerFormat]="data.Total.PeriodGroups[i].BetCount"></td>
+                    <td class="number" [napDecimalFormat]="data.Total.PeriodGroups[i].WinLoss"></td>
+                    <td class="text-right" [napDecimalFormat]="data.Total.PeriodGroups[i].Turnover"></td>
+                    <td class="number" [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>
+                    <td class="text-right" [napIntegerFormat]="data.Total.PeriodGroups[i].BetCount"></td>
                 </ng-template>
                 <td></td>
             </tr>

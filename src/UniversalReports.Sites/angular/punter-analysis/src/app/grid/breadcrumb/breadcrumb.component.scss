@@ -10,6 +10,7 @@
         background-color: transparent;
     }
     .toolbox {
+        padding: 0 .4rem;
         [class*="icon-"] {
             cursor: pointer;
             width: 16px;
@@ -22,6 +23,9 @@
             margin-right: .3rem;
             .icon-filter {
                 background: url("images/filter.png") no-repeat scroll 0 0 transparent;
+            }
+            leo-dropdown-treeview {
+                min-width: 100px;
             }
         }
         .excel {

@@ -50,9 +50,10 @@
     }
     .number {
         text-align: right;
-    }
-    .number-negative {
-        color: red;
+        &.number-positive,
+        &>.number-positive {
+            color: red;
+        }
     }
     .word-break-all {
         word-break: break-all;

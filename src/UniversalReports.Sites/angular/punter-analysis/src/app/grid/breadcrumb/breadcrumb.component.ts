@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { TreeviewItem } from 'ng2-dropdown-treeview';
 import { BreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
 import { GridService } from '../grid.service';
@@ -13,7 +13,7 @@ function hasFilter(grid: any): grid is BreadcrumbFilter {
     templateUrl: './breadcrumb.component.html',
     styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumbComponent {
+export class BreadcrumbComponent implements OnChanges {
     @Input() items: string[];
     filterItems: TreeviewItem[];
     isShowFilter = false;
@@ -21,6 +21,11 @@ export class BreadcrumbComponent {
     constructor(
         private gridService: GridService
     ) { }
+
+    ngOnChanges() {
+        this.isShowFilter = false;
+        this.filterItems = undefined;
+    }
 
     get hasData(): boolean {
         return this.gridService.activeGrid.hasData;

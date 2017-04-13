@@ -28,12 +28,12 @@
             <div class="col-value">
                 <div class="d-inline-block">
                     <select class="form-control" [(ngModel)]="orderBy">
-                        <option *ngFor="let option of orderByOptions" [value]="option.value">{{option.text}}</option>
+                        <option *ngFor="let option of orderByOptions" [ngValue]="option.value">{{option.text}}</option>
                     </select>
                 </div>
                 <div class="float-right d-inline-block">
                     <select class="form-control" [(ngModel)]="sortBy">
-                        <option *ngFor="let option of sortByOptions" [value]="option.value">{{option.text}}</option>
+                        <option *ngFor="let option of sortByOptions" [ngValue]="option.value">{{option.text}}</option>
                     </select>
                 </div>
             </div>

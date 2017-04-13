@@ -3,9 +3,10 @@ import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { NgbDatepickerModule, NgbInputDatepicker, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { eventHelper } from 'nap-components/src/testing';
 import { NgbDateStruct } from 'nap-components/src/date';
+import { DatePickerToggleDirective } from '../date-picker-toggle/date-picker-toggle.directive';
 import { DatePickerComponent } from './date-picker.component';
 
 @Component({
@@ -39,6 +40,7 @@ describe('DatePickerComponent', () => {
             ],
             declarations: [
                 DatePickerComponent,
+                DatePickerToggleDirective,
                 TestComponent
             ]
         }).compileComponents();

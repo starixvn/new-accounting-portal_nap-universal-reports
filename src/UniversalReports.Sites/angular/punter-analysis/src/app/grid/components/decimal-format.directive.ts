@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer, OnInit, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[napDecimalFormat]'
@@ -10,13 +10,6 @@ export class DecimalFormatDirective implements OnInit {
     maximumFractionDigits: 2
   });
   @Input('napDecimalFormat') value: number;
-  @HostBinding('class') get elementClass(): string {
-    if (this.value < 0) {
-      return 'number number-negative';
-    } else {
-      return 'number';
-    }
-  }
 
   constructor(
     private el: ElementRef,
@@ -24,6 +17,15 @@ export class DecimalFormatDirective implements OnInit {
   ) { }
 
   ngOnInit() {
+    let className = '';
+    if (this.value < 0) {
+      className = 'number-negative';
+    } else if (this.value > 0) {
+      className = 'number-positive';
+    }
+    if (className !== '') {
+      this.renderer.setElementClass(this.el.nativeElement, className, true);
+    }
     const innerHTML = DecimalFormatDirective.decimalFormat.format(this.value);
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
