@@ -6,6 +6,8 @@ namespace UniversalReports.PunterAnalysis.Core
     public interface DateTimeService
     {
         DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
+
+        int GetWeekOfYearIso8601(DateTime time);
     }
 
     public class DateTimeServiceImp : DateTimeService
@@ -23,6 +25,17 @@ namespace UniversalReports.PunterAnalysis.Core
 
             var result = firstThursday.AddDays(weekNum * 7);
             return result.AddDays(-3);
+        }
+
+        public int GetWeekOfYearIso8601(DateTime time)
+        {
+            var day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
     }
 }

@@ -84,7 +84,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             Assert.That(firstModel.WinLoss, Is.Not.Zero);
             Assert.That(firstModel.WinCount, Is.Not.Zero);
             Assert.That(firstModel.DrawCount, Is.Not.Zero);
-            Assert.That(firstModel.Date, Is.GreaterThan(DateTime.MinValue));
+            Assert.That(firstModel.Date, Is.Not.Empty);
         }
 
         [Test]

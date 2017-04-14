@@ -17,9 +17,12 @@ namespace UniversalReports.PunterAnalysis.BetCount
     {
         private readonly IDynamicRepository repository;
 
-        public BetCountServiceImp(IDynamicRepository repository)
+        private readonly DateTimeService dateTimeService;
+
+        public BetCountServiceImp(IDynamicRepository repository, DateTimeService dateTimeService)
         {
             this.repository = repository;
+            this.dateTimeService = dateTimeService;
         }
 
         public async Task<ReportModelBase<BetCountModel>> Query(Criteria criteria)
@@ -52,13 +55,13 @@ namespace UniversalReports.PunterAnalysis.BetCount
             switch ((PeriodTypeEnum)periodType)
             {
                 case PeriodTypeEnum.Daily:
-                    return date.ToString("YYYY-MM-DD");
+                    return $"{date:yyyy-MM-dd}";
                 case PeriodTypeEnum.Weekly:
-                    return date.ToString("MM/YYYY") + " - Week " + date.ToString("W");
+                    return $"{date:MM/yyyy} - Week {dateTimeService.GetWeekOfYearIso8601(date)}";
                 case PeriodTypeEnum.MonthRange:
                 case PeriodTypeEnum.Monthly:
                 default:
-                    return date.ToString("MM/YYYY");
+                    return $"{date:MM/yyyy}";
             }
         }
     }

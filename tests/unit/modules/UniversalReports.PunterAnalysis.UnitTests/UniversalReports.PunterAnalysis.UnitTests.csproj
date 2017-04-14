@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BetCount\BetCountExcelSettingFactoryUnitTests.cs" />
+    <Compile Include="BetCount\BetCountServiceUnitTests.cs" />
     <Compile Include="BetCount\HandlerExcelUnitTests.cs" />
     <Compile Include="BetType\BetTypeExcelSettingFactoryUnitTests.cs" />
     <Compile Include="BetType\HandlerExcelUnitTests.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Filter\ProductSportBetType\HandlerUnitTests.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerUnitTests.cs" />
     <Compile Include="Filter\UsernameSuggestion\HandlerUnitTests.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\HandlerExcelUnitTests.cs" />
     <Compile Include="League\HandlerUnitTests.cs" />
     <Compile Include="League\LeagueExcelSettingFactoryUnitTests.cs" />

@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount.Model
 
             var expectedObject = new BetCountModel
             {
-                Date = DateTime.MinValue.ToShortDateString(),
+                Date = string.Empty,
                 BetCount = 8,
                 WinCount = 5,
                 DrawCount = 3,

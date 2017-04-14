@@ -22,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
 
             var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountModel>(FakeRepositoryDataFileName);
+            var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountRawModel>(FakeRepositoryDataFileName);
 
             // Act
             var httpActionResult = await controller.Index(new HttpParameterJson());
@@ -45,7 +45,7 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             var expectedTotal = TestDataLoader.Load<object[,]>("BetCount-Excel-ExpectedTotal.json");
 
             var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountModel>(FakeRepositoryDataFileName);
+            var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountRawModel>(FakeRepositoryDataFileName);
 
             // Act
             var httpActionResult = await controller.Excel(new HttpParameterExcel { Title = "Any Title", Filter = "Any Filter" });
