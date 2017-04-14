@@ -149,7 +149,7 @@ namespace UniversalReports.PunterAnalysis.League
         {
             statisticSheet.Cells[RowIndex, columnIndex].Value = group.WinLoss;
             statisticSheet.Cells[RowIndex, columnIndex + 1].Value = group.Turnover;
-            statisticSheet.Cells[RowIndex, columnIndex + 2].Value = group.Margin;
+            statisticSheet.Cells[RowIndex, columnIndex + 2].Value = group.Turnover == 0 ? "N/A" : (object)group.Margin;
             statisticSheet.Cells[RowIndex, columnIndex + 3].Value = group.BetCount;
         }
     }

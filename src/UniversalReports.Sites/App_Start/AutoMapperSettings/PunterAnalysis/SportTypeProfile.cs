@@ -12,7 +12,8 @@ namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
             CreateMap<ReportModelBase<SportTypeModel>, ViewModelJson>(MemberList.Source);
             CreateMap<ReportModelBase<SportTypeModel>, ExcelViewModel>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
-            CreateMap<SportTypeModel, SportTypeExcelModel>(MemberList.Source);
+            CreateMap<SportTypeModel, SportTypeExcelModel>(MemberList.Source)
+                .ForMember(dest => dest.Margin, opt => opt.MapFrom(src => src.Turnover == 0 ? "N/A" : (object)src.Margin));
             CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }
     }

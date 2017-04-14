@@ -16,9 +16,9 @@
       "NonLiveWinLoss": 50,
       "NonLiveTurnover": 100,
       "NonLiveBetCount": 1,
-      "LiveWinLoss": 100,
-      "LiveTurnover": 200,
-      "LiveBetCount": 2
+      "LiveWinLoss": 0,
+      "LiveTurnover": 0,
+      "LiveBetCount": 0
     }
   ],
   "Total": {
@@ -27,8 +27,8 @@
     "NonLiveWinLoss": 150,
     "NonLiveTurnover": 300,
     "NonLiveBetCount": 3,
-    "LiveWinLoss": 300,
-    "LiveTurnover": 600,
-    "LiveBetCount": 5
+    "LiveWinLoss": 200,
+    "LiveTurnover": 400,
+    "LiveBetCount": 3
   }
 }

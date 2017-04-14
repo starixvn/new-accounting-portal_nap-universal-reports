@@ -14,7 +14,7 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
         public decimal NonLiveTurnover { get; set; }
 
         [Cell("D9")]
-        public decimal NonLiveMargin { get; set; }
+        public object NonLiveMargin { get; set; }
 
         [Cell("E9")]
         public int NonLiveBetCount { get; set; }
@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
         public decimal LiveTurnover { get; set; }
 
         [Cell("H9")]
-        public decimal LiveMargin { get; set; }
+        public object LiveMargin { get; set; }
 
         [Cell("I9")]
         public int LiveBetCount { get; set; }
@@ -38,7 +38,7 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
         public decimal Turnover { get; set; }
 
         [Cell("L9")]
-        public decimal Margin { get; set; }
+        public object Margin { get; set; }
 
         [Cell("M9")]
         public int BetCount { get; set; }

@@ -8,15 +8,15 @@
     },
     {
       "Username": "User 2",
-      "WinLoss": 150,
-      "Turnover": 250,
-      "BetCount": 3
+      "WinLoss": 0,
+      "Turnover": 0,
+      "BetCount": 0
     }
   ],
   "Total": {
     "Username": "",
-    "WinLoss": 450,
-    "Turnover": 750,
-    "BetCount": 8
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
   }
 }

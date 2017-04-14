@@ -7,8 +7,8 @@
   },
   {
     "Username": "User 2",
-    "WinLoss": 150,
-    "Turnover": 250,
-    "BetCount": 3
+    "WinLoss": 0,
+    "Turnover": 0,
+    "BetCount": 0
   }
 ]

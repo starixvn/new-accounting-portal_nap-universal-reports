@@ -14,7 +14,7 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
         public decimal Turnover { get; set; }
 
         [Cell("D8")]
-        public decimal Margin { get; set; }
+        public object Margin { get; set; }
 
         [Cell("E8")]
         public int BetCount { get; set; }
