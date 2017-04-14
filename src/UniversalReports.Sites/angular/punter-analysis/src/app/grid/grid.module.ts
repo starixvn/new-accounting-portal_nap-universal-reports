@@ -5,7 +5,6 @@ import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 
 import { PaginationModule } from 'nap-components/src/pagination';
 
-import { PeriodDatePipe } from './components/period-date.pipe';
 import { DecimalFormatDirective } from './components/decimal-format.directive';
 import { IntegerFormatDirective } from './components/integer-format.directive';
 import { PercentFormatDirective } from './components/percent-format.directive';
@@ -33,7 +32,6 @@ import { LeagueGridService } from './league-grid/league-grid.service';
         PaginationModule.forRoot()
     ],
     declarations: [
-        PeriodDatePipe,
         DecimalFormatDirective,
         IntegerFormatDirective,
         PercentFormatDirective,

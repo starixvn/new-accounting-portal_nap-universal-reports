@@ -1,7 +1,10 @@
+@import '../../../../components/src/style/mixins';
 :host /deep/ .grid {
     font-family: Tahoma, Arial, Helvetica, sans-serif;
     font-size: 0.8125rem;
     overflow-x: auto;
+    width: 100%;
+    @include calc( max-width, '100vw - 17px');
     table {
         table-layout: fixed;
         border-collapse: collapse;
