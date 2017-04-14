@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { TreeviewItem, TreeItem } from 'ng2-dropdown-treeview';
 import { RoleId } from 'nap-components/src/model';
-import { HttpService } from '../components/http.service';
+import { HttpService } from 'nap-components/src/http.service';
 import { FilterModel } from './filter.model';
 
 export interface DataWarehouseDateRange {

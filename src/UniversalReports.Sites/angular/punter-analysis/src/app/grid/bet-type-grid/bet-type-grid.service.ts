@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
-import { HttpService } from '../../components/http.service';
-import { Helper } from '../../components/helper';
+import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/src/helper';
 import { FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';

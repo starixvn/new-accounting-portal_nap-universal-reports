@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from '../../components/http.service';
+import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/src/helper';
 import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
-import { Helper } from '../../components/helper';
 import { GridService } from '../grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';

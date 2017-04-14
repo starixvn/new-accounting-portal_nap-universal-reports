@@ -6,12 +6,12 @@ import {
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { ToastService } from 'nap-components/src/toast';
+import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { OptionItem, RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
 import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
-import { TypeaheadQuery } from '../components/dropdown-typeahead';
 
 @Component({
     selector: 'nap-filter',

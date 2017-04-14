@@ -1,11 +1,11 @@
-///<reference path="../../../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
+///<reference path="../testing/jasmine-matchers.d.ts" />
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { eventHelper } from 'nap-components/src/testing';
+import { eventHelper } from '../testing';
 import { DropdownTypeaheadComponent } from './dropdown-typeahead.component';
 import { TypeaheadQuery } from './dropdown-typeahead.model';
 

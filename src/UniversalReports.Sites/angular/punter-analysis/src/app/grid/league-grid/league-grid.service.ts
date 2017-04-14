@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
+import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/src/helper';
 import { FilterModelWrapper } from '../../filter/filter.model';
-import { HttpService } from '../../components/http.service';
-import { Helper } from '../../components/helper';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
 import { LeagueGridModel, LeagueData } from './league-grid.model';

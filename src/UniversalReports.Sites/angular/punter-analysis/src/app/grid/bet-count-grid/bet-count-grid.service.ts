@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from '../../components/http.service';
+import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/src/helper';
 import { FilterModelWrapper } from '../../filter/filter.model';
-import { Helper } from '../../components/helper';
 import { GridService } from '../grid.service';
 import { BetCountGridModel, BetCountData } from './bet-count-grid.model';
 

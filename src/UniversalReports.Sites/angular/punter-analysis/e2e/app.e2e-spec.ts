@@ -1,3 +1,4 @@
+///<reference path="../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { PunterAnalysisPage } from './app.po';
 
 describe('punter-analysis App', () => {
@@ -5,10 +6,28 @@ describe('punter-analysis App', () => {
 
   beforeEach(() => {
     page = new PunterAnalysisPage();
+    page.navigateTo();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+  describe('menu', () => {
+    it('should exist', () => {
+      expect(page.getMenu().isPresent()).toBeTruthy();
+    });
+  });
+
+  describe('header-container', () => {
+    it('should display page header "Fraud & Risk / Punter Analysis"', () => {
+      const expected: any = 'Fraud & Risk / Punter Analysis';
+      expect(page.getHeaderText()).toEqual(expected);
+    });
+  });
+
+  describe('filter-container', () => {
+    it('should have more than 10 product dropdown item', () => {
+      page.isReady();
+      const productDropdownItems = page.getProductDropdownItems();
+      // page.pause();
+      expect(productDropdownItems.count()).toBeGreaterThan(10);
+    });
   });
 });

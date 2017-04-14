@@ -6,8 +6,8 @@ import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 
 import { LegendModule } from 'nap-components/src/legend';
 import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
+import { DropdownTypeaheadModule } from 'nap-components/src/dropdown-typeahead';
 
-import { DropdownTypeaheadModule } from '../components/dropdown-typeahead';
 import { PeriodTypeModule } from './period-type/period-type.module';
 import { FilterComponent } from './filter.component';
 
