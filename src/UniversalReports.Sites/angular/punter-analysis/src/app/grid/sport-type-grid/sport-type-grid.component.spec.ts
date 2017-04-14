@@ -150,25 +150,25 @@ describe('SportTypeGridComponent', () => {
         });
 
         it('all cells of first row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['Sport 1', '13,024.23', '2,490.18', '523.02%', '10'];
+            const cellValues = [];
+            const expectedCellValue = ['Sport 1', '13,024.23', '2,490.18', '523.02%', '10'];
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 
             expect(cellValues).toEqual(expectedCellValue);
         });
 
-         it('all cells of second row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['Sport 2', '12,337.55', '2,712.90', '454.77%', '31'];
+        it('all cells of second row should match', () => {
+            const cellValues = [];
+            const expectedCellValue = ['Sport 2', '12,337.55', '2,712.90', '454.77%', '31'];
             const row = page.queryEntityRow(1);
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 
@@ -176,12 +176,12 @@ describe('SportTypeGridComponent', () => {
         });
 
         it('all cells of total row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['Total', '25,361.78', '5,203.08', '487.44%', '41', ''];
+            const cellValues = [];
+            const expectedCellValue = ['Total', '25,361.78', '5,203.08', '487.44%', '41', ''];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 

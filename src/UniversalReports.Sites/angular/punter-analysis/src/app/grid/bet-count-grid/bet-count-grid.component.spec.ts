@@ -142,25 +142,25 @@ describe('BetCountGridComponent', () => {
         });
 
         it('all cells of first row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['2016-12-19', '10', '6', '4', '13,024.23'];
+            const cellValues = [];
+            const expectedCellValue = ['2016-12-19', '10', '6', '4', '13,024.23'];
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 
             expect(cellValues).toEqual(expectedCellValue);
         });
-       
+
         it('all cells of second row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['2016-12-26', '31', '24', '7', '12,337.55'];
+            const cellValues = [];
+            const expectedCellValue = ['2016-12-26', '31', '24', '7', '12,337.55'];
             const row = page.queryEntityRow(1);
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 
@@ -168,12 +168,12 @@ describe('BetCountGridComponent', () => {
         });
 
         it('all cells of total row should match', () => {
-            let cellValues = [];
-            let expectedCellValue=['Total', '41', '30', '11', '25,361.78', ''];
+            const cellValues = [];
+            const expectedCellValue = ['Total', '41', '30', '11', '25,361.78', ''];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 
-            for (let td of tds) {
+            for (const td of tds) {
                 cellValues.push(td.nativeElement.innerText);
             }
 
