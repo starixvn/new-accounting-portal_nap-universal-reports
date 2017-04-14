@@ -108,10 +108,10 @@ describe('BetCountGridComponent', () => {
 
             const fakeData: BetCountData = {
                 Entities: [
-                    { Date: new Date(2016, 11, 20), WinLoss: 13024.2343, BetCount: 10, WinCount: 6, DrawCount: 4 },
-                    { Date: new Date(2016, 11, 27), WinLoss: 12337.5491, BetCount: 31, WinCount: 24, DrawCount: 7 },
+                    { Date: '2016-12-19', WinLoss: 13024.2343, BetCount: 10, WinCount: 6, DrawCount: 4 },
+                    { Date: '2016-12-26', WinLoss: 12337.5491, BetCount: 31, WinCount: 24, DrawCount: 7 },
                 ],
-                Total: { Date: new Date(2000, 1, 1), WinLoss: 25361.7834, BetCount: 41, WinCount: 30, DrawCount: 11 },
+                Total: { Date: '', WinLoss: 25361.7834, BetCount: 41, WinCount: 30, DrawCount: 11 },
             };
 
             service = fixture.debugElement.injector.get(BetCountGridService);

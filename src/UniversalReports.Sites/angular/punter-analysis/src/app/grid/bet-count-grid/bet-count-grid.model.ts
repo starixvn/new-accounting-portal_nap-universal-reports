@@ -11,7 +11,7 @@ export interface BetCountGridModel {
 }
 
 export interface BetCountItem {
-    Date: Date;
+    Date: string;
     WinLoss: number;
     BetCount: number;
     WinCount: number;

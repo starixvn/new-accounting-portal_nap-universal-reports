@@ -27,10 +27,10 @@ describe('SportTypeGridService', () => {
         custId: 1,
         filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1, SportType2',
         fromDate: '2016-01-01T00:00:00',
+        toDate: '2016-02-02T00:00:00',
         listCombinationId: '1,2',
         periodType: 1,
-        title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-        toDate: '2016-02-02T00:00:00'
+        title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)'
     };
 
     beforeEach(() => {
