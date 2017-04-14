@@ -2,7 +2,6 @@
 using MediatR;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
@@ -10,18 +9,18 @@ namespace UniversalReports.PunterAnalysis.BetCount
     {
         private readonly IMapper mapper;
 
-        private readonly PunterAnalysisService punterAnalysisService;
+        private readonly BetCountService betCountService;
 
-        public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService)
+        public Handler(IMapper mapper, BetCountService betCountService)
         {
             this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
+            this.betCountService = betCountService;
         }
 
         public async Task<ViewModelJson> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<Criteria>(message);
-            var model = await punterAnalysisService.Query<BetCountModel>(criteria);
+            var model = await betCountService.Query(criteria);
 
             var viewModel = mapper.Map<ViewModelJson>(model);
 

@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount;
@@ -19,8 +17,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         {
             // Arrange
             var emptyModelBaseWithBetCount = CreateEmptyModelBaseWithTypeModel();
-            var service = Substitute.For<PunterAnalysisService>();
-            service.Query<BetCountModel>(Arg.Any<ICriteria>()).Returns(emptyModelBaseWithBetCount);
+            var service = Substitute.For<BetCountService>();
+            service.Query(Arg.Any<Criteria>()).Returns(emptyModelBaseWithBetCount);
 
             var mapper = CreateMapper();
 
@@ -69,8 +67,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         {
             // Arrange
             var nonEmptyModelBaseWithBetCountModel = CreateNonEmptyModelBaseWithBetCountModel();
-            var service = Substitute.For<PunterAnalysisService>();
-            service.Query<BetCountModel>(Arg.Any<ICriteria>()).Returns(nonEmptyModelBaseWithBetCountModel);
+            var service = Substitute.For<BetCountService>();
+            service.Query(Arg.Any<Criteria>()).Returns(nonEmptyModelBaseWithBetCountModel);
 
             var mapper = CreateMapper();
 
@@ -109,7 +107,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
                 DrawCount = 1,
                 WinCount = 1,
                 WinLoss = 100,
-                Date = DateTime.MinValue
+                Date = string.Empty
             };
         }
     }

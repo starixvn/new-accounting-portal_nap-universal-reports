@@ -11,16 +11,16 @@ namespace UniversalReports.PunterAnalysis.BetCount
     {
         private readonly IMapper mapper;
 
-        private readonly PunterAnalysisService punterAnalysisService;
+        private readonly BetCountService betCountService;
 
         private readonly IExcelSetting setting;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
+        public HandlerExcel(IMapper mapper, BetCountService betCountService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
+            this.betCountService = betCountService;
             this.setting = setting;
             this.excelBuilder = excelBuilder;
         }
@@ -28,7 +28,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
             var criteria = mapper.Map<Criteria>(message);
-            var model = await punterAnalysisService.Query<BetCountModel>(criteria);
+            var model = await betCountService.Query(criteria);
             var excelViewModel = mapper.Map<ExcelViewModel>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);

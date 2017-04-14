@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UniversalReports.PunterAnalysis.BetCount.Model
+﻿namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
     public class BetCountModel
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public int BetCount { get; set; }
 
@@ -18,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.BetCount.Model
         {
             return new BetCountModel
             {
-                Date = DateTime.MinValue,
+                Date = string.Empty,
                 BetCount = a.BetCount + b.BetCount,
                 WinCount = a.WinCount + b.WinCount,
                 DrawCount = a.DrawCount + b.DrawCount,

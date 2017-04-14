@@ -70,7 +70,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.MapperTests
                 DrawCount = 1,
                 WinCount = 1,
                 WinLoss = 100,
-                Date = DateTime.MinValue
+                Date = DateTime.MinValue.ToShortDateString()
             };
         }
 

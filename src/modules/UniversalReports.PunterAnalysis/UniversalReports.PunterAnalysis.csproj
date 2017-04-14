@@ -112,7 +112,9 @@
   <ItemGroup>
     <Compile Include="BetCount\BetCountExcelSettingFactory.cs" />
     <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
+    <Compile Include="BetCount\Model\BetCountRawModel.cs" />
     <Compile Include="BetCount\Model\ExcelViewModel.cs" />
+    <Compile Include="BetCount\BetCountService.cs" />
     <Compile Include="BetType\BetTypeExcelSettingFactory.cs" />
     <Compile Include="BetType\Model\BetTypeExcelModel.cs" />
     <Compile Include="BetType\Model\ExcelViewModel.cs" />

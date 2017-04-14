@@ -13,7 +13,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount.Model
             // Arrange
             var firstObject = new BetCountModel
             {
-                Date = DateTime.Today,
+                Date = DateTime.Today.ToShortDateString(),
                 BetCount = 3,
                 WinCount = 2,
                 DrawCount = 1,
@@ -22,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount.Model
 
             var secondObject = new BetCountModel
             {
-                Date = DateTime.Today.AddDays(-1),
+                Date = DateTime.Today.AddDays(-1).ToShortDateString(),
                 BetCount = 5,
                 WinCount = 3,
                 DrawCount = 2,
@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount.Model
 
             var expectedObject = new BetCountModel
             {
-                Date = DateTime.MinValue,
+                Date = DateTime.MinValue.ToShortDateString(),
                 BetCount = 8,
                 WinCount = 5,
                 DrawCount = 3,

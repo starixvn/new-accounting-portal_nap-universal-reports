@@ -15,10 +15,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         {
             // Arrange
             var mapper = Substitute.For<IMapper>();
-            var punterAnalysisService = Substitute.For<PunterAnalysisService>();
+            var betCountService = Substitute.For<BetCountService>();
             var excelSetting = Substitute.For<IExcelSetting>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(mapper, betCountService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
@@ -45,11 +45,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 
             var mapper = Substitute.For<IMapper>();
             mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<BetCountModel>>()).Returns(emptyExcelViewModel);
-            var punterAnalysisService = Substitute.For<PunterAnalysisService>();
+            var betCountService = Substitute.For<BetCountService>();
             var excelSetting = Substitute.For<IExcelSetting>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(mapper, betCountService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());

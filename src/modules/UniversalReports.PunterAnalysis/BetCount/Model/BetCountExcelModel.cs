@@ -1,12 +1,11 @@
-﻿using System;
-using Epplus.Mapper.Annotations;
+﻿using Epplus.Mapper.Annotations;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
     public class BetCountExcelModel
     {
         [Cell("A7")]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Cell("B7")]
         public int BetCount { get; set; }
