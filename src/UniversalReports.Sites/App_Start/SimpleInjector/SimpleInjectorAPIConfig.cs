@@ -20,6 +20,7 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
+                .RegisterPlayForFunServices()
                 .RegisterMediator();
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

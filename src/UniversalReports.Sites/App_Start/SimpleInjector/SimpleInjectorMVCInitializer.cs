@@ -22,6 +22,7 @@ namespace UniversalReports.Sites.SimpleInjector
             .RegisterHouseWinLossServices()
             .RegisterNG2Services()
             .RegisterPunterAnalysisServices()
+            .RegisterPlayForFunServices()
             .RegisterMediator();
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

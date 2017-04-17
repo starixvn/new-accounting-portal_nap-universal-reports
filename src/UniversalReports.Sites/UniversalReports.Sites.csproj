@@ -261,6 +261,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFun\FilterProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFun\PlayForFunAutoMapper.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFun\DetailProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFun\SummaryProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\AssociatedAccountProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\FilterProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\LeagueProfile.cs" />
@@ -273,6 +277,7 @@
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysis\SummaryProfile.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\PlayForFunInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\NG2InjectorInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -284,6 +289,7 @@
     <Compile Include="Controllers\FakeLoginController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
+    <Compile Include="Controllers\PlayForFunController.cs" />
     <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -739,6 +745,10 @@
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
+      <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
+      <Name>UniversalReports.PlayForFun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
       <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
       <Name>UniversalReports.API</Name>

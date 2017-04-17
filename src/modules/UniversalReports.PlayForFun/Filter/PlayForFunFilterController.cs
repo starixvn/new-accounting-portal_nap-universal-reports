@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System.Threading.Tasks;
 using System.Web.Http;
-using HttpParameterProduct = UniversalReports.PlayForFun.Filter.Product.HttpParameterJson;
+using UniversalReports.PlayForFun.Filter.Product;
 
 namespace UniversalReports.PlayForFun.Filter
 {
@@ -15,10 +15,11 @@ namespace UniversalReports.PlayForFun.Filter
             this.mediator = mediator;
         }
 
+        [HttpGet]
         [Route("product")]
-        public async Task<IHttpActionResult> Product(HttpParameterProduct parameter)
+        public async Task<IHttpActionResult> Product()
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(new HttpParameterJson());
             return Json(viewModel);
         }
     }
