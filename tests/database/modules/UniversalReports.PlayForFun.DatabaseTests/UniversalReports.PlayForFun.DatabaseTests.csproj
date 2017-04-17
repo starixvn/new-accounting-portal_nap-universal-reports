@@ -89,31 +89,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
+      <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
+      <Name>UniversalReports.PlayForFun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
-      <Project>{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}</Project>
-      <Name>UniversalReports.PlayForFun</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml" />
+  </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="App_Data\Local\DBAGE.bodb02.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Data\Local\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

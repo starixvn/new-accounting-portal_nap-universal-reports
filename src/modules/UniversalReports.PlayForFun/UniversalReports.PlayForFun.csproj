@@ -119,7 +119,7 @@
     <Compile Include="Filter\Product\Handler.cs" />
     <Compile Include="Filter\Product\HttpParameterJson.cs" />
     <Compile Include="Filter\Product\ProductEntity.cs" />
-    <Compile Include="Filter\Product\QueryCriteria.cs" />
+    <Compile Include="Filter\Product\Criteria.cs" />
     <Compile Include="Filter\PlayForFunFilterController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Detail\Handler.cs" />

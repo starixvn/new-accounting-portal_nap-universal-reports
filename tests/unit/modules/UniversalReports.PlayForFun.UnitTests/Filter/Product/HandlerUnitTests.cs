@@ -25,7 +25,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter.Product
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ProductEntity>(Arg.Any<QueryCriteria>())
+            repository.FetchAsync<ProductEntity>(Arg.Any<Criteria>())
                 .Returns(valueFromRepository);
 
             // Act
@@ -40,12 +40,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter.Product
         {
             return new ProductEntity
             {
-                BetTypeName = "Any Bet Type Name",
                 ProductName = "Any Product Name",
-                RenderType = 1,
-                SportGroup = "Any Sport Group",
-                SportName = "Any Sport Name",
-                Value = 1
+                ProductId = 1,
             };
         }
     }

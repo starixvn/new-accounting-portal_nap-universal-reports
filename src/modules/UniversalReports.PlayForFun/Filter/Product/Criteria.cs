@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PlayForFun.Filter.Product
 {
-    public class QueryCriteria : CriteriaBase
+    public class Criteria : CriteriaBase
     {
         public override string GetSettingKey() => "PlayForFun-ProductQuery";
 

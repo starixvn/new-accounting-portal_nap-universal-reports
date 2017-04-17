@@ -1,16 +1,16 @@
-﻿namespace UniversalReports.PlayForFun.Summary.Model
+﻿using System;
+
+namespace UniversalReports.PlayForFun.Summary.Model
 {
     public class SummaryModel
     {
-        public int CustId { get; set; }
+        public DateTime Date { get; set; }
 
-        public string Username { get; set; }
+        public int PlayerCount { get; set; }
 
         public decimal WinLoss { get; set; }
 
         public decimal Turnover { get; set; }
-
-        public decimal Margin => Turnover == 0 ? 0 : WinLoss / Turnover;
 
         public int BetCount { get; set; }
 
@@ -18,10 +18,11 @@
         {
             return new SummaryModel
             {
-                Username = string.Empty,
+                Date = DateTime.MinValue,
                 WinLoss = a.WinLoss + b.WinLoss,
                 BetCount = a.BetCount + b.BetCount,
-                Turnover = a.Turnover + b.Turnover
+                Turnover = a.Turnover + b.Turnover,
+                PlayerCount = a.PlayerCount + b.PlayerCount
             };
         }
     }

@@ -1,5 +1,6 @@
 ﻿using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using System;
 using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.UnitTests.Summary.Model
@@ -12,7 +13,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary.Model
             // Arrange
             var firstObject = new SummaryModel
             {
-                Username = "User 1",
+                Date = DateTime.Today.AddDays(-1),
+                PlayerCount = 1,
                 WinLoss = 100,
                 Turnover = 200,
                 BetCount = 2
@@ -20,7 +22,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary.Model
 
             var secondObject = new SummaryModel
             {
-                Username = "User 2",
+                Date = DateTime.Today,
+                PlayerCount = 5,
                 WinLoss = 200,
                 Turnover = 300,
                 BetCount = 3
@@ -28,7 +31,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary.Model
 
             var expectedObject = new SummaryModel
             {
-                Username = string.Empty,
+                Date = DateTime.MinValue,
+                PlayerCount = 6,
                 WinLoss = 300,
                 Turnover = 500,
                 BetCount = 5

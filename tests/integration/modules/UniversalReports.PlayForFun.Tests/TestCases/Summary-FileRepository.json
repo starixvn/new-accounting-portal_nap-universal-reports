@@ -1,0 +1,16 @@
+﻿[
+  {
+    "Date": "2016-06-05",
+    "PlayerCount": 3,
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  },
+  {
+    "Date": "2016-06-06",
+    "PlayerCount": 3,
+    "WinLoss": 400,
+    "Turnover": 1500,
+    "BetCount": 15
+  }
+]

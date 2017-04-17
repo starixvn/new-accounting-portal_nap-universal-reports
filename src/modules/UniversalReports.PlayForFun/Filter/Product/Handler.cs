@@ -16,7 +16,7 @@ namespace UniversalReports.PlayForFun.Filter.Product
 
         public async Task<IEnumerable<ProductEntity>> Handle(HttpParameterJson message)
         {
-            var criteria = new QueryCriteria();
+            var criteria = new Criteria();
             return await repository.FetchAsync<ProductEntity>(criteria);
         }
     }
