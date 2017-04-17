@@ -5,9 +5,9 @@ import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 
 import { PaginationModule } from 'nap-components/src/pagination';
 
-import { DecimalFormatDirective } from './components/decimal-format.directive';
-import { IntegerFormatDirective } from './components/integer-format.directive';
-import { PercentFormatDirective } from './components/percent-format.directive';
+import { DecimalFormatDirective } from 'nap-components/src/number/decimal-format.directive';
+import { IntegerFormatDirective } from 'nap-components/src/number/integer-format.directive';
+import { PercentFormatDirective } from 'nap-components/src/number/percent-format.directive';
 import { GridComponent } from './grid.component';
 import { GridService } from './grid.service';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';

@@ -1,9 +1,9 @@
 export interface SummaryItem {
     Date: Date;
-    NoPlayers: number;
+    PlayerCount: number;
     Turnover: number;
     MemberWinLoss: number;
-    PlayCount: number;
+    BetCount: number;
 }
 
 export interface SummaryData {

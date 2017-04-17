@@ -13,7 +13,7 @@ export interface FilterModel {
     product: number;
     productOptions: SelectItem[];
     status: Status;
-    superName: string;
+    userName: string;
     isExcludeTest: boolean;
 }
 

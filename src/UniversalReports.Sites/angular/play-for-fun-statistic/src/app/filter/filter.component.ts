@@ -27,8 +27,8 @@ export class FilterComponent implements OnInit {
     product: number;
     status = Status.All;
     statusOptions = this.getStatusOptions();
-    superName = '';
-    superNameTypeaheadQuery = this.buildSuperNameTypeaheadQuery();
+    userName = '';
+    userNameTypeaheadQuery = this.buildUserNameTypeaheadQuery();
     isExcludeTest = true;
 
     constructor(
@@ -54,9 +54,9 @@ export class FilterComponent implements OnInit {
         this.generate.emit(model);
     }
 
-    private buildSuperNameTypeaheadQuery(): TypeaheadQuery {
+    private buildUserNameTypeaheadQuery(): TypeaheadQuery {
         return new TypeaheadQuery(term => {
-            return this.service.querySuperNameSuggestion(term);
+            return this.service.queryUserNameSuggestion(term);
         });
     }
 
@@ -67,7 +67,7 @@ export class FilterComponent implements OnInit {
             product: this.product,
             productOptions: this.productOptions,
             status: this.status,
-            superName: this.superName,
+            userName: this.userName,
             isExcludeTest: this.isExcludeTest
         };
     }

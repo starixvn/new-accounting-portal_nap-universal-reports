@@ -9,7 +9,7 @@ import { SummaryData } from './summary-grid.model';
 
 @Injectable()
 export class SummaryGridService {
-    private url = 'api/punter-analysis/summary';
+    private url = 'api/play-for-fun/summary';
 
     constructor(
         private httpService: HttpService,
@@ -39,10 +39,10 @@ export class SummaryGridService {
         return {
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
-            product: filterModel.product,
-            status: filterModel.status,
-            superName: filterModel.superName,
-            isExcludeTest: filterModel.isExcludeTest
+            productId: filterModel.product,
+            statusId: filterModel.status,
+            userName: filterModel.userName,
+            excludeTest: filterModel.isExcludeTest
         };
     }
 }
