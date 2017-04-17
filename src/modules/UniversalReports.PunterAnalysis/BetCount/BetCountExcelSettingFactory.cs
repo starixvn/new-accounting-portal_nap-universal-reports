@@ -3,7 +3,7 @@ using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
-    public class BetCountExcelSettingFactory : IExcelSetting
+    public class BetCountExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\BetCount.xlsx";
 

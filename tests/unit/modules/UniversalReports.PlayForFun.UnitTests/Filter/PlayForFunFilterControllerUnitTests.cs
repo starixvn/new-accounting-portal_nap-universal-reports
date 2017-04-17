@@ -1,0 +1,25 @@
+﻿using MediatR;
+using NSubstitute;
+using System.Threading.Tasks;
+using UniversalReports.PlayForFun.Filter;
+using FilterProduct = UniversalReports.PlayForFun.Filter.Product;
+
+namespace UniversalReports.PlayForFun.UnitTests.Filter
+{
+    public class PlayForFunFilterControllerUnitTests
+    {
+        public async Task Product_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new FilterProduct.HttpParameterJson();
+
+            // Act
+            var controller = new PlayForFunFilterController(mediator);
+            await controller.Product(httpParameterJson);
+
+            // Assert
+            await mediator.Received().Send(Arg.Any<FilterProduct.HttpParameterJson>());
+        }
+    }
+}

@@ -120,7 +120,7 @@
     <Compile Include="BetType\Model\ExcelViewModel.cs" />
     <Compile Include="Core\ExcelSetting.cs" />
     <Compile Include="Core\ExcelSettingParams.cs" />
-    <Compile Include="Core\IExcelSetting.cs" />
+    <Compile Include="Core\ExcelSettingFactory.cs" />
     <Compile Include="Core\PunterAnalysisExcelBuilder.cs" />
     <Compile Include="AssociatedAccount\Handler.cs" />
     <Compile Include="AssociatedAccount\Model\UserRoleModel.cs" />

@@ -13,11 +13,11 @@ namespace UniversalReports.PunterAnalysis.Summary
 
         private readonly PunterAnalysisService punterAnalysisService;
 
-        private readonly IExcelSetting setting;
+        private readonly ExcelSettingFactory setting;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
+        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.punterAnalysisService = punterAnalysisService;

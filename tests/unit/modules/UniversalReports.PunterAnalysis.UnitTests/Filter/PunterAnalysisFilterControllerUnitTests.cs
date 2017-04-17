@@ -9,7 +9,7 @@ using FilterLeague = UniversalReports.PunterAnalysis.Filter.League;
 using FilterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using FilterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.League
+namespace UniversalReports.PunterAnalysis.UnitTests.Filter
 {
     public class PunterAnalysisFilterControllerUnitTests
     {

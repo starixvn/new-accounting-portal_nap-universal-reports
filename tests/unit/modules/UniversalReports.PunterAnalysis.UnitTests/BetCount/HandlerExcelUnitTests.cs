@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             // Arrange
             var mapper = Substitute.For<IMapper>();
             var betCountService = Substitute.For<BetCountService>();
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, betCountService, excelSetting, excelBuilder);
 
@@ -46,7 +46,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var mapper = Substitute.For<IMapper>();
             mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<BetCountModel>>()).Returns(emptyExcelViewModel);
             var betCountService = Substitute.For<BetCountService>();
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, betCountService, excelSetting, excelBuilder);

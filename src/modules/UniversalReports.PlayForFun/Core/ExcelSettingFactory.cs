@@ -1,6 +1,6 @@
-﻿namespace UniversalReports.PunterAnalysis.Core
+﻿namespace UniversalReports.PlayForFun.Core
 {
-    public interface IExcelSetting
+    public interface ExcelSettingFactory
     {
         ExcelSetting CreateSetting(ExcelSettingParams excelSettingParams);
     }

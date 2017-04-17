@@ -3,7 +3,7 @@ using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class LeagueExcelSettingFactory : IExcelSetting
+    public class LeagueExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\League.xlsx";
 

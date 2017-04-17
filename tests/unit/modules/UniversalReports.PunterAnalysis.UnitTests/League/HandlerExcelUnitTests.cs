@@ -18,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var emptyExcelViewModel = new ReportModel();
             var mapper = Substitute.For<IMapper>();
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, factory, excelSetting, excelBuilder);
 
@@ -47,7 +47,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
 
             var mapper = Substitute.For<IMapper>();
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, factory, excelSetting, excelBuilder);

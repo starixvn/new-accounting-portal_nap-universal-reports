@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             // Arrange
             var mapper = Substitute.For<IMapper>();
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
 
@@ -46,7 +46,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             var mapper = Substitute.For<IMapper>();
             mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<SportTypeModel>>()).Returns(emptyExcelViewModel);
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSetting = Substitute.For<IExcelSetting>();
+            var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);

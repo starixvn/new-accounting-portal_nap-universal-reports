@@ -13,11 +13,11 @@ namespace UniversalReports.PunterAnalysis.League
 
         private readonly LeagueServiceFactory leagueServiceFactory;
 
-        private readonly IExcelSetting setting;
+        private readonly ExcelSettingFactory setting;
 
         private readonly LeagueExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, LeagueServiceFactory leagueServiceFactory, IExcelSetting setting, LeagueExcelBuilder excelBuilder)
+        public HandlerExcel(IMapper mapper, LeagueServiceFactory leagueServiceFactory, ExcelSettingFactory setting, LeagueExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.leagueServiceFactory = leagueServiceFactory;

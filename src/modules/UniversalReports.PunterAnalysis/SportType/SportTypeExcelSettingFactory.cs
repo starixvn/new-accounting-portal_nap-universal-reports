@@ -3,7 +3,7 @@ using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.SportType
 {
-    public class SportTypeExcelSettingFactory : IExcelSetting
+    public class SportTypeExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Sporttype.xlsx";
 

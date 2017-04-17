@@ -13,11 +13,11 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         private readonly BetCountService betCountService;
 
-        private readonly IExcelSetting setting;
+        private readonly ExcelSettingFactory setting;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, BetCountService betCountService, IExcelSetting setting, PunterAnalysisExcelBuilder excelBuilder)
+        public HandlerExcel(IMapper mapper, BetCountService betCountService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.betCountService = betCountService;

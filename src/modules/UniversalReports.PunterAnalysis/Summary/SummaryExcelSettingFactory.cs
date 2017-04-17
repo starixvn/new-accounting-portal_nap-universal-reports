@@ -3,7 +3,7 @@ using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
-    public class SummaryExcelSettingFactory : IExcelSetting
+    public class SummaryExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Summary.xlsx";
 
