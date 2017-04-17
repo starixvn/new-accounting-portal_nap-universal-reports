@@ -3,8 +3,10 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversalReports.PlayForFun.Detail.Model;
 using UniversalReports.PlayForFun.Filter.Product;
 using UniversalReports.PlayForFun.Summary.Model;
+using DetailCriteria = UniversalReports.PlayForFun.Detail.Model.Criteria;
 using ProductQueryCriteria = UniversalReports.PlayForFun.Filter.Product.Criteria;
 using SummaryCriteria = UniversalReports.PlayForFun.Summary.Model.Criteria;
 
@@ -12,35 +14,6 @@ namespace UniversalReports.PlayForFun.DatabaseTests
 {
     public class DynamicRepositoryTests
     {
-        //[Test]
-        //public async Task DetailSp_Test_ColumnIsMapCorrectly()
-        //{
-        //    // Arrange
-        //    var criteria = new BetCountCriteria
-        //    {
-        //        PeriodType = 3,
-        //        FromDate = new DateTime(2016, 8, 1),
-        //        ToDate = new DateTime(2016, 12, 1),
-        //        CustId = 19575728,
-        //        ListCombinationId = "21802681,21802682,21802683,21901011",
-        //        SportId = 1,
-        //        BetTypeId = 1,
-        //        LiveStatusId = 1
-        //    };
-
-        //    // Act
-        //    var repository = new DynamicRepository();
-        //    var models = await repository.FetchAsync<BetCountModel>(criteria);
-        //    var firstModel = models.First();
-
-        //    // Assert
-        //    Assert.That(firstModel.BetCount, Is.Not.Zero);
-        //    Assert.That(firstModel.WinLoss, Is.Not.Zero);
-        //    Assert.That(firstModel.WinCount, Is.Not.Zero);
-        //    Assert.That(firstModel.DrawCount, Is.Not.Zero);
-        //    Assert.That(firstModel.Date, Is.Not.Empty);
-        //}
-
         [Test]
         public async Task SummarySp_Test_ColumnIsMapCorrectly()
         {
@@ -66,6 +39,39 @@ namespace UniversalReports.PlayForFun.DatabaseTests
             Assert.That(firstModel.Turnover, Is.Not.Zero);
             Assert.That(firstModel.PlayerCount, Is.Not.Zero);
             Assert.That(firstModel.Date, Is.GreaterThan(DateTime.MinValue));
+        }
+
+        [Test]
+        public async Task DetailSp_Test_ColumnIsMapCorrectly()
+        {
+            // Arrange
+            var criteria = new DetailCriteria
+            {
+                FromDate = DateTime.Today.AddMonths(-2),
+                ToDate = DateTime.Today.AddDays(1),
+                ExcludeTest = false,
+                ProductId = 6,
+                StatusId = 2,
+                Username = string.Empty
+            };
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<DetailModel>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.WinLoss, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            Assert.That(firstModel.Date, Is.GreaterThan(DateTime.MinValue));
+            Assert.That(firstModel.Currency, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Site, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.GroupHeadline, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.CustId, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Product, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Status, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]

@@ -14,5 +14,7 @@ namespace UniversalReports.PlayForFun.Summary.Model
         public int ProductId { get; set; }
 
         public int StatusId { get; set; }
+
+        public bool ExcludeTest { get; set; }
     }
 }

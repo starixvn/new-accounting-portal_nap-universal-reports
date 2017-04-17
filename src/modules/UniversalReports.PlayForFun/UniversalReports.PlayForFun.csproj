@@ -129,7 +129,7 @@
     <Compile Include="Detail\Model\HttpParameterExcel.cs" />
     <Compile Include="Detail\Model\HttpParameterJson.cs" />
     <Compile Include="Detail\Model\ProductExcelModel.cs" />
-    <Compile Include="Detail\Model\ProductModel.cs" />
+    <Compile Include="Detail\Model\DetailModel.cs" />
     <Compile Include="Detail\Model\ViewModelJson.cs" />
     <Compile Include="Detail\PlayForFunProductController.cs" />
     <Compile Include="Detail\ProductExcelSettingFactory.cs" />

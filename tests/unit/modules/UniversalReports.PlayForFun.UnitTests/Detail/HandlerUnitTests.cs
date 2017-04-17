@@ -3,6 +3,7 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Core;
@@ -104,7 +105,16 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
         {
             return new DetailModel
             {
+                Date = DateTime.Today.AddDays(-1),
+                GroupHeadline = "Group Headline 1",
+                Site = "Site 1",
+                Currency = "Currency 1",
+                Super = "Super 1",
+                Product = "Product 1",
+                MemberRequest = true,
+                Status = "Enabled",
                 Username = "User 1",
+                CustId = 1,
                 WinLoss = 100,
                 Turnover = 200,
                 BetCount = 2
