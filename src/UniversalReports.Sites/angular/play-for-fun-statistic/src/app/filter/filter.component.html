@@ -1,0 +1,71 @@
+<div class="jumbotron filter-container">
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+                <label class="col-form-label">From Date</label>
+            </div>
+            <div class="col-value">
+                <nap-date-picker [(date)]="fromDate" [minDate]="minDate" [maxDate]="toDate"></nap-date-picker>
+            </div>
+        </div>
+        <div class="col-x2">
+            <div class="col-label">
+                <label class="col-form-label">To Date</label>
+            </div>
+            <div class="col-value">
+                <nap-date-picker [(date)]="toDate" [minDate]="fromDate" [maxDate]="maxDate"></nap-date-picker>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+                <label class="col-form-label">Product</label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-select [items]="productOptions" [(value)]="product"></nap-dropdown-select>
+            </div>
+        </div>
+        <div class="col-x2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+                <label class="col-form-label">Status</label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-select [items]="statusOptions" [(value)]="status"></nap-dropdown-select>
+            </div>
+        </div>
+        <div class="col-x2">
+            <div class="col-label">
+                <label class="col-form-label">Super</label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-typeahead [(text)]="superName" [query]="superNameTypeaheadQuery" placeholder="Search All">
+                </nap-dropdown-typeahead>
+            </div>
+        </div>
+        <div class="col-x3">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="isExcludeTest">
+                    Exclude test data
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-x1">
+            <div class="col-label">
+            </div>
+            <div class="col-value">
+                <button type="submit" class="btn btn-primary" (click)="onGenerate()">GENERATE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<nap-note>
+    - You can view the report data from
+</nap-note>

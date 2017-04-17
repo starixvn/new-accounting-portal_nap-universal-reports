@@ -1,8 +1,3 @@
-export interface OptionItem {
-    text: string;
-    value: any;
-}
-
 export enum RoleId {
     Member = 1,
     Agent = 2,

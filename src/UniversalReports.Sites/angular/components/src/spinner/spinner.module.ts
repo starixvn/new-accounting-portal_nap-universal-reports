@@ -13,10 +13,4 @@ import { SpinnerComponent } from './spinner.component';
         SpinnerComponent
     ]
 })
-export class SpinnerModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: SpinnerModule
-        };
-    }
-}
+export class SpinnerModule { }

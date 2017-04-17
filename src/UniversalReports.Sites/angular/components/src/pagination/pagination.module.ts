@@ -18,10 +18,4 @@ import { PaginationComponent } from './pagination.component';
         PaginationComponent
     ]
 })
-export class PaginationModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: PaginationModule
-        };
-    }
-}
+export class PaginationModule { }

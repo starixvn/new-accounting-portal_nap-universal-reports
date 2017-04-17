@@ -20,10 +20,4 @@ import { LegendModalComponent } from './legend-modal.component';
         LegendComponent
     ]
 })
-export class LegendModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: LegendModule
-        };
-    }
-}
+export class LegendModule { }

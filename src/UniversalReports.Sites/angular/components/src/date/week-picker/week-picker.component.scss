@@ -1,0 +1,31 @@
+@import "../../style/mixins";
+
+input,
+.input-group-addon {
+    cursor: pointer;
+}
+
+:host /deep/ .small {
+    font-size: 90%;
+}
+
+:host /deep/ .ngb-dp-day>div {
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 0.25rem;
+}
+
+:host /deep/ .ngb-dp-day .day-active.btn-secondary {
+    background: $brand-primary !important;
+    color: #fff !important;
+}
+
+:host /deep/ .ngb-dp-week.week-hover>.ngb-dp-day {
+    >.btn-secondary {
+        color: #292b2c;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }
+}

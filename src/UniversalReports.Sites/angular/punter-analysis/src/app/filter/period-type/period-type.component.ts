@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
-import { OptionItem } from 'nap-components/src/model';
+import { SelectItem } from 'nap-components/src/dropdown-select';
 import { DateHelper, NgbDateStruct, NgbDate } from 'nap-components/src/date';
 import { PeriodType } from '../filter.model';
 import { PeriodTypeEventModel } from './period-type.model';
@@ -151,7 +151,7 @@ export class PeriodTypeComponent implements OnChanges {
         return this.maxDate;
     }
 
-    private getPeriodTypeOptions(): OptionItem[] {
+    private getPeriodTypeOptions(): SelectItem[] {
         return [{
             text: 'Daily',
             value: PeriodType.Daily

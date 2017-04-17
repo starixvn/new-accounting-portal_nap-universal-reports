@@ -109,7 +109,7 @@ export class FilterService {
                 break;
         }
 
-        let treeItems = renderTypeNodes.map(node => <TreeItem>{
+        const treeItems = renderTypeNodes.map(node => <TreeItem>{
             text: node,
             value: item.RenderType
         });

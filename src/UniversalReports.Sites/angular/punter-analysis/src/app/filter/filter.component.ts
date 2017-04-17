@@ -5,9 +5,10 @@ import {
 } from 'ng2-dropdown-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { SelectItem } from 'nap-components/src/dropdown-select';
 import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
-import { OptionItem, RoleId, SortBy } from 'nap-components/src/model';
+import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
 import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
@@ -139,7 +140,7 @@ export class FilterComponent implements OnInit {
         };
     }
 
-    private getSearchByOptions(): OptionItem[] {
+    private getSearchByOptions(): SelectItem[] {
         return [{
             text: 'User',
             value: SearchBy.User
@@ -152,7 +153,7 @@ export class FilterComponent implements OnInit {
         }*/];
     }
 
-    private getDepthOptions(): OptionItem[] {
+    private getDepthOptions(): SelectItem[] {
         return [{
             text: 'Agent',
             value: RoleId.Agent
@@ -162,7 +163,7 @@ export class FilterComponent implements OnInit {
         }];
     }
 
-    private getSortByOptions(): OptionItem[] {
+    private getSortByOptions(): SelectItem[] {
         return [{
             text: 'Ascending',
             value: SortBy.Ascending
@@ -172,7 +173,7 @@ export class FilterComponent implements OnInit {
         }];
     }
 
-    private getOrderByOptions(): OptionItem[] {
+    private getOrderByOptions(): SelectItem[] {
         return [{
             text: 'Win Loss',
             value: OrderBy.WinLoss

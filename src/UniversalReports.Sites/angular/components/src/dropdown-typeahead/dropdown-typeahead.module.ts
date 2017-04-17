@@ -15,10 +15,4 @@ import { DropdownTypeaheadComponent } from './dropdown-typeahead.component';
         DropdownTypeaheadComponent
     ]
 })
-export class DropdownTypeaheadModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: DropdownTypeaheadModule
-        };
-    }
-}
+export class DropdownTypeaheadModule { }

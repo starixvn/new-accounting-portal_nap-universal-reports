@@ -29,7 +29,7 @@ import { LeagueGridService } from './league-grid/league-grid.service';
         CommonModule,
         FormsModule,
         DropdownTreeviewModule.forRoot(),
-        PaginationModule.forRoot()
+        PaginationModule
     ],
     declarations: [
         DecimalFormatDirective,

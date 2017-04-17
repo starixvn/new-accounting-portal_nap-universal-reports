@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { HttpService } from 'nap-components/src/http.service';
 import { LegacyService } from 'nap-components/src/legacy.service';
 import { ExceptionService } from 'nap-components/src/exception.service';
-import { HeaderModule } from 'nap-components/src/header';
+import { NavbarModule } from 'nap-components/src/navbar';
 import { ToastService, ToastModule } from 'nap-components/src/toast';
 import { SpinnerService, SpinnerModule } from 'nap-components/src/spinner';
 
@@ -24,9 +24,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     CommonModule,
-    SpinnerModule.forRoot(),
-    ToastModule.forRoot(),
-    HeaderModule.forRoot(),
+    SpinnerModule,
+    ToastModule,
+    NavbarModule,
     FilterModule,
     GridModule
   ],

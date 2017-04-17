@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { TreeviewItem } from 'ng2-dropdown-treeview';
 import * as _ from 'lodash';
-import { RoleId, SortBy, OptionItem } from 'nap-components/src/model';
+import { RoleId, SortBy } from 'nap-components/src/model';
 import { Helper } from 'nap-components/src/helper';
 import { HttpService } from 'nap-components/src/http.service';
 import { GridService } from '../grid.service';

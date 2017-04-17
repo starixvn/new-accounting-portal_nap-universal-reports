@@ -1,0 +1,62 @@
+<div *ngIf="data" style="width: auto" class="grid">
+    <div class="header" style="width: 711px">
+        <table>
+            <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 150px" />
+                <col style="width: 150px" />
+                <col style="width: 120px" />
+                <col style="width: 20px" />
+            </colgroup>
+            <tr>
+                <th>Date</th>
+                <th>No.Players</th>
+                <th>Member Win Loss</th>
+                <th>Play Count</th>
+                <th></th>
+            </tr>
+            <tr *ngIf="!hasData">
+                <th class="empty-data" colspan="7">There is no data</th>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="data.Entities.length > 0" class="body" style="width: 711px">
+        <table>
+            <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 150px" />
+                <col style="width: 150px" />
+                <col style="width: 120px" />
+            </colgroup>
+            <tr *ngFor="let item of data.Entities">
+                <td class="text-center"><a href="javascript:;" (click)="showDate(item.Date)">{{ item.Date }}</a></td>
+                <td class="number" [napIntegerFormat]="item.NoPlayers"></td>
+                <td class="number" [napDecimalFormat]="item.Turnover"></td>
+                <td class="number" [napDecimalFormat]="item.MemberWinLoss"></td>
+                <td class="number" [napIntegerFormat]="item.PlayCount"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer" *ngIf="data.Entities.length > 0" style="width: 711px">
+        <table>
+            <colgroup>
+                <col style="width: 120px" />
+                <col style="width: 120px" />
+                <col style="width: 150px" />
+                <col style="width: 150px" />
+                <col style="width: 120px" />
+                <col style="width: 20px" />
+            </colgroup>
+            <tr>
+                <td class="text-right">Total</td>
+                <td class="number" [napIntegerFormat]="data.Total.NoPlayers"></td>
+                <td class="number" [napDecimalFormat]="data.Total.Turnover"></td>
+                <td class="number" [napDecimalFormat]="data.Total.MemberWinLoss"></td>
+                <td class="number" [napIntegerFormat]="data.Total.PlayCount"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

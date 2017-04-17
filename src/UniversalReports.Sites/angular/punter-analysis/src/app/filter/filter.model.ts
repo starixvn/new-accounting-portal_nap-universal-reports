@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import { DownlineTreeviewItem } from 'ng2-dropdown-treeview';
-import { RoleId, SortBy, OptionItem } from 'nap-components/src/model';
+import { SelectItem } from 'nap-components/src/dropdown-select';
+import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
 
 export enum SearchBy {
@@ -34,10 +35,10 @@ export interface FilterModel {
     depth: RoleId;
     userName: string;
     selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
-    searchByOptions: OptionItem[];
-    depthOptions: OptionItem[];
-    orderByOptions: OptionItem[];
-    sortByOptions: OptionItem[];
+    searchByOptions: SelectItem[];
+    depthOptions: SelectItem[];
+    orderByOptions: SelectItem[];
+    sortByOptions: SelectItem[];
 }
 
 export class FilterModelWrapper {

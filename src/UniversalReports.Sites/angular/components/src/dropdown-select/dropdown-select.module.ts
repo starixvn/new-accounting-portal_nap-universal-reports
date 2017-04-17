@@ -18,10 +18,4 @@ import { DropdownSelectPipe } from './dropdown-select.pipe';
         DropdownSelectPipe
     ]
 })
-export class DropdownSelectModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: DropdownSelectModule
-        };
-    }
-}
+export class DropdownSelectModule { }

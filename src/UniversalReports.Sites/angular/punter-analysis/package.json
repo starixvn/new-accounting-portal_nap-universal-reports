@@ -27,7 +27,7 @@
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
-    "ng2-dropdown-treeview": "^1.0.13",
+    "ng2-dropdown-treeview": "^1.1.2",
     "ng2-pagination": "^2.0.1",
     "rxjs": "^5.2.0",
     "zone.js": "^0.8.4"
@@ -46,7 +46,7 @@
     "karma": "^1.6.0",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.1.0",
+    "karma-coverage-istanbul-reporter": "^1.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.0",
@@ -55,6 +55,6 @@
     "ts-node": "^3.0.2",
     "tslint": "4.5.1",
     "typescript": "^2.3.0",
-    "yargs": "^7.0.2"
+    "yargs": "^7.1.0"
   }
 }

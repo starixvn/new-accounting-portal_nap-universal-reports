@@ -9,18 +9,18 @@ describe('ToastComponent', () => {
     const message = 'Test message';
 
     function activate() {
-        let toastService: ToastService = TestBed.get(ToastService);
+        const toastService: ToastService = TestBed.get(ToastService);
         toastService.activate(message);
     }
 
     function deactivate() {
-        let toastService: ToastService = TestBed.get(ToastService);
+        const toastService: ToastService = TestBed.get(ToastService);
         toastService.deactivate();
     }
 
     function verifyWhenHidding() {
         expect(fixture.componentInstance.message).toBe(undefined, 'message should be undefined');
-        let toastContainer = fixture.debugElement.query(By.css('.toast-container'));
+        const toastContainer = fixture.debugElement.query(By.css('.toast-container'));
         expect(toastContainer.nativeElement.hidden).toBe(true, 'hide element');
     }
 
@@ -47,14 +47,14 @@ describe('ToastComponent', () => {
         activate();
         fixture.detectChanges();
         expect(fixture.componentInstance.message).toBe(message, 'show a correct message');
-        let toastContainer = fixture.debugElement.query(By.css('.toast-container'));
+        const toastContainer = fixture.debugElement.query(By.css('.toast-container'));
         expect(toastContainer.nativeElement.hidden).toBe(false, 'show element');
     });
 
     it('should hide the message when click Close button', () => {
         activate();
         fixture.detectChanges();
-        let closeButton = fixture.debugElement.query(By.css('button'));
+        const closeButton = fixture.debugElement.query(By.css('button'));
         closeButton.triggerEventHandler('click', null);
         fixture.detectChanges();
         verifyWhenHidding();

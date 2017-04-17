@@ -21,7 +21,7 @@ export class PunterAnalysisPage {
   }
 
   getMenu() {
-    return element(by.css('nap-header'));
+    return element(by.css('nap-navbar'));
   }
 
   getHeaderText() {
