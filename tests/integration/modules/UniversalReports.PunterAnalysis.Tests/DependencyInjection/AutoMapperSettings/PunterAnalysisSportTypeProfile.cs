@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings
 {
-    public class SportTypeProfile : Profile
+    public class PunterAnalysisSportTypeProfile : Profile
     {
-        public SportTypeProfile()
+        public PunterAnalysisSportTypeProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<SportTypeModel>, ViewModelJson>(MemberList.Source);

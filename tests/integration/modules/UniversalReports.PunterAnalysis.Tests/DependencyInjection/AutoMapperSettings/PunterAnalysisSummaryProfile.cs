@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings
 {
-    public class SummaryProfile : Profile
+    public class PunterAnalysisSummaryProfile : Profile
     {
-        public SummaryProfile()
+        public PunterAnalysisSummaryProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);

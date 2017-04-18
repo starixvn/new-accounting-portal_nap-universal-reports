@@ -1,7 +1,7 @@
 using Fanex.Data.Repository;
 using SimpleInjector;
 using System;
-using UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis;
+using UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection

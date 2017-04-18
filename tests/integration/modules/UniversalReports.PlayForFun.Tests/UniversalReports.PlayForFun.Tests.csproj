@@ -157,10 +157,10 @@
   <ItemGroup>
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\DetailProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\FilterProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\PlayForFunAutoMapper.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\SummaryProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunDetailProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunFilterProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunAutoMapper.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjectorInitializer.cs" />
     <Compile Include="Filter\PlayForFunFilterControllerTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />

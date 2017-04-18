@@ -2,11 +2,11 @@
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Summary.Model;
 
-namespace UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings.PlayForFun
+namespace UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings
 {
-    public class SummaryProfile : Profile
+    public class PlayForFunSummaryProfile : Profile
     {
-        public SummaryProfile()
+        public PlayForFunSummaryProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);

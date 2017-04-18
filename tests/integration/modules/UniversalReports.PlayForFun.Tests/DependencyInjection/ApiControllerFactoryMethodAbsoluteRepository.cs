@@ -1,7 +1,7 @@
 using Fanex.Data.Repository;
 using SimpleInjector;
 using System;
-using UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings.PlayForFun;
+using UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings;
 using UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection

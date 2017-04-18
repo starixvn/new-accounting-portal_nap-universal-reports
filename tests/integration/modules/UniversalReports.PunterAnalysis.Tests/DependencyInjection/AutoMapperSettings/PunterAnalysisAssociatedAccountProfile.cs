@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings
 {
-    public class AssociatedAccountProfile : Profile
+    public class PunterAnalysisAssociatedAccountProfile : Profile
     {
-        public AssociatedAccountProfile()
+        public PunterAnalysisAssociatedAccountProfile()
         {
             CreateMap<HttpParameterJson, UserRoleQueryCriteria>(MemberList.Source);
             CreateMap<ReportModelBase<UserRoleModel>, ViewModelJson>(MemberList.Source);

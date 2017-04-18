@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings
 {
-    public class BetCountProfile : Profile
+    public class PunterAnalysisBetCountProfile : Profile
     {
-        public BetCountProfile()
+        public PunterAnalysisBetCountProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>(MemberList.Source);
