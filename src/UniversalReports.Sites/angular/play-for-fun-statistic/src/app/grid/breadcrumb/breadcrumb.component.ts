@@ -19,8 +19,8 @@ export class BreadcrumbComponent implements OnChanges {
         this.isShowFilter = false;
     }
 
-    get hasData(): boolean {
-        return this.gridService.activeGrid.hasData;
+    get hasExcel(): boolean {
+        return this.gridService.activeGrid.hasExcel;
     }
 
     exportExcel() {

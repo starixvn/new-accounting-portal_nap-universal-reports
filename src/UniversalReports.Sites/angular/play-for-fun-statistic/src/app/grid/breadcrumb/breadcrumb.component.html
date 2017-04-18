@@ -5,7 +5,7 @@
             <span *ngSwitchCase="true">{{item}}</span>
         </li>
     </ol>
-    <div *ngIf="hasData" class="toolbox">
+    <div *ngIf="hasExcel" class="toolbox">
         <div class="excel">
             <i class="icon-excel" title="Export excel" (click)="exportExcel()"></i>
         </div>

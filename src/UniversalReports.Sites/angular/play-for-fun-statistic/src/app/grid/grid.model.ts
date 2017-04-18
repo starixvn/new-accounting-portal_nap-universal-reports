@@ -4,7 +4,7 @@ export enum GridType {
 }
 
 export interface Grid {
-    hasData: boolean;
+    hasExcel: boolean;
     title: string;
     query(): void;
     exportExcel(): void;

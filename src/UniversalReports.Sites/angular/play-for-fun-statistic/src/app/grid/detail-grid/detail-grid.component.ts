@@ -34,8 +34,12 @@ export class DetailGridComponent implements Grid {
 
     exportExcel() { }
 
-    get hasData(): boolean {
+    get hasExcel(): boolean {
         return false;
+    }
+
+    get hasData(): boolean {
+        return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {
