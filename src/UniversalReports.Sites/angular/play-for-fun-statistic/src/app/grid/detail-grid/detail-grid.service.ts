@@ -22,18 +22,6 @@ export class DetailGridService {
         return this.httpService.post<DetailData>(this.url, queryModel);
     }
 
-    exportExcel() {
-        const url = `${this.url}/excel`;
-        const filterModel = this.gridService.filterModel;
-        const filterModelWrapper = new FilterModelWrapper(filterModel);
-        const queryModel = this.createQueryModel();
-        queryModel.title = `Play For Fun ${filterModelWrapper.productName} Statistics - ${filterModelWrapper.dateFromToTitle}`;
-        this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `PFF_${filterModelWrapper.productFileName}_Statistic_Report_${filterModelWrapper.dateFromToFileName}.xlsx`;
-            Helper.saveExcel(response, fileName);
-        });
-    }
-
     private createQueryModel(): any {
         const filterModel = this.gridService.filterModel;
         const filterModelWrapper = new FilterModelWrapper(filterModel);

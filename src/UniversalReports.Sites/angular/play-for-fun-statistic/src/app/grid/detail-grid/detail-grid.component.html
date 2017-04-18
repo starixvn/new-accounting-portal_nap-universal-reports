@@ -42,7 +42,7 @@
                 </tbody>
             </table>
         </div>
-        <div *ngIf="data.Entities.length > 0" class="body">
+        <div *ngIf="hasData" class="body">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
@@ -63,7 +63,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="footer" *ngIf="data.Entities.length > 0">
+        <div class="footer" *ngIf="hasData">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tfoot>

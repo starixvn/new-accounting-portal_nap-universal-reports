@@ -32,12 +32,10 @@ export class DetailGridComponent implements Grid {
         });
     }
 
-    exportExcel() {
-        this.service.exportExcel();
-    }
+    exportExcel() { }
 
     get hasData(): boolean {
-        return !_.isNil(this.data) && this.data.Entities.length > 0;
+        return false;
     }
 
     get title(): string {

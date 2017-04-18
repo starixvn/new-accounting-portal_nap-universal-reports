@@ -27,6 +27,7 @@ export class SummaryGridService {
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Play For Fun ${filterModelWrapper.productName} Summary - ${filterModelWrapper.dateFromToTitle}`;
+        queryModel.productName = filterModelWrapper.productName;
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `PFF_${filterModelWrapper.productFileName}_Statistic_Report_${filterModelWrapper.dateFromToFileName}.xlsx`;
             Helper.saveExcel(response, fileName);
