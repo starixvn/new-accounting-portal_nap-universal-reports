@@ -10,23 +10,23 @@ namespace UniversalReports.Sites.SimpleInjector
 {
     internal static class SimpleInjectorApiConfig
     {
-        private static Container container = new Container();
+        private static readonly Container Container = new Container();
 
         internal static void Initialize()
         {
-            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            Container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            container.RegiserGlobalServices()
+            Container.RegiserGlobalServices()
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
                 .RegisterPlayForFunServices()
                 .RegisterMediator();
 
-            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+            Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
             // container.Verify();
-            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(Container);
         }
     }
 }

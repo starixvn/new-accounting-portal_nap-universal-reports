@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.UsernameSuggestion
+namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion
 {
     public class HandlerUnitTests
     {

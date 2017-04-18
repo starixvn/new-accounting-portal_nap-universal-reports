@@ -164,7 +164,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 8, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                ListCombinationId = "21802681,21802682,21802683,21901011",
+                ListCombinationId = "21802681,21802682,21802683,21901011"
             };
 
             // Act
@@ -192,7 +192,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 SportId = 1,
-                BetTypeId = 1,
+                BetTypeId = 1
             };
 
             // Act

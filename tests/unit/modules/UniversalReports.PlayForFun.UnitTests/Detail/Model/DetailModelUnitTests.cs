@@ -1,6 +1,7 @@
 ﻿using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using UniversalReports.PlayForFun.Detail.Model;
 
 namespace UniversalReports.PlayForFun.UnitTests.Detail.Model
@@ -8,6 +9,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail.Model
     public class DetailModelUnitTests
     {
         [Test]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
+            "SP2101:MethodMustNotContainMoreLinesThan",
+            Justification = "Reviewed. Suppression is OK here.")]
         public void OperatorPlus_TwoDetailModels_ReturnsCorrectSumValue()
         {
             // Arrange
@@ -48,14 +52,14 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail.Model
             var expectedObject = new DetailModel
             {
                 Date = DateTime.MinValue,
-                GroupHeadline = "",
-                Site = "",
-                Currency = "",
-                Super = "",
-                Product = "",
+                GroupHeadline = string.Empty,
+                Site = string.Empty,
+                Currency = string.Empty,
+                Super = string.Empty,
+                Product = string.Empty,
                 MemberRequest = "No",
-                Status = "",
-                Username = "",
+                Status = string.Empty,
+                Username = string.Empty,
                 CustId = 0,
                 WinLoss = 300,
                 Turnover = 500,

@@ -9,10 +9,7 @@ using UniversalReports.PunterAnalysis.Filter;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
 using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
-using DateRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.DateRange;
-using LeagueEntity = UniversalReports.PunterAnalysis.Filter.League.LeagueEntity;
 using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
-using ProductSportBetTypeEntity = UniversalReports.PunterAnalysis.Filter.ProductSportBetType.ProductSportBetTypeEntity;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
@@ -26,12 +23,12 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             // Arrange
             const string FakeRepositoryDataFileName = "Filter-ProductSportBetType-FileRepository.json";
             var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisFilterController, ProductSportBetTypeEntity>(FakeRepositoryDataFileName);
+            var controller = factory.CreateController<PunterAnalysisFilterController, ProductSportBetTypeFilter.ProductSportBetTypeEntity>(FakeRepositoryDataFileName);
 
             // Act
             var httpParameterJson = new ProductSportBetTypeFilter.HttpParameterJson();
             var httpActionResult = await controller.ProductSportBetType(httpParameterJson);
-            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeEntity>>).Content;
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductSportBetTypeFilter.ProductSportBetTypeEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));
@@ -46,7 +43,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             // Arrange
             const string FakeRepositoryDataFileName = "Filter-League-FileRepository.json";
             var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisFilterController, LeagueEntity>(FakeRepositoryDataFileName);
+            var controller = factory.CreateController<PunterAnalysisFilterController, LeagueFilter.LeagueEntity>(FakeRepositoryDataFileName);
 
             // Act
             var httpParameterJson = new LeagueFilter.HttpParameterJson();
@@ -85,9 +82,9 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
         public async Task AvailableDateRange_RepositoryReturnsNonNullRange_ReturnsNonNullRange()
         {
             // Arrange
-            var nonNullRange = new DateRange { MinDate = DateTime.MaxValue, MaxDate = DateTime.MaxValue };
+            var nonNullRange = new AvailableDateRangeFilter.DateRange { MinDate = DateTime.MaxValue, MaxDate = DateTime.MaxValue };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<DateRange>(Arg.Any<ICriteria>()).Returns(nonNullRange);
+            repository.GetAsync<AvailableDateRangeFilter.DateRange>(Arg.Any<ICriteria>()).Returns(nonNullRange);
             var factory = new ApiControllerFactoryMethodAbsoluteRepository();
             var controller = factory.CreateController<PunterAnalysisFilterController>(repository);
 

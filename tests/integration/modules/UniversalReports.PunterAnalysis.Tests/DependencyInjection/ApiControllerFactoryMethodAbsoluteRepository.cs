@@ -5,11 +5,11 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 {
-    public class ApiControllerFactoryMethodAbsoluteRepository : IDisposable
+    public sealed class ApiControllerFactoryMethodAbsoluteRepository : IDisposable
     {
         private readonly Container container = new Container();
 
-        public virtual Controller CreateController<Controller>(IDynamicRepository repository)
+        public TController CreateController<TController>(IDynamicRepository repository)
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
@@ -17,7 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
                     .RegisterMediator();
             container.Verify();
 
-            return (Controller)container.GetInstance(typeof(Controller));
+            return (TController)container.GetInstance(typeof(TController));
         }
 
         public void Dispose()
@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (disposing)
             {

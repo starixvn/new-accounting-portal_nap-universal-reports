@@ -56,10 +56,10 @@ namespace UniversalReports.PunterAnalysis.BetCount
             {
                 case PeriodTypeEnum.Daily:
                     return $"{date:yyyy-MM-dd}";
+
                 case PeriodTypeEnum.Weekly:
                     return $"{date:MM/yyyy} - Week {dateTimeService.GetWeekOfYearIso8601(date)}";
-                case PeriodTypeEnum.MonthRange:
-                case PeriodTypeEnum.Monthly:
+
                 default:
                     return $"{date:MM/yyyy}";
             }

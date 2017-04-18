@@ -10,16 +10,16 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 {
     public class ApiControllerFactoryMethodFetchAsync : IDisposable
     {
-        private Container container = new Container();
+        private readonly Container container = new Container();
 
-        public Controller CreateController<Controller, Model>(string fakeDatabaseFile)
+        public TController CreateController<TController, TModel>(string fakeDatabaseFile)
         {
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            var repository = CreateRepository<Model>(fakeDatabaseFile);
+            var repository = CreateRepository<TModel>(fakeDatabaseFile);
             RegisterDependency(repository);
 
-            return (Controller)container.GetInstance(typeof(Controller));
+            return (TController)container.GetInstance(typeof(TController));
         }
 
         public void Dispose()
@@ -45,12 +45,12 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
             container.Verify();
         }
 
-        private IDynamicRepository CreateRepository<Model>(string fakeDatabaseFile)
+        private IDynamicRepository CreateRepository<TModel>(string fakeDatabaseFile)
         {
-            var fakeData = TestDataLoader.Load<List<Model>>(fakeDatabaseFile);
+            var fakeData = TestDataLoader.Load<List<TModel>>(fakeDatabaseFile);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<Model>(Arg.Any<ICriteria>()).Returns(fakeData);
+            repository.FetchAsync<TModel>(Arg.Any<ICriteria>()).Returns(fakeData);
 
             return repository;
         }

@@ -15,7 +15,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             currentSession.UserId.Returns(1);
 
             container.Register<CacheService>(() => new CacheServiceImpl());
-            container.Register<ICurrentSession>(() => { return currentSession; });
+            container.Register(() => currentSession);
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 

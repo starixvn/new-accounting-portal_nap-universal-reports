@@ -37,7 +37,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(List<WinLossSummaryByBetTypeGroup> winLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLossSummaryByBetTypeGroup> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)

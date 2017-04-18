@@ -13,13 +13,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             FanexDataConfiguration.Initialize();
         }
 
-        public static ICriteria[] CriteriaCases
-        {
-            get
-            {
-                return CreateCriteriaTestCase();
-            }
-        }
+        public static ICriteria[] CriteriaCases => CreateCriteriaTestCase();
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
             Justification = "Reviewed. Suppression is OK here.")]

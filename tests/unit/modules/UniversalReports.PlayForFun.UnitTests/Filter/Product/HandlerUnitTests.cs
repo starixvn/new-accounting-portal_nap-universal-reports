@@ -41,7 +41,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter.Product
             return new ProductEntity
             {
                 ProductName = "Any Product Name",
-                ProductId = 1,
+                ProductId = 1
             };
         }
     }

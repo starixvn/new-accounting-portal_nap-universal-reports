@@ -41,7 +41,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         protected abstract LeagueMappingModel Transform(LeagueRawModel rawModel);
 
-        public virtual Dictionary<int, List<int>> GetMappingGroups(List<LeagueMappingModel> entities)
+        public Dictionary<int, List<int>> GetMappingGroups(IEnumerable<LeagueMappingModel> entities)
         {
             return entities.Select(e => new { e.Year, e.MonthOrWeek })
                             .GroupBy(e => e.Year)
@@ -51,7 +51,7 @@ namespace UniversalReports.PunterAnalysis.League
                                 e => e.Select(x => x.MonthOrWeek).Distinct().OrderBy(m => m).ToList());
         }
 
-        private List<LeagueModel> GetLeagueModels(List<LeagueMappingModel> entities, Dictionary<int, List<int>> monthGroups)
+        private List<LeagueModel> GetLeagueModels(IEnumerable<LeagueMappingModel> entities, Dictionary<int, List<int>> monthGroups)
         {
             var entitiesByLeagueGroups = entities.GroupBy(e => new { e.LeagueId, e.LeagueName });
 

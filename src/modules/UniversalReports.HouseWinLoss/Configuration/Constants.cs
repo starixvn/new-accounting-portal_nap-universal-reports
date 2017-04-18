@@ -14,7 +14,7 @@
 
         public const int SportTypeSoccer = 1;
 
-        public static readonly string RM = "RM";
+        public const string RM = "RM";
 
         public static string[] NameSportsbook => new[]
         {

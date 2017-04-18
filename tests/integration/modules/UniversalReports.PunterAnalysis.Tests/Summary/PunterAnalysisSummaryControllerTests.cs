@@ -1,6 +1,5 @@
 ﻿using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.Summary;
@@ -40,8 +39,6 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange
-            var fakeSummaryModelListFromRepository = TestDataLoader.Load<List<SummaryModel>>(FakeRepositoryDataFileName);
-
             var expectedTitle = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedTitle.json");
             var expectedFilter = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedFilter.json");
             var expectedBody = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedBody.json");

@@ -10,16 +10,16 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
         [SpParam(Ignored = true)]
         public bool NormalMode { get; set; } = true;
 
-        public virtual DateTime StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public virtual DateTime EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         [SpParam(Ignored = true)]
         public string Source { get; set; }
 
         public override bool IsValid() => true;
 
-        protected virtual void Update(BalanceUpSource source)
+        protected void Update(BalanceUpSource source)
         {
             StartDate = source.StartDate;
             EndDate = source.EndDate;

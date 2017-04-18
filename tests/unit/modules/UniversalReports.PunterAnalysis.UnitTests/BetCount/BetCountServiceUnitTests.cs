@@ -13,7 +13,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {
     public class BetCountServiceUnitTests
     {
-        private static object[] formatDateTimeCases =
+        private static readonly object[] FormatDateTimeCases =
         {
             new object[] { 0, new DateTime(2017, 1, 23), "01/2017" },
             new object[] { 1, new DateTime(2017, 1, 23), "2017-01-23" },
@@ -46,7 +46,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         }
 
         [Test]
-        [TestCaseSource("formatDateTimeCases")]
+        [TestCaseSource(nameof(FormatDateTimeCases))]
         public void FormatDateTimeByPeriodType_WithPeriodType_ReturnRightDateTimeFormat(int periodType, DateTime date, string formatDate)
         {
             // Arrange

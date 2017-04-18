@@ -70,9 +70,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun.DatabaseTests", "tests\database\modules\UniversalReports.PlayForFun.DatabaseTests\UniversalReports.PlayForFun.DatabaseTests.csproj", "{6638B723-3B1C-4BBD-B9EB-98D33871DD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun.Tests", "tests\integration\modules\UniversalReports.PlayForFun.Tests\UniversalReports.PlayForFun.Tests.csproj", "{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun.UnitTests", "tests\unit\modules\UniversalReports.PlayForFun.UnitTests\UniversalReports.PlayForFun.UnitTests.csproj", "{911B7090-F440-4A04-9D64-55F5C78BD4CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun.Tests", "tests\integration\modules\UniversalReports.PlayForFun.Tests\UniversalReports.PlayForFun.Tests.csproj", "{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,14 +152,14 @@ Global
 		{6638B723-3B1C-4BBD-B9EB-98D33871DD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6638B723-3B1C-4BBD-B9EB-98D33871DD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6638B723-3B1C-4BBD-B9EB-98D33871DD7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,8 +194,8 @@ Global
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 		{B22FCE31-6C4C-4E6D-90D7-6F69584C4583} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{6638B723-3B1C-4BBD-B9EB-98D33871DD7A} = {51D7ABCA-DB8D-4E11-B258-DCB5539353AA}
-		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
+		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35

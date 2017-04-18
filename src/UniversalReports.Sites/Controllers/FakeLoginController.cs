@@ -33,6 +33,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
 #if DEBUG
+
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -46,7 +47,9 @@ namespace UniversalReports.Sites.Controllers
 
             return View(user);
         }
+
 #endif
+
         private int CheckInUser(User user)
         {
             var loginParameter = new LoginParameter
@@ -71,16 +74,17 @@ namespace UniversalReports.Sites.Controllers
             currentSession.UserId = user.Id;
             currentSession.Username = user.Username;
             currentSession.OnUserId = onUserId;
-            currentSession.SessionId = Session.SessionID.ToString();
+            currentSession.SessionId = Session.SessionID;
             currentSession.MenuItemList = userService.GetMenuItem(user.Id, SiteId, "UAT", true).ToList();
         }
 
         private void CreateAuthenticationTicket(User user)
         {
-            var authInfo = new AuthInfo();
-
-            authInfo.UserId = user.Id;
-            authInfo.OnUserId = currentSession.OnUserId;
+            var authInfo = new AuthInfo
+            {
+                UserId = user.Id,
+                OnUserId = currentSession.OnUserId
+            };
 
             var authTicket = new FormsAuthenticationTicket(
                  1,
@@ -91,7 +95,7 @@ namespace UniversalReports.Sites.Controllers
                 authInfo.ToXml(),
                 "/");
 
-            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+            var encryptedTicket = FormsAuthentication.Encrypt(authTicket);
             var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket)
             {
                 HttpOnly = true,

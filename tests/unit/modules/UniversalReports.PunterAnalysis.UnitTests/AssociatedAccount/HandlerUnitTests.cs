@@ -50,7 +50,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             repository.FetchAsync<UserRoleModel>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUserRoleModel);
             repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("Site 1"));
 
-            var nonEmptyListOfUserDevice = new List<UserDevice>()
+            var nonEmptyListOfUserDevice = new List<UserDevice>
             {
                 new UserDevice { Account = "User 1" }
             };

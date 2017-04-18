@@ -114,7 +114,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var monthGroups = new Dictionary<int, List<int>>
             {
                 { 2016, new List<int> { 12 } },
-                { 2017, new List<int> { 1 } },
+                { 2017, new List<int> { 1 } }
             };
 
             var expected = new List<string>

@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             };
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
-            configurationService.CurrentDirectory.Returns<string>("D:");
+            configurationService.CurrentDirectory.Returns("D:");
 
             var expectedExcelSetting = new ExcelSetting
             {

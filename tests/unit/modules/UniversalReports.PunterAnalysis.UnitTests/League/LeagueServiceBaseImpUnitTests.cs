@@ -84,7 +84,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             return new Dictionary<int, List<int>>
             {
                 { 2016, new List<int> { 11, 12 } },
-                { 2017, new List<int> { 1, 2 } },
+                { 2017, new List<int> { 1, 2 } }
             };
         }
     }

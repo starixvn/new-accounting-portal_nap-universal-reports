@@ -6,7 +6,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
 {
     public class DateTimeServiceImpUnitTests
     {
-        private static object[] weekOfYearIso8601Cases =
+        private static readonly object[] WeekOfYearIso8601Cases =
         {
             new object[] { new DateTime(2017, 1, 02), 1 },
             new object[] { new DateTime(2017, 1, 03), 1 },
@@ -23,7 +23,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
         [TestCase(2012, 26, ExpectedResult = "6/25/2012")]
         [TestCase(2012, 52, ExpectedResult = "12/24/2012")]
         [TestCase(2012, 53, ExpectedResult = "12/31/2012")]
-
         public string GetFirstDateOfWeekIso8601_Test(int year, int week)
         {
             var service = new DateTimeServiceImp();
@@ -33,7 +32,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
         }
 
         [Test]
-        [TestCaseSource("weekOfYearIso8601Cases")]
+        [TestCaseSource(nameof(WeekOfYearIso8601Cases))]
         public void GetWeekOfYearIso8601_Test(DateTime date, int week)
         {
             // Arrange

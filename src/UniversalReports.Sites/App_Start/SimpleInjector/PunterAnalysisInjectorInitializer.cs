@@ -20,11 +20,16 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
             container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
             container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
-            container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));
-            container.RegisterConditional<ExcelSettingFactory, SportTypeExcelSettingFactory>(c => c.Consumer.ImplementationType == typeof(PunterAnalysis.SportType.HandlerExcel));
-            container.RegisterConditional<ExcelSettingFactory, BetCountExcelSettingFactory>(c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetCount.HandlerExcel));
-            container.RegisterConditional<ExcelSettingFactory, SummaryExcelSettingFactory>(c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Summary.HandlerExcel));
-            container.RegisterConditional<ExcelSettingFactory, LeagueExcelSettingFactory>(c => c.Consumer.ImplementationType == typeof(PunterAnalysis.League.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, SportTypeExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.SportType.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, BetCountExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetCount.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, SummaryExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Summary.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, LeagueExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.League.HandlerExcel));
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
 

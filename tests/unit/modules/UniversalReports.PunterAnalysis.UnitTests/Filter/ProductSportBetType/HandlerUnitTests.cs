@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.ProductSportBetType
+namespace UniversalReports.PunterAnalysis.UnitTests.Filter.ProductSportBetType
 {
     public class HandlerUnitTests
     {

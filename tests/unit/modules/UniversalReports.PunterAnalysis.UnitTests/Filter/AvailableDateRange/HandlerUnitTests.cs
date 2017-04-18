@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.AvailableDateRange
+namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDateRange
 {
     public class HandlerUnitTests
     {

@@ -58,7 +58,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             }
         }
 
-        private void RemoveColumn(List<GridDataRow> rows, int index)
+        private void RemoveColumn(IEnumerable<GridDataRow> rows, int index)
         {
             foreach (var row in rows)
             {

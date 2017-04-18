@@ -2,6 +2,6 @@
 {
     public static class SortDirectionConstants
     {
-        public static readonly string Asc = "asc";
+        public const string Asc = "asc";
     }
 }

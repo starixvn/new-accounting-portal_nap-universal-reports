@@ -46,7 +46,7 @@ namespace UniversalReports.PlayForFun.Detail.Model
                 Status = string.Empty,
                 WinLoss = a.WinLoss + b.WinLoss,
                 BetCount = a.BetCount + b.BetCount,
-                Turnover = a.Turnover + b.Turnover,
+                Turnover = a.Turnover + b.Turnover
             };
         }
     }

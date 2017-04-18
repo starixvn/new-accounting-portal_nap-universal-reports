@@ -5,7 +5,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests
 {
     public static class FanexDataConfiguration
     {
-        private static bool initialized = false;
+        private static bool initialized;
 
         public static void Initialize()
         {
@@ -22,6 +22,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests
              false,
              true)
            .Run();
+
+            initialized = true;
         }
     }
 }

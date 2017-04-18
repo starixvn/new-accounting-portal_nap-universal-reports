@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.AvailableDatabase
+namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDatabase
 {
     public class HandlerUnitTests
     {

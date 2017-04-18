@@ -15,11 +15,11 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private const int WinLossColumnIndex = 2;
 
+        private ExcelWorksheet headerTemplateSheet;
+
         private ExcelWorksheet statisticSheet;
 
         private ExcelWorksheet templateSheet;
-
-        private ExcelWorksheet headerTemplateSheet;
 
         private ExcelWorksheet totalTemplateSheet;
 
@@ -73,8 +73,8 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void SetColumnWidth(int numberGroup)
         {
-            int numberColumns = (numberGroup * 4) + 1;
-            for (int i = 0; i < numberColumns; i++)
+            var numberColumns = (numberGroup * 4) + 1;
+            for (var i = 0; i < numberColumns; i++)
             {
                 statisticSheet.Column(i + 1).Width = 18;
             }
@@ -98,16 +98,18 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void CreateHeader(List<string> groupNames)
         {
-            int columnIndex = WinLossColumnIndex;
+            var columnIndex = WinLossColumnIndex;
             headerTemplateSheet.Cells["A7:A8"].Copy(statisticSheet.Cells["A7:A8"]);
             statisticSheet.Cells["A7:A8"].Value = "League";
             statisticSheet.Cells["A7:A8"].Merge = true;
             groupNames.ForEach(groupName =>
             {
-                headerTemplateSheet.Cells["B7:E7"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                headerTemplateSheet.Cells["B7:E7"].Copy(
+                    statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                 statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3].Value = groupName;
                 statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3].Merge = true;
-                headerTemplateSheet.Cells["B8:E8"].Copy(statisticSheet.Cells[RowIndex + 1, columnIndex, RowIndex + 1, columnIndex + 3]);
+                headerTemplateSheet.Cells["B8:E8"].Copy(
+                    statisticSheet.Cells[RowIndex + 1, columnIndex, RowIndex + 1, columnIndex + 3]);
                 columnIndex += 4;
             });
 
@@ -118,12 +120,13 @@ namespace UniversalReports.PunterAnalysis.League
         {
             model.ForEach(league =>
             {
-                int columnIndex = WinLossColumnIndex;
+                var columnIndex = WinLossColumnIndex;
                 templateSheet.Cells["A9:A9"].Copy(statisticSheet.Cells[$"A{RowIndex}"]);
                 statisticSheet.Cells[$"A{RowIndex}"].Value = league.LeagueName;
                 league.PeriodGroups.ForEach(group =>
                 {
-                    templateSheet.Cells["B9:E9"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                    templateSheet.Cells["B9:E9"].Copy(
+                        statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                     MappGroupValue(group, columnIndex);
                     columnIndex += 4;
                 });
@@ -134,12 +137,13 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void CreateFooter(LeagueModel model)
         {
-            int columnIndex = WinLossColumnIndex;
+            var columnIndex = WinLossColumnIndex;
             totalTemplateSheet.Cells["A9:A9"].Copy(statisticSheet.Cells[$"A{RowIndex}"]);
             statisticSheet.Cells[$"A{RowIndex}"].Value = "Total";
             model.PeriodGroups.ForEach(group =>
             {
-                totalTemplateSheet.Cells["B9:E9"].Copy(statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
+                totalTemplateSheet.Cells["B9:E9"].Copy(
+                    statisticSheet.Cells[RowIndex, columnIndex, RowIndex, columnIndex + 3]);
                 MappGroupValue(group, columnIndex);
                 columnIndex += 4;
             });

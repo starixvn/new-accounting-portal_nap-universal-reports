@@ -10,18 +10,18 @@ namespace UniversalReports.PlayForFun.Summary
     {
         private readonly IMapper mapper;
 
-        private readonly PlayForFunService PlayForFunService;
+        private readonly PlayForFunService playForFunService;
 
-        public Handler(IMapper mapper, PlayForFunService PlayForFunService)
+        public Handler(IMapper mapper, PlayForFunService playForFunService)
         {
             this.mapper = mapper;
-            this.PlayForFunService = PlayForFunService;
+            this.playForFunService = playForFunService;
         }
 
         public async Task<ViewModelJson> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<Criteria>(message);
-            var model = await PlayForFunService.Query<SummaryModel>(criteria);
+            var model = await playForFunService.Query<SummaryModel>(criteria);
 
             var viewModel = mapper.Map<ViewModelJson>(model);
 
