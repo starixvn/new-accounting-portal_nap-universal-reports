@@ -3,6 +3,7 @@ using MediatR;
 using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
+using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.Sites.AutoMapperSettings.PlayForFun;
 using UniversalReports.Sites.AutoMapperSettings.PunterAnalysis;
@@ -46,6 +47,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             yield return typeof(IMediator).GetTypeInfo().Assembly;
             yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
+            yield return typeof(PlayForFunAttribute).GetTypeInfo().Assembly;
         }
     }
 }

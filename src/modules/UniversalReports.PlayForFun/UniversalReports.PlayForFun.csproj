@@ -115,6 +115,7 @@
     <Compile Include="Core\ExcelSettingParams.cs" />
     <Compile Include="Core\PlayForFunExcelBuilder.cs" />
     <Compile Include="Core\PlayForFunService.cs" />
+    <Compile Include="Core\PunterAnalysisAttribute.cs" />
     <Compile Include="Core\ReportModelBase.cs" />
     <Compile Include="Filter\Product\Handler.cs" />
     <Compile Include="Filter\Product\HttpParameterJson.cs" />

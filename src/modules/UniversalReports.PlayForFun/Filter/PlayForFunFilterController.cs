@@ -15,7 +15,6 @@ namespace UniversalReports.PlayForFun.Filter
             this.mediator = mediator;
         }
 
-        [HttpGet]
         [Route("product")]
         public async Task<IHttpActionResult> Product()
         {
