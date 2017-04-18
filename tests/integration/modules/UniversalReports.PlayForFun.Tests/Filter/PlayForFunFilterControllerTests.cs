@@ -21,7 +21,7 @@ namespace UniversalReports.PlayForFun.Tests.Filter
 
             // Act
             var httpParameterJson = new ProductFilter.HttpParameterJson();
-            var httpActionResult = await controller.Product(httpParameterJson);
+            var httpActionResult = await controller.Product();
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductEntity>>).Content;
 
             // Assert

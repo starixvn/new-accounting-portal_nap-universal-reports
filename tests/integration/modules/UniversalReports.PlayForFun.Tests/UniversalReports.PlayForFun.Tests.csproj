@@ -157,19 +157,15 @@
   <ItemGroup>
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\DetailProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\FilterProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\LeagueProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\PlayForFunAutoMapper.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\SummaryProfile.cs" />
+    <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjectorInitializer.cs" />
     <Compile Include="Filter\PlayForFunFilterControllerTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\AssociatedAccountProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\BetCountProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\BetTypeProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\PlayForFunAutoMapper.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\SportTypeProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFun\SummaryProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjectorInitializer.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
-    <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjectorInitializer.cs" />
     <Compile Include="Detail\PlayForFunProductControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Summary\PlayForFunSummaryControllerTests.cs" />

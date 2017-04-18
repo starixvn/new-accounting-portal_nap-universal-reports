@@ -16,7 +16,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter
 
             // Act
             var controller = new PlayForFunFilterController(mediator);
-            await controller.Product(httpParameterJson);
+            await controller.Product();
 
             // Assert
             await mediator.Received().Send(Arg.Any<FilterProduct.HttpParameterJson>());
