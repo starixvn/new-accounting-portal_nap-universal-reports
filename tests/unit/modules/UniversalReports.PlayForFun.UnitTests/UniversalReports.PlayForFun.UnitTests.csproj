@@ -157,9 +157,6 @@
     <None Include="app.config" />
     <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
     <None Include="packages.config" />
-    <None Include="TestCases\Summary-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">

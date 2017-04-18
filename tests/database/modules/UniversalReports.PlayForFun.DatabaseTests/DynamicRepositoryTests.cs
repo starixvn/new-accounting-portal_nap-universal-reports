@@ -69,7 +69,7 @@ namespace UniversalReports.PlayForFun.DatabaseTests
             Assert.That(firstModel.Site, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.GroupHeadline, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.CustId, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.CustId, Is.Not.Zero);
             Assert.That(firstModel.Product, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.Status, Is.Not.Null.And.Not.Empty);
         }

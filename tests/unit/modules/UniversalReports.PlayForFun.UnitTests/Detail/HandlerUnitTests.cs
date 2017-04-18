@@ -111,7 +111,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
                 Currency = "Currency 1",
                 Super = "Super 1",
                 Product = "Product 1",
-                MemberRequest = true,
+                MemberRequest = "No",
                 Status = "Enabled",
                 Username = "User 1",
                 CustId = 1,

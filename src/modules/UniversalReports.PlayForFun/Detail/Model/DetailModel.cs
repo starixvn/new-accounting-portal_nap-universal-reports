@@ -22,7 +22,7 @@ namespace UniversalReports.PlayForFun.Detail.Model
 
         public string Status { get; set; }
 
-        public bool MemberRequest { get; set; }
+        public string MemberRequest { get; set; }
 
         public decimal WinLoss { get; set; }
 
@@ -41,7 +41,7 @@ namespace UniversalReports.PlayForFun.Detail.Model
                 Super = string.Empty,
                 Username = string.Empty,
                 CustId = 0,
-                MemberRequest = false,
+                MemberRequest = "No",
                 Product = string.Empty,
                 Status = string.Empty,
                 WinLoss = a.WinLoss + b.WinLoss,
