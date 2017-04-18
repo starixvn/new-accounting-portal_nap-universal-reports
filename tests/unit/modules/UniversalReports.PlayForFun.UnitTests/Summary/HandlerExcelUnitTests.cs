@@ -2,7 +2,9 @@
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using UniversalReports.Core.Configurations;
 using UniversalReports.PlayForFun.Core;
+using UniversalReports.PlayForFun.Detail.Model;
 using UniversalReports.PlayForFun.Summary;
 using UniversalReports.PlayForFun.Summary.Model;
 
@@ -15,47 +17,76 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
         {
             // Arrange
             var mapper = Substitute.For<IMapper>();
+
             var punterAnalysisService = Substitute.For<PlayForFunService>();
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
+
+            var configurationService = Substitute.For<ApplicationConfigurationService>();
+            configurationService.CurrentDirectory.Returns("D:");
+
             var excelBuilder = Substitute.For<PlayForFunExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+
+            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, configurationService, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
+            await handleExcel.Handle(new PlayForFun.Summary.Model.HttpParameterExcel());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(
+                Arg.Any<PlayForFun.Summary.Model.ExcelViewModel>(),
+                Arg.Any<ExcelSetting>(),
+                Arg.Any<PlayForFun.Detail.Model.ExcelViewModel>(),
+                Arg.Any<ExcelSetting>());
         }
 
         [Test]
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptyExcelViewModel = new ExcelViewModel();
-            var settings = new ExcelSetting
+            var emptySummaryExcelViewModel = new PlayForFun.Summary.Model.ExcelViewModel();
+
+            var emptyDetailExcelViewModel = new PlayForFun.Detail.Model.ExcelViewModel();
+
+            var summaryExcelSetting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
                 StartRowIndex = 8,
                 TemplatePath = "AnyTemplatePath",
                 Title = "Any Title",
-                TitleCellRange = "A1:E2",
-                Filter = "Any Filter",
-                FilterCellRange = "A3:E5"
+                TitleCellRange = "A1:E2"
+            };
+
+            var productDetailExcelSetting = new ExcelSetting
+            {
+                SheetName = "AnySheetName",
+                StartRowIndex = 8,
+                TemplatePath = "AnyTemplatePath",
+                Title = "Any Title",
+                TitleCellRange = "A1:E2"
             };
 
             var mapper = Substitute.For<IMapper>();
-            mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<SummaryModel>>()).Returns(emptyExcelViewModel);
+            mapper.Map<PlayForFun.Summary.Model.ExcelViewModel>(Arg.Any<ReportModelBase<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
+            mapper.Map<PlayForFun.Detail.Model.ExcelViewModel>(Arg.Any<ReportModelBase<DetailModel>>()).Returns(emptyDetailExcelViewModel);
+
             var punterAnalysisService = Substitute.For<PlayForFunService>();
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
-            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
+
+            var configurationService = Substitute.For<ApplicationConfigurationService>();
+
             var excelBuilder = Substitute.For<PlayForFunExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+
+            var handleExcel = Substitute.ForPartsOf<HandlerExcel>(mapper, punterAnalysisService, configurationService, excelBuilder);
+            handleExcel.CreateSummarySetting(Arg.Any<string>()).Returns(summaryExcelSetting);
+            handleExcel.CreateProductDetailSetting(Arg.Any<string>(), Arg.Any<string>()).Returns(productDetailExcelSetting);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
+            await handleExcel.Handle(new PlayForFun.Summary.Model.HttpParameterExcel());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
+            excelBuilder.Received().CreateExcelPackage(
+                Arg.Is(emptySummaryExcelViewModel),
+                Arg.Is(summaryExcelSetting),
+                Arg.Is(emptyDetailExcelViewModel),
+                Arg.Is(productDetailExcelSetting));
         }
     }
 }

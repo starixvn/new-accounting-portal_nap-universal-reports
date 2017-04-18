@@ -11,9 +11,5 @@
         public string Title { get; set; }
 
         public string TitleCellRange { get; set; }
-
-        public string Filter { get; set; }
-
-        public string FilterCellRange { get; set; }
     }
 }

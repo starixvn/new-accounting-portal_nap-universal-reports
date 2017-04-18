@@ -111,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\ExcelSetting.cs" />
-    <Compile Include="Core\ExcelSettingFactory.cs" />
     <Compile Include="Core\ExcelSettingParams.cs" />
     <Compile Include="Core\PlayForFunExcelBuilder.cs" />
     <Compile Include="Core\PlayForFunService.cs" />
@@ -133,7 +132,6 @@
     <Compile Include="Detail\Model\DetailModel.cs" />
     <Compile Include="Detail\Model\ViewModelJson.cs" />
     <Compile Include="Detail\PlayForFunProductController.cs" />
-    <Compile Include="Detail\ProductExcelSettingFactory.cs" />
     <Compile Include="Summary\Handler.cs" />
     <Compile Include="Summary\HandlerExcel.cs" />
     <Compile Include="Summary\Model\ExcelViewModel.cs" />
@@ -144,7 +142,6 @@
     <Compile Include="Summary\Model\HttpParameterJson.cs" />
     <Compile Include="Summary\Model\ViewModelJson.cs" />
     <Compile Include="Summary\PlayForFunSummaryController.cs" />
-    <Compile Include="Summary\SummaryExcelSettingFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

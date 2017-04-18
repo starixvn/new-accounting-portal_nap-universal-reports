@@ -143,13 +143,11 @@
     <Compile Include="Detail\HandlerUnitTests.cs" />
     <Compile Include="Detail\Model\DetailModelUnitTests.cs" />
     <Compile Include="Detail\PlayForFunDetailControllerUnitTests.cs" />
-    <Compile Include="Detail\DetailExcelSettingFactoryUnitTests.cs" />
     <Compile Include="Summary\HandlerExcelUnitTests.cs" />
     <Compile Include="Summary\HandlerUnitTests.cs" />
     <Compile Include="Summary\Model\SummaryModelUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Summary\PlayForFunSummaryControllerUnitTests.cs" />
-    <Compile Include="Summary\SummaryExcelSettingFactoryUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

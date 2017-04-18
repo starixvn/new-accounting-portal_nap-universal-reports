@@ -5,43 +5,43 @@ namespace UniversalReports.PlayForFun.Detail.Model
 {
     public class DetailExcelModel
     {
-        [Cell("A1")]
+        [Cell("A4")]
         public DateTime Date { get; set; }
 
-        [Cell("B1")]
+        [Cell("B4")]
         public string GroupHeadline { get; set; }
 
-        [Cell("C1")]
+        [Cell("C4")]
         public string Site { get; set; }
 
-        [Cell("D1")]
+        [Cell("D4")]
         public string Currency { get; set; }
 
-        [Cell("E1")]
+        [Cell("E4")]
         public string Super { get; set; }
 
-        [Cell("F1")]
+        [Cell("F4")]
         public string Username { get; set; }
 
-        [Cell("G1")]
+        [Cell("G4")]
         public int CustId { get; set; }
 
-        [Cell("H1")]
+        [Cell("H4")]
         public string Product { get; set; }
 
-        [Cell("I1")]
+        [Cell("I4")]
         public string Status { get; set; }
 
-        [Cell("J1")]
-        public string MemberRequest { get; set; }
+        [Cell("J4")]
+        public bool MemberRequest { get; set; }
 
-        [Cell("K1")]
+        [Cell("K4")]
         public decimal Turnover { get; set; }
 
-        [Cell("L1")]
+        [Cell("L4")]
         public decimal WinLoss { get; set; }
 
-        [Cell("M1")]
+        [Cell("M4")]
         public int BetCount { get; set; }
     }
 }

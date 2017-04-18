@@ -13,7 +13,6 @@ namespace UniversalReports.Sites.AutoMapperSettings
             CreateMap<ReportModelBase<SummaryModel>, ExcelViewModel>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<SummaryModel, SummaryExcelModel>(MemberList.Source);
-            CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }
     }
 }

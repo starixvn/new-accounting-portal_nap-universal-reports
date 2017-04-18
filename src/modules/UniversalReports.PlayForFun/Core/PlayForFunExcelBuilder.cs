@@ -55,12 +55,12 @@ namespace UniversalReports.PlayForFun.Core
             using (var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage = new ExcelPackage(stream);
-                summarySheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
-                summaryTemplateSheet = ExcelPackage.Workbook.Worksheets["Template"];
-                summaryTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
-                detailSheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
-                detailTemplateSheet = ExcelPackage.Workbook.Worksheets["Template"];
-                detailTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                summarySheet = ExcelPackage.Workbook.Worksheets.Copy("SummaryTemplate", "Summary");
+                summaryTemplateSheet = ExcelPackage.Workbook.Worksheets["SummaryTemplate"];
+                summaryTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["SummaryTotalTemplate"];
+                detailSheet = ExcelPackage.Workbook.Worksheets.Copy("ProductStatisticsTemplate", "ProductStatistics");
+                detailTemplateSheet = ExcelPackage.Workbook.Worksheets["ProductStatisticsTemplate"];
+                detailTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["ProductTotalTemplate"];
             }
         }
 
