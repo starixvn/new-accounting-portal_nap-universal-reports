@@ -23,20 +23,5 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
             // Assert
             await mediator.Received().Send(Arg.Any<HttpParameterJson>());
         }
-
-        [Test]
-        public async Task Excel_Always_CallMediatorSend()
-        {
-            // Arrange
-            var mediator = Substitute.For<IMediator>();
-            var httpParameterExcel = new HttpParameterExcel();
-
-            // Act
-            var controller = new PlayForFunDetailController(mediator);
-            await controller.Excel(httpParameterExcel);
-
-            // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
-        }
     }
 }

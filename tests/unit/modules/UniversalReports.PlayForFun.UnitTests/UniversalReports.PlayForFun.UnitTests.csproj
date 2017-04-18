@@ -140,7 +140,6 @@
     <Compile Include="Filter\Product\HandlerUnitTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Filter\PlayForFunFilterControllerUnitTests.cs" />
-    <Compile Include="Detail\HandlerExcelUnitTests.cs" />
     <Compile Include="Detail\HandlerUnitTests.cs" />
     <Compile Include="Detail\Model\DetailModelUnitTests.cs" />
     <Compile Include="Detail\PlayForFunDetailControllerUnitTests.cs" />

@@ -125,7 +125,6 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Detail\Handler.cs" />
-    <Compile Include="Detail\HandlerExcel.cs" />
     <Compile Include="Detail\Model\Criteria.cs" />
     <Compile Include="Detail\Model\ExcelViewModel.cs" />
     <Compile Include="Detail\Model\HttpParameterExcel.cs" />

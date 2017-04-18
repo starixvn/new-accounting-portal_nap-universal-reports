@@ -22,12 +22,5 @@ namespace UniversalReports.PlayForFun.Detail
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
         }
-
-        [Route("excel")]
-        public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
-        {
-            var excelPackage = await mediator.Send(parameter);
-            return new ExcelResult(excelPackage);
-        }
     }
 }
