@@ -1,9 +1,13 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
+import * as moment from 'moment';
+import { DateHelper } from 'nap-components/src/date';
+import { FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
 import { SummaryData } from './summary-grid.model';
 import { SummaryGridService } from './summary-grid.service';
+import { DetailGridService } from '../detail-grid/detail-grid.service';
 
 @Component({
     selector: 'nap-summary-grid',
@@ -14,7 +18,8 @@ export class SummaryGridComponent implements Grid {
 
     constructor(
         private gridService: GridService,
-        private service: SummaryGridService
+        private service: SummaryGridService,
+        private detailGridService: DetailGridService
     ) { }
 
     query() {
@@ -30,6 +35,14 @@ export class SummaryGridComponent implements Grid {
     }
 
     get title(): string {
-        return 'Play For Fun Statistics From';
+        const filterModelWrapper = new FilterModelWrapper(this.gridService.filterModel);
+        return `Play For Fun Statistics ${filterModelWrapper.dateFromToTitle}`;
+    }
+
+    showDate(date: string) {
+        this.detailGridService.model = {
+            Date: DateHelper.convertDateToDateStruct(new Date(date))
+        };
+        this.gridService.generate(GridType.Detail);
     }
 }

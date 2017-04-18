@@ -6,7 +6,7 @@ using UniversalReports.WebAPI.Results;
 
 namespace UniversalReports.PlayForFun.Detail
 {
-    [RoutePrefix("api/play-for-fun/summary")]
+    [RoutePrefix("api/play-for-fun/detail")]
     public class PlayForFunDetailController : ApiController
     {
         private readonly IMediator mediator;

@@ -9,20 +9,24 @@
         table-layout: fixed;
         border-collapse: collapse;
         box-sizing: border-box;
+        &.w-100 {
+            width: 100%;
+        }
+        td,
+        th {
+            border: 1px solid #c5c5c5;
+            padding: .2rem .4rem;
+        }
     }
     .header {
         font-weight: bold;
-        box-sizing: border-box;
+        color: #fff;
+        background: #3c5ea5;
         th {
             box-sizing: border-box;
             text-align: center;
-            background: #3c5ea5;
-            color: #fff;
-            height: 28px;
-            border: solid 1px #c5c5c5;
             border-top: none;
             border-left: none;
-            padding: 2px 0px;
         }
         .empty-data {
             color: red;
@@ -32,21 +36,10 @@
     .body {
         max-height: 500px;
         overflow-y: scroll;
-        box-sizing: border-box;
-        td {
-            height: 21px;
-            border: 1px solid #c5c5c5;
-            padding: 2px 5px;
-        }
     }
     .footer {
         background: #dce2bc;
-        box-sizing: border-box;
         font-weight: bold;
-        td {
-            border: 1px solid #c5c5c5;
-            padding: 2px 5px;
-        }
     }
     .date {
         text-align: center;

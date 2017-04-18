@@ -1,0 +1,85 @@
+<ng-template #colgroup>
+    <colgroup>
+        <col style="width: 180px" />
+        <col style="width: 100px" />
+        <col style="width: 80px" />
+        <col style="width: 100px" />
+        <col style="width: 180px" />
+        <col style="width: 80px" />
+        <col style="width: 150px" />
+        <col style="width: 100px" />
+        <col style="width: 200px" />
+        <col style="width: 150px" />
+        <col style="width: 150px" />
+        <col style="width: 100px" />
+    </colgroup>
+</ng-template>
+<div *ngIf="data" class="grid">
+    <div style="width: 1588px">
+        <div class="header">
+            <table [class.w-100]="!hasData">
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <thead>
+                    <tr>
+                        <th>Group Headline</th>
+                        <th>Site</th>
+                        <th>Currency</th>
+                        <th>Super</th>
+                        <th>Username</th>
+                        <th>Cust ID</th>
+                        <th>Product</th>
+                        <th>Status</th>
+                        <th>Member Request (Yes/No)?</th>
+                        <th>Turnover</th>
+                        <th>Member Win Loss</th>
+                        <th>Play Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="!hasData">
+                        <th class="empty-data" colspan="12">There is no data</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="data.Entities.length > 0" class="body">
+            <table>
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <tbody>
+                    <tr *ngFor="let item of data.Entities  | paginate: config">
+                        <td class="text-center word-break-all">{{ item.GroupHeadline === null ? 'NA': item.GroupHeadline }}</td>
+                        <td class="text-center">{{ item.Site }}</td>
+                        <td class="text-center">{{ item.Currency }}</td>
+                        <td class="text-center">{{ item.Super }}</td>
+                        <td class="text-center word-break-all">{{ item.Username }}</td>
+                        <td class="text-center">{{ item.CustId }}</td>
+                        <td class="text-center word-break-all">{{ item.Product }}</td>
+                        <td class="text-center">{{ item.Status }}</td>
+                        <td class="text-center">{{ item.MemberRequest ? 'Yes': 'No' }}</td>
+                        <td class="number" [napDecimalFormat]="item.Turnover"></td>
+                        <td class="number" [napDecimalFormat]="item.WinLoss"></td>
+                        <td class="number" [napIntegerFormat]="item.BetCount"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer" *ngIf="data.Entities.length > 0">
+            <table>
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <tfoot>
+                    <tr>
+                        <td class="text-right">Total</td>
+                        <td class="number" [napDecimalFormat]="data.Total.Turnover"></td>
+                        <td class="number" [napDecimalFormat]="data.Total.WinLoss"></td>
+                        <td class="number" [napIntegerFormat]="data.Total.BetCount"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="12">
+                            <nap-pagination [config]="config"></nap-pagination>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

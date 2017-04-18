@@ -9,20 +9,22 @@
         table-layout: fixed;
         border-collapse: collapse;
         box-sizing: border-box;
+        &.w-100 {
+            width: 100%;
+        }
     }
     .header {
         font-weight: bold;
         box-sizing: border-box;
+        color: #fff;
+        background: #3c5ea5;
         th {
             box-sizing: border-box;
             text-align: center;
-            background: #3c5ea5;
-            color: #fff;
-            height: 28px;
             border: solid 1px #c5c5c5;
             border-top: none;
             border-left: none;
-            padding: 2px 0px;
+            padding: .3rem 0;
         }
         .empty-data {
             color: red;
@@ -53,8 +55,8 @@
     }
     .number {
         text-align: right;
-        &.number-positive,
-        &>.number-positive {
+        &.number-negative,
+        &>.number-negative {
             color: red;
         }
     }

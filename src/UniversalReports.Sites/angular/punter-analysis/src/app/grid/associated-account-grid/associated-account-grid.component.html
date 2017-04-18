@@ -1,31 +1,37 @@
-<div *ngIf="data" style="width: auto" class="grid">
-    <div class="header" style="width: 501px">
-        <table>
-            <colgroup>
-                <col style="width: 320px" />
-                <col style="width: 160px" />
-                <col style="width: 20px" />
-            </colgroup>
-            <tr>
-                <th>Username</th>
-                <th>Role</th>
-                <th></th>
-            </tr>
-            <tr *ngIf="!hasData">
-                <th class="empty-data" colspan="3">There is no data</th>
-            </tr>
-        </table>
-    </div>
-    <div *ngIf="hasData" class="body" style="width: 501px">
-        <table>
-            <colgroup>
-                <col style="width: 320px" />
-                <col style="width: 160px" />
-            </colgroup>
-            <tr *ngFor="let item of data">
-                <td>{{ item.Username }}</td>
-                <td>{{ item.RoleName }}</td>
-            </tr>
-        </table>
+<ng-template #colgroup>
+    <colgroup>
+        <col style="width: 320px" />
+        <col style="width: 160px" />
+    </colgroup>
+</ng-template>
+<div *ngIf="data" class="grid">
+    <div style="width: 498px">
+        <div class="header">
+            <table [class.w-100]="!hasData">
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="!hasData">
+                        <th class="empty-data" colspan="2">There is no data</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="hasData" class="body">
+            <table>
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>{{ item.Username }}</td>
+                        <td>{{ item.RoleName }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

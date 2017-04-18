@@ -198,7 +198,7 @@ describe('SummaryGridComponent', () => {
 
         it('all cells of total row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Total', '25,361.78', '5,203.08', '487.44%', '41', '', ''];
+            const expectedCellValue = ['Total', '25,361.78', '5,203.08', '487.44%', '41', ''];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 

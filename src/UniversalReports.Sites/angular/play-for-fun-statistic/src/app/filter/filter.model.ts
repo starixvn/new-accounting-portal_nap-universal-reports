@@ -1,4 +1,4 @@
-import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
+import { NgbDateStruct, DateHelper, DateFormat } from 'nap-components/src/date';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 
 export enum Status {
@@ -44,11 +44,8 @@ export class FilterModelWrapper {
     }
 
     get dateFromToTitle(): string {
-        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-        const dateFormat = 'MMM DD, YYYY';
-        const fromDateString = momentFromDate.format(dateFormat);
-        const toDateString = momentToDate.format(dateFormat);
+        const fromDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Date);
+        const toDateString = DateHelper.formatDateStruct(this.filterModel.toDate, DateFormat.Date);
         return `From ${fromDateString} To ${toDateString}`;
     }
 }

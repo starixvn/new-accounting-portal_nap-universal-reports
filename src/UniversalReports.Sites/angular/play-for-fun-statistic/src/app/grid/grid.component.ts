@@ -7,12 +7,15 @@ import { FilterModel } from '../filter/filter.model';
 import { GridService } from './grid.service';
 import { Grid, GridType } from './grid.model';
 import { SummaryGridComponent } from './summary-grid/summary-grid.component';
+import { DetailGridComponent } from './detail-grid/detail-grid.component';
 
 @Component({
     selector: 'nap-grid',
     templateUrl: './grid.component.html',
     styleUrls: ['./grid.component.scss'],
     entryComponents: [
+        SummaryGridComponent,
+        DetailGridComponent
     ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
@@ -36,13 +39,19 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     ngOnChanges(changes: SimpleChanges) {
+        this.clear();
         this.gridType = GridType.Summary;
         this.service.filterModel = this.filterModel;
         this.createGrid();
     }
 
     ngOnDestroy() {
+        this.clear();
+    }
+
+    private clear() {
         this.container.clear();
+        this.components = [];
     }
 
     private generate(gridType: GridType) {
@@ -62,6 +71,8 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
         switch (this.gridType) {
             case GridType.Summary:
                 return this.componentFactoryResolver.resolveComponentFactory(SummaryGridComponent);
+            case GridType.Detail:
+                return this.componentFactoryResolver.resolveComponentFactory(DetailGridComponent);
             default:
                 throw new Error('Not implemented yet');
         }

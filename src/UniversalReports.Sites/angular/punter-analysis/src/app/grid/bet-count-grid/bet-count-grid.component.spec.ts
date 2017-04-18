@@ -169,7 +169,7 @@ describe('BetCountGridComponent', () => {
 
         it('all cells of total row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Total', '41', '30', '11', '25,361.78', ''];
+            const expectedCellValue = ['Total', '41', '30', '11', '25,361.78'];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 

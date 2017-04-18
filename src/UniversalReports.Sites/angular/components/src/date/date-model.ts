@@ -85,3 +85,10 @@ export interface WeekRange {
     fromDate: NgbDateStruct;
     toDate: NgbDateStruct;
 }
+
+export enum DateFormat {
+    Date,
+    Week,
+    Month,
+    Year
+}

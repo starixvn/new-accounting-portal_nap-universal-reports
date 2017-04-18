@@ -226,8 +226,8 @@ describe('BetTypeGridComponent', () => {
                 '25,361.78',
                 '5,203.08',
                 '487.44%',
-                '41',
-                ''];
+                '41'
+            ];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 

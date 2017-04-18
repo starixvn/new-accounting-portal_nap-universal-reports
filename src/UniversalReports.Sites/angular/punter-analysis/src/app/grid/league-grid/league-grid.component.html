@@ -1,78 +1,81 @@
+<ng-template #col>
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 90px" />
+    <col style="width: 120px" />
+</ng-template>
 <div *ngIf="data" class="grid">
-    <div class="header" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
-        <table>
-            <colgroup>
-                <col style="width: 250px" />
-                <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width: 120px" />
-                    <col style="width: 120px" />
-                    <col style="width: 90px" />
-                    <col style="width: 120px" />
-                </ng-template>
-                <col style="width: 20px" />
-            </colgroup>
-            <tr>
-                <th rowspan="2">League</th>
-                <th *ngFor="let groupName of data.GroupNames" colspan="4">{{groupName}}</th>
-                <th rowspan="2"></th>
-            </tr>
-            <tr>
-                <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <th>Win Loss</th>
-                    <th>Turnover</th>
-                    <th>Margin</th>
-                    <th>Bet Count</th>
-                </ng-template>
-            </tr>
-            <tr *ngIf="!hasData">
-                <th class="empty-data" [colSpan]="2 + data.GroupNames.length * 4">There is no data</th>
-            </tr>
-        </table>
-    </div>
-    <div *ngIf="hasData" class="body" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
-        <table>
-            <colgroup>
-                <col style="width: 250px" />
-                <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width: 120px" />
-                    <col style="width: 120px" />
-                    <col style="width: 90px" />
-                    <col style="width: 120px" />
-                </ng-template>
-            </colgroup>
-            <tr *ngFor="let leagueItem of data.Entities">
-                <td>{{ leagueItem.LeagueName }}</td>
-                <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
-                    <td class="number" [napDecimalFormat]="leagueItem.PeriodGroups[i].WinLoss"></td>
-                    <td class="text-right" [napDecimalFormat]="leagueItem.PeriodGroups[i].Turnover"></td>
-                    <td class="number" [napPercentFormat]="leagueItem.PeriodGroups[i].WinLoss/leagueItem.PeriodGroups[i].Turnover"></td>
-                    <td class="text-right" [napIntegerFormat]="leagueItem.PeriodGroups[i].BetCount"></td>
-                </ng-template>
-            </tr>
-        </table>
-    </div>
-    <div class="footer" *ngIf="hasData" [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
-        <table>
-            <colgroup>
-                <col style="width: 250px" />
-                <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
-                    <col style="width: 120px" />
-                    <col style="width: 120px" />
-                    <col style="width: 90px" />
-                    <col style="width: 120px" />
-                </ng-template>
-                <col style="width: 20px" />
-            </colgroup>
-            <tr>
-                <td class="text-right">Total</td>
-                <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
-                    <td class="number" [napDecimalFormat]="data.Total.PeriodGroups[i].WinLoss"></td>
-                    <td class="text-right" [napDecimalFormat]="data.Total.PeriodGroups[i].Turnover"></td>
-                    <td class="number" [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>
-                    <td class="text-right" [napIntegerFormat]="data.Total.PeriodGroups[i].BetCount"></td>
-                </ng-template>
-                <td></td>
-            </tr>
-        </table>
+    <div [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
+        <div class="header">
+            <table [class.w-100]="!hasData">
+                <colgroup>
+                    <col style="width: 250px" />
+                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template [ngTemplateOutlet]="col"></ng-template>
+                    </ng-template>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th rowspan="2">League</th>
+                        <th *ngFor="let groupName of data.GroupNames" colspan="4">{{groupName}}</th>
+                    </tr>
+                    <tr>
+                        <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                            <th>Win Loss</th>
+                            <th>Turnover</th>
+                            <th>Margin</th>
+                            <th>Bet Count</th>
+                        </ng-template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="!hasData">
+                        <th class="empty-data" [colSpan]="1 + data.GroupNames.length * 4">There is no data</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="hasData" class="body">
+            <table>
+                <colgroup>
+                    <col style="width: 250px" />
+                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template [ngTemplateOutlet]="col"></ng-template>
+                    </ng-template>
+                </colgroup>
+                <tbody>
+                    <tr *ngFor="let leagueItem of data.Entities">
+                        <td>{{ leagueItem.LeagueName }}</td>
+                        <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
+                            <td class="number" [napDecimalFormat]="leagueItem.PeriodGroups[i].WinLoss"></td>
+                            <td class="text-right" [napDecimalFormat]="leagueItem.PeriodGroups[i].Turnover"></td>
+                            <td class="number" [napPercentFormat]="leagueItem.PeriodGroups[i].WinLoss/leagueItem.PeriodGroups[i].Turnover"></td>
+                            <td class="text-right" [napIntegerFormat]="leagueItem.PeriodGroups[i].BetCount"></td>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer" *ngIf="hasData">
+            <table>
+                <colgroup>
+                    <col style="width: 250px" />
+                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template [ngTemplateOutlet]="col"></ng-template>
+                    </ng-template>
+                </colgroup>
+                <tfoot>
+                    <tr>
+                        <td class="text-right">Total</td>
+                        <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
+                            <td class="number" [napDecimalFormat]="data.Total.PeriodGroups[i].WinLoss"></td>
+                            <td class="text-right" [napDecimalFormat]="data.Total.PeriodGroups[i].Turnover"></td>
+                            <td class="number" [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>
+                            <td class="text-right" [napIntegerFormat]="data.Total.PeriodGroups[i].BetCount"></td>
+                        </ng-template>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>

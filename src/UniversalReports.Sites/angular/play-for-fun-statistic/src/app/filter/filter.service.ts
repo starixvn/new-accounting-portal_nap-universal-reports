@@ -6,8 +6,8 @@ import { RoleId } from 'nap-components/src/model';
 import { FilterModel } from './filter.model';
 
 interface Product {
-    productId: number;
-    productName: string;
+    ProductId: number;
+    ProductName: string;
 }
 
 @Injectable()
@@ -22,8 +22,8 @@ export class FilterService {
         const url = `${this.url}/product`;
         return this.httpService.post<Product[]>(url).map(products => {
             return products.map(product => <SelectItem>{
-                text: product.productName,
-                value: product.productId
+                text: product.ProductName,
+                value: product.ProductId
             });
         });
     }

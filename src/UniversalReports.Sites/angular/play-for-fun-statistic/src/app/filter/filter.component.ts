@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { SelectItem } from 'nap-components/src/dropdown-select';
-import { NgbDateStruct, NgbDate } from 'nap-components/src/date';
+import { NgbDateStruct, NgbDate, DateHelper, DateFormat } from 'nap-components/src/date';
 import { Status, FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
 
@@ -19,6 +19,7 @@ import { FilterService } from './filter.service';
 export class FilterComponent implements OnInit {
     @Output() generate = new EventEmitter<FilterModel>();
     @Output() reset = new EventEmitter();
+    minDateNote: string;
     minDate: NgbDateStruct;
     maxDate: NgbDateStruct;
     fromDate: NgbDateStruct;
@@ -39,6 +40,7 @@ export class FilterComponent implements OnInit {
         this.maxDate = todayNgbDate.toDateStruct();
         this.fromDate = todayNgbDate.toDateStruct();
         this.toDate = todayNgbDate.toDateStruct();
+        this.minDateNote = DateHelper.formatDateStruct(this.minDate, DateFormat.Date);
     }
 
     ngOnInit() {

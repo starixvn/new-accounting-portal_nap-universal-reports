@@ -111,11 +111,13 @@ export class FilterService {
 
         const treeItems = renderTypeNodes.map(node => <TreeItem>{
             text: node,
-            value: item.RenderType
+            value: item.RenderType,
+            collapsed: true
         });
         treeItems.push({
             text: item.BetTypeName,
-            value: item.Value
+            value: item.Value,
+            collapsed: true
         });
         return treeItems;
     }

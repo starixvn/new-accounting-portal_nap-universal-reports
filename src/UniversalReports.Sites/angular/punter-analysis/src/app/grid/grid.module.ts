@@ -2,9 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
-
 import { PaginationModule } from 'nap-components/src/pagination';
-
 import { DecimalFormatDirective } from 'nap-components/src/number/decimal-format.directive';
 import { IntegerFormatDirective } from 'nap-components/src/number/integer-format.directive';
 import { PercentFormatDirective } from 'nap-components/src/number/percent-format.directive';

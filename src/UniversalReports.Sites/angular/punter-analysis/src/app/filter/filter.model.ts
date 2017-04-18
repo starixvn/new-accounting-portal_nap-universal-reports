@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import { DownlineTreeviewItem } from 'ng2-dropdown-treeview';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { RoleId, SortBy } from 'nap-components/src/model';
-import { NgbDateStruct, DateHelper } from 'nap-components/src/date';
+import { NgbDateStruct, DateFormat, DateHelper } from 'nap-components/src/date';
 
 export enum SearchBy {
     User = 1,
@@ -125,26 +125,24 @@ export class FilterModelWrapper {
     }
 
     private getDateFromToString(): string {
-        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
         switch (this.filterModel.periodType) {
             case PeriodType.Daily:
             case PeriodType.Weekly:
-                const dateFormat = 'MMM DD, YYYY';
-                const fromDateString = momentFromDate.format(dateFormat);
-                const toDateString = momentToDate.format(dateFormat);
+                const fromDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Date);
+                const toDateString = DateHelper.formatDateStruct(this.filterModel.toDate, DateFormat.Date);
                 return `from ${fromDateString} to ${toDateString}`;
             case PeriodType.Monthly:
-                const monthDateString = momentFromDate.format('MMM YYYY');
+                const monthDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Month);
                 return `in ${monthDateString}`;
             case PeriodType.MonthRange:
-                const monthFormat = 'MMM YYYY';
-                const fromMonthDateString = momentFromDate.format(monthFormat);
-                const toMonthDateString = momentToDate.format(monthFormat);
+                const fromMonthDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Month);
+                const toMonthDateString = DateHelper.formatDateStruct(this.filterModel.toDate, DateFormat.Month);
                 return `from ${fromMonthDateString} to ${toMonthDateString}`;
             case PeriodType.Annually:
-                const yearDateString = momentFromDate.format('YYYY');
+                const yearDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Year);
                 return `in ${yearDateString}`;
         }
+
+        return '';
     }
 }
