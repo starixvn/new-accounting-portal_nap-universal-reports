@@ -7,26 +7,45 @@ namespace UniversalReports.PlayForFun.Core
 {
     public interface PlayForFunExcelBuilder
     {
-        ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new();
+        ExcelPackage CreateExcelPackage<T, T1>(
+            ReportModelBase<T> summaryExcelModel,
+            ExcelSetting summarySetting,
+            ReportModelBase<T1> detailExcelModel,
+            ExcelSetting detailSetting)
+            where T : class, new()
+            where T1 : class, new();
     }
 
     public class PlayForFunExcelBuilderImp : PlayForFunExcelBuilder
     {
-        private ExcelWorksheet statisticSheet;
+        private ExcelWorksheet summarySheet;
 
-        private ExcelWorksheet templateSheet;
+        private ExcelWorksheet summaryTemplateSheet;
 
-        private ExcelWorksheet totalTemplateSheet;
+        private ExcelWorksheet summaryTotalTemplateSheet;
+
+        private ExcelWorksheet detailSheet;
+
+        private ExcelWorksheet detailTemplateSheet;
+
+        private ExcelWorksheet detailTotalTemplateSheet;
 
         private int RowIndex { get; set; }
 
         private ExcelPackage ExcelPackage { get; set; }
 
-        public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
+        public ExcelPackage CreateExcelPackage<T, T1>(
+            ReportModelBase<T> summaryExcelModel,
+            ExcelSetting summarySetting,
+            ReportModelBase<T1> detailExcelModel,
+            ExcelSetting detailSetting)
+            where T : class, new()
+            where T1 : class, new()
         {
-            LoadTemplate(settings.TemplatePath);
+            LoadTemplate(summarySetting.TemplatePath);
             ApplySetting();
-            Build(model, settings);
+            Build(summarySheet, summaryTemplateSheet, summaryTotalTemplateSheet, summaryExcelModel, summarySetting);
+            Build(detailSheet, detailTemplateSheet, detailTotalTemplateSheet, detailExcelModel, detailSetting);
             ClearTemplate();
             return ExcelPackage;
         }
@@ -36,31 +55,42 @@ namespace UniversalReports.PlayForFun.Core
             using (var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage = new ExcelPackage(stream);
-                statisticSheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
-                templateSheet = ExcelPackage.Workbook.Worksheets["Template"];
-                totalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                summarySheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
+                summaryTemplateSheet = ExcelPackage.Workbook.Worksheets["Template"];
+                summaryTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                detailSheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
+                detailTemplateSheet = ExcelPackage.Workbook.Worksheets["Template"];
+                detailTotalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
             }
         }
 
         private void ApplySetting()
         {
-            statisticSheet.OutLineSummaryBelow = false;
+            summarySheet.OutLineSummaryBelow = false;
+            detailSheet.OutLineSummaryBelow = false;
         }
 
         private void ClearTemplate()
         {
-            ExcelPackage.Workbook.Worksheets.Delete(templateSheet);
-            ExcelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
+            ExcelPackage.Workbook.Worksheets.Delete(summaryTemplateSheet);
+            ExcelPackage.Workbook.Worksheets.Delete(summaryTotalTemplateSheet);
+            ExcelPackage.Workbook.Worksheets.Delete(detailTemplateSheet);
+            ExcelPackage.Workbook.Worksheets.Delete(detailTotalTemplateSheet);
         }
 
-        private void Build<T>(ReportModelBase<T> model, ExcelSetting setting) where T : class, new()
+        private void Build<T>(
+            ExcelWorksheet workSheet,
+            ExcelWorksheet bodyTemplateSheet,
+            ExcelWorksheet totalTemplateSheet,
+            ReportModelBase<T> model,
+            ExcelSetting setting) where T : class, new()
         {
             SetRowIndex(setting.StartRowIndex);
-            SetSheetName(setting.SheetName);
-            ApplyDescription(setting.Title, setting.TitleCellRange);
-            ApplyDescription(setting.Filter, setting.FilterCellRange);
-            ApplyBody(model.Entities);
-            ApplyFooter(model.Total);
+            SetSheetName(workSheet, setting.SheetName);
+            ApplyDescription(workSheet, setting.Title, setting.TitleCellRange);
+            ApplyBody(workSheet, bodyTemplateSheet, model.Entities);
+            ApplyFooter(workSheet, totalTemplateSheet, model.Total);
+            workSheet.AutoMergeRowsHaveSameValue(new ExcelAddress($"A{setting.StartRowIndex}:A{RowIndex}"));
         }
 
         private void SetRowIndex(int rowIndex)
@@ -68,29 +98,29 @@ namespace UniversalReports.PlayForFun.Core
             RowIndex = rowIndex;
         }
 
-        private void SetSheetName(string sheetName)
+        private void SetSheetName(ExcelWorksheet workSheet, string sheetName)
         {
-            statisticSheet.Name = sheetName;
+            workSheet.Name = sheetName;
         }
 
-        private void ApplyDescription(string description, string descriptionCellRange)
+        private void ApplyDescription(ExcelWorksheet workSheet, string description, string descriptionCellRange)
         {
-            statisticSheet.Cells[descriptionCellRange].Value = description;
+            workSheet.Cells[descriptionCellRange].Value = description;
         }
 
-        private void ApplyBody<T>(List<T> statistics) where T : class, new()
+        private void ApplyBody<T>(ExcelWorksheet workSheet, ExcelWorksheet templateSheet, List<T> statistics) where T : class, new()
         {
             statistics.ForEach(s =>
             {
-                statisticSheet.ApplyModel(templateSheet, RowIndex, s);
+                workSheet.ApplyModel(templateSheet, RowIndex, s);
                 RowIndex++;
             });
         }
 
-        private void ApplyFooter<T>(T total) where T : class, new()
+        private void ApplyFooter<T>(ExcelWorksheet workSheet, ExcelWorksheet totalTemplateSheet, T total) where T : class, new()
         {
-            statisticSheet.ApplyModel(totalTemplateSheet, RowIndex, total);
-            statisticSheet.Cells[$"A{RowIndex}"].Value = "Total";
+            workSheet.ApplyModel(totalTemplateSheet, RowIndex, total);
+            workSheet.Cells[$"A{RowIndex}"].Value = "Total";
         }
     }
 }

@@ -46,7 +46,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Epplus.Mapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Epplus.Mapper.1.0.0.0\lib\net461\Epplus.Mapper.dll</HintPath>
+      <HintPath>..\..\..\packages\Epplus.Mapper.1.0.0.1\lib\net461\Epplus.Mapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common">
@@ -129,7 +129,7 @@
     <Compile Include="Detail\Model\ExcelViewModel.cs" />
     <Compile Include="Detail\Model\HttpParameterExcel.cs" />
     <Compile Include="Detail\Model\HttpParameterJson.cs" />
-    <Compile Include="Detail\Model\ProductExcelModel.cs" />
+    <Compile Include="Detail\Model\DetailExcelModel.cs" />
     <Compile Include="Detail\Model\DetailModel.cs" />
     <Compile Include="Detail\Model\ViewModelJson.cs" />
     <Compile Include="Detail\PlayForFunProductController.cs" />

@@ -27,12 +27,22 @@ namespace UniversalReports.PlayForFun.Summary
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var criteria = mapper.Map<Criteria>(message);
-            var model = await playForFunService.Query<SummaryModel>(criteria);
-            var excelViewModel = mapper.Map<ExcelViewModel>(model);
+            var summaryCriteria = mapper.Map<Criteria>(message);
+            var summaryModel = await PlayForFunService.Query<SummaryModel>(summaryCriteria);
+            var summaryExcelViewModel = mapper.Map<ExcelViewModel>(summaryModel);
+
+            var detailCriteria = mapper.Map<Detail.Model.Criteria>(message);
+            var detailModel = await PlayForFunService.Query<Detail.Model.DetailModel>(detailCriteria);
+            var detailExcelViewModel = mapper.Map<Detail.Model.ExcelViewModel>(detailModel);
+
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
-            var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
+
+            var excelPackage = excelBuilder.CreateExcelPackage(
+                summaryExcelViewModel,
+                excelSetting,
+                detailExcelViewModel,
+                excelSetting);
             return await Task.FromResult(excelPackage);
         }
     }

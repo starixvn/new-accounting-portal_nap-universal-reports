@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.PlayForFun.Detail.Model;
-using UniversalReports.WebAPI.Results;
 
 namespace UniversalReports.PlayForFun.Detail
 {
