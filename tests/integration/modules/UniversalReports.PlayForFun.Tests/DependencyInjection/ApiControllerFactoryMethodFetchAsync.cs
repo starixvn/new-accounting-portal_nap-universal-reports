@@ -4,6 +4,7 @@ using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using System;
 using System.Collections.Generic;
+using UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings.PlayForFun;
 using UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection
@@ -14,6 +15,8 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
 
         public Controller CreateController<Controller, Model>(string fakeDatabaseFile)
         {
+            PlayForFunAutoMapper.Initialize();
+
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             var repository = CreateRepository<Model>(fakeDatabaseFile);

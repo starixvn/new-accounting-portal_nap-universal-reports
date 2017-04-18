@@ -4,7 +4,6 @@ using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PunterAnalysis.Core;
-using UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
 {
@@ -12,15 +11,9 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
     {
         public static Container RegisterMediator(this Container container)
         {
-            IntializeMapper();
             RegisterAssemblies(container);
 
             return container;
-        }
-
-        private static void IntializeMapper()
-        {
-            PunterAnalysisAutoMapper.Initialize();
         }
 
         private static void RegisterAssemblies(Container container)

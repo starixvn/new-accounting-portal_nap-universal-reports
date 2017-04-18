@@ -1,6 +1,7 @@
 using Fanex.Data.Repository;
 using SimpleInjector;
 using System;
+using UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings.PunterAnalysis;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
@@ -11,6 +12,8 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 
         public TController CreateController<TController>(IDynamicRepository repository)
         {
+            PunterAnalysisAutoMapper.Initialize();
+
             container.Register(() => repository);
             container.RegiserGlobalServices()
                     .RegisterPunterAnalysisServices()

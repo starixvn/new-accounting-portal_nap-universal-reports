@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Core;
 
-namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings
 {
-    public class BetTypeProfile : Profile
+    public class PunterAnalysisBetTypeProfile : Profile
     {
-        public BetTypeProfile()
+        public PunterAnalysisBetTypeProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<BetTypeModel>, ViewModelJson>(MemberList.Source);

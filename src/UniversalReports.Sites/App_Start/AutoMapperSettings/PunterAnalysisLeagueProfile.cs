@@ -2,11 +2,11 @@
 using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
 
-namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings
 {
-    public class LeagueProfile : Profile
+    public class PunterAnalysisLeagueProfile : Profile
     {
-        public LeagueProfile()
+        public PunterAnalysisLeagueProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModel, ViewModelJson>(MemberList.Source);

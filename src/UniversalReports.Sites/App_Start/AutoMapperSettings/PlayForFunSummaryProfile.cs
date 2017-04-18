@@ -1,19 +1,18 @@
 ﻿using AutoMapper;
-using UniversalReports.PunterAnalysis.Core;
-using UniversalReports.PunterAnalysis.Summary.Model;
+using UniversalReports.PlayForFun.Core;
+using UniversalReports.PlayForFun.Summary.Model;
 
-namespace UniversalReports.Sites.AutoMapperSettings.PunterAnalysis
+namespace UniversalReports.Sites.AutoMapperSettings
 {
-    public class SummaryProfile : Profile
+    public class PlayForFunSummaryProfile : Profile
     {
-        public SummaryProfile()
+        public PlayForFunSummaryProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);
             CreateMap<ReportModelBase<SummaryModel>, ExcelViewModel>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
-            CreateMap<SummaryModel, SummaryExcelModel>(MemberList.Source)
-                 .ForMember(dest => dest.Margin, opt => opt.MapFrom(src => src.Turnover == 0 ? "N/A" : (object)src.Margin));
+            CreateMap<SummaryModel, SummaryExcelModel>(MemberList.Source);
             CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }
     }

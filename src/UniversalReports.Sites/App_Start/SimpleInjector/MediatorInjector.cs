@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Core;
-using UniversalReports.Sites.AutoMapperSettings.PlayForFun;
-using UniversalReports.Sites.AutoMapperSettings.PunterAnalysis;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -14,16 +12,9 @@ namespace UniversalReports.Sites.SimpleInjector
     {
         public static Container RegisterMediator(this Container container)
         {
-            IntializeMapper();
             RegisterAssemblies(container);
 
             return container;
-        }
-
-        private static void IntializeMapper()
-        {
-            PunterAnalysisAutoMapper.Initialize();
-            PlayForFunAutoMapper.Initialize();
         }
 
         private static void RegisterAssemblies(Container container)

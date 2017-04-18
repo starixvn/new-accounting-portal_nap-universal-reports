@@ -4,7 +4,6 @@ using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PlayForFun.Core;
-using UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings.PlayForFun;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
 {
@@ -12,15 +11,9 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
     {
         public static Container RegisterMediator(this Container container)
         {
-            IntializeMapper();
             RegisterAssemblies(container);
 
             return container;
-        }
-
-        private static void IntializeMapper()
-        {
-            PlayForFunAutoMapper.Initialize();
         }
 
         private static void RegisterAssemblies(Container container)
