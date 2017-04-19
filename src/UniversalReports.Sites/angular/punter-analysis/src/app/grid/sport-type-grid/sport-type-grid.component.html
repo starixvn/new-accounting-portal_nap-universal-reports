@@ -21,8 +21,8 @@
                         <th>Bet Count</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngIf="!hasData">
+                <tbody *ngIf="!hasData">
+                    <tr>
                         <th class="empty-data" colspan="5">There is no data</th>
                     </tr>
                 </tbody>

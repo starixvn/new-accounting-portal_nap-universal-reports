@@ -1,27 +1,28 @@
 // grab our gulp packages
 let gulp = require('gulp'),
-    gutil = require('gulp-util'),
     fs = require('fs'),
     cheerio = require('cheerio'),
     ejs = require('ejs'),
     argv = require('yargs').argv,
-    rimraf = require('rimraf');
+    rimraf = require('rimraf'),
+	path = require('path');
 
 let encoding = 'utf8';
+let workingPath = '../../';
 
 function transform(transformFolder) {
     let outputFolder = getOutputFolder();
     let options = readOptions(outputFolder, transformFolder);
     changeFileNames(outputFolder, transformFolder);
-    let template = fs.readFileSync('./src/index.ejs', encoding);
+    let template = fs.readFileSync(path.resolve(workingPath, './src/index.ejs'), encoding);
     let output = ejs.render(template, options);
     fs.writeFileSync(transformFolder + '/index.cshtml', output, encoding);
 }
 
 function getOutputFolder() {
-    let content = fs.readFileSync('./.angular-cli.json', encoding);
+    let content = fs.readFileSync(path.resolve(workingPath, './.angular-cli.json'), encoding);
     let json = JSON.parse(content);
-    return json.apps[0].outDir;
+    return path.resolve(workingPath, json.apps[0].outDir);
 }
 
 function changeFileNames(outputFolder, transformFolder) {
@@ -89,13 +90,12 @@ function changeBundle(fileName) {
     return newBundleName;
 }
 
-gulp.task('transform', () => {
+gulp.task('default', () => {
     if (argv.path) {
-        gutil.log('Transform started');
-        rimraf.sync(argv.path);
-        fs.mkdirSync(argv.path);
-        transform(argv.path);
-        gutil.log('Transform completed');
+		let p = workingPath + argv.path;
+        rimraf.sync(p);
+        fs.mkdirSync(p);
+        transform(p);
     } else {
         throw new Error('Missing path');
     }

@@ -728,7 +728,6 @@
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="Views\NG2Statistics\Index.cshtml" />
-    <Content Include="Views\PunterAnalysis\Index.cshtml" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />

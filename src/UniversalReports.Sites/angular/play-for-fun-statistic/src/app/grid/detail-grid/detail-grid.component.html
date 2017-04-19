@@ -35,8 +35,8 @@
                         <th>Play Count</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngIf="!hasData">
+                <tbody *ngIf="!hasData">
+                    <tr>
                         <th class="empty-data" colspan="12">There is no data</th>
                     </tr>
                 </tbody>
@@ -54,7 +54,7 @@
                         <td class="text-center word-break-all">{{ item.Username }}</td>
                         <td class="text-center">{{ item.CustId }}</td>
                         <td class="text-center word-break-all">{{ item.Product }}</td>
-                        <td class="text-center">{{ item.Status }}</td>
+                        <td class="text-center">{{ item.Status ? 'Enabled' : 'Disabled' }}</td>
                         <td class="text-center">{{ item.MemberRequest ? 'Yes': 'No' }}</td>
                         <td class="number" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napDecimalFormat]="item.WinLoss"></td>

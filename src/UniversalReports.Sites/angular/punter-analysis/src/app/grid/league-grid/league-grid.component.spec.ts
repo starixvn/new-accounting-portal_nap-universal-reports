@@ -66,7 +66,7 @@ describe('LeagueGridComponent', () => {
         expect(rowDebugElements[2].nativeElement).toHaveText('There is no data');
     });
 
-    it('should mark hasData as true if entities is empty', () => {
+    it('should mark hasData as false if entities is empty', () => {
         expect(component.hasData).toBe(false);
     });
 

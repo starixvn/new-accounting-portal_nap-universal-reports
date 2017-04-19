@@ -15,8 +15,8 @@
                         <th>Role</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngIf="!hasData">
+                <tbody *ngIf="!hasData">
+                    <tr>
                         <th class="empty-data" colspan="2">There is no data</th>
                     </tr>
                 </tbody>

@@ -1,7 +1,7 @@
 import { NgbDateStruct } from 'nap-components/src/date';
 
 export interface DetailItem {
-    Date: Date;
+    Date: string;
     GroupHeadline: string;
     Site: string;
     Currency: string;
@@ -9,7 +9,7 @@ export interface DetailItem {
     Username: string;
     CustId: number;
     Product: string;
-    Status: string;
+    Status: boolean;
     MemberRequest: boolean;
     Turnover: number;
     WinLoss: number;

@@ -28,8 +28,8 @@
                         </ng-template>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngIf="!hasData">
+                <tbody *ngIf="!hasData">
+                    <tr>
                         <th class="empty-data" [colSpan]="1 + data.GroupNames.length * 4">There is no data</th>
                     </tr>
                 </tbody>

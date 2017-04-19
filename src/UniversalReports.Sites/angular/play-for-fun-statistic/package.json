@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod --aot=false & gulp transform --path \"../../wwwroot/play-for-fun-statistic\"",
+    "build": "ng build --prod --aot=false & npm run transform",
+    "transform": "gulp --gulpfile=\"node_modules/nap-components/gulpfile.js\" --path \"../../wwwroot/play-for-fun\"",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage",
     "lint": "ng lint",

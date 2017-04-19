@@ -2,9 +2,9 @@ import { NgbDateStruct, DateHelper, DateFormat } from 'nap-components/src/date';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 
 export enum Status {
-    All = 0,
+    All = 2,
     Enabled = 1,
-    Disabled = -1
+    Disabled = 0
 }
 
 export interface FilterModel {
@@ -31,7 +31,7 @@ export class FilterModelWrapper {
     }
 
     get dateFromToFileName(): string {
-        return this.dateFromToTitle.replace(/ /g, '_');
+        return this.dateFromToTitle.replace(/ /g, '_').replace(/,/g, '');
     }
 
     get productName(): string {

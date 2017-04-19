@@ -8,13 +8,13 @@ import * as _ from 'lodash';
 import { PaginationInstance } from 'ng2-pagination';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
-import { SummaryGridService } from './summary-grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridService } from '../associated-account-grid/associated-account-grid.service';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';
 import { SportTypeGridService } from '../sport-type-grid/sport-type-grid.service';
 import { SportTypeGridModel } from '../sport-type-grid/sport-type-grid.model';
+import { SummaryGridService } from './summary-grid.service';
 import { SummaryGridComponent } from './summary-grid.component';
 import { SummaryData } from './summary-grid.model';
 import { fakeData } from './summary-grid.model.spec';
@@ -74,7 +74,7 @@ describe('SummaryGridComponent', () => {
         expect(rowDebugElements[1].nativeElement).toHaveText('There is no data');
     });
 
-    it('should mark hasData as true if entities is empty', () => {
+    it('should mark hasData as false if entities is empty', () => {
         expect(component.hasData).toBe(false);
     });
 
@@ -112,14 +112,14 @@ describe('SummaryGridComponent', () => {
             expect(component.title).toBe('Main - Punter Analysis');
         });
 
+        it('should have title "Main" if it is not the last grid', () => {
+            expect(component.title).toBe('Main');
+        });
+
         it('should invoke exportExcel in service when call exportExcel', () => {
             const spy = spyOn(service, 'exportExcel').and.callFake(() => { });
             component.exportExcel();
             expect(spy.calls.count()).toBe(1);
-        });
-
-        it('should have title "Main" if it is not the last grid', () => {
-            expect(component.title).toBe('Main');
         });
 
         it('should have 3 tables', () => {

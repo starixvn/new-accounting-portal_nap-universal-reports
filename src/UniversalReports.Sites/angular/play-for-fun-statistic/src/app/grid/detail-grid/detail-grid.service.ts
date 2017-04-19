@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
+import { DateHelper } from 'nap-components/src/date';
 import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { DetailData, DetailGridModel } from './detail-grid.model';
@@ -25,9 +26,10 @@ export class DetailGridService {
     private createQueryModel(): any {
         const filterModel = this.gridService.filterModel;
         const filterModelWrapper = new FilterModelWrapper(filterModel);
+        const dateString = DateHelper.convertDateStructToString(this.model.Date);
         return {
-            fromDate: filterModelWrapper.fromDateQueryString,
-            toDate: filterModelWrapper.toDateQueryString,
+            fromDate: dateString,
+            toDate: dateString,
             productId: filterModel.product,
             statusId: filterModel.status,
             userName: filterModel.userName,
