@@ -11,9 +11,7 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettin
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<DetailModel>, ViewModelJson>(MemberList.Source);
             CreateMap<ReportModelBase<DetailModel>, ExcelViewModel>(MemberList.Source);
-            CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<DetailModel, DetailExcelModel>(MemberList.Source);
-            CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }
     }
 }
