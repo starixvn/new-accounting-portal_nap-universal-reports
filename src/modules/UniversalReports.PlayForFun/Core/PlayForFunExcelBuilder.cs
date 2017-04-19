@@ -86,7 +86,7 @@ namespace UniversalReports.PlayForFun.Core
             ApplyDescription(workSheet, setting.Title, setting.TitleCellRange);
             ApplyBody(workSheet, model.Entities);
             ApplyFooter(workSheet, totalTemplateSheet, model.Total);
-            workSheet.AutoMergeRowsHaveSameValue(new ExcelAddress($"A{StartRowIndex}:A{EndRowIndex}"));
+            workSheet.AutoMergeRowsHaveSameValue($"A{StartRowIndex}:A{EndRowIndex}");
         }
 
         private void SetStartRowIndex(int startRowIndex)
