@@ -32,7 +32,7 @@ export class FilterService {
         const url = 'api/punter-analysis/filter/username-suggestion';
         return this.httpService.post<string[]>(url, {
             userName: userName,
-            roleId: RoleId.Master
+            roleId: RoleId.Super
         });
     }
 }
