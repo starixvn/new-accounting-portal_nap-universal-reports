@@ -126,7 +126,6 @@
     <Compile Include="Detail\Handler.cs" />
     <Compile Include="Detail\Model\Criteria.cs" />
     <Compile Include="Detail\Model\ExcelViewModel.cs" />
-    <Compile Include="Detail\Model\HttpParameterExcel.cs" />
     <Compile Include="Detail\Model\HttpParameterJson.cs" />
     <Compile Include="Detail\Model\DetailExcelModel.cs" />
     <Compile Include="Detail\Model\DetailModel.cs" />

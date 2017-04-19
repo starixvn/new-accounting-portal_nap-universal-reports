@@ -18,10 +18,13 @@ namespace UniversalReports.PlayForFun.Summary
 
         private readonly ApplicationConfigurationService configurationService;
 
-
         private readonly PlayForFunExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, PlayForFunService playForFunService, ApplicationConfigurationService configurationService, PlayForFunExcelBuilder excelBuilder)
+        public HandlerExcel(
+            IMapper mapper,
+            PlayForFunService playForFunService,
+            ApplicationConfigurationService configurationService,
+            PlayForFunExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.playForFunService = playForFunService;

@@ -11,7 +11,6 @@ namespace UniversalReports.Sites.AutoMapperSettings
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             CreateMap<ReportModelBase<DetailModel>, ViewModelJson>(MemberList.Source);
             CreateMap<ReportModelBase<DetailModel>, ExcelViewModel>(MemberList.Source);
-            CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<DetailModel, DetailExcelModel>(MemberList.Source);
         }
     }
