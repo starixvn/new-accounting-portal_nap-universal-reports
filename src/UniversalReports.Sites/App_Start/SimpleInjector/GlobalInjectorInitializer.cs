@@ -7,6 +7,7 @@ using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Configurations;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.Sites.SimpleInjector
@@ -28,6 +29,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<IDynamicRepository, DynamicRepository>();
+            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
 
             return container;
         }

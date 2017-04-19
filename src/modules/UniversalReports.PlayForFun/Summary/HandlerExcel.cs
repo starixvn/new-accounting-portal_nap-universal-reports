@@ -50,7 +50,8 @@ namespace UniversalReports.PlayForFun.Summary
                 sumamryExcelSetting,
                 detailExcelViewModel,
                 detailExcelSetting);
-            return await Task.FromResult(excelPackage);
+
+            return excelPackage;
         }
 
         public virtual ExcelSetting CreateSummarySetting(string title)

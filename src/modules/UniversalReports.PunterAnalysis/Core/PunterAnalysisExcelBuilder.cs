@@ -14,11 +14,11 @@ namespace UniversalReports.PunterAnalysis.Core
     {
         private ExcelWorksheet statisticSheet;
 
-        private ExcelWorksheet templateSheet;
-
         private ExcelWorksheet totalTemplateSheet;
 
-        private int RowIndex { get; set; }
+        private int StartRowIndex { get; set; }
+
+        private int EndRowIndex { get; set; }
 
         private ExcelPackage ExcelPackage { get; set; }
 
@@ -37,7 +37,6 @@ namespace UniversalReports.PunterAnalysis.Core
             {
                 ExcelPackage = new ExcelPackage(stream);
                 statisticSheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
-                templateSheet = ExcelPackage.Workbook.Worksheets["Template"];
                 totalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
             }
         }
@@ -49,13 +48,14 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void ClearTemplate()
         {
-            ExcelPackage.Workbook.Worksheets.Delete(templateSheet);
+            ExcelPackage.Workbook.Worksheets.Delete("Template");
             ExcelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
         }
 
         private void Build<T>(ReportModelBase<T> model, ExcelSetting setting) where T : class, new()
         {
-            SetRowIndex(setting.StartRowIndex);
+            SetStartRowIndex(setting.StartRowIndex);
+            SetEndRowIndex(setting.StartRowIndex, model.Entities.Count);
             SetSheetName(setting.SheetName);
             ApplyDescription(setting.Title, setting.TitleCellRange);
             ApplyDescription(setting.Filter, setting.FilterCellRange);
@@ -63,9 +63,14 @@ namespace UniversalReports.PunterAnalysis.Core
             ApplyFooter(model.Total);
         }
 
-        private void SetRowIndex(int rowIndex)
+        private void SetStartRowIndex(int startRowIndex)
         {
-            RowIndex = rowIndex;
+            StartRowIndex = startRowIndex;
+        }
+
+        private void SetEndRowIndex(int startRowIndex, int numberBodyItems)
+        {
+            EndRowIndex = startRowIndex + numberBodyItems;
         }
 
         private void SetSheetName(string sheetName)
@@ -80,17 +85,13 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void ApplyBody<T>(List<T> statistics) where T : class, new()
         {
-            statistics.ForEach(s =>
-            {
-                statisticSheet.ApplyModel(templateSheet, RowIndex, s);
-                RowIndex++;
-            });
+            statisticSheet.ApplyVertical(statistics, StartRowIndex);
         }
 
         private void ApplyFooter<T>(T total) where T : class, new()
         {
-            statisticSheet.ApplyModel(totalTemplateSheet, RowIndex, total);
-            statisticSheet.Cells[$"A{RowIndex}"].Value = "Total";
+            statisticSheet.ApplyModel(totalTemplateSheet, total, EndRowIndex);
+            statisticSheet.Cells[$"A{EndRowIndex}"].Value = "Total";
         }
     }
 }

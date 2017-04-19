@@ -1,0 +1,32 @@
+[
+  [
+    "2016-06-05T00:00:00",
+    "Group Headline 1",
+    "Site 1",
+    "Currency 1",
+    "Super 1",
+    "Username 1",
+    1,
+    "Product 1",
+    "Enabled",
+    true,
+    500.0,
+    300.0,
+    5
+  ],
+  [
+    "2016-06-06T00:00:00",
+    "Group Headline 2",
+    "Site 2",
+    "Currency 2",
+    "Super 2",
+    "Username 2",
+    2,
+    "Product 2",
+    "Enabled",
+    true,
+    1500.0,
+    700.0,
+    15
+  ]
+]

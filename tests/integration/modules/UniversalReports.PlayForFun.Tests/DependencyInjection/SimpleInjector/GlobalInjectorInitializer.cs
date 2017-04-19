@@ -3,6 +3,7 @@ using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Configurations;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
@@ -18,6 +19,8 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
             container.Register<ICurrentSession>(() => { return currentSession; });
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
+
+            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
 
             return container;
         }

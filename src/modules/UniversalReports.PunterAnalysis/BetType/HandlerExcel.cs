@@ -33,7 +33,7 @@ namespace UniversalReports.PunterAnalysis.BetType
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
-            return await Task.FromResult(excelPackage);
+            return excelPackage;
         }
     }
 }

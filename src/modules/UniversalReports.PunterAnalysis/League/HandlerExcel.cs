@@ -33,7 +33,7 @@ namespace UniversalReports.PunterAnalysis.League
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);
-            return await Task.FromResult(excelPackage);
+            return excelPackage;
         }
     }
 }

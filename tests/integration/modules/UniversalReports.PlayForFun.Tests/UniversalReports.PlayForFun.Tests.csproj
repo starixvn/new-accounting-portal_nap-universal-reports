@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Epplus.Mapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.1\lib\net461\Epplus.Mapper.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.3\lib\net461\Epplus.Mapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Caching">
@@ -179,14 +179,23 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
+    <None Include="ExcelTemplate\PlayForFun\Summary.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
+    <None Include="TestCases\Detail-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Detail-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Detail-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Filter-Product-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\Summary-Excel-ExpectedBody.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\Summary-Excel-ExpectedFilter.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\Summary-Excel-ExpectedTitle.json">
@@ -208,9 +217,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExcelTemplate\PlayForFun\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>

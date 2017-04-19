@@ -25,6 +25,24 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
             return (Controller)container.GetInstance(typeof(Controller));
         }
 
+        public Controller CreateController<Controller, FirstModel, SecondModel>(string fakeFirstDatabaseFile, string fakeSecondDatabaseFile)
+        {
+            PlayForFunAutoMapper.Initialize();
+
+            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+
+            var fakeFirstData = TestDataLoader.Load<List<FirstModel>>(fakeFirstDatabaseFile);
+            var fakeSecondData = TestDataLoader.Load<List<SecondModel>>(fakeSecondDatabaseFile);
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<FirstModel>(Arg.Any<ICriteria>()).Returns(fakeFirstData);
+            repository.FetchAsync<SecondModel>(Arg.Any<ICriteria>()).Returns(fakeSecondData);
+
+            RegisterDependency(repository);
+
+            return (Controller)container.GetInstance(typeof(Controller));
+        }
+
         public void Dispose()
         {
             Dispose(true);

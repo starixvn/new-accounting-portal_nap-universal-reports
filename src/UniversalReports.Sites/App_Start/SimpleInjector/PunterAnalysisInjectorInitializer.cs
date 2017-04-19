@@ -18,7 +18,6 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
-            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
             container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
             container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));
