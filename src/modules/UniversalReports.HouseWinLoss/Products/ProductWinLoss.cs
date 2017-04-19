@@ -16,6 +16,8 @@ namespace UniversalReports.HouseWinLoss.Products
         public bool IsEmpty => GrandTotal.Credit.RealTurnover == 0
                                && GrandTotal.Credit.VirtualTurnover == 0
                                && GrandTotal.Deposit.RealTurnover == 0
-                               && GrandTotal.Deposit.VirtualTurnover == 0;
+                    && GrandTotal.Deposit.VirtualTurnover == 0
+                    && GrandTotal.Credit.MemberWinLoss == 0
+                    && GrandTotal.Deposit.MemberWinLoss == 0;
     }
 }

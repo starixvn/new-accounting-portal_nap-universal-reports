@@ -149,6 +149,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashOut\BetType\CashOutBetTypeController.cs" />
+    <Compile Include="CashOut\BetType\Criteria.cs" />
+    <Compile Include="CashOut\BetType\ExcelQueryModel.cs" />
+    <Compile Include="CashOut\BetType\QueryModel.cs" />
+    <Compile Include="CashOut\Site\CashOutSiteController.cs" />
+    <Compile Include="CashOut\Site\Criteria.cs" />
+    <Compile Include="CashOut\Site\ExcelQueryModel.cs" />
+    <Compile Include="CashOut\Site\QueryModel.cs" />
     <Compile Include="Bettrade\BetType\BettradeBetTypeController.cs" />
     <Compile Include="Bettrade\BetType\Criteria.cs" />
     <Compile Include="Bettrade\BetType\ExcelQueryModel.cs" />

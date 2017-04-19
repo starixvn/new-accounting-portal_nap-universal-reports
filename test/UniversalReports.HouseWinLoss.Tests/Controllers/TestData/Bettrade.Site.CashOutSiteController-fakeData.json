@@ -1,0 +1,34 @@
+[
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "12Bet",
+    "IsLive": false,
+    "MemberWinLoss": -832,
+    "SMAWinLoss": 1664,
+    "Commission": 0,
+    "RealIncome": 832,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 0,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": null,
+    "GroupId": 0,
+    "RowName": "asiabet88",
+    "IsLive": false,
+    "MemberWinLoss": 24,
+    "SMAWinLoss": 10,
+    "Commission": 0,
+    "RealIncome": 35,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 0,
+    "VirtualTurnover": 0
+  }
+]

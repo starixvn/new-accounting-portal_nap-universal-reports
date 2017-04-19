@@ -32,6 +32,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             {
                 "Bettrade.BetType.BettradeBetTypeController",
                 "Bettrade.Site.BettradeSiteController",
+                "CashOut.BetType.CashOutBetTypeController",
+                "CashOut.Site.CashOutSiteController",
                 "Casino.BetType.CasinoBetTypeController",
                 "Casino.Product.CasinoProductController",
                 "Casino.Site.CasinoSiteController",
