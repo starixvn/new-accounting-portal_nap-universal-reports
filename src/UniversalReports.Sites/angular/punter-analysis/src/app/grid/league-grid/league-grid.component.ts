@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 import { Grid, LiveStatus } from '../grid.model';
 import { BreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
 import { LeagueItem, PeriodGroupItem, LeagueData } from './league-grid.model';

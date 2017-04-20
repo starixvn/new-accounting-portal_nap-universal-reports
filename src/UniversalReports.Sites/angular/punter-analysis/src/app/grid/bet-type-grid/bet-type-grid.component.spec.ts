@@ -1,4 +1,3 @@
-///<reference path="../../../../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { Component, DebugElement } from '@angular/core';
 import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
@@ -6,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
 import { PaginationInstance } from 'ng2-pagination';
+import { expect } from 'nap-components/src/testing';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
 import { BetTypeGridService } from './bet-type-grid.service';
@@ -17,7 +17,6 @@ import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { LeagueGridService } from '../league-grid/league-grid.service';
 import { LeagueGridModel } from '../league-grid/league-grid.model';
 import { fakeData } from './bet-type-grid.model.spec';
-
 import { AppModule } from '../../app.module';
 
 class Page {
@@ -71,7 +70,8 @@ describe('BetTypeGridComponent', () => {
         const tableDebugElements = fixture.debugElement.queryAll(By.css('table'));
         expect(tableDebugElements.length).toBe(1);
         const rowDebugElements = tableDebugElements[0].queryAll(By.css('tr'));
-        expect(rowDebugElements[2].nativeElement).toHaveText('There is no data');
+        const firstTdCell = rowDebugElements[2].query(By.css('th'));
+        expect(firstTdCell.nativeElement).toHaveText('There is no data');
     });
 
     it('should mark hasData as false if entities is empty', () => {

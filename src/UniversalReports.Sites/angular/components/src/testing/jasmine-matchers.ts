@@ -15,7 +15,7 @@ import { ɵgetDOM as getDOM } from '@angular/platform-browser';
 /**
  * Jasmine matchers that check Angular specific conditions.
  */
-export interface NgMatchers extends jasmine.Matchers<any> {
+export interface NgMatchers extends jasmine.Matchers {
     /**
      * Invert the matchers.
      */
@@ -121,7 +121,7 @@ _global.beforeEach(function () {
                 }
             };
 
-            function compareMap(actual: any, expected: any) {
+            function compareMap(actual: any, expected: any): boolean {
                 if (actual instanceof Map) {
                     let pass = actual.size === expected.size;
                     if (pass) {
@@ -129,7 +129,8 @@ _global.beforeEach(function () {
                     }
                     return pass;
                 } else {
-                    return undefined;
+                    // TODO(misko): we should change the return, but jasmine.d.ts is not null safe
+                    return undefined!;
                 }
             }
         },
@@ -160,7 +161,7 @@ _global.beforeEach(function () {
         toHaveText: function () {
             return {
                 compare: function (actual: any, expectedText: string) {
-                    const actualText = elementText(actual).trim();
+                    const actualText = elementText(actual);
                     return {
                         pass: actualText === expectedText,
                         get message() { return 'Expected ' + actualText + ' to be equal to ' + expectedText; }
@@ -202,7 +203,7 @@ _global.beforeEach(function () {
                         get message() {
                             const expectedValueStr = typeof styles === 'string' ? styles : JSON.stringify(styles);
                             return `Expected ${actual.outerHTML} ${!allPassed ? ' ' : 'not '}to contain the
-                                CSS ${typeof styles === 'string' ? 'property' : 'styles'} "${expectedValueStr}"`;
+                      CSS ${typeof styles === 'string' ? 'property' : 'styles'} "${expectedValueStr}"`;
                         }
                     };
                 }
@@ -272,5 +273,5 @@ function elementText(n: any): string {
         return elementText(getDOM().childNodesAsList(n));
     }
 
-    return getDOM().getText(n);
+    return getDOM().getText(n)!;
 }

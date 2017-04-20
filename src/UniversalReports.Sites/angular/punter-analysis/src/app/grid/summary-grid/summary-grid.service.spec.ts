@@ -1,7 +1,7 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 import * as _ from 'lodash';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';

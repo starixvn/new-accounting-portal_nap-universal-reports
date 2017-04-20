@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 import { BreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
 import { GridService } from '../grid.service';
 import { Grid } from '../grid.model';

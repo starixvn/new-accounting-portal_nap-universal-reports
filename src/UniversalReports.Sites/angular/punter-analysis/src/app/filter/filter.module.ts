@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
+import { TreeviewModule } from 'ngx-treeview';
 
 import { LegendModule } from 'nap-components/src/legend';
 import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
@@ -14,7 +14,7 @@ import { FilterComponent } from './filter.component';
     imports: [
         CommonModule,
         FormsModule,
-        DropdownTreeviewModule.forRoot(),
+        TreeviewModule.forRoot(),
         LegendModule,
         DropdownTypeaheadModule,
         PeriodTypeModule

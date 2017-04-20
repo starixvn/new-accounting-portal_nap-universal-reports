@@ -1,4 +1,3 @@
-///<reference path="../node_modules/nap-components/src/testing/jasmine-matchers.d.ts" />
 import { PunterAnalysisPage } from './app.po';
 
 describe('punter-analysis App', () => {

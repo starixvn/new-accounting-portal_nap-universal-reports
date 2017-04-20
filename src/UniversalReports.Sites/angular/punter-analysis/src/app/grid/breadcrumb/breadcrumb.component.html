@@ -8,8 +8,8 @@
     <div *ngIf="hasData" class="toolbox">
         <div class="filter" *ngIf="hasFilter">
             <i class="icon-filter" title="Show/Hide columns" (click)="toggleFilter()"></i>
-            <leo-dropdown-treeview *ngIf="isShowFilter" class="d-inline-block" [items]="filterItems" (selectedChange)="onFilterSelectedChange($event)">
-            </leo-dropdown-treeview>
+            <ngx-dropdown-treeview *ngIf="isShowFilter" class="d-inline-block" [items]="filterItems" (selectedChange)="onFilterSelectedChange($event)">
+            </ngx-dropdown-treeview>
         </div>
         <div class="excel">
             <i class="icon-excel" title="Export excel" (click)="exportExcel()"></i>

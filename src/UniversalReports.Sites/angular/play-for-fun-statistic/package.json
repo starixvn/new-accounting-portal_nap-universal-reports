@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod --aot=false & npm run transform",
+    "build": "ng build --prod --aot=false && npm run transform",
     "transform": "gulp --gulpfile=\"node_modules/nap-components/gulpfile.js\" --path \"../../wwwroot/play-for-fun\"",
     "test": "ng test",
     "test-coverage": "ng test --code-coverage",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@angular/cli": "^1.0.0",
-    "@types/jasmine": "^2.5.47",
+    "@types/jasmine": "2.5.38",
     "@types/lodash": "^4.14.62",
     "@types/node": "^7.0.8",
     "cheerio": "^0.22.0",

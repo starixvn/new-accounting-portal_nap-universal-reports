@@ -1,6 +1,6 @@
 import { FilterModel, SearchBy, OrderBy, PeriodType } from './filter.model';
 import { RoleId, SortBy } from 'nap-components/src/model';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 
 export let fakeFilterModel: FilterModel = {
     searchBy: SearchBy.User,

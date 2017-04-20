@@ -19,7 +19,7 @@
                         <th rowspan="2">League</th>
                         <th *ngFor="let groupName of data.GroupNames" colspan="4">{{groupName}}</th>
                     </tr>
-                    <tr>
+                    <tr *ngIf="data.GroupNames.length > 0">
                         <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
                             <th>Win Loss</th>
                             <th>Turnover</th>

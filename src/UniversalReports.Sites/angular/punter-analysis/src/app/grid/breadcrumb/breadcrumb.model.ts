@@ -1,4 +1,4 @@
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 
 export interface BreadcrumbFilter {
     getColumnFilter(): TreeviewItem[];

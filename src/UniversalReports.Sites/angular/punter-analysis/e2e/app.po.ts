@@ -29,6 +29,6 @@ export class PunterAnalysisPage {
   }
 
   getProductDropdownItems() {
-    return element.all(by.css('.filter-container leo-treeview-item'));
+    return element.all(by.css('.filter-container ngx-treeview-item'));
   }
 }

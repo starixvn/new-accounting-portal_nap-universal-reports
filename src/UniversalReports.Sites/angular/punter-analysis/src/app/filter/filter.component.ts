@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import {
     TreeviewItem, TreeviewConfig, TreeviewEventParser,
     DownlineTreeviewEventParser, DownlineTreeviewItem
-} from 'ng2-dropdown-treeview';
+} from 'ngx-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { SelectItem } from 'nap-components/src/dropdown-select';
