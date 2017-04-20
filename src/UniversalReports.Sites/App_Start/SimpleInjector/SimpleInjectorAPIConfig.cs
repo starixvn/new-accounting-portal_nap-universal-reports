@@ -17,11 +17,12 @@ namespace UniversalReports.Sites.SimpleInjector
             Container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             Container.RegiserGlobalServices()
+                .RegisterMediator()
+                .RegiserAutoMapper()
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
-                .RegisterPlayForFunServices()
-                .RegisterMediator();
+                .RegisterPlayForFunServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

@@ -1,7 +1,6 @@
 using Fanex.Data.Repository;
 using SimpleInjector;
 using System;
-using UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettings;
 using UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection
@@ -12,12 +11,11 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
 
         public virtual Controller CreateController<Controller>(IDynamicRepository repository)
         {
-            PlayForFunAutoMapper.Initialize();
-
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                    .RegisterPlayForFunServices()
-                    .RegisterMediator();
+                    .RegisterAutoMapper()
+                    .RegisterMediator()
+                    .RegisterPlayForFunServices();
             container.Verify();
 
             return (Controller)container.GetInstance(typeof(Controller));

@@ -12,7 +12,7 @@ using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    internal static class GlobalInjectorInitializer
+    internal static class GlobalInjector
     {
         internal static Container RegiserGlobalServices(this Container container)
         {

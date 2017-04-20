@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using SimpleInjector;
+using UniversalReports.Sites.AutoMapperSettings;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings
+namespace UniversalReports.Sites.SimpleInjector
 {
-    public static class PunterAnalysisAutoMapper
+    internal static class AutoMapperInjector
     {
-        public static void Initialize()
+        internal static Container RegiserAutoMapper(this Container container)
         {
             Mapper.Initialize(cfg =>
             {
@@ -15,7 +17,14 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
                 cfg.AddProfile<PunterAnalysisAssociatedAccountProfile>();
                 cfg.AddProfile<PunterAnalysisLeagueProfile>();
                 cfg.AddProfile<PunterAnalysisFilterProfile>();
+                cfg.AddProfile<PlayForFunSummaryProfile>();
+                cfg.AddProfile<PlayForFunDetailProfile>();
+                cfg.AddProfile<PlayForFunFilterProfile>();
             });
+
+            container.Register(() => Mapper.Instance);
+
+            return container;
         }
     }
 }

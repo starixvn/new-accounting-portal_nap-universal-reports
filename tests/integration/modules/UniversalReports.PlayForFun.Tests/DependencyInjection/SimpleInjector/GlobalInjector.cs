@@ -3,11 +3,12 @@ using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Configurations;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
-namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
+namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
 {
-    internal static class GlobalInjectorInitializer
+    internal static class GlobalInjector
     {
         internal static Container RegiserGlobalServices(this Container container)
         {
@@ -15,9 +16,11 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             currentSession.UserId.Returns(1);
 
             container.Register<CacheService>(() => new CacheServiceImpl());
-            container.Register(() => currentSession);
+            container.Register<ICurrentSession>(() => { return currentSession; });
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
+
+            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
 
             return container;
         }

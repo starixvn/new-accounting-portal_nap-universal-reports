@@ -8,9 +8,9 @@ using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.Summary;
 
-namespace UniversalReports.Sites.SimpleInjector
+namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
 {
-    internal static class PunterAnalysisInjectorInitializer
+    internal static class PunterAnalysisInjector
     {
         internal static Container RegisterPunterAnalysisServices(this Container container)
         {
@@ -18,6 +18,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
+            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
             container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
             container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));

@@ -15,7 +15,7 @@ using Soccers = UniversalReports.HouseWinLoss.Soccer;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    internal static class HouseWinLossInjectorInitializer
+    internal static class HouseWinLossInjector
     {
         internal static Container RegisterHouseWinLossServices(this Container container)
         {

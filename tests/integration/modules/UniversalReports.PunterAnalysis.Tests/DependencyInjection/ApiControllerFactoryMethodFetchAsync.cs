@@ -4,7 +4,6 @@ using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using System;
 using System.Collections.Generic;
-using UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSettings;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
@@ -15,8 +14,6 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 
         public TController CreateController<TController, TModel>(string fakeDatabaseFile)
         {
-            PunterAnalysisAutoMapper.Initialize();
-
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             var repository = CreateRepository<TModel>(fakeDatabaseFile);
@@ -43,8 +40,9 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                    .RegisterPunterAnalysisServices()
-                    .RegisterMediator();
+                    .RegisterMediator()
+                    .RegisterAutoMapper()
+                    .RegisterPunterAnalysisServices();
             container.Verify();
         }
 

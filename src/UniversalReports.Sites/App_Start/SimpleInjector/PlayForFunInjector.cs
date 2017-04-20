@@ -1,9 +1,9 @@
 ﻿using SimpleInjector;
 using UniversalReports.PlayForFun.Core;
 
-namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
+namespace UniversalReports.Sites.SimpleInjector
 {
-    internal static class PlayForFunInjectorInitializer
+    internal static class PlayForFunInjector
     {
         internal static Container RegisterPlayForFunServices(this Container container)
         {

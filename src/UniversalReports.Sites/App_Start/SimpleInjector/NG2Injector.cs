@@ -8,7 +8,7 @@ using UserNameReport = UniversalReports.NG2Statistics.UserName;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    internal static class NG2InjectorInitializer
+    internal static class NG2Injector
     {
         internal static Container RegisterNG2Services(this Container container)
         {
