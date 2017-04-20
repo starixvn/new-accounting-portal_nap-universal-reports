@@ -73,7 +73,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         private void SetColumnWidth(int numberGroup)
         {
-            var numberColumns = numberGroup * 4 + 1;
+            var numberColumns = (numberGroup * 4) + 1;
             for (var i = 0; i < numberColumns; i++)
             {
                 statisticSheet.Column(i + 1).Width = 18;
