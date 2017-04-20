@@ -30,10 +30,10 @@ namespace UniversalReports.PlayForFun.Detail.Model
         public string Product { get; set; }
 
         [Cell("I4")]
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         [Cell("J4")]
-        public bool MemberRequest { get; set; }
+        public int MemberRequest { get; set; }
 
         [Cell("K4")]
         public decimal Turnover { get; set; }

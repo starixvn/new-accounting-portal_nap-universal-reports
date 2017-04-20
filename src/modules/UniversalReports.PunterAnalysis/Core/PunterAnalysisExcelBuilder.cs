@@ -83,7 +83,7 @@ namespace UniversalReports.PunterAnalysis.Core
             statisticSheet.Cells[descriptionCellRange].Value = description;
         }
 
-        private void ApplyBody<T>(List<T> statistics) where T : class, new()
+        private void ApplyBody<T>(IEnumerable<T> statistics) where T : class, new()
         {
             statisticSheet.ApplyVertical(statistics, StartRowIndex);
         }

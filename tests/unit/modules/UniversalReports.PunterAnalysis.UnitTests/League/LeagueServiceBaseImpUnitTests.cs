@@ -15,13 +15,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         {
             // Arrange
             var emptyGroup = new Dictionary<int, List<int>>();
-            var emptyLeagueMappingModelList = new List<LeagueMappingModel>();
-
             var repository = Substitute.For<IDynamicRepository>();
 
             // Act
             var service = new LeagueServiceByMonth(repository);
-            var mappingGroups = service.GetMappingGroups(emptyLeagueMappingModelList);
+            var mappingGroups = service.GetMappingGroups(new List<LeagueMappingModel>());
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(emptyGroup));
         }

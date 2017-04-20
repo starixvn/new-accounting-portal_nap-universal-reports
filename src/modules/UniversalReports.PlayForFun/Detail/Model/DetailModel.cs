@@ -20,9 +20,9 @@ namespace UniversalReports.PlayForFun.Detail.Model
 
         public string Product { get; set; }
 
-        public string Status { get; set; }
+        public int Status { get; set; }
 
-        public bool MemberRequest { get; set; }
+        public int MemberRequest { get; set; }
 
         public decimal WinLoss { get; set; }
 
@@ -41,9 +41,9 @@ namespace UniversalReports.PlayForFun.Detail.Model
                 Super = string.Empty,
                 Username = string.Empty,
                 CustId = 0,
-                MemberRequest = false,
+                MemberRequest = 0,
                 Product = string.Empty,
-                Status = string.Empty,
+                Status = 0,
                 WinLoss = a.WinLoss + b.WinLoss,
                 BetCount = a.BetCount + b.BetCount,
                 Turnover = a.Turnover + b.Turnover

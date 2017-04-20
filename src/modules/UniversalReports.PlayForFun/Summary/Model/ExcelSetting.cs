@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.PlayForFun.Core
+﻿namespace UniversalReports.PlayForFun.Summary.Model
 {
     public class ExcelSetting
     {
@@ -11,5 +11,7 @@
         public string Title { get; set; }
 
         public string TitleCellRange { get; set; }
+
+        public int MergedColumnCountOfTotalRow { get; set; }
     }
 }

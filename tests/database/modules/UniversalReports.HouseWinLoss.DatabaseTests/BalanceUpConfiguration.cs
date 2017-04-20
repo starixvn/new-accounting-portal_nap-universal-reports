@@ -12,13 +12,15 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests
         {
             get
             {
-                if (balanceUpRange == null)
+                if (balanceUpRange != null)
                 {
-                    var repository = new DynamicRepository();
-                    var cacheService = new CacheServiceImpl();
-                    var balanceUpService = new BalanceUpServiceImp(repository, cacheService);
-                    balanceUpRange = balanceUpService.Query();
+                    return balanceUpRange;
                 }
+
+                var repository = new DynamicRepository();
+                var cacheService = new CacheServiceImpl();
+                var balanceUpService = new BalanceUpServiceImp(repository, cacheService);
+                balanceUpRange = balanceUpService.Query();
 
                 return balanceUpRange;
             }

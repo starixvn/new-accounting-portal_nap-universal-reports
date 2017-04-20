@@ -155,7 +155,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunDetailProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunFilterProfile.cs" />

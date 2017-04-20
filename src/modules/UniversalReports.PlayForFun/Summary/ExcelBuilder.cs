@@ -2,10 +2,12 @@
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
+using UniversalReports.PlayForFun.Core;
+using UniversalReports.PlayForFun.Summary.Model;
 
-namespace UniversalReports.PlayForFun.Core
+namespace UniversalReports.PlayForFun.Summary
 {
-    public interface PlayForFunExcelBuilder
+    public interface ExcelBuilder
     {
         ExcelPackage CreateExcelPackage<T, T1>(
             ReportModelBase<T> summaryExcelModel,
@@ -16,7 +18,7 @@ namespace UniversalReports.PlayForFun.Core
             where T1 : class, new();
     }
 
-    public class PlayForFunExcelBuilderImp : PlayForFunExcelBuilder
+    public class ExcelBuilderImp : ExcelBuilder
     {
         private ExcelWorksheet summarySheet;
 
@@ -85,7 +87,7 @@ namespace UniversalReports.PlayForFun.Core
             SetSheetName(workSheet, setting.SheetName);
             ApplyDescription(workSheet, setting.Title, setting.TitleCellRange);
             ApplyBody(workSheet, model.Entities);
-            ApplyFooter(workSheet, totalTemplateSheet, model.Total);
+            ApplyFooter(workSheet, totalTemplateSheet, model.Total, setting.MergedColumnCountOfTotalRow);
             workSheet.AutoMergeRowsHaveSameValue($"A{StartRowIndex}:A{EndRowIndex}");
         }
 
@@ -109,15 +111,19 @@ namespace UniversalReports.PlayForFun.Core
             workSheet.Cells[descriptionCellRange].Value = description;
         }
 
-        private void ApplyBody<T>(ExcelWorksheet workSheet, List<T> statistics) where T : class, new()
+        private void ApplyBody<T>(ExcelWorksheet workSheet, IEnumerable<T> statistics) where T : class, new()
         {
             workSheet.ApplyVertical(statistics, StartRowIndex);
         }
 
-        private void ApplyFooter<T>(ExcelWorksheet workSheet, ExcelWorksheet totalTemplateSheet, T total) where T : class, new()
+        private void ApplyFooter<T>(ExcelWorksheet workSheet, ExcelWorksheet totalTemplateSheet, T total, int mergedColumnCountOfTotalRow) where T : class, new()
         {
             workSheet.ApplyModel(totalTemplateSheet, total, EndRowIndex);
-            workSheet.Cells[$"A{EndRowIndex}"].Value = "Total";
+
+            var cellAddressOfTotalText = new ExcelAddressBase(EndRowIndex, 1, EndRowIndex, mergedColumnCountOfTotalRow);
+
+            workSheet.Cells[cellAddressOfTotalText.Address].Value = "Total";
+            workSheet.Cells[cellAddressOfTotalText.Address].Merge = true;
         }
     }
 }

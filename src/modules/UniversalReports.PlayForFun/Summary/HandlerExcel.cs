@@ -8,7 +8,7 @@ using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public sealed class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private const string TemplatePath = @"ExcelTemplate\PlayForFun\Summary.xlsx";
 
@@ -18,13 +18,13 @@ namespace UniversalReports.PlayForFun.Summary
 
         private readonly ApplicationConfigurationService configurationService;
 
-        private readonly PlayForFunExcelBuilder excelBuilder;
+        private readonly ExcelBuilder excelBuilder;
 
         public HandlerExcel(
             IMapper mapper,
             PlayForFunService playForFunService,
             ApplicationConfigurationService configurationService,
-            PlayForFunExcelBuilder excelBuilder)
+            ExcelBuilder excelBuilder)
         {
             this.mapper = mapper;
             this.playForFunService = playForFunService;
@@ -54,7 +54,7 @@ namespace UniversalReports.PlayForFun.Summary
             return excelPackage;
         }
 
-        public virtual ExcelSetting CreateSummarySetting(string title)
+        public ExcelSetting CreateSummarySetting(string title)
         {
             return new ExcelSetting
             {
@@ -62,11 +62,12 @@ namespace UniversalReports.PlayForFun.Summary
                 StartRowIndex = 4,
                 TemplatePath = $"{configurationService.CurrentDirectory}\\{TemplatePath}",
                 Title = title,
-                TitleCellRange = "A1:E1"
+                TitleCellRange = "A1:E1",
+                MergedColumnCountOfTotalRow = 1
             };
         }
 
-        public virtual ExcelSetting CreateProductDetailSetting(string title, string productName)
+        public ExcelSetting CreateProductDetailSetting(string title, string productName)
         {
             return new ExcelSetting
             {
@@ -74,7 +75,8 @@ namespace UniversalReports.PlayForFun.Summary
                 StartRowIndex = 4,
                 TemplatePath = string.Empty,
                 Title = title,
-                TitleCellRange = "A1:M1"
+                TitleCellRange = "A1:M1",
+                MergedColumnCountOfTotalRow = 10
             };
         }
     }

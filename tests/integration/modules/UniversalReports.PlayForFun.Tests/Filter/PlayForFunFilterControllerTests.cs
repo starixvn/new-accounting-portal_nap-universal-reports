@@ -5,7 +5,6 @@ using System.Web.Http.Results;
 using UniversalReports.PlayForFun.Filter;
 using UniversalReports.PlayForFun.Tests.DependencyInjection;
 using ProductEntity = UniversalReports.PlayForFun.Filter.Product.ProductEntity;
-using ProductFilter = UniversalReports.PlayForFun.Filter.Product;
 
 namespace UniversalReports.PlayForFun.Tests.Filter
 {
@@ -20,7 +19,6 @@ namespace UniversalReports.PlayForFun.Tests.Filter
             var controller = factory.CreateController<PlayForFunFilterController, ProductEntity>(FakeRepositoryDataFileName);
 
             // Act
-            var httpParameterJson = new ProductFilter.HttpParameterJson();
             var httpActionResult = await controller.Product();
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<ProductEntity>>).Content;
 

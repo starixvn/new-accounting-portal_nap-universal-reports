@@ -12,30 +12,30 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
     {
         private Container container = new Container();
 
-        public Controller CreateController<Controller, Model>(string fakeDatabaseFile)
+        public TController CreateController<TController, TModel>(string fakeDatabaseFile)
         {
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            var repository = CreateRepository<Model>(fakeDatabaseFile);
+            var repository = CreateRepository<TModel>(fakeDatabaseFile);
             RegisterDependency(repository);
 
-            return (Controller)container.GetInstance(typeof(Controller));
+            return (TController)container.GetInstance(typeof(TController));
         }
 
-        public Controller CreateController<Controller, FirstModel, SecondModel>(string fakeFirstDatabaseFile, string fakeSecondDatabaseFile)
+        public TController CreateController<TController, TFirstModel, TSecondModel>(string fakeFirstDatabaseFile, string fakeSecondDatabaseFile)
         {
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            var fakeFirstData = TestDataLoader.Load<List<FirstModel>>(fakeFirstDatabaseFile);
-            var fakeSecondData = TestDataLoader.Load<List<SecondModel>>(fakeSecondDatabaseFile);
+            var fakeFirstData = TestDataLoader.Load<List<TFirstModel>>(fakeFirstDatabaseFile);
+            var fakeSecondData = TestDataLoader.Load<List<TSecondModel>>(fakeSecondDatabaseFile);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<FirstModel>(Arg.Any<ICriteria>()).Returns(fakeFirstData);
-            repository.FetchAsync<SecondModel>(Arg.Any<ICriteria>()).Returns(fakeSecondData);
+            repository.FetchAsync<TFirstModel>(Arg.Any<ICriteria>()).Returns(fakeFirstData);
+            repository.FetchAsync<TSecondModel>(Arg.Any<ICriteria>()).Returns(fakeSecondData);
 
             RegisterDependency(repository);
 
-            return (Controller)container.GetInstance(typeof(Controller));
+            return (TController)container.GetInstance(typeof(TController));
         }
 
         public void Dispose()
@@ -62,12 +62,12 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
             container.Verify();
         }
 
-        private IDynamicRepository CreateRepository<Model>(string fakeDatabaseFile)
+        private IDynamicRepository CreateRepository<TModel>(string fakeDatabaseFile)
         {
-            var fakeData = TestDataLoader.Load<List<Model>>(fakeDatabaseFile);
+            var fakeData = TestDataLoader.Load<List<TModel>>(fakeDatabaseFile);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<Model>(Arg.Any<ICriteria>()).Returns(fakeData);
+            repository.FetchAsync<TModel>(Arg.Any<ICriteria>()).Returns(fakeData);
 
             return repository;
         }

@@ -23,12 +23,12 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var configurationService = Substitute.For<ApplicationConfigurationService>();
             configurationService.CurrentDirectory.Returns("D:");
 
-            var excelBuilder = Substitute.For<PlayForFunExcelBuilder>();
+            var excelBuilder = Substitute.For<ExcelBuilder>();
 
             var handleExcel = new HandlerExcel(mapper, punterAnalysisService, configurationService, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new PlayForFun.Summary.Model.HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
@@ -72,14 +72,14 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
 
-            var excelBuilder = Substitute.For<PlayForFunExcelBuilder>();
+            var excelBuilder = Substitute.For<ExcelBuilder>();
 
             var handleExcel = Substitute.ForPartsOf<HandlerExcel>(mapper, punterAnalysisService, configurationService, excelBuilder);
             handleExcel.CreateSummarySetting(Arg.Any<string>()).Returns(summaryExcelSetting);
             handleExcel.CreateProductDetailSetting(Arg.Any<string>(), Arg.Any<string>()).Returns(productDetailExcelSetting);
 
             // Act
-            await handleExcel.Handle(new PlayForFun.Summary.Model.HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
