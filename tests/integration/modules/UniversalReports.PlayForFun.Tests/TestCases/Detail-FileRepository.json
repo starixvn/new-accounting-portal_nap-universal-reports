@@ -8,8 +8,8 @@
     "Username": "Username 1",
     "CustId": 1,
     "Product": "Product 1",
-    "Status": "Enabled",
-    "MemberRequest": true,
+    "Status": 0,
+    "MemberRequest": 0,
     "WinLoss": 300,
     "Turnover": 500,
     "BetCount": 5
@@ -23,8 +23,8 @@
     "Username": "Username 2",
     "CustId": 2,
     "Product": "Product 2",
-    "Status": "Enabled",
-    "MemberRequest": true,
+    "Status": 1,
+    "MemberRequest": 1,
     "WinLoss": 700,
     "Turnover": 1500,
     "BetCount": 15

@@ -28,7 +28,6 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
             container.RegisterCollection(typeof(ICancellableAsyncNotificationHandler<>), assemblies);
             container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
 
-            container.Register(() => Mapper.Instance);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
         }

@@ -63,13 +63,13 @@ namespace UniversalReports.PlayForFun.Tests.Summary
             Assert.That(summaryWorkSheet.Name, Is.EqualTo("Summary"));
             Assert.That(detailWorkSheet.Name, Is.EqualTo("RNG Casino Statistics"));
 
-            Assert.AreEqual(summaryWorkSheet.Cells["A1:E1"].Value, expectedSummaryTitle);
-            Assert.AreEqual(summaryWorkSheet.Cells["A4:E5"].Value, expectedSummaryBody);
-            Assert.AreEqual(summaryWorkSheet.Cells["A6:E6"].Value, expectedSummaryTotal);
+            Assert.That(summaryWorkSheet.Cells["A1:E1"].Value, Is.EqualTo(expectedSummaryTitle));
+            Assert.That(summaryWorkSheet.Cells["A4:E5"].Value, Is.EqualTo(expectedSummaryBody));
+            Assert.That(summaryWorkSheet.Cells["A6:E6"].Value, Is.EqualTo(expectedSummaryTotal));
 
-            Assert.AreEqual(detailWorkSheet.Cells["A1:M1"].Value, expectedDetailTitle);
-            Assert.AreEqual(detailWorkSheet.Cells["A4:M5"].Value, expectedDetailBody);
-            Assert.AreEqual(detailWorkSheet.Cells["A6:M6"].Value, expectedDetailTotal);
+            Assert.That(detailWorkSheet.Cells["A1:M1"].Value, Is.EqualTo(expectedDetailTitle));
+            Assert.That(detailWorkSheet.Cells["A4:M5"].Value, Is.EqualTo(expectedDetailBody));
+            Assert.That(detailWorkSheet.Cells["A6:M6"].Value, Is.EqualTo(expectedDetailTotal));
 
             // Release
             factory.Dispose();

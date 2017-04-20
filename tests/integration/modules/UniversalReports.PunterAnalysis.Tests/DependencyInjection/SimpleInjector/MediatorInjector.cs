@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
@@ -28,7 +27,6 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             container.RegisterCollection(typeof(ICancellableAsyncNotificationHandler<>), assemblies);
             container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
 
-            container.Register(() => Mapper.Instance);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
         }

@@ -21,7 +21,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
-            configurationService.CurrentDirectory.Returns("D:");
+            configurationService.CurrentDirectory.Returns(string.Empty);
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
 
@@ -71,6 +71,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
+            configurationService.CurrentDirectory.Returns(string.Empty);
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
 

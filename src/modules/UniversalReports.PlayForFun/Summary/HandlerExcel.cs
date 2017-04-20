@@ -8,7 +8,7 @@ using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
 {
-    public sealed class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private const string TemplatePath = @"ExcelTemplate\PlayForFun\Summary.xlsx";
 
@@ -54,7 +54,7 @@ namespace UniversalReports.PlayForFun.Summary
             return excelPackage;
         }
 
-        public ExcelSetting CreateSummarySetting(string title)
+        public virtual ExcelSetting CreateSummarySetting(string title)
         {
             return new ExcelSetting
             {
@@ -67,7 +67,7 @@ namespace UniversalReports.PlayForFun.Summary
             };
         }
 
-        public ExcelSetting CreateProductDetailSetting(string title, string productName)
+        public virtual ExcelSetting CreateProductDetailSetting(string title, string productName)
         {
             return new ExcelSetting
             {
