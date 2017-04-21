@@ -1,5 +1,4 @@
 ﻿using OfficeOpenXml;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -20,20 +19,22 @@ namespace UniversalReports.WebAPI.Results
 
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
-            using (var memoryStream = new MemoryStream(ExcelPackage.GetAsByteArray()))
+            HttpResponseMessage response;
+            using (ExcelPackage)
             {
-                var response = new HttpResponseMessage(HttpStatusCode.OK)
+                response = new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    Content = new ByteArrayContent(memoryStream.ToArray())
+                    Content = new ByteArrayContent(ExcelPackage.GetAsByteArray())
                 };
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
-                response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                {
-                    FileName = "Excel.xlsx"
-                };
-
-                return Task.FromResult(response);
             }
+
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vnd.ms-excel");
+            response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = "Excel.xlsx"
+            };
+
+            return Task.FromResult(response);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private int EndRowIndex { get; set; }
 
-        private ExcelPackage ExcelPackage { get; set; }
+        private ExcelPackage excelPackage { get; set; }
 
         public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
         {
@@ -28,16 +28,16 @@ namespace UniversalReports.PunterAnalysis.Core
             ApplySetting();
             Build(model, settings);
             ClearTemplate();
-            return ExcelPackage;
+            return excelPackage;
         }
 
         private void LoadTemplate(string templatePath)
         {
             using (var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
-                ExcelPackage = new ExcelPackage(stream);
-                statisticSheet = ExcelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
-                totalTemplateSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                excelPackage = new ExcelPackage(stream);
+                statisticSheet = excelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
+                totalTemplateSheet = excelPackage.Workbook.Worksheets["TotalTemplate"];
             }
         }
 
@@ -48,8 +48,8 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void ClearTemplate()
         {
-            ExcelPackage.Workbook.Worksheets.Delete("Template");
-            ExcelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
+            excelPackage.Workbook.Worksheets.Delete("Template");
+            excelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
         }
 
         private void Build<T>(ReportModelBase<T> model, ExcelSetting setting) where T : class, new()
