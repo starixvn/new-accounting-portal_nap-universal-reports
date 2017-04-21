@@ -54,7 +54,7 @@
                         <td class="text-center word-break-all">{{ item.Username }}</td>
                         <td class="text-center word-break-all">{{ item.CustId }}</td>
                         <td class="text-center word-break-all">{{ item.Product }}</td>
-                        <td class="text-center">{{ item.Status ? 'Enabled' : 'Disabled' }}</td>
+                        <td class="text-center">{{ item.Status === 1 ? 'Enabled' : 'Disabled' }}</td>
                         <td class="text-center">{{ item.MemberRequest ? 'Yes': 'No' }}</td>
                         <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napDecimalFormat]="item.WinLoss"></td>

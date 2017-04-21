@@ -485,6 +485,13 @@
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\play-for-fun\index.html" />
+    <Content Include="wwwroot\play-for-fun\inline.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\main.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\polyfills.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\styles.bundle.css" />
+    <Content Include="wwwroot\play-for-fun\vendor.bundle.js" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\punter-analysis\index.html" />
     <Content Include="wwwroot\punter-analysis\inline.bundle.js" />
@@ -738,6 +745,11 @@
     </Content>
     <Content Include="Views\Shared\_AngularLayout.cshtml" />
     <Content Include="Views\FakeLogin\Index.cshtml" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\play-for-fun\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

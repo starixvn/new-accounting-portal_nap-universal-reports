@@ -9,7 +9,7 @@ export interface DetailItem {
     Username: string;
     CustId: number;
     Product: string;
-    Status: boolean;
+    Status: number;
     MemberRequest: boolean;
     Turnover: number;
     WinLoss: number;
