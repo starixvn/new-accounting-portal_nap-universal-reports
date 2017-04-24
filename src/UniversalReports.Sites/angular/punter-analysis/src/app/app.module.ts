@@ -13,6 +13,7 @@ import { SpinnerService, SpinnerModule } from 'nap-components/src/spinner';
 
 import { FilterModule } from './filter/filter.module';
 import { GridModule } from './grid/grid.module';
+import { PerformanceModule } from './performance/performance.module'
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AppComponent } from './app.component';
     ToastModule,
     NavbarModule,
     FilterModule,
-    GridModule
+    GridModule,
+    PerformanceModule
   ],
   providers: [
     HttpService,
