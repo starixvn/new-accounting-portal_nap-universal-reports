@@ -35,8 +35,13 @@ export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
     ngOnDestroy() {
     }
 
-    private generate() {
+    // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
 
-    }
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 
 }
