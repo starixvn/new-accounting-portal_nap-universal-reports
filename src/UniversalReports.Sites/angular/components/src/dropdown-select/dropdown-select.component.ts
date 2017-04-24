@@ -27,7 +27,9 @@ export class DropdownSelectComponent implements OnChanges {
                 }
             }
 
-            this.onModelChange(this.items[0].value);
+            if (this.items.length > 0) {
+                this.onModelChange(this.items[0].value);
+            }
         }
     }
 

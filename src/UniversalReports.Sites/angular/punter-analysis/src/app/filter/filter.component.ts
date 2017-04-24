@@ -9,7 +9,7 @@ import { SelectItem } from 'nap-components/src/dropdown-select';
 import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { RoleId, SortBy } from 'nap-components/src/model';
-import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
+import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
 import { SearchBy, PeriodType, OrderBy, FilterModel, SportsbookSportTypeBetType } from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
@@ -102,6 +102,7 @@ export class FilterComponent implements OnInit {
     }
 
     onSearchByChange() {
+        this.reset.emit();
         switch (this.searchBy) {
             case SearchBy.User:
                 if (this.depth === RoleId.Super || this.depth === RoleId.Master) {
@@ -124,6 +125,9 @@ export class FilterComponent implements OnInit {
 
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
+        if (this.searchBy === SearchBy.League) {
+            this.loadLeagues();
+        }
     }
 
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -137,14 +141,11 @@ export class FilterComponent implements OnInit {
                 text: item.BetTypeName,
                 value: item.CombinationId
             }));
-        this.service.querySportTypeLeague(this.sportType).subscribe(options => {
-            this.leagueOptions = options;
-            this.leagueId = this.leagueOptions[0].value;
-        });
+        this.loadLeagues();
     }
 
-    onBetTypeSelectedChange() {
-
+    onBetTypeSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
+        this.selectedBetTypeTreeviewItems = downlineTreeviewItems;
     }
 
     onGenerate() {
@@ -159,6 +160,10 @@ export class FilterComponent implements OnInit {
                 }
             });
         }
+    }
+
+    onPeriodChange() {
+
     }
 
     private loadSports() {
@@ -179,24 +184,77 @@ export class FilterComponent implements OnInit {
         }
     }
 
+    private loadLeagues() {
+        const dateRange = this.getExactDateRange();
+        this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
+            this.leagueOptions = options;
+            if (this.leagueOptions.length > 0) {
+                this.leagueId = this.leagueOptions[0].value;
+            }
+        });
+    }
+
+    private getExactDateRange(): DateRange {
+        const minDate = DateHelper.convertDateStructToMoment(this.minDate);
+        let fromDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.fromDate);
+        let toDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.toDate);
+        if (fromDate.isBefore(minDate)) {
+            fromDate = moment.utc(minDate);
+        }
+        switch (this.periodTypeEventModel.periodType) {
+            case PeriodType.Weekly:
+                toDate = toDate.endOf('week');
+                break;
+            case PeriodType.Monthly:
+            case PeriodType.MonthRange:
+                toDate = toDate.endOf('month');
+                break;
+            case PeriodType.Annually:
+                toDate = toDate.endOf('year');
+                break;
+        }
+
+        const maxDate = DateHelper.convertDateStructToMoment(this.maxDate);
+        if (toDate.isAfter(maxDate)) {
+            toDate = maxDate;
+        }
+        if (fromDate.isAfter(toDate)) {
+            fromDate = moment.utc(toDate);
+        }
+        return {
+            fromDate: DateHelper.convertDateToDateStruct(fromDate.toDate()),
+            toDate: DateHelper.convertDateToDateStruct(toDate.toDate())
+        };
+    }
+
     private validateModel(model: FilterModel): boolean {
-        if (model.periodType === PeriodType.Daily || model.periodType === PeriodType.Weekly) {
-            const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
-            const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
-            if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
-                this.toastService.activate('Date range should not exceed 1 month!');
+        if (this.searchBy !== SearchBy.Performance) {
+            if (model.periodType === PeriodType.Daily || model.periodType === PeriodType.Weekly) {
+                const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
+                const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
+                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
+                    this.toastService.activate('Date range should not exceed 1 month!');
+                    return false;
+                }
+            }
+        }
+
+        if (this.searchBy !== SearchBy.League) {
+            if (model.depth === RoleId.Agent && model.userName === '') {
+                this.toastService.activate('Account name field is required!');
                 return false;
             }
         }
 
-        if (model.depth === RoleId.Agent && model.userName === '') {
-            this.toastService.activate('Account name field is required!');
-            return false;
+        if (this.searchBy === SearchBy.User) {
+            if (model.selectedBetTypeTreeviewItems.length === 0) {
+                this.toastService.activate('Please select at least one Product!');
+                return false;
+            }
         }
 
-        if (model.selectedBetTypeTreeviewItems.length === 0) {
-            this.toastService.activate('Please select at least one Product!');
-            return false;
+        if (this.searchBy === SearchBy.League) {
+
         }
 
         return true;
@@ -223,7 +281,8 @@ export class FilterComponent implements OnInit {
             searchByOptions: this.searchByOptions,
             depthOptions: this.depthOptions,
             orderByOptions: this.orderByOptions,
-            sortByOptions: this.sortByOptions
+            sortByOptions: this.sortByOptions,
+            leagueId: this.leagueId
         };
     }
 

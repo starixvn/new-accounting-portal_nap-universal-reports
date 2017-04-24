@@ -46,6 +46,7 @@ export interface FilterModel {
     depthOptions: SelectItem[];
     orderByOptions: SelectItem[];
     sortByOptions: SelectItem[];
+    leagueId: number;
 }
 
 export class FilterModelWrapper {

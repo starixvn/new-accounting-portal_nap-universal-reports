@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { NgbDateStruct, WeekRange, DateFormat } from './date-model';
+import { NgbDateStruct, DateRange, DateFormat } from './date-model';
 
 export let DateHelper = {
     getWeekRangeOfDate: getWeekRangeOfDate,
@@ -13,7 +13,7 @@ export let DateHelper = {
     formatDateStruct: formatDateStruct
 };
 
-function getWeekRangeOfDate(dateStruct: NgbDateStruct): WeekRange {
+function getWeekRangeOfDate(dateStruct: NgbDateStruct): DateRange {
     return {
         fromDate: getFirstDayOfWeek(dateStruct),
         toDate: getLastDayOfWeek(dateStruct)

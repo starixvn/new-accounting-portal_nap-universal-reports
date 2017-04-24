@@ -1,6 +1,6 @@
 import { Component, Renderer, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDateParserFormatter, NgbInputDatepicker, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct, NgbDate, WeekRange } from '../date-model';
+import { NgbDateStruct, NgbDate, DateRange } from '../date-model';
 import { DateHelper } from '../date-helper';
 import { WeekDateParserFormatter } from './week-date-parser-formatter';
 
@@ -19,7 +19,7 @@ export class WeekPickerComponent implements OnChanges {
     @Input() date: NgbDateStruct;
     @Output() dateChange = new EventEmitter<NgbDateStruct>();
     private currentWeekElement: HTMLElement;
-    private weekRange: WeekRange;
+    private weekRange: DateRange;
 
     constructor(
         private renderer: Renderer

@@ -34,6 +34,17 @@
             margin-left: $margin;
         }
     }
+    .col-x23 {
+        float: left;
+        width: 620px;
+        $margin: 120px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
     .col-x3 {
         float: left;
         width: 290px;

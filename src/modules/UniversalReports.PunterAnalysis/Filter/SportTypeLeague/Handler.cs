@@ -1,5 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,7 +17,12 @@ namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
 
         public async Task<IEnumerable<SportTypeLeagueEntity>> Handle(HttpParameterJson message)
         {
-            var criteria = new QueryCriteria { SportId = message.SportId };
+            var criteria = new QueryCriteria
+            {
+                SportId = message.SportId,
+                FromDate = message.FromDate,
+                ToDate = message.ToDate
+            };
             return await repository.FetchAsync<SportTypeLeagueEntity>(criteria);
         }
     }

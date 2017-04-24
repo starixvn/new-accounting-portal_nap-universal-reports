@@ -32,6 +32,8 @@ export class PeriodTypeComponent implements OnChanges {
     monthRangeFromDate: NgbDateStruct;
     monthRangeToDate: NgbDateStruct;
 
+    private emittedModel: PeriodTypeEventModel;
+
     constructor() {
         const todayNgbDate = NgbDate.fromToday();
         this.initDefaultDate(todayNgbDate.toDateStruct());
@@ -77,18 +79,20 @@ export class PeriodTypeComponent implements OnChanges {
     }
 
     onDailyDateChange() {
-        this.periodTypeChange.emit({
+        const dailyDate = this.dailyFromDate;
+        this.emitChange({
             periodType: this.periodType,
-            fromDate: this.dailyFromDate,
-            toDate: this.dailyToDate
+            fromDate: dailyDate,
+            toDate: dailyDate
         });
     }
 
     onWeeklyDateChange() {
-        this.periodTypeChange.emit({
+        const weeklyDate = DateHelper.getFirstDayOfWeek(this.weeklyFromDate);
+        this.emitChange({
             periodType: this.periodType,
-            fromDate: DateHelper.getFirstDayOfWeek(this.weeklyFromDate),
-            toDate: this.weeklyToDate
+            fromDate: weeklyDate,
+            toDate: weeklyDate
         });
     }
 
@@ -98,27 +102,45 @@ export class PeriodTypeComponent implements OnChanges {
     }
 
     onMonthlyDateChange() {
-        this.periodTypeChange.emit({
+        const monthlyDate = { year: this.monthlyDate.year, month: this.monthlyDate.month, day: 1 };
+        this.emitChange({
             periodType: this.periodType,
-            fromDate: this.monthlyDate,
-            toDate: this.monthlyDate
+            fromDate: monthlyDate,
+            toDate: monthlyDate
         });
     }
 
     onAnnuallyDateChange() {
-        this.periodTypeChange.emit({
+        const annuallyDate = { year: this.annuallyDate.year, month: 1, day: 1 };
+        this.emitChange({
             periodType: this.periodType,
-            fromDate: this.annuallyDate,
-            toDate: this.annuallyDate
+            fromDate: annuallyDate,
+            toDate: annuallyDate
         });
     }
 
     onMonthRangeDateChange() {
-        this.periodTypeChange.emit({
+        const monthlyFromDate = { year: this.monthRangeFromDate.year, month: this.monthRangeFromDate.month, day: 1 };
+        const monthlyToDate = { year: this.monthRangeToDate.year, month: this.monthRangeToDate.month, day: 1 };
+        this.emitChange({
             periodType: this.periodType,
-            fromDate: this.monthRangeFromDate,
-            toDate: this.monthRangeToDate
+            fromDate: monthlyFromDate,
+            toDate: monthlyToDate
         });
+    }
+
+    private emitChange(model: PeriodTypeEventModel) {
+        let shouldEmit = true;
+        if (this.emittedModel !== undefined) {
+            shouldEmit = this.emittedModel.periodType !== model.periodType
+                || !_.isEqual(this.emittedModel.fromDate, model.fromDate)
+                || !_.isEqual(this.emittedModel.toDate, model.toDate);
+        }
+
+        if (shouldEmit) {
+            this.emittedModel = model;
+            this.periodTypeChange.emit(model);
+        }
     }
 
     private initDefaultDate(date: NgbDateStruct) {

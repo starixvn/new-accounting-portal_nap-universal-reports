@@ -1,4 +1,4 @@
-import { NgbDateStruct, WeekRange } from 'nap-components/src/date';
+import { NgbDateStruct } from 'nap-components/src/date';
 import { PeriodType } from '../filter.model';
 
 export interface PeriodTypeEventModel {

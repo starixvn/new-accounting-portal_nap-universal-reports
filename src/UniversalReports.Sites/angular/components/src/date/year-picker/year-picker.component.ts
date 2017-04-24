@@ -16,14 +16,9 @@ export class YearPickerComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         const dateChange = changes['date'];
-        if (dateChange) {
-            this.date.day = 1;
-            this.date.month = 1;
-        }
-
-        const maxDateChange = changes['maxDate'];
         const minDateChange = changes['minDate'];
-        if (maxDateChange || minDateChange || dateChange) {
+        const maxDateChange = changes['maxDate'];
+        if (dateChange || minDateChange || maxDateChange) {
             this.generateYears();
         }
     }

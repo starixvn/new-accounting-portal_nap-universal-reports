@@ -62,7 +62,7 @@
                 </nap-dropdown-typeahead>
             </div>
         </div>
-        <div class="col-x2" *ngIf="searchBy === SearchBy.League">
+        <div class="col-x23" *ngIf="searchBy === SearchBy.League">
             <div class="col-label">
                 <label class="col-form-label">League</label>
             </div>
@@ -84,7 +84,7 @@
                 <label class="col-form-label">Period</label>
             </div>
             <div class="col-value">
-                <nap-dropdown-select [items]="periodOptions" [(value)]="period"></nap-dropdown-select>
+                <nap-dropdown-select [items]="periodOptions" [(value)]="period" (valueChange)="onPeriodChange()"></nap-dropdown-select>
             </div>
         </div>
     </div>

@@ -336,7 +336,12 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         public async Task PunterSportTypeLeagueSp_Test_ColumnIsMapCorrectly()
         {
             // Arrange
-            var criteria = new SportTypeLeagueFilter.QueryCriteria { SportId = 1 };
+            var criteria = new SportTypeLeagueFilter.QueryCriteria
+            {
+                SportId = 1,
+                FromDate = DateTime.Now.AddMonths(-1),
+                ToDate = DateTime.Now
+            };
 
             // Act
             var repository = new DynamicRepository();

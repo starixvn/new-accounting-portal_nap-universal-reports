@@ -154,7 +154,12 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var controller = factory.CreateController<PunterAnalysisFilterController, SportTypeLeagueFilter.SportTypeLeagueEntity>(FakeRepositoryDataFileName);
 
             // Act
-            var httpParameterJson = new SportTypeLeagueFilter.HttpParameterJson { SportId = 1 };
+            var httpParameterJson = new SportTypeLeagueFilter.HttpParameterJson
+            {
+                SportId = 1,
+                FromDate = DateTime.Now.AddMonths(-1),
+                ToDate = DateTime.Now
+            };
             var httpActionResult = await controller.SportTypeLeague(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<SportTypeLeagueFilter.SportTypeLeagueEntity>>).Content;
 
