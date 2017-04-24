@@ -148,6 +148,8 @@
     <Compile Include="Filter\League\HandlerUnitTests.cs" />
     <Compile Include="Filter\ProductSportBetType\HandlerUnitTests.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerUnitTests.cs" />
+    <Compile Include="Filter\SportsbookSportBetType\HandlerUnitTests.cs" />
+    <Compile Include="Filter\SportTypeLeague\HandlerUnitTests.cs" />
     <Compile Include="Filter\UsernameSuggestion\HandlerUnitTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\HandlerExcelUnitTests.cs" />

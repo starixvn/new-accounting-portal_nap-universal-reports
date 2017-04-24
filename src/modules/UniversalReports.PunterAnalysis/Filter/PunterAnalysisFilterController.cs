@@ -5,6 +5,8 @@ using HttpParameterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.Av
 using HttpParameterAvailableDataRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.HttpParameterJson;
 using HttpParameterLeague = UniversalReports.PunterAnalysis.Filter.League.HttpParameterJson;
 using HttpParameterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType.HttpParameterJson;
+using HttpParameterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType.HttpParameterJson;
+using HttpParameterSportTypeLeague = UniversalReports.PunterAnalysis.Filter.SportTypeLeague.HttpParameterJson;
 using HttpParameterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion.HttpParameterJson;
 
 namespace UniversalReports.PunterAnalysis.Filter
@@ -49,6 +51,20 @@ namespace UniversalReports.PunterAnalysis.Filter
 
         [Route("username-suggestion")]
         public async Task<IHttpActionResult> UsernameSuggestion(HttpParameterUsernameSuggestion parameter)
+        {
+            var viewModel = await mediator.Send(parameter);
+            return Json(viewModel);
+        }
+
+        [Route("sportsbook-sport-bet-type")]
+        public async Task<IHttpActionResult> SportsbookSportBetType(HttpParameterSportsbookSportBetType parameter)
+        {
+            var viewModel = await mediator.Send(parameter);
+            return Json(viewModel);
+        }
+
+        [Route("sport-type-league")]
+        public async Task<IHttpActionResult> SportTypeLeague(HttpParameterSportTypeLeague parameter)
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);

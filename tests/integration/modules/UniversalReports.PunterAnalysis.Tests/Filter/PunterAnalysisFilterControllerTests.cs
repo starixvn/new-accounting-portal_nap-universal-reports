@@ -11,6 +11,8 @@ using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.Available
 using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
+using SportsbookSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
+using SportTypeLeagueFilter = UniversalReports.PunterAnalysis.Filter.SportTypeLeague;
 using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
 namespace UniversalReports.PunterAnalysis.Tests.Filter
@@ -115,6 +117,46 @@ namespace UniversalReports.PunterAnalysis.Tests.Filter
             var httpParameterJson = new UsernameSuggestionFilter.HttpParameterJson();
             var httpActionResult = await controller.UsernameSuggestion(httpParameterJson);
             var viewModelJson = (httpActionResult as JsonResult<IEnumerable<string>>).Content;
+
+            // Assert
+            Assert.That(viewModelJson, Has.Count.GreaterThan(0));
+
+            // Release
+            factory.Dispose();
+        }
+
+        [Test]
+        public async Task SportsbookSportBetType_FileRepository_ReturnsNonEmptyListOfSportsbookSportBetType()
+        {
+            // Arrange
+            const string FakeRepositoryDataFileName = "Filter-SportsbookSportBetType-FileRepository.json";
+            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var controller = factory.CreateController<PunterAnalysisFilterController, SportsbookSportBetTypeFilter.SportsbookSportBetTypeEntity>(FakeRepositoryDataFileName);
+
+            // Act
+            var httpParameterJson = new SportsbookSportBetTypeFilter.HttpParameterJson();
+            var httpActionResult = await controller.SportsbookSportBetType(httpParameterJson);
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<SportsbookSportBetTypeFilter.SportsbookSportBetTypeEntity>>).Content;
+
+            // Assert
+            Assert.That(viewModelJson, Has.Count.GreaterThan(0));
+
+            // Release
+            factory.Dispose();
+        }
+
+        [Test]
+        public async Task SportTypeLeague_FileRepository_ReturnsNonEmptyListOfSportTypeLeague()
+        {
+            // Arrange
+            const string FakeRepositoryDataFileName = "Filter-SportTypeLeague-FileRepository.json";
+            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var controller = factory.CreateController<PunterAnalysisFilterController, SportTypeLeagueFilter.SportTypeLeagueEntity>(FakeRepositoryDataFileName);
+
+            // Act
+            var httpParameterJson = new SportTypeLeagueFilter.HttpParameterJson { SportId = 1 };
+            var httpActionResult = await controller.SportTypeLeague(httpParameterJson);
+            var viewModelJson = (httpActionResult as JsonResult<IEnumerable<SportTypeLeagueFilter.SportTypeLeagueEntity>>).Content;
 
             // Assert
             Assert.That(viewModelJson, Has.Count.GreaterThan(0));

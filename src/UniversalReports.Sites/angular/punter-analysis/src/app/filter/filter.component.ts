@@ -10,7 +10,7 @@ import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper } from 'nap-components/src/date';
-import { SearchBy, PeriodType, OrderBy, FilterModel } from './filter.model';
+import { SearchBy, PeriodType, OrderBy, FilterModel, SportsbookSportTypeBetType } from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
 
@@ -30,6 +30,7 @@ export class FilterComponent implements OnInit {
     @Output() generate = new EventEmitter<FilterModel>();
     @Output() reset = new EventEmitter();
     RoleId = RoleId;
+    SearchBy = SearchBy;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
     depth = RoleId.Agent;
@@ -50,8 +51,25 @@ export class FilterComponent implements OnInit {
         isShowFilter: true,
         maxHeight: 500
     };
+
+    sportType: number;
+    sportOptions: SelectItem[];
+    leagueId: number;
+    leagueOptions: SelectItem[];
+    betTypeTreeviewItems: TreeviewItem[];
+    betTypeTreeviewConfig: TreeviewConfig = {
+        isShowAllCheckBox: true,
+        isShowCollapseExpand: false,
+        isShowFilter: true,
+        maxHeight: 500
+    };
+
+    periodOptions = this.getPeriodOptions();
+    period = 6;
+
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
+    private sportbooksSportTypeBetTypeData: SportsbookSportTypeBetType[];
 
     constructor(
         private service: FilterService,
@@ -62,6 +80,19 @@ export class FilterComponent implements OnInit {
         this.maxDate = todayNgbDate.toDateStruct();
     }
 
+    get userNamePlaceholder(): string {
+        switch (this.depth) {
+            case RoleId.Super:
+                return 'Super name';
+            case RoleId.Master:
+                return 'Master name';
+            case RoleId.Agent:
+                return 'Agent name';
+            case RoleId.Member:
+                return 'All';
+        }
+    }
+
     ngOnInit() {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
             this.minDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MinDate));
@@ -70,12 +101,50 @@ export class FilterComponent implements OnInit {
         this.service.queryProductTreeviewItems().subscribe(treeItems => this.productTreeviewItems = treeItems);
     }
 
+    onSearchByChange() {
+        switch (this.searchBy) {
+            case SearchBy.User:
+                if (this.depth === RoleId.Super || this.depth === RoleId.Master) {
+                    this.depth = RoleId.Agent;
+                }
+                break;
+            case SearchBy.League:
+                if (this.sportbooksSportTypeBetTypeData) {
+                    this.loadSports();
+                } else {
+                    this.service.querySportbooksSportTypeBetType().subscribe(data => {
+                        this.sportbooksSportTypeBetTypeData = data;
+                        this.loadSports();
+                    });
+                }
+                break;
+        }
+        this.depthOptions = this.getDepthOptions();
+    }
+
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
     }
 
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
         this.selectedBetTypeTreeviewItems = downlineTreeviewItems;
+    }
+
+    onSportChange() {
+        this.betTypeTreeviewItems = this.sportbooksSportTypeBetTypeData
+            .filter(item => item.SportType === this.sportType)
+            .map(item => new TreeviewItem({
+                text: item.BetTypeName,
+                value: item.CombinationId
+            }));
+        this.service.querySportTypeLeague(this.sportType).subscribe(options => {
+            this.leagueOptions = options;
+            this.leagueId = this.leagueOptions[0].value;
+        });
+    }
+
+    onBetTypeSelectedChange() {
+
     }
 
     onGenerate() {
@@ -89,6 +158,24 @@ export class FilterComponent implements OnInit {
                     this.toastService.activate('Data is being processed.... Please try again after 10 minutes!');
                 }
             });
+        }
+    }
+
+    private loadSports() {
+        if (!this.sportOptions) {
+            let sportName = '';
+            this.sportOptions = [];
+            this.sportbooksSportTypeBetTypeData.forEach(item => {
+                if (item.SportName !== sportName) {
+                    sportName = item.SportName;
+                    this.sportOptions.push({
+                        text: item.SportName,
+                        value: item.SportType
+                    });
+                }
+            });
+            this.sportType = this.sportOptions[0].value;
+            this.onSportChange();
         }
     }
 
@@ -144,23 +231,34 @@ export class FilterComponent implements OnInit {
         return [{
             text: 'User',
             value: SearchBy.User
-        }/*, {
+        }, {
             text: 'League',
             value: SearchBy.League
         }, {
             text: 'Performance',
             value: SearchBy.Performance
-        }*/];
+        }];
     }
 
     private getDepthOptions(): SelectItem[] {
-        return [{
+        let result: SelectItem[] = [{
             text: 'Agent',
             value: RoleId.Agent
         }, {
             text: 'Member',
             value: RoleId.Member
         }];
+        if (this.searchBy === SearchBy.Performance) {
+            const list: SelectItem[] = [{
+                text: 'Super',
+                value: RoleId.Super
+            }, {
+                text: 'Master',
+                value: RoleId.Master
+            }];
+            result = _.concat(list, result);
+        }
+        return result;
     }
 
     private getSortByOptions(): SelectItem[] {
@@ -184,5 +282,16 @@ export class FilterComponent implements OnInit {
             text: 'Margin',
             value: OrderBy.Margin
         }];
+    }
+
+    private getPeriodOptions(): SelectItem[] {
+        const options: SelectItem[] = [];
+        for (let i = 1; i <= 12; i++) {
+            options.push({
+                text: `${i} ${i > 1 ? 'months' : 'month'}`,
+                value: i
+            });
+        }
+        return options;
     }
 }

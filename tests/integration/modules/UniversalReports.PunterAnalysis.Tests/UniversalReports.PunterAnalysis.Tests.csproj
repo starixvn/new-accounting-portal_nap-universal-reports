@@ -231,6 +231,12 @@
     <None Include="TestCases\Filter-League-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestCases\Filter-SportTypeLeague-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Filter-SportsbookSportBetType-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Filter-ProductSportBetType-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

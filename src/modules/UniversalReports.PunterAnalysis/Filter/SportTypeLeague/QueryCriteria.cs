@@ -1,0 +1,13 @@
+﻿using Fanex.Data.Repository;
+
+namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
+{
+    public class QueryCriteria: CriteriaBase
+    {
+        public int SportId { get; set; }
+
+        public override string GetSettingKey() => "Punter-SportTypeLeagueQuery";
+
+        public override bool IsValid() => true;
+    }
+}

@@ -8,6 +8,7 @@ using FilterAvailableDateRange = UniversalReports.PunterAnalysis.Filter.Availabl
 using FilterLeague = UniversalReports.PunterAnalysis.Filter.League;
 using FilterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using FilterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
+using FilterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Filter
 {
@@ -86,6 +87,21 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
 
             // Assert
             await mediator.Received().Send(Arg.Any<FilterUsernameSuggestion.HttpParameterJson>());
+        }
+
+        [Test]
+        public async Task SportsbookSportBetType_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new FilterSportsbookSportBetType.HttpParameterJson();
+
+            // Act
+            var controller = new PunterAnalysisFilterController(mediator);
+            await controller.SportsbookSportBetType(httpParameterJson);
+
+            // Assert
+            await mediator.Received().Send(Arg.Any<FilterSportsbookSportBetType.HttpParameterJson>());
         }
     }
 }

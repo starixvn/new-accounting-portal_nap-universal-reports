@@ -17,7 +17,9 @@ using BetTypeCriteria = UniversalReports.PunterAnalysis.BetType.Model.Criteria;
 using LeagueCriteria = UniversalReports.PunterAnalysis.League.Model.Criteria;
 using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
+using SportsbookSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
 using SportTypeCriteria = UniversalReports.PunterAnalysis.SportType.Model.Criteria;
+using SportTypeLeagueFilter = UniversalReports.PunterAnalysis.Filter.SportTypeLeague;
 using SummaryCriteria = UniversalReports.PunterAnalysis.Summary.Model.Criteria;
 using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
@@ -310,6 +312,40 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Assert
             Assert.That(usernames, Has.Count.GreaterThan(0));
+        }
+
+        [Test]
+        public async Task PunterSportsbookSportBetTypeSp_Test_ColumnIsMapCorrectly()
+        {
+            // Arrange
+            var criteria = new SportsbookSportBetTypeFilter.QueryCriteria();
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<SportsbookSportBetTypeFilter.SportsbookSportBetTypeEntity>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.SportType, Is.Not.Zero);
+            Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.CombinationId, Is.Not.Zero);
+        }
+
+        [Test]
+        public async Task PunterSportTypeLeagueSp_Test_ColumnIsMapCorrectly()
+        {
+            // Arrange
+            var criteria = new SportTypeLeagueFilter.QueryCriteria { SportId = 1 };
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<SportTypeLeagueFilter.SportTypeLeagueEntity>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.LeagueId, Is.Not.Zero);
+            Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
         }
     }
 }

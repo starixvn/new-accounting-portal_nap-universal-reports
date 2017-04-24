@@ -3,8 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { TreeviewItem, TreeItem } from 'ngx-treeview';
 import { RoleId } from 'nap-components/src/model';
+import { SelectItem } from 'nap-components/src/dropdown-select';
 import { HttpService } from 'nap-components/src/http.service';
-import { FilterModel } from './filter.model';
+import { FilterModel, SportsbookSportTypeBetType } from './filter.model';
 
 export interface DataWarehouseDateRange {
     MinDate: string;
@@ -20,6 +21,11 @@ interface ProductSportTypeBetType {
     RenderType: number;
 }
 
+interface SportTypeLeague {
+    LeagueId: number;
+    LeagueName: string;
+}
+
 enum RenderType {
     Product_SportGroup_Sport_BetType = 1,
     Product_Sport_BetType = 2,
@@ -28,17 +34,19 @@ enum RenderType {
 
 @Injectable()
 export class FilterService {
+    private url = 'api/punter-analysis/filter';
+
     constructor(
         private httpService: HttpService
     ) { }
 
     queryDataWarehouseDateRange(): Observable<DataWarehouseDateRange> {
-        const url = 'api/punter-analysis/filter/available-date-range';
+        const url = `${this.url}/available-date-range`;
         return this.httpService.post<DataWarehouseDateRange>(url);
     }
 
     queryUserNameSuggestion(userName: string, roleId: RoleId): Observable<string[]> {
-        const url = 'api/punter-analysis/filter/username-suggestion';
+        const url = `${this.url}/username-suggestion`;
         return this.httpService.post<string[]>(url, {
             userName: userName,
             roleId: roleId
@@ -46,15 +54,28 @@ export class FilterService {
     }
 
     queryProductTreeviewItems(): Observable<TreeviewItem[]> {
-        const url = 'api/punter-analysis/filter/product-sport-bet-type';
+        const url = `${this.url}/product-sport-bet-type`;
         return this.httpService.post<ProductSportTypeBetType[]>(url).map(list => {
             return this.buildProductTreeviewItems(list);
         });
     }
 
     checkDatabaseAvailable(): Observable<boolean> {
-        const url = 'api/punter-analysis/filter/available-database';
+        const url = `${this.url}/available-database`;
         return this.httpService.post<boolean>(url);
+    }
+
+    querySportbooksSportTypeBetType(): Observable<SportsbookSportTypeBetType[]> {
+        const url = `${this.url}/sportsbook-sport-bet-type`;
+        return this.httpService.post<SportsbookSportTypeBetType[]>(url);
+    }
+
+    querySportTypeLeague(sportId: number): Observable<SelectItem[]> {
+        const url = `${this.url}/sport-type-league`;
+        return this.httpService.post<SportTypeLeague[]>(url, { sportId: sportId }).map(list => list.map(item => <SelectItem>{
+            text: item.LeagueName,
+            value: item.LeagueId
+        }));
     }
 
     private buildProductTreeviewItems(list: ProductSportTypeBetType[]): TreeviewItem[] {

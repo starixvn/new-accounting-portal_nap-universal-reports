@@ -8,12 +8,12 @@
             <div class="col-value">
                 <div class="form-check form-check-inline" *ngFor="let option of searchByOptions">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="searchBy" [(ngModel)]="searchBy" [value]="option.value" /> {{option.text}}
+                        <input type="radio" class="form-check-input" name="searchBy" [(ngModel)]="searchBy" [value]="option.value" (ngModelChange)="onSearchByChange()" /> {{option.text}}
                     </label>
                 </div>
             </div>
         </div>
-        <div class="col-x2">
+        <div class="col-x2" *ngIf="searchBy !== SearchBy.Performance">
             <div class="col-label">
                 <label class="col-form-label">Top rows</label>
             </div>
@@ -21,51 +21,80 @@
                 <input style="width: 80px" class="form-control" type="text" [(ngModel)]="topRows" [napInputInteger]="{max: 9999}" />
             </div>
         </div>
-        <div class="col-x3">
+        <div class="col-x3" *ngIf="searchBy !== SearchBy.Performance">
             <div class="col-label">
                 <label class="col-form-label">Order by</label>
             </div>
             <div class="col-value">
                 <div class="d-inline-block">
-                    <select class="form-control" [(ngModel)]="orderBy">
-                        <option *ngFor="let option of orderByOptions" [ngValue]="option.value">{{option.text}}</option>
-                    </select>
+                    <nap-dropdown-select [items]="orderByOptions" [(value)]="orderBy"></nap-dropdown-select>
                 </div>
                 <div class="float-right d-inline-block">
-                    <select class="form-control" [(ngModel)]="sortBy">
-                        <option *ngFor="let option of sortByOptions" [ngValue]="option.value">{{option.text}}</option>
-                    </select>
+                    <nap-dropdown-select [items]="sortByOptions" [(value)]="sortBy"></nap-dropdown-select>
                 </div>
             </div>
         </div>
     </div>
-    <nap-period-type [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+    <nap-period-type *ngIf="searchBy !== SearchBy.Performance" [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
     <div class="row">
-        <div class="col-x1">
+        <div class="col-x1" *ngIf="searchBy !== SearchBy.League">
             <div class="col-label">
                 <label class="col-form-label">Depth</label>
             </div>
             <div class="col-value">
-                <select class="form-control" [(ngModel)]="depth">
-                    <option *ngFor="let option of depthOptions" [ngValue]="option.value">{{option.text}}</option>
-                </select>
+                <nap-dropdown-select [items]="depthOptions" [(value)]="depth"></nap-dropdown-select>
             </div>
         </div>
-        <div class="col-x2">
+        <div class="col-x1" *ngIf="searchBy === SearchBy.League">
             <div class="col-label">
-                <label class="col-form-label">Account name<span *ngIf="depth === RoleId.Agent" class="text-danger">*</span></label>
+                <label class="col-form-label">Sport</label>
             </div>
             <div class="col-value">
-                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="depth === RoleId.Agent ? 'Agent name' : 'All'">
+                <nap-dropdown-select [items]="sportOptions" [(value)]="sportType" (valueChange)="onSportChange()"></nap-dropdown-select>
+            </div>
+        </div>
+        <div class="col-x2" *ngIf="searchBy !== SearchBy.League">
+            <div class="col-label">
+                <label class="col-form-label">Account name<span *ngIf="depth !== RoleId.Member" class="text-danger">*</span></label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="userNamePlaceholder">
                 </nap-dropdown-typeahead>
             </div>
         </div>
-        <div class="col-x3">
+        <div class="col-x2" *ngIf="searchBy === SearchBy.League">
+            <div class="col-label">
+                <label class="col-form-label">League</label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-select [items]="leagueOptions" [(value)]="leagueId"></nap-dropdown-select>
+            </div>
+        </div>
+        <div class="col-x3" *ngIf="searchBy === SearchBy.User">
             <div class="col-label">
                 <label class="col-form-label">Product</label>
             </div>
             <div class="col-value">
                 <ngx-dropdown-treeview [items]="productTreeviewItems" [config]="productTreeviewConfig" (selectedChange)="onProductSelectedChange($event)">
+                </ngx-dropdown-treeview>
+            </div>
+        </div>
+        <div class="col-x3" *ngIf="searchBy === SearchBy.Performance">
+            <div class="col-label">
+                <label class="col-form-label">Period</label>
+            </div>
+            <div class="col-value">
+                <nap-dropdown-select [items]="periodOptions" [(value)]="period"></nap-dropdown-select>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="searchBy === SearchBy.League">
+        <div class="col-x1">
+            <div class="col-label">
+                <label class="col-form-label">Bet Type</label>
+            </div>
+            <div class="col-value">
+                <ngx-dropdown-treeview [items]="betTypeTreeviewItems" [config]="betTypeTreeviewConfig" (selectedChange)="onBetTypeSelectedChange($event)">
                 </ngx-dropdown-treeview>
             </div>
         </div>

@@ -4,6 +4,13 @@ import { SelectItem } from 'nap-components/src/dropdown-select';
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, DateFormat, DateHelper } from 'nap-components/src/date';
 
+export interface SportsbookSportTypeBetType {
+    SportType: number;
+    SportName: string;
+    BetTypeName: string;
+    CombinationId: number;
+}
+
 export enum SearchBy {
     User = 1,
     League = 2,

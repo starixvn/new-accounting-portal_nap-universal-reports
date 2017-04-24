@@ -88,5 +88,15 @@
     </Setting>
     <Setting Key="Punter-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-AvailableDateRangeQuery" SpName="Acc_Punter_GetDateRangeSupport" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-SportsbookSportBetTypeQuery" SpName="Acc_Punter_League_ProductSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+      <Mapping DataField="SportType" ObjectProperty="SportType" />
+      <Mapping DataField="SportName" ObjectProperty="SportName" />
+      <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
+      <Mapping DataField="CombinationID" ObjectProperty="CombinationId" />
+    </Setting>
+    <Setting Key="Punter-SportTypeLeagueQuery" SpName="Acc_Punter_GetLeagueBySport" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+      <Mapping DataField="LeagueID" ObjectProperty="LeagueId" />
+      <Mapping DataField="LeagueName" ObjectProperty="LeagueName" />
+    </Setting>
   </Function>
 </Functions>

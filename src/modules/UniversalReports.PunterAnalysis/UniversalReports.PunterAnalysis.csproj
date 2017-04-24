@@ -167,6 +167,14 @@
     <Compile Include="Filter\League\HttpParameterJson.cs" />
     <Compile Include="Filter\League\LeagueEntity.cs" />
     <Compile Include="Filter\League\QueryCriteria.cs" />
+    <Compile Include="Filter\SportsbookSportBetType\Handler.cs" />
+    <Compile Include="Filter\SportsbookSportBetType\HttpParameterJson.cs" />
+    <Compile Include="Filter\SportsbookSportBetType\QueryCriteria.cs" />
+    <Compile Include="Filter\SportsbookSportBetType\SportsbookSportBetTypeEntity.cs" />
+    <Compile Include="Filter\SportTypeLeague\Handler.cs" />
+    <Compile Include="Filter\SportTypeLeague\HttpParameterJson.cs" />
+    <Compile Include="Filter\SportTypeLeague\QueryCriteria.cs" />
+    <Compile Include="Filter\SportTypeLeague\SportTypeLeagueEntity.cs" />
     <Compile Include="Filter\UsernameSuggestion\Handler.cs" />
     <Compile Include="Filter\UsernameSuggestion\HttpParameterJson.cs" />
     <Compile Include="Filter\UsernameSuggestion\QueryCriteria.cs" />
