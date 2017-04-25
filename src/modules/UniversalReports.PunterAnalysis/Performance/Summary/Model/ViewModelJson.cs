@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Performance.Summary.Model
 {
-    public class ViewModel
+    public class ViewModelJson
     {
         public SummaryStatistic SummaryStatistic { get; set; }
 
@@ -12,7 +12,7 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary.Model
 
         public List<SportStatistic> SportStatistics { get; set; }
 
-        public List<EventStatistic> BetTypeStatistics { get; set; }
+        public List<BetTypeStatistic> BetTypeStatistics { get; set; }
 
         public List<EventStatistic> EventStatistics { get; set; }
     }

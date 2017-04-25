@@ -20,24 +20,25 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private int endRowIndex;
 
-        private ExcelPackage excelPackage;
-
         public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
         {
-            LoadTemplate(settings.TemplatePath);
+            var excelPackage = LoadTemplate(settings.TemplatePath);
             ApplySetting();
             Build(model, settings);
-            ClearTemplate();
+            ClearTemplate(excelPackage);
+
             return excelPackage;
         }
 
-        private void LoadTemplate(string templatePath)
+        private ExcelPackage LoadTemplate(string templatePath)
         {
             using (var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read))
             {
-                excelPackage = new ExcelPackage(stream);
+                var excelPackage = new ExcelPackage(stream);
                 statisticSheet = excelPackage.Workbook.Worksheets.Copy("Template", "Statistic");
                 totalTemplateSheet = excelPackage.Workbook.Worksheets["TotalTemplate"];
+
+                return excelPackage;
             }
         }
 
@@ -46,7 +47,7 @@ namespace UniversalReports.PunterAnalysis.Core
             statisticSheet.OutLineSummaryBelow = false;
         }
 
-        private void ClearTemplate()
+        private void ClearTemplate(ExcelPackage excelPackage)
         {
             excelPackage.Workbook.Worksheets.Delete("Template");
             excelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
@@ -63,14 +64,14 @@ namespace UniversalReports.PunterAnalysis.Core
             ApplyFooter(model.Total);
         }
 
-        private void SetStartRowIndex(int startRowIndex)
+        private void SetStartRowIndex(int rowIndex)
         {
-            this.startRowIndex = startRowIndex;
+            this.startRowIndex = rowIndex;
         }
 
-        private void SetEndRowIndex(int startRowIndex, int numberBodyItems)
+        private void SetEndRowIndex(int rowIndex, int numberBodyItems)
         {
-            endRowIndex = startRowIndex + numberBodyItems;
+            endRowIndex = rowIndex + numberBodyItems;
         }
 
         private void SetSheetName(string sheetName)

@@ -267,6 +267,7 @@
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisAssociatedAccountProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisSportTypeProfile.cs" />
     <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisBetCountProfile.cs" />
     <Compile Include="App_Start\FanexData.cs" />

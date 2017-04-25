@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType
 {
-    public class QueryCriteria: CriteriaBase
+    public class QueryCriteria : CriteriaBase
     {
         public override string GetSettingKey() => "Punter-SportsbookSportBetTypeQuery";
 

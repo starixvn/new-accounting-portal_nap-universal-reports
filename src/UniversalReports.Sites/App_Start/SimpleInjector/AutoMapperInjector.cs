@@ -17,6 +17,7 @@ namespace UniversalReports.Sites.SimpleInjector
                 cfg.AddProfile<PunterAnalysisAssociatedAccountProfile>();
                 cfg.AddProfile<PunterAnalysisLeagueProfile>();
                 cfg.AddProfile<PunterAnalysisFilterProfile>();
+                cfg.AddProfile<PunterAnalysisPerformanceProfile>();
                 cfg.AddProfile<PlayForFunSummaryProfile>();
                 cfg.AddProfile<PlayForFunDetailProfile>();
                 cfg.AddProfile<PlayForFunFilterProfile>();

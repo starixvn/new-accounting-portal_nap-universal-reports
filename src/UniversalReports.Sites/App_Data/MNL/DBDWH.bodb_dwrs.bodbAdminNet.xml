@@ -74,13 +74,13 @@
     <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-UserSiteQuery" SpName="Acc_Punter_GetSiteName" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
 
-    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_SelBettypesbySports_DW" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="ind" ObjectProperty="ProductId" />
-      <Mapping DataField="Product" ObjectProperty="ProductName" />
-      <Mapping DataField="sporttype" ObjectProperty="SportId" />
+    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+      <Mapping DataField="ProductName" ObjectProperty="ProductName" />
+      <Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
       <Mapping DataField="SportName" ObjectProperty="SportName" />
-      <Mapping DataField="bettype" ObjectProperty="BetTypeId" />
-      <Mapping DataField="bettypename" ObjectProperty="BetTypeName" />
+      <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
+      <Mapping DataField="Value" ObjectProperty="Value" />
+      <Mapping DataField="RenderType" ObjectProperty="RenderType" />
     </Setting>
     <Setting Key="Punter-LeagueQuery" SpName="Acc_TopPunterSelLeagues" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
       <Mapping DataField="leagueid" ObjectProperty="Id" />
@@ -98,5 +98,10 @@
       <Mapping DataField="LeagueID" ObjectProperty="LeagueId" />
       <Mapping DataField="LeagueName" ObjectProperty="LeagueName" />
     </Setting>
+    <Setting Key="Punter-Performance-BetType" SpName="Acc_Punter_PerformanceTopBettype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Event" SpName="Acc_Punter_PerformanceEventtype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Month" SpName="Acc_Punter_PerformanceByMonth" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-ProductTurnover" SpName="Acc_Punter_PerformanceByProduct" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

@@ -161,10 +161,12 @@
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
+    <Compile Include="Performance\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />

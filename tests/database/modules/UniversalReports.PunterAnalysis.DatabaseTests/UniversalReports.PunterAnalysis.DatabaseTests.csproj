@@ -79,7 +79,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicRepositoryTests.cs" />
+    <Compile Include="UserModeDynamicRepositoryTests.cs" />
+    <Compile Include="PerformanceModeDynamicRepositoryTests.cs" />
     <Compile Include="FanexDataOneTimeSetUp.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

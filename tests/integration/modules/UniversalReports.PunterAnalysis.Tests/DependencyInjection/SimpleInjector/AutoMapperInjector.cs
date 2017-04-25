@@ -17,6 +17,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
                 cfg.AddProfile<PunterAnalysisAssociatedAccountProfile>();
                 cfg.AddProfile<PunterAnalysisLeagueProfile>();
                 cfg.AddProfile<PunterAnalysisFilterProfile>();
+                cfg.AddProfile<PunterAnalysisPerformanceProfile>();
             });
 
             container.Register(() => Mapper.Instance);

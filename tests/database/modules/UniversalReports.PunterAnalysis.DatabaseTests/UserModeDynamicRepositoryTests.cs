@@ -25,10 +25,10 @@ using UsernameSuggestionFilter = UniversalReports.PunterAnalysis.Filter.Username
 
 namespace UniversalReports.PunterAnalysis.DatabaseTests
 {
-    public class DynamicRepositoryTests
+    public class UserModeDynamicRepositoryTests
     {
         [Test]
-        public async Task AvailableDatabaseSp_Test_ColumnIsMapCorrectly()
+        public async Task AvailableDatabaseSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new AvailableDatabaseFilter.QueryCriteria();
@@ -42,7 +42,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task AssociatedAccountSp_Test_ColumnIsMapCorrectly()
+        public async Task AssociatedAccountSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new AssociatedAccountCriteria
@@ -61,7 +61,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task BetCountSp_Test_ColumnIsMapCorrectly()
+        public async Task BetCountSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new BetCountCriteria
@@ -90,7 +90,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task BetTypeSp_Test_ColumnIsMapCorrectly()
+        public async Task BetTypeSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new BetTypeCriteria
@@ -125,7 +125,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task SportTypeSp_Test_ColumnIsMapCorrectly()
+        public async Task SportTypeSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new SportTypeCriteria
@@ -154,7 +154,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task SummarySp_Test_ColumnIsMapCorrectly()
+        public async Task SummarySp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new SummaryCriteria
@@ -183,7 +183,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task LeagueSp_Test_ColumnIsMapCorrectly()
+        public async Task LeagueSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new LeagueCriteria
@@ -231,7 +231,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterProductSportBetTypeSp_Test_ColumnIsMapCorrectly()
+        public async Task PunterProductSportBetTypeSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new ProductSportBetTypeFilter.QueryCriteria();
@@ -251,7 +251,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterLeagueSp_Test_ColumnIsMapCorrectly()
+        public async Task PunterLeagueSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new LeagueFilter.QueryCriteria
@@ -315,7 +315,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterSportsbookSportBetTypeSp_Test_ColumnIsMapCorrectly()
+        public async Task PunterSportsbookSportBetTypeSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new SportsbookSportBetTypeFilter.QueryCriteria();
@@ -333,13 +333,13 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterSportTypeLeagueSp_Test_ColumnIsMapCorrectly()
+        public async Task PunterSportTypeLeagueSp_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new SportTypeLeagueFilter.QueryCriteria
             {
                 SportId = 1,
-                FromDate = DateTime.Now.AddMonths(-1),
+                FromDate = DateTime.Now.AddYears(-1),
                 ToDate = DateTime.Now
             };
 

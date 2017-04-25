@@ -3,7 +3,7 @@ using System;
 
 namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
 {
-    public class QueryCriteria: CriteriaBase
+    public class QueryCriteria : CriteriaBase
     {
         public int SportId { get; set; }
 

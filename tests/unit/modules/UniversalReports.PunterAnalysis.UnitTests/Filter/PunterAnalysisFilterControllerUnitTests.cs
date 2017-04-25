@@ -7,8 +7,8 @@ using FilterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.Available
 using FilterAvailableDateRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using FilterLeague = UniversalReports.PunterAnalysis.Filter.League;
 using FilterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
-using FilterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 using FilterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
+using FilterUsernameSuggestion = UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Filter
 {

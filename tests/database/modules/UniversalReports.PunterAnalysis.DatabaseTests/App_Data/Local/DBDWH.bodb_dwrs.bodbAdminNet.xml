@@ -33,5 +33,10 @@
       <Mapping DataField="LeagueID" ObjectProperty="LeagueId" />
       <Mapping DataField="LeagueName" ObjectProperty="LeagueName" />
     </Setting>
+    <Setting Key="Punter-Performance-BetType" SpName="Acc_Punter_PerformanceTopBettype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Event" SpName="Acc_Punter_PerformanceEventtype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Month" SpName="Acc_Punter_PerformanceByMonth" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-ProductTurnover" SpName="Acc_Punter_PerformanceByProduct" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

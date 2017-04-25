@@ -20,7 +20,7 @@ namespace UniversalReports.PlayForFun.DatabaseTests
             // Arrange
             var criteria = new SummaryCriteria
             {
-                FromDate = DateTime.Today.AddMonths(-2),
+                FromDate = DateTime.Today.AddYears(-2),
                 ToDate = DateTime.Today.AddDays(1),
                 ExcludeTest = false,
                 ProductId = 6,
@@ -47,7 +47,7 @@ namespace UniversalReports.PlayForFun.DatabaseTests
             // Arrange
             var criteria = new DetailCriteria
             {
-                FromDate = DateTime.Today.AddMonths(-2),
+                FromDate = DateTime.Today.AddYears(-2),
                 ToDate = DateTime.Today.AddDays(1),
                 ExcludeTest = false,
                 ProductId = 6,
@@ -67,7 +67,6 @@ namespace UniversalReports.PlayForFun.DatabaseTests
             Assert.That(firstModel.Date, Is.GreaterThan(DateTime.MinValue));
             Assert.That(firstModel.Currency, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.Site, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.GroupHeadline, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.CustId, Is.Not.Zero);
             Assert.That(firstModel.Product, Is.Not.Null.And.Not.Empty);
