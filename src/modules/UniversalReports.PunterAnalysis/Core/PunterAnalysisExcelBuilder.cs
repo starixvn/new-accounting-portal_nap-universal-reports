@@ -16,11 +16,11 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private ExcelWorksheet totalTemplateSheet;
 
-        private int StartRowIndex { get; set; }
+        private int startRowIndex;
 
-        private int EndRowIndex { get; set; }
+        private int endRowIndex;
 
-        private ExcelPackage excelPackage { get; set; }
+        private ExcelPackage excelPackage;
 
         public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
         {
@@ -65,12 +65,12 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void SetStartRowIndex(int startRowIndex)
         {
-            StartRowIndex = startRowIndex;
+            this.startRowIndex = startRowIndex;
         }
 
         private void SetEndRowIndex(int startRowIndex, int numberBodyItems)
         {
-            EndRowIndex = startRowIndex + numberBodyItems;
+            endRowIndex = startRowIndex + numberBodyItems;
         }
 
         private void SetSheetName(string sheetName)
@@ -85,13 +85,13 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private void ApplyBody<T>(IEnumerable<T> statistics) where T : class, new()
         {
-            statisticSheet.ApplyVertical(statistics, StartRowIndex);
+            statisticSheet.ApplyVertical(statistics, startRowIndex);
         }
 
         private void ApplyFooter<T>(T total) where T : class, new()
         {
-            statisticSheet.ApplyModel(totalTemplateSheet, total, EndRowIndex);
-            statisticSheet.Cells[$"A{EndRowIndex}"].Value = "Total";
+            statisticSheet.ApplyModel(totalTemplateSheet, total, endRowIndex);
+            statisticSheet.Cells[$"A{endRowIndex}"].Value = "Total";
         }
     }
 }

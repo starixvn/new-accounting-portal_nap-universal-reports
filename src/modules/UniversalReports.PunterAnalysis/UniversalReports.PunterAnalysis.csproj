@@ -199,20 +199,14 @@
     <Compile Include="League\LeagueServiceByMonth.cs" />
     <Compile Include="League\Model\ViewModelJson.cs" />
     <Compile Include="League\PunterAnalysisLeagueController.cs" />
-    <Compile Include="Performance\BetCount\BetCountModel.cs" />
-    <Compile Include="Performance\BetCount\Handler.cs" />
-    <Compile Include="Performance\BetCount\HttpParameterJson.cs" />
-    <Compile Include="Performance\BetCount\QueryCriteria.cs" />
-    <Compile Include="Performance\EventChoice\EventChoiceModel.cs" />
-    <Compile Include="Performance\EventChoice\Handler.cs" />
-    <Compile Include="Performance\EventChoice\HttpParameterJson.cs" />
-    <Compile Include="Performance\EventChoice\QueryCriteria.cs" />
-    <Compile Include="Performance\Margin\MarginModel.cs" />
-    <Compile Include="Performance\Margin\Handler.cs" />
-    <Compile Include="Performance\Margin\HttpParameterJson.cs" />
-    <Compile Include="Performance\Margin\QueryCriteria.cs" />
     <Compile Include="Performance\PunterAnalysisPerformanceController.cs" />
-    <Compile Include="Performance\Summary\SummaryModel.cs" />
+    <Compile Include="Performance\Summary\Model\EventStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\SummaryStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\BetTypeStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\SportStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\ProductTurnoverStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\MonthStatistic.cs" />
+    <Compile Include="Performance\Summary\Model\ViewModel.cs" />
     <Compile Include="Performance\Summary\Handler.cs" />
     <Compile Include="Performance\Summary\HttpParameterJson.cs" />
     <Compile Include="Performance\Summary\QueryCriteria.cs" />
@@ -244,12 +238,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Performance\TopBetTypes\" />
-    <Folder Include="Performance\TopSports\" />
-    <Folder Include="Performance\Turnover\" />
-    <Folder Include="Performance\WinLoss\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
       <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>

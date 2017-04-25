@@ -19,8 +19,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
             repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(new List<SummaryModel>());
 
             // Act
-            var PlayForFunService = new PlayForFunServiceImp(repository);
-            var modelBase = await PlayForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
+            var playForFunService = new PlayForFunServiceImp(repository);
+            var modelBase = await playForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
 
             // Assert
             var expected = CreateEmptyModelBaseWithTypeModel();
@@ -45,8 +45,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
             repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(nonEmptySummaryModelList);
 
             // Act
-            var PlayForFunService = new PlayForFunServiceImp(repository);
-            var modelBase = await PlayForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
+            var playForFunService = new PlayForFunServiceImp(repository);
+            var modelBase = await playForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
 
             // Assert
             var expected = CreateNonEmptyModelBaseWithSummaryModel();
@@ -68,7 +68,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
                 BetCount = 1,
                 PlayerCount = 1,
                 Turnover = 100,
-                WinLoss = 100,
+                WinLoss = 100
             };
         }
 

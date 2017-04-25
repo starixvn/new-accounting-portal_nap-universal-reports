@@ -1,11 +1,11 @@
 ﻿using Fanex.Data.Repository;
 using MediatR;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Performance.Summary
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SummaryModel>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModel>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,10 +14,9 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<SummaryModel>> Handle(HttpParameterJson message)
+        public async Task<ViewModel> Handle(HttpParameterJson message)
         {
-            var criteria = new QueryCriteria();
-            return await repository.FetchAsync<SummaryModel>(criteria);
+            throw new System.Exception();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;

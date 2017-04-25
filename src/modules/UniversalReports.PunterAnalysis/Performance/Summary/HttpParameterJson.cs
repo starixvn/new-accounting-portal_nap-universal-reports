@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using System.Collections.Generic;
+using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Performance.Summary
 {
-    public class HttpParameterJson : IRequest<IEnumerable<SummaryModel>>
+    public class HttpParameterJson : IRequest<ViewModel>
     {
     }
 }
