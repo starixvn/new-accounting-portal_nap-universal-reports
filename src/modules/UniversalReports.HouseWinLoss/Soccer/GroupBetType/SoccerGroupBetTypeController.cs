@@ -10,10 +10,10 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
     public class SoccerGroupBetTypeController : ApiController
     {
         private readonly WinLossService service;
-        private readonly GridOptionsBuilder builder;
+        private readonly GroupBetTypeGridOptionsBuilder builder;
         private readonly GridOptionColumnDecorator decorator;
 
-        public SoccerGroupBetTypeController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerGroupBetTypeController(WinLossService service, GroupBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
         {
             this.service = service;
             this.builder = builder;

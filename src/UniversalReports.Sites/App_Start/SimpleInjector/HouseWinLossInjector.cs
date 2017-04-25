@@ -38,8 +38,8 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
             container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>();
             container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>();
-            container.Register<Soccers.GroupBetType.GridOptionsBuilder, Soccers.GroupBetType.GridOptionsBuilderImp>();
-            container.Register<Soccers.SumBetType.GridOptionsBuilder, Soccers.SumBetType.GridOptionsBuilderImp>();
+            container.Register<Soccers.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccers.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
+            container.Register<Soccers.SumBetType.SumBetTypeGridOptionsBuilder, Soccers.SumBetType.SumBetTypeGridOptionsBuilderImp>();
             container.Register<Soccers.BaseService.CalculationService, Soccers.BaseService.CalculationServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();

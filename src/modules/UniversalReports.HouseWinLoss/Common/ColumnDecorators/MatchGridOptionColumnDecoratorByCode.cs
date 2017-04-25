@@ -14,16 +14,14 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         public GridOptions Build(GridOptions gridOptions)
         {
             gridOptions.CustomizeHeader = false;
-            gridOptions.Columns = BuildColumns();
-            gridOptions.GroupHeaderRows = BuildGroupHeaderRows();
+            gridOptions.Columns = BuildCodeColumns();
+            gridOptions.GroupHeaderRows = BuildCodeGroupHeaderRows();
 
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-         "SP2100:CodeLineMustNotBeLongerThan",
-         Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildColumns()
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
+        private List<HeaderColumns> BuildCodeColumns()
         {
             return new List<HeaderColumns>
             {
@@ -37,7 +35,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        private List<GroupHeaderRows> BuildGroupHeaderRows()
+        private List<GroupHeaderRows> BuildCodeGroupHeaderRows()
         {
             var columns = new List<HeaderColumns>
             {

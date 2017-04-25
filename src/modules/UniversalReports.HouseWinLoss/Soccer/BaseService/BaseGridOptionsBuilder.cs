@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
+using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
-    public class BaseGridOptionsBuilder
+    public abstract class BaseGridOptionsBuilder
     {
-        public BaseGridOptionsBuilder(BasicGridDataRowBuilder gridDataRowBuilder)
+        protected BaseGridOptionsBuilder(BasicGridDataRowBuilder gridDataRowBuilder)
         {
             GridDataRowBuilder = gridDataRowBuilder;
         }

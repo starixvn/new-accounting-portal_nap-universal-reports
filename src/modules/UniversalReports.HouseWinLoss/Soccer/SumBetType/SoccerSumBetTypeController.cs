@@ -11,11 +11,11 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
     {
         private readonly WinLossService service;
 
-        private readonly GridOptionsBuilder builder;
+        private readonly SumBetTypeGridOptionsBuilder builder;
 
         private readonly GridOptionColumnDecorator decorator;
 
-        public SoccerSumBetTypeController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerSumBetTypeController(WinLossService service, SumBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
         {
             this.service = service;
             this.builder = builder;
@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
             var winlosses = service.Query(criteria);
-            var gridOptions = builder.FromWinLossModel(winlosses, string.Empty);
+            var gridOptions = builder.Build(winlosses, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
 
             return Json(gridOptions);
@@ -38,7 +38,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
             var winlosses = service.Query(criteria);
-            var gridOptions = builder.FromWinLossModel(winlosses, queryModel.Title);
+            var gridOptions = builder.Build(winlosses, queryModel.Title);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
 
             return new FanexExcelResult(gridOptions, Constants.SheetName);

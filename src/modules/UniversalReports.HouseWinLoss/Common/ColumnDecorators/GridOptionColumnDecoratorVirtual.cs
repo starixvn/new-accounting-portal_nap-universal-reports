@@ -15,16 +15,14 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         {
             RemoveBodyAndFooterColumn(gridOptions, AfterExtraPTIndex, ExtraPTIndex);
             gridOptions.CustomizeHeader = true;
-            gridOptions.Columns = BuildColumns(mainColumnText, mainColumnWidth);
-            gridOptions.GroupHeaderRows = BuildGroupHeaderRows(mainColumnText, mainColumnWidth);
+            gridOptions.Columns = BuildVirtualColumns(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = BuildVirtualGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2100:CodeLineMustNotBeLongerThan",
-            Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildColumns(string mainColumnText, int mainColumnWidth = 180)
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
+        private List<HeaderColumns> BuildVirtualColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>
             {
@@ -42,7 +40,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        private List<GroupHeaderRows> BuildGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
+        private List<GroupHeaderRows> BuildVirtualGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {

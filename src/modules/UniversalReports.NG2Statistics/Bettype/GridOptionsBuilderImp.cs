@@ -111,8 +111,8 @@ namespace UniversalReports.NG2Statistics.Bettype
             return new GridDataRow { Columns = columns };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan", Justification = "Reviewed. Suppression is OK here.")]
-        private void AssignDataRow(BettypeModel raw, ICollection<Columns> columns, int mergeRowNumber, bool isTotal)
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
+        private void AssignDataRow(BettypeModel raw, List<Columns> columns, int mergeRowNumber, bool isTotal)
         {
             if (mergeRowNumber > 0 || isTotal)
             {
@@ -125,86 +125,20 @@ namespace UniversalReports.NG2Statistics.Bettype
                 });
             }
 
-            columns.Add(new Columns
+            columns.AddRange(new[]
             {
-                Name = "NoOfPlayers",
-                Value = raw.NoOfPlayers,
-                CustomAttributes = raw.SportId.ToString(),
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.Integer
-            });
-            columns.Add(new Columns
-            {
-                Name = "BetCount",
-                Value = raw.BetCount,
-                CustomAttributes = raw.BettypeId.ToString(),
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.Integer
-            });
-            columns.Add(new Columns
-            {
-                Name = "Currency",
-                Value = raw.Currency,
-                CustomAttributes = raw.CurrencyId.ToString(),
-                CellAlignment = HAlignment.Center
-            });
-            columns.Add(new Columns
-            {
-                Name = "TotalBets",
-                Value = raw.TotalBets,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "TotalWins",
-                Value = raw.TotalWins,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "GameIncome",
-                Value = raw.GameIncome,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "GamePayout",
-                Value = raw.GamePayout,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = raw.GamePayout > 1 ? ExcelCellType.PercentageRedPositive : ExcelCellType.Percentage,
-                CssClass = raw.GamePayout > 1 ? "format-negative" : string.Empty
-            });
-            columns.Add(new Columns
-            {
-                Name = "HouseTurnover",
-                Value = raw.HouseTurnover,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "HouseGrossIncome",
-                Value = raw.HouseGrossIncome,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "HouseComm",
-                Value = raw.HouseComm,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
-            columns.Add(new Columns
-            {
-                Name = "HouseNetIncome",
-                Value = raw.HouseNetIncome,
-                CellAlignment = HAlignment.Right,
-                CustomCellType = ExcelCellType.DoubleRedNegative
-            });
+                new Columns { Name = "NoOfPlayers", Value = raw.NoOfPlayers, CustomAttributes = raw.SportId.ToString(), CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
+                new Columns { Name = "BetCount", Value = raw.BetCount, CustomAttributes = raw.BettypeId.ToString(), CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Integer },
+                new Columns { Name = "Currency", Value = raw.Currency, CustomAttributes = raw.CurrencyId.ToString(), CellAlignment = HAlignment.Center },
+                new Columns { Name = "TotalBets", Value = raw.TotalBets, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "TotalWins", Value = raw.TotalWins, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "GameIncome", Value = raw.GameIncome, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "GamePayout", Value = raw.GamePayout, CellAlignment = HAlignment.Right, CustomCellType = raw.GamePayout > 1 ? ExcelCellType.PercentageRedPositive : ExcelCellType.Percentage, CssClass = raw.GamePayout > 1 ? "format-negative" : string.Empty },
+                new Columns { Name = "HouseTurnover", Value = raw.HouseTurnover, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "HouseGrossIncome", Value = raw.HouseGrossIncome, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "HouseComm", Value = raw.HouseComm, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative },
+                new Columns { Name = "HouseNetIncome", Value = raw.HouseNetIncome, CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedNegative }
+           });
         }
     }
 }

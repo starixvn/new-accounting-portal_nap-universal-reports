@@ -54,8 +54,8 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
             container.Register<Soccer.GroupBetType.WinLossService, Soccer.GroupBetType.WinLossServiceImp>();
             container.Register<Soccer.SumBetType.WinLossService, Soccer.SumBetType.WinLossServiceImp>();
-            container.Register<Soccer.GroupBetType.GridOptionsBuilder, Soccer.GroupBetType.GridOptionsBuilderImp>();
-            container.Register<Soccer.SumBetType.GridOptionsBuilder, Soccer.SumBetType.GridOptionsBuilderImp>();
+            container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
+            container.Register<Soccer.SumBetType.SumBetTypeGridOptionsBuilder, Soccer.SumBetType.SumBetTypeGridOptionsBuilderImp>();
             container.Register<Soccer.BaseService.CalculationService, Soccer.BaseService.CalculationServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();

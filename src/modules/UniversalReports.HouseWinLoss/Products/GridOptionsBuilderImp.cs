@@ -69,21 +69,10 @@ namespace UniversalReports.HouseWinLoss.Products
         {
             var colummns = new List<Columns>
             {
-                new Columns
-                {
-                    ColumnIndex = 1,
-                    Name = "Main",
-                    Value = string.Empty,
-                    MergeColNumber = 13
-                }
+                new Columns { ColumnIndex = 1, Name = "Main", Value = string.Empty, MergeColNumber = 13 }
             };
 
-            return new GridDataRow
-            {
-                Columns = colummns,
-                RowType = RowType.Normal,
-                CssClass = string.Empty
-            };
+            return new GridDataRow { Columns = colummns, RowType = RowType.Normal, CssClass = string.Empty };
         }
 
         private GridDataRow BuildSiteWinLossSummary(SiteWinLossSummary winloss)

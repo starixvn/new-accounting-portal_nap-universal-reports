@@ -20,16 +20,14 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
                 MatchDetailAwayIndex,
                 MatchDetailVsIndex);
             gridOptions.CustomizeHeader = true;
-            gridOptions.Columns = BuildColumns();
-            gridOptions.GroupHeaderRows = BuildGroupHeaderRows();
+            gridOptions.Columns = BuildOutrightColumns();
+            gridOptions.GroupHeaderRows = BuildOutrightGroupHeaderRows();
 
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-          "SP2100:CodeLineMustNotBeLongerThan",
-          Justification = "Reviewed. Suppression is OK here.")]
-        private List<HeaderColumns> BuildColumns()
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
+        private List<HeaderColumns> BuildOutrightColumns()
         {
             return new List<HeaderColumns>
             {
@@ -48,7 +46,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        private List<GroupHeaderRows> BuildGroupHeaderRows()
+        private List<GroupHeaderRows> BuildOutrightGroupHeaderRows()
         {
             var columns = new List<HeaderColumns>
             {
