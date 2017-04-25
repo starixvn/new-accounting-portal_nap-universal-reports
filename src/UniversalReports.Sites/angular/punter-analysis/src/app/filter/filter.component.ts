@@ -64,8 +64,8 @@ export class FilterComponent implements OnInit {
         maxHeight: 500
     };
 
-    periodOptions = this.getPeriodOptions();
-    period = 6;
+    monthRangeFromDate: NgbDateStruct;
+    monthRangeToDate: NgbDateStruct;
 
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
@@ -80,6 +80,17 @@ export class FilterComponent implements OnInit {
         this.maxDate = todayNgbDate.toDateStruct();
     }
 
+    get isUserNameRequired(): boolean {
+        switch (this.searchBy) {
+            case SearchBy.User:
+                return this.depth !== RoleId.Member;
+            case SearchBy.League:
+                return false;
+            case SearchBy.Performance:
+                return true;
+        }
+    }
+
     get userNamePlaceholder(): string {
         switch (this.depth) {
             case RoleId.Super:
@@ -89,7 +100,7 @@ export class FilterComponent implements OnInit {
             case RoleId.Agent:
                 return 'Agent name';
             case RoleId.Member:
-                return 'All';
+                return this.searchBy === SearchBy.User ? 'All' : 'Member name';
         }
     }
 
@@ -97,6 +108,14 @@ export class FilterComponent implements OnInit {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
             this.minDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MinDate));
             this.maxDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MaxDate));
+            this.monthRangeToDate = { year: this.maxDate.year, month: this.maxDate.month, day: 1 };
+            let momentFromDate = DateHelper.convertDateStructToMoment(this.maxDate).subtract(5, 'months');
+            const momentMinDate = DateHelper.convertDateStructToMoment(this.minDate);
+            if (momentFromDate.isBefore(momentMinDate)) {
+                momentFromDate = momentMinDate;
+            }
+            const fromDate = DateHelper.convertDateToDateStruct(momentFromDate.toDate());
+            this.monthRangeFromDate = { year: fromDate.year, month: fromDate.month, day: 1 };
         });
         this.service.queryProductTreeviewItems().subscribe(treeItems => this.productTreeviewItems = treeItems);
     }
@@ -162,10 +181,6 @@ export class FilterComponent implements OnInit {
         }
     }
 
-    onPeriodChange() {
-
-    }
-
     private loadSports() {
         if (!this.sportOptions) {
             let sportName = '';
@@ -188,9 +203,14 @@ export class FilterComponent implements OnInit {
         const dateRange = this.getExactDateRange();
         this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
             this.leagueOptions = options;
-            if (this.leagueOptions.length > 0) {
-                this.leagueId = this.leagueOptions[0].value;
+            if (this.leagueOptions.length === 0) {
+                this.leagueOptions.push({
+                    text: 'There is no information available.',
+                    value: 0
+                });
             }
+
+            this.leagueId = this.leagueOptions[0].value;
         });
     }
 
@@ -239,11 +259,9 @@ export class FilterComponent implements OnInit {
             }
         }
 
-        if (this.searchBy !== SearchBy.League) {
-            if (model.depth === RoleId.Agent && model.userName === '') {
-                this.toastService.activate('Account name field is required!');
-                return false;
-            }
+        if (this.isUserNameRequired && model.userName === '') {
+            this.toastService.activate('Account name field is required!');
+            return false;
         }
 
         if (this.searchBy === SearchBy.User) {
@@ -254,7 +272,15 @@ export class FilterComponent implements OnInit {
         }
 
         if (this.searchBy === SearchBy.League) {
+            if (model.selectedBetTypeTreeviewItems.length === 0) {
+                this.toastService.activate('Please select at least one Bet Type!');
+                return false;
+            }
 
+            if (model.leagueId === 0) {
+                this.toastService.activate('There is no league available!');
+                return false;
+            }
         }
 
         return true;
@@ -269,20 +295,23 @@ export class FilterComponent implements OnInit {
     private createModel(): FilterModel {
         return {
             searchBy: this.searchBy,
+            searchByOptions: this.searchByOptions,
             topRow: this.topRows,
             orderBy: this.orderBy,
+            orderByOptions: this.orderByOptions,
             sortBy: this.sortBy,
+            sortByOptions: this.sortByOptions,
             periodType: this.periodTypeEventModel.periodType,
             fromDate: this.periodTypeEventModel.fromDate,
             toDate: this.periodTypeEventModel.toDate,
-            depth: this.depth,
-            userName: _.trim(this.userName),
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
-            searchByOptions: this.searchByOptions,
+            depth: this.depth,
             depthOptions: this.depthOptions,
-            orderByOptions: this.orderByOptions,
-            sortByOptions: this.sortByOptions,
-            leagueId: this.leagueId
+            userName: _.trim(this.userName),
+            leagueId: this.leagueId,
+            leagueOptions: this.leagueOptions,
+            sportType: this.sportType,
+            sportOptions: this.sportOptions
         };
     }
 
@@ -341,16 +370,5 @@ export class FilterComponent implements OnInit {
             text: 'Margin',
             value: OrderBy.Margin
         }];
-    }
-
-    private getPeriodOptions(): SelectItem[] {
-        const options: SelectItem[] = [];
-        for (let i = 1; i <= 12; i++) {
-            options.push({
-                text: `${i} ${i > 1 ? 'months' : 'month'}`,
-                value: i
-            });
-        }
-        return options;
     }
 }

@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModel, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';
@@ -56,6 +56,9 @@ export class SummaryGridService {
             `Top rows: ${filterModel.topRow} - Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
             `Sport Type: ${filterModelWrapper.selectedSportTypes}`
         ];
+        if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
+        }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_Summary_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
@@ -75,7 +78,8 @@ export class SummaryGridService {
             toDate: filterModelWrapper.toDateQueryString,
             depth: filterModel.depth,
             userName: filterModel.userName,
-            listCombinationId: filterModelWrapper.listCombinationId
+            listCombinationId: filterModelWrapper.listCombinationId,
+            leagueId: filterModel.leagueId
         };
     }
 }

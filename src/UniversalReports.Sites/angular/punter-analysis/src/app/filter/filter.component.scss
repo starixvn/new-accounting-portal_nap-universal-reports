@@ -9,9 +9,6 @@
 }
 
 :host /deep/ .row {
-    .text-danger {
-        vertical-align: middle;
-    }
     .col-x1 {
         float: left;
         width: 330px;
@@ -54,6 +51,18 @@
         }
         .col-value {
             margin-left: $margin;
+        }
+    }
+    .text-danger {
+        vertical-align: middle;
+    }
+    .month-range {
+        .col-value {
+            margin-left: 0;
+        }
+        .year {
+            float: left;
+            margin-left: .5rem;
         }
     }
 }

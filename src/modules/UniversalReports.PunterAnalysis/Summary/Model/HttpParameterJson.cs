@@ -22,5 +22,7 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
         public string UserName { get; set; }
 
         public string ListCombinationId { get; set; }
+
+        public int LeagueId { get; set; }
     }
 }

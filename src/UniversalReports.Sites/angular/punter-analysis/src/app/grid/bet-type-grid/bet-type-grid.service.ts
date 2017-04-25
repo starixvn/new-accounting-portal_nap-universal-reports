@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
@@ -54,6 +54,9 @@ export class BetTypeGridService {
             `Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
             `Sport Type: ${this.model.sportName}`
         ];
+        if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
+        }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_Bettype_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
@@ -69,6 +72,7 @@ export class BetTypeGridService {
             fromDate: wrapper.fromDateQueryString,
             toDate: wrapper.toDateQueryString,
             listCombinationId: wrapper.listCombinationId,
+            leagueId: filterModel.leagueId,
             custId: this.model.custId,
             sportId: this.model.sportId
         };

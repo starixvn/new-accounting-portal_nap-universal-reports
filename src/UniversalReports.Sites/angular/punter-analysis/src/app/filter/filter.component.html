@@ -36,6 +36,24 @@
         </div>
     </div>
     <nap-period-type *ngIf="searchBy !== SearchBy.Performance" [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+    <div class="row" *ngIf="searchBy === SearchBy.Performance">
+        <div class="col-x1">
+            <div class="col-label">
+                <label class="col-form-label">From</label>
+            </div>
+            <div class="col-value">
+                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate"></nap-month-picker>
+            </div>
+        </div>
+        <div class="col-x2">
+            <div class="col-label">
+                <label class="col-form-label">To</label>
+            </div>
+            <div class="col-value">
+                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate"></nap-month-picker>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-x1" *ngIf="searchBy !== SearchBy.League">
             <div class="col-label">
@@ -55,7 +73,7 @@
         </div>
         <div class="col-x2" *ngIf="searchBy !== SearchBy.League">
             <div class="col-label">
-                <label class="col-form-label">Account name<span *ngIf="depth !== RoleId.Member" class="text-danger">*</span></label>
+                <label class="col-form-label">Account name<span *ngIf="isUserNameRequired" class="text-danger">*</span></label>
             </div>
             <div class="col-value">
                 <nap-dropdown-typeahead [(text)]="userName" [query]="userNameTypeaheadQuery" [placeholder]="userNamePlaceholder">
@@ -77,14 +95,6 @@
             <div class="col-value">
                 <ngx-dropdown-treeview [items]="productTreeviewItems" [config]="productTreeviewConfig" (selectedChange)="onProductSelectedChange($event)">
                 </ngx-dropdown-treeview>
-            </div>
-        </div>
-        <div class="col-x3" *ngIf="searchBy === SearchBy.Performance">
-            <div class="col-label">
-                <label class="col-form-label">Period</label>
-            </div>
-            <div class="col-value">
-                <nap-dropdown-select [items]="periodOptions" [(value)]="period" (valueChange)="onPeriodChange()"></nap-dropdown-select>
             </div>
         </div>
     </div>

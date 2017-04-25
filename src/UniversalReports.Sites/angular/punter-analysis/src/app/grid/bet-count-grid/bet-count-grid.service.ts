@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { BetCountGridModel, BetCountData } from './bet-count-grid.model';
 
@@ -27,7 +27,11 @@ export class BetCountGridService {
         const wrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Punter Analysis - ${this.model.custName} by bet count ${wrapper.dateFromToTitle}`;
-        queryModel.filter = `Sport Type: ${wrapper.selectedSportTypes}`;
+        const filterLines = [`Sport Type: ${wrapper.selectedSportTypes}`];
+        if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push(`League: ${wrapper.leagueTitle}`);
+        }
+        queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_Summary_Bet_Count_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
             Helper.saveExcel(response, fileName);
@@ -42,6 +46,7 @@ export class BetCountGridService {
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
             listCombinationId: filterModelWrapper.listCombinationId,
+            leagueId: filterModel.leagueId,
             custId: this.model.custId,
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,

@@ -71,6 +71,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 ToDate = new DateTime(2016, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
+                LeagueId = 0,
                 SportId = 1,
                 BetTypeId = 1,
                 LiveStatusId = 1
@@ -100,6 +101,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 ToDate = new DateTime(2016, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
+                LeagueId = 0,
                 SportId = 1,
                 OrderBy = 1,
                 SortBy = 1
@@ -135,6 +137,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 ToDate = new DateTime(2016, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
+                LeagueId = 0,
                 OrderBy = 1,
                 SortBy = 1
             };
@@ -166,7 +169,8 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 8, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                ListCombinationId = "21802681,21802682,21802683,21901011"
+                ListCombinationId = "21802681,21802682,21802683,21901011",
+                LeagueId = 0
             };
 
             // Act
@@ -193,6 +197,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 ToDate = new DateTime(2016, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
+                LeagueId = 0,
                 SportId = 1,
                 BetTypeId = 1
             };

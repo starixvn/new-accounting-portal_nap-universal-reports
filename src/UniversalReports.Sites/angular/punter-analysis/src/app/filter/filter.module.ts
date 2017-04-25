@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TreeviewModule } from 'ngx-treeview';
 
 import { LegendModule } from 'nap-components/src/legend';
+import { DateModule } from 'nap-components/src/date';
 import { InputIntegerDirective } from 'nap-components/src/number/input-integer.directive';
 import { DropdownTypeaheadModule } from 'nap-components/src/dropdown-typeahead';
 import { DropdownSelectModule } from 'nap-components/src/dropdown-select';
@@ -17,6 +18,7 @@ import { FilterComponent } from './filter.component';
         FormsModule,
         TreeviewModule.forRoot(),
         LegendModule,
+        DateModule,
         DropdownTypeaheadModule,
         DropdownSelectModule,
         PeriodTypeModule

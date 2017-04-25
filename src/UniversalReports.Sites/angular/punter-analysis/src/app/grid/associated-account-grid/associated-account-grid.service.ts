@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { AssociatedAccountGridModel } from './associated-account-grid.model';
 
@@ -33,6 +33,9 @@ export class AssociatedAccountGridService {
             `Top rows: ${filterModel.topRow} - Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
             `Sport Type: ${filterModelWrapper.selectedSportTypes}`
         ];
+        if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
+        }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Associated_Account_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;

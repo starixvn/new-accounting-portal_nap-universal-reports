@@ -16,6 +16,8 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
 
         public string ListCombinationId { get; set; }
 
+        public int LeagueId { get; set; }
+
         public int SportId { get; set; }
 
         public int OrderBy { get; set; } = 1;

@@ -10,7 +10,6 @@ using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 using SportsbookCriteria = UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using SportsbookModel = UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 
-
 namespace UniversalReports.PunterAnalysis.DatabaseTests
 {
     public class PerformanceModeDynamicRepositoryTests

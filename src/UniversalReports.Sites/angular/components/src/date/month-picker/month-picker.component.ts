@@ -5,9 +5,11 @@ import { NgbDateStruct } from '../date-model';
 
 @Component({
     selector: 'nap-month-picker',
-    templateUrl: './month-picker.component.html'
+    templateUrl: './month-picker.component.html',
+    styleUrls: ['./month-picker.component.scss']
 })
 export class MonthPickerComponent implements OnChanges {
+    @Input() isShowLabel = true;
     @Input() minDate: NgbDateStruct;
     @Input() maxDate: NgbDateStruct;
     @Input() date: NgbDateStruct;

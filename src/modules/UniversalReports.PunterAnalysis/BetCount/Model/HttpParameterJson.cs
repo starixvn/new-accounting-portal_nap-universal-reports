@@ -15,6 +15,8 @@ namespace UniversalReports.PunterAnalysis.BetCount.Model
 
         public string ListCombinationId { get; set; }
 
+        public int LeagueId { get; set; }
+
         public int SportId { get; set; }
 
         public int BetTypeId { get; set; }
