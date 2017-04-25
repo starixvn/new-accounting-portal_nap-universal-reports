@@ -14,28 +14,6 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
         private const string FakeRepositoryDataFileName = "BetCount-FileRepository.json";
 
         [Test]
-        public async Task Index_FileRepository_ReturnsRightViewModelJson()
-        {
-            // Arrange
-            const string ExpectedViewModelJsonFileName = "BetCount-ExpectedViewModelJson.json";
-
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
-
-            var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountRawModel>(FakeRepositoryDataFileName);
-
-            // Act
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
-
-            // Assert
-            Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
-
-            // Release
-            factory.Dispose();
-        }
-
-        [Test]
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange

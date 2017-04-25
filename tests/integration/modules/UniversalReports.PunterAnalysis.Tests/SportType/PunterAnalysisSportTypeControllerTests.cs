@@ -14,28 +14,6 @@ namespace UniversalReports.PunterAnalysis.Tests.SportType
         private const string FakeRepositoryDataFileName = "SportType-FileRepository.json";
 
         [Test]
-        public async Task Index_FileRepository_ReturnsRightViewModelJson()
-        {
-            // Arrange
-            const string ExpectedViewModelJsonFileName = "SportType-ExpectedViewModelJson.json";
-
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
-
-            var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisSportTypeController, SportTypeModel>(FakeRepositoryDataFileName);
-
-            // Act
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
-
-            // Assert
-            Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
-
-            // Release
-            factory.Dispose();
-        }
-
-        [Test]
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()
         {
             // Arrange

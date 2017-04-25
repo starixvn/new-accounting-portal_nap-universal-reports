@@ -1,7 +1,5 @@
-﻿using NUnit.CompareNetObjects;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
@@ -12,28 +10,6 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
     public class PunterAnalysisBetTypeControllerTests
     {
         private const string FakeRepositoryDataFileName = "BetType-FileRepository.json";
-
-        [Test]
-        public async Task Index_FileRepository_ReturnsRightViewModelJson()
-        {
-            // Arrange
-            const string ExpectedViewModelJsonFileName = "BetType-ExpectedViewModelJson.json";
-
-            var expectedViewModelJson = TestDataLoader.Load<ViewModelJson>(ExpectedViewModelJsonFileName);
-
-            var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PunterAnalysisBetTypeController, BetTypeModel>(FakeRepositoryDataFileName);
-
-            // Act
-            var httpActionResult = await controller.Index(new HttpParameterJson());
-            var viewModelJson = (httpActionResult as JsonResult<ViewModelJson>).Content;
-
-            // Assert
-            Assert.That(viewModelJson, IsDeeplyEqual.To(expectedViewModelJson));
-
-            // Release
-            factory.Dispose();
-        }
 
         [Test]
         public async Task Excel_FileRepository_ReturnsRightExcelPackage()

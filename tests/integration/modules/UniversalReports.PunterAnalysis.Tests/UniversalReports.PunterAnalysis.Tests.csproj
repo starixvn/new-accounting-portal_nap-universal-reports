@@ -156,18 +156,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssociatedAccount\FraudServiceWrapperImpTests.cs" />
-    <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerTests.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
-    <Compile Include="Filter\PunterAnalysisFilterControllerTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
-    <Compile Include="Performance\PunterAnalysisPerformanceSportsbookControllerTests.cs" />
-    <Compile Include="Performance\PunterAnalysisPerformanceSummaryControllerTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
@@ -219,6 +215,9 @@
     <None Include="TestCases\BetCount-Excel-ExpectedTotal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestCases\BetCount-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\BetType-Excel-ExpectedBody.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -231,16 +230,10 @@
     <None Include="TestCases\BetType-Excel-ExpectedTotal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestCases\BetType-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Filter-League-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\Filter-SportTypeLeague-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\Filter-SportsbookSportBetType-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\Filter-ProductSportBetType-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\League-Excel-ExpectedBody.json">
@@ -253,9 +246,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\League-Excel-ExpectedTotal.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\League-ExpectedViewModelJson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestCases\League-FileRepository.json">
@@ -273,6 +263,9 @@
     <None Include="TestCases\SportType-Excel-ExpectedTotal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestCases\SportType-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\Summary-Excel-ExpectedBody.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -285,34 +278,7 @@
     <None Include="TestCases\Summary-Excel-ExpectedTotal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestCases\Summary-ExpectedViewModelJson.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="TestCases\Summary-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\SportType-ExpectedViewModelJson.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\AssociatedAccount-ExpectedViewModelJson.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\SportType-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\AssociatedAccount-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\BetType-ExpectedViewModelJson.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\BetCount-ExpectedViewModelJson.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\BetType-FileRepository.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestCases\BetCount-FileRepository.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
