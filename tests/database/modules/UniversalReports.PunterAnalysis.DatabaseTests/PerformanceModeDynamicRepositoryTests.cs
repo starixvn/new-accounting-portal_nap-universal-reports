@@ -3,15 +3,20 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
+using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 using UniversalReports.PunterAnalysis.Performance.Summary.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Summary.Model;
+using SportsbookCriteria = UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
+using SportsbookModel = UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
+
 
 namespace UniversalReports.PunterAnalysis.DatabaseTests
 {
     public class PerformanceModeDynamicRepositoryTests
     {
         [Test]
-        public async Task PunterPerformanceMonth_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryMonth_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new MonthCriteria
@@ -33,7 +38,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterPerformanceBetType_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryBetType_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new BetTypeCriteria
@@ -55,7 +60,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterPerformanceEvent_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryEvent_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new EventCriteria
@@ -72,12 +77,14 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var firstModel = models.First();
 
             // Assert
+            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.Turnover, Is.Not.Zero);
+            Assert.That(firstModel.WinLoss, Is.Not.Zero);
         }
 
         [Test]
-        public async Task PunterPerformanceProductTurnover_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryProductTurnover_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
             var criteria = new ProductTurnoverCriteria
@@ -99,10 +106,10 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
         }
 
         [Test]
-        public async Task PunterPerformanceSport_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummarySport_Test_ColumnIsMappedCorrectly()
         {
             // Arrange
-            var criteria = new SportCriteria
+            var criteria = new Performance.Summary.Criteria.SportCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
@@ -112,12 +119,57 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<SportStatistic>(criteria);
+            var models = await repository.FetchAsync<Performance.Summary.Model.SportStatistic>(criteria);
             var firstModel = models.First();
 
             // Assert
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.Turnover, Is.Not.Zero);
+        }
+
+        [Test]
+        public async Task PunterPerformanceSportsbookBetCount_Test_ColumnIsMappedCorrectly()
+        {
+            // Arrange
+            var criteria = new BetCountCriteria
+            {
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2016, 12, 1),
+                Depth = 1,
+                Username = "S99THTN01001"
+            };
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<BetCountStatistic>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
+        }
+
+        [Test]
+        public async Task PunterPerformanceSportsbookSport_Test_ColumnIsMappedCorrectly()
+        {
+            // Arrange
+            var criteria = new SportsbookCriteria.SportCriteria
+            {
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2016, 12, 1),
+                Depth = 1,
+                Username = "S99THTN01001"
+            };
+
+            // Act
+            var repository = new DynamicRepository();
+            var models = await repository.FetchAsync<SportsbookModel.SportStatistic>(criteria);
+            var firstModel = models.First();
+
+            // Assert
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            Assert.That(firstModel.WinLoss, Is.Not.Zero);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class EventStatistic
     {
-        public string EventTypeName { get; set; }
+        public string EventType { get; set; }
 
         public int BetCount { get; set; }
 

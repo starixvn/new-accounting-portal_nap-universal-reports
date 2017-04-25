@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UniversalReports.PunterAnalysis.Performance.Sportsbook;
 using UniversalReports.PunterAnalysis.Performance.Summary;
 
 namespace UniversalReports.PunterAnalysis.Performance
@@ -18,6 +19,14 @@ namespace UniversalReports.PunterAnalysis.Performance
 
         [Route("summary")]
         public async Task<IHttpActionResult> Summary(SummaryHttpParameterJson parameter)
+        {
+            CorrectDateTimeParameter(parameter);
+            var viewModel = await mediator.Send(parameter);
+            return Json(viewModel);
+        }
+
+        [Route("sportsbook")]
+        public async Task<IHttpActionResult> Sportsbook(SportsbookHttpParameterJson parameter)
         {
             CorrectDateTimeParameter(parameter);
             var viewModel = await mediator.Send(parameter);

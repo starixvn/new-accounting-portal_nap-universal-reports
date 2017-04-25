@@ -201,6 +201,14 @@
     <Compile Include="League\PunterAnalysisLeagueController.cs" />
     <Compile Include="Performance\PunterAnalysisPerformanceController.cs" />
     <Compile Include="Performance\HttpParameterJson.cs" />
+    <Compile Include="Performance\Sportsbook\Criteria\BetCountCriteria.cs" />
+    <Compile Include="Performance\Sportsbook\Criteria\SportCriteria.cs" />
+    <Compile Include="Performance\Sportsbook\Handler.cs" />
+    <Compile Include="Performance\Sportsbook\Model\BetCountStatistic.cs" />
+    <Compile Include="Performance\Sportsbook\Model\SportStatistic.cs" />
+    <Compile Include="Performance\Sportsbook\Model\SummaryStatistic.cs" />
+    <Compile Include="Performance\Sportsbook\Model\ViewModelJson.cs" />
+    <Compile Include="Performance\Sportsbook\SportsbookHttpParameterJson.cs" />
     <Compile Include="Performance\Summary\Criteria\BetTypeCriteria.cs" />
     <Compile Include="Performance\Summary\Criteria\EventCriteria.cs" />
     <Compile Include="Performance\Summary\Criteria\MonthCriteria.cs" />

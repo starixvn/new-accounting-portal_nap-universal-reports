@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Performance;
+using UniversalReports.PunterAnalysis.Performance.Sportsbook;
 using UniversalReports.PunterAnalysis.Performance.Summary;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Performance
@@ -27,6 +28,25 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance
 
             // Assert
             await mediator.Received().Send(Arg.Is<SummaryHttpParameterJson>(x => x.FromDate.Day == 1 && x.ToDate.Day == 1));
+        }
+
+        [Test]
+        public async Task Sportsbook_Always_CallMediatorSendByDateTimeWithFirstDayOfMonth()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new SportsbookHttpParameterJson
+            {
+                FromDate = new DateTime(2016, 1, 15),
+                ToDate = new DateTime(2016, 2, 17)
+            };
+
+            // Act
+            var controller = new PunterAnalysisPerformanceController(mediator);
+            await controller.Sportsbook(httpParameterJson);
+
+            // Assert
+            await mediator.Received().Send(Arg.Is<SportsbookHttpParameterJson>(x => x.FromDate.Day == 1 && x.ToDate.Day == 1));
         }
     }
 }

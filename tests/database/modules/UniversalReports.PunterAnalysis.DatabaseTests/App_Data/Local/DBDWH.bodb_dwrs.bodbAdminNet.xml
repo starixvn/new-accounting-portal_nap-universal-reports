@@ -38,5 +38,7 @@
     <Setting Key="Punter-Performance-Month" SpName="Acc_Punter_PerformanceByMonth" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-ProductTurnover" SpName="Acc_Punter_PerformanceByProduct" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

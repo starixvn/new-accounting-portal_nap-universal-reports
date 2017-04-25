@@ -163,6 +163,7 @@
     <Compile Include="League\Model\PeriodGroupUnitTests.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerUnitTests.cs" />
     <Compile Include="Performance\PunterAnalysisPerformanceControllerUnitTests.cs" />
+    <Compile Include="Performance\Sportsbook\HandlerUnitTests.cs" />
     <Compile Include="Performance\Summary\HandlerUnitTests.cs" />
     <Compile Include="SportType\HandlerExcelUnitTests.cs" />
     <Compile Include="SportType\SportTypeExcelSettingFactoryUnitTests.cs" />
