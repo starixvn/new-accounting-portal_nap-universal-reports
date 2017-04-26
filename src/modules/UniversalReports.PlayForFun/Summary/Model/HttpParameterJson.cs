@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using System;
+using UniversalReports.PlayForFun.Core;
 
 namespace UniversalReports.PlayForFun.Summary.Model
 {
-    public class HttpParameterJson : IRequest<ViewModelJson>
+    public class HttpParameterJson : IRequest<ReportModelBase<SummaryModel>>
     {
         public string Username { get; set; }
 

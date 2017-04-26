@@ -124,22 +124,18 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Detail\Handler.cs" />
-    <Compile Include="Detail\Model\Criteria.cs" />
-    <Compile Include="Detail\Model\ExcelViewModel.cs" />
+    <Compile Include="Detail\Model\DetailCriteria.cs" />
     <Compile Include="Detail\Model\HttpParameterJson.cs" />
     <Compile Include="Detail\Model\DetailExcelModel.cs" />
     <Compile Include="Detail\Model\DetailModel.cs" />
-    <Compile Include="Detail\Model\ViewModelJson.cs" />
     <Compile Include="Detail\PlayForFunProductController.cs" />
     <Compile Include="Summary\Handler.cs" />
     <Compile Include="Summary\HandlerExcel.cs" />
-    <Compile Include="Summary\Model\ExcelViewModel.cs" />
     <Compile Include="Summary\Model\SummaryExcelModel.cs" />
     <Compile Include="Summary\Model\SummaryModel.cs" />
-    <Compile Include="Summary\Model\Criteria.cs" />
+    <Compile Include="Summary\Model\SummaryCriteria.cs" />
     <Compile Include="Summary\Model\HttpParameterExcel.cs" />
     <Compile Include="Summary\Model\HttpParameterJson.cs" />
-    <Compile Include="Summary\Model\ViewModelJson.cs" />
     <Compile Include="Summary\PlayForFunSummaryController.cs" />
   </ItemGroup>
   <ItemGroup>

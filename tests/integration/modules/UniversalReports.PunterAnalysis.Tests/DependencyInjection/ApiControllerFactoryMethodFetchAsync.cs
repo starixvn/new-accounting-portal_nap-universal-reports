@@ -24,24 +24,15 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                container.Dispose();
-            }
+            container.Dispose();
         }
 
         private void RegisterDependency(IDynamicRepository repository)
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                    .RegisterMediator()
                     .RegisterAutoMapper()
+                    .RegisterMediator()
                     .RegisterPunterAnalysisServices();
             container.Verify();
         }

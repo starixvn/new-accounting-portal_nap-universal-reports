@@ -6,7 +6,7 @@ using UniversalReports.PlayForFun.Detail.Model;
 
 namespace UniversalReports.PlayForFun.Detail
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModelJson>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, ReportModelBase<DetailModel>>
     {
         private readonly IMapper mapper;
 
@@ -18,14 +18,10 @@ namespace UniversalReports.PlayForFun.Detail
             this.playForFunService = playForFunService;
         }
 
-        public async Task<ViewModelJson> Handle(HttpParameterJson message)
+        public async Task<ReportModelBase<DetailModel>> Handle(HttpParameterJson message)
         {
-            var criteria = mapper.Map<Criteria>(message);
-            var model = await playForFunService.Query<DetailModel>(criteria);
-
-            var viewModel = mapper.Map<ViewModelJson>(model);
-
-            return viewModel;
+            var criteria = mapper.Map<DetailCriteria>(message);
+            return await playForFunService.Query<DetailModel>(criteria);
         }
     }
 }

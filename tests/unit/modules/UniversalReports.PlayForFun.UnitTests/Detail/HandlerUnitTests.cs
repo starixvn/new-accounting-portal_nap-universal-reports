@@ -3,8 +3,7 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
+using Ploeh.AutoFixture;
 using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Detail;
@@ -14,13 +13,15 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
 {
     public class HandlerUnitTests
     {
+        private readonly Fixture fixture = new Fixture();
+
         [Test]
-        public async Task Handle_ServiceReturnsEmptyModelBaseWithDetail_ReturnsEmptyViewModelJson()
+        public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var emptyModelBaseWithDetail = CreateEmptyModelBaseWithTypeModel();
+            var anyReportModel = fixture.Create<ReportModelBase<DetailModel>>();
             var service = Substitute.For<PlayForFunService>();
-            service.Query<DetailModel>(Arg.Any<ICriteria>()).Returns(emptyModelBaseWithDetail);
+            service.Query<DetailModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 
             var mapper = CreateMapper();
 
@@ -29,96 +30,19 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
-            var expected = CreateEmptyViewModelJson();
-            Assert.That(viewModel, IsDeeplyEqual.To(expected));
-        }
-
-        private ReportModelBase<DetailModel> CreateEmptyModelBaseWithTypeModel()
-        {
-            return new ReportModelBase<DetailModel>
-            {
-                Entities = new List<DetailModel>(),
-                Total = new DetailModel()
-            };
-        }
-
-        private ViewModelJson CreateEmptyViewModelJson()
-        {
-            return new ViewModelJson
-            {
-                Entities = new List<DetailModel>(),
-                Total = new DetailModel()
-            };
+            Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
         }
 
         private IMapper CreateMapper()
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ReportModelBase<DetailModel>, ViewModelJson>(MemberList.Source);
-                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
+                cfg.CreateMap<HttpParameterJson, DetailCriteria>(MemberList.Source);
             });
 
             config.AssertConfigurationIsValid();
 
             return config.CreateMapper();
-        }
-
-        [Test]
-        public async Task Handle_ServiceReturnsNonEmptyModelBaseWithDetail_ReturnsNonEmptyViewModelJson()
-        {
-            // Arrange
-            var nonEmptyModelBaseWithDetailModel = CreateNonEmptyModelBaseWithDetailModel();
-            var service = Substitute.For<PlayForFunService>();
-            service.Query<DetailModel>(Arg.Any<ICriteria>()).Returns(nonEmptyModelBaseWithDetailModel);
-
-            var mapper = CreateMapper();
-
-            // Act
-            var handler = new Handler(mapper, service);
-            var viewModel = await handler.Handle(new HttpParameterJson());
-
-            // Assert
-            var expected = CreateNonEmptyViewModelJson();
-            Assert.That(viewModel, IsDeeplyEqual.To(expected));
-        }
-
-        private ReportModelBase<DetailModel> CreateNonEmptyModelBaseWithDetailModel()
-        {
-            return new ReportModelBase<DetailModel>
-            {
-                Entities = new List<DetailModel> { CreateDetailModel() },
-                Total = CreateDetailModel()
-            };
-        }
-
-        private ViewModelJson CreateNonEmptyViewModelJson()
-        {
-            return new ViewModelJson
-            {
-                Entities = new List<DetailModel> { CreateDetailModel() },
-                Total = CreateDetailModel()
-            };
-        }
-
-        private DetailModel CreateDetailModel()
-        {
-            return new DetailModel
-            {
-                Date = DateTime.Today.AddDays(-1),
-                GroupHeadline = "Group Headline 1",
-                Site = "Site 1",
-                Currency = "Currency 1",
-                Super = "Super 1",
-                Product = "Product 1",
-                MemberRequest = 0,
-                Status = 1,
-                Username = "User 1",
-                CustId = 1,
-                WinLoss = 100,
-                Turnover = 200,
-                BetCount = 2
-            };
         }
     }
 }

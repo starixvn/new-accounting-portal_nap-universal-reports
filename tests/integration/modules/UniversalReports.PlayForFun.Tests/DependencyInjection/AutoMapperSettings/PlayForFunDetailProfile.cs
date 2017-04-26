@@ -8,9 +8,8 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.AutoMapperSettin
     {
         public PlayForFunDetailProfile()
         {
-            CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModelBase<DetailModel>, ViewModelJson>(MemberList.Source);
-            CreateMap<ReportModelBase<DetailModel>, ExcelViewModel>(MemberList.Source);
+            CreateMap<HttpParameterJson, DetailCriteria>(MemberList.Source);
+            CreateMap<ReportModelBase<DetailModel>, ReportModelBase<DetailExcelModel>>(MemberList.Source);
             CreateMap<DetailModel, DetailExcelModel>(MemberList.Source);
         }
     }

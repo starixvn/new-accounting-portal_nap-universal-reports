@@ -5,14 +5,14 @@ namespace UniversalReports.PunterAnalysis.Summary
 {
     public class SummaryExcelSettingFactory : ExcelSettingFactory
     {
-        private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Summary.xlsx";
-
         private readonly ApplicationConfigurationService configurationService;
 
         public SummaryExcelSettingFactory(ApplicationConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }
+
+        protected virtual string TemplatePath => @"ExcelTemplate\PunterAnalysis\Summary.xlsx";
 
         public ExcelSetting CreateSetting(ExcelSettingParams excelSettingParams)
         {

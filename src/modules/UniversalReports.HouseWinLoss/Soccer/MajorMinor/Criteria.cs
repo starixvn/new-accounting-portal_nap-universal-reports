@@ -7,6 +7,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Soccer-Major-Minor-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Soccer-Major-Minor-{Source}";
     }
 }

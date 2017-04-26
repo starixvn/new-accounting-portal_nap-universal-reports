@@ -4,6 +4,7 @@ using OfficeOpenXml;
 using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PlayForFun.Core;
+using UniversalReports.PlayForFun.Detail.Model;
 using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
@@ -34,13 +35,13 @@ namespace UniversalReports.PlayForFun.Summary
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var summaryCriteria = mapper.Map<Criteria>(message);
+            var summaryCriteria = mapper.Map<DetailCriteria>(message);
             var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria);
-            var summaryExcelViewModel = mapper.Map<ExcelViewModel>(summaryModel);
+            var summaryExcelViewModel = mapper.Map<ReportModelBase<SummaryExcelModel>>(summaryModel);
 
-            var detailCriteria = mapper.Map<Detail.Model.Criteria>(message);
-            var detailModel = await playForFunService.Query<Detail.Model.DetailModel>(detailCriteria);
-            var detailExcelViewModel = mapper.Map<Detail.Model.ExcelViewModel>(detailModel);
+            var detailCriteria = mapper.Map<DetailCriteria>(message);
+            var detailModel = await playForFunService.Query<DetailModel>(detailCriteria);
+            var detailExcelViewModel = mapper.Map<ReportModelBase<DetailExcelModel>>(detailModel);
 
             var sumamryExcelSetting = CreateSummarySetting(message.Title);
             var detailExcelSetting = CreateProductDetailSetting(message.Title, message.ProductName);

@@ -5,15 +5,13 @@ using Fanex.Data.Repository;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
-using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.Tests.TestDoubles;
+using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using GridOptionsBuilder = UniversalReports.HouseWinLoss.Common.SiteWinLoss.GridOptionsBuilder;
-using GridOptionsBuilderImp = UniversalReports.HouseWinLoss.Common.SiteWinLoss.GridOptionsBuilderImp;
-using WinLossService = UniversalReports.HouseWinLoss.Common.SiteWinLoss.WinLossService;
-using WinLossServiceImp = UniversalReports.HouseWinLoss.Common.SiteWinLoss.WinLossServiceImp;
+using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
+using MatchDetailByCode = UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
+using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 
 namespace UniversalReports.HouseWinLoss.Tests
 {
@@ -34,22 +32,22 @@ namespace UniversalReports.HouseWinLoss.Tests
 
             container.Register<CacheService>(() => new CacheServiceImpl());
             container.Register<CommonServices.RemotingRefService, RemotingRefServiceStub>();
-
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
+
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>();
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>();
-            container.Register<WinLossService, WinLossServiceImp>();
-            container.Register<GridOptionsBuilder, GridOptionsBuilderImp>();
-            container.Register<BasicWinLossService, BasicWinLossServiceImp>();
-            container.Register<BasicGridOptionsBuilder, BasicGridOptionsBuilderImp>();
-            container.Register<BasicGridDataRowBuilder, BasicGridDataRowBuilderImp>();
-            container.Register<CalculationService, CalculationServiceImp>();
-            container.Register<RawWinLossService, RawWinLossServiceImp>();
-            container.Register<Common.MatchDetail.WinLossService, Common.MatchDetail.WinLossServiceImp>();
-            container.Register<Common.MatchDetail.GridOptionsBuilder, Common.MatchDetail.GridOptionsBuilderImp>();
-            container.Register<Common.MatchDetailByCode.WinLossService, Common.MatchDetailByCode.WinLossServiceImp>();
-            container.Register<Common.MatchDetailByCode.GridOptionsBuilder, Common.MatchDetailByCode.GridOptionsBuilderImp>();
+            container.Register<SiteWinLoss.WinLossService, SiteWinLoss.WinLossServiceImp>();
+            container.Register<SiteWinLoss.GridOptionsBuilder, SiteWinLoss.GridOptionsBuilderImp>();
+            container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>();
+            container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>();
+            container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>();
+            container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>();
+            container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>();
+            container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>();
+            container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>();
+            container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>();
+            container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
             container.Register<Soccer.GroupBetType.GroupBetTypeWinLossService, Soccer.GroupBetType.GroupBetTypeWinLossServiceImp>();
@@ -73,6 +71,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
+
 
             container.Verify();
         }

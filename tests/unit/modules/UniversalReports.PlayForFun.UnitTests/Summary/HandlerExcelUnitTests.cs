@@ -32,9 +32,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Any<PlayForFun.Summary.Model.ExcelViewModel>(),
+                Arg.Any<ReportModelBase<SummaryExcelModel>>(),
                 Arg.Any<ExcelSetting>(),
-                Arg.Any<PlayForFun.Detail.Model.ExcelViewModel>(),
+                Arg.Any<ReportModelBase<DetailExcelModel>>(),
                 Arg.Any<ExcelSetting>());
         }
 
@@ -42,9 +42,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptySummaryExcelViewModel = new PlayForFun.Summary.Model.ExcelViewModel();
+            var emptySummaryExcelViewModel = new ReportModelBase<SummaryExcelModel>();
 
-            var emptyDetailExcelViewModel = new PlayForFun.Detail.Model.ExcelViewModel();
+            var emptyDetailExcelViewModel = new ReportModelBase<DetailExcelModel>();
 
             var summaryExcelSetting = new ExcelSetting
             {
@@ -65,8 +65,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             };
 
             var mapper = Substitute.For<IMapper>();
-            mapper.Map<PlayForFun.Summary.Model.ExcelViewModel>(Arg.Any<ReportModelBase<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
-            mapper.Map<PlayForFun.Detail.Model.ExcelViewModel>(Arg.Any<ReportModelBase<DetailModel>>()).Returns(emptyDetailExcelViewModel);
+            mapper.Map<ReportModelBase<SummaryExcelModel>>(Arg.Any<ReportModelBase<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
+            mapper.Map<ReportModelBase<DetailExcelModel>>(Arg.Any<ReportModelBase<DetailModel>>()).Returns(emptyDetailExcelViewModel);
 
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 

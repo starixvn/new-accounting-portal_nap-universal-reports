@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Detail.Model;
 using UniversalReports.PlayForFun.Filter.Product;
 using UniversalReports.PlayForFun.Summary.Model;
-using DetailCriteria = UniversalReports.PlayForFun.Detail.Model.Criteria;
+using DetailCriteria = UniversalReports.PlayForFun.Detail.Model.DetailCriteria;
 using ProductQueryCriteria = UniversalReports.PlayForFun.Filter.Product.Criteria;
-using SummaryCriteria = UniversalReports.PlayForFun.Summary.Model.Criteria;
+using SummaryCriteria = UniversalReports.PlayForFun.Summary.Model.SummaryCriteria;
 
 namespace UniversalReports.PlayForFun.DatabaseTests
 {

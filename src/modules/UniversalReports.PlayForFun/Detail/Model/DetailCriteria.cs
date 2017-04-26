@@ -1,9 +1,9 @@
 ﻿using Fanex.Data.Repository;
 using System;
 
-namespace UniversalReports.PlayForFun.Summary.Model
+namespace UniversalReports.PlayForFun.Detail.Model
 {
-    public class Criteria : CriteriaBase
+    public class DetailCriteria : CriteriaBase
     {
         public string Username { get; set; }
 
@@ -17,7 +17,7 @@ namespace UniversalReports.PlayForFun.Summary.Model
 
         public bool ExcludeTest { get; set; }
 
-        public override string GetSettingKey() => "PlayForFun-Summary";
+        public override string GetSettingKey() => "PlayForFun-Detail";
 
         public override bool IsValid() => true;
     }
