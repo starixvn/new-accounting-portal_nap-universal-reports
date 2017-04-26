@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook;
@@ -20,7 +19,6 @@ namespace UniversalReports.PunterAnalysis.Performance
         [Route("summary")]
         public async Task<IHttpActionResult> Summary(SummaryHttpParameterJson parameter)
         {
-            CorrectDateTimeParameter(parameter);
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
         }
@@ -28,15 +26,8 @@ namespace UniversalReports.PunterAnalysis.Performance
         [Route("sportsbook")]
         public async Task<IHttpActionResult> Sportsbook(SportsbookHttpParameterJson parameter)
         {
-            CorrectDateTimeParameter(parameter);
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
-        }
-
-        private void CorrectDateTimeParameter(HttpParameterJson parameter)
-        {
-            parameter.FromDate = new DateTime(parameter.FromDate.Year, parameter.FromDate.Month, 1);
-            parameter.ToDate = new DateTime(parameter.ToDate.Year, parameter.ToDate.Month, 1);
         }
     }
 }
