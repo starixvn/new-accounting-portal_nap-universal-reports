@@ -13,7 +13,7 @@ export class NavbarService {
 
     query() {
         const url = 'api/application/header';
-        return this.httpService.post<Navbar>(url, {});
+        return this.httpService.post<Navbar>(url);
     }
 
     compileMenus(menus: Menu[]): Menu[] {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Config } from '../config';
 import { NavbarService } from './navbar.service';
 import { Menu } from './navbar.model';
 import { LegacyService } from '../legacy.service';
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit() {
         this.navbarService.query().subscribe(navbar => {
+            Config.legacyPath = navbar.LegacyPath;
             this.menus = this.navbarService.compileMenus(navbar.Menus);
             this.username = navbar.Username || 'user';
         });

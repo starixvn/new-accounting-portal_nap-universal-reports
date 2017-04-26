@@ -7,6 +7,7 @@ export interface Menu {
 }
 
 export interface Navbar {
+    LegacyPath: string;
     Username: string;
     Menus: Menu[];
 }

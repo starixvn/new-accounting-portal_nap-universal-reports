@@ -498,6 +498,7 @@
     <Content Include="wwwroot\punter-analysis\inline.bundle.js" />
     <Content Include="wwwroot\punter-analysis\main.bundle.js" />
     <Content Include="wwwroot\punter-analysis\polyfills.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\scripts.bundle.js" />
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
     <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
