@@ -7,12 +7,12 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests
 {
     public static class BalanceUpConfiguration
     {
+        private static BalanceUpRange balanceUpRange;
+
         static BalanceUpConfiguration()
         {
             FanexDataSetup.Setup();
         }
-
-        private static BalanceUpRange balanceUpRange;
 
         public static BalanceUpRange BalanceUpRange
         {
