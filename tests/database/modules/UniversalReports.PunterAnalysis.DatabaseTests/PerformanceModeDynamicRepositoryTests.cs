@@ -23,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -45,7 +45,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -67,7 +67,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -91,7 +91,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -113,7 +113,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -135,7 +135,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
@@ -157,7 +157,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "S99THTN01001"
+                Username = "MR1RMB30328"
             };
 
             // Act
