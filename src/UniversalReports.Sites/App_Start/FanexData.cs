@@ -12,9 +12,7 @@ namespace UniversalReports.Sites
             DbSettingProviderManager
              .StartNewSession()
              .Use(new OldConnectionStringProvider())
-             .UseDefaultDbSettingProvider(
-               resourcePath: $"~/App_Data/{environment}",
-               enableWatching: true)
+             .UseDefaultDbSettingProvider($"~/App_Data/{environment}", false, true)
              .Run();
         }
     }

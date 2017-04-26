@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 {
     public interface GroupBetTypeGridOptionsBuilder
     {
-        GridOptions Build(WinLossModel winLoss, string title);
+        GridOptions Build(GroupBetTypeWinLossModel winLoss, string title);
     }
 
     public class GroupBetTypeGridOptionsBuilderImp : BaseBetTypeGridOptionsBuilder, GroupBetTypeGridOptionsBuilder
@@ -19,7 +19,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         {
         }
 
-        public GridOptions Build(WinLossModel winLoss, string title)
+        public GridOptions Build(GroupBetTypeWinLossModel winLoss, string title)
         {
             return new GridOptions
             {

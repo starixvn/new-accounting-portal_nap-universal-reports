@@ -4,7 +4,7 @@ using UniversalReports.HouseWinLoss.Soccer.BaseService;
 
 namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 {
-    public class WinLossModel : BaseBetTypeWinLossModel
+    public class SumBetTypeWinLossModel : BaseBetTypeWinLossModel
     {
         public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
     }

@@ -93,20 +93,20 @@
       <HintPath>..\..\..\packages\RemotingRef.1.0.0.15\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.4.0.0\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.4.0.3\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.4.0.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.Integration.Web.4.0.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.Integration.Web.4.0.3\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.Integration.WebApi.4.0.1\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.Integration.WebApi.4.0.3\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting">
@@ -290,15 +290,15 @@
     <Compile Include="Racing\SportType\QueryModel.cs" />
     <Compile Include="Racing\SportType\RacingSportTypeController.cs" />
     <Compile Include="Soccer\BaseService\BaseGridOptionsBuilder.cs" />
-    <Compile Include="Soccer\BaseService\CalculationServiceImp.cs" />
+    <Compile Include="Soccer\BaseService\BaseCalculationServiceImp.cs" />
     <Compile Include="Soccer\BaseService\BaseBetTypeGridOptionsBuilder.cs" />
     <Compile Include="Soccer\BaseService\BaseBetTypeWinLossModel.cs" />
-    <Compile Include="Soccer\BetType\Criteria.cs" />
-    <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\BetType\BetTypeCriteria.cs" />
+    <Compile Include="Soccer\BetType\BetTypeExcelQueryModel.cs" />
     <Compile Include="Soccer\BetType\QueryModel.cs" />
     <Compile Include="Soccer\BetType\SoccerBetTypeController.cs" />
-    <Compile Include="Soccer\GroupBetType\Criteria.cs" />
-    <Compile Include="Soccer\GroupBetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\GroupBetType\GroupBetTypeCriteria.cs" />
+    <Compile Include="Soccer\GroupBetType\GroupBetTypeExcelQueryModel.cs" />
     <Compile Include="Soccer\GroupBetType\QueryModel.cs" />
     <Compile Include="Soccer\LiveNonLive\Criteria.cs" />
     <Compile Include="Soccer\LiveNonLive\ExcelQueryModel.cs" />
@@ -311,16 +311,16 @@
     <Compile Include="Soccer\GroupBetType\GroupBetTypeGridOptionsBuilderImp.cs" />
     <Compile Include="Soccer\BaseService\GroupConstants.cs" />
     <Compile Include="Soccer\GroupBetType\SoccerGroupBetTypeController.cs" />
-    <Compile Include="Soccer\GroupBetType\WinLossModel.cs" />
-    <Compile Include="Soccer\GroupBetType\WinLossServiceImp.cs" />
+    <Compile Include="Soccer\GroupBetType\GroupBetTypeWinLossModel.cs" />
+    <Compile Include="Soccer\GroupBetType\GroupBetTypeWinLossServiceImp.cs" />
     <Compile Include="Soccer\BaseService\WinLossSummaryByBetTypeGroup.cs" />
-    <Compile Include="Soccer\SumBetType\Criteria.cs" />
-    <Compile Include="Soccer\SumBetType\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\SumBetType\SumBetTypeCriteria.cs" />
+    <Compile Include="Soccer\SumBetType\SumBetTypeExcelQueryModel.cs" />
     <Compile Include="Soccer\SumBetType\SumBetTypeGridOptionsBuilderImp.cs" />
     <Compile Include="Soccer\SumBetType\QueryModel.cs" />
     <Compile Include="Soccer\SumBetType\SoccerSumBetTypeController.cs" />
-    <Compile Include="Soccer\SumBetType\WinLossModel.cs" />
-    <Compile Include="Soccer\SumBetType\WinLossServiceImp.cs" />
+    <Compile Include="Soccer\SumBetType\SumBetTypeWinLossModel.cs" />
+    <Compile Include="Soccer\SumBetType\SumBetTypeWinLossServiceImp.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\QueryModel.cs" />

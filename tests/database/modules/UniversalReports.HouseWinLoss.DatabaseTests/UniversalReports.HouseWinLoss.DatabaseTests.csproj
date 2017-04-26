@@ -83,7 +83,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DynamicRepositoryTests.cs" />
-    <Compile Include="FanexDataConfiguration.cs" />
+    <Compile Include="HouseWinLossFanexDataOneTimeSetUp.cs" />
     <Compile Include="TestCases\MatchDetailCriteriaTestCases.cs" />
     <Compile Include="TestCases\NormalCriteriaTestCases.cs" />
     <Compile Include="WinLossCriteriaFactory.cs" />
@@ -100,6 +100,10 @@
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\shared\UniversalReports.DatabaseTestSetup\UniversalReports.DatabaseTestSetup.csproj">
+      <Project>{ae55ff7e-7d19-4dbe-8ac7-59606575741e}</Project>
+      <Name>UniversalReports.DatabaseTestSetup</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

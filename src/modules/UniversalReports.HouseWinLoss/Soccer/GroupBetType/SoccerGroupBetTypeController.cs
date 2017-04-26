@@ -9,11 +9,11 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
     [RoutePrefix("api/house-win-loss-by-products/soccer/group-bettype")]
     public class SoccerGroupBetTypeController : ApiController
     {
-        private readonly WinLossService service;
+        private readonly GroupBetTypeWinLossService service;
         private readonly GroupBetTypeGridOptionsBuilder builder;
         private readonly GridOptionColumnDecorator decorator;
 
-        public SoccerGroupBetTypeController(WinLossService service, GroupBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerGroupBetTypeController(GroupBetTypeWinLossService service, GroupBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
         {
             this.service = service;
             this.builder = builder;
@@ -23,7 +23,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
@@ -32,9 +32,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(ExcelQueryModel queryModel)
+        public IHttpActionResult Excel(GroupBetTypeExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
             gridOptions = decorator.Build(gridOptions, "Bet Type");

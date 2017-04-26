@@ -52,11 +52,11 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Common.MatchDetailByCode.GridOptionsBuilder, Common.MatchDetailByCode.GridOptionsBuilderImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
-            container.Register<Soccer.GroupBetType.WinLossService, Soccer.GroupBetType.WinLossServiceImp>();
-            container.Register<Soccer.SumBetType.WinLossService, Soccer.SumBetType.WinLossServiceImp>();
+            container.Register<Soccer.GroupBetType.GroupBetTypeWinLossService, Soccer.GroupBetType.GroupBetTypeWinLossServiceImp>();
+            container.Register<Soccer.SumBetType.SumBetTypeWinLossService, Soccer.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
             container.Register<Soccer.SumBetType.SumBetTypeGridOptionsBuilder, Soccer.SumBetType.SumBetTypeGridOptionsBuilderImp>();
-            container.Register<Soccer.BaseService.CalculationService, Soccer.BaseService.CalculationServiceImp>();
+            container.Register<Soccer.BaseService.BaseCalculationService, Soccer.BaseService.BaseCalculationServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();

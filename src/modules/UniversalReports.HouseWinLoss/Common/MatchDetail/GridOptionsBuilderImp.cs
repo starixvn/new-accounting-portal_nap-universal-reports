@@ -88,7 +88,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
             var colummns = new List<Columns>
             {
-                new Columns(columnIndex++, "MatchCode", item.MatchCode)
+                new Columns(0, "MatchCode", item.MatchCode)
                 {
                     CustomAttributes = customAttributes,
                     Bold = true,
@@ -98,19 +98,16 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 new Columns(columnIndex++, "Home", item.HomeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
                 new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },
-                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
-                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                new Columns(columnIndex++, "Commission", item.Commission),
-                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
-                new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
-                new Columns(columnIndex++, "RealIncome", item.RealIncome),
-                new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
-                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
-                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
 
-            return new GridDataRow { Columns = colummns, RowType = RowType.Normal };
+            var baseColumns = CreateBaseColumns(columnIndex, item);
+            colummns.AddRange(baseColumns);
+
+            return new GridDataRow
+            {
+                Columns = colummns,
+                RowType = RowType.Normal
+            };
         }
 
         private List<GridDataRow> BuildFooter(WinLossModel model)
@@ -125,7 +122,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private GridDataRow BuildTotalRow(WinLoss item, string totalText)
         {
-            var columnIndex = 4;
+            const int BaseColumnIndex = 4;
             var colummns = new List<Columns>
             {
                 new Columns
@@ -135,7 +132,19 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     Value = totalText,
                     MergeColNumber = 4,
                     CellAlignment = HAlignment.Right
-                },
+                }
+            };
+
+            var baseColumns = CreateBaseColumns(BaseColumnIndex, item);
+            colummns.AddRange(baseColumns);
+
+            return new GridDataRow { Columns = colummns };
+        }
+
+        private List<Columns> CreateBaseColumns(int columnIndex, WinLoss item)
+        {
+            return new List<Columns>
+            {
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "Commission", item.Commission),
@@ -147,8 +156,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
                 new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
-
-            return new GridDataRow { Columns = colummns };
         }
     }
 }

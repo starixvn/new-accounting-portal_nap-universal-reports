@@ -8,11 +8,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
 {
     public static class NormalCriteriaTestCases
     {
-        static NormalCriteriaTestCases()
-        {
-            FanexDataConfiguration.Initialize();
-        }
-
         public static ICriteria[] CriteriaCases => CreateCriteriaTestCase();
 
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
@@ -68,7 +63,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 SportType = 151
             };
 
-            var soccerBetTypeCriteria = new Soccer.BetType.Criteria
+            var soccerBetTypeCriteria = new Soccer.BetType.BetTypeCriteria
             {
                 IsLive = 2,
                 IsMajor = true

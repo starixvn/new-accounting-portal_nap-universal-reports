@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
-    public interface CalculationService : Common.Services.CalculationService
+    public interface BaseCalculationService : CalculationService
     {
         List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<WinLossRaw> rawWinLosses);
 
@@ -16,7 +17,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
         WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
     }
 
-    public class CalculationServiceImp : Common.Services.CalculationServiceImp, CalculationService
+    public class BaseCalculationServiceImp : CalculationServiceImp, BaseCalculationService
     {
         public List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<WinLossRaw> rawWinLosses)
         {

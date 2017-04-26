@@ -19,14 +19,14 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = CriteriaFactory.Transform<BetTypeCriteria>(queryModel);
             return Json(criteria, "Bet Type", 210);
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(ExcelQueryModel queryModel)
+        public IHttpActionResult Excel(BetTypeExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = CriteriaFactory.Transform<BetTypeCriteria>(queryModel);
             return Excel(criteria, "Bet Type", queryModel.Title);
         }
     }

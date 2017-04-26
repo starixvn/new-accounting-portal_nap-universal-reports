@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using MediatR.SimpleInjector;
 using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
@@ -10,30 +10,12 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
     {
         public static Container RegisterMediator(this Container container)
         {
-            RegisterAssemblies(container);
-
-            return container;
-        }
-
-        private static void RegisterAssemblies(Container container)
-        {
             var assemblies = GetAssemblies();
-            container.RegisterSingleton<IMediator, Mediator>();
-            container.Register(typeof(IRequestHandler<,>), assemblies);
-            container.Register(typeof(IAsyncRequestHandler<,>), assemblies);
-            container.Register(typeof(ICancellableAsyncRequestHandler<>), assemblies);
-            container.RegisterCollection(typeof(INotificationHandler<>), assemblies);
-            container.RegisterCollection(typeof(IAsyncNotificationHandler<>), assemblies);
-            container.RegisterCollection(typeof(ICancellableAsyncNotificationHandler<>), assemblies);
-            container.RegisterCollection(typeof(IPipelineBehavior<,>), assemblies);
-
-            container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
-            container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
+            return container.BuildMediator(assemblies);
         }
 
         private static IEnumerable<Assembly> GetAssemblies()
         {
-            yield return typeof(IMediator).GetTypeInfo().Assembly;
             yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
         }
     }

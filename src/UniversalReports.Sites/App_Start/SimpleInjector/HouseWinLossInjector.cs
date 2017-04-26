@@ -36,11 +36,11 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
-            container.Register<Soccers.GroupBetType.WinLossService, Soccers.GroupBetType.WinLossServiceImp>();
-            container.Register<Soccers.SumBetType.WinLossService, Soccers.SumBetType.WinLossServiceImp>();
+            container.Register<Soccers.GroupBetType.GroupBetTypeWinLossService, Soccers.GroupBetType.GroupBetTypeWinLossServiceImp>();
+            container.Register<Soccers.SumBetType.SumBetTypeWinLossService, Soccers.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccers.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccers.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
             container.Register<Soccers.SumBetType.SumBetTypeGridOptionsBuilder, Soccers.SumBetType.SumBetTypeGridOptionsBuilderImp>();
-            container.Register<Soccers.BaseService.CalculationService, Soccers.BaseService.CalculationServiceImp>();
+            container.Register<Soccers.BaseService.BaseCalculationService, Soccers.BaseService.BaseCalculationServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();

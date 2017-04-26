@@ -4,26 +4,26 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 {
-    public interface WinLossService
+    public interface GroupBetTypeWinLossService
     {
-        WinLossModel Query(WinLossCriteria criteria);
+        GroupBetTypeWinLossModel Query(WinLossCriteria criteria);
     }
 
-    public class WinLossServiceImp : WinLossService
+    public class GroupBetTypeWinLossServiceImp : GroupBetTypeWinLossService
     {
         private readonly RawWinLossService rawWinLossService;
 
-        private readonly BaseService.CalculationService calculationService;
+        private readonly BaseService.BaseCalculationService calculationService;
 
-        public WinLossServiceImp(
+        public GroupBetTypeWinLossServiceImp(
             RawWinLossService rawWinLossService,
-            BaseService.CalculationService calculationService)
+            BaseService.BaseCalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
             this.calculationService = calculationService;
         }
 
-        public WinLossModel Query(WinLossCriteria criteria)
+        public GroupBetTypeWinLossModel Query(WinLossCriteria criteria)
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
             var nonRMRawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
@@ -35,7 +35,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", nonRMRawWinLosses);
             var allRMData = calculationService.CalculateRM(rawWinLosses);
 
-            return new WinLossModel
+            return new GroupBetTypeWinLossModel
             {
                 SiteWinLossSummaries = betTypeWinLosses,
                 MainTotal = mainTotal,

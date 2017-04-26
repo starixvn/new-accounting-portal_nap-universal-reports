@@ -10,7 +10,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 {
     public interface SumBetTypeGridOptionsBuilder
     {
-        GridOptions Build(WinLossModel winLoss, string title);
+        GridOptions Build(SumBetTypeWinLossModel winLoss, string title);
     }
 
     public class SumBetTypeGridOptionsBuilderImp : BaseBetTypeGridOptionsBuilder, SumBetTypeGridOptionsBuilder
@@ -20,7 +20,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
         {
         }
 
-        public GridOptions Build(WinLossModel winLoss, string title)
+        public GridOptions Build(SumBetTypeWinLossModel winLoss, string title)
         {
             return new GridOptions
             {

@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicRepositoryTests.cs" />
-    <Compile Include="FanexDataOneTimeSetUp.cs" />
+    <Compile Include="PlayForFunFanexDataOneTimeSetUp.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +96,10 @@
     <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\shared\UniversalReports.DatabaseTestSetup\UniversalReports.DatabaseTestSetup.csproj">
+      <Project>{ae55ff7e-7d19-4dbe-8ac7-59606575741e}</Project>
+      <Name>UniversalReports.DatabaseTestSetup</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

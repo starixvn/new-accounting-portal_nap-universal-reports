@@ -74,6 +74,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PlayForFun.Tests", "tests\integration\modules\UniversalReports.PlayForFun.Tests\UniversalReports.PlayForFun.Tests.csproj", "{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.DatabaseTestSetup", "tests\database\shared\UniversalReports.DatabaseTestSetup\UniversalReports.DatabaseTestSetup.csproj", "{AE55FF7E-7D19-4DBE-8AC7-59606575741E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -160,6 +162,10 @@ Global
 		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE55FF7E-7D19-4DBE-8AC7-59606575741E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE55FF7E-7D19-4DBE-8AC7-59606575741E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE55FF7E-7D19-4DBE-8AC7-59606575741E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE55FF7E-7D19-4DBE-8AC7-59606575741E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,9 +202,10 @@ Global
 		{6638B723-3B1C-4BBD-B9EB-98D33871DD7A} = {51D7ABCA-DB8D-4E11-B258-DCB5539353AA}
 		{911B7090-F440-4A04-9D64-55F5C78BD4CE} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB} = {F73C2584-286D-49E1-9DE1-768A517F5719}
+		{AE55FF7E-7D19-4DBE-8AC7-59606575741E} = {40B587AD-AD21-4771-B52C-0E672245A49F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

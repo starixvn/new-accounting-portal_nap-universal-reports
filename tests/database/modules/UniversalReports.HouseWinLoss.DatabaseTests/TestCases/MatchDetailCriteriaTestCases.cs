@@ -8,11 +8,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
 {
     public static class MatchDetailCriteriaTestCases
     {
-        static MatchDetailCriteriaTestCases()
-        {
-            FanexDataConfiguration.Initialize();
-        }
-
         public static ICriteria[] CriteriaCases
         {
             get

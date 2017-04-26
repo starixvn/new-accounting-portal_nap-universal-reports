@@ -6,7 +6,7 @@ using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.HouseWinLoss.Soccer.GroupBetType;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
-using CalculationServiceImp = UniversalReports.HouseWinLoss.Soccer.BaseService.CalculationServiceImp;
+using BaseCalculationServiceImp = UniversalReports.HouseWinLoss.Soccer.BaseService.BaseCalculationServiceImp;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.GroupBetType
 {
@@ -19,14 +19,14 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.GroupBetType
         {
             // Arrange
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
-            var expected = TestDataLoader.Load<WinLossModel>("data-1-expected");
+            var expected = TestDataLoader.Load<GroupBetTypeWinLossModel>("data-1-expected");
 
-            var calculatorService = new CalculationServiceImp();
+            var calculatorService = new BaseCalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act
-            var service = new WinLossServiceImp(rawWinLossService, calculatorService);
+            var service = new GroupBetTypeWinLossServiceImp(rawWinLossService, calculatorService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
