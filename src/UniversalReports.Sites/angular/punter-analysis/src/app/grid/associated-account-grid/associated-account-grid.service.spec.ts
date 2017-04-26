@@ -8,7 +8,7 @@ import { HttpService } from 'nap-components/src/http.service';
 import { GridService } from '../grid.service';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
 import { UserRoleItem } from './associated-account-grid.model';
-import { fakeFilterModel } from '../../filter/filter.model.spec';
+import { fakeUserFilterModel } from '../../filter/filter.model.spec';
 import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
 import { AppModule } from '../../app.module';
 
@@ -35,7 +35,7 @@ describe('AssociatedAccountGridService', () => {
     });
 
     beforeEach(inject([GridService], (gridService: GridService) => {
-        gridService.filterModel = fakeFilterModel;
+        gridService.filterModel = fakeUserFilterModel;
     }));
 
     beforeEach(inject([AssociatedAccountGridService], (service: AssociatedAccountGridService) => {

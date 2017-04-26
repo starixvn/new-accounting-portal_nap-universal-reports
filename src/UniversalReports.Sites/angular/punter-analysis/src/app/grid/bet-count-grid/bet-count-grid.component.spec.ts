@@ -14,6 +14,7 @@ import { BetCountGridModel } from './bet-count-grid.model';
 import { BetCountGridComponent } from './bet-count-grid.component';
 import { BetCountData } from './bet-count-grid.model';
 import { AppModule } from '../../app.module';
+import { fakeUserFilterModel } from '../../filter/filter.model.spec';
 
 class Page {
     constructor(
@@ -81,22 +82,7 @@ describe('BetCountGridComponent', () => {
 
         beforeEach(() => {
             gridService = fixture.debugElement.injector.get(GridService);
-            gridService.filterModel = {
-                periodType: PeriodType.Daily,
-                searchBy: undefined,
-                topRow: undefined,
-                orderBy: undefined,
-                sortBy: undefined,
-                fromDate: undefined,
-                toDate: undefined,
-                depth: undefined,
-                userName: undefined,
-                selectedBetTypeTreeviewItems: undefined,
-                searchByOptions: undefined,
-                depthOptions: undefined,
-                orderByOptions: undefined,
-                sortByOptions: undefined
-            };
+            gridService.filterModel = fakeUserFilterModel;
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeBetCountGridModel: BetCountGridModel = {
                 custId: 1,

@@ -7,29 +7,52 @@ import { Helper } from 'nap-components/src/helper';
 import { HttpService } from 'nap-components/src/http.service';
 import { GridService } from '../grid.service';
 import { SportTypeGridService } from './sport-type-grid.service';
+import { SportTypeGridModel } from './sport-type-grid.model';
 import { SportTypeData } from './sport-type-grid.model';
-import { fakeFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
+import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
+import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
 import { AppModule } from '../../app.module';
 
 
 describe('SportTypeGridService', () => {
 
+    const fakeModel: SportTypeGridModel = {
+        custId: 1,
+        custName: 'Customer 1'
+    };
+
     const expectedQueryModel = {
-        periodType: 1,
-        fromDate: '2016-01-01T00:00:00',
-        toDate: '2016-02-02T00:00:00',
-        listCombinationId: '1,2',
-        custId: 1
+        user: {
+            periodType: 1,
+            fromDate: '2016-01-01T00:00:00',
+            toDate: '2016-02-02T00:00:00',
+            listCombinationId: '1,2',
+            leagueId: 0,
+            custId: 1
+        },
+        league: {
+            periodType: 1,
+            fromDate: '2016-01-01T00:00:00',
+            toDate: '2016-02-02T00:00:00',
+            listCombinationId: '1,2',
+            leagueId: 1,
+            custId: 1
+        }
     };
     const expectedExcelModel = {
-        custId: 1,
-        filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1, SportType2',
-        fromDate: '2016-01-01T00:00:00',
-        toDate: '2016-02-02T00:00:00',
-        listCombinationId: '1,2',
-        periodType: 1,
-        title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)'
+        user: _.extend({}, expectedQueryModel.user, {
+            title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
+            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1, SportType2'
+        }),
+        league: _.extend({}, expectedQueryModel.league, {
+            title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
+            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1\nLeague: League1'
+        })
+    };
+
+    const expectedExcelFileName = {
+        user: 'Top_Punter_Sporttype_Search_by_User_from_Jan_01_2016_to_Feb_02_2016.xlsx',
+        league: 'Top_Punter_Sporttype_Search_by_League_from_Jan_01_2016_to_Feb_02_2016.xlsx'
     };
 
     beforeEach(() => {
@@ -40,42 +63,48 @@ describe('SportTypeGridService', () => {
         });
     });
 
-    beforeEach(inject([GridService], (gridService: GridService) => {
-        gridService.filterModel = fakeFilterModel;
-    }));
-
     beforeEach(inject([SportTypeGridService], (service: SportTypeGridService) => {
-        service.model = {
-            custId: 1,
-            custName: 'Customer 1'
-        };
+        service.model = fakeModel;
     }));
 
-    it('query', inject([HttpService, SportTypeGridService], (httpService: HttpService, service: SportTypeGridService) => {
-        const spy = spyOn(httpService, 'post').and.returnValue(Observable.of(null));
+    it('query', inject([HttpService, GridService, SportTypeGridService],
+        (httpService: HttpService, gridService: GridService, service: SportTypeGridService) => {
+            const spy = spyOn(httpService, 'post').and.returnValue(Observable.of(null));
 
-        service.query();
-        const mostRecentCall = spy.calls.mostRecent();
-        const args = mostRecentCall.args;
-        expect(args[0]).toBe('api/punter-analysis/sport-type');
-        expect(args[1]).toEqual(expectedQueryModel);
-    }));
+            function expectModel(fakeFilterModel: FilterModel, expectedModel: any) {
+                gridService.filterModel = fakeFilterModel;
+                service.query();
+                const mostRecentCall = spy.calls.mostRecent();
+                const args = mostRecentCall.args;
+                expect(args[0]).toBe('api/punter-analysis/sport-type');
+                expect(args[1]).toEqual(expectedModel);
+            }
 
-    it('exportExcel', inject([HttpService, SportTypeGridService], (httpService: HttpService, service: SportTypeGridService) => {
-        const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
-        const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
+            expectModel(fakeUserFilterModel, expectedQueryModel.user);
+            expectModel(fakeLeagueFilterModel, expectedQueryModel.league);
+        }));
 
-        service.exportExcel();
-        let mostRecentCall = downloadSpy.calls.mostRecent();
-        let args = mostRecentCall.args;
+    it('exportExcel', inject([HttpService, GridService, SportTypeGridService],
+        (httpService: HttpService, gridService: GridService, service: SportTypeGridService) => {
+            const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
+            const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
 
-        expect(args[0]).toBe('api/punter-analysis/sport-type/excel');
-        expect(args[1]).toEqual(expectedExcelModel);
+            function expectModel(fakeFilterModel: FilterModel, expectedExcel: any, expectedFileName: string) {
+                gridService.filterModel = fakeFilterModel;
+                service.exportExcel();
+                let mostRecentCall = downloadSpy.calls.mostRecent();
+                let args = mostRecentCall.args;
 
-        mostRecentCall = saveSpy.calls.mostRecent();
-        args = mostRecentCall.args;
-        const expectedFileName = 'Top_Punter_Sporttype_Search_by_User_from_Jan_01_2016_to_Feb_02_2016.xlsx';
-        expect(args[0]).toBe(null);
-        expect(args[1]).toBe(expectedFileName);
-    }));
+                expect(args[0]).toBe('api/punter-analysis/sport-type/excel');
+                expect(args[1]).toEqual(expectedExcel);
+
+                mostRecentCall = saveSpy.calls.mostRecent();
+                args = mostRecentCall.args;
+                expect(args[0]).toBe(null);
+                expect(args[1]).toBe(expectedFileName);
+            }
+
+            expectModel(fakeUserFilterModel, expectedExcelModel.user, expectedExcelFileName.user);
+            expectModel(fakeLeagueFilterModel, expectedExcelModel.league, expectedExcelFileName.league);
+        }));
 });

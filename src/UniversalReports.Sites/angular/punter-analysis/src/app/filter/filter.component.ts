@@ -10,7 +10,10 @@ import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
-import { SearchBy, PeriodType, OrderBy, FilterModel, SportsbookSportTypeBetType } from './filter.model';
+import {
+    SearchBy, PeriodType, OrderBy, FilterModel, UserFilterModel, LeagueFilterModel,
+    SportsbookSportTypeBetType, isUserModel, isLeagueModel
+} from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
 
@@ -259,19 +262,19 @@ export class FilterComponent implements OnInit {
             }
         }
 
-        if (this.isUserNameRequired && model.userName === '') {
+        if (isUserModel(model) && this.isUserNameRequired && model.userName === '') {
             this.toastService.activate('Account name field is required!');
             return false;
         }
 
-        if (this.searchBy === SearchBy.User) {
+        if (isUserModel(model)) {
             if (model.selectedBetTypeTreeviewItems.length === 0) {
                 this.toastService.activate('Please select at least one Product!');
                 return false;
             }
         }
 
-        if (this.searchBy === SearchBy.League) {
+        if (isLeagueModel(model)) {
             if (model.selectedBetTypeTreeviewItems.length === 0) {
                 this.toastService.activate('Please select at least one Bet Type!');
                 return false;
@@ -293,6 +296,15 @@ export class FilterComponent implements OnInit {
     }
 
     private createModel(): FilterModel {
+        switch (this.searchBy) {
+            case SearchBy.User:
+                return this.createUserModel();
+            case SearchBy.League:
+                return this.createLeagueModel();
+        }
+    }
+
+    private createUserModel(): UserFilterModel {
         return {
             searchBy: this.searchBy,
             searchByOptions: this.searchByOptions,
@@ -307,7 +319,23 @@ export class FilterComponent implements OnInit {
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             depth: this.depth,
             depthOptions: this.depthOptions,
-            userName: _.trim(this.userName),
+            userName: _.trim(this.userName)
+        };
+    }
+
+    private createLeagueModel(): LeagueFilterModel {
+        return {
+            searchBy: this.searchBy,
+            searchByOptions: this.searchByOptions,
+            topRow: this.topRows,
+            orderBy: this.orderBy,
+            orderByOptions: this.orderByOptions,
+            sortBy: this.sortBy,
+            sortByOptions: this.sortByOptions,
+            periodType: this.periodTypeEventModel.periodType,
+            fromDate: this.periodTypeEventModel.fromDate,
+            toDate: this.periodTypeEventModel.toDate,
+            selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             leagueId: this.leagueId,
             leagueOptions: this.leagueOptions,
             sportType: this.sportType,

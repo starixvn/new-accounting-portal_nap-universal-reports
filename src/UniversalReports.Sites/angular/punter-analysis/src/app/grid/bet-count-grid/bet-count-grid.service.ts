@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper, isLeagueModel } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { BetCountGridModel, BetCountData } from './bet-count-grid.model';
 
@@ -46,7 +46,7 @@ export class BetCountGridService {
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
             listCombinationId: filterModelWrapper.listCombinationId,
-            leagueId: filterModel.leagueId,
+            leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0,
             custId: this.model.custId,
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,

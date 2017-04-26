@@ -14,6 +14,7 @@ import { AssociatedAccountGridModel } from './associated-account-grid.model';
 import { AssociatedAccountGridComponent } from './associated-account-grid.component';
 import { UserRoleItem } from './associated-account-grid.model';
 import { AppModule } from '../../app.module';
+import { fakeUserFilterModel } from '../../filter/filter.model.spec';
 
 class Page {
     constructor(
@@ -72,23 +73,7 @@ describe('AssociatedAccountGridComponent', () => {
 
         beforeEach(() => {
             gridService = fixture.debugElement.injector.get(GridService);
-            gridService.filterModel = {
-                fromDate: { year: 2016, month: 1, day: 1 },
-                toDate: { year: 2016, month: 1, day: 10 },
-                periodType: undefined,
-                searchBy: undefined,
-                topRow: undefined,
-                orderBy: undefined,
-                sortBy: undefined,
-                depth: undefined,
-                userName: undefined,
-                selectedBetTypeTreeviewItems: undefined,
-                searchByOptions: undefined,
-                depthOptions: undefined,
-                orderByOptions: undefined,
-                sortByOptions: undefined
-            };
-
+            gridService.filterModel = fakeUserFilterModel;
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeAssociatedAccountGridModel: AssociatedAccountGridModel = {
                 custId: 1,

@@ -31,22 +31,12 @@ export enum OrderBy {
     Margin = 3
 }
 
-interface UserFilterModel {
-    depth: RoleId;
-    depthOptions: SelectItem[];
-    userName: string;
-}
-
-interface LeagueFilterModel {
-    leagueId: number;
-    leagueOptions: SelectItem[];
-    sportType: number;
-    sportOptions: SelectItem[];
-}
-
-export interface FilterModel extends UserFilterModel, LeagueFilterModel {
+interface CommonFilterModel {
     searchBy: SearchBy;
     searchByOptions: SelectItem[];
+}
+
+interface CommonUserLeagueFilterModel {
     topRow: number;
     orderBy: OrderBy;
     orderByOptions: SelectItem[];
@@ -58,22 +48,50 @@ export interface FilterModel extends UserFilterModel, LeagueFilterModel {
     selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
 }
 
+export interface UserFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
+    depth: RoleId;
+    depthOptions: SelectItem[];
+    userName: string;
+}
+
+export interface LeagueFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
+    leagueId: number;
+    leagueOptions: SelectItem[];
+    sportType: number;
+    sportOptions: SelectItem[];
+}
+
+export type FilterModel = UserFilterModel | LeagueFilterModel;
+
+export function isUserModel(filterModel: FilterModel): filterModel is UserFilterModel {
+    return filterModel.searchBy === SearchBy.User;
+}
+
+export function isLeagueModel(filterModel: FilterModel): filterModel is LeagueFilterModel {
+    return filterModel.searchBy === SearchBy.League;
+}
+
 export class FilterModelWrapper {
     constructor(
         private filterModel: FilterModel
     ) { }
 
     get depthTitle(): string {
-        return this.filterModel.depthOptions.filter(option => option.value === this.filterModel.depth)[0].text;
+        if (isUserModel(this.filterModel)) {
+            const depth = this.filterModel.depth;
+            return this.filterModel.depthOptions.filter(option => option.value === depth)[0].text;
+        }
     }
 
     get userNameTitle(): string {
-        const userName = this.filterModel.userName;
-        if (!_.isNil(userName) && userName !== '') {
-            return userName;
-        }
+        if (isUserModel(this.filterModel)) {
+            const userName = this.filterModel.userName;
+            if (!_.isNil(userName) && userName !== '') {
+                return userName;
+            }
 
-        return 'All';
+            return 'All';
+        }
     }
 
     get listCombinationId(): string {
@@ -90,23 +108,26 @@ export class FilterModelWrapper {
     }
 
     get selectedSportTypes(): string {
-        switch (this.filterModel.searchBy) {
-            case SearchBy.User:
-                const sportTypes: string[] = [];
-                this.filterModel.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
-                    const sportType = betTypeItem.parent.item.text;
-                    if (sportTypes.indexOf(sportType) === -1) {
-                        sportTypes.push(sportType);
-                    }
-                });
-                return sportTypes.join(', ');
-            case SearchBy.League:
-                return this.filterModel.sportOptions.filter(item => item.value === this.filterModel.sportType)[0].text;
+        if (isUserModel(this.filterModel)) {
+            const sportTypes: string[] = [];
+            this.filterModel.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
+                const sportType = betTypeItem.parent.item.text;
+                if (sportTypes.indexOf(sportType) === -1) {
+                    sportTypes.push(sportType);
+                }
+            });
+            return sportTypes.join(', ');
+        } else {
+            const sportType = this.filterModel.sportType;
+            return this.filterModel.sportOptions.filter(item => item.value === sportType)[0].text;
         }
     }
 
     get leagueTitle(): string {
-        return this.filterModel.leagueOptions.filter(option => option.value === this.filterModel.leagueId)[0].text;
+        if (isLeagueModel(this.filterModel)) {
+            const leagueId = this.filterModel.leagueId;
+            return this.filterModel.leagueOptions.filter(option => option.value === leagueId)[0].text;
+        }
     }
 
     get orderByTitle(): string {

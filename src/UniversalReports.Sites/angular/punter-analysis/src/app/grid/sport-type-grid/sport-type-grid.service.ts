@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper, isLeagueModel } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { SportTypeGridModel } from './sport-type-grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
@@ -68,7 +68,7 @@ export class SportTypeGridService {
             fromDate: wrapper.fromDateQueryString,
             toDate: wrapper.toDateQueryString,
             listCombinationId: wrapper.listCombinationId,
-            leagueId: filterModel.leagueId,
+            leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0,
             custId: this.model.custId
         };
     }

@@ -8,28 +8,56 @@ import { Helper } from 'nap-components/src/helper';
 import { HttpService } from 'nap-components/src/http.service';
 import { GridService } from '../grid.service';
 import { BetTypeGridService } from './bet-type-grid.service';
+import { BetTypeGridModel } from './bet-type-grid.model';
 import { BetTypeData } from './bet-type-grid.model';
-import { fakeFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
+import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
+import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
 import { AppModule } from '../../app.module';
 
 describe('BetTypeGridService', () => {
-    const expectedQueryModel = {
-        periodType: 1,
-        fromDate: '2016-01-01T00:00:00',
-        toDate: '2016-02-02T00:00:00',
-        listCombinationId: '1,2',
+
+    const fakeModel: BetTypeGridModel = {
         custId: 1,
-        sportId: 1
+        custName: 'Customer 1',
+        sportId: 1,
+        sportName: 'Sport 1'
     };
+
+    const expectedQueryModel = {
+        user: {
+            periodType: 1,
+            fromDate: '2016-01-01T00:00:00',
+            toDate: '2016-02-02T00:00:00',
+            listCombinationId: '1,2',
+            leagueId: 0,
+            custId: 1,
+            sportId: 1
+        },
+        league: {
+            periodType: 1,
+            fromDate: '2016-01-01T00:00:00',
+            toDate: '2016-02-02T00:00:00',
+            listCombinationId: '1,2',
+            leagueId: 1,
+            custId: 1,
+            sportId: 1
+        }
+    };
+
     const expectedExcelModel = {
-        periodType: 1,
-        fromDate: '2016-01-01T00:00:00',
-        toDate: '2016-02-02T00:00:00',
-        listCombinationId: '1,2',
-        custId: 1, sportId: 1,
-        title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-        filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1`
+        user: _.extend({}, expectedQueryModel.user, {
+            title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
+            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1`
+        }),
+        league: _.extend({}, expectedQueryModel.league, {
+            title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
+            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1\nLeague: League1`
+        })
+    };
+
+    const expectedExcelFileName = {
+        user: 'Top_Punter_Bettype_Search_by_User_from_Jan_01_2016_to_Feb_02_2016.xlsx',
+        league: 'Top_Punter_Bettype_Search_by_League_from_Jan_01_2016_to_Feb_02_2016.xlsx'
     };
 
     beforeEach(() => {
@@ -40,44 +68,48 @@ describe('BetTypeGridService', () => {
         });
     });
 
-    beforeEach(inject([GridService], (gridService: GridService) => {
-        gridService.filterModel = fakeFilterModel;
-    }));
-
     beforeEach(inject([BetTypeGridService], (service: BetTypeGridService) => {
-        service.model = {
-            custId: 1,
-            custName: 'Customer 1',
-            sportId: 1,
-            sportName: 'Sport 1'
-        };
+        service.model = fakeModel;
     }));
 
-    it('query', inject([HttpService, BetTypeGridService], (httpService: HttpService, service: BetTypeGridService) => {
-        const spy = spyOn(httpService, 'post').and.returnValue(Observable.of(null));
+    it('query', inject([HttpService, GridService, BetTypeGridService],
+        (httpService: HttpService, gridService: GridService, service: BetTypeGridService) => {
+            const spy = spyOn(httpService, 'post').and.returnValue(Observable.of(null));
 
-        service.query();
-        const mostRecentCall = spy.calls.mostRecent();
-        const args = mostRecentCall.args;
-        expect(args[0]).toBe('api/punter-analysis/bet-type');
-        expect(args[1]).toEqual(expectedQueryModel);
-    }));
+            function expectModel(fakeFilterModel: FilterModel, expectedModel: any) {
+                gridService.filterModel = fakeFilterModel;
+                service.query();
+                const mostRecentCall = spy.calls.mostRecent();
+                const args = mostRecentCall.args;
+                expect(args[0]).toBe('api/punter-analysis/bet-type');
+                expect(args[1]).toEqual(expectedModel);
+            }
 
-    it('exportExcel', inject([HttpService, BetTypeGridService], (httpService: HttpService, service: BetTypeGridService) => {
-        const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
-        const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
+            expectModel(fakeUserFilterModel, expectedQueryModel.user);
+            expectModel(fakeLeagueFilterModel, expectedQueryModel.league);
+        }));
 
-        service.exportExcel();
-        let mostRecentCall = downloadSpy.calls.mostRecent();
-        let args = mostRecentCall.args;
+    it('exportExcel', inject([HttpService, GridService, BetTypeGridService],
+        (httpService: HttpService, gridService: GridService, service: BetTypeGridService) => {
+            const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
+            const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
 
-        expect(args[0]).toBe('api/punter-analysis/bet-type/excel');
-        expect(args[1]).toEqual(expectedExcelModel);
+            function expectModel(fakeFilterModel: FilterModel, expectedExcel: any, expectedFileName: string) {
+                gridService.filterModel = fakeFilterModel;
+                service.exportExcel();
+                let mostRecentCall = downloadSpy.calls.mostRecent();
+                let args = mostRecentCall.args;
 
-        mostRecentCall = saveSpy.calls.mostRecent();
-        args = mostRecentCall.args;
-        const expectedFileName = 'Top_Punter_Bettype_Search_by_User_from_Jan_01_2016_to_Feb_02_2016.xlsx';
-        expect(args[0]).toBe(null);
-        expect(args[1]).toBe(expectedFileName);
-    }));
+                expect(args[0]).toBe('api/punter-analysis/bet-type/excel');
+                expect(args[1]).toEqual(expectedExcel);
+
+                mostRecentCall = saveSpy.calls.mostRecent();
+                args = mostRecentCall.args;
+                expect(args[0]).toBe(null);
+                expect(args[1]).toBe(expectedFileName);
+            }
+
+            expectModel(fakeUserFilterModel, expectedExcelModel.user, expectedExcelFileName.user);
+            expectModel(fakeLeagueFilterModel, expectedExcelModel.league, expectedExcelFileName.league);
+        }));
 });
