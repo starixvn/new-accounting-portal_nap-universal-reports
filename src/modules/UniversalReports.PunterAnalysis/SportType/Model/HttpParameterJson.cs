@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using System;
+using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.SportType.Model
 {
-    public class HttpParameterJson : IRequest<ViewModelJson>
+    public class HttpParameterJson : IRequest<ReportModelBase<SportTypeModel>>
     {
         public int PeriodType { get; set; } = 1;
 

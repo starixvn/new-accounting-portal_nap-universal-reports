@@ -9,8 +9,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
         public PunterAnalysisSummaryProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModelBase<SummaryModel>, ViewModelJson>(MemberList.Source);
-            CreateMap<ReportModelBase<SummaryModel>, ExcelViewModel>(MemberList.Source);
+            CreateMap<ReportModelBase<SummaryModel>, ReportModelBase<SummaryExcelModel>>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<SummaryModel, SummaryExcelModel>(MemberList.Source)
                  .ForMember(dest => dest.Margin, opt => opt.MapFrom(src => src.Turnover == 0 ? "N/A" : (object)src.Margin));

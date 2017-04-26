@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using System;
+using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.Summary.Model
 {
-    public class HttpParameterJson : IRequest<ViewModelJson>
+    public class HttpParameterJson : IRequest<ReportModelBase<SummaryModel>>
     {
         public int TopRow { get; set; }
 

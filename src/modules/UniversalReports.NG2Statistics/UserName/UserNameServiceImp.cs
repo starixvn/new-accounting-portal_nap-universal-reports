@@ -64,20 +64,11 @@ namespace UniversalReports.NG2Statistics.UserName
         {
             var propInfo = typeof(UserNameModel).GetProperty(queryModel.SortColumnName);
             var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
-            if (isAsc)
-            {
-                raw.Rows = raw
-                    .Rows
-                    .OrderBy(s => propInfo.GetValue(s, null))
-                    .ToList();
-            }
-            else
-            {
-                raw.Rows = raw
-                    .Rows
-                    .OrderByDescending(s => propInfo.GetValue(s, null))
-                    .ToList();
-            }
+            var orderStatement = isAsc
+                ? raw.Rows.OrderBy(s => propInfo.GetValue(s, null))
+                : raw.Rows.OrderByDescending(s => propInfo.GetValue(s, null));
+
+            raw.Rows = orderStatement.ToList();
         }
     }
 }

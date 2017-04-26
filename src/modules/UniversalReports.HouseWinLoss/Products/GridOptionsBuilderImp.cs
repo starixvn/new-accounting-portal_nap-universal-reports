@@ -41,7 +41,7 @@ namespace UniversalReports.HouseWinLoss.Products
         private List<GridDataRow> BuildBodyRows(ProductWinLoss productWinLoss)
         {
             var sportsbookRows = BuildProductGroup(productWinLoss.Sportsbook);
-            var sportsbookRMRows = BuildSportsbookRMRows(productWinLoss.RM);
+            var sportsbookRMRows = BuildSportsbookRmRows(productWinLoss.RM);
             var nonSportsbookRows = BuildProductGroup(productWinLoss.NonSportsbook);
 
             var bodyRows = new List<GridDataRow>();
@@ -113,7 +113,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return productDataRow;
         }
 
-        private IEnumerable<GridDataRow> BuildSportsbookRMRows(IEnumerable<WinLoss> winLosses)
+        private IEnumerable<GridDataRow> BuildSportsbookRmRows(IEnumerable<WinLoss> winLosses)
         {
             var rows = winLosses
                 .Select(w => gridDataRowBuilder.BuildDataRow(w, HAlignment.Right))

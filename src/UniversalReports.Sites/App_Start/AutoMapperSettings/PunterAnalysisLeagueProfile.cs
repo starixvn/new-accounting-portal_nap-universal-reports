@@ -9,7 +9,6 @@ namespace UniversalReports.Sites.AutoMapperSettings
         public PunterAnalysisLeagueProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModel, ViewModelJson>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }

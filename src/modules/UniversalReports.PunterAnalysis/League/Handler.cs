@@ -5,7 +5,7 @@ using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModelJson>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, ReportModel>
     {
         private readonly IMapper mapper;
 
@@ -17,15 +17,12 @@ namespace UniversalReports.PunterAnalysis.League
             this.leagueServiceFactory = leagueServiceFactory;
         }
 
-        public async Task<ViewModelJson> Handle(HttpParameterJson message)
+        public async Task<ReportModel> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<Criteria>(message);
 
             var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
-            var model = await leagueService.Query(criteria);
-            var viewModel = mapper.Map<ViewModelJson>(model);
-
-            return viewModel;
+            return await leagueService.Query(criteria);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
         public PunterAnalysisLeagueProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModel, ViewModelJson>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);
         }

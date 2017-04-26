@@ -16,7 +16,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex);
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildExtraPTColumns(mainColumnText, mainColumnWidth);
-            gridOptions.GroupHeaderRows = BuildExtraPTGroupHeaderRows(mainColumnText, mainColumnWidth);
+            gridOptions.GroupHeaderRows = BuildExtraPtGroupHeaderRows(mainColumnText, mainColumnWidth);
 
             return gridOptions;
         }
@@ -38,7 +38,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             };
         }
 
-        private List<GroupHeaderRows> BuildExtraPTGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
+        private List<GroupHeaderRows> BuildExtraPtGroupHeaderRows(string mainColumnText, int mainColumnWidth = 180)
         {
             var columns = new List<HeaderColumns>
             {

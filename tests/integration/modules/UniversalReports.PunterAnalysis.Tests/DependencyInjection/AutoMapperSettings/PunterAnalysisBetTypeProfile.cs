@@ -9,9 +9,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
         public PunterAnalysisBetTypeProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModelBase<BetTypeModel>, ViewModelJson>(MemberList.Source);
-            CreateMap<ReportModelBase<BetTypeModel>, ExcelViewModel>();
-            CreateMap<ReportModelBase<BetTypeModel>, ExcelViewModel>(MemberList.Source);
+            CreateMap<ReportModelBase<BetTypeModel>, ReportModelBase<BetTypeExcelModel>>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<BetTypeModel, BetTypeExcelModel>(MemberList.Source)
                 .ForMember(dest => dest.Margin, opt => opt.MapFrom(src => src.Turnover == 0 ? "N/A" : (object)src.Margin))

@@ -9,8 +9,7 @@ namespace UniversalReports.Sites.AutoMapperSettings
         public PunterAnalysisBetCountProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModelBase<BetCountModel>, ViewModelJson>(MemberList.Source);
-            CreateMap<ReportModelBase<BetCountModel>, ExcelViewModel>(MemberList.Source);
+            CreateMap<ReportModelBase<BetCountModel>, ReportModelBase<BetCountExcelModel>>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<BetCountModel, BetCountExcelModel>(MemberList.Source);
             CreateMap<HttpParameterExcel, ExcelSettingParams>(MemberList.Source);

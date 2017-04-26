@@ -29,7 +29,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         {
             var criteria = mapper.Map<Criteria>(message);
             var model = await betCountService.Query(criteria);
-            var excelViewModel = mapper.Map<ExcelViewModel>(model);
+            var excelViewModel = mapper.Map<ReportModelBase<BetCountExcelModel>>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);

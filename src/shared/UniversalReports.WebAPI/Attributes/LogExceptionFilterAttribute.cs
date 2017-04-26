@@ -10,9 +10,10 @@ namespace UniversalReports.WebAPI.Attributes
     [AttributeUsage(AttributeTargets.All)]
     public sealed class LogExceptionFilterAttribute : ExceptionFilterAttribute
     {
+#if !DEBUG
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-#if !DEBUG
+
             var exception = actionExecutedContext.Exception;
             var message = $"{exception.Message}"
                 + $"\r\nType: {exception.GetType()}"
@@ -32,7 +33,8 @@ namespace UniversalReports.WebAPI.Attributes
             }
 
             LogService.Error(message);
+
+    }
 #endif
-        }
     }
 }

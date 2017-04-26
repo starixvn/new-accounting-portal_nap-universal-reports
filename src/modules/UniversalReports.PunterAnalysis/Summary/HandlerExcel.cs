@@ -7,33 +7,16 @@ using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : HandlerExcelBase, IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
     {
-        private readonly IMapper mapper;
-
-        private readonly PunterAnalysisService punterAnalysisService;
-
-        private readonly ExcelSettingFactory setting;
-
-        private readonly PunterAnalysisExcelBuilder excelBuilder;
-
         public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
+            : base(mapper, punterAnalysisService, setting, excelBuilder)
         {
-            this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
-            this.setting = setting;
-            this.excelBuilder = excelBuilder;
         }
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var criteria = mapper.Map<Criteria>(message);
-            var model = await punterAnalysisService.Query<SummaryModel>(criteria);
-            var excelViewModel = mapper.Map<ExcelViewModel>(model);
-            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
-            var excelSetting = setting.CreateSetting(excelSettingParams);
-            var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
-            return excelPackage;
+            return await Handle<Criteria, SummaryModel, SummaryExcelModel>(message);
         }
     }
 }

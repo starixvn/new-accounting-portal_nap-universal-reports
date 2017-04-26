@@ -24,14 +24,14 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<ExcelViewModel>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModelBase<BetCountExcelModel>>(), Arg.Any<ExcelSetting>());
         }
 
         [Test]
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptyExcelViewModel = new ExcelViewModel();
+            var emptyExcelViewModel = new ReportModelBase<BetCountExcelModel>();
             var setting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
@@ -44,7 +44,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             };
 
             var mapper = Substitute.For<IMapper>();
-            mapper.Map<ExcelViewModel>(Arg.Any<ReportModelBase<BetCountModel>>()).Returns(emptyExcelViewModel);
+            mapper.Map<ReportModelBase<BetCountExcelModel>>(Arg.Any<ReportModelBase<BetCountModel>>()).Returns(emptyExcelViewModel);
             var betCountService = Substitute.For<BetCountService>();
             var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);

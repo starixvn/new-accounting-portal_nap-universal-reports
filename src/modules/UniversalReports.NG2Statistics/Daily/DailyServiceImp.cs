@@ -85,20 +85,10 @@ namespace UniversalReports.NG2Statistics.Daily
 
             var propInfo = typeof(DailyModel).GetProperty(queryModel.SortColumnName);
             var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
-            if (isAsc)
-            {
-                raw.Rows = raw
-                    .Rows
-                    .OrderBy(s => propInfo.GetValue(s.Rows[0], null))
-                    .ToList();
-            }
-            else
-            {
-                raw.Rows = raw
-                    .Rows
-                    .OrderByDescending(s => propInfo.GetValue(s.Rows[0], null))
-                    .ToList();
-            }
+            var orderStatement = isAsc
+                ? raw.Rows.OrderBy(s => propInfo.GetValue(s.Rows[0], null))
+                : raw.Rows.OrderByDescending(s => propInfo.GetValue(s.Rows[0], null));
+            raw.Rows = orderStatement.ToList();
         }
     }
 }

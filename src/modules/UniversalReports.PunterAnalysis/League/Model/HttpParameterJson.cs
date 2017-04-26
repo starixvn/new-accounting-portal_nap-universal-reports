@@ -3,7 +3,7 @@ using System;
 
 namespace UniversalReports.PunterAnalysis.League.Model
 {
-    public class HttpParameterJson : IRequest<ViewModelJson>
+    public class HttpParameterJson : IRequest<ReportModel>
     {
         public int PeriodType { get; set; }
 

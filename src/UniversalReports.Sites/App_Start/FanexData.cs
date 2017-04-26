@@ -14,7 +14,6 @@ namespace UniversalReports.Sites
              .Use(new OldConnectionStringProvider())
              .UseDefaultDbSettingProvider(
                resourcePath: $"~/App_Data/{environment}",
-               ignoreRedundantParameters: false,
                enableWatching: true)
              .Run();
         }

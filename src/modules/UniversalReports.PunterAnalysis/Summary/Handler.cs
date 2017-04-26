@@ -6,26 +6,16 @@ using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModelJson>
+    public class Handler : HandlerBase, IAsyncRequestHandler<HttpParameterJson, ReportModelBase<SummaryModel>>
     {
-        private readonly IMapper mapper;
-
-        private readonly PunterAnalysisService punterAnalysisService;
-
         public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService)
+            : base(mapper, punterAnalysisService)
         {
-            this.mapper = mapper;
-            this.punterAnalysisService = punterAnalysisService;
         }
 
-        public async Task<ViewModelJson> Handle(HttpParameterJson message)
+        public async Task<ReportModelBase<SummaryModel>> Handle(HttpParameterJson message)
         {
-            var criteria = mapper.Map<Criteria>(message);
-            var model = await punterAnalysisService.Query<SummaryModel>(criteria);
-
-            var viewModel = mapper.Map<ViewModelJson>(model);
-
-            return viewModel;
+            return await Handle<Criteria, SummaryModel>(message);
         }
     }
 }

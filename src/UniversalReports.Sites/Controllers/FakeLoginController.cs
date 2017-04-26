@@ -75,7 +75,7 @@ namespace UniversalReports.Sites.Controllers
             currentSession.Username = user.Username;
             currentSession.OnUserId = onUserId;
             currentSession.SessionId = Session.SessionID;
-            currentSession.MenuItemList = userService.GetMenuItem(user.Id, SiteId, "UAT", true).ToList();
+            currentSession.MenuItemList = userService.GetMenuItem(user.Id, SiteId, isActive: true).ToList();
         }
 
         private void CreateAuthenticationTicket(User user)

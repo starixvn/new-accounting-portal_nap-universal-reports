@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using System;
+using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
-    public class HttpParameterJson : IRequest<ViewModelJson>
+    public class HttpParameterJson : IRequest<ReportModelBase<BetCountModel>>
     {
         public int PeriodType { get; set; } = 1;
 
