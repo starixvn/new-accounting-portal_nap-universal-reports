@@ -28,9 +28,12 @@ export class AssociatedAccountGridService {
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Associated Account of Punter ${this.model.custName} ${filterModelWrapper.dateFromToTitle}`;
+        const topRow = filterModelWrapper.userLeagueModel.topRow;
+        const orderByTitle = filterModelWrapper.userLeagueWrapper.orderByTitle;
+        const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
         const filterLines = [
             `User Name: ${this.model.custName}`,
-            `Top rows: ${filterModel.topRow} - Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
+            `Top rows: ${topRow} - Order by: ${orderByTitle}, ${sortByTitle}`,
             `Sport Type: ${filterModelWrapper.selectedSportTypes}`
         ];
         if (filterModel.searchBy === SearchBy.League) {

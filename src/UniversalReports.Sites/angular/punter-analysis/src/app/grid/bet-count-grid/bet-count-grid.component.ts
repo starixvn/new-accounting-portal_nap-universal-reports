@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
-import { PeriodType } from '../../filter/filter.model';
+import { PeriodType, FilterModelWrapper } from '../../filter/filter.model';
 import { Grid } from '../grid.model';
 import { GridService } from '../grid.service';
 import { BetCountData, BetCountItem } from './bet-count-grid.model';
@@ -20,7 +20,8 @@ export class BetCountGridComponent implements Grid {
     ) { }
 
     query() {
-        this.periodType = this.gridService.filterModel.periodType;
+        const filterModelWrapper = new FilterModelWrapper(this.gridService.filterModel);
+        this.periodType = filterModelWrapper.userLeagueModel.periodType;
         this.service.query().subscribe(data => this.data = data);
     }
 

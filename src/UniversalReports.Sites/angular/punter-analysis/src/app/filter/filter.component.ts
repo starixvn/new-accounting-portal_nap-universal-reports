@@ -11,8 +11,8 @@ import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
 import {
-    SearchBy, PeriodType, OrderBy, FilterModel, UserFilterModel, LeagueFilterModel,
-    SportsbookSportTypeBetType, isUserModel, isLeagueModel, Depth, FilterModelWrapper
+    SearchBy, PeriodType, OrderBy, FilterModel, UserFilterModel, LeagueFilterModel, PerformanceFilterModel,
+    SportsbookSportTypeBetType, Depth, FilterModelWrapper
 } from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
@@ -128,7 +128,7 @@ export class FilterComponent implements OnInit {
         switch (this.searchBy) {
             case SearchBy.User:
                 if (this.depth.role === RoleId.Super || this.depth.role === RoleId.Master) {
-                    this.depth = this.depthOptions[2];
+                    this.depth = this.depthOptions[0];
                 }
                 break;
             case SearchBy.League:
@@ -262,26 +262,35 @@ export class FilterComponent implements OnInit {
     }
 
     private createModel(): FilterModel {
+        const model: FilterModel = {
+            searchBy: this.searchBy,
+            searchByOptions: this.searchByOptions,
+            fromDate: this.periodTypeEventModel.fromDate,
+            toDate: this.periodTypeEventModel.toDate
+        };
         switch (this.searchBy) {
             case SearchBy.User:
-                return this.createUserModel();
+                model.user = this.createUserModel();
+                break;
             case SearchBy.League:
-                return this.createLeagueModel();
+                model.league = this.createLeagueModel();
+                break;
+            case SearchBy.Performance:
+                model.performance = this.createPerformanceModel();
+                break;
         }
+
+        return model;
     }
 
     private createUserModel(): UserFilterModel {
         return {
-            searchBy: this.searchBy,
-            searchByOptions: this.searchByOptions,
             topRow: this.topRows,
             orderBy: this.orderBy,
             orderByOptions: this.orderByOptions,
             sortBy: this.sortBy,
             sortByOptions: this.sortByOptions,
             periodType: this.periodTypeEventModel.periodType,
-            fromDate: this.periodTypeEventModel.fromDate,
-            toDate: this.periodTypeEventModel.toDate,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             depth: this.depth,
             userName: _.trim(this.userName),
@@ -291,21 +300,25 @@ export class FilterComponent implements OnInit {
 
     private createLeagueModel(): LeagueFilterModel {
         return {
-            searchBy: this.searchBy,
-            searchByOptions: this.searchByOptions,
             topRow: this.topRows,
             orderBy: this.orderBy,
             orderByOptions: this.orderByOptions,
             sortBy: this.sortBy,
             sortByOptions: this.sortByOptions,
             periodType: this.periodTypeEventModel.periodType,
-            fromDate: this.periodTypeEventModel.fromDate,
-            toDate: this.periodTypeEventModel.toDate,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             leagueId: this.leagueId,
             leagueOptions: this.leagueOptions,
             sportType: this.sportType,
             sportOptions: this.sportOptions
+        };
+    }
+
+    private createPerformanceModel(): PerformanceFilterModel {
+        return {
+            depth: this.depth,
+            userName: _.trim(this.userName),
+            isUserNameRequired: this.isUserNameRequired
         };
     }
 

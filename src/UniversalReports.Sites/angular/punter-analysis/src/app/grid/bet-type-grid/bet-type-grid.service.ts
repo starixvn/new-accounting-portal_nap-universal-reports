@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModelWrapper, isLeagueModel } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
@@ -51,7 +51,7 @@ export class BetTypeGridService {
         queryModel.title = `Punter Analysis ${filterModelWrapper.dateFromToTitle}`;
         const filterLines = [
             `User Name: ${this.model.custName}`,
-            `Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
+            `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
             `Sport Type: ${this.model.sportName}`
         ];
         if (filterModel.searchBy === SearchBy.League) {
@@ -66,13 +66,13 @@ export class BetTypeGridService {
 
     private createQueryModel(): any {
         const filterModel = this.gridService.filterModel;
-        const wrapper = new FilterModelWrapper(filterModel);
+        const filterModelWrapper = new FilterModelWrapper(filterModel);
         return {
-            periodType: filterModel.periodType,
-            fromDate: wrapper.fromDateQueryString,
-            toDate: wrapper.toDateQueryString,
-            listCombinationId: wrapper.listCombinationId,
-            leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0,
+            periodType: filterModelWrapper.userLeagueModel.periodType,
+            fromDate: filterModelWrapper.fromDateQueryString,
+            toDate: filterModelWrapper.toDateQueryString,
+            listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
+            leagueId: filterModelWrapper.leagueId,
             custId: this.model.custId,
             sportId: this.model.sportId
         };

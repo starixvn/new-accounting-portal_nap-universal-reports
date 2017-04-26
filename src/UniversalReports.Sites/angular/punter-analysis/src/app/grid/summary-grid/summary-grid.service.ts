@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModel, FilterModelWrapper, isLeagueModel, isUserModel } from '../../filter/filter.model';
+import { SearchBy, FilterModel, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';
@@ -48,23 +48,26 @@ export class SummaryGridService {
     exportExcel() {
         const url = `${this.url}/excel`;
         const filterModel = this.gridService.filterModel;
-        const wrapper = new FilterModelWrapper(filterModel);
+        const filterModelWrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
-        queryModel.title = `Punter Analysis ${wrapper.dateFromToTitle}`;
+        queryModel.title = `Punter Analysis ${filterModelWrapper.dateFromToTitle}`;
         const filterLines = [];
         if (filterModel.searchBy === SearchBy.User) {
-            filterLines.push(`Depth: ${wrapper.depthTitle} - Account name: ${wrapper.userNameTitle}`);
+            filterLines.push(`Depth: ${filterModelWrapper.depthTitle} - Account name: ${filterModelWrapper.userNameTitle}`);
         } else if (filterModel.searchBy === SearchBy.League) {
             filterLines.push('User Name: All');
         }
-        filterLines.push(`Top rows: ${filterModel.topRow} - Order by: ${wrapper.orderByTitle}, ${wrapper.sortByTitle}`);
-        filterLines.push(`Sport Type: ${wrapper.selectedSportTypes}`);
+        const topRow = filterModelWrapper.userLeagueModel.topRow;
+        const orderByTitle = filterModelWrapper.userLeagueWrapper.orderByTitle;
+        const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
+        filterLines.push(`Top rows: ${topRow} - Order by: ${orderByTitle}, ${sortByTitle}`);
+        filterLines.push(`Sport Type: ${filterModelWrapper.selectedSportTypes}`);
         if (filterModel.searchBy === SearchBy.League) {
-            filterLines.push(`League: ${wrapper.leagueTitle}`);
+            filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
         }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `Top_Punter_Summary_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
+            const fileName = `Top_Punter_Summary_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
             Helper.saveExcel(response, fileName);
         });
     }
@@ -72,17 +75,18 @@ export class SummaryGridService {
     private createQueryModel(): any {
         const filterModel = this.gridService.filterModel;
         const filterModelWrapper = new FilterModelWrapper(filterModel);
+        const userLeagueModel = filterModelWrapper.userLeagueModel;
         return {
-            topRow: filterModel.topRow,
-            orderBy: filterModel.orderBy,
-            sortBy: filterModel.sortBy,
-            periodType: filterModel.periodType,
+            topRow: userLeagueModel.topRow,
+            orderBy: userLeagueModel.orderBy,
+            sortBy: userLeagueModel.sortBy,
+            periodType: userLeagueModel.periodType,
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
-            depth: isUserModel(filterModel) ? filterModel.depth.role : 0,
-            userName: isUserModel(filterModel) ? filterModel.userName : '',
-            listCombinationId: filterModelWrapper.listCombinationId,
-            leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0
+            depth: filterModel.user ? filterModel.user.depth.role : 0,
+            userName: filterModel.user ? filterModel.user.userName : '',
+            listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
+            leagueId: filterModelWrapper.leagueId
         };
     }
 }

@@ -79,20 +79,20 @@ export class PeriodTypeComponent implements OnChanges {
     }
 
     onDailyDateChange() {
-        const dailyDate = this.dailyFromDate;
         this.emitChange({
             periodType: this.periodType,
-            fromDate: dailyDate,
-            toDate: dailyDate
+            fromDate: this.dailyFromDate,
+            toDate: this.dailyToDate
         });
     }
 
     onWeeklyDateChange() {
-        const weeklyDate = DateHelper.getFirstDayOfWeek(this.weeklyFromDate);
+        const weeklyFromDate = DateHelper.getFirstDayOfWeek(this.weeklyFromDate);
+        const weeklyToDate = DateHelper.getFirstDayOfWeek(this.weeklyToDate);
         this.emitChange({
             periodType: this.periodType,
-            fromDate: weeklyDate,
-            toDate: weeklyDate
+            fromDate: weeklyFromDate,
+            toDate: weeklyToDate
         });
     }
 

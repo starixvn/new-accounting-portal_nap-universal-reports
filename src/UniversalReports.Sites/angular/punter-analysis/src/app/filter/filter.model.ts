@@ -36,11 +36,6 @@ export interface Depth {
     text: string;
 }
 
-interface CommonFilterModel {
-    searchBy: SearchBy;
-    searchByOptions: SelectItem[];
-}
-
 interface CommonUserLeagueFilterModel {
     topRow: number;
     orderBy: OrderBy;
@@ -48,42 +43,72 @@ interface CommonUserLeagueFilterModel {
     sortBy: SortBy;
     sortByOptions: SelectItem[];
     periodType: PeriodType;
-    fromDate: NgbDateStruct;
-    toDate: NgbDateStruct;
     selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
 }
 
-export interface UserFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
+export interface PerformanceFilterModel {
     depth: Depth;
     userName: string;
     isUserNameRequired: boolean;
 }
 
-export interface LeagueFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
+export interface UserFilterModel extends CommonUserLeagueFilterModel, PerformanceFilterModel { }
+
+export interface LeagueFilterModel extends CommonUserLeagueFilterModel {
     leagueId: number;
     leagueOptions: SelectItem[];
     sportType: number;
     sportOptions: SelectItem[];
 }
 
-export type FilterModel = UserFilterModel | LeagueFilterModel;
-
-export function isUserModel(filterModel: FilterModel): filterModel is UserFilterModel {
-    return filterModel.searchBy === SearchBy.User;
-}
-
-export function isLeagueModel(filterModel: FilterModel): filterModel is LeagueFilterModel {
-    return filterModel.searchBy === SearchBy.League;
+export interface FilterModel {
+    searchBy: SearchBy;
+    searchByOptions: SelectItem[];
+    fromDate: NgbDateStruct;
+    toDate: NgbDateStruct;
+    user?: UserFilterModel;
+    league?: LeagueFilterModel;
+    performance?: PerformanceFilterModel;
 }
 
 export class FilterModelWrapper {
+    readonly userLeagueModel: CommonUserLeagueFilterModel;
+    readonly userLeagueWrapper: UserLeagueFilterModelWrapper;
+    readonly userPerformanceModel: PerformanceFilterModel;
+
+    static getDateFromToString(periodType: PeriodType, fromDate: NgbDateStruct, toDate: NgbDateStruct): string {
+        switch (periodType) {
+            case PeriodType.Daily:
+            case PeriodType.Weekly:
+                const fromDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Date);
+                const toDateString = DateHelper.formatDateStruct(toDate, DateFormat.Date);
+                return `from ${fromDateString} to ${toDateString}`;
+            case PeriodType.Monthly:
+                const monthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
+                return `in ${monthDateString}`;
+            case PeriodType.MonthRange:
+                const fromMonthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
+                const toMonthDateString = DateHelper.formatDateStruct(toDate, DateFormat.Month);
+                return `from ${fromMonthDateString} to ${toMonthDateString}`;
+            case PeriodType.Annually:
+                const yearDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Year);
+                return `in ${yearDateString}`;
+        }
+
+        return '';
+    }
+
     constructor(
         private filterModel: FilterModel
-    ) { }
+    ) {
+        this.userLeagueModel = this.filterModel.user || this.filterModel.league;
+        this.userLeagueWrapper = new UserLeagueFilterModelWrapper(this.userLeagueModel);
+        this.userPerformanceModel = this.filterModel.user || this.filterModel.performance;
+    }
 
     validate(): string {
-        if (this.filterModel.searchBy !== SearchBy.Performance) {
-            if (this.filterModel.periodType === PeriodType.Daily || this.filterModel.periodType === PeriodType.Weekly) {
+        if (this.userLeagueModel) {
+            if (this.userLeagueModel.periodType === PeriodType.Daily || this.userLeagueModel.periodType === PeriodType.Weekly) {
                 const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
                 const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
                 if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
@@ -92,22 +117,20 @@ export class FilterModelWrapper {
             }
         }
 
-        if (isUserModel(this.filterModel) && this.filterModel.isUserNameRequired && this.filterModel.userName === '') {
+        if (this.userPerformanceModel && this.userPerformanceModel.isUserNameRequired && this.userPerformanceModel.userName === '') {
             return 'Account name field is required!';
         }
 
-        if (isUserModel(this.filterModel)) {
-            if (this.filterModel.selectedBetTypeTreeviewItems.length === 0) {
-                return 'Please select at least one Product!';
-            }
+        if (this.filterModel.user && this.filterModel.user.selectedBetTypeTreeviewItems.length === 0) {
+            return 'Please select at least one Product!';
         }
 
-        if (isLeagueModel(this.filterModel)) {
-            if (this.filterModel.selectedBetTypeTreeviewItems.length === 0) {
+        if (this.filterModel.league) {
+            if (this.filterModel.league.selectedBetTypeTreeviewItems.length === 0) {
                 return 'Please select at least one Bet Type!';
             }
 
-            if (this.filterModel.leagueId === 0) {
+            if (this.filterModel.league.leagueId === 0) {
                 return 'There is no league available!';
             }
         }
@@ -116,26 +139,19 @@ export class FilterModelWrapper {
     }
 
     get depthTitle(): string {
-        if (isUserModel(this.filterModel)) {
-            const depth = this.filterModel.depth;
-            return this.filterModel.depth.text;
-        }
+        const commonModel = this.filterModel.user || this.filterModel.performance;
+        return commonModel.depth.text;
     }
 
     get userNameTitle(): string {
-        if (isUserModel(this.filterModel)) {
-            const userName = this.filterModel.userName;
+        if (this.filterModel.user) {
+            const userName = this.filterModel.user.userName;
             if (!_.isNil(userName) && userName !== '') {
                 return userName;
             }
 
             return 'All';
         }
-    }
-
-    get listCombinationId(): string {
-        const values = this.filterModel.selectedBetTypeTreeviewItems.map(betTypeItem => betTypeItem.item.value);
-        return values.join(',');
     }
 
     get fromDateQueryString(): string {
@@ -147,38 +163,59 @@ export class FilterModelWrapper {
     }
 
     get selectedSportTypes(): string {
-        if (isUserModel(this.filterModel)) {
+        if (this.filterModel.user) {
             const sportTypes: string[] = [];
-            this.filterModel.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
+            this.filterModel.user.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
                 const sportType = betTypeItem.parent.item.text;
                 if (sportTypes.indexOf(sportType) === -1) {
                     sportTypes.push(sportType);
                 }
             });
             return sportTypes.join(', ');
-        } else {
-            const sportType = this.filterModel.sportType;
-            return this.filterModel.sportOptions.filter(item => item.value === sportType)[0].text;
+        } else if (this.filterModel.league) {
+            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].text;
         }
     }
 
     get leagueTitle(): string {
-        if (isLeagueModel(this.filterModel)) {
-            const leagueId = this.filterModel.leagueId;
-            return this.filterModel.leagueOptions.filter(option => option.value === leagueId)[0].text;
-        }
+        return this.filterModel.league.leagueOptions.filter(option => option.value === this.filterModel.league.leagueId)[0].text;
     }
 
-    get orderByTitle(): string {
-        return this.filterModel.orderByOptions.filter(option => option.value === this.filterModel.orderBy)[0].text;
+    get leagueId(): number {
+        return this.filterModel.league ? this.filterModel.league.leagueId : 0;
     }
 
-    get sortByTitle(): string {
-        return this.filterModel.sortByOptions.filter(option => option.value === this.filterModel.sortBy)[0].text;
+    get searchByTitle(): string {
+        return this.filterModel.searchByOptions.filter(option => option.value === this.filterModel.searchBy)[0].text;
     }
+
+    get searchByFileName(): string {
+        return `Search_by_${this.searchByTitle}`;
+    }
+
+    get dateFromToTitle(): string {
+        const dateFromToDateString = FilterModelWrapper.getDateFromToString(
+            this.userLeagueModel.periodType,
+            this.filterModel.fromDate,
+            this.filterModel.toDate);
+        return `${dateFromToDateString} (${this.userLeagueWrapper.periodTitle})`;
+    }
+
+    get dateFromToFileName(): string {
+        let dateFromToDateString = FilterModelWrapper.getDateFromToString(
+            this.userLeagueModel.periodType,
+            this.filterModel.fromDate,
+            this.filterModel.toDate);
+        dateFromToDateString = dateFromToDateString.replace(/ /g, '_').replace(/,/g, '');
+        return dateFromToDateString;
+    }
+}
+
+export class UserLeagueFilterModelWrapper {
+    constructor(private model: CommonUserLeagueFilterModel) { }
 
     get periodTitle(): string {
-        switch (this.filterModel.periodType) {
+        switch (this.model.periodType) {
             case PeriodType.Daily:
                 return 'Daily';
             case PeriodType.Weekly:
@@ -191,44 +228,15 @@ export class FilterModelWrapper {
         }
     }
 
-    get dateFromToTitle(): string {
-        const dateFromToDateString = this.getDateFromToString();
-        return `${dateFromToDateString} (${this.periodTitle})`;
+    get listCombinationId(): string {
+        return this.model.selectedBetTypeTreeviewItems.map(betTypeItem => betTypeItem.item.value).join(',');
     }
 
-    get dateFromToFileName(): string {
-        let dateFromToDateString = this.getDateFromToString();
-        dateFromToDateString = dateFromToDateString.replace(/ /g, '_').replace(/,/g, '');
-        return dateFromToDateString;
+    get orderByTitle(): string {
+        return this.model.orderByOptions.filter(option => option.value === this.model.orderBy)[0].text;
     }
 
-    get searchByTitle(): string {
-        return this.filterModel.searchByOptions.filter(option => option.value === this.filterModel.searchBy)[0].text;
-    }
-
-    get searchByFileName(): string {
-        return `Search_by_${this.searchByTitle}`;
-    }
-
-    private getDateFromToString(): string {
-        switch (this.filterModel.periodType) {
-            case PeriodType.Daily:
-            case PeriodType.Weekly:
-                const fromDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Date);
-                const toDateString = DateHelper.formatDateStruct(this.filterModel.toDate, DateFormat.Date);
-                return `from ${fromDateString} to ${toDateString}`;
-            case PeriodType.Monthly:
-                const monthDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Month);
-                return `in ${monthDateString}`;
-            case PeriodType.MonthRange:
-                const fromMonthDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Month);
-                const toMonthDateString = DateHelper.formatDateStruct(this.filterModel.toDate, DateFormat.Month);
-                return `from ${fromMonthDateString} to ${toMonthDateString}`;
-            case PeriodType.Annually:
-                const yearDateString = DateHelper.formatDateStruct(this.filterModel.fromDate, DateFormat.Year);
-                return `in ${yearDateString}`;
-        }
-
-        return '';
+    get sortByTitle(): string {
+        return this.model.sortByOptions.filter(option => option.value === this.model.sortBy)[0].text;
     }
 }

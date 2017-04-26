@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModelWrapper, isLeagueModel } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
 import { LeagueGridModel, LeagueData } from './league-grid.model';
@@ -42,7 +42,7 @@ export class LeagueGridService {
         queryModel.title = `Punter Analysis ${filterModelWrapper.dateFromToTitle}`;
         const filterLines = [
             `User Name: ${this.model.custName}`,
-            `Order by: ${filterModelWrapper.orderByTitle}, ${filterModelWrapper.sortByTitle}`,
+            `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
             `Sport Type: ${this.model.sportName}`,
             `Bet Type: ${this.model.betTypeName} - Status: ${this.getLiveStatusTitle()}`
         ];
@@ -60,11 +60,11 @@ export class LeagueGridService {
         const filterModel = this.gridService.filterModel;
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         return {
-            periodType: filterModel.periodType,
+            periodType: filterModelWrapper.userLeagueModel.periodType,
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
-            listCombinationId: filterModelWrapper.listCombinationId,
-            leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0,
+            listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
+            leagueId: filterModelWrapper.leagueId,
             custId: this.model.custId,
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
