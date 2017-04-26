@@ -153,6 +153,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseServices\BaseModel.cs" />
     <Compile Include="Bettype\BettypeController.cs" />
     <Compile Include="Bettype\BettypeCriteria.cs" />
     <Compile Include="Bettype\BettypeModel.cs" />

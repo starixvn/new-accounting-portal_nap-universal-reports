@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpper(),
-                BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
+                BodyRows = BuildGroupBetTypeBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowTree = true,
@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLossSummaryByBetTypeGroup> winLoss)
+        private List<GridDataRow> BuildGroupBetTypeBodyRows(IEnumerable<WinLossSummaryByBetTypeGroup> winLoss)
         {
             var bodyRows = new List<GridDataRow>();
             foreach (var winLossSummary in winLoss)

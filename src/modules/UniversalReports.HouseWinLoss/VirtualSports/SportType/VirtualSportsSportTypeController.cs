@@ -5,7 +5,7 @@ using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 
 namespace UniversalReports.HouseWinLoss.VirtualSports.SportType
 {
-    [RoutePrefix("api/house-win-loss-by-products/virtual-sports/sport-type")]
+    [RoutePrefix("api/house-win-loss-by-products")]
     public class VirtualSportsSportTypeController : BasicWinLossController
     {
         public VirtualSportsSportTypeController(
@@ -16,14 +16,14 @@ namespace UniversalReports.HouseWinLoss.VirtualSports.SportType
         {
         }
 
-        [Route("")]
+        [Route("virtual-sports/sport-type")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
             return Json(criteria, "Sport Type");
         }
 
-        [Route("excel")]
+        [Route("virtual-sports/sport-type/excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
