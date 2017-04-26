@@ -37,11 +37,9 @@ const commonUserLeagueModel = _.extend(commonModel, {
 });
 
 const commonUserPerformanceModel = {
-    depth: RoleId.Agent,
-    depthOptions: [
-        { text: 'Agent', value: RoleId.Agent }
-    ],
+    depth: { role: RoleId.Agent, text: 'Agent' },
     userName: 'ABC',
+    isUserNameRequired: true
 };
 
 export let fakeUserFilterModel: UserFilterModel = _.extend({}, _.extend({}, commonUserLeagueModel, commonUserPerformanceModel), {

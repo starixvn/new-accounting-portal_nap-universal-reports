@@ -60,7 +60,7 @@
                 <label class="col-form-label">Depth</label>
             </div>
             <div class="col-value">
-                <nap-dropdown-select [items]="depthOptions" [(value)]="depth"></nap-dropdown-select>
+                <nap-dropdown-select [items]="depthOptions | napDropdownSelect:'text'" [(value)]="depth"></nap-dropdown-select>
             </div>
         </div>
         <div class="col-x1" *ngIf="searchBy === SearchBy.League">

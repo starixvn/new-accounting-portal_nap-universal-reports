@@ -79,7 +79,7 @@ export class SummaryGridService {
             periodType: filterModel.periodType,
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
-            depth: isUserModel(filterModel) ? filterModel.depth : 0,
+            depth: isUserModel(filterModel) ? filterModel.depth.role : 0,
             userName: isUserModel(filterModel) ? filterModel.userName : '',
             listCombinationId: filterModelWrapper.listCombinationId,
             leagueId: isLeagueModel(filterModel) ? filterModel.leagueId : 0

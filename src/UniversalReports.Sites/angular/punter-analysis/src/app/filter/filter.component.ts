@@ -12,7 +12,7 @@ import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
 import {
     SearchBy, PeriodType, OrderBy, FilterModel, UserFilterModel, LeagueFilterModel,
-    SportsbookSportTypeBetType, isUserModel, isLeagueModel
+    SportsbookSportTypeBetType, isUserModel, isLeagueModel, Depth, FilterModelWrapper
 } from './filter.model';
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
@@ -36,8 +36,8 @@ export class FilterComponent implements OnInit {
     SearchBy = SearchBy;
     searchBy = SearchBy.User;
     searchByOptions = this.getSearchByOptions();
-    depth = RoleId.Agent;
     depthOptions = this.getDepthOptions();
+    depth = this.depthOptions[0];
     topRows = 10;
     userName = '';
     userNameTypeaheadQuery = this.buildUserNameTypeaheadQuery();
@@ -86,7 +86,7 @@ export class FilterComponent implements OnInit {
     get isUserNameRequired(): boolean {
         switch (this.searchBy) {
             case SearchBy.User:
-                return this.depth !== RoleId.Member;
+                return this.depth.role !== RoleId.Member;
             case SearchBy.League:
                 return false;
             case SearchBy.Performance:
@@ -95,7 +95,7 @@ export class FilterComponent implements OnInit {
     }
 
     get userNamePlaceholder(): string {
-        switch (this.depth) {
+        switch (this.depth.role) {
             case RoleId.Super:
                 return 'Super name';
             case RoleId.Master:
@@ -127,8 +127,8 @@ export class FilterComponent implements OnInit {
         this.reset.emit();
         switch (this.searchBy) {
             case SearchBy.User:
-                if (this.depth === RoleId.Super || this.depth === RoleId.Master) {
-                    this.depth = RoleId.Agent;
+                if (this.depth.role === RoleId.Super || this.depth.role === RoleId.Master) {
+                    this.depth = this.depthOptions[2];
                 }
                 break;
             case SearchBy.League:
@@ -173,15 +173,20 @@ export class FilterComponent implements OnInit {
     onGenerate() {
         this.reset.emit();
         const model = this.createModel();
-        if (this.validateModel(model)) {
-            this.service.checkDatabaseAvailable().subscribe(isAvailable => {
-                if (isAvailable) {
-                    this.generate.emit(model);
-                } else {
-                    this.toastService.activate('Data is being processed.... Please try again after 10 minutes!');
-                }
-            });
+        const wrapper = new FilterModelWrapper(model);
+        const validateMessage = wrapper.validate();
+        if (validateMessage) {
+            this.toastService.activate(validateMessage);
+            return;
         }
+
+        this.service.checkDatabaseAvailable().subscribe(isAvailable => {
+            if (isAvailable) {
+                this.generate.emit(model);
+            } else {
+                this.toastService.activate('Data is being processed.... Please try again after 10 minutes!');
+            }
+        });
     }
 
     private loadSports() {
@@ -250,48 +255,9 @@ export class FilterComponent implements OnInit {
         };
     }
 
-    private validateModel(model: FilterModel): boolean {
-        if (this.searchBy !== SearchBy.Performance) {
-            if (model.periodType === PeriodType.Daily || model.periodType === PeriodType.Weekly) {
-                const momentFromDate = DateHelper.convertDateStructToMoment(model.fromDate);
-                const momentToDate = DateHelper.convertDateStructToMoment(model.toDate);
-                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
-                    this.toastService.activate('Date range should not exceed 1 month!');
-                    return false;
-                }
-            }
-        }
-
-        if (isUserModel(model) && this.isUserNameRequired && model.userName === '') {
-            this.toastService.activate('Account name field is required!');
-            return false;
-        }
-
-        if (isUserModel(model)) {
-            if (model.selectedBetTypeTreeviewItems.length === 0) {
-                this.toastService.activate('Please select at least one Product!');
-                return false;
-            }
-        }
-
-        if (isLeagueModel(model)) {
-            if (model.selectedBetTypeTreeviewItems.length === 0) {
-                this.toastService.activate('Please select at least one Bet Type!');
-                return false;
-            }
-
-            if (model.leagueId === 0) {
-                this.toastService.activate('There is no league available!');
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     private buildUserNameTypeaheadQuery(): TypeaheadQuery {
         return new TypeaheadQuery(term => {
-            return this.service.queryUserNameSuggestion(term, this.depth);
+            return this.service.queryUserNameSuggestion(term, this.depth.role);
         });
     }
 
@@ -318,8 +284,8 @@ export class FilterComponent implements OnInit {
             toDate: this.periodTypeEventModel.toDate,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             depth: this.depth,
-            depthOptions: this.depthOptions,
-            userName: _.trim(this.userName)
+            userName: _.trim(this.userName),
+            isUserNameRequired: this.isUserNameRequired
         };
     }
 
@@ -356,21 +322,21 @@ export class FilterComponent implements OnInit {
         }];
     }
 
-    private getDepthOptions(): SelectItem[] {
-        let result: SelectItem[] = [{
+    private getDepthOptions(): Depth[] {
+        let result: Depth[] = [{
             text: 'Agent',
-            value: RoleId.Agent
+            role: RoleId.Agent
         }, {
             text: 'Member',
-            value: RoleId.Member
+            role: RoleId.Member
         }];
         if (this.searchBy === SearchBy.Performance) {
-            const list: SelectItem[] = [{
+            const list: Depth[] = [{
                 text: 'Super',
-                value: RoleId.Super
+                role: RoleId.Super
             }, {
                 text: 'Master',
-                value: RoleId.Master
+                role: RoleId.Master
             }];
             result = _.concat(list, result);
         }

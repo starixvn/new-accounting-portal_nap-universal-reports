@@ -31,6 +31,11 @@ export enum OrderBy {
     Margin = 3
 }
 
+export interface Depth {
+    role: RoleId;
+    text: string;
+}
+
 interface CommonFilterModel {
     searchBy: SearchBy;
     searchByOptions: SelectItem[];
@@ -49,9 +54,9 @@ interface CommonUserLeagueFilterModel {
 }
 
 export interface UserFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
-    depth: RoleId;
-    depthOptions: SelectItem[];
+    depth: Depth;
     userName: string;
+    isUserNameRequired: boolean;
 }
 
 export interface LeagueFilterModel extends CommonFilterModel, CommonUserLeagueFilterModel {
@@ -76,10 +81,44 @@ export class FilterModelWrapper {
         private filterModel: FilterModel
     ) { }
 
+    validate(): string {
+        if (this.filterModel.searchBy !== SearchBy.Performance) {
+            if (this.filterModel.periodType === PeriodType.Daily || this.filterModel.periodType === PeriodType.Weekly) {
+                const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+                const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
+                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
+                    return 'Date range should not exceed 1 month!';
+                }
+            }
+        }
+
+        if (isUserModel(this.filterModel) && this.filterModel.isUserNameRequired && this.filterModel.userName === '') {
+            return 'Account name field is required!';
+        }
+
+        if (isUserModel(this.filterModel)) {
+            if (this.filterModel.selectedBetTypeTreeviewItems.length === 0) {
+                return 'Please select at least one Product!';
+            }
+        }
+
+        if (isLeagueModel(this.filterModel)) {
+            if (this.filterModel.selectedBetTypeTreeviewItems.length === 0) {
+                return 'Please select at least one Bet Type!';
+            }
+
+            if (this.filterModel.leagueId === 0) {
+                return 'There is no league available!';
+            }
+        }
+
+        return undefined;
+    }
+
     get depthTitle(): string {
         if (isUserModel(this.filterModel)) {
             const depth = this.filterModel.depth;
-            return this.filterModel.depthOptions.filter(option => option.value === depth)[0].text;
+            return this.filterModel.depth.text;
         }
     }
 
