@@ -298,7 +298,7 @@
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
-                        return "stateConnectionString=\"tcpip=10.35.35.254:42424\"";
+                        return "stateConnectionString=\"tcpip=10.35.35.253:42424\"";
                 }
             }
         }
@@ -311,7 +311,7 @@
                 {
 					case SiteEnvironment.LOCAL:
 					case SiteEnvironment.DEV:
-                        return @"FormatName:DIRECT=http://10.35.35.254:808/msmq/Private$/entlib";
+                        return @"FormatName:DIRECT=http://10.35.35.253:808/msmq/Private$/entlib";
 
 					case SiteEnvironment.UAT:
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";
