@@ -29,7 +29,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,

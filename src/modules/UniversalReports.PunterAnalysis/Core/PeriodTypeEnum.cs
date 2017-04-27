@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.PunterAnalysis.Core
 {
-    public enum PeriodTypeEnum
+    public enum PeriodType
     {
         None = 0,
         Daily = 1,

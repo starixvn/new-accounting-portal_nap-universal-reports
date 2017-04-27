@@ -21,16 +21,16 @@ namespace UniversalReports.PunterAnalysis.League
         public LeagueService CreateLeagueService(int periodType)
         {
             var dateTimeService = new DateTimeServiceImp();
-            var periodTypeEnum = (PeriodTypeEnum)periodType;
+            var periodTypeEnum = (PeriodType)periodType;
 
             switch (periodTypeEnum)
             {
-                case PeriodTypeEnum.Weekly:
+                case PeriodType.Weekly:
                     return new LeagueServiceByWeek(repository, dateTimeService);
-                case PeriodTypeEnum.Annually:
-                case PeriodTypeEnum.Daily:
-                case PeriodTypeEnum.Monthly:
-                case PeriodTypeEnum.MonthRange:
+                case PeriodType.Annually:
+                case PeriodType.Daily:
+                case PeriodType.Monthly:
+                case PeriodType.MonthRange:
                     return new LeagueServiceByMonth(repository);
                 default:
                     throw new NotImplementedException();

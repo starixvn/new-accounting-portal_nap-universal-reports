@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.Products
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = winLoss.IsEmpty ? new List<GridDataRow>() : BuildBodyRows(winLoss),
                 FooterRows = BuildFooter(winLoss.GrandTotal),
                 ShowHighlightRow = false,
@@ -143,12 +143,11 @@ namespace UniversalReports.HouseWinLoss.Products
             return new List<GridDataRow> { row };
         }
 
-        private GridDataRow FormatTotalRow(GridDataRow row)
+        private void FormatTotalRow(GridDataRow row)
         {
             row.CssClass = "grand-total";
             row.Columns.First(c => c.Name == "VirtualMargin").Value = string.Empty;
             row.Columns.First(c => c.Name == "RealMargin").Value = string.Empty;
-            return row;
         }
     }
 }

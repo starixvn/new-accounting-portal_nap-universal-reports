@@ -1,8 +1,8 @@
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-using System.Reflection;
 using System.Web.Mvc;
+using UniversalReports.Sites.Controllers;
 using UniversalReports.Sites.SimpleInjector;
 
 [assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMvcInitializer), "Initialize")]
@@ -26,7 +26,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterPunterAnalysisServices()
                 .RegisterPlayForFunServices();
 
-            Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            var homeControllerType = typeof(HomeController);
+            Container.RegisterMvcControllers(homeControllerType.Assembly);
 
             Container.Verify();
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(Container));

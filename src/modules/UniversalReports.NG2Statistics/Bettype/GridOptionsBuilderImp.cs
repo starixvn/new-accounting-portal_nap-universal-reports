@@ -40,34 +40,34 @@ namespace UniversalReports.NG2Statistics.Bettype
 
         private List<GridDataRow> BuildBodyRows(BettypeModel bettypeModel)
         {
-            var bettypeIndex = 0;
             var gridRows = new List<GridDataRow>();
             foreach (var sportType in bettypeModel.Rows)
             {
                 var sportTypeRow = BuildDataSportRow(sportType.Sporttype);
                 gridRows.Add(sportTypeRow);
 
-                foreach (var bettype in sportType.Rows)
-                {
-                    var mergeRowNumber = bettype.Rows.Count;
-                    foreach (var row in bettype.Rows)
-                    {
-                        if (bettypeIndex > 0)
-                        {
-                            mergeRowNumber = 0;
-                        }
-
-                        var bettypeRow = BuildDataRow(row, mergeRowNumber, false);
-                        gridRows.Add(bettypeRow);
-
-                        bettypeIndex++;
-                    }
-
-                    bettypeIndex = 0;
-                }
+                BuildBetTypeRows(gridRows, sportType);
             }
 
             return gridRows;
+        }
+
+        private void BuildBetTypeRows(List<GridDataRow> gridRows, BettypeModel sportType)
+        {
+            int bettypeIndex = 0;
+            foreach (var bettype in sportType.Rows)
+            {
+                var mergeRowNumber = bettype.Rows.Count;
+                foreach (var row in bettype.Rows)
+                {
+                    mergeRowNumber = bettypeIndex > 0 ? 0 : mergeRowNumber;
+
+                    var bettypeRow = BuildDataRow(row, mergeRowNumber, false);
+                    gridRows.Add(bettypeRow);
+
+                    bettypeIndex++;
+                }
+            }
         }
 
         private GridDataRow BuildDataSportRow(string sportType)

@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,

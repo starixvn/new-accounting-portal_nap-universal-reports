@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
             return new GridOptions
             {
                 ShowTitle = true,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 TitleType = TitleType.TwoLineBlue,
                 BodyRows = BuildBodyRows(winLoss.Sites),
                 FooterRows = BuildFooter(winLoss.Total),

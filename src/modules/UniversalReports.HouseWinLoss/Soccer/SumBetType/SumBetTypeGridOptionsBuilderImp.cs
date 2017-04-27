@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
                 CustomizeHeader = true,
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = BuildSumBetTypeBodyRows(winLoss.SiteWinLossSummaries),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,

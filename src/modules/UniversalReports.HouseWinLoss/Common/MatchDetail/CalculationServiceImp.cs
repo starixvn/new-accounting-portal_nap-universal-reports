@@ -102,7 +102,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 return new WinLoss();
             }
 
-            rawWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
+            var matchWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
             var sumWinLoss = new RawWinLoss
             {
                 AwayId = 0,
@@ -113,14 +113,14 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 LeagueId = 0,
                 MatchCode = string.Empty,
                 MatchId = 0,
-                SMAWinLoss = rawWinLosses.Sum(r => r.SMAWinLoss),
-                MemberWinLoss = rawWinLosses.Sum(r => r.MemberWinLoss),
-                Commission = rawWinLosses.Sum(r => r.Commission),
-                RealIncome = rawWinLosses.Sum(r => r.RealIncome),
-                VirtualIncome = rawWinLosses.Sum(r => r.VirtualIncome),
-                RealTurnover = rawWinLosses.Sum(r => r.RealTurnover),
-                VirtualTurnover = rawWinLosses.Sum(r => r.VirtualTurnover),
-                VarianceIncome = rawWinLosses.Sum(r => r.VarianceIncome)
+                SMAWinLoss = matchWinLosses.Sum(r => r.SMAWinLoss),
+                MemberWinLoss = matchWinLosses.Sum(r => r.MemberWinLoss),
+                Commission = matchWinLosses.Sum(r => r.Commission),
+                RealIncome = matchWinLosses.Sum(r => r.RealIncome),
+                VirtualIncome = matchWinLosses.Sum(r => r.VirtualIncome),
+                RealTurnover = matchWinLosses.Sum(r => r.RealTurnover),
+                VirtualTurnover = matchWinLosses.Sum(r => r.VirtualTurnover),
+                VarianceIncome = matchWinLosses.Sum(r => r.VarianceIncome)
             };
 
             return FromRawWinLoss(sumWinLoss);

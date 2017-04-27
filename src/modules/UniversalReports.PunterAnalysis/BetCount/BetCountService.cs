@@ -52,12 +52,12 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         public string FormatDateTimeByPeriodType(int periodType, DateTime date)
         {
-            switch ((PeriodTypeEnum)periodType)
+            switch ((PeriodType)periodType)
             {
-                case PeriodTypeEnum.Daily:
+                case PeriodType.Daily:
                     return $"{date:yyyy-MM-dd}";
 
-                case PeriodTypeEnum.Weekly:
+                case PeriodType.Weekly:
                     return $"{date:MM/yyyy} - Week {dateTimeService.GetWeekOfYearIso8601(date)}";
 
                 default:

@@ -7,7 +7,7 @@ namespace UniversalReports.PunterAnalysis.Core
     {
         DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
 
-        int GetWeekOfYearIso8601(DateTime time);
+        int GetWeekOfYearIso8601(DateTime dateTime);
     }
 
     public class DateTimeServiceImp : DateTimeService
@@ -27,15 +27,14 @@ namespace UniversalReports.PunterAnalysis.Core
             return result.AddDays(-3);
         }
 
-        public int GetWeekOfYearIso8601(DateTime time)
+        public int GetWeekOfYearIso8601(DateTime dateTime)
         {
-            var day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
-            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
-            {
-                time = time.AddDays(3);
-            }
+            var day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(dateTime);
+            var realDate = day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday
+                ? dateTime.AddDays(3)
+                : dateTime;
 
-            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(realDate, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
     }
 }

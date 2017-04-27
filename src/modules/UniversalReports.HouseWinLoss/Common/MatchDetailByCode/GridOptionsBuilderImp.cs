@@ -19,7 +19,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             {
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
-                TitleInfoText = title.ToUpper(),
+                TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = BuildBodyRows(winLoss.Leagues),
                 FooterRows = BuildFooter(winLoss.Total),
                 ShowFooter = true,

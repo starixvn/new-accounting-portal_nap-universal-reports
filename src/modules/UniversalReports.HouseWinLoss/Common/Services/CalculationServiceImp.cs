@@ -107,14 +107,14 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return totalWinLoss;
         }
 
-        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
+        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> arawWinLosses)
         {
-            rawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
+            var nonRMWinLosses = arawWinLosses.Where(r => r.GroupName != "RM");
             var grandTotal = new SiteWinLossSummary
             {
-                Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(rawWinLosses),
-                Total = CalculateSumWinLoss(sumTitle, rawWinLosses)
+                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
+                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
+                Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
             };
 
             return grandTotal;
@@ -122,12 +122,12 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         public virtual SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
-            rawWinLosses = rawWinLosses.Where(r => r.GroupName != "RM" && r.GroupId != 500);
+            var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM" && r.GroupId != 500);
             var grandTotal = new SiteWinLossSummary
             {
-                Credit = SumCreditGrandTotalWinLoss(rawWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(rawWinLosses),
-                Total = CalculateSumWinLoss(sumTitle, rawWinLosses)
+                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
+                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
+                Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
             };
 
             return grandTotal;
