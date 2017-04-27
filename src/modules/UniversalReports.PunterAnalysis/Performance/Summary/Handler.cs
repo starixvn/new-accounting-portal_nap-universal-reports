@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,16 +23,15 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
 
         public async Task<ViewModelJson> Handle(SummaryHttpParameterJson message)
         {
-            var viewModel = new ViewModelJson
-            {
-                MonthStatistics = await Query<MonthStatistic>(message, typeof(MonthCriteria)),
-                ProductTurnoverStatistics = await Query<ProductTurnoverStatistic>(message, typeof(ProductTurnoverCriteria)),
-                SportStatistics = await Query<SportStatistic>(message, typeof(SportCriteria)),
-                BetTypeStatistics = await Query<BetTypeStatistic>(message, typeof(BetTypeCriteria)),
-                EventStatistics = await Query<EventStatistic>(message, typeof(EventCriteria)),
-            };
+            var viewModel = new ViewModelJson();
 
+            viewModel.MonthStatistics = await Query<MonthStatistic, MonthCriteria>(message);
+            viewModel.ProductTurnoverStatistics = await Query<ProductTurnoverStatistic, ProductTurnoverCriteria>(message);
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(message);
+            viewModel.BetTypeStatistics = await Query<BetTypeStatistic, BetTypeCriteria>(message);
+            viewModel.EventStatistics = await Query<EventStatistic, EventCriteria>(message);
             viewModel.SummaryStatistic = QuerySummaryStatistic(viewModel.MonthStatistics);
+
             return viewModel;
         }
 
@@ -47,9 +45,9 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
             };
         }
 
-        private async Task<List<TResult>> Query<TResult>(SummaryHttpParameterJson message, Type criteriaType)
+        private async Task<List<TResult>> Query<TResult, TCriteria>(SummaryHttpParameterJson message) where TCriteria : ICriteria
         {
-            var criteria = mapper.Map(message, typeof(SummaryHttpParameterJson), criteriaType);
+            var criteria = mapper.Map<TCriteria>(message);
             var entities = await repository.FetchAsync<TResult>(criteria);
             return entities.ToList();
         }

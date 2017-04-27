@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FilterModel, SearchBy } from './filter/filter.model';
+import { FilterModel } from './filter/filter.model';
+import { SearchBy } from './filter/filter.model.main';
+
 
 @Component({
   selector: 'nap-root',
