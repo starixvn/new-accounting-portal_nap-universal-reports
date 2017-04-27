@@ -272,8 +272,8 @@ export class FilterComponent implements OnInit {
         const model: FilterModel = {
             searchBy: this.searchBy,
             searchByOptions: this.searchByOptions,
-            fromDate: this.periodTypeEventModel.fromDate,
-            toDate: this.periodTypeEventModel.toDate
+            fromDate: this.searchBy === SearchBy.Performance ? this.monthRangeFromDate : this.periodTypeEventModel.fromDate,
+            toDate: this.searchBy === SearchBy.Performance ? this.monthRangeToDate : this.periodTypeEventModel.toDate
         };
         switch (this.searchBy) {
             case SearchBy.User:

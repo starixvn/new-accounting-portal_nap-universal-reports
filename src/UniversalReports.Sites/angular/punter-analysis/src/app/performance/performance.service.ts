@@ -3,26 +3,30 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
+import { FilterModel, FilterModelWrapper } from '../filter/filter.model';
 import { BetCount } from './performance.model';
 
 @Injectable()
 export class PerformanceService {
-    private url = 'api/punter-analysis/summary';
+    private url = 'api/punter-analysis/performance';
 
     constructor(
         private httpService: HttpService
     ) { }
 
-    query(): Observable<BetCount[]> {
-        let fakeData:BetCount[] = [{
-            Month : new Date(2016,1,1) ,
-            BetCount: 200
-        },
-        {
-            Month : new Date(2016,2,1) ,
-            BetCount: 300
-        }];
+    query(filterModel: FilterModel): Observable<BetCount[]> {
+        const url = `${this.url}/summary`;
+        const queryModel = this.createQueryModel(filterModel);
+        return this.httpService.post<BetCount[]>(url, queryModel);
+    }
 
-         return Observable.of(fakeData);
+    private createQueryModel(filterModel: FilterModel): any {
+        const filterModelWrapper = new FilterModelWrapper(filterModel);
+        return {
+            fromDate: filterModelWrapper.fromDateQueryString,
+            toDate: filterModelWrapper.toDateQueryString,
+            depth: filterModel.performance.depth.role,
+            userName: filterModel.performance.userName
+        };
     }
 }

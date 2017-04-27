@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilterModel } from './filter/filter.model';
+import { FilterModel, SearchBy } from './filter/filter.model';
 
 @Component({
   selector: 'nap-root',
@@ -10,6 +10,7 @@ import { FilterModel } from './filter/filter.model';
   ]
 })
 export class AppComponent {
+  SearchBy = SearchBy;
   filterModel: FilterModel;
 
   onReset() {
