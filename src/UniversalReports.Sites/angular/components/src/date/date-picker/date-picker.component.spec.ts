@@ -5,7 +5,7 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { eventHelper } from '../../testing';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 import { DatePickerToggleDirective } from '../date-picker-toggle/date-picker-toggle.directive';
 import { DatePickerComponent } from './date-picker.component';
 

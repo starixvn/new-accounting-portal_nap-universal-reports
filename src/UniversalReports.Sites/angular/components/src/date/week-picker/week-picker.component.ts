@@ -1,6 +1,9 @@
 import { Component, Renderer, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDateParserFormatter, NgbInputDatepicker, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct, NgbDate, DateRange } from '../date-model';
+import { NgbDate } from '../date-model.date';
+import { NgbDateStruct } from '../date-model.date-struct';
+import { DateRange } from '../date-model.date-range';
+import { DateFormat } from '../date-model.date-format';
 import { DateHelper } from '../date-helper';
 import { WeekDateParserFormatter } from './week-date-parser-formatter';
 

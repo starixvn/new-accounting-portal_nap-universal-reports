@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
-import { PeriodType, FilterModelWrapper } from '../../filter/filter.model';
+import { PeriodType, FilterModelWrapper } from '../../filter/filter.model.main';
 import { Grid } from '../grid.model';
 import { GridService } from '../grid.service';
 import { BetCountData, BetCountItem } from './bet-count-grid.model';

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 
 @Component({
     selector: 'nap-month-picker',

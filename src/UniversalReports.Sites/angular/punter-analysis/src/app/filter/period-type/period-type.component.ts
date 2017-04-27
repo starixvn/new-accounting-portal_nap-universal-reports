@@ -3,7 +3,7 @@ import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bo
 import * as _ from 'lodash';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { DateHelper, NgbDateStruct, NgbDate } from 'nap-components/src/date';
-import { PeriodType } from '../filter.model';
+import { PeriodType } from '../filter.model.main';
 import { PeriodTypeEventModel } from './period-type.model';
 
 @Component({

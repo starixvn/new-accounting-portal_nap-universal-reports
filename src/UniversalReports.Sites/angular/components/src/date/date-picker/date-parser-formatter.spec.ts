@@ -1,4 +1,4 @@
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 import { DateParserFormatter } from './date-parser-formatter';
 
 describe('DateParserFormatter', () => {

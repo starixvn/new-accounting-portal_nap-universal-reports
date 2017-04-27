@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { SearchBy, FilterModelWrapper } from '../../filter/filter.model';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { AssociatedAccountGridModel } from './associated-account-grid.model';
 

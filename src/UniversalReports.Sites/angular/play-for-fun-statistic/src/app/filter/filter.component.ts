@@ -2,7 +2,8 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { NgbDateStruct, NgbDate, DateHelper, DateFormat } from 'nap-components/src/date';
-import { Status, FilterModel } from './filter.model';
+import { FilterModel } from './filter.model';
+import { Status } from './filter.model.status';
 import { FilterService } from './filter.service';
 
 @Component({

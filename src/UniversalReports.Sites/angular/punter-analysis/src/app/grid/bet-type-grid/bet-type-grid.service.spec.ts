@@ -11,7 +11,9 @@ import { BetTypeGridService } from './bet-type-grid.service';
 import { BetTypeGridModel } from './bet-type-grid.model';
 import { BetTypeData } from './bet-type-grid.model';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
+import { FilterModel } from '../../filter/filter.model';
+import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
+
 import { AppModule } from '../../app.module';
 
 describe('BetTypeGridService', () => {

@@ -9,7 +9,8 @@ import { GridService } from '../grid.service';
 import { LeagueGridService } from './league-grid.service';
 import { LeagueGridModel } from './league-grid.model';
 import { LeagueData } from './league-grid.model';
-import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
+import { FilterModel } from '../../filter/filter.model';
+import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
 import { AppModule } from '../../app.module';
 

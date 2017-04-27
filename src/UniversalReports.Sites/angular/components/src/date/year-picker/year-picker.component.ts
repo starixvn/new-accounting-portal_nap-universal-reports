@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnChanges, EventEmitter, SimpleChanges } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 
 @Component({
     selector: 'nap-year-picker',

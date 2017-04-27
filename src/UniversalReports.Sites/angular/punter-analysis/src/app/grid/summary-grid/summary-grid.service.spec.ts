@@ -8,7 +8,8 @@ import { Helper } from 'nap-components/src/helper';
 import { GridService } from '../grid.service';
 import { SummaryGridService } from './summary-grid.service';
 import { SummaryData } from './summary-grid.model';
-import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
+import { FilterModel } from '../../filter/filter.model';
+import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
 import { AppModule } from '../../app.module';
 

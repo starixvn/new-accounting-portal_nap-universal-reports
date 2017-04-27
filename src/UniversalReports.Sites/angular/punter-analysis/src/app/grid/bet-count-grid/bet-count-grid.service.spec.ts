@@ -10,7 +10,8 @@ import { BetCountGridService } from './bet-count-grid.service';
 import { BetCountGridModel } from './bet-count-grid.model';
 import { BetCountData } from './bet-count-grid.model';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType, FilterModel } from '../../filter/filter.model';
+import { FilterModel } from '../../filter/filter.model';
+import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { AppModule } from '../../app.module';
 
 describe('BetCountGridService', () => {

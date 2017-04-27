@@ -1,5 +1,5 @@
 import { NgbDateStruct } from 'nap-components/src/date';
-import { PeriodType } from '../../filter/filter.model';
+import { PeriodType } from '../../filter/filter.model.main';
 import { LiveStatus } from '../grid.model';
 
 export interface BetCountGridModel {

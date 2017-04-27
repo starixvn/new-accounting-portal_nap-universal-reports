@@ -9,7 +9,7 @@ import { GridService } from '../grid.service';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
 import { UserRoleItem } from './associated-account-grid.model';
 import { fakeUserFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model';
+import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { AppModule } from '../../app.module';
 
 

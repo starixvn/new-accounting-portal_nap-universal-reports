@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { DateHelper } from 'nap-components/src/date';
-import { FilterModelWrapper } from '../../filter/filter.model';
+import { FilterModelWrapper } from '../../filter/filter.model.wrapper';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
 import { SummaryData } from './summary-grid.model';

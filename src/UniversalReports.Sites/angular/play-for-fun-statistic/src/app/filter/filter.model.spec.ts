@@ -1,4 +1,5 @@
-import { FilterModel, Status } from './filter.model';
+import { FilterModel } from './filter.model';
+import { Status } from './filter.model.status';
 
 export const fakeFilterModel: FilterModel = {
     fromDate: { year: 2017, month: 4, day: 1 },

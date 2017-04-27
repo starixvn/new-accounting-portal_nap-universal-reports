@@ -8,7 +8,7 @@ import { PaginationInstance } from 'ng2-pagination';
 import { expect } from 'nap-components/src/testing';
 import { GridService } from '../grid.service';
 import { GridType, LiveStatus } from '../grid.model';
-import { PeriodType } from '../../filter/filter.model';
+import { PeriodType } from '../../filter/filter.model.main';
 import { LeagueGridService } from './league-grid.service';
 import { LeagueGridModel } from './league-grid.model';
 import { LeagueGridComponent } from './league-grid.component';

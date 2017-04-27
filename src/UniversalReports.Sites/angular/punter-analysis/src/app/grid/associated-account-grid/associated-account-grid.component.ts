@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { DateHelper } from 'nap-components/src/date';
 import { Grid } from '../grid.model';
-import { FilterModelWrapper } from '../../filter/filter.model';
+import { FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { UserRoleItem } from './associated-account-grid.model';
 import { AssociatedAccountGridService } from './associated-account-grid.service';

@@ -11,9 +11,16 @@ import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
 import {
-    SearchBy, PeriodType, OrderBy, FilterModel, UserFilterModel, LeagueFilterModel, PerformanceFilterModel,
-    SportsbookSportTypeBetType, Depth, FilterModelWrapper
-} from './filter.model';
+    SearchBy, PeriodType, OrderBy, FilterModelWrapper
+} from './filter.model.main';
+
+import { FilterModel } from './filter.model';
+import { UserFilterModel } from './filter.model.user';
+import { LeagueFilterModel } from './filter.model.league';
+import { PerformanceFilterModel } from './filter.model.performance';
+import { Depth } from './filter.model.depth';
+import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
+
 import { FilterService } from './filter.service';
 import { PeriodTypeEventModel } from './period-type/period-type.model';
 

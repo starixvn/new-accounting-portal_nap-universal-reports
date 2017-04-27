@@ -4,7 +4,7 @@ import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { eventHelper } from '../../testing';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 import { YearPickerComponent } from './year-picker.component';
 
 @Component({

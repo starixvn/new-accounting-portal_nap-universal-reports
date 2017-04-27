@@ -3,7 +3,9 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
-import { FilterModel, FilterModelWrapper } from '../../filter/filter.model';
+import { FilterModel } from '../../filter/filter.model';
+import { FilterModelWrapper } from '../../filter/filter.model.wrapper';
+
 import { GridService } from '../grid.service';
 import { SummaryData } from './summary-grid.model';
 

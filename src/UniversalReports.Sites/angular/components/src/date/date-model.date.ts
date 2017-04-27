@@ -1,21 +1,5 @@
 import { DateHelper } from './date-helper';
-
-export interface NgbDateStruct {
-    /**
-     * The year, for example 2016
-     */
-    year: number;
-
-    /**
-     * The month, with default calendar we use ISO 8601: 1=Jan ... 12=Dec
-     */
-    month: number;
-
-    /**
-     * The day of month, starting at 1
-     */
-    day: number;
-}
+import { NgbDateStruct } from './date-model.date-struct';
 
 export class NgbDate {
     static from(date: { year: number, month: number, day?: number }): NgbDate {
@@ -79,16 +63,4 @@ export class NgbDate {
     toString() {
         return `${this.year}-${this.month}-${this.day}`;
     }
-}
-
-export interface DateRange {
-    fromDate: NgbDateStruct;
-    toDate: NgbDateStruct;
-}
-
-export enum DateFormat {
-    Date,
-    Week,
-    Month,
-    Year
 }

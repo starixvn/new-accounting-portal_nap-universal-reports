@@ -8,7 +8,7 @@ import { PaginationInstance } from 'ng2-pagination';
 import { expect } from 'nap-components/src/testing';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
-import { PeriodType } from '../../filter/filter.model';
+import { PeriodType } from '../../filter/filter.model.main';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
 import { AssociatedAccountGridModel } from './associated-account-grid.model';
 import { AssociatedAccountGridComponent } from './associated-account-grid.component';

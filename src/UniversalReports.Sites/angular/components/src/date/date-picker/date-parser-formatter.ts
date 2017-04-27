@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 import { DateHelper } from '../date-helper';
 
 export class DateParserFormatter extends NgbDateParserFormatter {

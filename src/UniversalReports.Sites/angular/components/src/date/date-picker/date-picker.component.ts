@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStruct } from '../date-model';
+import { NgbDateStruct } from '../date-model.date-struct';
 import { DateParserFormatter } from './date-parser-formatter';
 
 @Component({

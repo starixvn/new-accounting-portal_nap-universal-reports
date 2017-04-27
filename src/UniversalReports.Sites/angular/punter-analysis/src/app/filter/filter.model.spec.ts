@@ -1,5 +1,15 @@
 import * as _ from 'lodash';
-import { FilterModel, UserFilterModel, LeagueFilterModel, PerformanceFilterModel, SearchBy, OrderBy, PeriodType } from './filter.model';
+import {
+    SearchBy, PeriodType, OrderBy, FilterModelWrapper
+} from './filter.model.main';
+
+import { FilterModel } from './filter.model';
+import { UserFilterModel } from './filter.model.user';
+import { LeagueFilterModel } from './filter.model.league';
+import { PerformanceFilterModel } from './filter.model.performance';
+import { Depth } from './filter.model.depth';
+import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
+
 import { RoleId, SortBy } from 'nap-components/src/model';
 import { TreeviewItem } from 'ngx-treeview';
 

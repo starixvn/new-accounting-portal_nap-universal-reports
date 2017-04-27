@@ -1,5 +1,7 @@
 import * as moment from 'moment';
-import { NgbDateStruct, DateRange, DateFormat } from './date-model';
+import { NgbDateStruct } from './date-model.date-struct';
+import { DateRange } from './date-model.date-range';
+import { DateFormat } from './date-model.date-format';
 
 export let DateHelper = {
     getWeekRangeOfDate: getWeekRangeOfDate,
