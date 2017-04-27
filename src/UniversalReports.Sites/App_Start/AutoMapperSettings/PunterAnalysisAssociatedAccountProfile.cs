@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.Sites.AutoMapperSettings
 {
@@ -9,7 +8,6 @@ namespace UniversalReports.Sites.AutoMapperSettings
         public PunterAnalysisAssociatedAccountProfile()
         {
             CreateMap<HttpParameterJson, UserRoleQueryCriteria>(MemberList.Source);
-            CreateMap<ReportModelBase<UserRoleModel>, ViewModelJson>(MemberList.Source);
         }
     }
 }

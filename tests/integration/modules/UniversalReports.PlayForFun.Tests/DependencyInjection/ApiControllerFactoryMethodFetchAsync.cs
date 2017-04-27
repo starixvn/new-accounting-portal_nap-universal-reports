@@ -12,15 +12,6 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
     {
         private readonly Container container = new Container();
 
-        public TController CreateController<TController, TModel>(string fakeDatabaseFile)
-        {
-            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
-            var repository = CreateRepository<TModel>(fakeDatabaseFile);
-            RegisterDependency(repository);
-
-            return (TController)container.GetInstance(typeof(TController));
-        }
-
         public TController CreateController<TController, TFirstModel, TSecondModel>(string fakeFirstDatabaseFile, string fakeSecondDatabaseFile)
         {
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
@@ -50,16 +41,6 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
                    .RegisterMediator()
                    .RegisterPlayForFunServices();
             container.Verify();
-        }
-
-        private IDynamicRepository CreateRepository<TModel>(string fakeDatabaseFile)
-        {
-            var fakeData = TestDataLoader.Load<List<TModel>>(fakeDatabaseFile);
-
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<TModel>(Arg.Any<ICriteria>()).Returns(fakeData);
-
-            return repository;
         }
     }
 }

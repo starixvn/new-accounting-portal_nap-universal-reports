@@ -47,7 +47,7 @@
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
                     <tr *ngFor="let item of data.Entities  | paginate: config">
-                        <td class="text-center word-break-all">{{ item.GroupHeadline === null ? 'N/A': item.GroupHeadline }}</td>
+                        <td class="text-center word-break-all">{{ item.GroupHeadline }}</td>
                         <td class="text-center word-break-all">{{ item.Site }}</td>
                         <td class="text-center word-break-all">{{ item.Currency }}</td>
                         <td class="text-center word-break-all">{{ item.Super }}</td>

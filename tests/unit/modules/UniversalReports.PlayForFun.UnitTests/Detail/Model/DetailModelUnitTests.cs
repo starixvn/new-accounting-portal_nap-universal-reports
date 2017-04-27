@@ -72,5 +72,31 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail.Model
             // Assert
             Assert.That(sumObject, IsDeeplyEqual.To(expectedObject));
         }
+
+        [Test]
+        [TestCase("")]
+        [TestCase(null)]
+        public void GroupHeadline_Empty_ShouldReturnNA(string groupHeadline)
+        {
+            var model = new DetailModel
+            {
+                GroupHeadline = groupHeadline
+            };
+
+            Assert.That(model.GroupHeadline, Is.EqualTo("N/A"));
+        }
+
+        [Test]
+        [TestCase("Any non empty string", ExpectedResult = "Any non empty string")]
+        [TestCase("N/A", ExpectedResult = "N/A")]
+        public string GroupHeadline_NonEmpty_ShouldReturnString(string groupHeadline)
+        {
+            var model = new DetailModel
+            {
+                GroupHeadline = groupHeadline
+            };
+
+            return model.GroupHeadline;
+        }
     }
 }

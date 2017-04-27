@@ -7,7 +7,7 @@ using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, ViewModelJson>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, List<UserRoleModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -19,13 +19,13 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             this.fraudServiceWrapper = fraudServiceWrapper;
         }
 
-        public async Task<ViewModelJson> Handle(HttpParameterJson message)
+        public async Task<List<UserRoleModel>> Handle(HttpParameterJson message)
         {
             var siteName = await GetSiteName(message.CustId);
             var userDevices = await fraudServiceWrapper.GetAssociatedUsers(message.Username, siteName);
             var model = await GetAccountRoles(userDevices);
 
-            return new ViewModelJson(model);
+            return new List<UserRoleModel>(model);
         }
 
         private async Task<string> GetSiteName(int custId)

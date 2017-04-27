@@ -4,9 +4,24 @@ namespace UniversalReports.PlayForFun.Detail.Model
 {
     public class DetailModel
     {
+        private string groupHeadline;
+
         public DateTime Date { get; set; }
 
-        public string GroupHeadline { get; set; }
+        public string GroupHeadline
+        {
+            get
+            {
+                return string.IsNullOrEmpty(groupHeadline)
+                    ? "N/A"
+                    : groupHeadline;
+            }
+
+            set
+            {
+                groupHeadline = value;
+            }
+        }
 
         public string Site { get; set; }
 

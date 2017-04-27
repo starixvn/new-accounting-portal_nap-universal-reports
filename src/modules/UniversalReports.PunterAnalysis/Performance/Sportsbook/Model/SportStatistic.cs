@@ -9,7 +9,5 @@
         public decimal WinLoss { get; set; }
 
         public decimal Turnover { get; set; }
-
-        public decimal Margin { get; set; }
     }
 }

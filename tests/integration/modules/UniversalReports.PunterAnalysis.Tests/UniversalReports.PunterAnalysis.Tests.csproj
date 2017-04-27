@@ -160,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssociatedAccount\FraudServiceWrapperImpTests.cs" />
-    <Compile Include="DependencyInjection\ApiControllerFactoryMethodAbsoluteRepository.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
     <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />

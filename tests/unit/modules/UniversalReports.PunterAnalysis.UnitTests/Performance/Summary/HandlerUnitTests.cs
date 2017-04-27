@@ -108,8 +108,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
                 Date = new DateTime(2016, 1, 1),
                 BetCount = 1,
                 WinLoss = 100,
-                Turnover = 200,
-                Margin = 0.5m
+                Turnover = 200
             };
 
             var secondMonthStatistic = new MonthStatistic
@@ -117,8 +116,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
                 Date = new DateTime(2016, 2, 1),
                 BetCount = 2,
                 WinLoss = 30,
-                Turnover = 100,
-                Margin = 0.3m
+                Turnover = 100
             };
 
             return new List<MonthStatistic> { firstMonthStatistic, secondMonthStatistic };

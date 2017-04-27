@@ -95,8 +95,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
                 SportName = "Sport 1",
                 BetCount = 1,
                 WinLoss = 100,
-                Turnover = 200,
-                Margin = 0.5m
+                Turnover = 200
             };
 
             var secondSportStatistic = new SportStatistic
@@ -104,8 +103,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
                 SportName = "Sport 2",
                 BetCount = 2,
                 WinLoss = 30,
-                Turnover = 100,
-                Margin = 0.3m
+                Turnover = 100
             };
 
             return new List<SportStatistic> { firstSportStatistic, secondSportStatistic };

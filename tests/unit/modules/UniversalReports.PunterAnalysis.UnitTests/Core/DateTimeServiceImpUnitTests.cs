@@ -8,9 +8,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
     {
         private static readonly object[] WeekOfYearIso8601Cases =
         {
-            new object[] { new DateTime(2017, 1, 02), 1 },
-            new object[] { new DateTime(2017, 1, 03), 1 },
-            new object[] { new DateTime(2017, 1, 06), 1 },
+            new object[] { new DateTime(2017, 1, 2), 1 },
+            new object[] { new DateTime(2017, 1, 3), 1 },
+            new object[] { new DateTime(2017, 1, 4), 1 },
+            new object[] { new DateTime(2017, 1, 5), 1 },
+            new object[] { new DateTime(2017, 1, 6), 1 },
+            new object[] { new DateTime(2017, 1, 7), 1 },
+            new object[] { new DateTime(2017, 1, 8), 1 },
             new object[] { new DateTime(2017, 1, 12), 2 },
             new object[] { new DateTime(2017, 1, 19), 3 },
             new object[] { new DateTime(2017, 1, 28), 4 },

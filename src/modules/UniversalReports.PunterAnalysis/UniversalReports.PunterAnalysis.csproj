@@ -127,7 +127,6 @@
     <Compile Include="AssociatedAccount\Model\UserSiteQueryCriteria.cs" />
     <Compile Include="AssociatedAccount\Model\UserRoleQueryCriteria.cs" />
     <Compile Include="AssociatedAccount\Model\HttpParameterJson.cs" />
-    <Compile Include="AssociatedAccount\Model\ViewModelJson.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountController.cs" />
     <Compile Include="BetCount\Handler.cs" />
     <Compile Include="BetCount\HandlerExcel.cs" />
