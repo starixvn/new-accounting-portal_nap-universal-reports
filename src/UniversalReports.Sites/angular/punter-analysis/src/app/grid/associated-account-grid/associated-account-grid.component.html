@@ -23,7 +23,7 @@
             </table>
         </div>
         <div *ngIf="hasData" class="body">
-            <table>
+            <table class="table-striped">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
                     <tr *ngFor="let item of data">

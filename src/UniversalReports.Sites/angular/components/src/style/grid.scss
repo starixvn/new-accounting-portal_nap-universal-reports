@@ -26,6 +26,9 @@
                 &:nth-of-type(even) {
                     background-color: #E4F2FD;
                 }
+                &:hover {
+                    background-color: #E2FFFF;
+                }
             }
         }
     }
