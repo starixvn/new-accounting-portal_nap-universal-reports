@@ -16,7 +16,10 @@ import { LeagueGridComponent } from './league-grid/league-grid.component';
 @Component({
     selector: 'nap-grid',
     templateUrl: './grid.component.html',
-    styleUrls: ['./grid.component.scss'],
+    styleUrls: [
+        '../../../node_modules/nap-components/src/style/grid.scss',
+        './grid.component.scss'
+    ],
     entryComponents: [
         SummaryGridComponent,
         BetCountGridComponent,

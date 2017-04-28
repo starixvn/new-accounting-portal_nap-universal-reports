@@ -5,7 +5,6 @@ import { FilterModel } from './filter/filter.model';
   selector: 'nap-root',
   templateUrl: './app.component.html',
   styleUrls: [
-    '../../../components/src/style/layout.scss',
     '../../../components/src/style/header.scss'
   ]
 })
