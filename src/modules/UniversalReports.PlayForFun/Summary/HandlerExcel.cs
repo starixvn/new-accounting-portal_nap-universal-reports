@@ -35,7 +35,7 @@ namespace UniversalReports.PlayForFun.Summary
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var summaryCriteria = mapper.Map<DetailCriteria>(message);
+            var summaryCriteria = mapper.Map<SummaryCriteria>(message);
             var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria);
             var summaryExcelViewModel = mapper.Map<ReportModelBase<SummaryExcelModel>>(summaryModel);
 
