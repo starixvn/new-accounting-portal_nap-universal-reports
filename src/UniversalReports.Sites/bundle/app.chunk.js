@@ -28471,6 +28471,7 @@ webpackJsonp([0],[
 	        vm.userProfileUrl = legacyService.resolveUrl('/UserControl/User/UserProfile');
 	        vm.changePasswordUrl = legacyService.resolveUrl('/UserControl/User/ChangePassword');
 	        vm.logOutUrl = legacyService.resolveUrl('/UserLogin/Login/LogOut');
+	        vm.legacyUrl = napConfig.LegacyPath;
 	
 	        headerService.getData().then(function (data) {
 	            vm.username = data.Username;
