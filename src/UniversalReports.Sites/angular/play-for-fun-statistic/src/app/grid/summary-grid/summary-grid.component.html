@@ -9,8 +9,8 @@
 </ng-template>
 <div *ngIf="data" class="grid">
     <div style="width: 680px">
-        <div class="header" [class.empty-data]="!hasData">
-            <table>
+        <div class="header" >
+            <table [class.empty-data]="!hasData">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <thead>
                     <tr>

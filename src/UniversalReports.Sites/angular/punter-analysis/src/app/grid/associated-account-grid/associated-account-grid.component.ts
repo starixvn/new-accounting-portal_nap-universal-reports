@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
 import { Grid } from '../grid.model';
 import { FilterModelWrapper } from '../../filter/filter.model.main';
@@ -19,8 +20,13 @@ export class AssociatedAccountGridComponent implements Grid {
         private service: AssociatedAccountGridService
     ) { }
 
-    query() {
-        this.service.query().subscribe(data => this.data = data);
+    query(): Observable<any> {
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                observer.complete();
+            });
+        });
     }
 
     exportExcel() {

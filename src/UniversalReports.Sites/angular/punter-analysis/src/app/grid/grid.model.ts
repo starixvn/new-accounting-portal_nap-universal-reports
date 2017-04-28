@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+
 export enum GridType {
     UserName,
     AssociatedAccount,
@@ -10,7 +12,7 @@ export enum GridType {
 export interface Grid {
     hasData: boolean;
     title: string;
-    query(): void;
+    query(): Observable<any>;
     exportExcel(): void;
 }
 

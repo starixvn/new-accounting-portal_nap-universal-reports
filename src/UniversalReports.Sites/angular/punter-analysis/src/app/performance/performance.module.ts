@@ -5,22 +5,32 @@ import { ChartsModule } from 'ng2-charts';
 import { NumberFormatModule } from 'nap-components/src/number/number-format.module';
 import { PerformanceComponent } from './performance.component';
 import { PerformanceService } from './performance.service';
+import { SummaryPerformanceComponent } from './summary-performance/summary-performance.component';
+import { SummaryPerformanceService } from './summary-performance/summary-performance.service';
+import { ProductPerformanceComponent } from './product-performance/product-performance.component';
+import { ProductPerformanceService } from './product-performance/product-performance.service';
+import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ChartsModule,
-        NumberFormatModule
+        NumberFormatModule,
+        BreadcrumbModule
     ],
     declarations: [
-        PerformanceComponent
+        PerformanceComponent,
+        SummaryPerformanceComponent,
+        ProductPerformanceComponent
     ],
     exports: [
         PerformanceComponent
     ],
     providers: [
-        PerformanceService
+        PerformanceService,
+        SummaryPerformanceService,
+        ProductPerformanceService
     ]
 })
 export class PerformanceModule { }

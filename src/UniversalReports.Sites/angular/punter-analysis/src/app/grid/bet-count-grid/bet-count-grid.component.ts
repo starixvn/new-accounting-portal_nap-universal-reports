@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
 import { PeriodType, FilterModelWrapper } from '../../filter/filter.model.main';
 import { Grid } from '../grid.model';
 import { GridService } from '../grid.service';
@@ -19,10 +20,15 @@ export class BetCountGridComponent implements Grid {
         private service: BetCountGridService
     ) { }
 
-    query() {
+    query(): Observable<any> {
         const filterModelWrapper = new FilterModelWrapper(this.gridService.filterModel);
         this.periodType = filterModelWrapper.userLeagueModel.periodType;
-        this.service.query().subscribe(data => this.data = data);
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                observer.complete();
+            });
+        });
     }
 
     exportExcel() {

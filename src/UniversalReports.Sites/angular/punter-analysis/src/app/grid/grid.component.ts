@@ -12,6 +12,8 @@ import { AssociatedAccountGridComponent } from './associated-account-grid/associ
 import { SportTypeGridComponent } from './sport-type-grid/sport-type-grid.component';
 import { BetTypeGridComponent } from './bet-type-grid/bet-type-grid.component';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
+import { hasBreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
+import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
 
 @Component({
     selector: 'nap-grid',
@@ -35,6 +37,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     GridType = GridType;
     gridType = GridType.UserName;
     breadcrumbItems: string[];
+    breadcrumbConfig: BreadcrumbConfig;
     private components: ComponentRef<Grid>[] = [];
 
     constructor(
@@ -69,6 +72,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
             const component = this.components.pop();
             component.destroy();
         }
+        this.service.activeGrid = this.components[this.components.length - 1].instance;
         this.afterGridChange();
     }
 
@@ -96,12 +100,13 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
         const component = this.container.createComponent(factory);
         this.components.push(component);
         const grid = component.instance;
-        grid.query();
-        this.afterGridChange();
+        this.service.activeGrid = grid;
+        grid.query().subscribe({
+            complete: () => this.afterGridChange()
+        });
     }
 
     private afterGridChange() {
-        this.service.activeGrid = this.components[this.components.length - 1].instance;
         this.updateBreadcrumb();
         this.showCurrentAndHideLast();
     }
@@ -112,6 +117,17 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
             const componentTitle = component.instance.title;
             this.breadcrumbItems.push(componentTitle);
         });
+        this.breadcrumbConfig = {
+            goBack: (index) => this.goBack(index)
+        };
+        const activeGrid = this.service.activeGrid;
+        if (activeGrid.hasData) {
+            this.breadcrumbConfig.exportExcel = () => activeGrid.exportExcel();
+        }
+        if (hasBreadcrumbFilter(activeGrid)) {
+            this.breadcrumbConfig.filterColumns = activeGrid.getFilterColumns();
+            this.breadcrumbConfig.filterCallback = (selectedColumns) => activeGrid.filterColumns(selectedColumns);
+        }
     }
 
     private showCurrentAndHideLast() {

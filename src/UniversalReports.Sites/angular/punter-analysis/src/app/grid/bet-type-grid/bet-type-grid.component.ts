@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
 import { Grid, GridType, LiveStatus } from '../grid.model';
 import { GridService } from '../grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
@@ -22,8 +23,13 @@ export class BetTypeGridComponent implements Grid {
         private leagueGridService: LeagueGridService
     ) { }
 
-    query() {
-        this.service.query().subscribe(data => this.data = data);
+    query(): Observable<any> {
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                observer.complete();
+            });
+        });
     }
 
     exportExcel() {

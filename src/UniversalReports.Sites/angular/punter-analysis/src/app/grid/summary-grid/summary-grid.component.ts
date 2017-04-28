@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { PaginationInstance } from 'ng2-pagination';
 import { GridService } from '../grid.service';
@@ -25,15 +26,18 @@ export class SummaryGridComponent implements Grid {
         private sportTypeGridService: SportTypeGridService
     ) { }
 
-    query() {
-        this.service.query().subscribe(data => {
-            this.data = data;
-            this.config = {
-                id: 'custom',
-                itemsPerPage: 100,
-                currentPage: 1,
-                totalItems: this.data.Entities.length
-            };
+    query(): Observable<any> {
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                this.config = {
+                    id: 'custom',
+                    itemsPerPage: 100,
+                    currentPage: 1,
+                    totalItems: this.data.Entities.length
+                };
+                observer.complete();
+            });
         });
     }
 

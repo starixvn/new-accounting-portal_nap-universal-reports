@@ -11,7 +11,7 @@
 <div *ngIf="data" class="grid">
     <div style="width: 708px">
         <div class="header">
-            <table [class.w-100]="!hasData">
+            <table [class.empty-data]="!hasData">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <thead>
                     <tr>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody *ngIf="!hasData">
                     <tr>
-                        <th class="empty-data" colspan="6">There is no data</th>
+                        <th colspan="6">There is no data</th>
                     </tr>
                 </tbody>
             </table>

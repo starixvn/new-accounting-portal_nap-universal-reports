@@ -6,7 +6,6 @@ import { PaginationModule } from 'nap-components/src/pagination';
 import { NumberFormatModule } from 'nap-components/src/number/number-format.module';
 import { GridComponent } from './grid.component';
 import { GridService } from './grid.service';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SummaryGridComponent } from './summary-grid/summary-grid.component';
 import { SummaryGridService } from './summary-grid/summary-grid.service';
 import { BetCountGridComponent } from './bet-count-grid/bet-count-grid.component';
@@ -19,6 +18,7 @@ import { BetTypeGridComponent } from './bet-type-grid/bet-type-grid.component';
 import { BetTypeGridService } from './bet-type-grid/bet-type-grid.service';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { LeagueGridService } from './league-grid/league-grid.service';
+import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 
 @NgModule({
     imports: [
@@ -26,11 +26,11 @@ import { LeagueGridService } from './league-grid/league-grid.service';
         FormsModule,
         TreeviewModule.forRoot(),
         PaginationModule,
-        NumberFormatModule
+        NumberFormatModule,
+        BreadcrumbModule
     ],
     declarations: [
         GridComponent,
-        BreadcrumbComponent,
         SummaryGridComponent,
         BetCountGridComponent,
         AssociatedAccountGridComponent,

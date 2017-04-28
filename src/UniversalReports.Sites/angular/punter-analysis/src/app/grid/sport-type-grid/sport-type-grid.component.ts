@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
@@ -21,8 +22,13 @@ export class SportTypeGridComponent implements Grid {
         private betTypeGridService: BetTypeGridService
     ) { }
 
-    query() {
-        this.service.query().subscribe(data => this.data = data);
+    query(): Observable<any> {
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                observer.complete();
+            });
+        });
     }
 
     exportExcel() {

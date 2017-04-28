@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,12 +23,8 @@ namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
 
         public async Task<ViewModelJson> Handle(SportsbookHttpParameterJson message)
         {
-            var viewModel = new ViewModelJson
-            {
-                SportStatistics = await Query<SportStatistic>(message, typeof(SportCriteria)),
-                BetCountStatistics = await Query<BetCountStatistic>(message, typeof(BetCountCriteria)),
-            };
-
+            var viewModel = new ViewModelJson();
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(message);
             viewModel.SummaryStatistic = QuerySummaryStatistics(viewModel.SportStatistics);
             return viewModel;
         }
@@ -44,9 +39,9 @@ namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
             };
         }
 
-        private async Task<List<TResult>> Query<TResult>(SportsbookHttpParameterJson message, Type criteriaType)
+        private async Task<List<TResult>> Query<TResult, TCriteria>(SportsbookHttpParameterJson message) where TCriteria : ICriteria
         {
-            var criteria = mapper.Map(message, typeof(SportsbookHttpParameterJson), criteriaType);
+            var criteria = mapper.Map<TCriteria>(message);
             var entities = await repository.FetchAsync<TResult>(criteria);
             return entities.ToList();
         }

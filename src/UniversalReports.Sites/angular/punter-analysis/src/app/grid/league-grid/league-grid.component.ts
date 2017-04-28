@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
 import { TreeviewItem } from 'ngx-treeview';
 import { Grid, LiveStatus } from '../grid.model';
-import { BreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
+import { BreadcrumbFilter } from '../../breadcrumb/breadcrumb.model';
 import { LeagueItem, PeriodGroupItem, LeagueData } from './league-grid.model';
 import { LeagueGridService } from './league-grid.service';
 
@@ -17,8 +18,13 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
         private service: LeagueGridService
     ) { }
 
-    query() {
-        this.service.query().subscribe(data => this.data = data);
+    query(): Observable<any> {
+        return Observable.create(observer => {
+            this.service.query().subscribe(data => {
+                this.data = data;
+                observer.complete();
+            });
+        });
     }
 
     exportExcel() {
@@ -35,13 +41,13 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
         return `${model.betTypeName} - ${liveStatusTitle}`;
     }
 
-    getColumnFilter(): TreeviewItem[] {
-        return this.data.GroupNames.map(groupName => new TreeviewItem({ text: groupName, value: groupName }));
+    getFilterColumns(): string[] {
+        return this.data.GroupNames;
     }
 
-    filterColumns(groupNames: string[]) {
+    filterColumns(selectedColumns: string[]) {
         if (this.hasData) {
-            this.data.GroupNames = groupNames;
+            this.data.GroupNames = selectedColumns;
         }
     }
 }
