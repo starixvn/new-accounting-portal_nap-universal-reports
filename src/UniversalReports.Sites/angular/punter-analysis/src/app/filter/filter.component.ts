@@ -28,7 +28,7 @@ import { PeriodTypeEventModel } from './period-type/period-type.model';
     selector: 'nap-filter',
     templateUrl: './filter.component.html',
     styleUrls: [
-        '../../../../components/src/style/filter.scss',
+        '../../../node_modules/nap-components/src/style/filter.scss',
         './filter.component.scss'
     ],
     providers: [

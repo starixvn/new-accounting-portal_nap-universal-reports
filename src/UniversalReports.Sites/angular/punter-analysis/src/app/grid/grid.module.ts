@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TreeviewModule } from 'ngx-treeview';
 import { PaginationModule } from 'nap-components/src/pagination';
-import { DecimalFormatDirective } from 'nap-components/src/number/decimal-format.directive';
-import { IntegerFormatDirective } from 'nap-components/src/number/integer-format.directive';
-import { PercentFormatDirective } from 'nap-components/src/number/percent-format.directive';
+import { NumberFormatModule } from 'nap-components/src/number/number-format.module';
 import { GridComponent } from './grid.component';
 import { GridService } from './grid.service';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -27,12 +25,10 @@ import { LeagueGridService } from './league-grid/league-grid.service';
         CommonModule,
         FormsModule,
         TreeviewModule.forRoot(),
-        PaginationModule
+        PaginationModule,
+        NumberFormatModule
     ],
     declarations: [
-        DecimalFormatDirective,
-        IntegerFormatDirective,
-        PercentFormatDirective,
         GridComponent,
         BreadcrumbComponent,
         SummaryGridComponent,

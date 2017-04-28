@@ -5,7 +5,7 @@ import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
 import { FilterModel } from '../filter/filter.model';
 import { FilterModelWrapper } from '../filter/filter.model.main';
-import { BetCount } from './performance.model';
+import { PerformanceStatistic } from './performance.model';
 
 @Injectable()
 export class PerformanceService {
@@ -15,10 +15,10 @@ export class PerformanceService {
         private httpService: HttpService
     ) { }
 
-    query(filterModel: FilterModel): Observable<BetCount[]> {
+    query(filterModel: FilterModel): Observable<PerformanceStatistic> {
         const url = `${this.url}/summary`;
         const queryModel = this.createQueryModel(filterModel);
-        return this.httpService.post<BetCount[]>(url, queryModel);
+        return this.httpService.post<PerformanceStatistic>(url, queryModel);
     }
 
     private createQueryModel(filterModel: FilterModel): any {
