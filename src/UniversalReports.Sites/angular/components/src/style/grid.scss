@@ -20,6 +20,14 @@
         th {
             text-align: center;
         }
+        &.table-striped {
+            tbody tr {
+                background-color: #fff;
+                &:nth-of-type(even) {
+                    background-color: #E4F2FD;
+                }
+            }
+        }
     }
     .header {
         padding-right: $scroll-padding;
