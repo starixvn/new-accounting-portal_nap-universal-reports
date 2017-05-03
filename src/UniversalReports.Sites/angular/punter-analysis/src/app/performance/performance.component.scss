@@ -1,4 +1,4 @@
-.performance-container {
+:host /deep/ .performance-container {
     background: #eceeef;
     .summary {
         .box {
@@ -15,13 +15,12 @@
             }
         }
     }
-}
-
-.chart-container {
-    .row {
-        margin-top: 16px;
-        .box {
-            background-color: #fff;
+    .chart-container {
+        .row {
+            margin-top: 16px;
+            .box {
+                background-color: #fff;
+            }
         }
     }
 }

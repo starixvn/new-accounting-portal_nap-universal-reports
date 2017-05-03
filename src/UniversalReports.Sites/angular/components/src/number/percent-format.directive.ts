@@ -1,15 +1,12 @@
 import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import { NumberHelper } from './number-helper';
+import { NumberFormat } from './number-format';
 
 @Directive({
   selector: '[napPercentFormat]'
 })
 export class PercentFormatDirective implements OnInit {
-  private static percentFormat = new Intl.NumberFormat('en-US', {
-    style: 'percent',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
   @Input('napPercentFormat') value: number;
 
   constructor(
@@ -20,7 +17,7 @@ export class PercentFormatDirective implements OnInit {
   ngOnInit() {
     let innerHTML = '';
     if (this.isValidNumber()) {
-      innerHTML = PercentFormatDirective.percentFormat.format(this.value);
+      innerHTML = NumberHelper.format(this.value, NumberFormat.Percent);
       let className = '';
       if (this.value < 0) {
         className = 'number-negative';

@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { NgbDateStruct, NgbDate, DateHelper, DateFormat } from 'nap-components/src/date';
@@ -70,7 +71,7 @@ export class FilterComponent implements OnInit {
             product: this.product,
             productOptions: this.productOptions,
             status: this.status,
-            userName: this.userName,
+            userName: _.trim(this.userName),
             isExcludeTest: this.isExcludeTest
         };
     }

@@ -1,14 +1,11 @@
 import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
+import { NumberHelper } from './number-helper';
+import { NumberFormat } from './number-format';
 
 @Directive({
   selector: '[napDecimalFormat]'
 })
 export class DecimalFormatDirective implements OnInit {
-  private static decimalFormat = new Intl.NumberFormat('en-US', {
-    style: 'decimal',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
   @Input('napDecimalFormat') value: number;
 
   constructor(
@@ -26,7 +23,7 @@ export class DecimalFormatDirective implements OnInit {
     if (className !== '') {
       this.renderer.setElementClass(this.el.nativeElement, className, true);
     }
-    const innerHTML = DecimalFormatDirective.decimalFormat.format(this.value);
+    const innerHTML = NumberHelper.format(this.value, NumberFormat.Decimal);
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
 }

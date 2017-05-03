@@ -1,14 +1,11 @@
 import { Directive, ElementRef, Input, Renderer, OnInit } from '@angular/core';
+import { NumberHelper } from './number-helper';
+import { NumberFormat } from './number-format';
 
 @Directive({
   selector: '[napIntegerFormat]'
 })
 export class IntegerFormatDirective implements OnInit {
-  private static integerFormat = new Intl.NumberFormat('en-US', {
-    style: 'decimal',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  });
   @Input('napIntegerFormat') value: number;
 
   constructor(
@@ -26,7 +23,7 @@ export class IntegerFormatDirective implements OnInit {
     if (className !== '') {
       this.renderer.setElementClass(this.el.nativeElement, className, true);
     }
-    const innerHTML = IntegerFormatDirective.integerFormat.format(this.value);
+    const innerHTML = NumberHelper.format(this.value, NumberFormat.Integer);
     this.renderer.setElementProperty(this.el.nativeElement, 'innerHTML', innerHTML);
   }
 }

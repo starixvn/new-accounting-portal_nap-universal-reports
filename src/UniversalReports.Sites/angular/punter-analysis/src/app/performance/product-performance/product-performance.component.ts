@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DateHelper } from 'nap-components/src/date';
+import { NumberFormat, NumberHelper } from 'nap-components/src/number';
 import { FilterModel } from '../../filter/filter.model';
 import { FilterModelWrapper, PeriodType } from '../../filter/filter.model.main';
 import { Performance } from '../performance.model';
@@ -10,15 +11,10 @@ import { SummaryPerformanceComponent } from '../summary-performance/summary-perf
 
 @Component({
     selector: 'nap-product-performance',
-    templateUrl: './product-performance.component.html',
-    styleUrls: [
-        '../../../../node_modules/nap-components/src/style/table.scss',
-        '../shared/performance-container.scss'
-    ]
+    templateUrl: './product-performance.component.html'
 })
 export class ProductPerformanceComponent implements Performance {
     statistic: SportsbookStatistic;
-    hasData = false;
     sportLabels: string[];
     betCountBySportData: number[];
     betCountBySportOptions: any;
@@ -38,24 +34,55 @@ export class ProductPerformanceComponent implements Performance {
             title: {
                 display: true,
                 text: 'BET COUNT BY SPORT'
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return NumberHelper.format(value, NumberFormat.Integer);
+                    }
+                }
             }
         };
         this.betCountByEventTypeOptions = {
             title: {
                 display: true,
                 text: 'BET COUNT BY EVENT TYPE'
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return NumberHelper.format(value, NumberFormat.Integer);
+                    }
+                }
             }
         };
         this.winLossOptions = {
             title: {
                 display: true,
                 text: 'WINLOSS BY SPORT'
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
+                    }
+                }
             }
         };
         this.turnoverOptions = {
             title: {
                 display: true,
                 text: 'TURNOVER BY SPORT'
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return NumberHelper.format(value, NumberFormat.Decimal);
+                    }
+                }
             }
         };
     }
@@ -69,17 +96,13 @@ export class ProductPerformanceComponent implements Performance {
 
     query() {
         this.service.query().subscribe(statistic => {
-            this.hasData = statistic.SportStatistics.length !== 0;
-            const summaryPerformanceComponent = this.performanceService.performances[0] as SummaryPerformanceComponent;
-            statistic.BetTypeStatistics = summaryPerformanceComponent.statistic.BetTypeStatistics;
-            statistic.EventStatistics = summaryPerformanceComponent.statistic.EventStatistics;
-
             this.statistic = statistic;
             const sportStatistics = this.statistic.SportStatistics;
             this.sportLabels = sportStatistics.map(item => item.SportName);
             this.betCountBySportData = sportStatistics.map(item => item.BetCount);
-            this.eventTypeLabels = this.statistic.EventStatistics.map(item => item.EventType);
-            this.betCountByEventTypeData = this.statistic.EventStatistics.map(item => item.BetCount);
+            const summaryPerformanceStatistic = this.performanceService.summaryPerformanceStatistic;
+            this.eventTypeLabels = summaryPerformanceStatistic.EventStatistics.map(item => item.EventType);
+            this.betCountByEventTypeData = summaryPerformanceStatistic.EventStatistics.map(item => item.BetCount);
             this.winLossData = [{
                 data: sportStatistics.map(item => item.WinLoss),
                 label: 'Winloss'

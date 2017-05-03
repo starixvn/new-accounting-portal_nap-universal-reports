@@ -7,18 +7,26 @@ import { FilterModel } from '../filter/filter.model';
 import { PerformanceType, Performance } from './performance.model';
 import { PerformanceService } from './performance.service';
 import { SummaryPerformanceComponent } from './summary-performance/summary-performance.component';
+import { SummaryPerformanceService } from './summary-performance/summary-performance.service';
+import { PerformanceStatistic } from './summary-performance/summary-performance.model';
 import { ProductPerformanceComponent } from './product-performance/product-performance.component';
 import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
 
 @Component({
     selector: 'nap-performance',
     templateUrl: './performance.component.html',
+    styleUrls: [
+        '../../../node_modules/nap-components/src/style/table.scss',
+        './performance.component.scss'
+    ],
     entryComponents: [
         SummaryPerformanceComponent,
         ProductPerformanceComponent
     ]
 })
 export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
+    hasData = false;
+    statistic: PerformanceStatistic;
     @Input() filterModel: FilterModel;
     @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
     performanceType = PerformanceType.Main;
@@ -30,7 +38,8 @@ export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
         private componentFactoryResolver: ComponentFactoryResolver,
         private injector: Injector,
         private renderer: Renderer,
-        private service: PerformanceService
+        private service: PerformanceService,
+        private summaryPerformanceService: SummaryPerformanceService
     ) { }
 
     ngOnInit() {
@@ -41,7 +50,12 @@ export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
     ngOnChanges(changes: SimpleChanges) {
         this.performanceType = PerformanceType.Main;
         this.service.filterModel = this.filterModel;
-        this.createPerformance();
+        this.summaryPerformanceService.query().subscribe(statistic => {
+            this.statistic = statistic;
+            this.service.summaryPerformanceStatistic = statistic;
+            this.hasData = this.statistic.MonthStatistics.length !== 0;
+            this.createPerformance();
+        });
     }
 
     ngOnDestroy() {

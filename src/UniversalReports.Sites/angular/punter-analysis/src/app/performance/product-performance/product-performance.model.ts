@@ -12,6 +12,4 @@ interface BetCountStatistic {
 export interface SportsbookStatistic {
     SportStatistics: SportStatistic[];
     SummaryStatistic: SummaryStatistic;
-    BetTypeStatistics: BetTypeStatistic[];
-    EventStatistics: EventStatistic[];
 }
