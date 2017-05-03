@@ -15,7 +15,7 @@
     </colgroup>
 </ng-template>
 <div *ngIf="data" class="grid">
-    <div style="width: 1590px">
+    <div style="width: 1591px">
         <div class="header">
             <table [class.empty-data]="!hasData">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -63,7 +63,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="footer" *ngIf="hasData">
+        <div class="footer stretch" *ngIf="hasData">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tfoot>
