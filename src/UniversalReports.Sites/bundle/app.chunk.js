@@ -26518,7 +26518,7 @@ webpackJsonp([0],[
 	        MMM_DD_YYYY_H_M_STRING: 'MMM DD, YYYY HH:mm',
 	        MMM_DD_YYYY_H_M_S_A_STRING: 'MMMM DD, YYYY h:mm:ss A',
 	        PERCENT_NUMBER: '0%'
-	    }).constant('universalMenus', ['/UniversalReports/HouseWinLossByProducts', 'UniversalReports/NG2Statistics']);
+	    });
 	})(_angular2.default, _moment2.default);
 
 /***/ },
@@ -28497,8 +28497,8 @@ webpackJsonp([0],[
 	
 	    angular.module('app.core').factory('headerService', headerService);
 	
-	    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService', 'legacyService'];
-	    function headerService($http, universalMenus, httpResponseService, legacyService) {
+	    headerService.$inject = ['$http', 'httpResponseService', 'legacyService'];
+	    function headerService($http, httpResponseService, legacyService) {
 	        var service = {
 	            getData: getData,
 	            getCompiledMenu: getCompiledMenu,
@@ -28534,12 +28534,7 @@ webpackJsonp([0],[
 	        }
 	
 	        function isUniversalMenu(url) {
-	            for (var i = 0; i < universalMenus.length; i++) {
-	                if (url.indexOf(universalMenus[i]) >= 0) {
-	                    return true;
-	                }
-	            }
-	            return false;
+	            return url.indexOf("UniversalReports") >= 0;
 	        }
 	    }
 	})(_angular2.default);
