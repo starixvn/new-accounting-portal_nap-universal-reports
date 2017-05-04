@@ -9,7 +9,6 @@ import { FilterModel } from './filter/filter.model';
   ]
 })
 export class AppComponent {
-  isHideFilter = false;
   filterModel: FilterModel;
 
   onReset() {

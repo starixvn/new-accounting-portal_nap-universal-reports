@@ -8,6 +8,7 @@ import { PerformanceService } from '../performance.service';
 import { ProductPerformanceService } from './product-performance.service';
 import { SportsbookStatistic } from './product-performance.model';
 import { SummaryPerformanceComponent } from '../summary-performance/summary-performance.component';
+import { RomanFormatter } from '../common/roman-formatter';
 
 @Component({
     selector: 'nap-product-performance',
@@ -25,6 +26,7 @@ export class ProductPerformanceComponent implements Performance {
     winLossOptions: any;
     turnoverData: number[];
     turnoverOptions: any;
+    private winLossRomanFormatter = new RomanFormatter();
 
     constructor(
         private service: ProductPerformanceService,
@@ -63,12 +65,25 @@ export class ProductPerformanceComponent implements Performance {
                 display: true,
                 text: 'WINLOSS BY SPORT'
             },
+            legend: {
+                display: false
+            },
             tooltips: {
                 callbacks: {
                     label: function (tooltipItem) {
                         return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
                     }
                 }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 0,
+                        callback: (value) => {
+                            return this.winLossRomanFormatter.format(value);
+                        }
+                    }
+                }]
             }
         };
         this.turnoverOptions = {

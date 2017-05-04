@@ -3,10 +3,8 @@
   <div class="header-container">
     Gaming /
     <span class="active">Play For Fun Statistics</span>
-    <span class="icon" [ngClass]="{'icon-collapse' : isHideFilter, 'icon-expand': !isHideFilter}" (click)="isHideFilter = !isHideFilter"
-      [title]="isHideFilter ? 'Show filter' : 'Hide filter'"></span>
   </div>
-  <nap-filter [hidden]="isHideFilter" (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
+  <nap-filter (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
   <nap-toast></nap-toast>
   <nap-grid *ngIf="filterModel" [filterModel]="filterModel"></nap-grid>
 </div>

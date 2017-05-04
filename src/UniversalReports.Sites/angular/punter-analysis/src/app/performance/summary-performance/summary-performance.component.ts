@@ -8,6 +8,7 @@ import { Performance, PerformanceType } from '../performance.model';
 import { PerformanceService } from '../performance.service';
 import { SummaryPerformanceService } from './summary-performance.service';
 import { PerformanceStatistic } from './summary-performance.model';
+import { RomanFormatter } from '../common/roman-formatter';
 
 @Component({
     selector: 'nap-summary-performance',
@@ -26,6 +27,8 @@ export class SummaryPerformanceComponent implements Performance {
     productLabels: string[];
     productData: number[];
     productOptions: any;
+    private winLossRomanFormatter = new RomanFormatter();
+    private turnoverRomanFormatter = new RomanFormatter();
 
     constructor(
         private service: SummaryPerformanceService,
@@ -45,6 +48,13 @@ export class SummaryPerformanceComponent implements Performance {
                         return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
                     }
                 }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }]
             }
         };
         this.betCountOptions = {
@@ -67,6 +77,7 @@ export class SummaryPerformanceComponent implements Performance {
                 text: 'WINLOSS/TURNOVER'
             },
             tooltips: {
+                mode: 'label',
                 callbacks: {
                     label: function (tooltipItem) {
                         return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
@@ -89,10 +100,10 @@ export class SummaryPerformanceComponent implements Performance {
                         display: false
                     },
                     ticks: {
+                        suggestedMin: 0,
                         fontColor: '#F28F43',
-                        beginAtZero: true,
-                        callback: function (value) {
-                            return NumberHelper.format(value, NumberFormat.Decimal);
+                        callback: (value) => {
+                            return this.turnoverRomanFormatter.format(value);
                         }
                     },
                     scaleLabel: {
@@ -109,10 +120,10 @@ export class SummaryPerformanceComponent implements Performance {
                         display: false
                     },
                     ticks: {
+                        suggestedMin: 0,
                         fontColor: '#00A3C8',
-                        beginAtZero: true,
-                        callback: function (value) {
-                            return NumberHelper.format(value, NumberFormat.Decimal);
+                        callback: (value) => {
+                            return this.winLossRomanFormatter.format(value);
                         }
                     },
                     scaleLabel: {
@@ -170,24 +181,24 @@ export class SummaryPerformanceComponent implements Performance {
         }];
         this.betCountData = monthStatistics.map(item => item.BetCount);
         this.winLossTurnoverData = [{
-            type: 'bar',
-            label: 'Turnover',
-            data: monthStatistics.map(item => item.Turnover),
-            fill: false,
-            yAxisID: 'y-axis-1'
-        }, {
             type: 'line',
             label: 'Win loss',
             data: monthStatistics.map(item => item.WinLoss),
             fill: false,
             yAxisID: 'y-axis-2'
+        }, {
+            type: 'bar',
+            label: 'Turnover',
+            data: monthStatistics.map(item => item.Turnover),
+            fill: false,
+            yAxisID: 'y-axis-1'
         }];
         const productTurnoverStatistics = this.statistic.ProductTurnoverStatistics;
         this.productLabels = productTurnoverStatistics.map(item => item.ProductName);
         this.productData = productTurnoverStatistics.map(item => item.Turnover);
     }
 
-    public chartClicked(e: any): void {
+    chartClicked(e: any): void {
         if (e.active.length > 0) {
             const chartElement = e.active[0];
             const activeIndex = chartElement._index;
