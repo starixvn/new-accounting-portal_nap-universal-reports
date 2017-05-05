@@ -1,5 +1,15 @@
+:host {
+    display: inline-block;
+}
+
 :host /deep/ .performance-container {
     background: #eceeef;
+    width: 1250px;
+    &.empty-data {
+        color: red;
+        background: #fff;
+        font-weight: bold;
+    }
     .summary {
         .box {
             background-color: #fff;
@@ -20,6 +30,7 @@
             margin-top: 16px;
             .box {
                 background-color: #fff;
+                height: 100%;
             }
         }
     }

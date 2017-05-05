@@ -22,11 +22,11 @@ export class ProductPerformanceComponent implements Performance {
     eventTypeLabels: string[];
     betCountByEventTypeData: number[];
     betCountByEventTypeOptions: any;
-    winLossData: any[];
+    winLossDatasets: any[];
     winLossOptions: any;
     turnoverData: number[];
     turnoverOptions: any;
-    private winLossRomanFormatter = new RomanFormatter();
+    private winLossRomanFormatter: RomanFormatter;
 
     constructor(
         private service: ProductPerformanceService,
@@ -76,7 +76,13 @@ export class ProductPerformanceComponent implements Performance {
                 }
             },
             scales: {
+                xAxes: [{
+                    barPercentage: 0.5
+                }],
                 yAxes: [{
+                    afterBuildTicks: (scale) => {
+                        this.winLossRomanFormatter = new RomanFormatter(scale.ticks);
+                    },
                     ticks: {
                         suggestedMin: 0,
                         callback: (value) => {
@@ -118,7 +124,7 @@ export class ProductPerformanceComponent implements Performance {
             const summaryPerformanceStatistic = this.performanceService.summaryPerformanceStatistic;
             this.eventTypeLabels = summaryPerformanceStatistic.EventStatistics.map(item => item.EventType);
             this.betCountByEventTypeData = summaryPerformanceStatistic.EventStatistics.map(item => item.BetCount);
-            this.winLossData = [{
+            this.winLossDatasets = [{
                 data: sportStatistics.map(item => item.WinLoss),
                 label: 'Winloss'
             }];
