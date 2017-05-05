@@ -1,0 +1,29 @@
+:host /deep/ .col-form-label {
+    font-weight: bold;
+    padding-right: .5rem;
+}
+
+:host /deep/ .col-label {
+    float: left;
+    text-align: right;
+}
+
+:host /deep/ .row {
+    margin-bottom: .3rem;
+    .col-x1,
+    .col-x2 {
+        float: left;
+        width: 330px;
+        $margin: 100px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x3 {
+        display: inline-block;
+        margin-left: 50px;
+    }
+}

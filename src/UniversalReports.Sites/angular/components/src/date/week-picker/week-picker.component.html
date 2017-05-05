@@ -1,0 +1,14 @@
+<ng-template #dt let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled">
+    <div (mouseenter)="onMouseEnter($event, disabled)" (mouseleave)="onMouseLeave($event, disabled)" (click)="onClick($event, disabled)"
+        [class.day-active]="isSelected(date)" [class.bg-primary]="selected" [class.text-white]="selected" [class.text-muted]="disabled"
+        [class.btn-secondary]="!disabled">
+        {{date.day}}
+    </div>
+</ng-template>
+<div class="input-group" napDatePickerToggle #t="napDatePickerToggle">
+    <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [showWeekNumbers]="true" [dayTemplate]="dt"
+        [(ngModel)]="date" [minDate]="minDate" [maxDate]="maxDate" (ngModelChange)="onModelChange()" (click)="t.toggle(d, $event)">
+    <div class="input-group-addon" (click)="t.toggle(d, $event)">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+</div>

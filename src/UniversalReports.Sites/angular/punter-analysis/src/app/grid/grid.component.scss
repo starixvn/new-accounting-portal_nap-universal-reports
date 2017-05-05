@@ -1,0 +1,8 @@
+:host /deep/ .grid {
+    .number {
+        &.number-positive,
+        &>.number-positive {
+            color: red;
+        }
+    }
+}

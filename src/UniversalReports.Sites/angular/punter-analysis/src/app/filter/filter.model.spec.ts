@@ -1,0 +1,83 @@
+import * as _ from 'lodash';
+import {
+    SearchBy, PeriodType, OrderBy, FilterModelWrapper
+} from './filter.model.main';
+
+import { FilterModel } from './filter.model';
+import { UserFilterModel } from './filter.model.user';
+import { LeagueFilterModel } from './filter.model.league';
+import { PerformanceFilterModel } from './filter.model.performance';
+import { Depth } from './filter.model.depth';
+import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
+
+import { RoleId, SortBy } from 'nap-components/src/model';
+import { TreeviewItem } from 'ngx-treeview';
+
+const commonModel = {
+    searchBy: SearchBy.User,
+    searchByOptions: [
+        { text: 'User', value: SearchBy.User },
+        { text: 'League', value: SearchBy.League },
+        { text: 'Performance', value: SearchBy.Performance }
+    ],
+    fromDate: { year: 2016, month: 1, day: 1 },
+    toDate: { year: 2016, month: 2, day: 2 }
+};
+
+const commonUserLeagueModel = {
+    topRow: 2,
+    orderBy: OrderBy.WinLoss,
+    orderByOptions: [
+        { text: 'WinLoss', value: OrderBy.WinLoss }
+    ],
+    sortBy: SortBy.Ascending,
+    sortByOptions: [
+        { text: 'Ascending', value: SortBy.Ascending }
+    ],
+    periodType: PeriodType.Daily,
+    selectedBetTypeTreeviewItems: [
+        {
+            item: new TreeviewItem({ text: 'BetType1', value: 1 }),
+            parent: { item: new TreeviewItem({ text: 'SportType1', value: 1 }), parent: null }
+        },
+        {
+            item: new TreeviewItem({ text: 'BetType2', value: 2 }),
+            parent: { item: new TreeviewItem({ text: 'SportType2', value: 1 }), parent: null }
+        }
+    ]
+};
+
+const leagueModel: LeagueFilterModel = _.extend({}, commonUserLeagueModel, {
+    leagueId: 1,
+    leagueOptions: [
+        { text: 'League1', value: 1 }
+    ],
+    sportType: 1,
+    sportOptions: [
+        { text: 'SportType1', value: 1 }
+    ]
+});
+
+const performanceModel: PerformanceFilterModel = {
+    depth: { role: RoleId.Agent, text: 'Agent' },
+    userName: 'ABC',
+    isUserNameRequired: true
+};
+
+const userModel: UserFilterModel = _.extend({}, commonUserLeagueModel, performanceModel);
+
+export let fakeUserFilterModel: FilterModel = _.extend({}, commonModel, {
+    searchBy: SearchBy.User,
+    user: userModel
+});
+
+
+export let fakeLeagueFilterModel: FilterModel = _.extend({}, commonModel, {
+    searchBy: SearchBy.League,
+    league: leagueModel
+});
+
+export let fakePerformanceFilterModel: FilterModel = _.extend({}, commonModel, {
+    searchBy: SearchBy.League,
+    performance: performanceModel
+});

@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Username": "User 1",
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  },
+  {
+    "Username": "User 2",
+    "WinLoss": 0,
+    "Turnover": 0,
+    "BetCount": 0
+  }
+]

@@ -1,0 +1,13 @@
+<div class="header">
+    <ol class="breadcrumb">
+        <li *ngFor="let item of items; let index = index; let isLast = last" class="breadcrumb-item" [class.active]="isLast" [ngSwitch]="isLast">
+            <a *ngSwitchCase="false" href="javascript:;" (click)="goBack(index)">{{item}}</a>
+            <span *ngSwitchCase="true">{{item}}</span>
+        </li>
+    </ol>
+    <div *ngIf="hasExcel" class="toolbox">
+        <div class="excel">
+            <i class="icon-excel" title="Export excel" (click)="exportExcel()"></i>
+        </div>
+    </div>
+</div>

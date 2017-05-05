@@ -1,0 +1,11 @@
+<nap-navbar></nap-navbar>
+<div class="container-fluid" style="min-width: 900px">
+  <div class="header-container">
+    Gaming /
+    <span class="active">Play For Fun Statistics</span>
+  </div>
+  <nap-filter (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
+  <nap-toast></nap-toast>
+  <nap-grid *ngIf="filterModel" [filterModel]="filterModel"></nap-grid>
+</div>
+<nap-spinner></nap-spinner>

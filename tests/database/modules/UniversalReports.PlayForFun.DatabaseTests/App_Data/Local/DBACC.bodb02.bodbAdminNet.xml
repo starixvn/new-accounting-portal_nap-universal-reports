@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="PlayForFun">
+    <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="PlayForFun-Summary" SpName="Acc_Rpt_PlayForFun_Summary" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="PlayForFun-Detail" SpName="Acc_Rpt_PlayForFun_Detail" DbName="DBACC.bodb02.bodbAdminNet" />
+  </Function>
+</Functions>

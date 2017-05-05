@@ -1,0 +1,198 @@
+import * as _ from 'lodash';
+import { DownlineTreeviewItem } from 'ngx-treeview';
+import { SelectItem } from 'nap-components/src/dropdown-select';
+import { RoleId, SortBy } from 'nap-components/src/model';
+import { NgbDateStruct, DateFormat, DateHelper } from 'nap-components/src/date';
+import { FilterModel } from './filter.model';
+import { PerformanceFilterModel } from './filter.model.performance';
+import { CommonUserLeagueFilterModel } from './filter.model.common-user-league';
+
+export enum SearchBy {
+    User = 1,
+    League = 2,
+    Performance = 3
+}
+
+export enum PeriodType {
+    Daily = 1,
+    Weekly = 2,
+    Monthly = 3,
+    Annually = 4,
+    MonthRange = 5
+}
+
+export enum OrderBy {
+    WinLoss = 1,
+    Turnover = 2,
+    Margin = 3
+}
+
+export class FilterModelWrapper {
+    readonly userLeagueModel: CommonUserLeagueFilterModel;
+    readonly userLeagueWrapper: UserLeagueFilterModelWrapper;
+    readonly userPerformanceModel: PerformanceFilterModel;
+
+    static getDateFromToString(periodType: PeriodType, fromDate: NgbDateStruct, toDate: NgbDateStruct): string {
+        switch (periodType) {
+            case PeriodType.Daily:
+            case PeriodType.Weekly:
+                const fromDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Date);
+                const toDateString = DateHelper.formatDateStruct(toDate, DateFormat.Date);
+                return `from ${fromDateString} to ${toDateString}`;
+            case PeriodType.Monthly:
+                const monthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
+                return `in ${monthDateString}`;
+            case PeriodType.MonthRange:
+                const fromMonthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
+                const toMonthDateString = DateHelper.formatDateStruct(toDate, DateFormat.Month);
+                return `from ${fromMonthDateString} to ${toMonthDateString}`;
+            case PeriodType.Annually:
+                const yearDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Year);
+                return `in ${yearDateString}`;
+        }
+
+        return '';
+    }
+
+    constructor(
+        private filterModel: FilterModel
+    ) {
+        this.userLeagueModel = this.filterModel.user || this.filterModel.league;
+        this.userLeagueWrapper = new UserLeagueFilterModelWrapper(this.userLeagueModel);
+        this.userPerformanceModel = this.filterModel.user || this.filterModel.performance;
+    }
+
+    validate(): string {
+        if (this.userLeagueModel) {
+            if (this.userLeagueModel.periodType === PeriodType.Daily || this.userLeagueModel.periodType === PeriodType.Weekly) {
+                const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+                const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
+                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
+                    return 'Date range should not exceed 1 month!';
+                }
+            }
+        }
+
+        if (this.userPerformanceModel && this.userPerformanceModel.isUserNameRequired && this.userPerformanceModel.userName === '') {
+            return 'Account name field is required!';
+        }
+
+        if (this.filterModel.user && this.filterModel.user.selectedBetTypeTreeviewItems.length === 0) {
+            return 'Please select at least one Product!';
+        }
+
+        if (this.filterModel.league) {
+            if (this.filterModel.league.selectedBetTypeTreeviewItems.length === 0) {
+                return 'Please select at least one Bet Type!';
+            }
+
+            if (this.filterModel.league.leagueId === 0) {
+                return 'There is no league available!';
+            }
+        }
+
+        return undefined;
+    }
+
+    get depthTitle(): string {
+        const commonModel = this.filterModel.user || this.filterModel.performance;
+        return commonModel.depth.text;
+    }
+
+    get userNameTitle(): string {
+        if (this.filterModel.user) {
+            const userName = this.filterModel.user.userName;
+            if (!_.isNil(userName) && userName !== '') {
+                return userName;
+            }
+
+            return 'All';
+        }
+    }
+
+    get fromDateQueryString(): string {
+        return DateHelper.convertDateStructToString(this.filterModel.fromDate);
+    }
+
+    get toDateQueryString(): string {
+        return DateHelper.convertDateStructToString(this.filterModel.toDate);
+    }
+
+    get selectedSportTypes(): string {
+        if (this.filterModel.user) {
+            const sportTypes: string[] = [];
+            this.filterModel.user.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
+                const sportType = betTypeItem.parent.item.text;
+                if (sportTypes.indexOf(sportType) === -1) {
+                    sportTypes.push(sportType);
+                }
+            });
+            return sportTypes.join(', ');
+        } else if (this.filterModel.league) {
+            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].text;
+        }
+    }
+
+    get leagueTitle(): string {
+        return this.filterModel.league.leagueOptions.filter(option => option.value === this.filterModel.league.leagueId)[0].text;
+    }
+
+    get leagueId(): number {
+        return this.filterModel.league ? this.filterModel.league.leagueId : 0;
+    }
+
+    get searchByTitle(): string {
+        return this.filterModel.searchByOptions.filter(option => option.value === this.filterModel.searchBy)[0].text;
+    }
+
+    get searchByFileName(): string {
+        return `Search_by_${this.searchByTitle}`;
+    }
+
+    get dateFromToTitle(): string {
+        const dateFromToDateString = FilterModelWrapper.getDateFromToString(
+            this.userLeagueModel.periodType,
+            this.filterModel.fromDate,
+            this.filterModel.toDate);
+        return `${dateFromToDateString} (${this.userLeagueWrapper.periodTitle})`;
+    }
+
+    get dateFromToFileName(): string {
+        let dateFromToDateString = FilterModelWrapper.getDateFromToString(
+            this.userLeagueModel.periodType,
+            this.filterModel.fromDate,
+            this.filterModel.toDate);
+        dateFromToDateString = dateFromToDateString.replace(/ /g, '_').replace(/,/g, '');
+        return dateFromToDateString;
+    }
+}
+
+export class UserLeagueFilterModelWrapper {
+    constructor(private model: CommonUserLeagueFilterModel) { }
+
+    get periodTitle(): string {
+        switch (this.model.periodType) {
+            case PeriodType.Daily:
+                return 'Daily';
+            case PeriodType.Weekly:
+                return 'Weekly';
+            case PeriodType.Monthly:
+            case PeriodType.MonthRange:
+                return 'Monthly';
+            case PeriodType.Annually:
+                return 'Annually';
+        }
+    }
+
+    get listCombinationId(): string {
+        return this.model.selectedBetTypeTreeviewItems.map(betTypeItem => betTypeItem.item.value).join(',');
+    }
+
+    get orderByTitle(): string {
+        return this.model.orderByOptions.filter(option => option.value === this.model.orderBy)[0].text;
+    }
+
+    get sortByTitle(): string {
+        return this.model.sortByOptions.filter(option => option.value === this.model.sortBy)[0].text;
+    }
+}

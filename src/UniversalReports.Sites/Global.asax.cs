@@ -16,6 +16,7 @@ namespace UniversalReports.Sites
         protected void Application_Start()
         {
             ChangeApplicationName();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -26,7 +27,8 @@ namespace UniversalReports.Sites
         protected void Application_PostAuthorizeRequest()
         {
             var request = HttpContext.Current.Request;
-            if (request.Url.ToString().Contains("api/application/header"))
+            if (request.Url.ToString().Contains("api/application/header")
+                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             }

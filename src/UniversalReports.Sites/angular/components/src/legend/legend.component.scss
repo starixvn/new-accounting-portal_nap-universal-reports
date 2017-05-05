@@ -1,0 +1,16 @@
+.legend-information {
+    display: block;
+    position: relative;
+    .information-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: url(images/button-default.png) no-repeat scroll 0 0 transparent;
+        cursor: help;
+        width: 16px;
+        height: 16px;
+        &:hover {
+            background: url(images/button-hover.png) no-repeat scroll 0 0 transparent;
+        }
+    }
+}

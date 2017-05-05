@@ -1,0 +1,72 @@
+@import 'mixins';
+:host /deep/ .grid {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 0.8125rem;
+    overflow-x: auto;
+    width: 100%;
+    @include calc( max-width, '100vw - 17px');
+    table {
+        table-layout: fixed;
+        border-collapse: collapse;
+        box-sizing: border-box;
+        td,
+        th {
+            border: 1px solid #c5c5c5;
+            padding: .2rem .4rem;
+        }
+        &.table-striped {
+            tbody tr {
+                background-color: #fff;
+                &:nth-of-type(even) {
+                    background-color: #E4F2FD;
+                }
+                &:hover {
+                    background-color: #E2FFFF;
+                }
+            }
+        }
+    }
+    .header {
+        font-weight: bold;
+        color: #fff;
+        background: #3c5ea5;
+        th {
+            box-sizing: border-box;
+            text-align: center;
+            border-top: none;
+            border-left: none;
+        }
+        table.empty-data {
+            width: 100%;
+            tbody {
+                th {
+                    color: red;
+                    background: #fff;
+                }
+            }
+        }
+    }
+    .body {
+        max-height: 500px;
+        overflow-y: scroll;
+    }
+    .footer {
+        background: #dce2bc;
+        font-weight: bold;
+    }
+    .stretch {
+        padding-right: 20px;
+        table {
+            width: 100%;
+        }
+    }
+    .date {
+        text-align: center;
+    }
+    .number {
+        text-align: right;
+    }
+    .word-break-all {
+        word-break: break-all;
+    }
+}

@@ -163,7 +163,7 @@
                     case SiteEnvironment.SIT:
 						return "http://172.16.4.106:1710/api";
                     case SiteEnvironment.UAT:
-						return "http://10.40.40.16:1710/api";
+						return "http://10.2.27.16:1710/api";
 					case SiteEnvironment.PRO:
 						return "http://10.40.40.22:1710/api";
 					case SiteEnvironment.MNL:
@@ -298,34 +298,7 @@
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
-                        return "stateConnectionString=\"tcpip=10.35.35.254:42424\"";
-                }
-            }
-        }
-
-        public string SPName
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                    case SiteEnvironment.MNL:
-                        return "~/App_Data/PRO/";
-
-                    case SiteEnvironment.UAT:
-                        return "~/App_Data/UAT/";
-					case SiteEnvironment.SIT:
-                        return "~/App_Data/SIT/";
-                    case SiteEnvironment.DEV:
-                        return "~/App_Data/DEV/";
-                    case SiteEnvironment.LOCAL:
-                        return "~/App_Data/LOCAL/";
-                    case SiteEnvironment.MASTER:
-                        return "~/App_Data/MASTER/";
-
-                    default:
-                        return string.Empty;
+                        return "stateConnectionString=\"tcpip=10.35.35.253:42424\"";
                 }
             }
         }
@@ -338,7 +311,7 @@
                 {
 					case SiteEnvironment.LOCAL:
 					case SiteEnvironment.DEV:
-                        return @"FormatName:DIRECT=http://10.35.35.254:808/msmq/Private$/entlib";
+                        return @"FormatName:DIRECT=http://10.35.35.253:808/msmq/Private$/entlib";
 
 					case SiteEnvironment.UAT:
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";

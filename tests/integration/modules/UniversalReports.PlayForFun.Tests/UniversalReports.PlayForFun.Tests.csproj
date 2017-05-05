@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BB165C5-2DCE-4B62-BE8E-4BCF0CF720DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniversalReports.PlayForFun.Tests</RootNamespace>
+    <AssemblyName>UniversalReports.PlayForFun.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>FanexUnitTestRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.7\lib\net461\Epplus.Mapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Caching">
+      <HintPath>..\..\..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Common">
+      <HintPath>..\..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data">
+      <HintPath>..\..\..\..\packages\Fanex.Data.2.0.3\lib\net461\Fanex.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data.OldConnectionStringProvider">
+      <HintPath>..\..\..\..\packages\Fanex.Data.OldConnectionStringProvider.1.0.1\lib\net461\Fanex.Data.OldConnectionStringProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data.Repository">
+      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.1.0.1\lib\net461\Fanex.Data.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Excel.2.2.2.0\lib\net40\Fanex.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.NAP.Core">
+      <HintPath>..\..\..\..\packages\Fanex.NAP.Core.Client.1.1.0.5\lib\net40\Fanex.NAP.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects">
+      <HintPath>..\..\..\..\packages\CompareNETObjects.3.06.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR">
+      <HintPath>..\..\..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR.SimpleInjector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\MediatR.SimpleInjector.1.0.0.1\lib\net461\MediatR.SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUnit.CompareNetObjects, Version=0.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NUnit.CompareNetObjects.0.1.9\lib\net45\NUnit.CompareNetObjects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SimpleInjector.4.0.3\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunDetailProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunFilterProfile.cs" />
+    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
+    <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
+    <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjector.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
+    <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Summary\PlayForFunSummaryControllerTests.cs" />
+    <Compile Include="TestDataLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\..\..\..\FXCop\FxCopDictionary.xml">
+      <Link>FxCopDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="AppReadme\Compare-NET-Objects-Help.chm" />
+    <None Include="ExcelTemplate\PlayForFun\Summary.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="TestCases\Detail-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Detail-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Detail-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Detail-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Summary-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Detail\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
+      <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
+      <Name>UniversalReports.PlayForFun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
+      <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
+      <Name>UniversalReports.HouseWinLoss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
+      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
+      <Name>UniversalReports.WebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

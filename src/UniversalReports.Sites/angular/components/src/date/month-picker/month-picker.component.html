@@ -1,0 +1,20 @@
+<div *ngIf="isShowLabel" class="col-label">
+    <label class="col-form-label">Month</label>
+</div>
+<div class="col-value">
+    <div class="month">
+        <div class="d-inline-block">
+            <select class="form-control" [value]="month" (change)="onMonthChange($event.target.value)">
+                <option *ngFor="let option of months" [value]="option">{{getMonthName(option)}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="year">
+        <label class="col-form-label" *ngIf="isShowLabel">Year</label>
+        <div class="d-inline-block">
+            <select class="form-control" [value]="year" (change)="onYearChange($event.target.value)">
+                <option *ngFor="let option of years" [value]="option">{{option}}</option>
+            </select>
+        </div>
+    </div>
+</div>

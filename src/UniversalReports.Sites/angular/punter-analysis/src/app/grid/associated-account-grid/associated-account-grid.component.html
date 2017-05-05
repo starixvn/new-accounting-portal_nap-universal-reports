@@ -1,0 +1,37 @@
+<ng-template #colgroup>
+    <colgroup>
+        <col style="width: 320px" />
+        <col style="width: 160px" />
+    </colgroup>
+</ng-template>
+<div *ngIf="data" class="grid">
+    <div style="width: 498px">
+        <div class="header">
+            <table [class.empty-data]="!hasData">
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="!hasData">
+                    <tr>
+                        <th colspan="2">There is no data</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="hasData" class="body">
+            <table class="table-striped">
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>{{ item.Username }}</td>
+                        <td>{{ item.RoleName }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

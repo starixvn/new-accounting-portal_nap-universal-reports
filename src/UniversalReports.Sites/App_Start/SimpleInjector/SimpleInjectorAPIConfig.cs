@@ -1,5 +1,6 @@
 ﻿using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Lifestyles;
 using System.Web.Http;
 using UniversalReports.Sites.SimpleInjector;
 
@@ -7,22 +8,26 @@ using UniversalReports.Sites.SimpleInjector;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    internal class SimpleInjectorApiConfig
+    internal static class SimpleInjectorApiConfig
     {
+        private static readonly Container Container = new Container();
+
         internal static void Initialize()
         {
-            var container = new Container();
-            container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
+            Container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            container.RegiserCommonServices()
+            Container.RegiserGlobalServices()
+                .RegisterMediator()
+                .RegiserAutoMapper()
                 .RegisterHouseWinLossServices()
-                .RegisterNG2Services();
+                .RegisterNG2Services()
+                .RegisterPunterAnalysisServices()
+                .RegisterPlayForFunServices();
 
-            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+            Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
-            container.Verify();
-
-            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+            Container.Verify();
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(Container);
         }
     }
 }

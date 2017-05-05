@@ -1,0 +1,22 @@
+﻿[
+  {
+    "LeagueId": 1,
+    "LeagueName": "League 1",
+    "BetCount": 5,
+    "WinLoss": 100,
+    "Turnover": 500,
+    "Year": 2016,
+    "Month": 12,
+    "Week": 52
+  },
+  {
+    "LeagueId": 2,
+    "LeagueName": "League 2",
+    "BetCount": 5,
+    "WinLoss": 100,
+    "Turnover": 500,
+    "Year": 2017,
+    "Month": 1,
+    "Week": 1
+  }
+]

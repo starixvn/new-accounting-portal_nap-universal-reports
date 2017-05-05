@@ -1,0 +1,69 @@
+:host /deep/ .col-form-label {
+    font-weight: bold;
+    padding-right: .5rem;
+}
+
+:host /deep/ .col-label {
+    float: left;
+    text-align: right;
+}
+
+:host /deep/ .row {
+    margin-bottom: .3rem;
+    .col-x1 {
+        float: left;
+        width: 330px;
+        $margin: 100px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x2 {
+        float: left;
+        width: 330px;
+        $margin: 120px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x23 {
+        float: left;
+        width: 620px;
+        $margin: 120px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .col-x3 {
+        float: left;
+        width: 290px;
+        $margin: 80px;
+        .col-label {
+            width: $margin;
+        }
+        .col-value {
+            margin-left: $margin;
+        }
+    }
+    .text-danger {
+        vertical-align: middle;
+    }
+    .month-range {
+        .col-value {
+            margin-left: 0;
+        }
+        .year {
+            float: left;
+            margin-left: .5rem;
+        }
+    }
+}

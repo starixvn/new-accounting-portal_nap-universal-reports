@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -31,6 +32,7 @@
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,12 +59,24 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Caching, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.2.0.0\lib\net461\Fanex.Caching.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Epplus.Mapper.1.0.0.7\lib\net461\Epplus.Mapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -86,7 +100,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Excel.2.2.1.0\lib\net40\Fanex.Excel.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.Excel.2.2.2.0\lib\net40\Fanex.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -100,6 +114,18 @@
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR.SimpleInjector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.SimpleInjector.1.0.0.1\lib\net461\MediatR.SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Build.Tasks, Version=1.0.21.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -125,32 +151,32 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RemotingRef.1.0.0.13\lib\net40\RemotingRef.dll</HintPath>
+    <Reference Include="RemotingRef, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RemotingRef.1.0.0.15\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.0.3\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.3.2\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.4.0.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.3.3.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.0.3\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.3.3.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.0.3\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.3.3.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.4.0.3\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -239,16 +265,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFunFilterProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFunDetailProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisAssociatedAccountProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisSportTypeProfile.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisBetCountProfile.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\SimpleInjector\CommonInjectorInitializer.cs" />
-    <Compile Include="App_Start\SimpleInjector\NG2InjectorInitializer.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisBetTypeProfile.cs" />
+    <Compile Include="App_Start\SimpleInjector\AutoMapperInjector.cs" />
+    <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
+    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisSummaryProfile.cs" />
+    <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
+    <Compile Include="App_Start\SimpleInjector\PlayForFunInjector.cs" />
+    <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjector.cs" />
+    <Compile Include="App_Start\SimpleInjector\NG2Injector.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\SimpleInjector\HouseWinLossInjectorInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\HouseWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\FakeLoginController.cs" />
+    <Compile Include="Controllers\LegacyPathAdapterController.cs" />
+    <Compile Include="Controllers\LegacyUrlResolver.cs" />
+    <Compile Include="Controllers\PlayForFunController.cs" />
+    <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NG2StatisticsController.cs" />
@@ -444,6 +490,21 @@
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\play-for-fun\index.html" />
+    <Content Include="wwwroot\play-for-fun\inline.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\main.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\polyfills.bundle.js" />
+    <Content Include="wwwroot\play-for-fun\styles.bundle.css" />
+    <Content Include="wwwroot\play-for-fun\vendor.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\punter-analysis\index.html" />
+    <Content Include="wwwroot\punter-analysis\inline.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\main.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\polyfills.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\scripts.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
+    <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
@@ -571,6 +632,12 @@
     <Content Include="App_Configuration\Web.ConnectionString.UAT.config">
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
     </Content>
+    <Content Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Bettype.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Sporttype.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Summary.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\League.xlsx" />
+    <Content Include="ExcelTemplate\PlayForFun\Summary.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -674,35 +741,58 @@
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="Views\NG2Statistics\Index.cshtml" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_AngularLayout.cshtml" />
+    <Content Include="Views\FakeLogin\Index.cshtml" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\play-for-fun\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UniversalReports.API\UniversalReports.API.csproj">
-      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
-      <Name>UniversalReports.API</Name>
+    <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
+      <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
+      <Name>UniversalReports.PlayForFun</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.Application\UniversalReports.Application.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
+      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
+      <Name>UniversalReports.WebAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>
       <Name>UniversalReports.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.MVC\UniversalReports.MVC.csproj">
+    <ProjectReference Include="..\shared\UniversalReports.MVC\UniversalReports.MVC.csproj">
       <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
       <Name>UniversalReports.MVC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
+    <ProjectReference Include="..\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
       <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
       <Name>UniversalReports.NG2Statistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
+      <Project>{57b473ff-1385-4d2e-9eb1-5e9a7c586cf0}</Project>
+      <Name>UniversalReports.PunterAnalysis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -710,10 +800,12 @@
     <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <VisualStudio>

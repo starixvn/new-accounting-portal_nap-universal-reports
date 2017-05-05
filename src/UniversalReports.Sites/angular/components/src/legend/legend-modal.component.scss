@@ -1,0 +1,32 @@
+.modal-header {
+    padding: 8px 16px;
+}
+
+.modal-body {
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+:host /deep/ #lengendContentContainer {
+    br {
+        display: none;
+    }
+    .title {
+        margin: 0 !important;
+        .title-tab {
+            font-size: 1.0em !important;
+        }
+    }
+    .content {
+        padding: 0 !important;
+    }
+    #generalInfo {
+        margin-bottom: 10px !important;
+    }
+    p {
+        margin: 0 !important;
+    }
+    ul {
+        font-size: 1.0em !important;
+    }
+}

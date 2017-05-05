@@ -1,0 +1,22 @@
+﻿[
+  {
+    "BetTypeId": 1,
+    "BetTypeName": "Bet Type 1",
+    "NonLiveWinLoss": 100,
+    "NonLiveTurnover": 200,
+    "NonLiveBetCount": 2,
+    "LiveWinLoss": 200,
+    "LiveTurnover": 400,
+    "LiveBetCount": 3
+  },
+  {
+    "BetTypeId": 2,
+    "BetTypeName": "Bet Type 2",
+    "NonLiveWinLoss": 50,
+    "NonLiveTurnover": 100,
+    "NonLiveBetCount": 1,
+    "LiveWinLoss": 0,
+    "LiveTurnover": 0,
+    "LiveBetCount": 0
+  }
+]

@@ -6,8 +6,8 @@ import angular from "angular";
         .module('app.core')
         .factory('headerService', headerService);
 
-    headerService.$inject = ['$http', 'universalMenus', 'httpResponseService', 'legacyService'];
-    function headerService($http, universalMenus, httpResponseService, legacyService) {
+    headerService.$inject = ['$http', 'httpResponseService', 'legacyService'];
+    function headerService($http, httpResponseService, legacyService) {
         var service = {
             getData: getData,
             getCompiledMenu: getCompiledMenu,
@@ -49,12 +49,7 @@ import angular from "angular";
         }
 
         function isUniversalMenu(url) {
-            for (var i = 0; i < universalMenus.length; i++) {
-                if (url.indexOf(universalMenus[i]) >= 0) {
-                    return true;
-                }
-            }
-            return false;
+            return url.indexOf("UniversalReports")>=0;
         }
     }
 })(angular);

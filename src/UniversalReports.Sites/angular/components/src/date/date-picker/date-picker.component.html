@@ -1,0 +1,7 @@
+<div class="input-group" napDatePickerToggle #t="napDatePickerToggle">
+    <input class="form-control" readonly="readonly" ngbDatepicker #d="ngbDatepicker" [minDate]="minDate" [maxDate]="maxDate"
+        [(ngModel)]="date" (ngModelChange)="onModelChange()" (click)="t.toggle(d, $event)">
+    <div class="input-group-addon" (click)="t.toggle(d, $event)">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+</div>

@@ -1,31 +1,36 @@
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-using System.Reflection;
 using System.Web.Mvc;
+using UniversalReports.Sites.Controllers;
 using UniversalReports.Sites.SimpleInjector;
 
-[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMVCInitializer), "Initialize")]
+[assembly: WebActivator.PostApplicationStartMethod(typeof(SimpleInjectorMvcInitializer), "Initialize")]
 
 namespace UniversalReports.Sites.SimpleInjector
 {
-    public static class SimpleInjectorMVCInitializer
+    public static class SimpleInjectorMvcInitializer
     {
+        private static readonly Container Container = new Container();
+
         /// <summary>Initialize the container and register it as MVC3 Dependency Resolver.</summary>
         public static void Initialize()
         {
-            var container = new Container();
-            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            container.RegiserCommonServices()
-            .RegisterHouseWinLossServices()
-            .RegisterNG2Services();
+            Container.RegiserGlobalServices()
+                .RegisterMediator()
+                .RegiserAutoMapper()
+                .RegisterHouseWinLossServices()
+                .RegisterNG2Services()
+                .RegisterPunterAnalysisServices()
+                .RegisterPlayForFunServices();
 
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            var homeControllerType = typeof(HomeController);
+            Container.RegisterMvcControllers(homeControllerType.Assembly);
 
-            container.Verify();
-
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+            Container.Verify();
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(Container));
         }
     }
 }

@@ -1,0 +1,1695 @@
+{
+  "groupHeaderRows": [
+    {
+      "Columns": [
+        {
+          "HeaderText": "Code",
+          "ShowCollapseExpand": false,
+          "Width": 130,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "MatchCode",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "Event",
+          "ShowCollapseExpand": false,
+          "Width": 320,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "Home",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "MergeColNumber": 3,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "Member Win Loss",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "MemberWinLoss",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "SMA Win Loss",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "SMAWinLoss",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "Commission",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "Commission",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "House Income",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "RealIncome",
+          "Value": null,
+          "MergeColNumber": 3,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "House Turnover",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "VirtualTurnover",
+          "Value": null,
+          "MergeColNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "HeaderText": "Margin",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "VirtualMargin",
+          "Value": null,
+          "MergeColNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ]
+    }
+  ],
+  "columns": [
+    {
+      "HeaderText": "Code",
+      "ShowCollapseExpand": false,
+      "Width": 130,
+      "HeaderAlign": "center",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "MatchCode",
+      "Value": null,
+      "TdClass": " bold",
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "center",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "",
+      "ShowCollapseExpand": false,
+      "Width": 150,
+      "HeaderAlign": "center",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "Home",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "",
+      "ShowCollapseExpand": false,
+      "Width": 20,
+      "HeaderAlign": "center",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "VS",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "center",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "",
+      "ShowCollapseExpand": false,
+      "Width": 150,
+      "HeaderAlign": "center",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "Away",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "left",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Member Win Loss",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "MemberWinLoss",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "SMA Win Loss",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "SMAWinLoss",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Commission",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "Commission",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Variance",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "VarianceIncome",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Virtual",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "VirtualIncome",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Real",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "RealIncome",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Virtual",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "VirtualTurnover",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Real",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "RealTurnover",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Virtual",
+      "ShowCollapseExpand": false,
+      "Width": 50,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00%",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "VirtualMargin",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Real",
+      "ShowCollapseExpand": false,
+      "Width": 50,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00%",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "RealMargin",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    }
+  ],
+  "bodyRows": [
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "League 10",
+          "MergeColNumber": 13,
+          "TdClass": " bold",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "league-match-header",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6544g",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18499570,'Jun 05, 2016','League 10'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 180",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 9917",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -459200.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 307254.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 3149.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -45448.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -103347.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -148795.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 1117483.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 1471787.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.0925,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.1011,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6545",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18485844,'Jun 05, 2016','League 10'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 916",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 7078",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -224669.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 112543.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 3982.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -15152.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -92992.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -108144.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 1357553.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 1531782.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.0685,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.0706,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6546",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18499571,'Jun 05, 2016','League 10'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 254",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 173",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": 38259.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": -57099.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 3195.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -28719.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": 13074.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -15644.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 1556941.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 1819707.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": 0.0084,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.0086,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6547",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18510611,'Jun 05, 2016','League 10'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 14 (N)",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 7804",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -97217.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 98758.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 638.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -25813.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": 27992.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": 2179.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 866018.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 1020531.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": 0.0323,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": 0.0021,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6548",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18499575,'Jun 05, 2016','League 10'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 5024",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 234",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -342324.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 315756.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 1815.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -24144.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -607.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -24752.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 830519.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 981706.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.0007,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.0252,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "Total",
+          "MergeColNumber": 4,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -1085151.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 777212.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 12779.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -139276.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -155880.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -295156.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 5728514.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 6825513.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.0272,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.0432,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "total-row subTotal",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "League 72",
+          "MergeColNumber": 13,
+          "TdClass": " bold",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "league-match-header",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "6650",
+          "TdClass": " bold",
+          "CssClass": "league-match-code",
+          "CustomAttr": "1,18525763,'Jun 05, 2016','League 72'",
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Home",
+          "Value": "Team 620",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VS",
+          "Value": "-vs-",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "center",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Away",
+          "Value": "Team 6505",
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": 19605.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 6316.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 1168.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -3515.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": 30606.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": 27091.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 409698.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 493673.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": 0.0747,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": 0.0549,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    },
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "Total",
+          "MergeColNumber": 4,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": 19605.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 6316.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 1168.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -3515.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": 30606.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": 27091.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 409698.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 493673.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": 0.0747,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": 0.0549,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "total-row subTotal",
+      "CustomAttr": null
+    }
+  ],
+  "footerRows": [
+    {
+      "Columns": [
+        {
+          "Name": "MatchCode",
+          "Value": "Grand Total",
+          "MergeColNumber": 4,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -1065546.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 783528.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 13947.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": -142791.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -125274.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -268065.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 6138212.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 7319186.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.0204,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.0366,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": null
+    }
+  ],
+  "showTitle": true,
+  "totalItems": 0,
+  "TitleInfoText": "",
+  "showFooter": true,
+  "noDataText": "There is no data.",
+  "showDistinctRow": false,
+  "showHighlightRow": true,
+  "customizeHeader": true,
+  "numberOfFrozenColumn": 0,
+  "showPager": false,
+  "showTree": false,
+  "customPager": false,
+  "headerColumnHeight": 25,
+  "bodyRowHeight": 21
+}

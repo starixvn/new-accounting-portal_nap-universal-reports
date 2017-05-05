@@ -1,0 +1,45 @@
+﻿using System.Web.Http;
+using UniversalReports.Core.Factory;
+using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.MVC.Results;
+
+namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
+{
+    [RoutePrefix("api/house-win-loss-by-products/soccer/group-bettype")]
+    public class SoccerGroupBetTypeController : ApiController
+    {
+        private readonly GroupBetTypeWinLossService service;
+        private readonly GroupBetTypeGridOptionsBuilder builder;
+        private readonly GridOptionColumnDecorator decorator;
+
+        public SoccerGroupBetTypeController(GroupBetTypeWinLossService service, GroupBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
+        }
+
+        [Route("")]
+        public IHttpActionResult Json(QueryModel queryModel)
+        {
+            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, string.Empty);
+            gridOptions = decorator.Build(gridOptions, "Bet Type");
+
+            return Json(gridOptions);
+        }
+
+        [Route("excel")]
+        public IHttpActionResult Excel(GroupBetTypeExcelQueryModel queryModel)
+        {
+            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, queryModel.Title);
+            gridOptions = decorator.Build(gridOptions, "Bet Type");
+
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
+        }
+    }
+}

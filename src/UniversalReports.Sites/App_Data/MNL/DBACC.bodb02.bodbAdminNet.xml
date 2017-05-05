@@ -133,4 +133,9 @@
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site_14" DbName="DBACC.bodb02.bodbAdminNet">
     </Setting>
   </Function>
+  <Function Name="PlayForFun">
+    <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="PlayForFun-Summary" SpName="Acc_Rpt_PlayForFun_Summary" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="PlayForFun-Detail" SpName="Acc_Rpt_PlayForFun_Detail" DbName="DBACC.bodb02.bodbAdminNet" />
+  </Function>
 </Functions>
