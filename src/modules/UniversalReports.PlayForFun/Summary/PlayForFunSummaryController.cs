@@ -27,7 +27,7 @@ namespace UniversalReports.PlayForFun.Summary
         public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
         {
             var excelPackage = await mediator.Send(parameter);
-            return new ExcelResult(excelPackage);
+            return new ExcelResult(excelPackage, "pl@y4o3un");
         }
     }
 }

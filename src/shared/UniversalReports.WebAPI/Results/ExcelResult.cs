@@ -10,9 +10,12 @@ namespace UniversalReports.WebAPI.Results
 {
     public class ExcelResult : IHttpActionResult
     {
-        public ExcelResult(ExcelPackage excelPackage)
+        private readonly string PassWord;
+
+        public ExcelResult(ExcelPackage excelPackage, string password = "")
         {
             ExcelPackage = excelPackage;
+            PassWord = password;
         }
 
         public ExcelPackage ExcelPackage { get; }
@@ -24,7 +27,9 @@ namespace UniversalReports.WebAPI.Results
             {
                 response = new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    Content = new ByteArrayContent(ExcelPackage.GetAsByteArray())
+                    Content = string.IsNullOrEmpty(PassWord) ?
+                        new ByteArrayContent(ExcelPackage.GetAsByteArray()) :
+                        new ByteArrayContent(ExcelPackage.GetAsByteArray(PassWord))
                 };
             }
 

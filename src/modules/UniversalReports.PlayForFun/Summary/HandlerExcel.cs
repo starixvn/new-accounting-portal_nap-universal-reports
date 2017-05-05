@@ -52,8 +52,6 @@ namespace UniversalReports.PlayForFun.Summary
                 detailExcelViewModel,
                 detailExcelSetting);
 
-            excelPackage.Workbook.Protection.SetPassword("pl@y4o3un");
-
             return excelPackage;
         }
 
