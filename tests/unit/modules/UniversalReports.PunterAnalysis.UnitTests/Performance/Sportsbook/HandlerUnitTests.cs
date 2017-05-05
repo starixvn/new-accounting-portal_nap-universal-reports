@@ -58,7 +58,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             {
                 SummaryStatistic = new SummaryStatistic { BetCount = 0, Turnover = 0, WinLoss = 0 },
                 SportStatistics = new List<SportStatistic>(),
-                BetCountStatistics = new List<BetCountStatistic>(),
             };
         }
 
@@ -115,7 +114,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             {
                 SummaryStatistic = new SummaryStatistic { BetCount = 3, Turnover = 300, WinLoss = 130 },
                 SportStatistics = CreateSportStatistics(),
-                BetCountStatistics = new List<BetCountStatistic>()
             };
         }
     }
