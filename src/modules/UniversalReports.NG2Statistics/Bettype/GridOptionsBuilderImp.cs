@@ -61,8 +61,8 @@ namespace UniversalReports.NG2Statistics.Bettype
             foreach (var row in bettype.Rows)
             {
                 var mergeRowNumber = isFirstRow
-                    ? 0
-                    : bettype.Rows.Count;
+                    ? bettype.Rows.Count
+                    : 0;
 
                 var bettypeRow = BuildDataRow(row, mergeRowNumber, false);
                 gridRows.Add(bettypeRow);
