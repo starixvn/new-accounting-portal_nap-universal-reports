@@ -17,6 +17,9 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();
             var betTradeSiteCriteria = new Bettrade.Site.Criteria { Site = "Deposit" };
 
+            var cashOutBetTypeCriteria = new CashOut.BetType.Criteria();
+            var cashOutSiteCriteria = new CashOut.Site.Criteria { Site = "Deposit" };
+
             var casinoBetTypeCriteria = new Casino.BetType.Criteria { CasinoProductId = 6 };
             var casinoProductCriteria = new Casino.Product.Criteria { CasinoType = 1 };
             var casinoSiteCriteria = new Casino.Site.Criteria
@@ -116,6 +119,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 {
                     betTradeBetTypeCriteria,
                     betTradeSiteCriteria,
+                cashOutBetTypeCriteria,
+                cashOutSiteCriteria,
                     casinoBetTypeCriteria,
                     casinoProductCriteria,
                     casinoSiteCriteria,

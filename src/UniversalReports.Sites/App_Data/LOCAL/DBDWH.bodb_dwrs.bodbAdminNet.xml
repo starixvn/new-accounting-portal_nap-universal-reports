@@ -10,6 +10,8 @@
     <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
@@ -37,10 +39,8 @@
     <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-    </Setting>
-    <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet">
-    </Setting>
+    <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
