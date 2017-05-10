@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_Product" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -19,10 +19,10 @@
     <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_14_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_14_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-CashOut-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-CashOut-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-CashOut-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-CashOut-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />

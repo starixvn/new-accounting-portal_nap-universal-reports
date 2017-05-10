@@ -10,7 +10,7 @@
     <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old_xpre" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-CashOut-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />

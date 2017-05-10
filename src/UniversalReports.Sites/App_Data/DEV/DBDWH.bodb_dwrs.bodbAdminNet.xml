@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_xpre" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120" />
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120" />
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
@@ -10,8 +10,8 @@
     <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old_xpre" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
-    <Setting Key="HouseWinLoss-CashOut-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_Old_xpre" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
