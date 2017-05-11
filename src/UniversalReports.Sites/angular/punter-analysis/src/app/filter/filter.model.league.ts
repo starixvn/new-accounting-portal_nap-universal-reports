@@ -6,5 +6,5 @@ export interface LeagueFilterModel extends CommonUserLeagueFilterModel {
     leagueId: number;
     leagueOptions: IOption[];
     sportType: number;
-    sportOptions: SelectItem[];
+    sportOptions: IOption[];
 }

@@ -5,6 +5,7 @@ import { TreeviewItem, TreeItem } from 'ngx-treeview';
 import { RoleId } from 'nap-components/src/model';
 import { NgbDateStruct, DateHelper, DateRange } from 'nap-components/src/date';
 import { SelectItem } from 'nap-components/src/dropdown-select';
+import { IOption } from 'nap-components/src/select';
 import { HttpService } from 'nap-components/src/http.service';
 import { FilterModel } from './filter.model';
 import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
@@ -71,14 +72,14 @@ export class FilterService {
         return this.httpService.post<SportsbookSportTypeBetType[]>(url);
     }
 
-    querySportTypeLeague(sportId: number, dateRange: DateRange): Observable<SelectItem[]> {
+    querySportTypeLeague(sportId: number, dateRange: DateRange): Observable<IOption[]> {
         const url = `${this.url}/sport-type-league`;
         return this.httpService.post<SportTypeLeague[]>(url, {
             sportId: sportId,
             fromDate: DateHelper.convertDateStructToString(dateRange.fromDate),
             toDate: DateHelper.convertDateStructToString(dateRange.toDate)
-        }).map(list => list.map(item => <SelectItem>{
-            text: item.LeagueName,
+        }).map(list => list.map(item => <IOption>{
+            label: item.LeagueName,
             value: item.LeagueId
         }));
     }

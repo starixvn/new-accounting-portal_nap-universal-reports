@@ -129,7 +129,7 @@ export class FilterModelWrapper {
             });
             return sportTypes.join(', ');
         } else if (this.filterModel.league) {
-            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].text;
+            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].label;
         }
     }
 

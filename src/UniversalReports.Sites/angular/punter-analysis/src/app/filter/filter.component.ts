@@ -64,7 +64,7 @@ export class FilterComponent implements OnInit {
     };
 
     sportType: number;
-    sportOptions: SelectItem[];
+    sportOptions: IOption[];
     leagueId: number;
     leagueOptions: IOption[];
     betTypeTreeviewItems: TreeviewItem[];
@@ -81,6 +81,7 @@ export class FilterComponent implements OnInit {
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
     private sportbooksSportTypeBetTypeData: SportsbookSportTypeBetType[];
+    private isReloadLeagueOptions = false;
 
     constructor(
         private service: FilterService,
@@ -140,13 +141,16 @@ export class FilterComponent implements OnInit {
                 }
                 break;
             case SearchBy.League:
-                if (this.sportbooksSportTypeBetTypeData) {
-                    this.loadSports();
-                } else {
+                if (!this.sportOptions) {
                     this.service.querySportbooksSportTypeBetType().subscribe(data => {
                         this.sportbooksSportTypeBetTypeData = data;
                         this.loadSports();
                     });
+                } else {
+                    if (this.isReloadLeagueOptions) {
+                        this.isReloadLeagueOptions = false;
+                        this.loadLeagues();
+                    }
                 }
                 break;
         }
@@ -155,8 +159,13 @@ export class FilterComponent implements OnInit {
 
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
-        if (this.searchBy === SearchBy.League) {
-            this.loadLeagues();
+        switch (this.searchBy) {
+            case SearchBy.User:
+                this.isReloadLeagueOptions = true;
+                break;
+            case SearchBy.League:
+                this.loadLeagues();
+                break;
         }
     }
 
@@ -198,34 +207,32 @@ export class FilterComponent implements OnInit {
     }
 
     private loadSports() {
-        if (!this.sportOptions) {
-            let sportName = '';
-            this.sportOptions = [];
-            this.sportbooksSportTypeBetTypeData.forEach(item => {
-                if (item.SportName !== sportName) {
-                    sportName = item.SportName;
-                    this.sportOptions.push({
-                        text: item.SportName,
-                        value: item.SportType
-                    });
-                }
-            });
+        let sportName = '';
+        this.sportOptions = [];
+        this.sportbooksSportTypeBetTypeData.forEach(item => {
+            if (item.SportName !== sportName) {
+                sportName = item.SportName;
+                this.sportOptions.push({
+                    label: item.SportName,
+                    value: item.SportType
+                });
+            }
+        });
+        setTimeout(() => {
             this.sportType = this.sportOptions[0].value;
-            this.onSportChange();
-        }
+        });
     }
 
     private loadLeagues() {
-        const dateRange = this.getExactDateRange();
-        this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
-            this.leagueOptions = options.map(option => <IOption>{
-                label: option.text,
-                value: option.value
+        if (this.sportType) {
+            const dateRange = this.getExactDateRange();
+            this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
+                this.leagueOptions = options;
+                setTimeout(() => {
+                    this.leagueId = this.leagueOptions.length === 0 ? undefined : this.leagueOptions[0].value;
+                });
             });
-            setTimeout(() => {
-                this.leagueId = this.leagueOptions.length === 0 ? undefined : this.leagueOptions[0].value;
-            });
-        });
+        }
     }
 
     private getExactDateRange(): DateRange {
