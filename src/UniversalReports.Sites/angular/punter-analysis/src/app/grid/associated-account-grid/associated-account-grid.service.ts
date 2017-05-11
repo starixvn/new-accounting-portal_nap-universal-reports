@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DateHelper } from 'nap-components/src/date';
+import { NumberFormat, NumberHelper } from 'nap-components/src/number';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
@@ -33,7 +34,7 @@ export class AssociatedAccountGridService {
         const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
         const filterLines = [
             `User Name: ${this.model.custName}`,
-            `Top rows: ${topRow} - Order by: ${orderByTitle}, ${sortByTitle}`,
+            `Top rows: ${NumberHelper.format(topRow, NumberFormat.Integer)} - Order by: ${orderByTitle}, ${sortByTitle}`,
             `Sport Type: ${filterModelWrapper.selectedSportTypes}`
         ];
         if (filterModel.searchBy === SearchBy.League) {

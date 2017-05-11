@@ -85,7 +85,7 @@
                 <label class="col-form-label">League</label>
             </div>
             <div class="col-value">
-                <nap-dropdown-select [items]="leagueOptions" [(value)]="leagueId"></nap-dropdown-select>
+                <nap-select [options]="leagueOptions" [(ngModel)]="leagueId"></nap-select>
             </div>
         </div>
         <div class="col-x3" *ngIf="searchBy === SearchBy.User">

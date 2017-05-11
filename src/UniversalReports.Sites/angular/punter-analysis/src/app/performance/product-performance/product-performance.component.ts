@@ -85,6 +85,7 @@ export class ProductPerformanceComponent implements Performance {
                     },
                     ticks: {
                         suggestedMin: 0,
+                        suggestedMax: 0,
                         callback: (value) => {
                             return this.winLossRomanFormatter.format(value);
                         }

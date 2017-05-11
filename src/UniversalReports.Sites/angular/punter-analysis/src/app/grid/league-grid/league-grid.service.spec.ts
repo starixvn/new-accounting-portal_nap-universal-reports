@@ -6,6 +6,8 @@ import * as _ from 'lodash';
 import { Helper } from 'nap-components/src/helper';
 import { HttpService } from 'nap-components/src/http.service';
 import { GridService } from '../grid.service';
+import { LiveStatus } from '../grid.model';
+import { CommonService } from '../common.service';
 import { LeagueGridService } from './league-grid.service';
 import { LeagueGridModel } from './league-grid.model';
 import { LeagueData } from './league-grid.model';
@@ -60,7 +62,7 @@ describe('LeagueGridService', () => {
         league: _.extend({}, expectedQueryModel.league, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
             // tslint:disable-next-line:max-line-length
-            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1\nBet Type: Bet Type 1 - Status: Non-Live\nLeague: League1`
+            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1\nBet Type: Bet Type 1 - Status: Non-Live\nLeague: League 1`
         })
     };
 
@@ -82,24 +84,26 @@ describe('LeagueGridService', () => {
     }));
 
     it('getLiveStatusTitle should return "Live" if liveStatusId is LiveStatus.Live',
-        inject([LeagueGridService], (service: LeagueGridService) => {
-            service.model.liveStatusId = 1;
-            const title = service.getLiveStatusTitle();
+        inject([CommonService, LeagueGridService], (commonService: CommonService, service: LeagueGridService) => {
+            const liveStatusId = LiveStatus.Live;
+            service.model.liveStatusId = liveStatusId;
+            const title = commonService.getLiveStatusTitle(liveStatusId);
             expect(title).toEqual('Live');
         }));
 
     it('getLiveStatusTitle should return "Non-Live" if liveStatusId is LiveStatus.NonLive',
-        inject([LeagueGridService], (service: LeagueGridService) => {
-            service.model.liveStatusId = 2;
-            const title = service.getLiveStatusTitle();
+        inject([CommonService, LeagueGridService], (commonService: CommonService, service: LeagueGridService) => {
+            const liveStatusId = LiveStatus.NonLive;
+            const title = commonService.getLiveStatusTitle(liveStatusId);
             expect(title).toEqual('Non-Live');
         }));
 
 
     it('getLiveStatusTitle should return "Non-Live & Live" if liveStatusId is not LiveStatus.Live or LiveStatus.NonLive',
-        inject([LeagueGridService], (service: LeagueGridService) => {
-            service.model.liveStatusId = 0;
-            const title = service.getLiveStatusTitle();
+        inject([CommonService, LeagueGridService], (commonService: CommonService, service: LeagueGridService) => {
+            const liveStatusId = undefined;
+            service.model.liveStatusId = liveStatusId;
+            const title = commonService.getLiveStatusTitle(liveStatusId);
             expect(title).toEqual('Non-Live & Live');
         }));
 

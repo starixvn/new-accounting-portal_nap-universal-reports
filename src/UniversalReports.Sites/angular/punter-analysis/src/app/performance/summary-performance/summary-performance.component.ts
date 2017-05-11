@@ -60,7 +60,8 @@ export class SummaryPerformanceComponent implements Performance {
                 }],
                 yAxes: [{
                     ticks: {
-                        suggestedMin: 0
+                        suggestedMin: 0,
+                        suggestedMax: 0
                     }
                 }]
             }
@@ -111,6 +112,7 @@ export class SummaryPerformanceComponent implements Performance {
                     },
                     ticks: {
                         suggestedMin: 0,
+                        suggestedMax: 0,
                         fontColor: rgba(ChartDirective.defaultColors[1], 1),
                         callback: (value) => {
                             return this.turnoverRomanFormatter.format(value);
@@ -133,6 +135,7 @@ export class SummaryPerformanceComponent implements Performance {
                     },
                     ticks: {
                         suggestedMin: 0,
+                        suggestedMax: 0,
                         fontColor: rgba(ChartDirective.defaultColors[0], 1),
                         callback: (value) => {
                             return this.winLossRomanFormatter.format(value);

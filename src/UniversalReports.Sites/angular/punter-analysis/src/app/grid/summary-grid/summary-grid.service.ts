@@ -3,9 +3,11 @@ import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
+import { NumberFormat, NumberHelper } from 'nap-components/src/number';
 import { FilterModel } from '../../filter/filter.model';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
+import { GridType } from '../grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { AssociatedAccountGridModel } from '../associated-account-grid/associated-account-grid.model';
 import { SportTypeGridModel } from '../sport-type-grid/sport-type-grid.model';
@@ -22,6 +24,7 @@ export class SummaryGridService {
 
     createBetCountGridModel(custId: number, custName: string): BetCountGridModel {
         return {
+            fromGridType: GridType.UserName,
             custId: custId,
             custName: custName
         };
@@ -61,7 +64,7 @@ export class SummaryGridService {
         const topRow = filterModelWrapper.userLeagueModel.topRow;
         const orderByTitle = filterModelWrapper.userLeagueWrapper.orderByTitle;
         const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
-        filterLines.push(`Top rows: ${topRow} - Order by: ${orderByTitle}, ${sortByTitle}`);
+        filterLines.push(`Top rows: ${NumberHelper.format(topRow, NumberFormat.Integer)} - Order by: ${orderByTitle}, ${sortByTitle}`);
         filterLines.push(`Sport Type: ${filterModelWrapper.selectedSportTypes}`);
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);

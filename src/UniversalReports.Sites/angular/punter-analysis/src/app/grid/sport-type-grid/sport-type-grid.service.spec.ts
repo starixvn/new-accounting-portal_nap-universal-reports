@@ -43,11 +43,11 @@ describe('SportTypeGridService', () => {
     const expectedExcelModel = {
         user: _.extend({}, expectedQueryModel.user, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1, SportType2'
+            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType 1, SportType 2'
         }),
         league: _.extend({}, expectedQueryModel.league, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType1\nLeague: League1'
+            filter: 'User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: SportType 1\nLeague: League 1'
         })
     };
 

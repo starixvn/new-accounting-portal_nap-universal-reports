@@ -86,7 +86,7 @@ export class FilterModelWrapper {
                 return 'Please select at least one Bet Type!';
             }
 
-            if (this.filterModel.league.leagueId === 0) {
+            if (this.filterModel.league.leagueId === undefined) {
                 return 'There is no league available!';
             }
         }
@@ -134,7 +134,7 @@ export class FilterModelWrapper {
     }
 
     get leagueTitle(): string {
-        return this.filterModel.league.leagueOptions.filter(option => option.value === this.filterModel.league.leagueId)[0].text;
+        return this.filterModel.league.leagueOptions.filter(option => option.value === this.filterModel.league.leagueId)[0].label;
     }
 
     get leagueId(): number {

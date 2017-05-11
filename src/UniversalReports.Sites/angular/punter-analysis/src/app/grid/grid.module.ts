@@ -19,6 +19,7 @@ import { BetTypeGridService } from './bet-type-grid/bet-type-grid.service';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { LeagueGridService } from './league-grid/league-grid.service';
 import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
+import { CommonService } from './common.service';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
         AssociatedAccountGridService,
         SportTypeGridService,
         BetTypeGridService,
-        LeagueGridService
+        LeagueGridService,
+        CommonService
     ]
 })
 export class GridModule { }

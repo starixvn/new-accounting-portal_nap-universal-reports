@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PaginationInstance } from 'ng2-pagination';
+import { NumberFormat, NumberHelper } from '../number';
 
 @Component({
     selector: 'nap-pagination',
@@ -21,5 +22,9 @@ export class PaginationComponent {
 
     get endIndex(): number {
         return Math.min(this.config.currentPage * this.config.itemsPerPage, this.config.totalItems);
+    }
+
+    formatNumber(value: number) {
+        return NumberHelper.format(value, NumberFormat.Integer);
     }
 }

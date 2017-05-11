@@ -5,6 +5,7 @@ import {
 } from 'ngx-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { IOption } from 'nap-components/src/select';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
@@ -65,7 +66,7 @@ export class FilterComponent implements OnInit {
     sportType: number;
     sportOptions: SelectItem[];
     leagueId: number;
-    leagueOptions: SelectItem[];
+    leagueOptions: IOption[];
     betTypeTreeviewItems: TreeviewItem[];
     betTypeTreeviewConfig: TreeviewConfig = {
         isShowAllCheckBox: true,
@@ -168,7 +169,7 @@ export class FilterComponent implements OnInit {
             .filter(item => item.SportType === this.sportType)
             .map(item => new TreeviewItem({
                 text: item.BetTypeName,
-                value: item.CombinationId
+                value: item.CombinationId.toString()
             }));
         this.loadLeagues();
     }
@@ -217,15 +218,13 @@ export class FilterComponent implements OnInit {
     private loadLeagues() {
         const dateRange = this.getExactDateRange();
         this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
-            this.leagueOptions = options;
-            if (this.leagueOptions.length === 0) {
-                this.leagueOptions.push({
-                    text: 'There is no information available.',
-                    value: 0
-                });
-            }
-
-            this.leagueId = this.leagueOptions[0].value;
+            this.leagueOptions = options.map(option => <IOption>{
+                label: option.text,
+                value: option.value
+            });
+            setTimeout(() => {
+                this.leagueId = this.leagueOptions.length === 0 ? undefined : this.leagueOptions[0].value;
+            });
         });
     }
 

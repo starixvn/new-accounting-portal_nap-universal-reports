@@ -89,7 +89,7 @@ describe('AssociatedAccountGridComponent', () => {
             service.model = fakeAssociatedAccountGridModel;
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
 
-            component.query();
+            component.query().subscribe();
             fixture.detectChanges();
         });
 

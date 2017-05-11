@@ -4,6 +4,8 @@ import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
+import { GridType } from '../grid.model';
+import { CommonService } from '../common.service';
 import { BetCountGridModel, BetCountData } from './bet-count-grid.model';
 
 @Injectable()
@@ -13,7 +15,8 @@ export class BetCountGridService {
 
     constructor(
         private httpService: HttpService,
-        private gridService: GridService
+        private gridService: GridService,
+        private commonService: CommonService
     ) { }
 
     query(): Observable<BetCountData> {
@@ -27,15 +30,45 @@ export class BetCountGridService {
         const wrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Punter Analysis - ${this.model.custName} by bet count ${wrapper.dateFromToTitle}`;
-        const filterLines = [`Sport Type: ${wrapper.selectedSportTypes}`];
+        queryModel.filter = this.generateFilter(wrapper);
+        this.httpService.download(url, queryModel).subscribe(response => {
+            const gridTypeName = this.commonService.getGridTypeTitle(this.model.fromGridType);
+            const fileName = `Top_Punter_${gridTypeName}_Bet_Count_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
+            Helper.saveExcel(response, fileName);
+        });
+    }
+
+    getBreadcrumbTitle(): string {
+        switch (this.model.fromGridType) {
+            case GridType.UserName:
+                return `Punter ${this.model.custName} by bet count`;
+            case GridType.SportType:
+                return this.model.sportName;
+            case GridType.BetType:
+                return `${this.model.betTypeName} - ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`;
+        }
+    }
+
+    private generateFilter(wrapper: FilterModelWrapper): string {
+        const filterModel = this.gridService.filterModel;
+        const filterLines: string[] = [];
+        switch (this.model.fromGridType) {
+            case GridType.UserName:
+                filterLines.push(`Sport Type: ${wrapper.selectedSportTypes}`);
+                break;
+            case GridType.SportType:
+                filterLines.push(`Sport Type: ${this.model.sportName}`);
+                break;
+            case GridType.BetType:
+                filterLines.push(`Sport Type: ${this.model.sportName}`);
+                const liveStatusTitle = this.commonService.getLiveStatusTitle(this.model.liveStatusId);
+                filterLines.push(`Bet Type: ${this.model.betTypeName} - Status: ${liveStatusTitle}`);
+                break;
+        }
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${wrapper.leagueTitle}`);
         }
-        queryModel.filter = filterLines.join('\n');
-        this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `Top_Punter_Summary_Bet_Count_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
-            Helper.saveExcel(response, fileName);
-        });
+        return filterLines.join('\n');
     }
 
     private createQueryModel(): any {

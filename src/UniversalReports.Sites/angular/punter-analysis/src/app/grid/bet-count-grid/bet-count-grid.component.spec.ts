@@ -85,6 +85,7 @@ describe('BetCountGridComponent', () => {
             gridService.filterModel = fakeUserFilterModel;
             gridService.generate = (gridType) => selectedGridType = gridType;
             const fakeBetCountGridModel: BetCountGridModel = {
+                fromGridType: GridType.UserName,
                 custId: 1,
                 custName: 'Customer 1',
                 sportId: 1,
@@ -104,7 +105,7 @@ describe('BetCountGridComponent', () => {
             service.model = fakeBetCountGridModel;
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
 
-            component.query();
+            component.query().subscribe();
             fixture.detectChanges();
         });
 

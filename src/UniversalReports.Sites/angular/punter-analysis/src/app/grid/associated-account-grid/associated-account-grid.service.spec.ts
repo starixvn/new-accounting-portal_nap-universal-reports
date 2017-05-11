@@ -23,7 +23,7 @@ describe('AssociatedAccountGridService', () => {
         custId: 1,
         userName: 'Customer 1',
         title: 'Associated Account of Punter Customer 1 from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-        filter: `User Name: Customer 1\nTop rows: 2 - Order by: WinLoss, Ascending\nSport Type: SportType1, SportType2`
+        filter: `User Name: Customer 1\nTop rows: 9,999 - Order by: WinLoss, Ascending\nSport Type: SportType 1, SportType 2`
     };
 
     beforeEach(() => {

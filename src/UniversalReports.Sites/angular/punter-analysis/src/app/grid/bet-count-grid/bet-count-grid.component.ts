@@ -40,7 +40,6 @@ export class BetCountGridComponent implements Grid {
     }
 
     get title(): string {
-        const model = this.service.model;
-        return `Punter ${model.custName} by bet count`;
+        return this.service.getBreadcrumbTitle();
     }
 }

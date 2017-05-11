@@ -16,7 +16,7 @@ import { AppModule } from '../../app.module';
 describe('SummaryGridService', () => {
     const expectedQueryModel = {
         user: {
-            topRow: 2,
+            topRow: 9999,
             orderBy: 1,
             sortBy: 1,
             periodType: 1,
@@ -28,7 +28,7 @@ describe('SummaryGridService', () => {
             leagueId: 0
         },
         league: {
-            topRow: 2,
+            topRow: 9999,
             orderBy: 1,
             sortBy: 1,
             periodType: 1,
@@ -44,11 +44,11 @@ describe('SummaryGridService', () => {
     const expectedExcelModel = {
         user: _.extend({}, expectedQueryModel.user, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: 'Depth: Agent - Account name: ABC\nTop rows: 2 - Order by: WinLoss, Ascending\nSport Type: SportType1, SportType2'
+            filter: 'Depth: Agent - Account name: ABC\nTop rows: 9,999 - Order by: WinLoss, Ascending\nSport Type: SportType 1, SportType 2'
         }),
         league: _.extend({}, expectedQueryModel.league, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: 'User Name: All\nTop rows: 2 - Order by: WinLoss, Ascending\nSport Type: SportType1\nLeague: League1'
+            filter: 'User Name: All\nTop rows: 9,999 - Order by: WinLoss, Ascending\nSport Type: SportType 1\nLeague: League 1'
         })
     };
 

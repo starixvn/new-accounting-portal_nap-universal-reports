@@ -6,6 +6,7 @@ import { Helper } from 'nap-components/src/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
+import { CommonService } from '../common.service';
 import { LeagueGridModel, LeagueData } from './league-grid.model';
 
 @Injectable()
@@ -15,19 +16,9 @@ export class LeagueGridService {
 
     constructor(
         private httpService: HttpService,
-        private gridService: GridService
+        private gridService: GridService,
+        private commonService: CommonService
     ) { }
-
-    getLiveStatusTitle(): string {
-        switch (this.model.liveStatusId) {
-            case LiveStatus.Live:
-                return 'Live';
-            case LiveStatus.NonLive:
-                return 'Non-Live';
-            default:
-                return 'Non-Live & Live';
-        }
-    }
 
     query(): Observable<LeagueData> {
         const queryModel = this.createQueryModel();
@@ -44,7 +35,7 @@ export class LeagueGridService {
             `User Name: ${this.model.custName}`,
             `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
             `Sport Type: ${this.model.sportName}`,
-            `Bet Type: ${this.model.betTypeName} - Status: ${this.getLiveStatusTitle()}`
+            `Bet Type: ${this.model.betTypeName} - Status: ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`
         ];
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);

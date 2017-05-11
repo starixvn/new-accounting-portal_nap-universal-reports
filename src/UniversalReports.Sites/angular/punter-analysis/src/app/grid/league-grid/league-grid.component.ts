@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { TreeviewItem } from 'ngx-treeview';
 import { Grid, LiveStatus } from '../grid.model';
+import { CommonService } from '../common.service';
 import { BreadcrumbFilter } from '../../breadcrumb/breadcrumb.model';
 import { LeagueItem, PeriodGroupItem, LeagueData } from './league-grid.model';
 import { LeagueGridService } from './league-grid.service';
@@ -15,7 +16,8 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
     data: LeagueData;
 
     constructor(
-        private service: LeagueGridService
+        private service: LeagueGridService,
+        private commonService: CommonService
     ) { }
 
     query(): Observable<any> {
@@ -37,7 +39,7 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
 
     get title(): string {
         const model = this.service.model;
-        const liveStatusTitle = this.service.getLiveStatusTitle();
+        const liveStatusTitle = this.commonService.getLiveStatusTitle(model.liveStatusId);
         return `${model.betTypeName} - ${liveStatusTitle}`;
     }
 

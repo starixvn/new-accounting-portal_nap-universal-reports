@@ -25,7 +25,7 @@ const commonModel = {
 };
 
 const commonUserLeagueModel = {
-    topRow: 2,
+    topRow: 9999,
     orderBy: OrderBy.WinLoss,
     orderByOptions: [
         { text: 'WinLoss', value: OrderBy.WinLoss }
@@ -37,12 +37,12 @@ const commonUserLeagueModel = {
     periodType: PeriodType.Daily,
     selectedBetTypeTreeviewItems: [
         {
-            item: new TreeviewItem({ text: 'BetType1', value: 1 }),
-            parent: { item: new TreeviewItem({ text: 'SportType1', value: 1 }), parent: null }
+            item: new TreeviewItem({ text: 'BetType 1', value: 1 }),
+            parent: { item: new TreeviewItem({ text: 'SportType 1', value: 1 }), parent: null }
         },
         {
-            item: new TreeviewItem({ text: 'BetType2', value: 2 }),
-            parent: { item: new TreeviewItem({ text: 'SportType2', value: 1 }), parent: null }
+            item: new TreeviewItem({ text: 'BetType 2', value: 2 }),
+            parent: { item: new TreeviewItem({ text: 'SportType 2', value: 1 }), parent: null }
         }
     ]
 };
@@ -50,11 +50,11 @@ const commonUserLeagueModel = {
 const leagueModel: LeagueFilterModel = _.extend({}, commonUserLeagueModel, {
     leagueId: 1,
     leagueOptions: [
-        { text: 'League1', value: 1 }
+        { label: 'League 1', value: 1 }
     ],
     sportType: 1,
     sportOptions: [
-        { text: 'SportType1', value: 1 }
+        { text: 'SportType 1', value: 1 }
     ]
 });
 

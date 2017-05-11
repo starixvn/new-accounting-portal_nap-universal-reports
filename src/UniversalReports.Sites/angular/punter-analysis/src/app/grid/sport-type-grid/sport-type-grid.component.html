@@ -38,7 +38,7 @@
                         <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                         <td class="text-right">
-                            <a href="javascript:;" (click)="showBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
+                            <a href="javascript:;" (click)="showBetCount(item.SportId, item.SportName)" [napIntegerFormat]="item.BetCount"></a>
                         </td>
                     </tr>
                 </tbody>
