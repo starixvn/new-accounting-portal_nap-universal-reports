@@ -67,7 +67,7 @@ export class FilterModelWrapper {
             if (this.userLeagueModel.periodType === PeriodType.Daily || this.userLeagueModel.periodType === PeriodType.Weekly) {
                 const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
                 const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
+                if (momentFromDate.add(1, 'month').add(-1, 'day').isBefore(momentToDate)) {
                     return 'Date range should not exceed 1 month!';
                 }
             }
