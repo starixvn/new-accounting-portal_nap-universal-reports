@@ -64,12 +64,20 @@ export class FilterModelWrapper {
 
     validate(): string {
         if (this.userLeagueModel) {
-            if (this.userLeagueModel.periodType === PeriodType.Daily || this.userLeagueModel.periodType === PeriodType.Weekly) {
-                const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-                const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-                if (momentFromDate.add(1, 'month').add(-1, 'day').isBefore(momentToDate)) {
-                    return 'Date range should not exceed 1 month!';
-                }
+            const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+            const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
+            switch (this.userLeagueModel.periodType) {
+                case PeriodType.Daily:
+                case PeriodType.Weekly:
+                    if (momentFromDate.add(1, 'month').add(-1, 'day').isBefore(momentToDate)) {
+                        return 'Date range should not exceed 1 month!';
+                    }
+                    break;
+                case PeriodType.MonthRange:
+                    if (momentFromDate.add(1, 'year').add(-1, 'day').isBefore(momentToDate)) {
+                        return 'Date range should not exceed 1 year!';
+                    }
+                    break;
             }
         }
 
