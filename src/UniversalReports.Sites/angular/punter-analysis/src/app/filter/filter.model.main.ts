@@ -73,11 +73,6 @@ export class FilterModelWrapper {
                         return 'Date range should not exceed 1 month!';
                     }
                     break;
-                case PeriodType.MonthRange:
-                    if (momentFromDate.add(1, 'year').add(-1, 'day').isBefore(momentToDate)) {
-                        return 'Date range should not exceed 1 year!';
-                    }
-                    break;
             }
         }
 
