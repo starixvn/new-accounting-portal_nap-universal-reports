@@ -54,6 +54,10 @@
       <HintPath>..\..\..\..\packages\Fanex.Excel.2.2.2.0\lib\net40\Fanex.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.1.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\CompareNETObjects.3.01.0.0\lib\net451\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Linq.DynamicSum.1.0.0.3\lib\net461\Linq.DynamicSum.dll</HintPath>
       <Private>True</Private>
@@ -80,6 +84,10 @@
     </Reference>
     <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUnit.CompareNetObjects, Version=0.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NUnit.CompareNetObjects.0.1.9\lib\net45\NUnit.CompareNetObjects.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -115,6 +123,8 @@
   <ItemGroup>
     <Compile Include="Common\ColumnBuilders\GridOptionColumnRemovalUnitTests.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLossUnitTests.cs" />
+    <Compile Include="Common\MatchDetail\WinLossUnitTests.cs" />
     <Compile Include="Common\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />

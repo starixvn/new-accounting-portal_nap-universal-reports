@@ -343,7 +343,7 @@
     <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />
     <Compile Include="Sportsbook\MatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\MatchDetail\ExcelQueryModel.cs" />
-    <Compile Include="Common\MatchDetail\GridOptionsBuilderImp.cs" />
+    <Compile Include="Common\MatchDetail\GridOptionsBuilder.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
     <Compile Include="FishingWorld\BetType\Criteria.cs" />
@@ -373,11 +373,11 @@
     <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailController.cs" />
     <Compile Include="VirtualSports\Site\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\Site\VirtualSportsSiteController.cs" />
-    <Compile Include="Common\MatchDetail\CalculationServiceImp.cs" />
+    <Compile Include="Common\MatchDetail\CalculationService.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\Criteria.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\QueryModel.cs" />
-    <Compile Include="Common\MatchDetail\RawWinLossServiceImp.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLossService.cs" />
     <Compile Include="Common\MatchDetail\RawWinLoss.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailController.cs" />
     <Compile Include="Common\MatchDetail\WinLoss.cs" />

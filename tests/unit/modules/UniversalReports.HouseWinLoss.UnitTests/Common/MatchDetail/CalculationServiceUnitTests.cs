@@ -23,22 +23,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         }
 
         [Test]
-        [TestCase(12, 0, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(0, 1000.25, 0)]
-        [TestCase(12, 100, 0.12)]
-        [TestCase(-4.99, 5.55, -0.8991)]
-        [TestCase(-4.9925, 5.5472, -0.9)]
-        public void CalulationMargin_Shoud_Return_Right_Margin(decimal income, decimal turnover, decimal margin)
-        {
-            var calculationService = new CalculationServiceImp(remotingRefService);
-            var result = calculationService.CalculateMargin(income, turnover);
-
-            // Assert
-            Assert.AreEqual(margin, result);
-        }
-
-        [Test]
         public void FromRawWinLoss_Should_Return_Right_WinLoss()
         {
             // Arrange
