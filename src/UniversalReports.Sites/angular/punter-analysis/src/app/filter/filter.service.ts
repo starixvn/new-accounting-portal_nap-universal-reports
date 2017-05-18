@@ -72,16 +72,13 @@ export class FilterService {
         return this.httpService.post<SportsbookSportTypeBetType[]>(url);
     }
 
-    querySportTypeLeague(sportId: number, dateRange: DateRange): Observable<IOption[]> {
+    querySportTypeLeague(sportId: number, searchText: string, searchExactly: boolean): Observable<SportTypeLeague[]> {
         const url = `${this.url}/sport-type-league`;
         return this.httpService.post<SportTypeLeague[]>(url, {
             sportId: sportId,
-            fromDate: DateHelper.convertDateStructToString(dateRange.fromDate),
-            toDate: DateHelper.convertDateStructToString(dateRange.toDate)
-        }).map(list => list.map(item => <IOption>{
-            label: item.LeagueName,
-            value: item.LeagueId
-        }));
+            searchText: searchText,
+            searchExactly: searchExactly
+        });
     }
 
     private buildProductTreeviewItems(list: ProductSportTypeBetType[]): TreeviewItem[] {

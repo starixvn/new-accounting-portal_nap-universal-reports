@@ -4,7 +4,7 @@ import { CommonUserLeagueFilterModel } from './filter.model.common-user-league';
 
 export interface LeagueFilterModel extends CommonUserLeagueFilterModel {
     leagueId: number;
-    leagueOptions: IOption[];
+    leagueName: string;
     sportType: number;
     sportOptions: IOption[];
 }

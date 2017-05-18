@@ -49,12 +49,10 @@ const commonUserLeagueModel = {
 
 const leagueModel: LeagueFilterModel = _.extend({}, commonUserLeagueModel, {
     leagueId: 1,
-    leagueOptions: [
-        { label: 'League 1', value: 1 }
-    ],
+    leagueName: 'League 1',
     sportType: 1,
     sportOptions: [
-        { text: 'SportType 1', value: 1 }
+        { label: 'SportType 1', value: 1 }
     ]
 });
 

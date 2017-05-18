@@ -7,9 +7,9 @@ namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
     {
         public int SportId { get; set; }
 
-        public DateTime FromDate { get; set; }
+        public string SearchText { get; set; }
 
-        public DateTime ToDate { get; set; }
+        public bool SearchExactly { get; set; }
 
         public override string GetSettingKey() => "Punter-SportTypeLeagueQuery";
 

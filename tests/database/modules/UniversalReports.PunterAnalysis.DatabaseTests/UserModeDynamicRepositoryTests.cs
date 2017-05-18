@@ -66,11 +66,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Arrange
             var criteria = new BetCountCriteria
             {
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
-                CustId = 19575728,
-                ListCombinationId = "21802681,21802682,21802683,21901011",
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2016, 1, 1),
+                CustId = 1280,
+                ListCombinationId = "100001,100003",
                 LeagueId = 0,
                 SportId = 1,
                 BetTypeId = 1,
@@ -84,9 +84,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Assert
             Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.WinCount, Is.Not.Zero);
-            Assert.That(firstModel.DrawCount, Is.Not.Zero);
             Assert.That(firstModel.Date, Is.Not.Empty);
         }
 
@@ -132,9 +129,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Arrange
             var criteria = new SportTypeCriteria
             {
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2016, 1, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0,
@@ -165,9 +162,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 TopRow = 10,
                 OrderBy = 1,
                 SortBy = 2,
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2016, 1, 1),
                 Depth = 1,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0
@@ -344,8 +341,8 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new SportTypeLeagueFilter.QueryCriteria
             {
                 SportId = 1,
-                FromDate = DateTime.Now.AddYears(-1),
-                ToDate = DateTime.Now
+                SearchText = "champion,league",
+                SearchExactly = false
             };
 
             // Act

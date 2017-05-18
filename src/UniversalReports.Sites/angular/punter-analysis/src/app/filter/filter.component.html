@@ -82,10 +82,11 @@
         </div>
         <div class="col-x23" [hidden]="searchBy !== SearchBy.League">
             <div class="col-label">
-                <label class="col-form-label">League</label>
+                <label class="col-form-label">League<span class="text-danger">*</span></label>
             </div>
             <div class="col-value">
-                <nap-select [options]="leagueOptions" [(ngModel)]="leagueId"></nap-select>
+                <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueTypeaheadQuery" [placeholder]="'League name'">
+                </nap-dropdown-typeahead>
             </div>
         </div>
         <div class="col-x3" *ngIf="searchBy === SearchBy.User">

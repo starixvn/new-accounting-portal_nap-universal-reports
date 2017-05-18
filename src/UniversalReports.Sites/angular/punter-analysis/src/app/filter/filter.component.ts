@@ -66,7 +66,8 @@ export class FilterComponent implements OnInit {
     sportType: number;
     sportOptions: IOption[];
     leagueId: number;
-    leagueOptions: IOption[];
+    leagueName = '';
+    leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
     betTypeTreeviewItems: TreeviewItem[];
     betTypeTreeviewConfig: TreeviewConfig = {
         isShowAllCheckBox: true,
@@ -81,7 +82,6 @@ export class FilterComponent implements OnInit {
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
     private sportbooksSportTypeBetTypeData: SportsbookSportTypeBetType[];
-    private isReloadLeagueOptions = false;
 
     constructor(
         private service: FilterService,
@@ -146,11 +146,6 @@ export class FilterComponent implements OnInit {
                         this.sportbooksSportTypeBetTypeData = data;
                         this.loadSports();
                     });
-                } else {
-                    if (this.isReloadLeagueOptions) {
-                        this.isReloadLeagueOptions = false;
-                        this.loadLeagues();
-                    }
                 }
                 break;
         }
@@ -159,14 +154,6 @@ export class FilterComponent implements OnInit {
 
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
-        switch (this.searchBy) {
-            case SearchBy.User:
-                this.isReloadLeagueOptions = true;
-                break;
-            case SearchBy.League:
-                this.loadLeagues();
-                break;
-        }
     }
 
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -180,7 +167,6 @@ export class FilterComponent implements OnInit {
                 text: item.BetTypeName,
                 value: item.CombinationId.toString()
             }));
-        this.loadLeagues();
     }
 
     onBetTypeSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -189,6 +175,27 @@ export class FilterComponent implements OnInit {
 
     onGenerate() {
         this.reset.emit();
+        if (this.searchBy === SearchBy.League) {
+            const searchText = this.leagueName.trim();
+            if (searchText === '') {
+                this.toastService.activate('League name field is required!');
+                return;
+            } else {
+                this.service.querySportTypeLeague(this.sportType, searchText, true).subscribe(leagues => {
+                    if (leagues.length === 0) {
+                        this.toastService.activate('League is not available.');
+                    } else {
+                        this.leagueId = leagues[0].LeagueId;
+                        this.validateBeforeGenerating();
+                    }
+                });
+            }
+        } else {
+            this.validateBeforeGenerating();
+        }
+    }
+
+    private validateBeforeGenerating() {
         const model = this.createModel();
         const wrapper = new FilterModelWrapper(model);
         const validateMessage = wrapper.validate();
@@ -221,18 +228,6 @@ export class FilterComponent implements OnInit {
         setTimeout(() => {
             this.sportType = this.sportOptions[0].value;
         });
-    }
-
-    private loadLeagues() {
-        if (this.sportType) {
-            const dateRange = this.getExactDateRange();
-            this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
-                this.leagueOptions = options;
-                setTimeout(() => {
-                    this.leagueId = this.leagueOptions.length === 0 ? undefined : this.leagueOptions[0].value;
-                });
-            });
-        }
     }
 
     private getExactDateRange(): DateRange {
@@ -271,6 +266,17 @@ export class FilterComponent implements OnInit {
     private buildUserNameTypeaheadQuery(): TypeaheadQuery {
         return new TypeaheadQuery(term => {
             return this.service.queryUserNameSuggestion(term, this.depth.role);
+        });
+    }
+
+    private buildLeagueTypeaheadQuery(): TypeaheadQuery {
+        return new TypeaheadQuery(term => {
+            let searchText = term.replace(/,/g, '');
+            let words = searchText.split(' ');
+            words = words.filter(word => word.trim() !== '');
+            searchText = words.join(',');
+            return this.service.querySportTypeLeague(this.sportType, searchText, false)
+                .map(list => list.map(item => item.LeagueName));
         });
     }
 
@@ -321,7 +327,7 @@ export class FilterComponent implements OnInit {
             periodType: this.periodTypeEventModel.periodType,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             leagueId: this.leagueId,
-            leagueOptions: this.leagueOptions,
+            leagueName: this.leagueName,
             sportType: this.sportType,
             sportOptions: this.sportOptions
         };

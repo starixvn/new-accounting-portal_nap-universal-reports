@@ -23,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "MR1RMB30328"
+                Username = "312rmb"
             };
 
             // Act
@@ -45,7 +45,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "MR1RMB30328"
+                Username = "312rmb"
             };
 
             // Act
@@ -67,7 +67,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "MR1RMB30328"
+                Username = "312rmb"
             };
 
             // Act
@@ -135,7 +135,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 FromDate = new DateTime(2016, 1, 1),
                 ToDate = new DateTime(2016, 12, 1),
                 Depth = 1,
-                Username = "MR1RMB30328"
+                Username = "312rmb"
             };
 
             // Act
