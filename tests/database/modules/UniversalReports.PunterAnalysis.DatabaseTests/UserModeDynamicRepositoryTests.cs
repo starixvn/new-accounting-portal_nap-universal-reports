@@ -260,7 +260,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(criteria);
 
-
             // Assert
             if (models.Any())
             {

@@ -80,7 +80,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<EventStatistic>(criteria);
 
-
             // Assert
             if (models.Any())
             {
