@@ -47,5 +47,12 @@ namespace UniversalReports.HouseWinLoss.Common.Models
                        : 0;
             }
         }
+
+        public bool IsEmpty => RealTurnover == 0
+                                && VirtualTurnover == 0
+                                && MemberWinLoss == 0
+                                && SMAWinLoss == 0
+                                && RealIncome == 0
+                                && VirtualIncome == 0;
     }
 }
