@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -27,9 +28,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private ReportModelBase<SummaryModel> CreateEmptyModelBaseWithTypeModel()
+        private SummaryEntity<SummaryModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ReportModelBase<SummaryModel>
+            return new SummaryEntity<SummaryModel>
             {
                 Entities = new List<SummaryModel>(),
                 Total = new SummaryModel()
@@ -72,9 +73,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
             };
         }
 
-        private ReportModelBase<SummaryModel> CreateNonEmptyModelBaseWithSummaryModel()
+        private SummaryEntity<SummaryModel> CreateNonEmptyModelBaseWithSummaryModel()
         {
-            return new ReportModelBase<SummaryModel>
+            return new SummaryEntity<SummaryModel>
             {
                 Entities = CreateNonEmptySummaryModelList(),
                 Total = CreateSummaryModel()

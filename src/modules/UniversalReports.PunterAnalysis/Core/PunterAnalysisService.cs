@@ -1,13 +1,12 @@
 ﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
     public interface PunterAnalysisService
     {
-        Task<ReportModelBase<T>> Query<T>(ICriteria criteria) where T : class, new();
+        Task<SummaryEntity<T>> Query<T>(ICriteria criteria) where T : class, new();
     }
 
     public class PunterAnalysisServiceImp : PunterAnalysisService
@@ -19,14 +18,10 @@ namespace UniversalReports.PunterAnalysis.Core
             this.repository = repository;
         }
 
-        public async Task<ReportModelBase<T>> Query<T>(ICriteria criteria) where T : class, new()
+        public async Task<SummaryEntity<T>> Query<T>(ICriteria criteria) where T : class, new()
         {
             var entities = await repository.FetchAsync<T>(criteria);
-            return new ReportModelBase<T>
-            {
-                Entities = entities.ToList(),
-                Total = entities.DynamicSum()
-            };
+            return entities.CalculateSummaryEntity();
         }
     }
 }

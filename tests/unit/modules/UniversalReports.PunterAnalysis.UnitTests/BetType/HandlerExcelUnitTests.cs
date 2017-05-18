@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -24,14 +25,14 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModelBase<BetTypeExcelModel>>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<BetTypeExcelModel>>(), Arg.Any<ExcelSetting>());
         }
 
         [Test]
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptyExcelViewModel = new ReportModelBase<BetTypeExcelModel>();
+            var emptyExcelViewModel = new SummaryEntity<BetTypeExcelModel>();
             var setting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
@@ -44,7 +45,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             };
 
             var mapper = Substitute.For<IMapper>();
-            mapper.Map<ReportModelBase<BetTypeExcelModel>>(Arg.Any<ReportModelBase<BetTypeModel>>()).Returns(emptyExcelViewModel);
+            mapper.Map<SummaryEntity<BetTypeExcelModel>>(Arg.Any<SummaryEntity<BetTypeModel>>()).Returns(emptyExcelViewModel);
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
             var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);

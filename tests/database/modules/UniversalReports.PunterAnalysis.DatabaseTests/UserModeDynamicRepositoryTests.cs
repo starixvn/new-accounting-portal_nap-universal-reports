@@ -53,11 +53,14 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<UserRoleModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.RoleName, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.RoleName, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -80,11 +83,15 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<BetCountModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Date, Is.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.BetCount, Is.Not.Zero);
+                Assert.That(firstModel.WinLoss, Is.Not.Zero);
+                Assert.That(firstModel.Date, Is.Not.Empty);
+            }
         }
 
         [Test]
@@ -107,20 +114,23 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<BetTypeModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.LiveBetCount, Is.Not.Zero);
-            Assert.That(firstModel.LiveWinLoss, Is.Not.Zero);
-            Assert.That(firstModel.LiveTurnover, Is.Not.Zero);
-            Assert.That(firstModel.NonLiveBetCount, Is.Not.Zero);
-            Assert.That(firstModel.NonLiveWinLoss, Is.Not.Zero);
-            Assert.That(firstModel.NonLiveTurnover, Is.Not.Zero);
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.BetTypeId, Is.Not.Zero);
-            Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.LiveBetCount, Is.Not.Zero);
+                Assert.That(firstModel.LiveWinLoss, Is.Not.Zero);
+                Assert.That(firstModel.LiveTurnover, Is.Not.Zero);
+                Assert.That(firstModel.NonLiveBetCount, Is.Not.Zero);
+                Assert.That(firstModel.NonLiveWinLoss, Is.Not.Zero);
+                Assert.That(firstModel.NonLiveTurnover, Is.Not.Zero);
+                Assert.That(firstModel.BetCount, Is.Not.Zero);
+                Assert.That(firstModel.WinLoss, Is.Not.Zero);
+                Assert.That(firstModel.Turnover, Is.Not.Zero);
+                Assert.That(firstModel.BetTypeId, Is.Not.Zero);
+                Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -143,14 +153,16 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportTypeModel>(criteria);
 
-            var firstModel = models.First();
-
             // Assert
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.SportId, Is.Not.Zero);
-            Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.BetCount, Is.Not.Zero);
+                Assert.That(firstModel.WinLoss, Is.Not.Zero);
+                Assert.That(firstModel.Turnover, Is.Not.Zero);
+                Assert.That(firstModel.SportId, Is.Not.Zero);
+                Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -173,14 +185,17 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SummaryModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.CustId, Is.Not.Zero);
-            Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.BetCount, Is.Not.Zero);
+                Assert.That(firstModel.WinLoss, Is.Not.Zero);
+                Assert.That(firstModel.Turnover, Is.Not.Zero);
+                Assert.That(firstModel.CustId, Is.Not.Zero);
+                Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -202,17 +217,20 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<LeagueRawModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.Year, Is.Not.Zero);
-            Assert.That(firstModel.Month, Is.Not.Zero);
-            Assert.That(firstModel.Week, Is.Not.Zero);
-            Assert.That(firstModel.LeagueId, Is.Not.Zero);
-            Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.BetCount, Is.Not.Zero);
+                Assert.That(firstModel.WinLoss, Is.Not.Zero);
+                Assert.That(firstModel.Turnover, Is.Not.Zero);
+                Assert.That(firstModel.Year, Is.Not.Zero);
+                Assert.That(firstModel.Month, Is.Not.Zero);
+                Assert.That(firstModel.Week, Is.Not.Zero);
+                Assert.That(firstModel.LeagueId, Is.Not.Zero);
+                Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -241,15 +259,19 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(criteria);
-            var firstModel = models.First();
+
 
             // Assert
-            Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.SportGroup, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.Value, Is.Not.Zero);
-            Assert.That(firstModel.RenderType, Is.GreaterThanOrEqualTo(1));
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.SportGroup, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.Value, Is.Not.Zero);
+                Assert.That(firstModel.RenderType, Is.GreaterThanOrEqualTo(1));
+            }
         }
 
         [Test]
@@ -266,11 +288,14 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<LeagueFilter.LeagueEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.Id, Is.Not.Zero);
-            Assert.That(firstModel.Name, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.Id, Is.Not.Zero);
+                Assert.That(firstModel.Name, Is.Not.Null.And.Not.Empty);
+            }
         }
 
         [Test]
@@ -325,13 +350,16 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportsbookSportBetTypeFilter.SportsbookSportBetTypeEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.SportType, Is.Not.Zero);
-            Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.CombinationId, Is.Not.Zero);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.SportType, Is.Not.Zero);
+                Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
+                Assert.That(firstModel.CombinationId, Is.Not.Zero);
+            }
         }
 
         [Test]
@@ -348,11 +376,14 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportTypeLeagueFilter.SportTypeLeagueEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
-            Assert.That(firstModel.LeagueId, Is.Not.Zero);
-            Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
+            if (models.Any())
+            {
+                var firstModel = models.First();
+                Assert.That(firstModel.LeagueId, Is.Not.Zero);
+                Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.Core
             this.punterAnalysisService = punterAnalysisService;
         }
 
-        protected async Task<ReportModelBase<TModel>> Handle<TCriteria, TModel>(IRequest<ReportModelBase<TModel>> message)
+        protected async Task<SummaryEntity<TModel>> Handle<TCriteria, TModel>(IRequest<SummaryEntity<TModel>> message)
             where TCriteria : ICriteria
             where TModel : class, new()
         {

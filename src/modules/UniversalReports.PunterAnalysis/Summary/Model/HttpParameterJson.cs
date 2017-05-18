@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using Linq.DynamicSum;
+using MediatR;
 using System;
 using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.Summary.Model
 {
-    public class HttpParameterJson : IRequest<ReportModelBase<SummaryModel>>
+    public class HttpParameterJson : IRequest<SummaryEntity<SummaryModel>>
     {
         public int TopRow { get; set; }
 

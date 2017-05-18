@@ -66,7 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Linq.DynamicSum.1.0.0.2\lib\net461\Linq.DynamicSum.dll</HintPath>
+      <HintPath>..\..\..\packages\Linq.DynamicSum.1.0.0.3\lib\net461\Linq.DynamicSum.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MediatR">
@@ -81,8 +81,8 @@
       <HintPath>..\..\..\packages\Olympus.Data.Repository.2.0.1.2\lib\net461\Olympus.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.4.0.3\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.4.0.6\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -115,7 +115,6 @@
     <Compile Include="Summary\ExcelBuilder.cs" />
     <Compile Include="Core\PlayForFunService.cs" />
     <Compile Include="Core\PunterAnalysisAttribute.cs" />
-    <Compile Include="Core\ReportModelBase.cs" />
     <Compile Include="Filter\Product\Handler.cs" />
     <Compile Include="Filter\Product\HttpParameterJson.cs" />
     <Compile Include="Filter\Product\ProductEntity.cs" />

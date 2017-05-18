@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Core;
 
@@ -9,7 +10,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.AutoMapperSe
         public PunterAnalysisBetTypeProfile()
         {
             CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            CreateMap<ReportModelBase<BetTypeModel>, ReportModelBase<BetTypeExcelModel>>(MemberList.Source);
+            CreateMap<SummaryEntity<BetTypeModel>, SummaryEntity<BetTypeExcelModel>>(MemberList.Source);
             CreateMap<HttpParameterExcel, Criteria>(MemberList.Source);
             CreateMap<BetTypeModel, BetTypeExcelModel>(MemberList.Source)
                 .ForMember(dest => dest.Margin, opt => opt.MapFrom(src => src.Turnover == 0 ? "N/A" : (object)src.Margin))

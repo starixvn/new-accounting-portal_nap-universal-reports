@@ -1,4 +1,5 @@
 ﻿using Epplus.Mapper.Extensions;
+using Linq.DynamicSum;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public interface PunterAnalysisExcelBuilder
     {
-        ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new();
+        ExcelPackage CreateExcelPackage<T>(SummaryEntity<T> model, ExcelSetting settings) where T : class, new();
     }
 
     public class PunterAnalysisExcelBuilderImp : PunterAnalysisExcelBuilder
@@ -20,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.Core
 
         private int endRowIndex;
 
-        public ExcelPackage CreateExcelPackage<T>(ReportModelBase<T> model, ExcelSetting settings) where T : class, new()
+        public ExcelPackage CreateExcelPackage<T>(SummaryEntity<T> model, ExcelSetting settings) where T : class, new()
         {
             var excelPackage = LoadTemplate(settings.TemplatePath);
             ApplySetting();
@@ -53,7 +54,7 @@ namespace UniversalReports.PunterAnalysis.Core
             excelPackage.Workbook.Worksheets.Delete(totalTemplateSheet);
         }
 
-        private void Build<T>(ReportModelBase<T> model, ExcelSetting setting) where T : class, new()
+        private void Build<T>(SummaryEntity<T> model, ExcelSetting setting) where T : class, new()
         {
             SetStartRowIndex(setting.StartRowIndex);
             SetEndRowIndex(setting.StartRowIndex, model.Entities.Count);

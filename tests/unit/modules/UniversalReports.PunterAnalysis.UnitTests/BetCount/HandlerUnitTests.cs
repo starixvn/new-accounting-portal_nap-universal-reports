@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -6,7 +7,6 @@ using Ploeh.AutoFixture;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {
@@ -18,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var anyReportModel = fixture.Create<ReportModelBase<BetCountModel>>();
+            var anyReportModel = fixture.Create<SummaryEntity<BetCountModel>>();
             var service = Substitute.For<BetCountService>();
             service.Query(Arg.Any<Criteria>()).Returns(anyReportModel);
 

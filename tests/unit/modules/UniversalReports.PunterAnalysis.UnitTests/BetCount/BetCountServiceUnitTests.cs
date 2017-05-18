@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -85,9 +86,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             };
         }
 
-        private ReportModelBase<BetCountModel> CreateBetCountModel()
+        private SummaryEntity<BetCountModel> CreateBetCountModel()
         {
-            return new ReportModelBase<BetCountModel>
+            return new SummaryEntity<BetCountModel>
             {
                 Entities = new List<BetCountModel>
                 {
