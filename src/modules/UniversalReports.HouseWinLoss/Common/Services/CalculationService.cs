@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -18,8 +17,6 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
         IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
-
-        decimal CalculateMargin(decimal income, decimal turnover);
 
         WinLoss CreateEmptyWinLoss(int id, string name);
 
@@ -61,16 +58,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 ExtraPT = rawWinLoss.ExtraPT,
                 AfterExtraPT = rawWinLoss.AfterExtraPT,
-                RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
-                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover)
             };
-        }
-
-        public decimal CalculateMargin(decimal income, decimal turnover)
-        {
-            return turnover != 0
-                ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero)
-                : 0;
         }
 
         public WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses)

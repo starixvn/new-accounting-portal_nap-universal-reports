@@ -127,6 +127,7 @@
     <Compile Include="Common\MatchDetail\WinLossUnitTests.cs" />
     <Compile Include="Common\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
+    <Compile Include="Common\Models\WinLossUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\Services\CommonBalanceUpServiceTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />

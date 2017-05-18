@@ -248,8 +248,8 @@
     <Compile Include="Common\Models\WinLoss.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserImp.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossServiceImp.cs" />
-    <Compile Include="Common\Services\CalculationServiceImp.cs" />
-    <Compile Include="Common\Services\RawWinLossServiceImp.cs" />
+    <Compile Include="Common\Services\CalculationService.cs" />
+    <Compile Include="Common\Services\RawWinLossService.cs" />
     <Compile Include="Common\Services\RemotingRefServiceImp.cs" />
     <Compile Include="Common\SiteWinLoss\GridOptionsBuilderImp.cs" />
     <Compile Include="Common\SiteWinLoss\WinLossServiceImp.cs" />

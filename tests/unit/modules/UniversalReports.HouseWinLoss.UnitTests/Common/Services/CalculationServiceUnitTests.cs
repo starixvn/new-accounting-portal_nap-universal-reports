@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
@@ -11,23 +11,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
     [Category("HouseWinLossUnitTests")]
     public class CalculationServiceUnitTests
     {
-        [Test]
-        [TestCase(12, 0, 0)]
-        [TestCase(0, 0, 0)]
-        [TestCase(0, 1000.25, 0)]
-        [TestCase(12, 100, 0.12)]
-        [TestCase(-4.99, 5.55, -0.8991)]
-        [TestCase(-4.9925, 5.5472, -0.9)]
-        public void CalulationMargin_Shoud_Return_Right_Margin(decimal income, decimal turnover, decimal margin)
-        {
-            // Arrange
-            var calculationService = new CalculationServiceImp();
-            var result = calculationService.CalculateMargin(income, turnover);
-
-            // Assert
-            Assert.AreEqual(margin, result);
-        }
-
         [Test]
         public void FromRawWinLossByRowName_ReturnsCorrectVarianceAndMargin()
         {
