@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new MonthCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "312rmb"
             };
@@ -31,12 +31,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<MonthStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.BetCount, Is.Not.Zero);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
         }
 
         [Test]
@@ -46,7 +43,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new BetTypeCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "312rmb"
             };
@@ -56,12 +53,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<BetTypeStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.BetCount, Is.Not.Zero);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
         }
 
         [Test]
@@ -71,7 +65,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new EventCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "312rmb"
             };
@@ -81,14 +75,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<EventStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
-                Assert.That(firstModel.BetCount, Is.Not.Zero);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-                Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            Assert.That(firstModel.WinLoss, Is.Not.Zero);
         }
 
         [Test]
@@ -98,7 +89,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new ProductTurnoverCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "MR1RMB30328"
             };
@@ -108,12 +99,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<ProductTurnoverStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
         }
 
         [Test]
@@ -123,7 +111,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new Performance.Summary.Criteria.SportCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "MR1RMB30328"
             };
@@ -133,12 +121,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<Performance.Summary.Model.SportStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.BetCount, Is.Not.Zero);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
         }
 
         [Test]
@@ -148,7 +133,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new BetCountCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "312rmb"
             };
@@ -158,12 +143,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<BetCountStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
         }
 
         [Test]
@@ -173,7 +155,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new SportsbookCriteria.SportCriteria
             {
                 FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "MR1RMB30328"
             };
@@ -183,13 +165,10 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var models = await repository.FetchAsync<SportsbookModel.SportStatistic>(criteria);
 
             // Assert
-            if (models.Any())
-            {
-                var firstModel = models.First();
-                Assert.That(firstModel.BetCount, Is.Not.Zero);
-                Assert.That(firstModel.Turnover, Is.Not.Zero);
-                Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            }
+            var firstModel = models.First();
+            Assert.That(firstModel.BetCount, Is.Not.Zero);
+            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            Assert.That(firstModel.WinLoss, Is.Not.Zero);
         }
     }
 }
