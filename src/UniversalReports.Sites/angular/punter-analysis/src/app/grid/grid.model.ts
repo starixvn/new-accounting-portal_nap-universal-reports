@@ -10,8 +10,8 @@ export enum GridType {
 }
 
 export interface Grid {
-    hasData: boolean;
     title: string;
+    hasExcel: boolean;
     query(): Observable<any>;
     exportExcel(): void;
 }

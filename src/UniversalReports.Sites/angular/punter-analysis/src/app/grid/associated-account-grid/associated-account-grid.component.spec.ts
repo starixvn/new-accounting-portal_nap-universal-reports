@@ -101,12 +101,6 @@ describe('AssociatedAccountGridComponent', () => {
             expect(component.title).toBe('Associated accounts of Punter Customer 1');
         });
 
-        it('should invoke exportExcel in service when call exportExcel', () => {
-            const spy = spyOn(service, 'exportExcel').and.callFake(() => { });
-            component.exportExcel();
-            expect(spy.calls.count()).toBe(1);
-        });
-
         it('should have 2 tables', () => {
             const tables = fixture.debugElement.queryAll(By.css('table'));
             expect(tables.length).toBe(2);

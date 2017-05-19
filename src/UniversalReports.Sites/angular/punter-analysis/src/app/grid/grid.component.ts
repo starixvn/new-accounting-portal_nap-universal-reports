@@ -121,7 +121,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
             goBack: (index) => this.goBack(index)
         };
         const activeGrid = this.service.activeGrid;
-        if (activeGrid.hasData) {
+        if (activeGrid.hasExcel) {
             this.breadcrumbConfig.exportExcel = () => activeGrid.exportExcel();
         }
         if (hasBreadcrumbFilter(activeGrid)) {
