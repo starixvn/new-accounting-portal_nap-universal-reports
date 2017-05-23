@@ -13,6 +13,7 @@ import { LeagueGridService } from './league-grid.service';
     templateUrl: './league-grid.component.html'
 })
 export class LeagueGridComponent implements Grid, BreadcrumbFilter {
+    private orginalData: LeagueData;
     data: LeagueData;
 
     constructor(
@@ -23,7 +24,8 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
     query(): Observable<any> {
         return Observable.create(observer => {
             this.service.query().subscribe(data => {
-                this.data = data;
+                this.orginalData = data;
+                this.data = _.cloneDeep(data);
                 observer.complete();
             });
         });
@@ -54,6 +56,17 @@ export class LeagueGridComponent implements Grid, BreadcrumbFilter {
     filterColumns(selectedColumns: string[]) {
         if (this.hasData) {
             this.data.GroupNames = selectedColumns;
+            this.data.Entities.forEach(entity => {
+                entity.PeriodGroups = [];
+            });
+            this.data.Total.PeriodGroups = [];
+            selectedColumns.forEach(column => {
+                const columnIndex = this.orginalData.GroupNames.indexOf(column);
+                this.data.Entities.forEach((entity, index) => {
+                    entity.PeriodGroups.push(this.orginalData.Entities[index].PeriodGroups[columnIndex]);
+                });
+                this.data.Total.PeriodGroups.push(this.orginalData.Total.PeriodGroups[columnIndex]);
+            });
         }
     }
 }

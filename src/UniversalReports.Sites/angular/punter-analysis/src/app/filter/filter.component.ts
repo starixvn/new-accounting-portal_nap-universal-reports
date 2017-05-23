@@ -348,10 +348,10 @@ export class FilterComponent implements OnInit {
         }, {
             text: 'League',
             value: SearchBy.League
-        }, {
+        }/*, {
             text: 'Performance',
             value: SearchBy.Performance
-        }];
+        }*/];
     }
 
     private getDepthOptions(): Depth[] {
