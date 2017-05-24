@@ -19,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
         public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var anyReportModel = fixture.Create<ReportModelBase<BetTypeModel>>();
+            var anyReportModel = fixture.Create<Linq.DynamicSum.SummaryEntity<BetTypeModel>>();
             var service = Substitute.For<PunterAnalysisService>();
             service.Query<BetTypeModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 

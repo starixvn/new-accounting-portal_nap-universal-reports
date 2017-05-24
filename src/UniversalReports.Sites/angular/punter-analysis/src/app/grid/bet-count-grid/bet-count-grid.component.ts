@@ -35,12 +35,15 @@ export class BetCountGridComponent implements Grid {
         this.service.exportExcel();
     }
 
+    get hasExcel(): boolean {
+        return this.hasData;
+    }
+
     get hasData(): boolean {
         return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
 
     get title(): string {
-        const model = this.service.model;
-        return `Punter ${model.custName} by bet count`;
+        return this.service.getBreadcrumbTitle();
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Linq.DynamicSum;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Services;
@@ -46,8 +46,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 VirtualTurnover = rawWinLoss.VirtualTurnover,
                 VarianceIncome = rawWinLoss.VarianceIncome,
                 SMAWinLoss = rawWinLoss.SMAWinLoss,
-                RealMargin = CalculateMargin(rawWinLoss.RealIncome, rawWinLoss.RealTurnover),
-                VirtualMargin = CalculateMargin(rawWinLoss.VirtualIncome, rawWinLoss.VirtualTurnover)
             };
         }
 
@@ -55,13 +53,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             return refService.GetTeamName(teamId, string.Empty)
                 + (isNeutral ? " (N)" : string.Empty);
-        }
-
-        public decimal CalculateMargin(decimal income, decimal turnover)
-        {
-            return turnover != 0
-                ? Math.Round(income / turnover, 4, MidpointRounding.AwayFromZero)
-                : 0;
         }
 
         public IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<RawWinLoss> rawWinLoss)
@@ -97,31 +88,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public WinLoss CalculateSumWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
         {
-            if (!rawWinLosses.Any())
-            {
-                return new WinLoss();
-            }
-
             var matchWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
-            var sumWinLoss = new RawWinLoss
-            {
-                AwayId = 0,
-                AwayName = string.Empty,
-                HomeId = 0,
-                HomeName = string.Empty,
-                IsNeutral = false,
-                LeagueId = 0,
-                MatchCode = string.Empty,
-                MatchId = 0,
-                SMAWinLoss = matchWinLosses.Sum(r => r.SMAWinLoss),
-                MemberWinLoss = matchWinLosses.Sum(r => r.MemberWinLoss),
-                Commission = matchWinLosses.Sum(r => r.Commission),
-                RealIncome = matchWinLosses.Sum(r => r.RealIncome),
-                VirtualIncome = matchWinLosses.Sum(r => r.VirtualIncome),
-                RealTurnover = matchWinLosses.Sum(r => r.RealTurnover),
-                VirtualTurnover = matchWinLosses.Sum(r => r.VirtualTurnover),
-                VarianceIncome = matchWinLosses.Sum(r => r.VarianceIncome)
-            };
+            var sumWinLoss = matchWinLosses.DynamicSum();
 
             return FromRawWinLoss(sumWinLoss);
         }

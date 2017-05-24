@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, ReportModelBase<BetCountModel>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, SummaryEntity<BetCountModel>>
     {
         private readonly IMapper mapper;
 
@@ -18,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
             this.betCountService = betCountService;
         }
 
-        public async Task<ReportModelBase<BetCountModel>> Handle(HttpParameterJson message)
+        public async Task<SummaryEntity<BetCountModel>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<Criteria>(message);
             return await betCountService.Query(criteria);

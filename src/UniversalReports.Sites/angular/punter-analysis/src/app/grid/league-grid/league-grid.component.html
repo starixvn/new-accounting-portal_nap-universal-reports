@@ -10,7 +10,7 @@
             <table [class.empty-data]="!hasData">
                 <colgroup>
                     <col style="width: 250px" />
-                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                    <ng-template ngFor [ngForOf]="data.GroupNames">
                         <ng-template [ngTemplateOutlet]="col"></ng-template>
                     </ng-template>
                 </colgroup>
@@ -20,7 +20,7 @@
                         <th *ngFor="let groupName of data.GroupNames" colspan="4">{{groupName}}</th>
                     </tr>
                     <tr *ngIf="data.GroupNames.length > 0">
-                        <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template ngFor [ngForOf]="data.GroupNames">
                             <th>Win Loss</th>
                             <th>Turnover</th>
                             <th>Margin</th>
@@ -39,14 +39,14 @@
             <table class="table-striped">
                 <colgroup>
                     <col style="width: 250px" />
-                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                    <ng-template ngFor [ngForOf]="data.GroupNames">
                         <ng-template [ngTemplateOutlet]="col"></ng-template>
                     </ng-template>
                 </colgroup>
                 <tbody>
                     <tr *ngFor="let leagueItem of data.Entities">
                         <td>{{ leagueItem.LeagueName }}</td>
-                        <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template ngFor let-i="index" [ngForOf]="data.GroupNames">
                             <td class="number" [napDecimalFormat]="leagueItem.PeriodGroups[i].WinLoss"></td>
                             <td class="text-right" [napDecimalFormat]="leagueItem.PeriodGroups[i].Turnover"></td>
                             <td class="number" [napPercentFormat]="leagueItem.PeriodGroups[i].WinLoss/leagueItem.PeriodGroups[i].Turnover"></td>
@@ -60,14 +60,14 @@
             <table>
                 <colgroup>
                     <col style="width: 250px" />
-                    <ng-template ngFor let-groupName [ngForOf]="data.GroupNames">
+                    <ng-template ngFor [ngForOf]="data.GroupNames">
                         <ng-template [ngTemplateOutlet]="col"></ng-template>
                     </ng-template>
                 </colgroup>
                 <tfoot>
                     <tr>
                         <td class="text-right">Total</td>
-                        <ng-template ngFor let-i="index" let-groupName [ngForOf]="data.GroupNames">
+                        <ng-template ngFor let-i="index" [ngForOf]="data.GroupNames">
                             <td class="number" [napDecimalFormat]="data.Total.PeriodGroups[i].WinLoss"></td>
                             <td class="text-right" [napDecimalFormat]="data.Total.PeriodGroups[i].Turnover"></td>
                             <td class="number" [napPercentFormat]="data.Total.PeriodGroups[i].WinLoss/data.Total.PeriodGroups[i].Turnover"></td>

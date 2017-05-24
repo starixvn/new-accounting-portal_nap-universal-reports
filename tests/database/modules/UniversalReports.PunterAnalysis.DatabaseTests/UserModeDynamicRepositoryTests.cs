@@ -53,9 +53,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<UserRoleModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.RoleName, Is.Not.Null.And.Not.Empty);
         }
@@ -66,11 +66,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Arrange
             var criteria = new BetCountCriteria
             {
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
-                CustId = 19575728,
-                ListCombinationId = "21802681,21802682,21802683,21901011",
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
+                CustId = 1280,
+                ListCombinationId = "100001,100003",
                 LeagueId = 0,
                 SportId = 1,
                 BetTypeId = 1,
@@ -80,13 +80,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<BetCountModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.WinLoss, Is.Not.Zero);
-            Assert.That(firstModel.WinCount, Is.Not.Zero);
-            Assert.That(firstModel.DrawCount, Is.Not.Zero);
             Assert.That(firstModel.Date, Is.Not.Empty);
         }
 
@@ -97,8 +95,8 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new BetTypeCriteria
             {
                 PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0,
@@ -110,9 +108,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<BetTypeModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.LiveBetCount, Is.Not.Zero);
             Assert.That(firstModel.LiveWinLoss, Is.Not.Zero);
             Assert.That(firstModel.LiveTurnover, Is.Not.Zero);
@@ -132,9 +130,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Arrange
             var criteria = new SportTypeCriteria
             {
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0,
@@ -146,9 +144,8 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportTypeModel>(criteria);
 
-            var firstModel = models.First();
-
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.WinLoss, Is.Not.Zero);
             Assert.That(firstModel.Turnover, Is.Not.Zero);
@@ -165,9 +162,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 TopRow = 10,
                 OrderBy = 1,
                 SortBy = 2,
-                PeriodType = 3,
-                FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                PeriodType = 4,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0
@@ -176,9 +173,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SummaryModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.WinLoss, Is.Not.Zero);
             Assert.That(firstModel.Turnover, Is.Not.Zero);
@@ -194,7 +191,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             {
                 PeriodType = 3,
                 FromDate = new DateTime(2016, 8, 1),
-                ToDate = new DateTime(2016, 12, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 CustId = 19575728,
                 ListCombinationId = "21802681,21802682,21802683,21901011",
                 LeagueId = 0,
@@ -205,9 +202,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<LeagueRawModel>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.BetCount, Is.Not.Zero);
             Assert.That(firstModel.WinLoss, Is.Not.Zero);
             Assert.That(firstModel.Turnover, Is.Not.Zero);
@@ -244,9 +241,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<ProductSportBetTypeFilter.ProductSportBetTypeEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.SportGroup, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
@@ -261,17 +258,17 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Arrange
             var criteria = new LeagueFilter.QueryCriteria
             {
-                FromDate = DateTime.Today.AddYears(-2),
-                ToDate = DateTime.Today,
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
                 SportId = 1
             };
 
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<LeagueFilter.LeagueEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.Id, Is.Not.Zero);
             Assert.That(firstModel.Name, Is.Not.Null.And.Not.Empty);
         }
@@ -328,9 +325,9 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportsbookSportBetTypeFilter.SportsbookSportBetTypeEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.SportType, Is.Not.Zero);
             Assert.That(firstModel.SportName, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
@@ -344,16 +341,16 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             var criteria = new SportTypeLeagueFilter.QueryCriteria
             {
                 SportId = 1,
-                FromDate = DateTime.Now.AddYears(-1),
-                ToDate = DateTime.Now
+                SearchText = "champion,league",
+                SearchExactly = false
             };
 
             // Act
             var repository = new DynamicRepository();
             var models = await repository.FetchAsync<SportTypeLeagueFilter.SportTypeLeagueEntity>(criteria);
-            var firstModel = models.First();
 
             // Assert
+            var firstModel = models.First();
             Assert.That(firstModel.LeagueId, Is.Not.Zero);
             Assert.That(firstModel.LeagueName, Is.Not.Null.And.Not.Empty);
         }

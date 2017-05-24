@@ -45,6 +45,10 @@ export class SummaryGridComponent implements Grid {
         this.service.exportExcel();
     }
 
+    get hasExcel(): boolean {
+        return this.hasData;
+    }
+
     get hasData(): boolean {
         return !_.isNil(this.data) && this.data.Entities.length > 0;
     }

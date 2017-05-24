@@ -39,5 +39,30 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         public decimal RealTurnover { get; set; }
 
         public decimal VirtualTurnover { get; set; }
+
+        public static RawWinLoss operator +(RawWinLoss a, RawWinLoss b)
+        {
+            return new RawWinLoss
+            {
+                AwayId = 0,
+                AwayName = string.Empty,
+                HomeId = 0,
+                HomeName = string.Empty,
+                IsNeutral = false,
+                LeagueId = 0,
+                MatchCode = string.Empty,
+                MatchId = 0,
+                EventDate = DateTime.MinValue,
+                SportType = 0,
+                SMAWinLoss = a.SMAWinLoss + b.SMAWinLoss,
+                MemberWinLoss = a.MemberWinLoss + b.MemberWinLoss,
+                Commission = a.Commission + b.Commission,
+                RealIncome = a.RealIncome + b.RealIncome,
+                VirtualIncome = a.VirtualIncome + b.VirtualIncome,
+                RealTurnover = a.RealTurnover + b.RealTurnover,
+                VirtualTurnover = a.VirtualTurnover + b.VirtualTurnover,
+                VarianceIncome = a.VarianceIncome + b.VarianceIncome
+            };
+        }
     }
 }

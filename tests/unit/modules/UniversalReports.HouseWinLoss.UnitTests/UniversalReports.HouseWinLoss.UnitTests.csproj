@@ -42,16 +42,24 @@
       <HintPath>..\..\..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data">
-      <HintPath>..\..\..\..\packages\Fanex.Data.2.0.3\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.2.1.0\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data.Repository">
-      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.1.0.1\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.1.0.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Fanex.Excel.2.2.2.0\lib\net40\Fanex.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.8.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\CompareNETObjects.3.08.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Linq.DynamicSum.1.0.0.3\lib\net461\Linq.DynamicSum.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
@@ -76,6 +84,10 @@
     </Reference>
     <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUnit.CompareNetObjects, Version=0.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NUnit.CompareNetObjects.0.1.9\lib\net45\NUnit.CompareNetObjects.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -111,8 +123,11 @@
   <ItemGroup>
     <Compile Include="Common\ColumnBuilders\GridOptionColumnRemovalUnitTests.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetail\RawWinLossUnitTests.cs" />
+    <Compile Include="Common\MatchDetail\WinLossUnitTests.cs" />
     <Compile Include="Common\MatchDetail\ServiceUnitTests.cs" />
     <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooserUnitTests.cs" />
+    <Compile Include="Common\Models\WinLossUnitTests.cs" />
     <Compile Include="Common\Services\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\Services\CommonBalanceUpServiceTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
@@ -225,6 +240,7 @@
     <None Include="Common\SiteWinLoss\SiteServiceUnitTests.data-1-fakeData.json">
       <DependentUpon>SiteServiceUnitTests.cs</DependentUpon>
     </None>
+    <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
     <Content Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.data-1-expected.json">
       <DependentUpon>BasicWinLossServiceUnitTest.cs</DependentUpon>
     </Content>

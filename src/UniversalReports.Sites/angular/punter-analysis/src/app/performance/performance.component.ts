@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import * as _ from 'lodash';
 import { FilterModel } from '../filter/filter.model';
+import { FilterModelWrapper, PeriodType } from '../filter/filter.model.main';
 import { PerformanceType, Performance } from './performance.model';
 import { PerformanceService } from './performance.service';
 import { SummaryPerformanceComponent } from './summary-performance/summary-performance.component';
@@ -54,7 +55,14 @@ export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
             this.statistic = statistic;
             this.service.summaryPerformanceStatistic = statistic;
             this.hasData = this.statistic.MonthStatistics.length !== 0;
-            this.createPerformance();
+            if (this.hasData) {
+                this.createPerformance();
+            } else {
+                const filterModel = this.filterModel;
+                const userName = filterModel.performance.userName;
+                const dateString = FilterModelWrapper.getDateFromToString(PeriodType.MonthRange, filterModel.fromDate, filterModel.toDate);
+                this.breadcrumbItems = [`Punter ${userName} Performance ${dateString}`];
+            }
         });
     }
 

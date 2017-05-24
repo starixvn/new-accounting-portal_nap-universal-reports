@@ -10,7 +10,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
 {
     public interface BetCountService
     {
-        Task<ReportModelBase<BetCountModel>> Query(Criteria criteria);
+        Task<SummaryEntity<BetCountModel>> Query(Criteria criteria);
     }
 
     public class BetCountServiceImp : BetCountService
@@ -25,17 +25,11 @@ namespace UniversalReports.PunterAnalysis.BetCount
             this.dateTimeService = dateTimeService;
         }
 
-        public async Task<ReportModelBase<BetCountModel>> Query(Criteria criteria)
+        public async Task<SummaryEntity<BetCountModel>> Query(Criteria criteria)
         {
-            var entities = await repository.FetchAsync<BetCountRawModel>(criteria);
-            var entityList = entities.Select(e => Map(e, criteria.PeriodType))
-                                    .ToList();
-
-            return new ReportModelBase<BetCountModel>
-            {
-                Entities = entityList,
-                Total = entityList.DynamicSum()
-            };
+            return (await repository.FetchAsync<BetCountRawModel>(criteria))
+                           .Select(e => Map(e, criteria.PeriodType))
+                           .CalculateSummaryEntity();
         }
 
         private BetCountModel Map(BetCountRawModel rawModel, int periodType)

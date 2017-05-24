@@ -1,4 +1,5 @@
 ﻿using Fanex.Data;
+using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Data.OldConnectionStringProvider;
 using System.Configuration;
 
@@ -12,6 +13,7 @@ namespace UniversalReports.Sites
             DbSettingProviderManager
              .StartNewSession()
              .Use(new OldConnectionStringProvider())
+             .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
              .UseDefaultDbSettingProvider($"~/App_Data/{environment}", enableWatching: true).Run();
         }
     }

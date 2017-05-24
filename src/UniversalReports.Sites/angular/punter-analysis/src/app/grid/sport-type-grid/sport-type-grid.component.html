@@ -1,6 +1,6 @@
 <ng-template #colgroup>
     <colgroup>
-        <col style="width: 120px" />
+        <col style="width: 250px" />
         <col style="width: 120px" />
         <col style="width: 120px" />
         <col style="width: 90px" />
@@ -8,7 +8,7 @@
     </colgroup>
 </ng-template>
 <div *ngIf="data" class="grid">
-    <div style="width: 588px">
+    <div style="width: 718px">
         <div class="header">
             <table [class.empty-data]="!hasData">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -38,7 +38,7 @@
                         <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                         <td class="text-right">
-                            <a href="javascript:;" (click)="showBetCount(item.SportId)" [napIntegerFormat]="item.BetCount"></a>
+                            <a href="javascript:;" (click)="showBetCount(item.SportId, item.SportName)" [napIntegerFormat]="item.BetCount"></a>
                         </td>
                     </tr>
                 </tbody>

@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -28,9 +29,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             Assert.That(modelBase, IsDeeplyEqual.To(expected));
         }
 
-        private ReportModelBase<BetCountModel> CreateEmptyModelBaseWithTypeModel()
+        private SummaryEntity<BetCountModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new ReportModelBase<BetCountModel>
+            return new SummaryEntity<BetCountModel>
             {
                 Entities = new List<BetCountModel>(),
                 Total = new BetCountModel()
@@ -74,9 +75,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Core
             };
         }
 
-        private ReportModelBase<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
+        private SummaryEntity<BetCountModel> CreateNonEmptyModelBaseWithBetCountModel()
         {
-            return new ReportModelBase<BetCountModel>
+            return new SummaryEntity<BetCountModel>
             {
                 Entities = CreateNonEmptyBetCountModelList(),
                 Total = CreateBetCountModel()

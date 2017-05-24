@@ -5,6 +5,7 @@ import {
 } from 'ngx-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { IOption } from 'nap-components/src/select';
 import { SelectItem } from 'nap-components/src/dropdown-select';
 import { ToastService } from 'nap-components/src/toast';
 import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
@@ -63,9 +64,10 @@ export class FilterComponent implements OnInit {
     };
 
     sportType: number;
-    sportOptions: SelectItem[];
+    sportOptions: IOption[];
     leagueId: number;
-    leagueOptions: SelectItem[];
+    leagueName = '';
+    leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
     betTypeTreeviewItems: TreeviewItem[];
     betTypeTreeviewConfig: TreeviewConfig = {
         isShowAllCheckBox: true,
@@ -139,9 +141,7 @@ export class FilterComponent implements OnInit {
                 }
                 break;
             case SearchBy.League:
-                if (this.sportbooksSportTypeBetTypeData) {
-                    this.loadSports();
-                } else {
+                if (!this.sportOptions) {
                     this.service.querySportbooksSportTypeBetType().subscribe(data => {
                         this.sportbooksSportTypeBetTypeData = data;
                         this.loadSports();
@@ -154,9 +154,6 @@ export class FilterComponent implements OnInit {
 
     onPeriodTypeChange(model: PeriodTypeEventModel) {
         this.periodTypeEventModel = model;
-        if (this.searchBy === SearchBy.League) {
-            this.loadLeagues();
-        }
     }
 
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -168,9 +165,8 @@ export class FilterComponent implements OnInit {
             .filter(item => item.SportType === this.sportType)
             .map(item => new TreeviewItem({
                 text: item.BetTypeName,
-                value: item.CombinationId
+                value: item.CombinationId.toString()
             }));
-        this.loadLeagues();
     }
 
     onBetTypeSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -179,6 +175,27 @@ export class FilterComponent implements OnInit {
 
     onGenerate() {
         this.reset.emit();
+        if (this.searchBy === SearchBy.League) {
+            const searchText = this.leagueName.trim();
+            if (searchText === '') {
+                this.toastService.activate('League name field is required!');
+                return;
+            } else {
+                this.service.querySportTypeLeague(this.sportType, searchText, true).subscribe(leagues => {
+                    if (leagues.length === 0) {
+                        this.toastService.activate('League is not available.');
+                    } else {
+                        this.leagueId = leagues[0].LeagueId;
+                        this.validateBeforeGenerating();
+                    }
+                });
+            }
+        } else {
+            this.validateBeforeGenerating();
+        }
+    }
+
+    private validateBeforeGenerating() {
         const model = this.createModel();
         const wrapper = new FilterModelWrapper(model);
         const validateMessage = wrapper.validate();
@@ -197,35 +214,19 @@ export class FilterComponent implements OnInit {
     }
 
     private loadSports() {
-        if (!this.sportOptions) {
-            let sportName = '';
-            this.sportOptions = [];
-            this.sportbooksSportTypeBetTypeData.forEach(item => {
-                if (item.SportName !== sportName) {
-                    sportName = item.SportName;
-                    this.sportOptions.push({
-                        text: item.SportName,
-                        value: item.SportType
-                    });
-                }
-            });
-            this.sportType = this.sportOptions[0].value;
-            this.onSportChange();
-        }
-    }
-
-    private loadLeagues() {
-        const dateRange = this.getExactDateRange();
-        this.service.querySportTypeLeague(this.sportType, dateRange).subscribe(options => {
-            this.leagueOptions = options;
-            if (this.leagueOptions.length === 0) {
-                this.leagueOptions.push({
-                    text: 'There is no information available.',
-                    value: 0
+        let sportName = '';
+        this.sportOptions = [];
+        this.sportbooksSportTypeBetTypeData.forEach(item => {
+            if (item.SportName !== sportName) {
+                sportName = item.SportName;
+                this.sportOptions.push({
+                    label: item.SportName,
+                    value: item.SportType
                 });
             }
-
-            this.leagueId = this.leagueOptions[0].value;
+        });
+        setTimeout(() => {
+            this.sportType = this.sportOptions[0].value;
         });
     }
 
@@ -265,6 +266,17 @@ export class FilterComponent implements OnInit {
     private buildUserNameTypeaheadQuery(): TypeaheadQuery {
         return new TypeaheadQuery(term => {
             return this.service.queryUserNameSuggestion(term, this.depth.role);
+        });
+    }
+
+    private buildLeagueTypeaheadQuery(): TypeaheadQuery {
+        return new TypeaheadQuery(term => {
+            let searchText = term.replace(/,/g, '');
+            let words = searchText.split(' ');
+            words = words.filter(word => word.trim() !== '');
+            searchText = words.join(',');
+            return this.service.querySportTypeLeague(this.sportType, searchText, false)
+                .map(list => list.map(item => item.LeagueName));
         });
     }
 
@@ -315,7 +327,7 @@ export class FilterComponent implements OnInit {
             periodType: this.periodTypeEventModel.periodType,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
             leagueId: this.leagueId,
-            leagueOptions: this.leagueOptions,
+            leagueName: this.leagueName,
             sportType: this.sportType,
             sportOptions: this.sportOptions
         };
@@ -336,10 +348,10 @@ export class FilterComponent implements OnInit {
         }, {
             text: 'League',
             value: SearchBy.League
-        }, {
+        }/*, {
             text: 'Performance',
             value: SearchBy.Performance
-        }];
+        }*/];
     }
 
     private getDepthOptions(): Depth[] {

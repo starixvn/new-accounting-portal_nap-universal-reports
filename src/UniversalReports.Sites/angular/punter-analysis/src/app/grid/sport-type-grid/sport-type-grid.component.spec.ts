@@ -96,7 +96,7 @@ describe('SportTypeGridComponent', () => {
             service.model = fakeSportTypeGridModel;
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
 
-            component.query();
+            component.query().subscribe();
             fixture.detectChanges();
         });
 
@@ -143,9 +143,11 @@ describe('SportTypeGridComponent', () => {
             expect(selectedGridType).toBe(GridType.BetCount);
             const betCountGridService = fixture.debugElement.injector.get(BetCountGridService);
             const expectedModel: BetCountGridModel = {
+                fromGridType: GridType.SportType,
                 custId: 1,
                 custName: 'Customer 1',
-                sportId: 1
+                sportId: 1,
+                sportName: 'Sport 1'
             };
             expect(betCountGridService.model).toEqual(expectedModel);
         });

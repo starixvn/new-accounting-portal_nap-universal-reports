@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace UniversalReports.PunterAnalysis.Core
         {
             var criteria = mapper.Map<TCriteria>(message);
             var model = await punterAnalysisService.Query<TModel>(criteria);
-            var excelViewModel = mapper.Map<ReportModelBase<TExcelModel>>(model);
+            var excelViewModel = mapper.Map<SummaryEntity<TExcelModel>>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);

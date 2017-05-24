@@ -28,24 +28,24 @@
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas baseChart [datasets]="marginData" [labels]="monthLabels" chartType="bar" [options]="marginOptions"></canvas>
+        <canvas napChart [datasets]="marginDatasets" [labels]="monthLabels" chartType="bar" [options]="marginOptions"></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="box">
-        <canvas baseChart [data]="betCountData" [labels]="monthLabels" chartType="pie" [options]="betCountOptions"></canvas>
+        <canvas napChart [datasets]="winLossTurnoverDatasets" [labels]="monthLabels" [options]="winLossTurnoverOptions" chartType="bar"></canvas>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas baseChart [datasets]="winLossTurnoverData" [labels]="monthLabels" [options]="winLossTurnoverOptions" chartType="bar"></canvas>
+        <canvas napChart [datasets]="betCountDatasets" [labels]="monthLabels" chartType="pie" [options]="betCountOptions"></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="box">
-        <canvas baseChart [data]="productData" [labels]="productLabels" chartType="pie" [options]="productOptions" (chartClick)="chartClicked($event)"></canvas>
+        <canvas napChart [data]="productData" [labels]="productLabels" chartType="pie" [options]="productOptions" (chartClick)="chartClicked($event)"></canvas>
       </div>
     </div>
   </div>

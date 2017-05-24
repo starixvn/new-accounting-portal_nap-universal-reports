@@ -1,8 +1,10 @@
-﻿using Fanex.Logging;
+﻿using Fanex.Data.CrossCutting.WrappingException;
+using Fanex.Logging;
 using System;
-using System.Data.SqlClient;
+using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -58,23 +60,26 @@ namespace UniversalReports.Sites
                 return;
             }
 
-            var message = $"{exception.Message}"
-                + $"\r\nType: {exception.GetType()}"
-                + $"\r\nSource: {exception.Source}"
-                          + $"\r\nDomain: {HttpContext.Current.Request.Headers["Host"]}"
-                          + $"\r\nQuery String: {Request.QueryString}"
-                          + $"\r\nTarget Site: {exception.TargetSite}"
-                          + $"\r\nStack Trace: {exception.StackTrace}";
+            var messageBuilder = new StringBuilder();
+            messageBuilder.Append($"{exception.Message}");
+            messageBuilder.Append($"\r\nType: {exception.GetType()}");
+            messageBuilder.Append($"\r\nSource: {exception.Source}");
+            messageBuilder.Append($"\r\nDomain: {HttpContext.Current.Request.Headers["Host"]}");
+            messageBuilder.Append($"\r\nQuery String: {Request.QueryString}");
+            messageBuilder.Append($"\r\nTarget Site: {exception.TargetSite}");
+            messageBuilder.Append($"\r\nStack Trace: {exception.StackTrace}");
 
-            var sqlException = exception as SqlException;
-            if (sqlException != null)
+            var objectDbException = exception as ObjectDbException;
+            if (objectDbException != null)
             {
-                message += $"\r\nProcedure: {sqlException.Procedure}"
-                           + $"\r\nLine Number: {sqlException.LineNumber}"
-                           + $"\r\nServer: {sqlException.Server}";
+                messageBuilder.Append($"\r\nSettingKey: {objectDbException.SettingKey}");
+                foreach (DbParameter parameter in objectDbException.Parameters)
+                {
+                    messageBuilder.Append($"\r\nParamName: {parameter.ParameterName}. Value: {parameter.Value}");
+                }
             }
 
-            LogService.Error(message);
+            LogService.Error(messageBuilder.ToString());
         }
     }
 }

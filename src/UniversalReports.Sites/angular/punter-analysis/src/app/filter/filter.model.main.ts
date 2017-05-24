@@ -64,12 +64,15 @@ export class FilterModelWrapper {
 
     validate(): string {
         if (this.userLeagueModel) {
-            if (this.userLeagueModel.periodType === PeriodType.Daily || this.userLeagueModel.periodType === PeriodType.Weekly) {
-                const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-                const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
-                if (momentFromDate.add(1, 'month').isBefore(momentToDate)) {
-                    return 'Date range should not exceed 1 month!';
-                }
+            const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+            const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
+            switch (this.userLeagueModel.periodType) {
+                case PeriodType.Daily:
+                case PeriodType.Weekly:
+                    if (momentFromDate.add(1, 'month').add(-1, 'day').isBefore(momentToDate)) {
+                        return 'Date range should not exceed 1 month!';
+                    }
+                    break;
             }
         }
 
@@ -84,10 +87,6 @@ export class FilterModelWrapper {
         if (this.filterModel.league) {
             if (this.filterModel.league.selectedBetTypeTreeviewItems.length === 0) {
                 return 'Please select at least one Bet Type!';
-            }
-
-            if (this.filterModel.league.leagueId === 0) {
-                return 'There is no league available!';
             }
         }
 
@@ -129,12 +128,12 @@ export class FilterModelWrapper {
             });
             return sportTypes.join(', ');
         } else if (this.filterModel.league) {
-            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].text;
+            return this.filterModel.league.sportOptions.filter(item => item.value === this.filterModel.league.sportType)[0].label;
         }
     }
 
     get leagueTitle(): string {
-        return this.filterModel.league.leagueOptions.filter(option => option.value === this.filterModel.league.leagueId)[0].text;
+        return this.filterModel.league.leagueName;
     }
 
     get leagueId(): number {

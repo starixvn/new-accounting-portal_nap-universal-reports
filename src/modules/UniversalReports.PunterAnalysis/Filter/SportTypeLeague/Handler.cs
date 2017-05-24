@@ -20,8 +20,8 @@ namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
             var criteria = new QueryCriteria
             {
                 SportId = message.SportId,
-                FromDate = message.FromDate,
-                ToDate = message.ToDate
+                SearchText = message.SearchText,
+                SearchExactly = message.SearchExactly
             };
             return await repository.FetchAsync<SportTypeLeagueEntity>(criteria);
         }

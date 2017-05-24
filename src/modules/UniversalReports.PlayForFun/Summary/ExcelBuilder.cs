@@ -1,8 +1,8 @@
 ﻿using Epplus.Mapper.Extensions;
+using Linq.DynamicSum;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
@@ -10,9 +10,9 @@ namespace UniversalReports.PlayForFun.Summary
     public interface ExcelBuilder
     {
         ExcelPackage CreateExcelPackage<T, T1>(
-            ReportModelBase<T> summaryExcelModel,
+            SummaryEntity<T> summaryExcelModel,
             ExcelSetting summarySetting,
-            ReportModelBase<T1> detailExcelModel,
+            SummaryEntity<T1> detailExcelModel,
             ExcelSetting detailSetting)
             where T : class, new()
             where T1 : class, new();
@@ -35,9 +35,9 @@ namespace UniversalReports.PlayForFun.Summary
         private ExcelPackage ExcelPackage { get; set; }
 
         public ExcelPackage CreateExcelPackage<T, T1>(
-            ReportModelBase<T> summaryExcelModel,
+            SummaryEntity<T> summaryExcelModel,
             ExcelSetting summarySetting,
-            ReportModelBase<T1> detailExcelModel,
+            SummaryEntity<T1> detailExcelModel,
             ExcelSetting detailSetting)
             where T : class, new()
             where T1 : class, new()
@@ -79,7 +79,7 @@ namespace UniversalReports.PlayForFun.Summary
         private void Build<T>(
             ExcelWorksheet workSheet,
             ExcelWorksheet totalTemplateSheet,
-            ReportModelBase<T> model,
+            SummaryEntity<T> model,
             ExcelSetting setting) where T : class, new()
         {
             SetStartRowIndex(setting.StartRowIndex);

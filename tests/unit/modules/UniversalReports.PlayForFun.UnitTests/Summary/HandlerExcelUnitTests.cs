@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -32,9 +33,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Any<ReportModelBase<SummaryExcelModel>>(),
+                Arg.Any<SummaryEntity<SummaryExcelModel>>(),
                 Arg.Any<ExcelSetting>(),
-                Arg.Any<ReportModelBase<DetailExcelModel>>(),
+                Arg.Any<SummaryEntity<DetailExcelModel>>(),
                 Arg.Any<ExcelSetting>());
         }
 
@@ -42,9 +43,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptySummaryExcelViewModel = new ReportModelBase<SummaryExcelModel>();
+            var emptySummaryExcelViewModel = new SummaryEntity<SummaryExcelModel>();
 
-            var emptyDetailExcelViewModel = new ReportModelBase<DetailExcelModel>();
+            var emptyDetailExcelViewModel = new SummaryEntity<DetailExcelModel>();
 
             var summaryExcelSetting = new ExcelSetting
             {
@@ -65,8 +66,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             };
 
             var mapper = Substitute.For<IMapper>();
-            mapper.Map<ReportModelBase<SummaryExcelModel>>(Arg.Any<ReportModelBase<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
-            mapper.Map<ReportModelBase<DetailExcelModel>>(Arg.Any<ReportModelBase<DetailModel>>()).Returns(emptyDetailExcelViewModel);
+            mapper.Map<SummaryEntity<SummaryExcelModel>>(Arg.Any<SummaryEntity<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
+            mapper.Map<SummaryEntity<DetailExcelModel>>(Arg.Any<SummaryEntity<DetailModel>>()).Returns(emptyDetailExcelViewModel);
 
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 

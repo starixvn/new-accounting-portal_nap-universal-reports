@@ -5,6 +5,7 @@ import { HttpService } from 'nap-components/src/http.service';
 import { Helper } from 'nap-components/src/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
+import { GridType } from '../grid.model';
 import { SportTypeGridModel } from './sport-type-grid.model';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
 import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
@@ -26,11 +27,13 @@ export class SportTypeGridService {
         });
     }
 
-    createBetCountGridModel(sportId: number): BetCountGridModel {
+    createBetCountGridModel(sportId: number, sportName: string): BetCountGridModel {
         return {
+            fromGridType: GridType.SportType,
             custId: this.model.custId,
             custName: this.model.custName,
-            sportId: sportId
+            sportId: sportId,
+            sportName: sportName
         };
     }
 

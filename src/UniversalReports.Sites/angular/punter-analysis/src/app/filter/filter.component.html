@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-x2" *ngIf="searchBy !== SearchBy.Performance">
+        <div class="col-x2" [hidden]="searchBy === SearchBy.Performance">
             <div class="col-label">
                 <label class="col-form-label">Top rows</label>
             </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <nap-period-type *ngIf="searchBy !== SearchBy.Performance" [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+    <nap-period-type [hidden]="searchBy === SearchBy.Performance" [minDate]="minDate" [maxDate]="maxDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
     <div class="row" *ngIf="searchBy === SearchBy.Performance">
         <div class="col-x1">
             <div class="col-label">
@@ -63,12 +63,12 @@
                 <nap-dropdown-select [items]="depthOptions | napDropdownSelect:'text'" [(value)]="depth"></nap-dropdown-select>
             </div>
         </div>
-        <div class="col-x1" *ngIf="searchBy === SearchBy.League">
+        <div class="col-x1" [hidden]="searchBy !== SearchBy.League">
             <div class="col-label">
                 <label class="col-form-label">Sport</label>
             </div>
             <div class="col-value">
-                <nap-dropdown-select [items]="sportOptions" [(value)]="sportType" (valueChange)="onSportChange()"></nap-dropdown-select>
+                <nap-select [options]="sportOptions" [(ngModel)]="sportType" (ngModelChange)="onSportChange()"></nap-select>
             </div>
         </div>
         <div class="col-x2" *ngIf="searchBy !== SearchBy.League">
@@ -80,12 +80,13 @@
                 </nap-dropdown-typeahead>
             </div>
         </div>
-        <div class="col-x23" *ngIf="searchBy === SearchBy.League">
+        <div class="col-x23" [hidden]="searchBy !== SearchBy.League">
             <div class="col-label">
-                <label class="col-form-label">League</label>
+                <label class="col-form-label">League<span class="text-danger">*</span></label>
             </div>
             <div class="col-value">
-                <nap-dropdown-select [items]="leagueOptions" [(value)]="leagueId"></nap-dropdown-select>
+                <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueTypeaheadQuery" [placeholder]="'League name'">
+                </nap-dropdown-typeahead>
             </div>
         </div>
         <div class="col-x3" *ngIf="searchBy === SearchBy.User">

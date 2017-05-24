@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
 using System.Threading.Tasks;
@@ -37,11 +38,11 @@ namespace UniversalReports.PlayForFun.Summary
         {
             var summaryCriteria = mapper.Map<SummaryCriteria>(message);
             var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria);
-            var summaryExcelViewModel = mapper.Map<ReportModelBase<SummaryExcelModel>>(summaryModel);
+            var summaryExcelViewModel = mapper.Map<SummaryEntity<SummaryExcelModel>>(summaryModel);
 
             var detailCriteria = mapper.Map<DetailCriteria>(message);
             var detailModel = await playForFunService.Query<DetailModel>(detailCriteria);
-            var detailExcelViewModel = mapper.Map<ReportModelBase<DetailExcelModel>>(detailModel);
+            var detailExcelViewModel = mapper.Map<SummaryEntity<DetailExcelModel>>(detailModel);
 
             var sumamryExcelSetting = CreateSummarySetting(message.Title);
             var detailExcelSetting = CreateProductDetailSetting(message.Title, message.ProductName);

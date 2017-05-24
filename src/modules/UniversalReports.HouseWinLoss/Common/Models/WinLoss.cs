@@ -1,4 +1,6 @@
-﻿namespace UniversalReports.HouseWinLoss.Common.Models
+﻿using System;
+
+namespace UniversalReports.HouseWinLoss.Common.Models
 {
     public class WinLoss
     {
@@ -26,8 +28,31 @@
 
         public decimal VirtualTurnover { get; set; }
 
-        public decimal RealMargin { get; set; }
+        public decimal VirtualMargin
+        {
+            get
+            {
+                return VirtualTurnover != 0
+                      ? Math.Round(VirtualIncome / VirtualTurnover, 4, MidpointRounding.AwayFromZero)
+                      : 0;
+            }
+        }
 
-        public decimal VirtualMargin { get; set; }
+        public decimal RealMargin
+        {
+            get
+            {
+                return RealTurnover != 0
+                       ? Math.Round(RealIncome / RealTurnover, 4, MidpointRounding.AwayFromZero)
+                       : 0;
+            }
+        }
+
+        public bool IsEmpty => RealTurnover == 0
+                                && VirtualTurnover == 0
+                                && MemberWinLoss == 0
+                                && SMAWinLoss == 0
+                                && RealIncome == 0
+                                && VirtualIncome == 0;
     }
 }

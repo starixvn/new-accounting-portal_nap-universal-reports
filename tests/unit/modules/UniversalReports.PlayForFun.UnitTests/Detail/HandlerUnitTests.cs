@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -19,7 +20,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
         public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var anyReportModel = fixture.Create<ReportModelBase<DetailModel>>();
+            var anyReportModel = fixture.Create<SummaryEntity<DetailModel>>();
             var service = Substitute.For<PlayForFunService>();
             service.Query<DetailModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 

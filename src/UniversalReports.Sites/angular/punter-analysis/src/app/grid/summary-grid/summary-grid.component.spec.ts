@@ -90,7 +90,7 @@ describe('SummaryGridComponent', () => {
             service = fixture.debugElement.injector.get(SummaryGridService);
 
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
-            component.query();
+            component.query().subscribe();
             fixture.detectChanges();
         });
 
@@ -150,6 +150,7 @@ describe('SummaryGridComponent', () => {
             expect(selectedGridType).toBe(GridType.BetCount);
             const betCountGridService = fixture.debugElement.injector.get(BetCountGridService);
             const expectedModel: BetCountGridModel = {
+                fromGridType: GridType.UserName,
                 custId: 23266239,
                 custName: 'HecbetRMB011154'
             };

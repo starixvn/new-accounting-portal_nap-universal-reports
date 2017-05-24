@@ -53,7 +53,7 @@ describe('BetTypeGridService', () => {
         }),
         league: _.extend({}, expectedQueryModel.league, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1\nLeague: League1`
+            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: Sport 1\nLeague: League 1`
         })
     };
 

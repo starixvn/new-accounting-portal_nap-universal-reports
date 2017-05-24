@@ -29,8 +29,10 @@ export class AssociatedAccountGridComponent implements Grid {
         });
     }
 
-    exportExcel() {
-        this.service.exportExcel();
+    exportExcel() { }
+
+    get hasExcel(): boolean {
+        return false;
     }
 
     get hasData(): boolean {

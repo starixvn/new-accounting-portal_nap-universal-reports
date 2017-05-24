@@ -1,10 +1,11 @@
-﻿using MediatR;
+﻿using Linq.DynamicSum;
+using MediatR;
 using System;
 using UniversalReports.PunterAnalysis.Core;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
-    public class HttpParameterJson : IRequest<ReportModelBase<BetCountModel>>
+    public class HttpParameterJson : IRequest<SummaryEntity<BetCountModel>>
     {
         public int PeriodType { get; set; } = 1;
 

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -19,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var anyReportModel = fixture.Create<ReportModelBase<SportTypeModel>>();
+            var anyReportModel = fixture.Create<SummaryEntity<SportTypeModel>>();
             var service = Substitute.For<PunterAnalysisService>();
             service.Query<SportTypeModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 
@@ -37,7 +38,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<ReportModelBase<SportTypeModel>, ReportModelBase<SportTypeModel>>(MemberList.Source);
+                cfg.CreateMap<SummaryEntity<SportTypeModel>, SummaryEntity<SportTypeModel>>(MemberList.Source);
                 cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
             });
 

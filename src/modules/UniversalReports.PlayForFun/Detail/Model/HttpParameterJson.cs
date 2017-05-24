@@ -1,10 +1,10 @@
-﻿using MediatR;
+﻿using Linq.DynamicSum;
+using MediatR;
 using System;
-using UniversalReports.PlayForFun.Core;
 
 namespace UniversalReports.PlayForFun.Detail.Model
 {
-    public class HttpParameterJson : IRequest<ReportModelBase<DetailModel>>
+    public class HttpParameterJson : IRequest<SummaryEntity<DetailModel>>
     {
         public string Username { get; set; }
 

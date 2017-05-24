@@ -36,6 +36,10 @@ export class BetTypeGridComponent implements Grid {
         this.service.exportExcel();
     }
 
+    get hasExcel(): boolean {
+        return this.hasData;
+    }
+
     get hasData(): boolean {
         return !_.isNil(this.data) && this.data.Entities.length > 0;
     }
@@ -44,8 +48,8 @@ export class BetTypeGridComponent implements Grid {
         return this.service.model.sportName;
     }
 
-    showBetCount(betTypeId: number, liveStatusId: LiveStatus) {
-        this.betCountGridService.model = this.service.createBetCountGridService(betTypeId, liveStatusId);
+    showBetCount(betTypeId: number, betTypeName: string, liveStatusId: LiveStatus) {
+        this.betCountGridService.model = this.service.createBetCountGridService(betTypeId, betTypeName, liveStatusId);
         this.gridService.generate(GridType.BetCount);
     }
 

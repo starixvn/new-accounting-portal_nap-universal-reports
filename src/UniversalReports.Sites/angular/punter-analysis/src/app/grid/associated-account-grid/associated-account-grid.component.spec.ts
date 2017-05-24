@@ -89,7 +89,7 @@ describe('AssociatedAccountGridComponent', () => {
             service.model = fakeAssociatedAccountGridModel;
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
 
-            component.query();
+            component.query().subscribe();
             fixture.detectChanges();
         });
 
@@ -99,12 +99,6 @@ describe('AssociatedAccountGridComponent', () => {
 
         it('should have title "Associated accounts of Punter Customer 1', () => {
             expect(component.title).toBe('Associated accounts of Punter Customer 1');
-        });
-
-        it('should invoke exportExcel in service when call exportExcel', () => {
-            const spy = spyOn(service, 'exportExcel').and.callFake(() => { });
-            component.exportExcel();
-            expect(spy.calls.count()).toBe(1);
         });
 
         it('should have 2 tables', () => {
