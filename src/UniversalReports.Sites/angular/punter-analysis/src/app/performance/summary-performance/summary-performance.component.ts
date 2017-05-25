@@ -174,7 +174,7 @@ export class SummaryPerformanceComponent implements Performance {
             const filterModel = this.performanceService.filterModel;
             const userName = filterModel.performance.userName;
             const dateString = FilterModelWrapper.getDateFromToString(PeriodType.MonthRange, filterModel.fromDate, filterModel.toDate);
-            return `Punter ${userName} Performance ${dateString}`;
+            return `Punter ${userName}'s Performance ${dateString}`;
         } else {
             return 'Main';
         }

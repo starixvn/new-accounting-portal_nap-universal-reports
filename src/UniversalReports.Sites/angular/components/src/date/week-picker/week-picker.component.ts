@@ -53,16 +53,18 @@ export class WeekPickerComponent implements OnChanges {
         }
 
         const weekElement = this.getWeekElement(event.target);
-        const firstActiveDayElement = this.getFirstActiveDayElement(weekElement);
-        if (firstActiveDayElement && firstActiveDayElement.children[0] !== event.target) {
-            event.stopPropagation();
-            firstActiveDayElement.click();
+        if (weekElement) {
+            const firstActiveDayElement = this.getFirstActiveDayElement(weekElement);
+            if (firstActiveDayElement && firstActiveDayElement.children[0] !== event.target) {
+                event.stopPropagation();
+                firstActiveDayElement.click();
+            }
         }
     }
 
     onMouseEnter(event: MouseEvent, disabled: boolean) {
         const weekElement = this.getWeekElement(event.target);
-        if (weekElement !== this.currentWeekElement) {
+        if (weekElement && weekElement !== this.currentWeekElement) {
             if (this.currentWeekElement) {
                 this.renderer.setElementClass(this.currentWeekElement, 'week-hover', false);
                 this.currentWeekElement = undefined;
@@ -77,8 +79,8 @@ export class WeekPickerComponent implements OnChanges {
 
     onMouseLeave(event: MouseEvent, disabled: boolean) {
         if (this.currentWeekElement) {
-            const weekElement = this.getWeekElement(event.toElement);
-            if (!this.isWeekElement(weekElement) || !disabled) {
+            const weekElement = this.getWeekElement(event.relatedTarget);
+            if (!weekElement || !disabled) {
                 this.renderer.setElementClass(this.currentWeekElement, 'week-hover', false);
                 this.currentWeekElement = undefined;
             }
@@ -110,11 +112,11 @@ export class WeekPickerComponent implements OnChanges {
     private getWeekElement(eventTarget: EventTarget): HTMLElement {
         const element = eventTarget as HTMLElement;
         const dayElement = element.parentElement;
-        return dayElement.parentElement;
-    }
+        if (dayElement !== null && dayElement.classList.contains('ngb-dp-day')) {
+            return dayElement.parentElement;
+        }
 
-    private isWeekElement(element: HTMLElement): boolean {
-        return element.classList.contains('ngb-dp-week');
+        return undefined;
     }
 
     private getFirstActiveDayElement(weekElement: HTMLElement): HTMLElement {

@@ -113,7 +113,7 @@ export class ProductPerformanceComponent implements Performance {
         const filterModel = this.performanceService.filterModel;
         const userName = filterModel.performance.userName;
         const dateString = FilterModelWrapper.getDateFromToString(PeriodType.MonthRange, filterModel.fromDate, filterModel.toDate);
-        return `Punter ${userName} Performance ${dateString} - Detail from Sportsbook`;
+        return `Punter ${userName}'s Performance ${dateString} - Detail from Sportsbook`;
     }
 
     query() {
