@@ -39,7 +39,6 @@ namespace UniversalReports.NG2Statistics.GrandTotal
             return new List<GridDataRow> { BuildDataRow(total, true) };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(GrandTotalModel raw, bool isTotal)
         {
             var columns = new List<Columns>

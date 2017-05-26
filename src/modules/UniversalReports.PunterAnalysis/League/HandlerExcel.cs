@@ -29,7 +29,7 @@ namespace UniversalReports.PunterAnalysis.League
         {
             var criteria = mapper.Map<Criteria>(message);
             var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
-            var model = await leagueService.Query(criteria);
+            var model = await leagueService.Query(criteria).ConfigureAwait(false);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);

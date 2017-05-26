@@ -22,7 +22,7 @@ namespace UniversalReports.PlayForFun.Detail
         public async Task<SummaryEntity<DetailModel>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<DetailCriteria>(message);
-            return await playForFunService.Query<DetailModel>(criteria);
+            return await playForFunService.Query<DetailModel>(criteria).ConfigureAwait(false);
         }
     }
 }

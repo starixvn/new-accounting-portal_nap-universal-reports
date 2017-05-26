@@ -14,15 +14,21 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {
     public class BetCountServiceUnitTests
     {
-        private static readonly object[] FormatDateTimeCases =
+        public static object[] FormatDateTimeCases
         {
-            new object[] { 0, new DateTime(2017, 1, 23), "01/2017" },
-            new object[] { 1, new DateTime(2017, 1, 23), "2017-01-23" },
-            new object[] { 2, new DateTime(2017, 1, 23), "01/2017 - Week 4" },
-            new object[] { 3, new DateTime(2017, 1, 23), "01/2017" },
-            new object[] { 4, new DateTime(2017, 1, 23), "01/2017" },
-            new object[] { 5, new DateTime(2017, 1, 23), "01/2017" }
-        };
+            get
+            {
+                return new[]
+                {
+                    new object[] { 0, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 1, new DateTime(2017, 1, 23), "2017-01-23" },
+                    new object[] { 2, new DateTime(2017, 1, 23), "01/2017 - Week 4" },
+                    new object[] { 3, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 4, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 5, new DateTime(2017, 1, 23), "01/2017" }
+                };
+            }
+        }
 
         [Test]
         public async Task Query_WithNewCriteria_ReturnRightBetCountModel()

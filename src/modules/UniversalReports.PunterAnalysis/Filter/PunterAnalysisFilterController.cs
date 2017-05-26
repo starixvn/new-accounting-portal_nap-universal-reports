@@ -24,49 +24,49 @@ namespace UniversalReports.PunterAnalysis.Filter
         [Route("available-database")]
         public async Task<IHttpActionResult> AvailableDatabase(HttpParameterAvailableDatabase parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("available-date-range")]
         public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("league")]
         public async Task<IHttpActionResult> League(HttpParameterLeague parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("product-sport-bet-type")]
         public async Task<IHttpActionResult> ProductSportBetType(HttpParameterProductSportBetType parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("username-suggestion")]
         public async Task<IHttpActionResult> UsernameSuggestion(HttpParameterUsernameSuggestion parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("sportsbook-sport-bet-type")]
         public async Task<IHttpActionResult> SportsbookSportBetType(HttpParameterSportsbookSportBetType parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("sport-type-league")]
         public async Task<IHttpActionResult> SportTypeLeague(HttpParameterSportTypeLeague parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
     }

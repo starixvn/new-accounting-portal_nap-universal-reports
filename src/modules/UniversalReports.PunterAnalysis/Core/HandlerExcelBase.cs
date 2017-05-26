@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
-    public abstract class HandlerExcelBase
+    public class HandlerExcelBase
     {
         private readonly IMapper mapper;
 
@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.Core
             where TExcelModel : class, new()
         {
             var criteria = mapper.Map<TCriteria>(message);
-            var model = await punterAnalysisService.Query<TModel>(criteria);
+            var model = await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
             var excelViewModel = mapper.Map<SummaryEntity<TExcelModel>>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);

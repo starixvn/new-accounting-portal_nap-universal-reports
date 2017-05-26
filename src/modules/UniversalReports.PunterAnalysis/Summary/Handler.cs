@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.Summary
 
         public async Task<SummaryEntity<SummaryModel>> Handle(HttpParameterJson message)
         {
-            return await Handle<Criteria, SummaryModel>(message);
+            return await Handle<Criteria, SummaryModel>(message).ConfigureAwait(false);
         }
     }
 }

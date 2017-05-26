@@ -7,7 +7,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
-    public abstract class MatchDetailController : ApiController
+    public class MatchDetailController : ApiController
     {
         protected MatchDetailController()
         {

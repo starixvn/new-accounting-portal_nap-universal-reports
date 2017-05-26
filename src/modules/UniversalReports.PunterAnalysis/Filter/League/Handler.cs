@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.Filter.League
         public async Task<IEnumerable<LeagueEntity>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<QueryCriteria>(message);
-            return await repository.FetchAsync<LeagueEntity>(criteria);
+            return await repository.FetchAsync<LeagueEntity>(criteria).ConfigureAwait(false);
         }
     }
 }

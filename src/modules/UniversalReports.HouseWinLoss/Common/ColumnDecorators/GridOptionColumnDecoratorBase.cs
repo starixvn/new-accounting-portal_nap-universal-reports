@@ -1,11 +1,10 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
-    public abstract class GridOptionColumnDecoratorBase
+    public class GridOptionColumnDecoratorBase
     {
         protected const int VarianceIndex = 4;
 
@@ -82,7 +81,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             }
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         protected List<HeaderColumns> CreateCoreHeaderColumns()
         {
             return new List<HeaderColumns>

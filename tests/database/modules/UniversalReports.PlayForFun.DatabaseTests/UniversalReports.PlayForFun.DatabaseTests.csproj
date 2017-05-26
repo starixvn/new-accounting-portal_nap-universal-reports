@@ -80,8 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicRepositoryTests.cs" />
-    <Compile Include="PlayForFunFanexDataOneTimeSetUp.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="PlayForFunFanexDataOneTimeSetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

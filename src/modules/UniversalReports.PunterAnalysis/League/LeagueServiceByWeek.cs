@@ -6,7 +6,7 @@ using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class LeagueServiceByWeek : LeagueServiceBase, LeagueService
+    public class LeagueServiceByWeek : LeagueServiceBase
     {
         private readonly DateTimeService dateTimeService;
 

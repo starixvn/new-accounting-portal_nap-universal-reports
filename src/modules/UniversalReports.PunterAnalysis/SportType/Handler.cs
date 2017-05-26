@@ -15,7 +15,7 @@ namespace UniversalReports.PunterAnalysis.SportType
 
         public async Task<SummaryEntity<SportTypeModel>> Handle(HttpParameterJson message)
         {
-            return await Handle<Criteria, SportTypeModel>(message);
+            return await Handle<Criteria, SportTypeModel>(message).ConfigureAwait(false);
         }
     }
 }

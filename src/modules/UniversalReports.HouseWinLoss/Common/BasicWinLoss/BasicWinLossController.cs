@@ -7,7 +7,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 {
-    public abstract class BasicWinLossController : ApiController
+    public class BasicWinLossController : ApiController
     {
         protected BasicWinLossController()
         {

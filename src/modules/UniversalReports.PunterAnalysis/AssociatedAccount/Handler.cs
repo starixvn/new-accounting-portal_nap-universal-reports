@@ -21,9 +21,9 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<List<UserRoleModel>> Handle(HttpParameterJson message)
         {
-            var siteName = await GetSiteName(message.CustId);
-            var userDevices = await fraudServiceWrapper.GetAssociatedUsers(message.Username, siteName);
-            var model = await GetAccountRoles(userDevices);
+            var siteName = await GetSiteName(message.CustId).ConfigureAwait(false);
+            var userDevices = await fraudServiceWrapper.GetAssociatedUsers(message.Username, siteName).ConfigureAwait(false);
+            var model = await GetAccountRoles(userDevices).ConfigureAwait(false);
 
             return new List<UserRoleModel>(model);
         }
@@ -32,7 +32,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
         {
             var criteria = new UserSiteQueryCriteria { CustId = custId };
 
-            return await repository.GetAsync<string>(criteria);
+            return await repository.GetAsync<string>(criteria).ConfigureAwait(false);
         }
 
         private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<UserDevice> userDevices)
@@ -40,7 +40,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             var usernames = string.Join(",", userDevices.Select(u => u.Account));
             var criteria = new UserRoleQueryCriteria { ListUserName = usernames };
 
-            return await repository.FetchAsync<UserRoleModel>(criteria);
+            return await repository.FetchAsync<UserRoleModel>(criteria).ConfigureAwait(false);
         }
     }
 }

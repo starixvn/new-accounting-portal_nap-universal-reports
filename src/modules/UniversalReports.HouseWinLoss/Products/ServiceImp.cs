@@ -70,7 +70,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return rawWinLosses.Select(r => calculationService.FromRawWinLossByRowName(r)).ToList();
         }
 
-        private SiteWinLossSummary CalculateGrandTotal(SiteWinLossSummary siteWinLoss, List<WinLoss> rawWinLoss)
+        private static SiteWinLossSummary CalculateGrandTotal(SiteWinLossSummary siteWinLoss, List<WinLoss> rawWinLoss)
         {
             var rawEightRM = rawWinLoss.Where(r => r.Name.Contains("8RM"));
             var rawBARM = rawWinLoss.Where(r => r.Name.Contains("BARM"));
@@ -81,7 +81,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return siteWinLoss;
         }
 
-        private WinLoss CalculateGrandTotalProduct(IEnumerable<WinLoss> rawWinLoss, WinLoss winLoss)
+        private static WinLoss CalculateGrandTotalProduct(IEnumerable<WinLoss> rawWinLoss, WinLoss winLoss)
         {
             foreach (var item in rawWinLoss)
             {

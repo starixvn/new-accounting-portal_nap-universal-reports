@@ -60,7 +60,7 @@ namespace UniversalReports.NG2Statistics.UserName
             return daily;
         }
 
-        private void SortData(UserNameModel raw, QueryModel queryModel)
+        private static void SortData(UserNameModel raw, QueryModel queryModel)
         {
             var propInfo = typeof(UserNameModel).GetProperty(queryModel.SortColumnName);
             var isAsc = string.Equals(queryModel.SortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);

@@ -112,7 +112,6 @@ namespace UniversalReports.NG2Statistics.Bettype
             return new GridDataRow { Columns = columns };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private void AssignDataRow(BettypeModel raw, List<Columns> columns, int mergeRowNumber, bool isTotal)
         {
             if (mergeRowNumber > 0 || isTotal)

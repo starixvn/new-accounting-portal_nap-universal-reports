@@ -79,9 +79,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2100:CodeLineMustNotBeLongerThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
             var columnIndex = 0;
@@ -141,7 +138,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             return new GridDataRow { Columns = colummns };
         }
 
-        private List<Columns> CreateBaseColumns(int columnIndex, WinLoss item)
+        private static List<Columns> CreateBaseColumns(int columnIndex, WinLoss item)
         {
             return new List<Columns>
             {

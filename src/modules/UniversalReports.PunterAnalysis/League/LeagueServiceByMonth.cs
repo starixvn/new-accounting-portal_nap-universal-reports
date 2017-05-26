@@ -6,7 +6,7 @@ using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class LeagueServiceByMonth : LeagueServiceBase, LeagueService
+    public class LeagueServiceByMonth : LeagueServiceBase
     {
         public LeagueServiceByMonth(IDynamicRepository repository) : base(repository)
         {

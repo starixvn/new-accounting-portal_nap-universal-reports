@@ -29,7 +29,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
             var criteria = mapper.Map<Criteria>(message);
-            var model = await betCountService.Query(criteria);
+            var model = await betCountService.Query(criteria).ConfigureAwait(false);
             var excelViewModel = mapper.Map<SummaryEntity<BetCountExcelModel>>(model);
             var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);

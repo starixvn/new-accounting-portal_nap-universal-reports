@@ -1,7 +1,11 @@
 ﻿namespace UniversalReports.NG2Statistics.BaseServices
 {
-    public abstract class BaseModel
+    public class BaseModel
     {
+        protected BaseModel()
+        {
+        }
+
         public int BetCount { get; set; }
 
         public int CurrencyId { get; set; }

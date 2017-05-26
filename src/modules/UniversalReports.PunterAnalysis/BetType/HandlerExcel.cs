@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.BetType
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            return await Handle<Criteria, BetTypeModel, BetTypeExcelModel>(message);
+            return await Handle<Criteria, BetTypeModel, BetTypeExcelModel>(message).ConfigureAwait(false);
         }
     }
 }

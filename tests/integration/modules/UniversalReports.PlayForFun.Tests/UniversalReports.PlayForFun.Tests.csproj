@@ -169,9 +169,9 @@
     <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjector.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Summary\PlayForFunSummaryControllerTests.cs" />
     <Compile Include="TestDataLoader.cs" />

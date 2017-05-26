@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Fanex.Excel.Models;
 using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)
         {
             var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
-            var winlosses = await QueryLiveNonLiveBetType(criteria);
+            var winlosses = await QueryLiveNonLiveBetType(criteria).ConfigureAwait(false);
 
             var nonLiveGridOptions = Builder.Build(winlosses[0], queryModel.NonLiveTitle);
             nonLiveGridOptions = Decorator.Build(nonLiveGridOptions, "Bet Type");
@@ -61,7 +61,7 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
                  Task.Run(() => Service.Query(liveCriteria))
             };
 
-            return await Task.WhenAll(tasks);
+            return await Task.WhenAll(tasks).ConfigureAwait(false);
         }
     }
 }

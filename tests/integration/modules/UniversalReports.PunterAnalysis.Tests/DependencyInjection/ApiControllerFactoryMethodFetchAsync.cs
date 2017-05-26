@@ -12,6 +12,11 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
     {
         private readonly Container container = new Container();
 
+        ~ApiControllerFactoryMethodFetchAsync()
+        {
+            Dispose(false);
+        }
+
         public TController CreateController<TController, TModel>(string fakeDatabaseFile)
         {
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
@@ -24,7 +29,16 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 
         public void Dispose()
         {
-            container.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                container.Dispose();
+            }
         }
 
         private void RegisterDependency(IDynamicRepository repository)

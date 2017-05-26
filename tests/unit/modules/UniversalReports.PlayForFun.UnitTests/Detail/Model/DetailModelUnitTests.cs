@@ -9,9 +9,6 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail.Model
     public class DetailModelUnitTests
     {
         [Test]
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         public void OperatorPlus_TwoDetailModels_ReturnsCorrectSumValue()
         {
             // Arrange

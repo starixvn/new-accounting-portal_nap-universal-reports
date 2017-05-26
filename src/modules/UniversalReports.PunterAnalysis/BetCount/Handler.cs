@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         public async Task<SummaryEntity<BetCountModel>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<Criteria>(message);
-            return await betCountService.Query(criteria);
+            return await betCountService.Query(criteria).ConfigureAwait(false);
         }
     }
 }

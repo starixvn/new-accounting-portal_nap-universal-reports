@@ -31,8 +31,8 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 var path = $"{baseAddress}/associatedaccounts/{username}/{siteName}";
-                var response = await client.GetAsync(path);
-                return await response.Content.ReadAsAsync<List<UserDevice>>();
+                var response = await client.GetAsync(path).ConfigureAwait(false);
+                return await response.Content.ReadAsAsync<List<UserDevice>>().ConfigureAwait(false);
             }
         }
     }

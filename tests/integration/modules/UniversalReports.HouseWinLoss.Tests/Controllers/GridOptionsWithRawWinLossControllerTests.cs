@@ -9,7 +9,51 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class GridOptionsWithRawWinLossControllerTests : BaseControllerTests
     {
-        private static readonly string[] ControllerList = CreateTestCases();
+        public static string[] ControllerList
+        {
+            get
+            {
+                return new[]
+                {
+                    "Bettrade.BetType.BettradeBetTypeController",
+                    "Bettrade.Site.BettradeSiteController",
+                    "CashOut.BetType.CashOutBetTypeController",
+                    "CashOut.Site.CashOutSiteController",
+                    "Casino.BetType.CasinoBetTypeController",
+                    "Casino.Product.CasinoProductController",
+                    "Casino.Site.CasinoSiteController",
+                    "MetricGaming.BetType.MetricGamingBetTypeController",
+                    "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
+                    "MetricGaming.Site.MetricGamingSiteController",
+                    "NumberGame.MatchDetail.NumberGameMatchDetailController",
+                    "OtherSports.BetType.OtherSportsBetTypeController",
+                    "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
+                    "OtherSports.SportType.OtherSportsSportTypeController",
+                    "Parlay.BetType.ParlayBetTypeController",
+                    "Parlay.Site.ParlaySiteController",
+                    "Products.ProductController",
+                    "Racing.BetType.RacingBetTypeController",
+                    "Racing.MatchDetail.RacingMatchDetailController",
+                    "Racing.Site.RacingSiteController",
+                    "Racing.SportType.RacingSportTypeController",
+                    "Soccer.BetType.SoccerBetTypeController",
+                    "Soccer.GroupBetType.SoccerGroupBetTypeController",
+                    "Soccer.LiveNonLive.SoccerLiveNonLiveController",
+                    "Soccer.MajorMinor.SoccerMajorMinorController",
+                    "Soccer.SumBetType.SoccerSumBetTypeController",
+                    "Sportsbook.Site.SportsbookSiteController",
+                    "Universal.SportType.UniversalSportTypeController",
+                    "Universal.BetType.UniversalBetTypeController",
+                    "Universal.Site.UniversalSiteController",
+                    "VirtualSports.BetType.VirtualSportsBetTypeController",
+                    "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",
+                    "VirtualSports.Site.VirtualSportsSiteController",
+                    "VirtualSports.SportType.VirtualSportsSportTypeController",
+                    "FishingWorld.BetType.FishingWorldBetTypeController",
+                    "FishingWorld.Site.FishingWorldSiteController"
+                };
+            }
+        }
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]
@@ -24,49 +68,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var gridOptions = (result as JsonResult<GridOptions>).Content;
 
             ComparisonAssert.AreEqualJson(expected, gridOptions);
-        }
-
-        private static string[] CreateTestCases()
-        {
-            return new[]
-            {
-                "Bettrade.BetType.BettradeBetTypeController",
-                "Bettrade.Site.BettradeSiteController",
-                "CashOut.BetType.CashOutBetTypeController",
-                "CashOut.Site.CashOutSiteController",
-                "Casino.BetType.CasinoBetTypeController",
-                "Casino.Product.CasinoProductController",
-                "Casino.Site.CasinoSiteController",
-                "MetricGaming.BetType.MetricGamingBetTypeController",
-                "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
-                "MetricGaming.Site.MetricGamingSiteController",
-                "NumberGame.MatchDetail.NumberGameMatchDetailController",
-                "OtherSports.BetType.OtherSportsBetTypeController",
-                "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
-                "OtherSports.SportType.OtherSportsSportTypeController",
-                "Parlay.BetType.ParlayBetTypeController",
-                "Parlay.Site.ParlaySiteController",
-                "Products.ProductController",
-                "Racing.BetType.RacingBetTypeController",
-                "Racing.MatchDetail.RacingMatchDetailController",
-                "Racing.Site.RacingSiteController",
-                "Racing.SportType.RacingSportTypeController",
-                "Soccer.BetType.SoccerBetTypeController",
-                "Soccer.GroupBetType.SoccerGroupBetTypeController",
-                "Soccer.LiveNonLive.SoccerLiveNonLiveController",
-                "Soccer.MajorMinor.SoccerMajorMinorController",
-                "Soccer.SumBetType.SoccerSumBetTypeController",
-                "Sportsbook.Site.SportsbookSiteController",
-                "Universal.SportType.UniversalSportTypeController",
-                "Universal.BetType.UniversalBetTypeController",
-                "Universal.Site.UniversalSiteController",
-                "VirtualSports.BetType.VirtualSportsBetTypeController",
-                "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",
-                "VirtualSports.Site.VirtualSportsSiteController",
-                "VirtualSports.SportType.VirtualSportsSportTypeController",
-                "FishingWorld.BetType.FishingWorldBetTypeController",
-                "FishingWorld.Site.FishingWorldSiteController"
-            };
         }
 
         private object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")

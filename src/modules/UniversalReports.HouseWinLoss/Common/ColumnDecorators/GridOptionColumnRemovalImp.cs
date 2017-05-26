@@ -16,7 +16,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return columns;
         }
 
-        private int GetColumnsActualIndex(IReadOnlyList<Columns> columns, int index)
+        private static int GetColumnsActualIndex(IReadOnlyList<Columns> columns, int index)
         {
             var currentIndex = 0;
             for (var i = 0; i < columns.Count; i++)
@@ -32,12 +32,12 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return columns.Count;
         }
 
-        private bool ColumnIsInRange(IReadOnlyCollection<Columns> columns, int actualIndex)
+        private static bool ColumnIsInRange(IReadOnlyCollection<Columns> columns, int actualIndex)
         {
             return actualIndex < columns.Count;
         }
 
-        private void RemoveColumnByActualIndex(List<Columns> columns, int actualIndex)
+        private static void RemoveColumnByActualIndex(List<Columns> columns, int actualIndex)
         {
             var column = columns[actualIndex];
 
@@ -49,7 +49,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             UpdateColumnIndexAfterRemoveColumn(columns, nextColumnIndex);
         }
 
-        private void RemoveOrUpdateColumn(ICollection<Columns> columns, Columns column, bool remove)
+        private static void RemoveOrUpdateColumn(ICollection<Columns> columns, Columns column, bool remove)
         {
             if (remove)
             {
@@ -61,7 +61,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             }
         }
 
-        private void UpdateColumnIndexAfterRemoveColumn(List<Columns> columns, int index)
+        private static void UpdateColumnIndexAfterRemoveColumn(List<Columns> columns, int index)
         {
             for (var i = index; i < columns.Count; i++)
             {

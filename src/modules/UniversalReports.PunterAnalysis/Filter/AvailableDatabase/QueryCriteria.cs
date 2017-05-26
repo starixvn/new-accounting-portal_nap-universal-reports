@@ -4,7 +4,12 @@ namespace UniversalReports.PunterAnalysis.Filter.AvailableDatabase
 {
     public class QueryCriteria : CriteriaBase
     {
-        public int TaskId => 1;
+        public QueryCriteria()
+        {
+            TaskId = 1;
+        }
+
+        public int TaskId { get; }
 
         public override string GetSettingKey() => "Punter-AvailabeDatabaseQuery";
 

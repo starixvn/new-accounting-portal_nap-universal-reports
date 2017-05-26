@@ -22,7 +22,7 @@ namespace UniversalReports.PlayForFun.Summary
         public async Task<SummaryEntity<SummaryModel>> Handle(HttpParameterJson message)
         {
             var criteria = mapper.Map<SummaryCriteria>(message);
-            var model = await playForFunService.Query<SummaryModel>(criteria);
+            var model = await playForFunService.Query<SummaryModel>(criteria).ConfigureAwait(false);
 
             var viewModel = mapper.Map<SummaryEntity<SummaryModel>>(model);
 

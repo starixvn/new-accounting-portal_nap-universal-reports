@@ -143,7 +143,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return new List<GridDataRow> { row };
         }
 
-        private void FormatTotalRow(GridDataRow row)
+        private static void FormatTotalRow(GridDataRow row)
         {
             row.CssClass = "grand-total";
             row.Columns.First(c => c.Name == "VirtualMargin").Value = string.Empty;

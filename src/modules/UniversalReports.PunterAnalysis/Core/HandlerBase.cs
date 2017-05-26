@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Core
 {
-    public abstract class HandlerBase
+    public class HandlerBase
     {
         private readonly IMapper mapper;
 
@@ -23,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.Core
             where TModel : class, new()
         {
             var criteria = mapper.Map<TCriteria>(message);
-            return await punterAnalysisService.Query<TModel>(criteria);
+            return await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
         }
     }
 }

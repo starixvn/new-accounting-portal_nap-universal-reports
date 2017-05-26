@@ -10,8 +10,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
     {
         public static ICriteria[] CriteriaCases => CreateCriteriaTestCase();
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         private static ICriteria[] CreateCriteriaTestCase()
         {
             var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();

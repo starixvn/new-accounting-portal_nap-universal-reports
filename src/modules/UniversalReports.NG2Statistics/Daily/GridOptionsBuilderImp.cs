@@ -86,7 +86,6 @@ namespace UniversalReports.NG2Statistics.Daily
             return new GridDataRow { Columns = columns };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private void AssignDataRow(DailyModel raw, List<Columns> columns)
         {
             var newColumns = new List<Columns>

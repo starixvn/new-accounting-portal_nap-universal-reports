@@ -147,7 +147,6 @@
   <ItemGroup>
     <Compile Include="Core\PlayForFunServiceImpUnitTests.cs" />
     <Compile Include="Filter\Product\HandlerUnitTests.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Filter\PlayForFunFilterControllerUnitTests.cs" />
     <Compile Include="Detail\HandlerUnitTests.cs" />
     <Compile Include="Detail\Model\DetailModelUnitTests.cs" />

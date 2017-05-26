@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
 {
-    internal class TestDataLoader
+    internal static class TestDataLoader
     {
         internal static T Load<T>(string name, [CallerFilePath] string sourceFilePath = "")
         {

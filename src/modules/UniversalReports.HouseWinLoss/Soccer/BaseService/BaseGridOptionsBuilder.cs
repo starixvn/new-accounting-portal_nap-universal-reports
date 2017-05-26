@@ -6,7 +6,7 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
-    public abstract class BaseGridOptionsBuilder
+    public class BaseGridOptionsBuilder
     {
         protected BaseGridOptionsBuilder(BasicGridDataRowBuilder gridDataRowBuilder)
         {
@@ -29,7 +29,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             return row;
         }
 
-        protected object GetFormattedMargin(WinLoss item)
+        protected static object GetFormattedMargin(WinLoss item)
         {
             return item.RealMargin == 0 ? "N/A" : (object)item.RealMargin;
         }

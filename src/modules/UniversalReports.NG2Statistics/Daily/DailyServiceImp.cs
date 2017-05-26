@@ -76,7 +76,7 @@ namespace UniversalReports.NG2Statistics.Daily
             return dataRaw;
         }
 
-        private void Sorting(DailyModel raw, QueryModel queryModel)
+        private static void Sorting(DailyModel raw, QueryModel queryModel)
         {
             foreach (var row in raw.Rows)
             {

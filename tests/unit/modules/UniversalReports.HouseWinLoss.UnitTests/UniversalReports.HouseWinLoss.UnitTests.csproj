@@ -132,7 +132,6 @@
     <Compile Include="Common\Services\CommonBalanceUpServiceTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
     <Compile Include="Factory\CriteriaFactoryUnitTests.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="OtherSports\NewCricket\ServiceUnitTests.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

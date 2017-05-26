@@ -26,17 +26,7 @@ namespace UniversalReports.Sites
             FanexData.Register();
         }
 
-        protected void Application_PostAuthorizeRequest()
-        {
-            var request = HttpContext.Current.Request;
-            if (request.Url.ToString().Contains("api/application/header")
-                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
-            {
-                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
-            }
-        }
-
-        private void ChangeApplicationName()
+        private static void ChangeApplicationName()
         {
             const string ApplicationName = "NAP_ACC_REPORT";
 
@@ -48,9 +38,16 @@ namespace UniversalReports.Sites
             appNameInfo.SetValue(theRuntime, ApplicationName);
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
+        protected void Application_PostAuthorizeRequest()
+        {
+            var request = HttpContext.Current.Request;
+            if (request.Url.ToString().Contains("api/application/header")
+                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
+            {
+                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            }
+        }
+
         protected void Application_Error(object sender, EventArgs e)
         {
             var exception = Server.GetLastError().GetBaseException();

@@ -101,12 +101,12 @@ namespace UniversalReports.PlayForFun.Summary
             EndRowIndex = startRowIndex + numberBodyItems;
         }
 
-        private void SetSheetName(ExcelWorksheet workSheet, string sheetName)
+        private static void SetSheetName(ExcelWorksheet workSheet, string sheetName)
         {
             workSheet.Name = sheetName;
         }
 
-        private void ApplyDescription(ExcelWorksheet workSheet, string description, string descriptionCellRange)
+        private static void ApplyDescription(ExcelWorksheet workSheet, string description, string descriptionCellRange)
         {
             workSheet.Cells[descriptionCellRange].Value = description;
         }

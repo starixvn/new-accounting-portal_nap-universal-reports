@@ -26,7 +26,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildOutrightColumns()
         {
             var headerColumns = new List<HeaderColumns>
@@ -58,7 +57,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return new List<GroupHeaderRows> { groupHeader };
         }
 
-        private void DecorateMatchRow(GridOptions gridOptions)
+        private static void DecorateMatchRow(GridOptions gridOptions)
         {
             var matchRows = gridOptions
                 .BodyRows

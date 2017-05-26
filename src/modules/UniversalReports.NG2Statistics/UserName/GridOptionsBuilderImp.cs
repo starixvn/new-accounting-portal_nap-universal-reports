@@ -50,7 +50,6 @@ namespace UniversalReports.NG2Statistics.UserName
             return new List<GridDataRow> { BuildDataRow(total, true, string.Empty, RowType.Normal) };
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private GridDataRow BuildDataRow(UserNameModel raw, bool isTotal, string cssClass, RowType rowType)
         {
             object custId = raw.CustId;

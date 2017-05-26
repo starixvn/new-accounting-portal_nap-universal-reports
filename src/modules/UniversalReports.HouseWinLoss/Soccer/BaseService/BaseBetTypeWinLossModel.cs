@@ -3,8 +3,12 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
-    public abstract class BaseBetTypeWinLossModel
+    public class BaseBetTypeWinLossModel
     {
+        protected BaseBetTypeWinLossModel()
+        {
+        }
+
         public SiteWinLossSummary GrandTotal { get; set; }
 
         public WinLoss MainTotal { get; set; }

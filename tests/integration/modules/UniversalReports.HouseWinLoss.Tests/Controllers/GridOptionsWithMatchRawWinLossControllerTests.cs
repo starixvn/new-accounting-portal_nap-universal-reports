@@ -6,7 +6,19 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class GridOptionsWithMatchRawWinLossControllerTests : BaseControllerTests
     {
-        private static readonly string[] ControllerList = CreateTestCases();
+        public static string[] ControllerList
+        {
+            get
+            {
+                return new[]
+                {
+                     "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
+                     "Sportsbook.MatchDetail.SportsbookMatchDetailController",
+                     "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
+                     "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController"
+                };
+            }
+        }
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]
@@ -21,17 +33,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var gridOptions = (result as JsonResult<GridOptions>).Content;
 
             ComparisonAssert.AreEqualJson(expected, gridOptions);
-        }
-
-        private static string[] CreateTestCases()
-        {
-            return new[]
-            {
-                 "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
-                 "Sportsbook.MatchDetail.SportsbookMatchDetailController",
-                 "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
-                 "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController"
-            };
         }
 
         private object GetQueryModel(string controllerName)

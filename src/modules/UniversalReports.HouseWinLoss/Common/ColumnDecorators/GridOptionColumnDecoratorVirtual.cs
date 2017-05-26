@@ -21,7 +21,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildVirtualColumns(string mainColumnText, int mainColumnWidth = 180)
         {
             return new List<HeaderColumns>

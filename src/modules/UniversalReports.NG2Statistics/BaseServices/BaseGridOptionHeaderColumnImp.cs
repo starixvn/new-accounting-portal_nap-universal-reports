@@ -21,9 +21,6 @@ namespace UniversalReports.NG2Statistics.BaseServices
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-           "SP2100:CodeLineMustNotBeLongerThan",
-           Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildColumns(string mainColumnText, string mainColumnName, QueryModel queryModel)
         {
             return new List<HeaderColumns>

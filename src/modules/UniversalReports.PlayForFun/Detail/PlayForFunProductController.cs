@@ -18,7 +18,7 @@ namespace UniversalReports.PlayForFun.Detail
         [Route("")]
         public async Task<IHttpActionResult> Index(HttpParameterJson parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
     }

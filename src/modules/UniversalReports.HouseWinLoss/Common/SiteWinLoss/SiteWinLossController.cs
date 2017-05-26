@@ -6,12 +6,8 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
 {
-    public abstract class SiteWinLossController : ApiController
+    public class SiteWinLossController : ApiController
     {
-        protected SiteWinLossController()
-        {
-        }
-
         protected SiteWinLossController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecorator decorator)
         {
             Service = service;
