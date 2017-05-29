@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.Core
+namespace UniversalReports.PunterAnalysis.UnitTests.Shared
 {
     public class DateTimeServiceImpUnitTests
     {

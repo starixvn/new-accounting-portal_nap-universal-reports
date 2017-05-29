@@ -3,7 +3,7 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.BetCount;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {

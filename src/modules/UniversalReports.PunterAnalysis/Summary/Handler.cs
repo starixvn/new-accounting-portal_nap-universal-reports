@@ -2,7 +2,7 @@
 using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary

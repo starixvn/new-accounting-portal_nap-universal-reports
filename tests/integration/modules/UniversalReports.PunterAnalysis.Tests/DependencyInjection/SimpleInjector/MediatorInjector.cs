@@ -2,7 +2,7 @@
 using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
 {

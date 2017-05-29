@@ -4,7 +4,7 @@ using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
 
-namespace UniversalReports.PunterAnalysis.Core
+namespace UniversalReports.PunterAnalysis.Shared
 {
     public interface PunterAnalysisExcelBuilder
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace UniversalReports.PunterAnalysis.Core
+namespace UniversalReports.PunterAnalysis.Shared
 {
     public interface DateTimeService
     {

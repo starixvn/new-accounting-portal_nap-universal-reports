@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {

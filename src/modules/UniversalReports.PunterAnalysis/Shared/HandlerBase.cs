@@ -4,7 +4,7 @@ using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
 
-namespace UniversalReports.PunterAnalysis.Core
+namespace UniversalReports.PunterAnalysis.Shared
 {
     public class HandlerBase
     {

@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.PunterAnalysis.Core
+﻿namespace UniversalReports.PunterAnalysis.Shared
 {
     public enum PeriodType
     {

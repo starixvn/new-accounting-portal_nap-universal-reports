@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetType
 {

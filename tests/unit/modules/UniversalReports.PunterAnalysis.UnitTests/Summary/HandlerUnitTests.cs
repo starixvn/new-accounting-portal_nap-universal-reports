@@ -6,7 +6,7 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
 

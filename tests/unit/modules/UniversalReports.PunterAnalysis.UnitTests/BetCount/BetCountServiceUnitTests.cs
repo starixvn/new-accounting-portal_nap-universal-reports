@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {

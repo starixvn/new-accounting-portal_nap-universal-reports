@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
-namespace UniversalReports.PunterAnalysis.UnitTests.Core
+namespace UniversalReports.PunterAnalysis.UnitTests.Shared
 {
     public class PunterAnalysisServiceImpUnitTests
     {

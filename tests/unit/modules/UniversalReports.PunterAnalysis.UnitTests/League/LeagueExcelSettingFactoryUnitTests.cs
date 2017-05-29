@@ -2,7 +2,7 @@
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.League;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.League

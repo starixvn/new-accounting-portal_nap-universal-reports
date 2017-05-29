@@ -5,7 +5,7 @@ using MediatR;
 using OfficeOpenXml;
 using System.Threading.Tasks;
 
-namespace UniversalReports.PunterAnalysis.Core
+namespace UniversalReports.PunterAnalysis.Shared
 {
     public class HandlerExcelBase
     {

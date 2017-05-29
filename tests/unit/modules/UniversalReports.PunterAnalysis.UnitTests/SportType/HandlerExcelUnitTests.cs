@@ -3,7 +3,7 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
 

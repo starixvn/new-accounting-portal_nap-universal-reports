@@ -4,5 +4,5 @@
 // Project-level suppressions either have no target or are given
 // a specific target and scoped to a namespace, type, member, etc.
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S2436:Reduce the number of generic parameters in the 'HandlerExcelBase.Handle' method to no more than the 2 authorized.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.PunterAnalysis.Core.HandlerExcelBase.Handle``3(MediatR.IRequest{OfficeOpenXml.ExcelPackage})~System.Threading.Tasks.Task{OfficeOpenXml.ExcelPackage}")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S2436:Reduce the number of generic parameters in the 'HandlerExcelBase.Handle' method to no more than the 2 authorized.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.PunterAnalysis.Shared.HandlerExcelBase.Handle``3(MediatR.IRequest{OfficeOpenXml.ExcelPackage})~System.Threading.Tasks.Task{OfficeOpenXml.ExcelPackage}")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 419 characters long line (which is greater than 200 authorized).", Justification = "<Pending>")]

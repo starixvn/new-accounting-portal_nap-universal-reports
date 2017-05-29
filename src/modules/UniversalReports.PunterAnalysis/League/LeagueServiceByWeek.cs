@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League

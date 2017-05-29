@@ -3,7 +3,7 @@ using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetType
 {

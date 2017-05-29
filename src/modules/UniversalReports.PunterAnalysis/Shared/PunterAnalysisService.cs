@@ -2,7 +2,7 @@
 using Linq.DynamicSum;
 using System.Threading.Tasks;
 
-namespace UniversalReports.PunterAnalysis.Core
+namespace UniversalReports.PunterAnalysis.Shared
 {
     public interface PunterAnalysisService
     {
