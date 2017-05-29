@@ -1,7 +1,6 @@
-﻿using NUnit.CompareNetObjects;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using SimpleInjector;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
@@ -22,7 +21,8 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             var expectedBody = TestDataLoader.Load<object[,]>("BetCount-Excel-ExpectedBody.json");
             var expectedTotal = TestDataLoader.Load<object[,]>("BetCount-Excel-ExpectedTotal.json");
 
-            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var container = new Container();
+            var factory = new ApiControllerFactoryMethodFetchAsync(container);
             var controller = factory.CreateController<PunterAnalysisBetCountController, BetCountRawModel>(FakeRepositoryDataFileName);
 
             // Act
@@ -39,7 +39,7 @@ namespace UniversalReports.PunterAnalysis.Tests.BetCount
             Assert.AreEqual(workSheet.Cells["A9:E9"].Value, expectedTotal);
 
             // Release
-            factory.Dispose();
+            container.Dispose();
         }
     }
 }

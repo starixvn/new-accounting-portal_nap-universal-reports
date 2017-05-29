@@ -1,7 +1,6 @@
-﻿using NUnit.CompareNetObjects;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using SimpleInjector;
 using System.Threading.Tasks;
-using System.Web.Http.Results;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
@@ -22,7 +21,8 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
             var expectedBody = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedBody.json");
             var expectedTotal = TestDataLoader.Load<object[,]>("Summary-Excel-ExpectedTotal.json");
 
-            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var container = new Container();
+            var factory = new ApiControllerFactoryMethodFetchAsync(container);
             var controller = factory.CreateController<PunterAnalysisSummaryController, SummaryModel>(FakeRepositoryDataFileName);
 
             // Act
@@ -39,7 +39,7 @@ namespace UniversalReports.PunterAnalysis.Tests.Summary
             Assert.AreEqual(workSheet.Cells["A10:E10"].Value, expectedTotal);
 
             // Release
-            factory.Dispose();
+            container.Dispose();
         }
     }
 }

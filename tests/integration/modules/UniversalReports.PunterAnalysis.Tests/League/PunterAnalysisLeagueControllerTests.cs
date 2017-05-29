@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SimpleInjector;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
@@ -20,7 +21,8 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             var expectedBody = TestDataLoader.Load<object[,]>("League-Excel-ExpectedBody.json");
             var expectedTotal = TestDataLoader.Load<object[,]>("League-Excel-ExpectedTotal.json");
 
-            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var container = new Container();
+            var factory = new ApiControllerFactoryMethodFetchAsync(container);
             var controller = factory.CreateController<PunterAnalysisLeagueController, LeagueRawModel>(FakeRepositoryDataFileName);
 
             // Act
@@ -40,7 +42,7 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             Assert.AreEqual(workSheet.Cells["A11:U11"].Value, expectedTotal);
 
             // Release
-            factory.Dispose();
+            container.Dispose();
         }
     }
 }
