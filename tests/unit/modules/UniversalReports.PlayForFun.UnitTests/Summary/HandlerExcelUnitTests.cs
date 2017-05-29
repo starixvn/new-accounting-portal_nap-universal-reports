@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Linq.DynamicSum;
+﻿using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -17,8 +16,6 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
         public async Task Handle_WithAnyParametters_ExecuteCreatePackage()
         {
             // Arrange
-            var mapper = Substitute.For<IMapper>();
-
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
@@ -26,7 +23,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
 
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, configurationService, excelBuilder);
+            var handleExcel = new HandlerExcel(punterAnalysisService, configurationService, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel());
@@ -43,10 +40,6 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptySummaryExcelViewModel = new SummaryEntity<SummaryExcelModel>();
-
-            var emptyDetailExcelViewModel = new SummaryEntity<DetailExcelModel>();
-
             var summaryExcelSetting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
@@ -65,18 +58,16 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
                 TitleCellRange = "A1:E2"
             };
 
-            var mapper = Substitute.For<IMapper>();
-            mapper.Map<SummaryEntity<SummaryExcelModel>>(Arg.Any<SummaryEntity<SummaryModel>>()).Returns(emptySummaryExcelViewModel);
-            mapper.Map<SummaryEntity<DetailExcelModel>>(Arg.Any<SummaryEntity<DetailModel>>()).Returns(emptyDetailExcelViewModel);
-
             var punterAnalysisService = Substitute.For<PlayForFunService>();
+            punterAnalysisService.Query<SummaryModel>(Arg.Any<SummaryCriteria>()).Returns(new SummaryEntity<SummaryModel>());
+            punterAnalysisService.Query<DetailModel>(Arg.Any<DetailCriteria>()).Returns(new SummaryEntity<DetailModel>());
 
             var configurationService = Substitute.For<ApplicationConfigurationService>();
             configurationService.CurrentDirectory.Returns(string.Empty);
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
 
-            var handleExcel = Substitute.ForPartsOf<HandlerExcel>(mapper, punterAnalysisService, configurationService, excelBuilder);
+            var handleExcel = Substitute.ForPartsOf<HandlerExcel>(punterAnalysisService, configurationService, excelBuilder);
             handleExcel.CreateSummarySetting(Arg.Any<string>()).Returns(summaryExcelSetting);
             handleExcel.CreateProductDetailSetting(Arg.Any<string>(), Arg.Any<string>()).Returns(productDetailExcelSetting);
 
@@ -85,9 +76,9 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Is(emptySummaryExcelViewModel),
+                Arg.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
                 Arg.Is(summaryExcelSetting),
-                Arg.Is(emptyDetailExcelViewModel),
+                Arg.Is<SummaryEntity<DetailExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
                 Arg.Is(productDetailExcelSetting));
         }
     }

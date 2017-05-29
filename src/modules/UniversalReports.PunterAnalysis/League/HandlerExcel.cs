@@ -9,17 +9,14 @@ namespace UniversalReports.PunterAnalysis.League
 {
     public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
     {
-        private readonly IMapper mapper;
-
         private readonly LeagueServiceFactory leagueServiceFactory;
 
         private readonly ExcelSettingFactory setting;
 
         private readonly LeagueExcelBuilder excelBuilder;
 
-        public HandlerExcel(IMapper mapper, LeagueServiceFactory leagueServiceFactory, ExcelSettingFactory setting, LeagueExcelBuilder excelBuilder)
+        public HandlerExcel(LeagueServiceFactory leagueServiceFactory, ExcelSettingFactory setting, LeagueExcelBuilder excelBuilder)
         {
-            this.mapper = mapper;
             this.leagueServiceFactory = leagueServiceFactory;
             this.setting = setting;
             this.excelBuilder = excelBuilder;
@@ -27,10 +24,10 @@ namespace UniversalReports.PunterAnalysis.League
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var criteria = mapper.Map<Criteria>(message);
+            var criteria = Mapper.Map<Criteria>(message);
             var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
             var model = await leagueService.Query(criteria).ConfigureAwait(false);
-            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
+            var excelSettingParams = Mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);
             return excelPackage;

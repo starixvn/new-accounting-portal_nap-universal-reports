@@ -1,9 +1,9 @@
-﻿using Fanex.Data;
+﻿using AutoMapper;
+using Fanex.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Core.Factory;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;
 
@@ -50,7 +50,7 @@ namespace UniversalReports.NG2Statistics.Daily
                 Total = new DailyModel()
             };
 
-            var criteria = CriteriaFactory.Transform<DailyCriteria>(queryModel);
+            var criteria = Mapper.Map<DailyCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))

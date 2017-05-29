@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using AutoMapper;
+using System.Linq;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Core.Factory;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.Bettype
@@ -25,7 +25,7 @@ namespace UniversalReports.NG2Statistics.Bettype
         {
             var bettypeModel = new BettypeModel { Total = new BettypeModel() };
 
-            var criteria = CriteriaFactory.Transform<BettypeCriteria>(queryModel);
+            var criteria = Mapper.Map<BettypeCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
             var rawData = repository.QueryRawData(criteria);

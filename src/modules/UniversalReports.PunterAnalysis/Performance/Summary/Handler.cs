@@ -13,12 +13,9 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
     {
         private readonly IDynamicRepository repository;
 
-        private readonly IMapper mapper;
-
-        public Handler(IMapper mapper, IDynamicRepository repository)
+        public Handler(IDynamicRepository repository)
         {
             this.repository = repository;
-            this.mapper = mapper;
         }
 
         public async Task<ViewModelJson> Handle(SummaryHttpParameterJson message)
@@ -47,7 +44,7 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
 
         private async Task<List<TResult>> Query<TResult, TCriteria>(SummaryHttpParameterJson message) where TCriteria : ICriteria
         {
-            var criteria = mapper.Map<TCriteria>(message);
+            var criteria = Mapper.Map<TCriteria>(message);
             var entities = await repository.FetchAsync<TResult>(criteria).ConfigureAwait(false);
             return entities.ToList();
         }

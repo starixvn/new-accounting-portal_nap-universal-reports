@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -16,11 +15,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         {
             // Arrange
             var emptyExcelViewModel = new ReportModel();
-            var mapper = Substitute.For<IMapper>();
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
             var excelSetting = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, factory, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel());
@@ -45,12 +43,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
                 FilterCellRange = "A3:E5"
             };
 
-            var mapper = Substitute.For<IMapper>();
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
             var excelSetting = Substitute.For<ExcelSettingFactory>();
             excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
+
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, factory, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel());

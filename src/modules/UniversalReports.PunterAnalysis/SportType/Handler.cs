@@ -9,7 +9,7 @@ namespace UniversalReports.PunterAnalysis.SportType
 {
     public class Handler : HandlerBase, IAsyncRequestHandler<HttpParameterJson, SummaryEntity<SportTypeModel>>
     {
-        public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService) : base(mapper, punterAnalysisService)
+        public Handler(PunterAnalysisService punterAnalysisService) : base(punterAnalysisService)
         {
         }
 

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
@@ -15,11 +15,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         public async Task Handle_WithAnyParametters_ExecuteCreatePackage()
         {
             // Arrange
-            var mapper = Substitute.For<IMapper>();
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
             var excelSetting = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
@@ -32,8 +31,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var emptyExcelViewModel = new SummaryEntity<SportTypeExcelModel>();
-            var settings = new ExcelSetting
+            var setting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
                 StartRowIndex = 5,
@@ -44,19 +42,22 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
                 FilterCellRange = "A3:E5"
             };
 
-            var mapper = Substitute.For<IMapper>();
-            mapper.Map<SummaryEntity<SportTypeExcelModel>>(Arg.Any<SummaryEntity<SportTypeModel>>()).Returns(emptyExcelViewModel);
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
+            punterAnalysisService.Query<SportTypeModel>(Arg.Any<ICriteria>()).Returns(new SummaryEntity<SportTypeModel>());
+
             var excelSetting = Substitute.For<ExcelSettingFactory>();
-            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
+            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
+
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(mapper, punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
+            excelBuilder.Received().CreateExcelPackage(
+              Arg.Is<SummaryEntity<SportTypeExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+              Arg.Is(setting));
         }
     }
 }

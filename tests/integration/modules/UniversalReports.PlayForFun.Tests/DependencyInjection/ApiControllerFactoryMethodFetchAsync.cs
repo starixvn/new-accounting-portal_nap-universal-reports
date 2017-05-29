@@ -36,7 +36,6 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                   .RegisterAutoMapper()
                    .RegisterMediator()
                    .RegisterPlayForFunServices();
             container.Verify();

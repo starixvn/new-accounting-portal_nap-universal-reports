@@ -18,10 +18,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
         public async Task Handle_RepositoryReturnsEmptyData_ShouldReturnEmptyViewModelJson()
         {
             // Arrange
-            var mapper = CreateMapper();
             var repositoryWithEmptyData = CreateRepositoryWithEmptyData();
 
-            var handler = new Handler(mapper, repositoryWithEmptyData);
+            var handler = new Handler(repositoryWithEmptyData);
 
             // Act
             var viewModel = await handler.Handle(new SummaryHttpParameterJson());
@@ -29,22 +28,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
             // Assert
             var expected = CreateEmptyViewModelJson();
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<SummaryHttpParameterJson, MonthCriteria>(MemberList.Source);
-                cfg.CreateMap<SummaryHttpParameterJson, ProductTurnoverCriteria>(MemberList.Source);
-                cfg.CreateMap<SummaryHttpParameterJson, SportCriteria>(MemberList.Source);
-                cfg.CreateMap<SummaryHttpParameterJson, BetTypeCriteria>(MemberList.Source);
-                cfg.CreateMap<SummaryHttpParameterJson, EventCriteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
 
         private IDynamicRepository CreateRepositoryWithEmptyData()
@@ -76,11 +59,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
         public async Task Handle_RepositoryReturnsNonEmptyData_ShouldReturnViewModelJsonWithRightSummaryStatistic()
         {
             // Arrange
-            var mapper = CreateMapper();
             var repositoryWithNonEmptyMonthStatistics = CreateRepositoryWithNonEmptyMonthStatistics();
 
             // Act
-            var handler = new Handler(mapper, repositoryWithNonEmptyMonthStatistics);
+            var handler = new Handler(repositoryWithNonEmptyMonthStatistics);
             var viewModel = await handler.Handle(new SummaryHttpParameterJson());
 
             // Assert

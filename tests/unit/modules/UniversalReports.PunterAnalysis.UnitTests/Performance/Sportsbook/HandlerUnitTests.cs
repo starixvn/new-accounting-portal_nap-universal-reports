@@ -17,10 +17,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
         public async Task Handle_RepositoryReturnsEmptyData_ShouldReturnEmptyViewModelJson()
         {
             // Arrange
-            var mapper = CreateMapper();
             var repositoryWithEmptyData = CreateRepositoryWithEmptyData();
 
-            var handler = new Handler(mapper, repositoryWithEmptyData);
+            var handler = new Handler(repositoryWithEmptyData);
 
             // Act
             var viewModel = await handler.Handle(new SportsbookHttpParameterJson());
@@ -28,19 +27,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             // Assert
             var expected = CreateEmptyViewModelJson();
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<SportsbookHttpParameterJson, SportCriteria>(MemberList.Source);
-                cfg.CreateMap<SportsbookHttpParameterJson, BetCountCriteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
 
         private IDynamicRepository CreateRepositoryWithEmptyData()
@@ -65,11 +51,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
         public async Task Handle_RepositoryReturnsNonEmptyData_ShouldReturnViewModelJsonWithRightSportsbookStatistic()
         {
             // Arrange
-            var mapper = CreateMapper();
             var repositoryWithNonEmptySportStatistics = CreateRepositoryWithNonEmptySportStatistics();
 
             // Act
-            var handler = new Handler(mapper, repositoryWithNonEmptySportStatistics);
+            var handler = new Handler(repositoryWithNonEmptySportStatistics);
             var viewModel = await handler.Handle(new SportsbookHttpParameterJson());
 
             // Assert

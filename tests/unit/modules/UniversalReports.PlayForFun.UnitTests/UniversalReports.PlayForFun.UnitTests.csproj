@@ -145,12 +145,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="Core\PlayForFunServiceImpUnitTests.cs" />
     <Compile Include="Filter\Product\HandlerUnitTests.cs" />
     <Compile Include="Filter\PlayForFunFilterControllerUnitTests.cs" />
     <Compile Include="Detail\HandlerUnitTests.cs" />
     <Compile Include="Detail\Model\DetailModelUnitTests.cs" />
     <Compile Include="Detail\PlayForFunDetailControllerUnitTests.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Summary\HandlerExcelUnitTests.cs" />
     <Compile Include="Summary\HandlerUnitTests.cs" />
     <Compile Include="Summary\Model\SummaryModelUnitTests.cs" />

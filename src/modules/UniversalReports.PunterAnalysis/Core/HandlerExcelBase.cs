@@ -9,17 +9,14 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public class HandlerExcelBase
     {
-        private readonly IMapper mapper;
-
         private readonly PunterAnalysisService punterAnalysisService;
 
         private readonly ExcelSettingFactory setting;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        protected HandlerExcelBase(IMapper mapper, PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
+        protected HandlerExcelBase(PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
         {
-            this.mapper = mapper;
             this.punterAnalysisService = punterAnalysisService;
             this.setting = setting;
             this.excelBuilder = excelBuilder;
@@ -30,10 +27,10 @@ namespace UniversalReports.PunterAnalysis.Core
             where TModel : class, new()
             where TExcelModel : class, new()
         {
-            var criteria = mapper.Map<TCriteria>(message);
+            var criteria = Mapper.Map<TCriteria>(message);
             var model = await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
-            var excelViewModel = mapper.Map<SummaryEntity<TExcelModel>>(model);
-            var excelSettingParams = mapper.Map<ExcelSettingParams>(message);
+            var excelViewModel = Mapper.Map<SummaryEntity<TExcelModel>>(model);
+            var excelSettingParams = Mapper.Map<ExcelSettingParams>(message);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
             return excelPackage;

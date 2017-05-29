@@ -9,8 +9,8 @@ namespace UniversalReports.PunterAnalysis.Summary
 {
     public class Handler : HandlerBase, IAsyncRequestHandler<HttpParameterJson, SummaryEntity<SummaryModel>>
     {
-        public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService)
-            : base(mapper, punterAnalysisService)
+        public Handler(PunterAnalysisService punterAnalysisService)
+            : base(punterAnalysisService)
         {
         }
 

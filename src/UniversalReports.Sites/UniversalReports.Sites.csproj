@@ -274,21 +274,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutoMapperSettings\PlayForFunFilterProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PlayForFunDetailProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisAssociatedAccountProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisSportTypeProfile.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisBetCountProfile.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisBetTypeProfile.cs" />
-    <Compile Include="App_Start\SimpleInjector\AutoMapperInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
-    <Compile Include="App_Start\AutoMapperSettings\PunterAnalysisSummaryProfile.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PlayForFunInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjector.cs" />

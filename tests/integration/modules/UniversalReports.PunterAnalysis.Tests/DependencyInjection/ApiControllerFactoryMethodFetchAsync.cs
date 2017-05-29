@@ -30,7 +30,6 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                    .RegisterAutoMapper()
                     .RegisterMediator()
                     .RegisterPunterAnalysisServices();
             container.Verify();

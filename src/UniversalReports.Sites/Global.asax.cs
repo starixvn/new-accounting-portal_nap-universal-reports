@@ -1,4 +1,5 @@
-﻿using Fanex.Data.CrossCutting.WrappingException;
+﻿using AutoMapper;
+using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Logging;
 using System;
 using System.Data.Common;
@@ -24,6 +25,7 @@ namespace UniversalReports.Sites
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FanexData.Register();
+            Mapper.Initialize(cfg => cfg.CreateMissingTypeMaps = true);
         }
 
         private static void ChangeApplicationName()

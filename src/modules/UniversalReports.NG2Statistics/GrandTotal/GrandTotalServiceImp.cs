@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
 using Fanex.Data;
+using System.Collections.Generic;
+using System.Linq;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Core.Factory;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.GrandTotal
@@ -29,7 +29,7 @@ namespace UniversalReports.NG2Statistics.GrandTotal
                 Total = new GrandTotalModel()
             };
 
-            var criteria = CriteriaFactory.Transform<GrandTotalCriteria>(queryModel);
+            var criteria = Mapper.Map<GrandTotalCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))

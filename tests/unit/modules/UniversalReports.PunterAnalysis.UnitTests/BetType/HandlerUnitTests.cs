@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -23,26 +22,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             var service = Substitute.For<PunterAnalysisService>();
             service.Query<BetTypeModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 
-            var mapper = CreateMapper();
-
             // Act
-            var handler = new Handler(mapper, service);
+            var handler = new Handler(service);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

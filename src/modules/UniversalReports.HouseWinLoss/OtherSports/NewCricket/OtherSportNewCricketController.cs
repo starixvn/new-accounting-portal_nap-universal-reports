@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using UniversalReports.Core.Factory;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -8,7 +8,7 @@ using UniversalReports.MVC.Results;
 namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 {
     [RoutePrefix("api/house-win-loss-by-products/other-sports/new-cricket/bet-type")]
-    public class OtherSportNewCricketController : BasicWinLossController
+    public class OtherSportNewCricketController : ApiController
     {
         private readonly WinLossService service;
         private readonly GridOptionsBuilder builder;
@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             var winLoss = service.Query(criteria);
             var gridOptions = builder.Build(winLoss, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
@@ -38,7 +38,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             var winLoss = service.Query(criteria);
             var gridOptions = builder.Build(winLoss, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");

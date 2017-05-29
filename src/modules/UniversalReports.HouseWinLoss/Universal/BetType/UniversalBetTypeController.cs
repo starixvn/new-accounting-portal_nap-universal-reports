@@ -1,8 +1,8 @@
-﻿using Fanex.Excel.Models;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using UniversalReports.Core.Factory;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -21,21 +21,21 @@ namespace UniversalReports.HouseWinLoss.Universal.BetType
         [Route("bet-type")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             return Json(criteria, "Bet Type");
         }
 
         [Route("bet-type/excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             return Excel(criteria, "Bet Type", queryModel.Title);
         }
 
         [Route("bet-type-live-non-live/excel")]
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = await QueryLiveNonLiveBetType(criteria).ConfigureAwait(false);
 
             var nonLiveGridOptions = Builder.Build(winlosses[0], queryModel.NonLiveTitle);

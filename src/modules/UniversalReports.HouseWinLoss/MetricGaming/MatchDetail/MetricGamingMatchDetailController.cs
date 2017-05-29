@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using UniversalReports.Core.Factory;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 
@@ -16,14 +16,14 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.MatchDetail
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             return Json(criteria);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             return Excel(criteria, queryModel.Title);
         }
     }

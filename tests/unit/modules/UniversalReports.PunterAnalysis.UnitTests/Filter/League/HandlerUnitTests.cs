@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -26,30 +25,17 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.League
         public async Task Handle_Always_ReturnsTheValueWhichIsReturnedByRepository(IEnumerable<LeagueEntity> valueFromRepository)
         {
             // Arrange
-            var mapper = CreateMapper();
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<LeagueEntity>(Arg.Is<QueryCriteria>(x => x.SportId == 1 && x.FromDate == DateTime.Today && x.ToDate == DateTime.Today))
                 .Returns(valueFromRepository);
 
             // Act
             var parameter = new HttpParameterJson { FromDate = DateTime.Today, ToDate = DateTime.Today, SportId = 1 };
-            var handler = new Handler(mapper, repository);
+            var handler = new Handler(repository);
 
             var result = await handler.Handle(parameter);
 
             Assert.That(result, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, QueryCriteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

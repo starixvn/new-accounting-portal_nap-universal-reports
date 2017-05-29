@@ -18,29 +18,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var mapper = CreateMapper();
-
             var anyReportModel = fixture.Create<ReportModel>();
             var factory = CreateLeagueServiceFactory(anyReportModel);
 
             // Act
-            var handler = new Handler(mapper, factory);
+            var handler = new Handler(factory);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
 
         private LeagueServiceFactory CreateLeagueServiceFactory(ReportModel reportModel)

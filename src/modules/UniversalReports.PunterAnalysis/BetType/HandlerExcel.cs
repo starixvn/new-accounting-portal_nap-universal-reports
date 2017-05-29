@@ -9,8 +9,8 @@ namespace UniversalReports.PunterAnalysis.BetType
 {
     public class HandlerExcel : HandlerExcelBase, IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
     {
-        public HandlerExcel(IMapper mapper, PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
-            : base(mapper, punterAnalysisService, setting, excelBuilder)
+        public HandlerExcel(PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
+            : base(punterAnalysisService, setting, excelBuilder)
         {
         }
 

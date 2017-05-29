@@ -20,7 +20,6 @@ namespace UniversalReports.Sites.SimpleInjector
 
             Container.RegiserGlobalServices()
                 .RegisterMediator()
-                .RegiserAutoMapper()
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()

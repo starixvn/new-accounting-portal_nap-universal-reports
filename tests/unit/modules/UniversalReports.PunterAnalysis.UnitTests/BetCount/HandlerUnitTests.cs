@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Linq.DynamicSum;
+﻿using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
@@ -22,26 +21,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var service = Substitute.For<BetCountService>();
             service.Query(Arg.Any<Criteria>()).Returns(anyReportModel);
 
-            var mapper = CreateMapper();
-
             // Act
-            var handler = new Handler(mapper, service);
+            var handler = new Handler(service);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

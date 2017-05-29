@@ -163,11 +163,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunDetailProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunFilterProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PlayForFunSummaryProfile.cs" />
-    <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\PlayForFunInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />

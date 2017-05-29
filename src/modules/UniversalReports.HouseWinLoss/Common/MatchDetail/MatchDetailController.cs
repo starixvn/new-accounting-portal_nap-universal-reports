@@ -1,4 +1,5 @@
-﻿using Fanex.Excel.Models;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
 using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
@@ -9,25 +10,21 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
     public class MatchDetailController : ApiController
     {
-        protected MatchDetailController()
-        {
-        }
+        private readonly WinLossService service;
+
+        private readonly GridOptionsBuilder builder;
+
+        private readonly MatchGridOptionColumnDecorator decorator;
 
         protected MatchDetailController(
             WinLossService service,
             GridOptionsBuilder builder,
             MatchGridOptionColumnDecorator decorator)
         {
-            Service = service;
-            Builder = builder;
-            Decorator = decorator;
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
-
-        private WinLossService Service { get; }
-
-        private GridOptionsBuilder Builder { get; }
-
-        private MatchGridOptionColumnDecorator Decorator { get; }
 
         protected IHttpActionResult Json(WinLossCriteria criteria)
         {
@@ -43,9 +40,9 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private GridOptions GetGridOptions(WinLossCriteria criteria, string title)
         {
-            var winlosses = Service.Query(criteria);
-            var gridOptions = Builder.Build(winlosses, title);
-            return Decorator.Build(gridOptions);
+            var winlosses = service.Query(criteria);
+            var gridOptions = builder.Build(winlosses, title);
+            return decorator.Build(gridOptions);
         }
     }
 }

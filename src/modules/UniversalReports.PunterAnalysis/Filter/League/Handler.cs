@@ -8,19 +8,16 @@ namespace UniversalReports.PunterAnalysis.Filter.League
 {
     public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<LeagueEntity>>
     {
-        private readonly IMapper mapper;
-
         private readonly IDynamicRepository repository;
 
-        public Handler(IMapper mapper, IDynamicRepository repository)
+        public Handler(IDynamicRepository repository)
         {
-            this.mapper = mapper;
             this.repository = repository;
         }
 
         public async Task<IEnumerable<LeagueEntity>> Handle(HttpParameterJson message)
         {
-            var criteria = mapper.Map<QueryCriteria>(message);
+            var criteria = Mapper.Map<QueryCriteria>(message);
             return await repository.FetchAsync<LeagueEntity>(criteria).ConfigureAwait(false);
         }
     }

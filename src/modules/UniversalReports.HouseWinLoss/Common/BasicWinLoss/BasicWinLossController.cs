@@ -1,5 +1,6 @@
-﻿using System.Web.Http;
+﻿using AutoMapper;
 using Fanex.Excel.Models;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -9,10 +10,6 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 {
     public class BasicWinLossController : ApiController
     {
-        protected BasicWinLossController()
-        {
-        }
-
         protected BasicWinLossController(
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,

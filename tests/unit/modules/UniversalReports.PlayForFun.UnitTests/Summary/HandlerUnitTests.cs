@@ -25,26 +25,12 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var service = Substitute.For<PlayForFunService>();
             service.Query<SummaryModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 
-            var mapper = CreateMapper();
-
             // Act
-            var handler = new Handler(mapper, service);
+            var handler = new Handler(service);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, SummaryCriteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

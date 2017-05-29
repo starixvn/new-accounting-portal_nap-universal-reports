@@ -8,13 +8,10 @@ namespace UniversalReports.PunterAnalysis.Core
 {
     public class HandlerBase
     {
-        private readonly IMapper mapper;
-
         private readonly PunterAnalysisService punterAnalysisService;
 
-        protected HandlerBase(IMapper mapper, PunterAnalysisService punterAnalysisService)
+        protected HandlerBase(PunterAnalysisService punterAnalysisService)
         {
-            this.mapper = mapper;
             this.punterAnalysisService = punterAnalysisService;
         }
 
@@ -22,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.Core
             where TCriteria : ICriteria
             where TModel : class, new()
         {
-            var criteria = mapper.Map<TCriteria>(message);
+            var criteria = Mapper.Map<TCriteria>(message);
             return await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
         }
     }
