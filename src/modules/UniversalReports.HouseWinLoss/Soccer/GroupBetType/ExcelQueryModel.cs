@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 {
-    public class GroupBetTypeExcelQueryModel : QueryModel
+    public class ExcelQueryModel : QueryModel
     {
         public string Title { get; set; }
     }

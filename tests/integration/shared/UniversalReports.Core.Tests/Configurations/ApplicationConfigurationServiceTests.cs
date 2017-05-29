@@ -16,13 +16,14 @@ namespace UniversalReports.Core.Tests.Configurations
             Assert.That(configurationService.FraudSystemApi, Is.EqualTo("http://google.com/api"));
         }
 
+        [Test]
         public void CurrentDirectory_Always_ReturnsCurrentDomainBaseDirectory()
         {
             // Arrange
             var configurationService = new ApplicationConfigurationServiceImp();
 
             // Assert
-            Assert.That(configurationService.FraudSystemApi, Is.EqualTo(AppDomain.CurrentDomain.BaseDirectory));
+            Assert.That(configurationService.CurrentDirectory, Is.EqualTo(AppDomain.CurrentDomain.BaseDirectory));
         }
     }
 }

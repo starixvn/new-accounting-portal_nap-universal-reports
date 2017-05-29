@@ -47,15 +47,8 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         {
             foreach (var index in indice)
             {
-                if (gridOptions.BodyRows != null)
-                {
-                    RemoveColumn(gridOptions.BodyRows, index);
-                }
-
-                if (gridOptions.FooterRows != null)
-                {
-                    RemoveColumn(gridOptions.FooterRows, index);
-                }
+                RemoveColumn(gridOptions.BodyRows, index);
+                RemoveColumn(gridOptions.FooterRows, index);
             }
         }
 
@@ -70,11 +63,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         private void RemoveColumn(GridDataRow row, int index)
         {
             columnRemoval.RemoveColumn(row.Columns, index);
-            if (row.SubRows == null)
-            {
-                return;
-            }
-
             foreach (var subRow in row.SubRows)
             {
                 RemoveColumn(subRow, index);

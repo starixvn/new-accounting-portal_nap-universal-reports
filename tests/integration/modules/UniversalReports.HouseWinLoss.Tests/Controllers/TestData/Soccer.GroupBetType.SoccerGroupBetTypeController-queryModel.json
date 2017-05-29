@@ -3,5 +3,6 @@
   "EndDate": "2016-06-05T00:00:00",
   "NormalMode": true,
   "IsMajor": true,
-  "IsLive": 0
+  "IsLive": 0,
+  "Title": "Any Title"
 }

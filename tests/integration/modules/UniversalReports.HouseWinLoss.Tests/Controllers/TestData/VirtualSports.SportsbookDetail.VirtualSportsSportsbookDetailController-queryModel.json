@@ -3,5 +3,6 @@
   "EndDate": "2016-06-05T00:00:00",
   "NormalMode": true,
   "SportType": 180,
-  "BetType": 1203
+  "BetType": 1203,
+  "Title": "Any Title"
 }

@@ -3,5 +3,6 @@
   "EndDate": "2016-06-05T00:00:00",
   "NormalMode": true,
   "SportType": 2,
-  "IsLive": 2
+  "IsLive": 2,
+  "Title": "Any Title"
 }

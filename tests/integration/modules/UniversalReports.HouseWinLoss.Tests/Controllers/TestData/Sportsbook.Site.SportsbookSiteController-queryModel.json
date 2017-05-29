@@ -6,5 +6,6 @@
   "BetType": 1,
   "Site": "Credit",
   "IsLive": 2,
-  "IsHedge": false
+  "IsHedge": false,
+  "Title": "Any Title"
 }

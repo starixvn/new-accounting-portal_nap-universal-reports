@@ -32,7 +32,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(GroupBetTypeExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);

@@ -4,6 +4,7 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Web.Http.Results;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -70,6 +71,20 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             ComparisonAssert.AreEqualJson(expected, gridOptions);
         }
 
+        [TestCaseSource(nameof(ControllerList))]
+        [Category("ControllersTests")]
+        public void Excel_Successful(string controllerName)
+        {
+            var queryModel = GetExcelQueryModel(controllerName);
+            var controller = GetControllerWithRawWinLoss(controllerName);
+
+            var methodInfo = controller.GetType().GetMethod("Excel", new[] { queryModel.GetType() });
+            var result = methodInfo.Invoke(controller, new[] { queryModel });
+            var workbook = (result as FanexExcelResult).Workbook;
+
+            Assert.That(workbook.NumberOfSheets, Is.EqualTo(1));
+        }
+
         private object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
         {
             var queryModelType = GetQueryModelType(controllerName);
@@ -83,6 +98,22 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
         {
             var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
             var queryModelName = controllerName.Substring(0, lastPointIndex) + ".QueryModel";
+            var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
+            return Type.GetType(queryModelFullName);
+        }
+        private object GetExcelQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
+        {
+            var queryModelType = GetExcelQueryModelType(controllerName);
+            var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+
+            var generic = method.MakeGenericMethod(queryModelType);
+            return generic.Invoke(null, new object[] { controllerName, "queryModel", sourceFilePath });
+        }
+
+        private Type GetExcelQueryModelType(string controllerName)
+        {
+            var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
+            var queryModelName = controllerName.Substring(0, lastPointIndex) + ".ExcelQueryModel";
             var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
             return Type.GetType(queryModelFullName);
         }

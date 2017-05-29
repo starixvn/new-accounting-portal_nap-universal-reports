@@ -34,7 +34,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(SumBetTypeExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<SumBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);

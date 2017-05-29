@@ -188,9 +188,6 @@
     <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-expected.json" />
     <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-fakeData.json" />
     <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\NumberGame.BetType.NumberGameBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\NumberGame.BetType.NumberGameBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\NumberGame.BetType.NumberGameBetTypeController-queryModel.json" />
     <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-expected.json" />
     <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-fakeData.json" />
     <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-queryModel.json" />
@@ -286,6 +283,10 @@
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.MVC\UniversalReports.MVC.csproj">
+      <Project>{21081cde-e5a1-4a31-9ef0-e0ac65547881}</Project>
+      <Name>UniversalReports.MVC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

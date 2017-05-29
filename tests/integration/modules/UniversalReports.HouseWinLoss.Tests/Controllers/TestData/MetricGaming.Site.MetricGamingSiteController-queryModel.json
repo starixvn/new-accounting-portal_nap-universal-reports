@@ -4,5 +4,6 @@
   "NormalMode": true,
   "BetType": 1,
   "Site": "Credit",
-  "IsLive": 2
+  "IsLive": 2,
+  "Title": "Any Title"
 }

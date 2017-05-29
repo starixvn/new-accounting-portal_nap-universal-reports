@@ -24,7 +24,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(BetTypeExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<BetTypeCriteria>(queryModel);
             return Excel(criteria, "Bet Type", queryModel.Title);
