@@ -19,13 +19,6 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
 
         public override bool IsValid() => true;
 
-        protected void Update(BalanceUpSource source)
-        {
-            StartDate = source.StartDate;
-            EndDate = source.EndDate;
-            Source = source.Source;
-        }
-
         public override string GetSettingKey()
         {
             throw new NotImplementedException();

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
 using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
@@ -16,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private readonly MatchGridOptionColumnDecorator decorator;
 
-        protected MatchDetailController(
+        public MatchDetailController(
             WinLossService service,
             GridOptionsBuilder builder,
             MatchGridOptionColumnDecorator decorator)

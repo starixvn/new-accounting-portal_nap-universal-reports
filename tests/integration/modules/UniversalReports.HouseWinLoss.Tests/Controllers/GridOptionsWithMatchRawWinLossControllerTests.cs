@@ -1,5 +1,6 @@
 ﻿using Fanex.Excel.Models;
 using NUnit.Framework;
+using System;
 using System.Web.Http.Results;
 using UniversalReports.MVC.Results;
 
@@ -66,7 +67,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 case "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController":
                     return TestDataLoader.Load<VirtualSports.SportsbookDetail.QueryModel>(controllerName, "queryModel");
 
-                default: return null;
+                default:
+                    throw new NotImplementedException();
             }
         }
 
@@ -86,7 +88,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 case "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController":
                     return TestDataLoader.Load<VirtualSports.SportsbookDetail.ExcelQueryModel>(controllerName, "queryModel");
 
-                default: return null;
+                default:
+                    throw new NotImplementedException();
             }
         }
     }

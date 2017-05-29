@@ -15,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 
         private readonly MatchGridOptionColumnDecorator decorator;
 
-        protected MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
+        public MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
         {
             this.service = service;
             this.builder = builder;

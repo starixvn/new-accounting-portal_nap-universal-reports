@@ -215,7 +215,6 @@
     <Compile Include="Common\MatchDetail\WinLossModel.cs" />
     <Compile Include="Configuration\Constants.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpSource.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
     <Compile Include="GlobalSuppressions.cs" />

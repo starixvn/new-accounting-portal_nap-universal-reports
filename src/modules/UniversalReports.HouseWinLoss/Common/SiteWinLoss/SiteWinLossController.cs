@@ -15,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
 
         private readonly GridOptionColumnDecorator decorator;
 
-        protected SiteWinLossController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecorator decorator)
+        public SiteWinLossController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecorator decorator)
         {
             this.service = service;
             this.builder = builder;
