@@ -148,7 +148,7 @@
     <Compile Include="Shared\PeriodTypeEnum.cs" />
     <Compile Include="Shared\PunterAnalysisService.cs" />
     <Compile Include="Shared\DateTimeService.cs" />
-    <Compile Include="AssociatedAccount\FraudServiceWrapperImp.cs" />
+    <Compile Include="AssociatedAccount\FraudServiceWrapper.cs" />
     <Compile Include="Filter\AvailableDateRange\Handler.cs" />
     <Compile Include="Filter\AvailableDatabase\QueryCriteria.cs" />
     <Compile Include="Filter\AvailableDatabase\HttpParameterJson.cs" />
