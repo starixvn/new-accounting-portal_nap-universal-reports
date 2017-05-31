@@ -257,6 +257,9 @@
     <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-expected.json" />
     <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-fakeData.json" />
     <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-queryModel.json" />
+    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-expected.json" />
+    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-fakeData.json" />
+    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-queryModel.json" />
     <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-expected.json" />
     <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-fakeData.json" />
     <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-queryModel.json" />

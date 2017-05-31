@@ -30,6 +30,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "OtherSports.BetType.OtherSportsBetTypeController",
                     "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
                     "OtherSports.SportType.OtherSportsSportTypeController",
+                    "OtherSports.NewCricket.OtherSportNewCricketController",
                     "Parlay.BetType.ParlayBetTypeController",
                     "Parlay.Site.ParlaySiteController",
                     "Products.ProductController",
