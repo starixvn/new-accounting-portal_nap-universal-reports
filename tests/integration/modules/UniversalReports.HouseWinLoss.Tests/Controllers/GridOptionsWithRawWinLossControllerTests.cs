@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Web.Http.Results;
 using UniversalReports.MVC.Results;
 
@@ -86,13 +85,13 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             Assert.That(workbook.NumberOfSheets, Is.EqualTo(1));
         }
 
-        private object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
+        private object GetQueryModel(string controllerName)
         {
             var queryModelType = GetQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
             var generic = method.MakeGenericMethod(queryModelType);
-            return generic.Invoke(null, new object[] { controllerName, "queryModel", sourceFilePath });
+            return generic.Invoke(null, new object[] { controllerName, "queryModel" });
         }
 
         private Type GetQueryModelType(string controllerName)
@@ -102,13 +101,13 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
             return Type.GetType(queryModelFullName);
         }
-        private object GetExcelQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
+        private object GetExcelQueryModel(string controllerName)
         {
             var queryModelType = GetExcelQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
             var generic = method.MakeGenericMethod(queryModelType);
-            return generic.Invoke(null, new object[] { controllerName, "queryModel", sourceFilePath });
+            return generic.Invoke(null, new object[] { controllerName, "queryModel" });
         }
 
         private Type GetExcelQueryModelType(string controllerName)

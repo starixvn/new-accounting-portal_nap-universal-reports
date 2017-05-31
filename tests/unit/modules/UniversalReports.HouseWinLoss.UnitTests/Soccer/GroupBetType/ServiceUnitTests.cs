@@ -18,8 +18,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.GroupBetType
         public void Query_ReturnRightResult()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
-            var expected = TestDataLoader.Load<GroupBetTypeWinLossModel>("data-1-expected");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Soccer.GroupBetType.Service.data-1-fakeData");
+            var expected = TestDataLoader.Load<GroupBetTypeWinLossModel>("Soccer.GroupBetType.Service.data-1-expected");
 
             var calculatorService = new BaseCalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();

@@ -1,14 +1,15 @@
-﻿using System.IO;
-using System.Runtime.CompilerServices;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using NUnit.Framework;
+using System.IO;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
 {
     internal static class TestDataLoader
     {
-        internal static T Load<T>(string name, [CallerFilePath] string sourceFilePath = "")
+        internal static T Load<T>(string name)
         {
-            var dataFilePath = $"{Path.GetDirectoryName(sourceFilePath)}\\{Path.GetFileNameWithoutExtension(sourceFilePath)}.{name}.json";
+            var directory = $"{TestContext.CurrentContext.TestDirectory}\\TestData";
+            var dataFilePath = $"{directory}\\{name}.json";
             var text = File.ReadAllText(dataFilePath);
 
             return JsonConvert.DeserializeObject<T>(text);

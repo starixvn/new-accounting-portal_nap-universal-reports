@@ -1,0 +1,16 @@
+{
+  "Name": "Group 1",
+  "Id": 1,
+  "MemberWinLoss": 210.0,
+  "SMAWinLoss": 410.0,
+  "Commission": 30.0,
+  "RealIncome": 610.0,
+  "VirtualIncome": 810.0,
+  "VarianceIncome": -200.0,
+  "ExtraPT": 0.0,
+  "AfterExtraPT": 0.0,
+  "RealTurnover": 2100.0,
+  "VirtualTurnover": 2500.0,
+  "RealMargin": 0.2905,
+  "VirtualMargin": 0.324
+}

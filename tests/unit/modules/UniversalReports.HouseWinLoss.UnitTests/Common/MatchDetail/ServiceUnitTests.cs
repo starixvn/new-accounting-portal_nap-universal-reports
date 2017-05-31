@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
+using System.Collections.Generic;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
@@ -16,8 +16,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void Query_Should_Return_Right_MatchDetail()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-1-fakeData");
-            var expected = TestDataLoader.Load<WinLossModel>("data-1-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.Service-fakeData");
+            var expected = TestDataLoader.Load<WinLossModel>("Common.MatchDetail.Service-expected");
 
             var rawService = Substitute.For<RawWinLossService>();
             rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);

@@ -1,0 +1,16 @@
+{
+  "GroupName": "Sportsbook",
+  "GroupId": 1,
+  "RowName": "Sportsbook Live",
+  "IsLive": false,
+  "MemberWinLoss": 100.0,
+  "SMAWinLoss": 110.0,
+  "Commission": 10.0,
+  "RealIncome": 500.0,
+  "VirtualIncome": 600.0,
+  "VarianceIncome": -100.0,
+  "ExtraPT": 100.0,
+  "AfterExtraPT": 100.0,
+  "RealTurnover": 900.0,
+  "VirtualTurnover": 1000.0
+}

@@ -190,87 +190,139 @@
     <None Include="Common\MatchDetail\ServiceUnitTests.data-1-fakeData.json">
       <DependentUpon>ServiceUnitTests.cs</DependentUpon>
     </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-1-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-2-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-2-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-3-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-3-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-4-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-4-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-5-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-5-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-6-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-6-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-7-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-7-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-8-expected.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\Services\CalculationServiceUnitTests.data-8-fakeData.json">
-      <DependentUpon>CalculationServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\SiteWinLoss\SiteServiceUnitTests.data-1-expected.json">
-      <DependentUpon>SiteServiceUnitTests.cs</DependentUpon>
-    </None>
-    <None Include="Common\SiteWinLoss\SiteServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>SiteServiceUnitTests.cs</DependentUpon>
-    </None>
     <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
-    <Content Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.data-1-expected.json">
-      <DependentUpon>BasicWinLossServiceUnitTest.cs</DependentUpon>
-    </Content>
-    <Content Include="Common\BasicWinLoss\BasicWinLossServiceUnitTest.data-1-fakeData.json">
-      <DependentUpon>BasicWinLossServiceUnitTest.cs</DependentUpon>
-    </Content>
     <None Include="packages.config" />
-    <None Include="Products\ServiceUnitTests.data-1-expected.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.BasicWinLoss.BasicWinLossService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Products\ServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.BasicWinLoss.BasicWinLossService.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Products\ServiceUnitTests.data-2-expected.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Products\ServiceUnitTests.data-2-fakeData.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Soccer\GroupBetType\ServiceUnitTests.data-1-expected.json" />
-    <None Include="Soccer\GroupBetType\ServiceUnitTests.data-1-fakeData.json" />
-    <None Include="Soccer\SumBetType\ServiceUnitTests.data-1-expected.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-2-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Soccer\SumBetType\ServiceUnitTests.data-1-fakeData.json">
-      <DependentUpon>ServiceUnitTests.cs</DependentUpon>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-2-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-3-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-3-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-4-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-4-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-5-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-5-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-6-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.CalculationService.data-6-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.Service-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail.Service-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-2-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-2-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-3-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-3-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-4-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-4-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-5-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-5-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-6-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-6-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-7-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-7-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-8-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.Services.CalculationService.data-8-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.SiteWinLoss.SiteService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.SiteWinLoss.SiteService.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.NewCricket.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.NewCricket.Service.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.Service.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.Service.data-2-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.Service.data-2-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.GroupBetType.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.GroupBetType.Service.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.SumBetType.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.SumBetType.Service.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

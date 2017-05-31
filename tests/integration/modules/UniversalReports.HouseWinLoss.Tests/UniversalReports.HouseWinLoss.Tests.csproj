@@ -141,6 +141,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
     <Compile Include="TestDoubles\RemotingRefServiceStub.cs" />
+    <Compile Include="Controllers\UniversalBetTypeControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\..\..\..\FXCop\FxCopDictionary.xml">
@@ -149,132 +150,384 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Controllers\TestData\CashOut.BetType.CashOutBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\CashOut.BetType.CashOutBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\CashOut.BetType.CashOutBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Bettrade.BetType.BettradeBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\CashOut.Site.CashOutSiteController-expected.json" />
-    <None Include="Controllers\TestData\Bettrade.Site.BettradeSiteController-expected.json" />
-    <None Include="Controllers\TestData\CashOut.Site.CashOutSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Bettrade.Site.BettradeSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\CashOut.Site.CashOutSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\Bettrade.Site.BettradeSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\Casino.BetType.CasinoBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Casino.BetType.CasinoBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Casino.BetType.CasinoBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Casino.Product.CasinoProductController-expected.json" />
-    <None Include="Controllers\TestData\Casino.Product.CasinoProductController-fakeData.json" />
-    <None Include="Controllers\TestData\Casino.Product.CasinoProductController-queryModel.json" />
-    <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-expected.json" />
-    <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Casino.Site.CasinoSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\FishingWorld.BetType.FishingWorldBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-expected.json" />
-    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\FishingWorld.Site.FishingWorldSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\MetricGaming.BetType.MetricGamingBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-expected.json" />
-    <None Include="Controllers\TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-fakeData.json" />
-    <None Include="Controllers\TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-queryModel.json" />
-    <None Include="Controllers\TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-expected.json" />
-    <None Include="Controllers\TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-expected.json" />
-    <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\MetricGaming.Site.MetricGamingSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-expected.json" />
-    <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\NumberGame.Site.NumberGameSiteController-expected.json" />
-    <None Include="Controllers\TestData\NumberGame.Site.NumberGameSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\NumberGame.Site.NumberGameSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\OtherSports.BetType.OtherSportsBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\OtherSports.BetType.OtherSportsBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\OtherSports.BetType.OtherSportsBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-expected.json" />
-    <None Include="Controllers\TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-fakeData.json" />
-    <None Include="Controllers\TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-queryModel.json" />
-    <None Include="Controllers\TestData\OtherSports.SportType.OtherSportsSportTypeController-expected.json" />
-    <None Include="Controllers\TestData\OtherSports.SportType.OtherSportsSportTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\OtherSports.SportType.OtherSportsSportTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Parlay.BetType.ParlayBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Parlay.BetType.ParlayBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Parlay.BetType.ParlayBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Parlay.Site.ParlaySiteController-expected.json" />
-    <None Include="Controllers\TestData\Parlay.Site.ParlaySiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Parlay.Site.ParlaySiteController-queryModel.json" />
-    <None Include="Controllers\TestData\Products.ProductController-expected.json" />
-    <None Include="Controllers\TestData\Products.ProductController-fakeData.json" />
-    <None Include="Controllers\TestData\Products.ProductController-queryModel.json" />
-    <None Include="Controllers\TestData\Racing.BetType.RacingBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Racing.BetType.RacingBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Racing.BetType.RacingBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Racing.MatchDetail.RacingMatchDetailController-expected.json" />
-    <None Include="Controllers\TestData\Racing.MatchDetail.RacingMatchDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\Racing.MatchDetail.RacingMatchDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\Racing.Site.RacingSiteController-expected.json" />
-    <None Include="Controllers\TestData\Racing.Site.RacingSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Racing.Site.RacingSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\Racing.SportType.RacingSportTypeController-expected.json" />
-    <None Include="Controllers\TestData\Racing.SportType.RacingSportTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Racing.SportType.RacingSportTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Soccer.BetType.SoccerBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Soccer.BetType.SoccerBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Soccer.BetType.SoccerBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-expected.json" />
-    <None Include="Controllers\TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-fakeData.json" />
-    <None Include="Controllers\TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-queryModel.json" />
-    <None Include="Controllers\TestData\Soccer.MajorMinor.SoccerMajorMinorController-expected.json" />
-    <None Include="Controllers\TestData\Soccer.MajorMinor.SoccerMajorMinorController-fakeData.json" />
-    <None Include="Controllers\TestData\Soccer.MajorMinor.SoccerMajorMinorController-queryModel.json" />
-    <None Include="Controllers\TestData\Soccer.SumBetType.SoccerSumBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Soccer.SumBetType.SoccerSumBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Soccer.SumBetType.SoccerSumBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-expected.json" />
-    <None Include="Controllers\TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-expected.json" />
-    <None Include="Controllers\TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-expected.json" />
-    <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Sportsbook.Site.SportsbookSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-expected.json" />
-    <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\Universal.SportType.UniversalSportTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Universal.BetType.UniversalBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-expected.json" />
-    <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\Universal.Site.UniversalSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-expected.json" />
-    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-fakeData.json" />
-    <None Include="Controllers\TestData\OtherSports.NewCricket.OtherSportNewCricketController-queryModel.json" />
-    <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-expected.json" />
-    <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\VirtualSports.BetType.VirtualSportsBetTypeController-queryModel.json" />
-    <None Include="Controllers\TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-expected.json" />
-    <None Include="Controllers\TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\VirtualSports.Site.VirtualSportsSiteController-expected.json" />
-    <None Include="Controllers\TestData\VirtualSports.Site.VirtualSportsSiteController-fakeData.json" />
-    <None Include="Controllers\TestData\VirtualSports.Site.VirtualSportsSiteController-queryModel.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-expected.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-fakeData.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-queryModel.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportType.VirtualSportsSportTypeController-expected.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportType.VirtualSportsSportTypeController-fakeData.json" />
-    <None Include="Controllers\TestData\VirtualSports.SportType.VirtualSportsSportTypeController-queryModel.json" />
+    <None Include="TestData\CashOut.BetType.CashOutBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.BetType.BettradeBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.BetType.CashOutBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.BetType.BettradeBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.BetType.CashOutBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.BetType.BettradeBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.Site.CashOutSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.Site.BettradeSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.Site.CashOutSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.Site.BettradeSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.Site.CashOutSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bettrade.Site.BettradeSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.BetType.CasinoBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.BetType.CasinoBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.BetType.CasinoBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Product.CasinoProductController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Product.CasinoProductController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Product.CasinoProductController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Site.CasinoSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Site.CasinoSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Casino.Site.CasinoSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.BetType.FishingWorldBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.BetType.FishingWorldBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.BetType.FishingWorldBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.Site.FishingWorldSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.Site.FishingWorldSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\FishingWorld.Site.FishingWorldSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.BetType.MetricGamingBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.BetType.MetricGamingBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.BetType.MetricGamingBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.MatchDetail.MetricGamingMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.Site.MetricGamingSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.Site.MetricGamingSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.Site.MetricGamingSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.MatchDetail.NumberGameMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.Site.NumberGameSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.Site.NumberGameSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\NumberGame.Site.NumberGameSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.BetType.OtherSportsBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.BetType.OtherSportsBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.BetType.OtherSportsBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.LiveNonLive.OtherSportsLiveNonLiveController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.SportType.OtherSportsSportTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.SportType.OtherSportsSportTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.SportType.OtherSportsSportTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.BetType.ParlayBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.BetType.ParlayBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.BetType.ParlayBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.Site.ParlaySiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.Site.ParlaySiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Parlay.Site.ParlaySiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.ProductController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.ProductController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Products.ProductController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.BetType.RacingBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.BetType.RacingBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.BetType.RacingBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.MatchDetail.RacingMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.MatchDetail.RacingMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.MatchDetail.RacingMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.Site.RacingSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.Site.RacingSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.Site.RacingSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.SportType.RacingSportTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.SportType.RacingSportTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Racing.SportType.RacingSportTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.BetType.SoccerBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.BetType.SoccerBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.BetType.SoccerBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.GroupBetType.SoccerGroupBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.LiveNonLive.SoccerLiveNonLiveController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.MajorMinor.SoccerMajorMinorController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.MajorMinor.SoccerMajorMinorController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.MajorMinor.SoccerMajorMinorController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.SumBetType.SoccerSumBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.SumBetType.SoccerSumBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.SumBetType.SoccerSumBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.MatchDetail.SportsbookMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.Site.SportsbookSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.Site.SportsbookSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Sportsbook.Site.SportsbookSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.SportType.UniversalSportTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.BetType.UniversalBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.SportType.UniversalSportTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.BetType.UniversalBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.SportType.UniversalSportTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.BetType.UniversalBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.Site.UniversalSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.Site.UniversalSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Universal.Site.UniversalSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.NewCricket.OtherSportNewCricketController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.NewCricket.OtherSportNewCricketController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.NewCricket.OtherSportNewCricketController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.BetType.VirtualSportsBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.BetType.VirtualSportsBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.BetType.VirtualSportsBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.RacingDetail.VirtualSportsRacingDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.Site.VirtualSportsSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.Site.VirtualSportsSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.Site.VirtualSportsSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportType.VirtualSportsSportTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportType.VirtualSportsSportTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSports.SportType.VirtualSportsSportTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

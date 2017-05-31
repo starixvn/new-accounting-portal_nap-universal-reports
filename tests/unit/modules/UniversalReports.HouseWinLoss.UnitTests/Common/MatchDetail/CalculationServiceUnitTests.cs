@@ -26,8 +26,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void FromRawWinLoss_Should_Return_Right_WinLoss()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<RawWinLoss>("data-1-fakeData");
-            var expected = TestDataLoader.Load<WinLoss>("data-1-expected");
+            var fakeData = TestDataLoader.Load<RawWinLoss>("Common.MatchDetail.CalculationService.data-1-fakeData");
+            var expected = TestDataLoader.Load<WinLoss>("Common.MatchDetail.CalculationService.data-1-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -40,8 +40,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void CalculateSumWinLoss_Should_Return_Right_RawWinLoss_Sum()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-2-fakeData");
-            var expected = TestDataLoader.Load<WinLoss>("data-2-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-2-fakeData");
+            var expected = TestDataLoader.Load<WinLoss>("Common.MatchDetail.CalculationService.data-2-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -56,8 +56,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void CalculationLeagues_Should_Return_Right_Leagues()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-3-fakeData");
-            var expected = TestDataLoader.Load<List<LeagueWinLoss>>("data-3-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-3-fakeData");
+            var expected = TestDataLoader.Load<List<LeagueWinLoss>>("Common.MatchDetail.CalculationService.data-3-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -73,8 +73,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         {
             // Arrange
             const int AnyLeagueId = 1;
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-4-fakeData");
-            var expected = TestDataLoader.Load<LeagueWinLoss>("data-4-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-4-fakeData");
+            var expected = TestDataLoader.Load<LeagueWinLoss>("Common.MatchDetail.CalculationService.data-4-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -89,8 +89,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void CalculateRM_ShouldReturnRight_RM()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-5-fakeData");
-            var expected = TestDataLoader.Load<List<WinLoss>>("data-5-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-5-fakeData");
+            var expected = TestDataLoader.Load<List<WinLoss>>("Common.MatchDetail.CalculationService.data-5-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 
@@ -105,8 +105,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void CalculateMatches_ShouldReturnRightMatches()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("data-6-fakeData");
-            var expected = TestDataLoader.Load<List<WinLoss>>("data-6-expected");
+            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-6-fakeData");
+            var expected = TestDataLoader.Load<List<WinLoss>>("Common.MatchDetail.CalculationService.data-6-expected");
 
             var calculationService = new CalculationServiceImp(remotingRefService);
 

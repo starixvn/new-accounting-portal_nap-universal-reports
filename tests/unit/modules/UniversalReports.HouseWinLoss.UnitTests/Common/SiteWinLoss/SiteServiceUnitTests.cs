@@ -17,8 +17,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
         public void Query_ReturnRightSiteWinLoss()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
-            var expected = TestDataLoader.Load<SiteWinLossModel>("data-1-expected");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Common.SiteWinLoss.SiteService.data-1-fakeData");
+            var expected = TestDataLoader.Load<SiteWinLossModel>("Common.SiteWinLoss.SiteService.data-1-expected");
 
             var calculationService = new CalculationServiceImp();
             var rawWinLossService = Substitute.For<RawWinLossService>();
