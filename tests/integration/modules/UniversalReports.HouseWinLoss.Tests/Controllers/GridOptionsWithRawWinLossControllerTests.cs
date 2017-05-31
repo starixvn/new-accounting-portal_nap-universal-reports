@@ -101,6 +101,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
             return Type.GetType(queryModelFullName);
         }
+
         private object GetExcelQueryModel(string controllerName)
         {
             var queryModelType = GetExcelQueryModelType(controllerName);

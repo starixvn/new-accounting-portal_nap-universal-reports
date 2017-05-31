@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
         public void SetUp()
         {
             remotingRefService = Substitute.For<CommonServices.RemotingRefService>();
-            remotingRefService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
+            remotingRefService.GetTeamName(Arg.Any<int>()).Returns(string.Empty);
             remotingRefService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
         }
 

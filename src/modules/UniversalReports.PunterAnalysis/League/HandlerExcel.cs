@@ -2,8 +2,8 @@
 using MediatR;
 using OfficeOpenXml;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.League.Model;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League
 {

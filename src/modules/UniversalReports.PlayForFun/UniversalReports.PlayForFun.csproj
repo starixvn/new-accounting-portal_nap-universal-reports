@@ -112,7 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Summary\Model\ExcelSetting.cs" />
-    <Compile Include="Summary\Model\ExcelSettingParams.cs" />
     <Compile Include="Summary\ExcelBuilder.cs" />
     <Compile Include="Core\PlayForFunService.cs" />
     <Compile Include="Core\PlayForFunAttribute.cs" />

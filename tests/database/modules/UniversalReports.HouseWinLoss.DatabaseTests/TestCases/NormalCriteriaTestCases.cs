@@ -1,6 +1,5 @@
 ﻿using Fanex.Data.Repository;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 
@@ -75,6 +74,16 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 IsLive = 2
             };
 
+            var soccerSumBetTypeCriteria = new Soccer.SumBetType.SumBetTypeCriteria
+            {
+                IsMajor = true
+            };
+            var soccerGroupBetTypeCriteria = new Soccer.GroupBetType.GroupBetTypeCriteria
+            {
+                IsMajor = true,
+                IsLive = 2
+            };
+
             var sportsbookSiteCriteria = new Sportsbook.Site.Criteria
             {
                 SportType = 1,
@@ -139,6 +148,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     soccerBetTypeCriteria,
                     soccerLiveNonLiveCriteria,
                     soccerMajorMinorCriteria,
+                    soccerSumBetTypeCriteria,
+                    soccerGroupBetTypeCriteria,
                     sportsbookSiteCriteria,
                     universalSportTypeCriteria,
                     universalBetTypeCriteria,

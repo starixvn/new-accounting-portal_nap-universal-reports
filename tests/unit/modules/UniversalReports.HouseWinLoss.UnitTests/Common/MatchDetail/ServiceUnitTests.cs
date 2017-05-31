@@ -24,7 +24,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
 
             var refService = Substitute.For<commonServices.RemotingRefService>();
             refService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
-            refService.GetTeamName(Arg.Any<int>(), Arg.Any<string>()).Returns(string.Empty);
+            refService.GetTeamName(Arg.Any<int>()).Returns(string.Empty);
             var calculationService = new CalculationServiceImp(refService);
 
             // Act

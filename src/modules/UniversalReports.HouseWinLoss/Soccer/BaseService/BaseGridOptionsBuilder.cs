@@ -28,10 +28,5 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
             return row;
         }
-
-        protected static object GetFormattedMargin(WinLoss item)
-        {
-            return item.RealMargin == 0 ? "N/A" : (object)item.RealMargin;
-        }
     }
 }

@@ -100,12 +100,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
         private WinLoss CalculateSum(IEnumerable<WinLoss> winLosses)
         {
-            if (!winLosses.Any())
-            {
-                return new WinLoss();
-            }
-
-            var winLossSum = new WinLoss
+            return new WinLoss
             {
                 Commission = winLosses.Sum(r => r.Commission),
                 MemberWinLoss = winLosses.Sum(r => r.MemberWinLoss),
@@ -118,8 +113,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
                 ExtraPT = winLosses.Sum(r => r.ExtraPT),
                 AfterExtraPT = winLosses.Sum(r => r.AfterExtraPT)
             };
-
-            return winLossSum;
         }
     }
 }
