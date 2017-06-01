@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using Epplus.Mapper.Extensions;
+using OfficeOpenXml;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -25,11 +26,10 @@ namespace UniversalReports.WebAPI.Results
             HttpResponseMessage response;
             using (ExcelPackage)
             {
+                var bytes = ExcelPackage.GetAsByteArraySafe(password);
                 response = new HttpResponseMessage(HttpStatusCode.OK)
                 {
-                    Content = string.IsNullOrEmpty(password) ?
-                        new ByteArrayContent(ExcelPackage.GetAsByteArray()) :
-                        new ByteArrayContent(ExcelPackage.GetAsByteArray(password))
+                    Content = new ByteArrayContent(bytes)
                 };
             }
 
