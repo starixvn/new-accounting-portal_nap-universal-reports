@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "link": "cd angular\\components && npm link && cd ..\\punter-analysis && npm link nap-components && cd ..\\play-for-fun-statistic && npm link nap-components && exit 0"
   },
   "keywords": [],
   "author": "",
@@ -45,5 +46,6 @@
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
-  }
+  },
+  "-vs-binding": { "BeforeBuild": [ "link" ] }
 }
