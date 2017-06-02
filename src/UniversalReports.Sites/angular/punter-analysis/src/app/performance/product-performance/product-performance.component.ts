@@ -10,6 +10,8 @@ import { SportsbookStatistic } from './product-performance.model';
 import { SummaryPerformanceComponent } from '../summary-performance/summary-performance.component';
 import { RomanFormatter } from '../common/roman-formatter';
 
+const sportsLimit = 5;
+
 @Component({
     selector: 'nap-product-performance',
     templateUrl: './product-performance.component.html'
@@ -17,6 +19,7 @@ import { RomanFormatter } from '../common/roman-formatter';
 export class ProductPerformanceComponent implements Performance {
     statistic: SportsbookStatistic;
     sportLabels: string[];
+    betCountBySportLabels: string[];
     betCountBySportData: number[];
     betCountBySportOptions: any;
     eventTypeLabels: string[];
@@ -24,6 +27,7 @@ export class ProductPerformanceComponent implements Performance {
     betCountByEventTypeOptions: any;
     winLossDatasets: any[];
     winLossOptions: any;
+    turnoverLabels: string[];
     turnoverData: number[];
     turnoverOptions: any;
     private winLossRomanFormatter: RomanFormatter;
@@ -121,7 +125,7 @@ export class ProductPerformanceComponent implements Performance {
             this.statistic = statistic;
             const sportStatistics = this.statistic.SportStatistics;
             this.sportLabels = sportStatistics.map(item => item.SportName);
-            this.betCountBySportData = sportStatistics.map(item => item.BetCount);
+            this.generateBetCountBySports();
             const summaryPerformanceStatistic = this.performanceService.summaryPerformanceStatistic;
             this.eventTypeLabels = summaryPerformanceStatistic.EventStatistics.map(item => item.EventType);
             this.betCountByEventTypeData = summaryPerformanceStatistic.EventStatistics.map(item => item.BetCount);
@@ -129,7 +133,53 @@ export class ProductPerformanceComponent implements Performance {
                 data: sportStatistics.map(item => item.WinLoss),
                 label: 'Winloss'
             }];
-            this.turnoverData = sportStatistics.map(item => item.Turnover);
+            this.generateTurnoverBySports();
         });
+    }
+
+    private generateBetCountBySports() {
+        const sportStatistics = this.statistic.SportStatistics;
+        const orderList = sportStatistics.sort((a, b) => {
+            if (a.BetCount > b.BetCount) {
+                return -1;
+            } else if (a.BetCount === b.BetCount) {
+                return 0;
+            }
+            return 1;
+        });
+        const trimList = orderList.slice(0, sportsLimit);
+        this.betCountBySportLabels = trimList.map(item => item.SportName);
+        this.betCountBySportData = trimList.map(item => item.BetCount);
+        if (orderList.length > sportsLimit) {
+            this.betCountBySportLabels.push('Others');
+            let betCount = 0;
+            for (let i = sportsLimit; i < orderList.length; i++) {
+                betCount += orderList[i].BetCount;
+            }
+            this.betCountBySportData.push(betCount);
+        }
+    }
+
+    private generateTurnoverBySports() {
+        const sportStatistics = this.statistic.SportStatistics;
+        const orderList = sportStatistics.sort((a, b) => {
+            if (a.Turnover > b.Turnover) {
+                return -1;
+            } else if (a.Turnover === b.Turnover) {
+                return 0;
+            }
+            return 1;
+        });
+        const trimList = orderList.slice(0, sportsLimit);
+        this.turnoverLabels = trimList.map(item => item.SportName);
+        this.turnoverData = trimList.map(item => item.Turnover);
+        if (orderList.length > sportsLimit) {
+            this.turnoverLabels.push('Others');
+            let turnover = 0;
+            for (let i = sportsLimit; i < orderList.length; i++) {
+                turnover += orderList[i].Turnover;
+            }
+            this.turnoverData.push(turnover);
+        }
     }
 }
