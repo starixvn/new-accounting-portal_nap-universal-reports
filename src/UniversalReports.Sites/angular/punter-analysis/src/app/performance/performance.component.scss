@@ -34,4 +34,15 @@
             }
         }
     }
+    .table-container {
+        .number {
+            text-align: right;
+        }
+    }
+    .number {
+        &.number-positive,
+        &>.number-positive {
+            color: red;
+        }
+    }
 }

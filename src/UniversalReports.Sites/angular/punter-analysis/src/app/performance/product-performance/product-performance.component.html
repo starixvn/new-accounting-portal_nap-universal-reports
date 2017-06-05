@@ -8,13 +8,13 @@
   <div class="col">
     <div class="box">
       <p>WIN LOSS</p>
-      <p [napDecimalFormat]="statistic.SummaryStatistic.WinLoss"></p>
+      <p class="number" [napDecimalFormat]="statistic.SummaryStatistic.WinLoss"></p>
     </div>
   </div>
   <div class="col">
     <div class="box">
       <p>MARGIN %</p>
-      <p [napPercentFormat]="statistic.SummaryStatistic.WinLoss/statistic.SummaryStatistic.Turnover"></p>
+      <p class="number" [napPercentFormat]="statistic.SummaryStatistic.WinLoss/statistic.SummaryStatistic.Turnover"></p>
     </div>
   </div>
   <div class="col">

@@ -198,7 +198,6 @@ export class SummaryPerformanceComponent implements Performance {
             label: 'Margin',
             data: monthStatistics.map(item => _.round(item.WinLoss * 100 / item.Turnover, 2))
         }];
-        // this.marginOptions
 
         // bet count by month
         this.betCountDatasets = [{

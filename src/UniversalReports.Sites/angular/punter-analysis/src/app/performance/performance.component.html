@@ -21,8 +21,8 @@
             <tr *ngFor="let item of list">
                 <td>{{item[field]}}</td>
                 <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
-                <td class="text-right" [napDecimalFormat]="item.WinLoss"></td>
-                <td class="text-right" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
+                <td class="number" [napDecimalFormat]="item.WinLoss"></td>
+                <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
             </tr>
         </tbody>
     </table>
