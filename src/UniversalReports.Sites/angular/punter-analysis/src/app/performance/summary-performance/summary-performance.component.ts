@@ -10,6 +10,7 @@ import { PerformanceService } from '../performance.service';
 import { SummaryPerformanceService } from './summary-performance.service';
 import { PerformanceStatistic } from './summary-performance.model';
 import { RomanFormatter } from '../common/roman-formatter';
+import { groupName, displayLimit } from '../common/config';
 
 function rgba(colour: Array<number>, alpha: number): string {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
@@ -219,10 +220,7 @@ export class SummaryPerformanceComponent implements Performance {
             yAxisID: 'y-axis-1'
         }];
 
-        // product turnover
-        const productTurnoverStatistics = this.statistic.ProductTurnoverStatistics;
-        this.productLabels = productTurnoverStatistics.map(item => item.ProductName);
-        this.productData = productTurnoverStatistics.map(item => item.Turnover);
+        this.generateProductTurnover();
     }
 
     chartClicked(e: any): void {
@@ -234,5 +232,11 @@ export class SummaryPerformanceComponent implements Performance {
                 this.performanceService.generate(PerformanceType.Product);
             }
         }
+    }
+
+    private generateProductTurnover() {
+        const productsTurnoverStatistics = this.statistic.ProductTurnoverStatistics;
+        this.productLabels = productsTurnoverStatistics.map(item => item.ProductName);
+        this.productData = productsTurnoverStatistics.map(item => item.Turnover);
     }
 }

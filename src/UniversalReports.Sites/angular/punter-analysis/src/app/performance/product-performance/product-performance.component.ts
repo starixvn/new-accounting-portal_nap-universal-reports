@@ -9,8 +9,7 @@ import { ProductPerformanceService } from './product-performance.service';
 import { SportsbookStatistic } from './product-performance.model';
 import { SummaryPerformanceComponent } from '../summary-performance/summary-performance.component';
 import { RomanFormatter } from '../common/roman-formatter';
-
-const sportsLimit = 5;
+import { groupName, displayLimit } from '../common/config';
 
 @Component({
     selector: 'nap-product-performance',
@@ -18,13 +17,13 @@ const sportsLimit = 5;
 })
 export class ProductPerformanceComponent implements Performance {
     statistic: SportsbookStatistic;
-    sportLabels: string[];
     betCountBySportLabels: string[];
     betCountBySportData: number[];
     betCountBySportOptions: any;
     eventTypeLabels: string[];
     betCountByEventTypeData: number[];
     betCountByEventTypeOptions: any;
+    winLossLabels: string[];
     winLossDatasets: any[];
     winLossOptions: any;
     turnoverLabels: string[];
@@ -123,18 +122,18 @@ export class ProductPerformanceComponent implements Performance {
     query() {
         this.service.query().subscribe(statistic => {
             this.statistic = statistic;
-            const sportStatistics = this.statistic.SportStatistics;
-            this.sportLabels = sportStatistics.map(item => item.SportName);
             this.generateBetCountBySports();
-            const summaryPerformanceStatistic = this.performanceService.summaryPerformanceStatistic;
-            this.eventTypeLabels = summaryPerformanceStatistic.EventStatistics.map(item => item.EventType);
-            this.betCountByEventTypeData = summaryPerformanceStatistic.EventStatistics.map(item => item.BetCount);
-            this.winLossDatasets = [{
-                data: sportStatistics.map(item => item.WinLoss),
-                label: 'Winloss'
-            }];
+            this.generateBetCountByEventType();
+            this.generateWinLossBySports();
+            this.generateWinLossBySports();
             this.generateTurnoverBySports();
         });
+    }
+
+    private generateBetCountByEventType() {
+        const summaryPerformanceStatistic = this.performanceService.summaryPerformanceStatistic;
+        this.eventTypeLabels = summaryPerformanceStatistic.EventStatistics.map(item => item.EventType);
+        this.betCountByEventTypeData = summaryPerformanceStatistic.EventStatistics.map(item => item.BetCount);
     }
 
     private generateBetCountBySports() {
@@ -147,17 +146,44 @@ export class ProductPerformanceComponent implements Performance {
             }
             return 1;
         });
-        const trimList = orderList.slice(0, sportsLimit);
+        const trimList = orderList.slice(0, displayLimit);
         this.betCountBySportLabels = trimList.map(item => item.SportName);
         this.betCountBySportData = trimList.map(item => item.BetCount);
-        if (orderList.length > sportsLimit) {
-            this.betCountBySportLabels.push('Others');
+        if (orderList.length > displayLimit) {
+            this.betCountBySportLabels.push(groupName);
             let betCount = 0;
-            for (let i = sportsLimit; i < orderList.length; i++) {
+            for (let i = displayLimit; i < orderList.length; i++) {
                 betCount += orderList[i].BetCount;
             }
             this.betCountBySportData.push(betCount);
         }
+    }
+
+    private generateWinLossBySports() {
+        const sportStatistics = this.statistic.SportStatistics;
+        const orderList = sportStatistics.sort((a, b) => {
+            if (a.WinLoss > b.WinLoss) {
+                return -1;
+            } else if (a.WinLoss === b.WinLoss) {
+                return 0;
+            }
+            return 1;
+        });
+        const trimList = orderList.slice(0, displayLimit);
+        this.winLossLabels = trimList.map(item => item.SportName);
+        const winLossData = trimList.map(item => item.WinLoss);
+        if (orderList.length > displayLimit) {
+            this.winLossLabels.push(groupName);
+            let winLoss = 0;
+            for (let i = displayLimit; i < orderList.length; i++) {
+                winLoss += orderList[i].WinLoss;
+            }
+            winLossData.push(winLoss);
+        }
+        this.winLossDatasets = [{
+            data: winLossData,
+            label: 'Winloss'
+        }];
     }
 
     private generateTurnoverBySports() {
@@ -170,13 +196,13 @@ export class ProductPerformanceComponent implements Performance {
             }
             return 1;
         });
-        const trimList = orderList.slice(0, sportsLimit);
+        const trimList = orderList.slice(0, displayLimit);
         this.turnoverLabels = trimList.map(item => item.SportName);
         this.turnoverData = trimList.map(item => item.Turnover);
-        if (orderList.length > sportsLimit) {
-            this.turnoverLabels.push('Others');
+        if (orderList.length > displayLimit) {
+            this.turnoverLabels.push(groupName);
             let turnover = 0;
-            for (let i = sportsLimit; i < orderList.length; i++) {
+            for (let i = displayLimit; i < orderList.length; i++) {
                 turnover += orderList[i].Turnover;
             }
             this.turnoverData.push(turnover);
