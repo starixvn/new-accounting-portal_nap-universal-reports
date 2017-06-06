@@ -163,11 +163,11 @@ export class ProductPerformanceComponent implements Performance {
         const sportStatistics = this.statistic.SportStatistics;
         const orderList = sportStatistics.sort((a, b) => {
             if (a.WinLoss > b.WinLoss) {
-                return -1;
+                return 1;
             } else if (a.WinLoss === b.WinLoss) {
                 return 0;
             }
-            return 1;
+            return -1;
         });
         const trimList = orderList.slice(0, displayLimit);
         this.winLossLabels = trimList.map(item => item.SportName);
