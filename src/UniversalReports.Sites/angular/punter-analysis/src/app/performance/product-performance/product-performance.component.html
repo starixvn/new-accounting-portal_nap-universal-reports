@@ -8,13 +8,13 @@
   <div class="col">
     <div class="box">
       <p>WIN LOSS</p>
-      <p [napDecimalFormat]="statistic.SummaryStatistic.WinLoss"></p>
+      <p class="number" [napDecimalFormat]="statistic.SummaryStatistic.WinLoss"></p>
     </div>
   </div>
   <div class="col">
     <div class="box">
       <p>MARGIN %</p>
-      <p [napPercentFormat]="statistic.SummaryStatistic.WinLoss/statistic.SummaryStatistic.Turnover"></p>
+      <p class="number" [napPercentFormat]="statistic.SummaryStatistic.WinLoss/statistic.SummaryStatistic.Turnover"></p>
     </div>
   </div>
   <div class="col">
@@ -28,7 +28,7 @@
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas napChart [data]="betCountBySportData" [labels]="sportLabels" chartType="pie" [options]="betCountBySportOptions"></canvas>
+        <canvas napChart [data]="betCountBySportData" [labels]="betCountBySportLabels" chartType="pie" [options]="betCountBySportOptions"></canvas>
       </div>
     </div>
     <div class="col-6">
@@ -40,12 +40,12 @@
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas napChart [datasets]="winLossDatasets" [labels]="sportLabels" [options]="winLossOptions" chartType="bar"></canvas>
+        <canvas napChart [datasets]="winLossDatasets" [labels]="winLossLabels" [options]="winLossOptions" chartType="bar"></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="box">
-        <canvas napChart [data]="turnoverData" [labels]="sportLabels" chartType="pie" [options]="turnoverOptions"></canvas>
+        <canvas napChart [data]="turnoverData" [labels]="turnoverLabels" chartType="pie" [options]="turnoverOptions"></canvas>
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using SimpleInjector;
+using System;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
@@ -20,7 +22,8 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
             var expectedBody = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedBody.json");
             var expectedTotal = TestDataLoader.Load<object[,]>("BetType-Excel-ExpectedTotal.json");
 
-            var factory = new ApiControllerFactoryMethodFetchAsync();
+            var container = new Container();
+            var factory = new ApiControllerFactoryMethodFetchAsync(container);
             var controller = factory.CreateController<PunterAnalysisBetTypeController, BetTypeModel>(FakeRepositoryDataFileName);
 
             // Act
@@ -37,7 +40,7 @@ namespace UniversalReports.PunterAnalysis.Tests.BetType
             Assert.AreEqual(workSheet.Cells["A11:M11"].Value, expectedTotal);
 
             // Release
-            factory.Dispose();
+            container.Dispose();
         }
     }
 }

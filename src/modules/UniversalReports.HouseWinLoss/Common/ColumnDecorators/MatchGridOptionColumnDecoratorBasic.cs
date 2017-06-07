@@ -21,7 +21,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
             return gridOptions;
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         private List<HeaderColumns> BuildBasicMatchColumns()
         {
             return new List<HeaderColumns>

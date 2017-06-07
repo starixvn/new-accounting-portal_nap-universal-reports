@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.Tests.TestDoubles
             return $"League {leagueId}";
         }
 
-        public string GetTeamName(int teamId, string defaultName)
+        public string GetTeamName(int teamId)
         {
             return $"Team {teamId}";
         }

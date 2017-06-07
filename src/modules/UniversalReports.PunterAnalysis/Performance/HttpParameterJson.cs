@@ -2,7 +2,7 @@
 
 namespace UniversalReports.PunterAnalysis.Performance
 {
-    public abstract class HttpParameterJson
+    public class HttpParameterJson
     {
         public DateTime FromDate { get; set; }
 

@@ -1,8 +1,8 @@
 ﻿using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League
 {

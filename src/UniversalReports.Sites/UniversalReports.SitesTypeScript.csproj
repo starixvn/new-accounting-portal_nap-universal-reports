@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{7EDA966B-8A32-4B62-87DF-D924578B6427}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>UniversalReports.SitesTypeScript</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\.editorconfig" />
+    <Content Include="angular\components\gulpfile.js" />
+    <Content Include="angular\components\karma.conf.js" />
+    <Content Include="angular\components\src\date\date-picker\date-picker.component.html" />
+    <Content Include="angular\components\src\date\month-picker\month-picker.component.html" />
+    <Content Include="angular\components\src\date\week-picker\week-picker.component.html" />
+    <Content Include="angular\components\src\date\year-picker\year-picker.component.html" />
+    <Content Include="angular\components\src\dropdown-select\dropdown-select.component.html" />
+    <Content Include="angular\components\src\dropdown-typeahead\dropdown-typeahead.component.html" />
+    <Content Include="angular\components\src\legend\images\button-default.png" />
+    <Content Include="angular\components\src\legend\images\button-hover.png" />
+    <Content Include="angular\components\src\legend\legend-modal.component.html" />
+    <Content Include="angular\components\src\legend\legend.component.html" />
+    <Content Include="angular\components\src\navbar\images\bgmenu-more.png" />
+    <Content Include="angular\components\src\navbar\images\logo.png" />
+    <Content Include="angular\components\src\navbar\images\small-arrow-down.png" />
+    <Content Include="angular\components\src\navbar\images\user.png" />
+    <Content Include="angular\components\src\navbar\navbar.component.html" />
+    <Content Include="angular\components\src\note\note.component.html" />
+    <Content Include="angular\components\src\pagination\pagination.component.html" />
+    <Content Include="angular\components\src\select\select-dropdown.component.html" />
+    <Content Include="angular\components\src\select\select.component.html" />
+    <Content Include="angular\components\src\spinner\images\spinner.gif" />
+    <Content Include="angular\components\src\spinner\spinner.component.html" />
+    <Content Include="angular\components\src\style\images\icon-collapse.png" />
+    <Content Include="angular\components\src\style\images\icon-expand.png" />
+    <Content Include="angular\components\src\toast\toast.component.html" />
+    <Content Include="angular\play-for-fun-statistic\gulpfile.js" />
+    <Content Include="angular\play-for-fun-statistic\karma.conf.js" />
+    <Content Include="angular\play-for-fun-statistic\protractor.conf.js" />
+    <Content Include="angular\play-for-fun-statistic\src\app\app.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\app\filter\filter.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\breadcrumb\breadcrumb.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\breadcrumb\images\excel.png" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\breadcrumb\images\filter.png" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\grid.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.component.html" />
+    <Content Include="angular\play-for-fun-statistic\src\index.html" />
+    <Content Include="angular\punter-analysis\.angular-cli.json" />
+    <Content Include="angular\punter-analysis\debug.log" />
+    <Content Include="angular\punter-analysis\package.json" />
+    <Content Include="angular\punter-analysis\proxy.conf.json" />
+    <Content Include="angular\punter-analysis\README.md" />
+    <Content Include="angular\punter-analysis\src\app\app.component.html" />
+    <Content Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb.component.html" />
+    <Content Include="angular\punter-analysis\src\app\breadcrumb\images\excel.png" />
+    <Content Include="angular\punter-analysis\src\app\breadcrumb\images\filter.png" />
+    <Content Include="angular\punter-analysis\src\app\filter\filter.component.html" />
+    <Content Include="angular\punter-analysis\src\app\filter\period-type\period-type.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.component.html" />
+    <Content Include="angular\punter-analysis\src\app\performance\performance.component.html" />
+    <Content Include="angular\punter-analysis\src\app\performance\product-performance\product-performance.component.html" />
+    <Content Include="angular\punter-analysis\src\app\performance\summary-performance\summary-performance.component.html" />
+    <Content Include="angular\punter-analysis\src\index.html" />
+    <Content Include="angular\punter-analysis\tsconfig.json" />
+    <Content Include="angular\punter-analysis\tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\punter-analysis\karma.conf.js" />
+    <Content Include="angular\punter-analysis\protractor.conf.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\components\.angular-cli.json" />
+    <Content Include="angular\components\package.json" />
+    <Content Include="angular\components\tsconfig.json" />
+    <Content Include="angular\components\tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="angular\components\src\chart\chart.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\chart\chart.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\chart\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\config.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-helper.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-model.date-format.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-model.date-range.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-model.date-struct.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-model.date.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-picker-toggle\date-picker-toggle.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-picker\date-parser-formatter.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-picker\date-parser-formatter.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-picker\date-picker.component.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date-picker\date-picker.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\date.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\month-picker\month-picker.component.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\month-picker\month-picker.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\week-picker\week-date-parser-formatter.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\week-picker\week-picker.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\year-picker\year-picker.component.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\date\year-picker\year-picker.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-select\dropdown-select.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-select\dropdown-select.model.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-select\dropdown-select.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-select\dropdown-select.pipe.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-select\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-typeahead\dropdown-typeahead.component.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-typeahead\dropdown-typeahead.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-typeahead\dropdown-typeahead.model.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-typeahead\dropdown-typeahead.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\dropdown-typeahead\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\exception.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\helper.ts" />
+    <TypeScriptCompile Include="angular\components\src\http.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\legacy.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\legend\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\legend\legend-modal.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\legend\legend.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\legend\legend.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\legend\legend.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\model.ts" />
+    <TypeScriptCompile Include="angular\components\src\navbar\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\navbar\navbar.model.ts" />
+    <TypeScriptCompile Include="angular\components\src\navbar\navbar.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\navbar\navbar.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\note\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\note\note.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\note\note.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\decimal-format.directive.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\decimal-format.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\input-integer.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\integer-format.directive.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\integer-format.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\number-format.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\number-format.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\number-helper.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\percent-format.directive.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\number\percent-format.directive.ts" />
+    <TypeScriptCompile Include="angular\components\src\pagination\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\pagination\pagination.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\pagination\pagination.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\diacritics.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\option-list.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\option.interface.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\option.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\select-dropdown.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\select.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\select\select.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\spinner\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\spinner\spinner.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\spinner\spinner.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\spinner\spinner.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\test.ts" />
+    <TypeScriptCompile Include="angular\components\src\testing\event-helper.ts" />
+    <TypeScriptCompile Include="angular\components\src\testing\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\testing\jasmine-matchers.ts" />
+    <TypeScriptCompile Include="angular\components\src\toast\index.ts" />
+    <TypeScriptCompile Include="angular\components\src\toast\toast.component.spec.ts" />
+    <TypeScriptCompile Include="angular\components\src\toast\toast.component.ts" />
+    <TypeScriptCompile Include="angular\components\src\toast\toast.module.ts" />
+    <TypeScriptCompile Include="angular\components\src\toast\toast.service.ts" />
+    <TypeScriptCompile Include="angular\components\src\typings.d.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\e2e\app.po.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\app.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.model.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.model.status.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.model.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.model.wrapper.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.module.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\filter\filter.service.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\breadcrumb\breadcrumb.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.model.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\detail-grid\detail-grid.service.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\grid.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\grid.model.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\grid.module.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\grid.service.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.component.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.model.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\app\grid\summary-grid\summary-grid.service.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\environments\environment.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\main.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\polyfills.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\test.ts" />
+    <TypeScriptCompile Include="angular\play-for-fun-statistic\src\typings.d.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\e2e\app.po.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\app.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb-config.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.common-user-league.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.depth.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.league.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.main.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.performance.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.sportsbook-sporttype-bettype.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.model.user.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\filter.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\period-type\period-type.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\period-type\period-type.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\filter\period-type\period-type.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\associated-account-grid\associated-account-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-count-grid\bet-count-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\bet-type-grid\bet-type-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\common.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\grid.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\league-grid\league-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\sport-type-grid\sport-type-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.component.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.model.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.service.spec.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\grid\summary-grid\summary-grid.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\common\roman-formatter.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\performance.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\performance.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\performance.module.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\performance.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\product-performance\product-performance.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\product-performance\product-performance.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\product-performance\product-performance.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\summary-performance\summary-performance.component.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\summary-performance\summary-performance.model.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\app\performance\summary-performance\summary-performance.service.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\environments\environment.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\main.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\polyfills.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\test.ts" />
+    <TypeScriptCompile Include="angular\punter-analysis\src\typings.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\components\src\date\date-picker\date-picker.component.scss" />
+    <Content Include="angular\components\src\date\month-picker\month-picker.component.scss" />
+    <Content Include="angular\components\src\date\week-picker\week-picker.component.scss" />
+    <Content Include="angular\components\src\legend\legend-modal.component.scss" />
+    <Content Include="angular\components\src\legend\legend.component.scss" />
+    <Content Include="angular\components\src\navbar\navbar.component.scss" />
+    <Content Include="angular\components\src\note\note.component.scss" />
+    <Content Include="angular\components\src\pagination\pagination.component.scss" />
+    <Content Include="angular\components\src\select\select-dropdown.component.scss" />
+    <Content Include="angular\components\src\select\select.component.scss" />
+    <Content Include="angular\components\src\spinner\spinner.component.scss" />
+    <Content Include="angular\components\src\style\common.scss" />
+    <Content Include="angular\components\src\style\filter.scss" />
+    <Content Include="angular\components\src\style\grid.scss" />
+    <Content Include="angular\components\src\style\header.scss" />
+    <Content Include="angular\components\src\style\mixins.scss" />
+    <Content Include="angular\components\src\style\table.scss" />
+    <Content Include="angular\components\src\style\variables.scss" />
+    <Content Include="angular\components\src\tsconfig.app.json" />
+    <Content Include="angular\components\src\tsconfig.spec.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\play-for-fun-statistic\.angular-cli.json" />
+    <Content Include="angular\play-for-fun-statistic\debug.log" />
+    <Content Include="angular\play-for-fun-statistic\e2e\tsconfig.e2e.json" />
+    <Content Include="angular\play-for-fun-statistic\package.json" />
+    <Content Include="angular\play-for-fun-statistic\proxy.conf.json" />
+    <Content Include="angular\play-for-fun-statistic\README.md" />
+    <Content Include="angular\play-for-fun-statistic\src\app\filter\filter.component.scss" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\breadcrumb\breadcrumb.component.scss" />
+    <Content Include="angular\play-for-fun-statistic\src\app\grid\grid.component.scss" />
+    <Content Include="angular\play-for-fun-statistic\src\assets\.gitkeep" />
+    <Content Include="angular\play-for-fun-statistic\src\index.ejs" />
+    <Content Include="angular\play-for-fun-statistic\src\styles.scss" />
+    <Content Include="angular\play-for-fun-statistic\src\tsconfig.app.json" />
+    <Content Include="angular\play-for-fun-statistic\src\tsconfig.spec.json" />
+    <Content Include="angular\play-for-fun-statistic\tsconfig.json" />
+    <Content Include="angular\play-for-fun-statistic\tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular\punter-analysis\e2e\tsconfig.e2e.json" />
+    <Content Include="angular\punter-analysis\src\app\breadcrumb\breadcrumb.component.scss" />
+    <Content Include="angular\punter-analysis\src\app\filter\filter.component.scss" />
+    <Content Include="angular\punter-analysis\src\app\filter\period-type\period-type.component.scss" />
+    <Content Include="angular\punter-analysis\src\app\grid\grid.component.scss" />
+    <Content Include="angular\punter-analysis\src\app\performance\performance.component.scss" />
+    <Content Include="angular\punter-analysis\src\assets\.gitkeep" />
+    <Content Include="angular\punter-analysis\src\index.ejs" />
+    <Content Include="angular\punter-analysis\src\styles.scss" />
+    <Content Include="angular\punter-analysis\src\tsconfig.app.json" />
+    <Content Include="angular\punter-analysis\src\tsconfig.spec.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="angular\play-for-fun-statistic\dist\" />
+    <Folder Include="angular\punter-analysis\dist\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Epplus.Mapper.1.0.0.9\lib\net461\Epplus.Mapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.0.7\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.0.7\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.4.0.7\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56527</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56527/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>cd $(ProjectDir)\angular\components &amp;&amp; call npm install &amp;&amp; call npm link
+cd $(ProjectDir)\angular\punter-analysis &amp;&amp; call npm install &amp;&amp; call npm link nap-components &amp;&amp; call npm run build
+cd $(ProjectDir)\angular\play-for-fun-statistic &amp;&amp; call npm install &amp;&amp; call npm link nap-components &amp;&amp; call npm run build
+</PreBuildEvent>
+  </PropertyGroup>
+</Project>

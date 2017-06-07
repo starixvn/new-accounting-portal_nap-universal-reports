@@ -1,5 +1,5 @@
 ﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetType
 {

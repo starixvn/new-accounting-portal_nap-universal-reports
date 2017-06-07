@@ -1,9 +1,9 @@
-﻿using System;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
+using System;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.UnitTests.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
 {
@@ -21,7 +21,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
         public void Determine_NormalMode_StartDateAfterMoveBetsDate_ReturnsBetTransSource()
         {
             // Arrange
-            var criteria = new WinLossCriteria
+            var criteria = new FakeWinLossCriteria
             {
                 NormalMode = true,
                 StartDate = new DateTime(2015, 10, 01),
@@ -43,7 +43,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
         public void Determine_NormalMode_StartDateBetweenBalanceUpRange_ReturnsBetTrans14Source()
         {
             // Arrange
-            var criteria = new WinLossCriteria
+            var criteria = new FakeWinLossCriteria
             {
                 NormalMode = true,
                 StartDate = new DateTime(2015, 07, 01),
@@ -65,7 +65,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
         public void Determine_NormalMode_StartDateBeforeBalanceUpRange_ReturnsWarehouseSource()
         {
             // Arrange
-            var criteria = new WinLossCriteria
+            var criteria = new FakeWinLossCriteria
             {
                 NormalMode = true,
                 StartDate = new DateTime(2015, 05, 01),
@@ -87,7 +87,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
         public void Determine_HistoryMode_ReturnWarehouseSource()
         {
             // Arrange
-            var criteria = new WinLossCriteria
+            var criteria = new FakeWinLossCriteria
             {
                 NormalMode = false,
                 StartDate = new DateTime(2015, 03, 01),

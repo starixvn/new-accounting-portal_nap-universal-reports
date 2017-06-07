@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using SimpleInjector;
 using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Summary;
 using UniversalReports.PlayForFun.Summary.Model;
@@ -24,8 +25,9 @@ namespace UniversalReports.PlayForFun.Tests.Summary
             var expectedDetailBody = TestDataLoader.Load<object[,]>("Detail-Excel-ExpectedBody.json");
             var expectedDetailTotal = TestDataLoader.Load<object[,]>("Detail-Excel-ExpectedTotal.json");
 
-            var factory = new ApiControllerFactoryMethodFetchAsync();
-            var controller = factory.CreateController<PlayForFunSummaryController, SummaryModel, PlayForFun.Detail.Model.DetailModel>(
+            var container = new Container();
+            var factory = new ApiControllerFactoryMethodFetchAsync(container);
+            var controller = factory.CreateController<PlayForFunSummaryController, SummaryModel, Detail.Model.DetailModel>(
                 FakeRepositoryDataFileName,
                 FakeDetailRepositoryDataFileName);
 
@@ -48,7 +50,7 @@ namespace UniversalReports.PlayForFun.Tests.Summary
             Assert.That(detailWorkSheet.Cells["A6:M6"].Value, Is.EqualTo(expectedDetailTotal));
 
             // Release
-            factory.Dispose();
+            container.Dispose();
         }
     }
 }

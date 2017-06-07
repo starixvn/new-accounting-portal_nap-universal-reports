@@ -6,7 +6,7 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
 using System.Threading.Tasks;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
@@ -24,27 +24,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
             var service = Substitute.For<PunterAnalysisService>();
             service.Query<SportTypeModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
 
-            var mapper = CreateMapper();
-
             // Act
-            var handler = new Handler(mapper, service);
+            var handler = new Handler(service);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<SummaryEntity<SportTypeModel>, SummaryEntity<SportTypeModel>>(MemberList.Source);
-                cfg.CreateMap<HttpParameterJson, Criteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

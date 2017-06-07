@@ -2,15 +2,19 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
-using System;
 using System.Collections.Generic;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
 {
-    public class ApiControllerFactoryMethodFetchAsync : IDisposable
+    public class ApiControllerFactoryMethodFetchAsync
     {
-        private readonly Container container = new Container();
+        private readonly Container container;
+
+        public ApiControllerFactoryMethodFetchAsync(Container container)
+        {
+            this.container = container;
+        }
 
         public TController CreateController<TController, TModel>(string fakeDatabaseFile)
         {
@@ -22,16 +26,10 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection
             return (TController)container.GetInstance(typeof(TController));
         }
 
-        public void Dispose()
-        {
-            container.Dispose();
-        }
-
         private void RegisterDependency(IDynamicRepository repository)
         {
             container.Register(() => repository);
             container.RegiserGlobalServices()
-                    .RegisterAutoMapper()
                     .RegisterMediator()
                     .RegisterPunterAnalysisServices();
             container.Verify();

@@ -63,9 +63,9 @@ export class FilterModelWrapper {
     }
 
     validate(): string {
+        const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
+        const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
         if (this.userLeagueModel) {
-            const momentFromDate = DateHelper.convertDateStructToMoment(this.filterModel.fromDate);
-            const momentToDate = DateHelper.convertDateStructToMoment(this.filterModel.toDate);
             switch (this.userLeagueModel.periodType) {
                 case PeriodType.Daily:
                 case PeriodType.Weekly:
@@ -73,6 +73,10 @@ export class FilterModelWrapper {
                         return 'Date range should not exceed 1 month!';
                     }
                     break;
+            }
+        } else {
+            if (momentFromDate.add(1, 'year').add(-1, 'day').isBefore(momentToDate)) {
+                return 'Date range should not exceed 1 year!';
             }
         }
 

@@ -5,7 +5,10 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build-legacy": "webpack",
+    "install-package": "cd angular\\components && npm install && cd ..\\punter-analysis && npm install && cd ..\\play-for-fun-statistic && npm install && exit 0",
+    "link": "cd angular\\components && npm link && cd ..\\punter-analysis && npm link nap-components && cd ..\\play-for-fun-statistic && npm link nap-components && exit 0",
+    "build": "cd angular\\punter-analysis && npm run build && cd ..\\play-for-fun-statistic && npm run build && exit 0"
   },
   "keywords": [],
   "author": "",

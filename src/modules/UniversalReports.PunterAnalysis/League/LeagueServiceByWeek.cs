@@ -1,12 +1,12 @@
 ﻿using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using UniversalReports.PunterAnalysis.Core;
 using UniversalReports.PunterAnalysis.League.Model;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class LeagueServiceByWeek : LeagueServiceBase, LeagueService
+    public class LeagueServiceByWeek : LeagueServiceBase
     {
         private readonly DateTimeService dateTimeService;
 

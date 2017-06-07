@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.Filter.AvailableDatabase
         public async Task<bool> Handle(HttpParameterJson message)
         {
             var criteria = new QueryCriteria();
-            return await repository.GetAsync<bool>(criteria);
+            return await repository.GetAsync<bool>(criteria).ConfigureAwait(false);
         }
     }
 }

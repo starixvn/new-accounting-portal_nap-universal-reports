@@ -10,6 +10,7 @@ import { PerformanceService } from '../performance.service';
 import { SummaryPerformanceService } from './summary-performance.service';
 import { PerformanceStatistic } from './summary-performance.model';
 import { RomanFormatter } from '../common/roman-formatter';
+import { groupName, displayLimit } from '../common/config';
 
 function rgba(colour: Array<number>, alpha: number): string {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
@@ -174,7 +175,7 @@ export class SummaryPerformanceComponent implements Performance {
             const filterModel = this.performanceService.filterModel;
             const userName = filterModel.performance.userName;
             const dateString = FilterModelWrapper.getDateFromToString(PeriodType.MonthRange, filterModel.fromDate, filterModel.toDate);
-            return `Punter ${userName} Performance ${dateString}`;
+            return `Punter ${userName}'s Performance ${dateString}`;
         } else {
             return 'Main';
         }
@@ -197,7 +198,6 @@ export class SummaryPerformanceComponent implements Performance {
             label: 'Margin',
             data: monthStatistics.map(item => _.round(item.WinLoss * 100 / item.Turnover, 2))
         }];
-        // this.marginOptions
 
         // bet count by month
         this.betCountDatasets = [{
@@ -219,10 +219,7 @@ export class SummaryPerformanceComponent implements Performance {
             yAxisID: 'y-axis-1'
         }];
 
-        // product turnover
-        const productTurnoverStatistics = this.statistic.ProductTurnoverStatistics;
-        this.productLabels = productTurnoverStatistics.map(item => item.ProductName);
-        this.productData = productTurnoverStatistics.map(item => item.Turnover);
+        this.generateProductTurnover();
     }
 
     chartClicked(e: any): void {
@@ -234,5 +231,11 @@ export class SummaryPerformanceComponent implements Performance {
                 this.performanceService.generate(PerformanceType.Product);
             }
         }
+    }
+
+    private generateProductTurnover() {
+        const productsTurnoverStatistics = this.statistic.ProductTurnoverStatistics;
+        this.productLabels = productsTurnoverStatistics.map(item => item.ProductName);
+        this.productData = productsTurnoverStatistics.map(item => item.Turnover);
     }
 }

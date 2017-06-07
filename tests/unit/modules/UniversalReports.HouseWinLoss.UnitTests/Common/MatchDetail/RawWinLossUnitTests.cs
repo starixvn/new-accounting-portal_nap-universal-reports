@@ -9,9 +9,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
     public class RawWinLossUnitTests
     {
         [Test]
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         public void Add_ShouldReturnRightSumValue()
         {
             // Arrange

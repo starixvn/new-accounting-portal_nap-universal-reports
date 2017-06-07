@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.7\lib\net461\Epplus.Mapper.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.9\lib\net461\Epplus.Mapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Caching">
@@ -122,12 +122,12 @@
       <HintPath>..\..\..\..\packages\NUnit.CompareNetObjects.0.1.9\lib\net45\NUnit.CompareNetObjects.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.7.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NUnit.3.7.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\SimpleInjector.4.0.6\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -164,21 +164,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssociatedAccount\FraudServiceWrapperImpTests.cs" />
+    <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisFilterProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisLeagueProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisPerformanceProfile.cs" />
-    <Compile Include="DependencyInjection\SimpleInjector\AutoMapperInjector.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisAssociatedAccountProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisBetCountProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisBetTypeProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisSportTypeProfile.cs" />
-    <Compile Include="DependencyInjection\AutoMapperSettings\PunterAnalysisSummaryProfile.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\PunterAnalysisInjector.cs" />

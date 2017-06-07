@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
@@ -27,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         public async Task<SummaryEntity<BetCountModel>> Query(Criteria criteria)
         {
-            return (await repository.FetchAsync<BetCountRawModel>(criteria))
+            return (await repository.FetchAsync<BetCountRawModel>(criteria).ConfigureAwait(false))
                            .Select(e => Map(e, criteria.PeriodType))
                            .CalculateSummaryEntity();
         }

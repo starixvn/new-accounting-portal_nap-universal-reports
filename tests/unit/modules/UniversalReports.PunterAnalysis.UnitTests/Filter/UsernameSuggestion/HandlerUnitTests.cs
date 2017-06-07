@@ -27,7 +27,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion
         {
             // Arrange
             const int CurrentUserId = 1;
-            var mapper = CreateMapper();
             var currentSession = Substitute.For<ICurrentSession>();
             currentSession.UserId.Returns(CurrentUserId);
 
@@ -37,23 +36,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion
 
             // Act
             var parameter = new HttpParameterJson { RoleId = 1, Username = "Any Username" };
-            var handler = new Handler(mapper, currentSession, repository);
+            var handler = new Handler(currentSession, repository);
 
             var usernames = await handler.Handle(parameter);
 
             Assert.That(usernames, IsDeeplyEqual.To(valueFromRepository));
-        }
-
-        private IMapper CreateMapper()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<HttpParameterJson, QueryCriteria>(MemberList.Source);
-            });
-
-            config.AssertConfigurationIsValid();
-
-            return config.CreateMapper();
         }
     }
 }

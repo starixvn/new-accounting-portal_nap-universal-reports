@@ -3,19 +3,19 @@ using Linq.DynamicSum;
 using MediatR;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType.Model;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetType
 {
     public class Handler : HandlerBase, IAsyncRequestHandler<HttpParameterJson, SummaryEntity<BetTypeModel>>
     {
-        public Handler(IMapper mapper, PunterAnalysisService punterAnalysisService) : base(mapper, punterAnalysisService)
+        public Handler(PunterAnalysisService punterAnalysisService) : base(punterAnalysisService)
         {
         }
 
         public async Task<SummaryEntity<BetTypeModel>> Handle(HttpParameterJson message)
         {
-            return await Handle<Criteria, BetTypeModel>(message);
+            return await Handle<Criteria, BetTypeModel>(message).ConfigureAwait(false);
         }
     }
 }

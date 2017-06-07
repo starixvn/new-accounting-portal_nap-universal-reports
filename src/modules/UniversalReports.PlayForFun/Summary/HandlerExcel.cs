@@ -14,8 +14,6 @@ namespace UniversalReports.PlayForFun.Summary
     {
         private const string TemplatePath = @"ExcelTemplate\PlayForFun\Summary.xlsx";
 
-        private readonly IMapper mapper;
-
         private readonly PlayForFunService playForFunService;
 
         private readonly ApplicationConfigurationService configurationService;
@@ -23,12 +21,10 @@ namespace UniversalReports.PlayForFun.Summary
         private readonly ExcelBuilder excelBuilder;
 
         public HandlerExcel(
-            IMapper mapper,
             PlayForFunService playForFunService,
             ApplicationConfigurationService configurationService,
             ExcelBuilder excelBuilder)
         {
-            this.mapper = mapper;
             this.playForFunService = playForFunService;
             this.configurationService = configurationService;
             this.excelBuilder = excelBuilder;
@@ -36,13 +32,13 @@ namespace UniversalReports.PlayForFun.Summary
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel message)
         {
-            var summaryCriteria = mapper.Map<SummaryCriteria>(message);
-            var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria);
-            var summaryExcelViewModel = mapper.Map<SummaryEntity<SummaryExcelModel>>(summaryModel);
+            var summaryCriteria = Mapper.Map<SummaryCriteria>(message);
+            var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria).ConfigureAwait(false);
+            var summaryExcelViewModel = Mapper.Map<SummaryEntity<SummaryExcelModel>>(summaryModel);
 
-            var detailCriteria = mapper.Map<DetailCriteria>(message);
-            var detailModel = await playForFunService.Query<DetailModel>(detailCriteria);
-            var detailExcelViewModel = mapper.Map<SummaryEntity<DetailExcelModel>>(detailModel);
+            var detailCriteria = Mapper.Map<DetailCriteria>(message);
+            var detailModel = await playForFunService.Query<DetailModel>(detailCriteria).ConfigureAwait(false);
+            var detailExcelViewModel = Mapper.Map<SummaryEntity<DetailExcelModel>>(detailModel);
 
             var sumamryExcelSetting = CreateSummarySetting(message.Title);
             var detailExcelSetting = CreateProductDetailSetting(message.Title, message.ProductName);

@@ -19,14 +19,14 @@ namespace UniversalReports.PunterAnalysis.League
         [Route("")]
         public async Task<IHttpActionResult> Index(HttpParameterJson parameter)
         {
-            var viewModel = await mediator.Send(parameter);
+            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
         }
 
         [Route("excel")]
         public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
         {
-            var excelPackage = await mediator.Send(parameter);
+            var excelPackage = await mediator.Send(parameter).ConfigureAwait(false);
             return new ExcelResult(excelPackage);
         }
     }

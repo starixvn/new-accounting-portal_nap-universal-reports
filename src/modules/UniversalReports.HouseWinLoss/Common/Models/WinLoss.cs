@@ -48,11 +48,15 @@ namespace UniversalReports.HouseWinLoss.Common.Models
             }
         }
 
-        public bool IsEmpty => RealTurnover == 0
-                                && VirtualTurnover == 0
-                                && MemberWinLoss == 0
-                                && SMAWinLoss == 0
-                                && RealIncome == 0
-                                && VirtualIncome == 0;
+        public bool IsEmpty
+        {
+            get
+            {
+                var isEmptyTurnover = RealTurnover == 0 && VirtualTurnover == 0;
+                var isEmptyIncome = RealIncome == 0 && VirtualIncome == 0;
+                var isEmptyWinLoss = MemberWinLoss == 0 && SMAWinLoss == 0;
+                return isEmptyIncome && isEmptyTurnover && isEmptyWinLoss;
+            }
+        }
     }
 }

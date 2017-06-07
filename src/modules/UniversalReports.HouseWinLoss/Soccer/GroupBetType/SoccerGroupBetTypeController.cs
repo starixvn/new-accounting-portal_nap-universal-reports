@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using UniversalReports.Core.Factory;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
@@ -23,7 +23,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, string.Empty);
             gridOptions = decorator.Build(gridOptions, "Bet Type");
@@ -32,9 +32,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(GroupBetTypeExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<GroupBetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
             gridOptions = decorator.Build(gridOptions, "Bet Type");

@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>FanexRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>UniversalReports.NG2Statistics.Debug.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,8 +32,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>UniversalReports.NG2Statistics.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dapper">
       <HintPath>..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -97,20 +102,20 @@
       <HintPath>..\..\..\packages\RemotingRef.2.0.0.5\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.4.0.6\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.4.0.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.Integration.Web.4.0.6\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.Integration.Web.4.0.7\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SimpleInjector.Integration.WebApi.4.0.6\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SimpleInjector.Integration.WebApi.4.0.7\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting">
@@ -157,37 +162,38 @@
     <Compile Include="Bettype\BettypeController.cs" />
     <Compile Include="Bettype\BettypeCriteria.cs" />
     <Compile Include="Bettype\BettypeModel.cs" />
-    <Compile Include="Bettype\BettypeServiceImp.cs" />
-    <Compile Include="Bettype\GridOptionsBuilderImp.cs" />
+    <Compile Include="Bettype\BettypeService.cs" />
+    <Compile Include="Bettype\GridOptionsBuilder.cs" />
     <Compile Include="BaseServices\NG2CriteriaBase.cs" />
-    <Compile Include="Bettype\RepositoryImp.cs" />
-    <Compile Include="Bettype\SortingServiceImp.cs" />
+    <Compile Include="Bettype\Repository.cs" />
+    <Compile Include="Bettype\SortingService.cs" />
     <Compile Include="Daily\DailyCriteria.cs" />
     <Compile Include="Daily\DailyModel.cs" />
-    <Compile Include="Daily\DailyServiceImp.cs" />
-    <Compile Include="Daily\GridOptionsBuilderImp.cs" />
+    <Compile Include="Daily\DailyService.cs" />
+    <Compile Include="Daily\GridOptionsBuilder.cs" />
     <Compile Include="Daily\DailyController.cs" />
     <Compile Include="Filter\UserNameModel.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GrandTotal\GrandTotalController.cs" />
     <Compile Include="GrandTotal\GrandTotalCriteria.cs" />
     <Compile Include="GrandTotal\GrandTotalModel.cs" />
-    <Compile Include="GrandTotal\GrandTotalServiceImp.cs" />
-    <Compile Include="GrandTotal\GridOptionHeaderColumnImp.cs" />
-    <Compile Include="GrandTotal\GridOptionsBuilderImp.cs" />
-    <Compile Include="BaseServices\BaseGridOptionHeaderColumnImp.cs" />
+    <Compile Include="GrandTotal\GrandTotalService.cs" />
+    <Compile Include="GrandTotal\GridOptionHeaderColumn.cs" />
+    <Compile Include="GrandTotal\GridOptionsBuilder.cs" />
+    <Compile Include="BaseServices\BaseGridOptionHeaderColumn.cs" />
     <Compile Include="BaseServices\QueryModel.cs" />
     <Compile Include="SortUtility\Sort.cs" />
     <Compile Include="SortUtility\SortDirectionConstants.cs" />
-    <Compile Include="UserName\GridOptionHeaderColumnImp.cs" />
-    <Compile Include="UserName\GridOptionsBuilderImp.cs" />
+    <Compile Include="UserName\GridOptionHeaderColumn.cs" />
+    <Compile Include="UserName\GridOptionsBuilder.cs" />
     <Compile Include="UserName\UserNameController.cs" />
     <Compile Include="UserName\UserNameCriteria.cs" />
     <Compile Include="UserName\UserNameModel.cs" />
-    <Compile Include="UserName\UserNameServiceImp.cs" />
+    <Compile Include="UserName\UserNameService.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
     <Compile Include="Filter\Entity.cs" />
     <Compile Include="Filter\SportRaw.cs" />
-    <Compile Include="Filter\ServiceImp.cs" />
+    <Compile Include="Filter\Service.cs" />
     <Compile Include="Filter\Sport.cs" />
     <Compile Include="Filter\SportCriteria.cs" />
     <Compile Include="Filter\FilterController.cs" />
@@ -197,6 +203,8 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="UniversalReports.NG2Statistics.Debug.ruleset" />
+    <None Include="UniversalReports.NG2Statistics.ruleset" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
@@ -209,7 +217,11 @@
       <Properties>SkipValidatePackageReferences=true</Properties>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

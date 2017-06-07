@@ -7,7 +7,7 @@ using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 {
-    public abstract class BaseBetTypeGridOptionsBuilder : BaseGridOptionsBuilder
+    public class BaseBetTypeGridOptionsBuilder : BaseGridOptionsBuilder
     {
         protected BaseBetTypeGridOptionsBuilder(BasicGridDataRowBuilder gridDataRowBuilder) : base(gridDataRowBuilder)
         {

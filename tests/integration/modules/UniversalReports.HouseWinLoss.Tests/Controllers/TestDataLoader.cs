@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using NUnit.Framework;
 using System.IO;
 using System.Runtime.CompilerServices;
 
@@ -6,18 +7,18 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     internal class TestDataLoader
     {
-        internal static T Load<T>(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
+        internal static T Load<T>(string controllerName, string name)
         {
-            var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
+            var sourceFileDirectory = TestContext.CurrentContext.TestDirectory;
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
             var text = File.ReadAllText(dataFilePath);
 
             return JsonConvert.DeserializeObject<T>(text);
         }
 
-        internal static string LoadTestContent(string controllerName, string name, [CallerFilePath] string sourceFilePath = "")
+        internal static string LoadTestContent(string controllerName, string name)
         {
-            var sourceFileDirectory = Path.GetDirectoryName(sourceFilePath);
+            var sourceFileDirectory = TestContext.CurrentContext.TestDirectory;
             var dataFilePath = $"{sourceFileDirectory}\\TestData\\{controllerName}-{name}.json";
             return File.ReadAllText(dataFilePath);
         }

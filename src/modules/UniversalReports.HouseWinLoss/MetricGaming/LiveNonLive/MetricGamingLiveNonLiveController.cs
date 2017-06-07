@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using AutoMapper;
 using Fanex.Excel.Models;
-using UniversalReports.Core.Factory;
+using System.Collections.Generic;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
@@ -23,17 +23,17 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var criteria = Mapper.Map<Criteria>(queryModel);
             return Json(criteria, "Live/Non-Live", 220);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var betTypeCriteria = CriteriaFactory.Transform<BetType.Criteria>(queryModel);
+            var betTypeCriteria = Mapper.Map<BetType.Criteria>(queryModel);
             var betTypeGridOptions = GetGridOptions(betTypeCriteria, "Bet Type", queryModel.BetTypeTitle, 220);
 
-            var liveNonLiveCriteria = CriteriaFactory.Transform<Criteria>(queryModel);
+            var liveNonLiveCriteria = Mapper.Map<Criteria>(queryModel);
             var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle, 220);
 
             return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);

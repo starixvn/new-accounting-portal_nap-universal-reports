@@ -61,7 +61,7 @@ export class PerformanceComponent implements OnInit, OnChanges, OnDestroy {
                 const filterModel = this.filterModel;
                 const userName = filterModel.performance.userName;
                 const dateString = FilterModelWrapper.getDateFromToString(PeriodType.MonthRange, filterModel.fromDate, filterModel.toDate);
-                this.breadcrumbItems = [`Punter ${userName} Performance ${dateString}`];
+                this.breadcrumbItems = [`Punter ${userName}'s Performance ${dateString}`];
             }
         });
     }

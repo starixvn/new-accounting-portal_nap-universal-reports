@@ -1,11 +1,10 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
-    public abstract class GridOptionColumnDecoratorBase
+    public class GridOptionColumnDecoratorBase
     {
         protected const int VarianceIndex = 4;
 
@@ -48,15 +47,8 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         {
             foreach (var index in indice)
             {
-                if (gridOptions.BodyRows != null)
-                {
-                    RemoveColumn(gridOptions.BodyRows, index);
-                }
-
-                if (gridOptions.FooterRows != null)
-                {
-                    RemoveColumn(gridOptions.FooterRows, index);
-                }
+                RemoveColumn(gridOptions.BodyRows, index);
+                RemoveColumn(gridOptions.FooterRows, index);
             }
         }
 
@@ -71,18 +63,12 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
         private void RemoveColumn(GridDataRow row, int index)
         {
             columnRemoval.RemoveColumn(row.Columns, index);
-            if (row.SubRows == null)
-            {
-                return;
-            }
-
             foreach (var subRow in row.SubRows)
             {
                 RemoveColumn(subRow, index);
             }
         }
 
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2100:CodeLineMustNotBeLongerThan", Justification = "Reviewed. Suppression is OK here.")]
         protected List<HeaderColumns> CreateCoreHeaderColumns()
         {
             return new List<HeaderColumns>

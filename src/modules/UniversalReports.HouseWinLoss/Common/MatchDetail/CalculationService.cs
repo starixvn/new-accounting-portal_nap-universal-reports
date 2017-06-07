@@ -35,7 +35,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 HomeId = rawWinLoss.HomeId,
                 AwayId = rawWinLoss.AwayId,
                 HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral),
-                AwayName = refService.GetTeamName(rawWinLoss.AwayId, rawWinLoss.AwayName),
+                AwayName = refService.GetTeamName(rawWinLoss.AwayId),
                 LeagueId = rawWinLoss.LeagueId,
                 LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId),
                 Commission = rawWinLoss.Commission,
@@ -51,7 +51,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private string GetHomeName(int teamId, bool isNeutral)
         {
-            return refService.GetTeamName(teamId, string.Empty)
+            return refService.GetTeamName(teamId)
                 + (isNeutral ? " (N)" : string.Empty);
         }
 

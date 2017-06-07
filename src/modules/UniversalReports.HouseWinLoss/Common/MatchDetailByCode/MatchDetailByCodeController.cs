@@ -7,7 +7,7 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 {
-    public abstract class MatchDetailByCodeController : ApiController
+    public class MatchDetailByCodeController : ApiController
     {
         private readonly WinLossService service;
 
@@ -15,11 +15,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
 
         private readonly MatchGridOptionColumnDecorator decorator;
 
-        protected MatchDetailByCodeController()
-        {
-        }
-
-        protected MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
+        public MatchDetailByCodeController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator decorator)
         {
             this.service = service;
             this.builder = builder;

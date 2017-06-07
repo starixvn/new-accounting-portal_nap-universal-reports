@@ -1,4 +1,5 @@
-﻿using Fanex.Data.CrossCutting.WrappingException;
+﻿using AutoMapper;
+using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Logging;
 using System;
 using System.Data.Common;
@@ -24,6 +25,19 @@ namespace UniversalReports.Sites
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FanexData.Register();
+            Mapper.Initialize(cfg => cfg.CreateMissingTypeMaps = true);
+        }
+
+        private static void ChangeApplicationName()
+        {
+            const string ApplicationName = "NAP_ACC_REPORT";
+
+            // Change the Application Name in runtime.
+            var runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
+            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
+            var theRuntime = runtimeInfo.GetValue(null);
+
+            appNameInfo.SetValue(theRuntime, ApplicationName);
         }
 
         protected void Application_PostAuthorizeRequest()
@@ -36,21 +50,6 @@ namespace UniversalReports.Sites
             }
         }
 
-        private void ChangeApplicationName()
-        {
-            const string ApplicationName = "NAP_ACC_REPORT";
-
-            // Change the Application Name in runtime.
-            var runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
-            var appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
-            var theRuntime = runtimeInfo.GetValue(null);
-
-            appNameInfo.SetValue(theRuntime, ApplicationName);
-        }
-
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         protected void Application_Error(object sender, EventArgs e)
         {
             var exception = Server.GetLastError().GetBaseException();

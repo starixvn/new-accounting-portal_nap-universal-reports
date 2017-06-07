@@ -17,8 +17,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.OtherSports.NewCricket
         public void Query_ReturnRightResult()
         {
             // Arrange
-            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("data-1-fakeData");
-            var expected = TestDataLoader.Load<WinLossModel>("data-1-expected");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("OtherSports.NewCricket.Service.data-1-fakeData");
+            var expected = TestDataLoader.Load<WinLossModel>("OtherSports.NewCricket.Service.data-1-expected");
 
             // Act
             var calculateService = new CalculationServiceImp();

@@ -17,7 +17,7 @@ namespace UniversalReports.PunterAnalysis.Filter.ProductSportBetType
         public async Task<IEnumerable<ProductSportBetTypeEntity>> Handle(HttpParameterJson message)
         {
             var criteria = new QueryCriteria();
-            return await repository.FetchAsync<ProductSportBetTypeEntity>(criteria);
+            return await repository.FetchAsync<ProductSportBetTypeEntity>(criteria).ConfigureAwait(false);
         }
     }
 }

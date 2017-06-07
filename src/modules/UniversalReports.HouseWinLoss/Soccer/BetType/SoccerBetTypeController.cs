@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using UniversalReports.Core.Factory;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 
@@ -19,14 +19,14 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<BetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<BetTypeCriteria>(queryModel);
             return Json(criteria, "Bet Type", 210);
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(BetTypeExcelQueryModel queryModel)
+        public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = CriteriaFactory.Transform<BetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<BetTypeCriteria>(queryModel);
             return Excel(criteria, "Bet Type", queryModel.Title);
         }
     }

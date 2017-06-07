@@ -2,14 +2,59 @@
 using NUnit.Framework;
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Web.Http.Results;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class GridOptionsWithRawWinLossControllerTests : BaseControllerTests
     {
-        private static readonly string[] ControllerList = CreateTestCases();
+        public static string[] ControllerList
+        {
+            get
+            {
+                return new[]
+                {
+                    "Bettrade.BetType.BettradeBetTypeController",
+                    "Bettrade.Site.BettradeSiteController",
+                    "CashOut.BetType.CashOutBetTypeController",
+                    "CashOut.Site.CashOutSiteController",
+                    "Casino.BetType.CasinoBetTypeController",
+                    "Casino.Product.CasinoProductController",
+                    "Casino.Site.CasinoSiteController",
+                    "MetricGaming.BetType.MetricGamingBetTypeController",
+                    "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
+                    "MetricGaming.Site.MetricGamingSiteController",
+                    "NumberGame.MatchDetail.NumberGameMatchDetailController",
+                    "OtherSports.BetType.OtherSportsBetTypeController",
+                    "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
+                    "OtherSports.SportType.OtherSportsSportTypeController",
+                    "OtherSports.NewCricket.OtherSportNewCricketController",
+                    "Parlay.BetType.ParlayBetTypeController",
+                    "Parlay.Site.ParlaySiteController",
+                    "Products.ProductController",
+                    "Racing.BetType.RacingBetTypeController",
+                    "Racing.MatchDetail.RacingMatchDetailController",
+                    "Racing.Site.RacingSiteController",
+                    "Racing.SportType.RacingSportTypeController",
+                    "Soccer.BetType.SoccerBetTypeController",
+                    "Soccer.GroupBetType.SoccerGroupBetTypeController",
+                    "Soccer.LiveNonLive.SoccerLiveNonLiveController",
+                    "Soccer.MajorMinor.SoccerMajorMinorController",
+                    "Soccer.SumBetType.SoccerSumBetTypeController",
+                    "Sportsbook.Site.SportsbookSiteController",
+                    "Universal.SportType.UniversalSportTypeController",
+                    "Universal.BetType.UniversalBetTypeController",
+                    "Universal.Site.UniversalSiteController",
+                    "VirtualSports.BetType.VirtualSportsBetTypeController",
+                    "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",
+                    "VirtualSports.Site.VirtualSportsSiteController",
+                    "VirtualSports.SportType.VirtualSportsSportTypeController",
+                    "FishingWorld.BetType.FishingWorldBetTypeController",
+                    "FishingWorld.Site.FishingWorldSiteController"
+                };
+            }
+        }
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]
@@ -26,62 +71,50 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             ComparisonAssert.AreEqualJson(expected, gridOptions);
         }
 
-        private static string[] CreateTestCases()
+        [TestCaseSource(nameof(ControllerList))]
+        [Category("ControllersTests")]
+        public void Excel_Successful(string controllerName)
         {
-            return new[]
-            {
-                "Bettrade.BetType.BettradeBetTypeController",
-                "Bettrade.Site.BettradeSiteController",
-                "CashOut.BetType.CashOutBetTypeController",
-                "CashOut.Site.CashOutSiteController",
-                "Casino.BetType.CasinoBetTypeController",
-                "Casino.Product.CasinoProductController",
-                "Casino.Site.CasinoSiteController",
-                "MetricGaming.BetType.MetricGamingBetTypeController",
-                "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
-                "MetricGaming.Site.MetricGamingSiteController",
-                "NumberGame.MatchDetail.NumberGameMatchDetailController",
-                "OtherSports.BetType.OtherSportsBetTypeController",
-                "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
-                "OtherSports.SportType.OtherSportsSportTypeController",
-                "Parlay.BetType.ParlayBetTypeController",
-                "Parlay.Site.ParlaySiteController",
-                "Products.ProductController",
-                "Racing.BetType.RacingBetTypeController",
-                "Racing.MatchDetail.RacingMatchDetailController",
-                "Racing.Site.RacingSiteController",
-                "Racing.SportType.RacingSportTypeController",
-                "Soccer.BetType.SoccerBetTypeController",
-                "Soccer.GroupBetType.SoccerGroupBetTypeController",
-                "Soccer.LiveNonLive.SoccerLiveNonLiveController",
-                "Soccer.MajorMinor.SoccerMajorMinorController",
-                "Soccer.SumBetType.SoccerSumBetTypeController",
-                "Sportsbook.Site.SportsbookSiteController",
-                "Universal.SportType.UniversalSportTypeController",
-                "Universal.BetType.UniversalBetTypeController",
-                "Universal.Site.UniversalSiteController",
-                "VirtualSports.BetType.VirtualSportsBetTypeController",
-                "VirtualSports.RacingDetail.VirtualSportsRacingDetailController",
-                "VirtualSports.Site.VirtualSportsSiteController",
-                "VirtualSports.SportType.VirtualSportsSportTypeController",
-                "FishingWorld.BetType.FishingWorldBetTypeController",
-                "FishingWorld.Site.FishingWorldSiteController"
-            };
+            var queryModel = GetExcelQueryModel(controllerName);
+            var controller = GetControllerWithRawWinLoss(controllerName);
+
+            var methodInfo = controller.GetType().GetMethod("Excel", new[] { queryModel.GetType() });
+            var result = methodInfo.Invoke(controller, new[] { queryModel });
+            var workbook = (result as FanexExcelResult).Workbook;
+
+            Assert.That(workbook.NumberOfSheets, Is.EqualTo(1));
         }
 
-        private object GetQueryModel(string controllerName, [CallerFilePath] string sourceFilePath = "")
+        private object GetQueryModel(string controllerName)
         {
             var queryModelType = GetQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
             var generic = method.MakeGenericMethod(queryModelType);
-            return generic.Invoke(null, new object[] { controllerName, "queryModel", sourceFilePath });
+            return generic.Invoke(null, new object[] { controllerName, "queryModel" });
         }
 
         private Type GetQueryModelType(string controllerName)
         {
             var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
             var queryModelName = controllerName.Substring(0, lastPointIndex) + ".QueryModel";
+            var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
+            return Type.GetType(queryModelFullName);
+        }
+
+        private object GetExcelQueryModel(string controllerName)
+        {
+            var queryModelType = GetExcelQueryModelType(controllerName);
+            var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+
+            var generic = method.MakeGenericMethod(queryModelType);
+            return generic.Invoke(null, new object[] { controllerName, "queryModel" });
+        }
+
+        private Type GetExcelQueryModelType(string controllerName)
+        {
+            var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
+            var queryModelName = controllerName.Substring(0, lastPointIndex) + ".ExcelQueryModel";
             var queryModelFullName = $"UniversalReports.HouseWinLoss.{queryModelName}, UniversalReports.HouseWinLoss";
             return Type.GetType(queryModelFullName);
         }

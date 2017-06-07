@@ -7,7 +7,7 @@ using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public abstract class LeagueServiceBase
+    public abstract class LeagueServiceBase : LeagueService
     {
         private readonly IDynamicRepository repository;
 
@@ -18,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         public async Task<ReportModel> Query(ICriteria criteria)
         {
-            var entities = await QueryFromRepository(criteria);
+            var entities = await QueryFromRepository(criteria).ConfigureAwait(false);
             var monthGroups = GetMappingGroups(entities);
 
             var leagueModels = GetLeagueModels(entities, monthGroups);
@@ -33,7 +33,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         private async Task<List<LeagueMappingModel>> QueryFromRepository(ICriteria criteria)
         {
-            var entities = await repository.FetchAsync<LeagueRawModel>(criteria);
+            var entities = await repository.FetchAsync<LeagueRawModel>(criteria).ConfigureAwait(false);
             return entities
                 .Select(Transform)
                 .ToList();

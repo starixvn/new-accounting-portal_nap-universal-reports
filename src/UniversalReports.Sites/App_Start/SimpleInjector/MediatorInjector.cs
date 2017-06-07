@@ -3,7 +3,7 @@ using SimpleInjector;
 using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PlayForFun.Core;
-using UniversalReports.PunterAnalysis.Core;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
