@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -30,8 +31,8 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var path = $"{baseAddress}/associatedaccounts/{username}/{siteName}";
-                var response = await client.GetAsync(path).ConfigureAwait(false);
+                var uri = new Uri($"{baseAddress}/associatedaccounts/{username}/{siteName}");
+                var response = await client.GetAsync(uri).ConfigureAwait(false);
                 return await response.Content.ReadAsAsync<List<UserDevice>>().ConfigureAwait(false);
             }
         }
