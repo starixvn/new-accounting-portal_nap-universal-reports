@@ -2769,10 +2769,11 @@ webpackJsonp([2],{
 	            });
 	        }
 	
-	        function viewMatchInformation(sportType, matchId, eventDate, leagueName) {
+	        function viewMatchInformation(sportType, matchId, eventDate, leagueName, matchCode) {
 	            pane.data.sportType = sportType;
 	            pane.data.matchId = matchId;
 	            pane.data.eventDate = eventDate;
+	            pane.data.matchCode = matchCode;
 	            pane.service.getMatchInformation(pane.data).then(function (data) {
 	                showPopup(data, leagueName);
 	            });
@@ -2888,7 +2889,8 @@ webpackJsonp([2],{
 	                matchId: data.matchId,
 	                betType: data.betType,
 	                sportType: data.sportType,
-	                reportDate: data.eventDate
+	                reportDate: data.eventDate,
+	                matchCode: data.matchCode
 	            };
 	
 	            var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');

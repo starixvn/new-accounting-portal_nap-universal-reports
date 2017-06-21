@@ -1,7 +1,6 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 
@@ -82,7 +81,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
             var columnIndex = 0;
-            var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
+            var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}','{item.MatchCode}'";
             var colummns = new List<Columns>
             {
                 new Columns(0, "MatchCode", item.MatchCode)

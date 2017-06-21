@@ -20,7 +20,8 @@ import angular from "angular";
                 matchId: data.matchId,
                 betType: data.betType,
                 sportType: data.sportType,
-                reportDate: data.eventDate
+                reportDate: data.eventDate,
+                matchCode: data.matchCode
             };
 
             var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
