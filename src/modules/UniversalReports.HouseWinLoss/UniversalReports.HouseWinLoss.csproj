@@ -208,6 +208,7 @@
     <Compile Include="Common\MatchDetailByCode\MatchDetailByCodeController.cs" />
     <Compile Include="Common\MatchDetailByCode\WinLossService.cs" />
     <Compile Include="Common\MatchDetailByCode\WinLossModel.cs" />
+    <Compile Include="Common\MatchDetail\GetTeamNameAndSuffixService.cs" />
     <Compile Include="Common\MatchDetail\LeagueWinLoss.cs" />
     <Compile Include="Common\MatchDetail\WinLossService.cs" />
     <Compile Include="Common\MatchDetail\MatchDetailController.cs" />

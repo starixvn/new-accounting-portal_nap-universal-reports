@@ -46,6 +46,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>();
             container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>();
             container.Register<MatchDetail.GridOptionsBuilder, MatchDetail.GridOptionsBuilderImp>();
+            container.Register<MatchDetail.GetTeamNameAndSuffixService, MatchDetail.GetTeamNameAndSuffixServiceImp>();
             container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>();
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
             container.Register<Products.Service, Products.ServiceImp>();
