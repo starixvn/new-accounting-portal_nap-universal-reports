@@ -1,7 +1,6 @@
 ﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Extensions;
 
@@ -14,6 +13,13 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
     public class GridOptionsBuilderImp : GridOptionsBuilder
     {
+        private readonly GetTeamNameAndSuffixService teamNameService;
+
+        public GridOptionsBuilderImp(GetTeamNameAndSuffixService teamNameService)
+        {
+            this.teamNameService = teamNameService;
+        }
+
         public GridOptions Build(WinLossModel winLoss, string title)
         {
             var gridOptions = new GridOptions
@@ -81,8 +87,11 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
+            string homeName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.HomeName, item.MatchCode);
+            string awayName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.AwayName, item.MatchCode);
+
             var columnIndex = 0;
-            var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}'";
+            var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}','{item.MatchCode}'";
             var colummns = new List<Columns>
             {
                 new Columns(0, "MatchCode", item.MatchCode)
@@ -92,9 +101,9 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     CssClass = "league-match-code",
                     CellAlignment = HAlignment.Center
                 },
-                new Columns(columnIndex++, "Home", item.HomeName),
+                new Columns(columnIndex++, "Home", homeName),
                 new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
-                new Columns(columnIndex++, "Away", item.AwayName) { CellAlignment = HAlignment.Left },
+                new Columns(columnIndex++, "Away", awayName) { CellAlignment = HAlignment.Left },
             };
 
             var baseColumns = CreateBaseColumns(columnIndex, item);

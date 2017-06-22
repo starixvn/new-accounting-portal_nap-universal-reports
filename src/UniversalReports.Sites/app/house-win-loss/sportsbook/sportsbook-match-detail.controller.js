@@ -24,10 +24,11 @@ import angular from "angular";
             });
         }
 
-        function viewMatchInformation(sportType, matchId, eventDate, leagueName) {
+        function viewMatchInformation(sportType, matchId, eventDate, leagueName, matchCode) {
             pane.data.sportType = sportType;
             pane.data.matchId = matchId;
             pane.data.eventDate = eventDate;
+            pane.data.matchCode = matchCode;
             pane.service.getMatchInformation(pane.data).then(function (data) {
                 showPopup(data, leagueName);
             });
