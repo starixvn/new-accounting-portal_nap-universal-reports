@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120" />
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_xtest" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="120" />
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
@@ -15,7 +15,7 @@
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old_xtest" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
@@ -41,6 +41,7 @@
     <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />

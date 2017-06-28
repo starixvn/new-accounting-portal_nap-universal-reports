@@ -372,6 +372,10 @@
     <Compile Include="Universal\Site\Criteria.cs" />
     <Compile Include="Universal\Site\ExcelQueryModel.cs" />
     <Compile Include="Universal\Site\QueryModel.cs" />
+    <Compile Include="VirtualSportsBetradar\MatchDetail\Criteria.cs" />
+    <Compile Include="VirtualSportsBetradar\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="VirtualSportsBetradar\MatchDetail\QueryModel.cs" />
+    <Compile Include="VirtualSportsBetradar\MatchDetail\VirtualSportsBetradarMatchDetailController.cs" />
     <Compile Include="VirtualSports\BetType\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\BetType\VirtualSportsBetTypeController.cs" />
     <Compile Include="VirtualSports\RacingDetail\ExcelQueryModel.cs" />

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Products-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Products_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_Product" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -29,8 +29,8 @@
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -81,6 +81,8 @@
     <Setting Key="HouseWinLoss-FishingWorld-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="PlayForFun">
     <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />

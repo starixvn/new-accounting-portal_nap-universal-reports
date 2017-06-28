@@ -384,7 +384,7 @@ webpackJsonp([2],{
 	                controller: "SportTypeController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/sport-type",
-	                mainParameters: {},
+	                mainParameters: { productId: 5 },
 	                getTitleFunction: "getProductTitle"
 	            },
 	            betType: {
@@ -392,7 +392,7 @@ webpackJsonp([2],{
 	                controller: "BetTypeController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/bet-type",
-	                mainParameters: {},
+	                mainParameters: { productId: 5 },
 	                getTitleFunction: "getSportTypeTitle"
 	            },
 	            matchDetail: {
@@ -587,6 +587,60 @@ webpackJsonp([2],{
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/cash-out/site",
 	                mainParameters: { productId: 25, isLive: 2 },
+	                getTitleFunction: "getSiteTitle"
+	            }
+	        },
+	        "Lottery": {
+	            mainView: "betType",
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+	                mainParameters: { productId: 28, isLive: 2 },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            site: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SiteController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+	                mainParameters: { productId: 28, isLive: 2 },
+	                getTitleFunction: "getSiteTitle"
+	            }
+	        },
+	        "Betradar Virtual Sports": {
+	            mainView: "sportType",
+	            sportType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SportTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/sport-type",
+	                mainParameters: { productId: 27 },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/bet-type",
+	                mainParameters: { productId: 27 },
+	                getTitleFunction: "getSportTypeTitle"
+	            },
+	            matchDetail: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "MatchDetailController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/virtualsportsbetradar/match-detail",
+	                mainParameters: {},
+	                getTitleFunction: "getMatchDetailTitle"
+	            },
+	            site: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SiteController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports/site",
+	                mainParameters: {},
 	                getTitleFunction: "getSiteTitle"
 	            }
 	        }
@@ -1829,6 +1883,7 @@ webpackJsonp([2],{
 	        var showHideColumnBuilder = new showHideColumnService(pane);
 	        var tab = $scope.tab;
 	        var gridElement = $element.find('.freegrid');
+	        var betradarVirtualSportsMixParlayBettype = 2799;
 	        $scope.show = showHideColumnBuilder.toggle;
 	        $scope.generate = generate;
 	        $scope.generateSite = generateSite;
@@ -1860,10 +1915,11 @@ webpackJsonp([2],{
 	        }
 	
 	        function createDrilldownLink(betTypeRow, isLive) {
-	            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
-	            var hasDetailDrilldown = angular.isDefined(template);
 	            var betTypeName = betTypeRow.Columns[0].Value;
 	            var betTypeId = betTypeRow.Columns[0].CustomAttr;
+	
+	            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
+	            var hasDetailDrilldown = angular.isDefined(template) && betTypeId != betradarVirtualSportsMixParlayBettype;
 	
 	            if (betTypeRow.SubRows && hasDetailDrilldown) {
 	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';

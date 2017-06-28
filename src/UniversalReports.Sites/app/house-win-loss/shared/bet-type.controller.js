@@ -12,6 +12,7 @@ import angular from "angular";
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
+        const betradarVirtualSportsMixParlayBettype = 2799;
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
@@ -20,6 +21,7 @@ import angular from "angular";
         $scope.createDrilldownLinks = createDrilldownLinks;
         $scope.renderGrid = renderGrid;
         $scope.exportExcel = exportExcel;
+        
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
@@ -43,10 +45,11 @@ import angular from "angular";
         }
 
         function createDrilldownLink(betTypeRow, isLive) {
-            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
-            var hasDetailDrilldown = angular.isDefined(template);
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
+
+            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
+            var hasDetailDrilldown = angular.isDefined(template) && betTypeId != betradarVirtualSportsMixParlayBettype;
 
             if (betTypeRow.SubRows && hasDetailDrilldown) {
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';

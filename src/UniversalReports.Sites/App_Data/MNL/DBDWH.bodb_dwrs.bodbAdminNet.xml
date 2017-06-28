@@ -41,6 +41,7 @@
     <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_Old" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
