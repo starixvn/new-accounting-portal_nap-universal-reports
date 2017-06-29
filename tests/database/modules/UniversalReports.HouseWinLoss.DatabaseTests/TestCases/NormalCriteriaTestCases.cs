@@ -122,12 +122,18 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 BetType = 1101
             };
 
+            var virtualSportsBetradarMatchDetailCriteria = new VirtualSportsBetradar.MatchDetail.Criteria
+            {
+                BetType = 2700,
+                SportType = 190
+            };
+
             var criteriaList = new List<WinLossCriteria>
                 {
                     betTradeBetTypeCriteria,
                     betTradeSiteCriteria,
-                cashOutBetTypeCriteria,
-                cashOutSiteCriteria,
+                    cashOutBetTypeCriteria,
+                    cashOutSiteCriteria,
                     casinoBetTypeCriteria,
                     casinoProductCriteria,
                     casinoSiteCriteria,
@@ -159,7 +165,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     virtualSportsSiteCriteria,
                     virtualSportsRacingDetailCriteria,
                     fishingWorldBetTypeCriteria,
-                    fishingWorldSiteCriteria
+                    fishingWorldSiteCriteria,
+                    virtualSportsBetradarMatchDetailCriteria
                 };
 
             return criteriaList

@@ -163,6 +163,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="TestData\VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\CashOut.BetType.CashOutBetTypeController-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
