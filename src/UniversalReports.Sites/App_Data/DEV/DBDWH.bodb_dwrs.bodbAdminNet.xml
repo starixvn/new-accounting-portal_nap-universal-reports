@@ -75,7 +75,7 @@
     <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-UserSiteQuery" SpName="Acc_Punter_GetSiteName" DbName="DBDWH.bodb_dwrs.bodbAdminNet" />
 
-    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType_xtest" DbName="DBDWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
       <Mapping DataField="ProductName" ObjectProperty="ProductName" />
       <Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
       <Mapping DataField="SportName" ObjectProperty="SportName" />
