@@ -29,7 +29,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<IDynamicRepository, DynamicRepository>();
-            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
+            container.Register<ConfigurationService, ConfigurationServiceImp>();
 
             return container;
         }

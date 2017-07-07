@@ -1,8 +1,10 @@
 ﻿using Fanex.Data.Repository;
 using MediatR;
+using Olympus.FPSAPI.Client;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
@@ -13,17 +15,21 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         private readonly FraudServiceWrapper fraudServiceWrapper;
 
-        public Handler(IDynamicRepository repository, FraudServiceWrapper fraudServiceWrapper)
+        private readonly ConfigurationService configurationService;
+
+        public Handler(ConfigurationService configurationService, FraudServiceWrapper fraudServiceWrapper, IDynamicRepository repository)
         {
-            this.repository = repository;
+            this.configurationService = configurationService;
             this.fraudServiceWrapper = fraudServiceWrapper;
+            this.repository = repository;
         }
 
         public async Task<List<UserRoleModel>> Handle(HttpParameterJson message)
         {
             var siteName = await GetSiteName(message.CustId).ConfigureAwait(false);
-            var userDevices = await fraudServiceWrapper.GetAssociatedUsers(message.Username, siteName).ConfigureAwait(false);
-            var model = await GetAccountRoles(userDevices).ConfigureAwait(false);
+            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, message.Username, siteName).ConfigureAwait(false);
+            var usernames = associatedCustomers.Select(c => c.Account);
+            var model = await GetAccountRoles(usernames).ConfigureAwait(false);
 
             return new List<UserRoleModel>(model);
         }
@@ -35,10 +41,10 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             return await repository.GetAsync<string>(criteria).ConfigureAwait(false);
         }
 
-        private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<UserDevice> userDevices)
+        private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<string> usernames)
         {
-            var usernames = string.Join(",", userDevices.Select(u => u.Account));
-            var criteria = new UserRoleQueryCriteria { ListUserName = usernames };
+            var listUsername = string.Join(",", usernames);
+            var criteria = new UserRoleQueryCriteria { ListUserName = listUsername };
 
             return await repository.FetchAsync<UserRoleModel>(criteria).ConfigureAwait(false);
         }

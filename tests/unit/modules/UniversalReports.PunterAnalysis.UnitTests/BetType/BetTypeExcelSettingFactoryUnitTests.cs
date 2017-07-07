@@ -19,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
                 Filter = "Any Filter"
             };
 
-            var configurationService = Substitute.For<ApplicationConfigurationService>();
+            var configurationService = Substitute.For<ConfigurationService>();
             configurationService.CurrentDirectory.Returns("D:");
 
             var expectedExcelSetting = new ExcelSetting

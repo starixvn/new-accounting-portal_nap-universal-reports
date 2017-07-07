@@ -5,7 +5,7 @@ namespace UniversalReports.PunterAnalysis.SportType
 {
     public class SportTypeExcelSettingFactory : SummaryExcelSettingFactory
     {
-        public SportTypeExcelSettingFactory(ApplicationConfigurationService configurationService) : base(configurationService)
+        public SportTypeExcelSettingFactory(ConfigurationService configurationService) : base(configurationService)
         {
         }
 

@@ -5,9 +5,9 @@ namespace UniversalReports.PunterAnalysis.Summary
 {
     public class SummaryExcelSettingFactory : ExcelSettingFactory
     {
-        private readonly ApplicationConfigurationService configurationService;
+        private readonly ConfigurationService configurationService;
 
-        public SummaryExcelSettingFactory(ApplicationConfigurationService configurationService)
+        public SummaryExcelSettingFactory(ConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }

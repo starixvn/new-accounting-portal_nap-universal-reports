@@ -3,14 +3,14 @@ using System.Configuration;
 
 namespace UniversalReports.Core.Configurations
 {
-    public interface ApplicationConfigurationService
+    public interface ConfigurationService
     {
         string FraudSystemApi { get; }
 
         string CurrentDirectory { get; }
     }
 
-    public class ApplicationConfigurationServiceImp : ApplicationConfigurationService
+    public class ConfigurationServiceImp : ConfigurationService
     {
         public string FraudSystemApi => ConfigurationManager.AppSettings["FraudSystemAPI"];
 

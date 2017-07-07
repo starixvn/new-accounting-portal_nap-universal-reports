@@ -10,7 +10,7 @@ namespace UniversalReports.Core.Tests.Configurations
         public void FraudSystemApi_Always_ReturnsRightConfigurationData()
         {
             // Arrange
-            var configurationService = new ApplicationConfigurationServiceImp();
+            var configurationService = new ConfigurationServiceImp();
 
             // Assert
             Assert.That(configurationService.FraudSystemApi, Is.EqualTo("http://google.com/api"));
@@ -20,7 +20,7 @@ namespace UniversalReports.Core.Tests.Configurations
         public void CurrentDirectory_Always_ReturnsCurrentDomainBaseDirectory()
         {
             // Arrange
-            var configurationService = new ApplicationConfigurationServiceImp();
+            var configurationService = new ConfigurationServiceImp();
 
             // Assert
             Assert.That(configurationService.CurrentDirectory, Is.EqualTo(AppDomain.CurrentDomain.BaseDirectory));

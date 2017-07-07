@@ -1,4 +1,5 @@
-﻿using SimpleInjector;
+﻿using Olympus.FPSAPI.Client;
+using SimpleInjector;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.BetCount;
@@ -18,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
-            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
+            container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
             container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));

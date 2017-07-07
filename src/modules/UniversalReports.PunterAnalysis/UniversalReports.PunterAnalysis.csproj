@@ -54,12 +54,12 @@
       <HintPath>..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Data.2.1.0\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Data.Repository.1.0.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Data.Repository.1.0.2.1\lib\net461\Fanex.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core">
@@ -75,11 +75,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olympus.Data.Repository">
-      <HintPath>..\..\..\packages\Olympus.Data.Repository.2.0.1.2\lib\net461\Olympus.Data.Repository.dll</HintPath>
+    <Reference Include="Olympus.Data.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.Data.Repository.2.0.1.3\lib\net461\Olympus.Data.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.1\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
@@ -148,7 +152,6 @@
     <Compile Include="Shared\PeriodTypeEnum.cs" />
     <Compile Include="Shared\PunterAnalysisService.cs" />
     <Compile Include="Shared\DateTimeService.cs" />
-    <Compile Include="AssociatedAccount\FraudServiceWrapper.cs" />
     <Compile Include="Filter\AvailableDateRange\Handler.cs" />
     <Compile Include="Filter\AvailableDatabase\QueryCriteria.cs" />
     <Compile Include="Filter\AvailableDatabase\HttpParameterJson.cs" />

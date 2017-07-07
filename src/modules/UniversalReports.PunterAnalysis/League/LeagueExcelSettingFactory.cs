@@ -7,9 +7,9 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\League.xlsx";
 
-        private readonly ApplicationConfigurationService configurationService;
+        private readonly ConfigurationService configurationService;
 
-        public LeagueExcelSettingFactory(ApplicationConfigurationService configurationService)
+        public LeagueExcelSettingFactory(ConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }

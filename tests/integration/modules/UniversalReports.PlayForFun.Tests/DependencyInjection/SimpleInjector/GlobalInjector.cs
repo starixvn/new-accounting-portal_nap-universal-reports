@@ -20,7 +20,7 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
-            container.Register<ApplicationConfigurationService, ApplicationConfigurationServiceImp>();
+            container.Register<ConfigurationService, ConfigurationServiceImp>();
 
             return container;
         }
