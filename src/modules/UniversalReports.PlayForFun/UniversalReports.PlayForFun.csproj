@@ -82,6 +82,10 @@
       <HintPath>..\..\..\packages\Olympus.Data.Repository.2.0.1.3\lib\net461\Olympus.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.WebApi.1.0.0.1\lib\net461\Olympus.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -148,10 +152,6 @@
     <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
-      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
-      <Name>UniversalReports.WebAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
       <Name>UniversalReports.Core</Name>

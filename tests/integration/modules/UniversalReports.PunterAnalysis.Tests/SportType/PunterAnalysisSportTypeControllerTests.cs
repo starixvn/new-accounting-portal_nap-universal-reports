@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
-using UniversalReports.WebAPI.Results;
+using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.Tests.SportType
 {

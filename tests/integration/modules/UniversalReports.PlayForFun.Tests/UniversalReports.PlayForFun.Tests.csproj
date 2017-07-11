@@ -126,6 +126,10 @@
       <HintPath>..\..\..\..\packages\NUnit.3.7.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Olympus.WebApi.1.0.0.1\lib\net461\Olympus.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -224,10 +228,6 @@
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
-      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
-      <Name>UniversalReports.WebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

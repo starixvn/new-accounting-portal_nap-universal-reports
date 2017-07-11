@@ -168,6 +168,10 @@
       <HintPath>..\..\packages\Olympus.FPSAPI.Client.1.0.0.1\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Olympus.WebApi.1.0.0.1\lib\net461\Olympus.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RemotingRef, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RemotingRef.2.0.0.9\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
@@ -766,10 +770,6 @@
     <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
       <Name>UniversalReports.PlayForFun</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\shared\UniversalReports.WebAPI\UniversalReports.WebAPI.csproj">
-      <Project>{6a0fbc74-2d65-4e62-badf-32f8d0575da0}</Project>
-      <Name>UniversalReports.WebAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.Application\UniversalReports.Application.csproj">
       <Project>{2592c02b-b254-4ede-9a42-9a0094763efd}</Project>

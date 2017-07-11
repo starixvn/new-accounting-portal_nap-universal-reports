@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.PunterAnalysis.BetType.Model;
-using UniversalReports.WebAPI.Results;
+using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.BetType
 {

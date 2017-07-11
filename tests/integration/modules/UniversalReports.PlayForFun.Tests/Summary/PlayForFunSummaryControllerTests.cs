@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Summary;
 using UniversalReports.PlayForFun.Summary.Model;
 using UniversalReports.PlayForFun.Tests.DependencyInjection;
-using UniversalReports.WebAPI.Results;
+using Olympus.WebApi.Results;
 
 namespace UniversalReports.PlayForFun.Tests.Summary
 {
