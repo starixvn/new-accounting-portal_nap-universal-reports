@@ -10,11 +10,14 @@ namespace UniversalReports.Sites
         public static void Register()
         {
             var environment = ConfigurationManager.AppSettings["Environment"];
+            var resourceFolder = environment == "PRO" || environment == "MNL" || environment == "MASTER"
+               ? "LIVE"
+               : "TEST";
             DbSettingProviderManager
              .StartNewSession()
              .Use(new OldConnectionStringProvider())
              .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
-             .UseDefaultDbSettingProvider($"~/App_Data/{environment}", enableWatching: true).Run();
+             .UseDefaultDbSettingProvider($"~/App_Data/{resourceFolder}", enableWatching: true).Run();
         }
     }
 }

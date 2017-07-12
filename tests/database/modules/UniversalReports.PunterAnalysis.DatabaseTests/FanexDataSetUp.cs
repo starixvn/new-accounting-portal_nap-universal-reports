@@ -2,7 +2,7 @@
 using UniversalReports.DatabaseTestSetup;
 
 [SetUpFixture]
-public class HouseWinLossFanexDataOneTimeSetUp
+public class FanexDataSetUp
 {
     [OneTimeSetUp]
     public void OneTimeSetUp()

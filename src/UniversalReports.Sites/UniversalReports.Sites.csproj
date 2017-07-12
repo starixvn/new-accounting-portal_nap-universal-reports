@@ -396,14 +396,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\DEV\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\DEV\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\DEV\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\LOCAL\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LOCAL\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LOCAL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\TEST\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
@@ -511,24 +506,9 @@
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
     <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
-    <Content Include="App_Data\MNL\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\MNL\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\MNL\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\SIT\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\SIT\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\SIT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\PRO\DBDWH.bodb_dwrs.bodbAdminNet.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\UAT\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\UAT\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\UAT\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\LIVE\DBACC.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\LIVE\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\LIVE\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\Fanex.Grid.js" />

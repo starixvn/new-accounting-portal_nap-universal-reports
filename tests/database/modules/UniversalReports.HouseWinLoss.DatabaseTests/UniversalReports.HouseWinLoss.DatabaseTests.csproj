@@ -83,7 +83,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DynamicRepositoryTests.cs" />
-    <Compile Include="HouseWinLossFanexDataOneTimeSetUp.cs" />
+    <Compile Include="FanexDataSetUp.cs" />
     <Compile Include="TestCases\MatchDetailCriteriaTestCases.cs" />
     <Compile Include="TestCases\NormalCriteriaTestCases.cs" />
     <Compile Include="WinLossCriteriaFactory.cs" />
@@ -110,13 +110,13 @@
     <CodeAnalysisDictionary Include="..\..\..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="App_Data\Local\DBACC.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\Local\DBAGE.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\Local\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBDWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

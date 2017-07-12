@@ -193,7 +193,6 @@
     <Compile Include="League\LeagueServiceByWeek.cs" />
     <Compile Include="League\LeagueServiceFactory.cs" />
     <Compile Include="League\Model\Criteria.cs" />
-    <Compile Include="AssociatedAccount\Model\UserDevice.cs" />
     <Compile Include="League\Model\HttpParameterExcel.cs" />
     <Compile Include="League\Model\HttpParameterJson.cs" />
     <Compile Include="League\Model\LeagueModel.cs" />

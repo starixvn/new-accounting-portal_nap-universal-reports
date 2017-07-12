@@ -41,6 +41,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             };
 
             var otherSportsBetTypeCriteria = new OtherSports.BetType.Criteria { SportType = 99 };
+            var otherSportsNewCricketBetTypeCriteria = new OtherSports.NewCricket.Criteria { SportType = 50 };
             var otherSportsLiveNonLiveCriteria = new OtherSports.LiveNonLive.Criteria();
             var otherSportsSportTypeCriteria = new OtherSports.SportType.Criteria();
 
@@ -142,6 +143,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     metricGamingSiteCriteria,
                     numberGameMatchDetailCriteria,
                     otherSportsBetTypeCriteria,
+                    otherSportsNewCricketBetTypeCriteria,
                     otherSportsLiveNonLiveCriteria,
                     otherSportsSportTypeCriteria,
                     parlayBetTypeCriteria,

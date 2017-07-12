@@ -113,7 +113,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Local\DBAGE.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
