@@ -11,8 +11,8 @@
     <Setting Key="HouseWinLoss-Casino-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Universal-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Universal-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_14" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Universal-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Universal-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Universal-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Universal-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Universal-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Universal-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -33,8 +33,8 @@
     <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
