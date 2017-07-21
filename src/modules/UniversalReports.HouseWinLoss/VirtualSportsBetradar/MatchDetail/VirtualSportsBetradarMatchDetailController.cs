@@ -5,7 +5,7 @@ using UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
 
 namespace UniversalReports.HouseWinLoss.VirtualSportsBetradar.MatchDetail
 {
-    [RoutePrefix("api/house-win-loss-by-products/virtualsportsbetradar/match-detail")]
+    [RoutePrefix("api/house-win-loss-by-products/virtual-sports-betradar/match-detail")]
     public class VirtualSportsBetradarMatchDetailController : MatchDetailByCodeController
     {
         public VirtualSportsBetradarMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorByCode decorator)

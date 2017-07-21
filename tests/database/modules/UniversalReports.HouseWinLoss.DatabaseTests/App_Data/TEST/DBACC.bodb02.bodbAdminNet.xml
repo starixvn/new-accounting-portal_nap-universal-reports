@@ -81,7 +81,13 @@
     <Setting Key="HouseWinLoss-FishingWorld-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_BetType_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-SportType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_BetType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_BetType_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site_14_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
 </Functions>

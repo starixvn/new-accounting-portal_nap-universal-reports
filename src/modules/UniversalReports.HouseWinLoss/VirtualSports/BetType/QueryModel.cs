@@ -10,8 +10,6 @@ namespace UniversalReports.HouseWinLoss.VirtualSports.BetType
 
         public bool NormalMode { get; set; } = true;
 
-        public int ProductId { get; set; }
-
         public int SportType { get; set; }
     }
 }

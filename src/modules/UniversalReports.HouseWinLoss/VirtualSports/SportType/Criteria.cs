@@ -4,8 +4,6 @@ namespace UniversalReports.HouseWinLoss.VirtualSports.SportType
 {
     public class Criteria : WinLossCriteria
     {
-        public int ProductId { get; set; }
-
         public override string GetSettingKey() => $"HouseWinLoss-VirtualSports-SportType-{Source}";
     }
 }

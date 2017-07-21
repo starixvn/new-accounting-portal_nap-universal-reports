@@ -163,6 +163,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="TestData\VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.BetType.VirtualSportsBetradarBetTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.BetType.VirtualSportsBetradarBetTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.BetType.VirtualSportsBetradarBetTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

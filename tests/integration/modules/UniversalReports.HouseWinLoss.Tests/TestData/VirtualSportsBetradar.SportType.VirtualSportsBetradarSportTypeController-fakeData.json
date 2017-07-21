@@ -1,0 +1,67 @@
+[
+  {
+    "GroupName": "Virtual Soccer League",
+    "GroupId": 190,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": -43,
+    "SMAWinLoss": 34,
+    "Commission": 0,
+    "RealIncome": -8,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 8,
+    "VirtualTurnover": 0
+  },
+
+  {
+    "GroupName": "Virtual Soccer League",
+    "GroupId": 190,
+    "RowName": "Deposit",
+    "IsLive": false,
+    "MemberWinLoss": -4,
+    "SMAWinLoss": 3,
+    "Commission": 0,
+    "RealIncome": -0,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 0,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": "Virtual Soccer Nation",
+    "GroupId": 191,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": -57,
+    "SMAWinLoss": 48,
+    "Commission": 0,
+    "RealIncome": -9,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 25,
+    "VirtualTurnover": 0
+  },
+  {
+    "GroupName": "Virtual Soccer Nation",
+    "GroupId": 191,
+    "RowName": "Deposit",
+    "IsLive": false,
+    "MemberWinLoss": -19,
+    "SMAWinLoss": 16,
+    "Commission": 0,
+    "RealIncome": -2,
+    "VirtualIncome": 0,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "AfterExtraPT": 0,
+    "RealTurnover": 2,
+    "VirtualTurnover": 0
+  }
+]

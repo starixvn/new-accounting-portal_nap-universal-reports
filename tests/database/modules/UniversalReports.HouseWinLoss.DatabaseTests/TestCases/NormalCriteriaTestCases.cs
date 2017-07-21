@@ -123,10 +123,18 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 BetType = 1101
             };
 
+            var virtualSportsBetradarBetTypeCriteria = new VirtualSportsBetradar.BetType.Criteria { SportType = 190 };
+            var virtualSportsBetradarSportTypeCriteria = new VirtualSportsBetradar.SportType.Criteria();
             var virtualSportsBetradarMatchDetailCriteria = new VirtualSportsBetradar.MatchDetail.Criteria
             {
                 BetType = 2700,
                 SportType = 190
+            };
+            var virtualSportsBetradarSiteCriteria = new VirtualSportsBetradar.Site.Criteria
+            {
+                SportType = 190,
+                BetType = 2700,
+                Site = "Credit"
             };
 
             var criteriaList = new List<WinLossCriteria>
@@ -168,7 +176,10 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     virtualSportsRacingDetailCriteria,
                     fishingWorldBetTypeCriteria,
                     fishingWorldSiteCriteria,
-                    virtualSportsBetradarMatchDetailCriteria
+                    virtualSportsBetradarSportTypeCriteria,
+                    virtualSportsBetradarBetTypeCriteria,
+                    virtualSportsBetradarMatchDetailCriteria,
+                    virtualSportsBetradarSiteCriteria
                 };
 
             return criteriaList
