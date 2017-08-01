@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper">
@@ -62,6 +62,10 @@
       <HintPath>..\..\..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Data.CrossCutting.WrappingException, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.CrossCutting.WrappingException.1.0.0.3\lib\net461\Fanex.Data.CrossCutting.WrappingException.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data.OldConnectionStringProvider">
       <HintPath>..\..\..\..\packages\Fanex.Data.OldConnectionStringProvider.1.0.1\lib\net461\Fanex.Data.OldConnectionStringProvider.dll</HintPath>
       <Private>True</Private>
@@ -74,12 +78,16 @@
       <HintPath>..\..\..\..\packages\Fanex.Excel.2.2.2.0\lib\net40\Fanex.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.NAP.Core">
       <HintPath>..\..\..\..\packages\Fanex.NAP.Core.Client.1.1.0.5\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.8.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\CompareNETObjects.3.08.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=3.9.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\CompareNETObjects.3.09.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -96,6 +104,10 @@
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\EnterpriseLibrary.Logging.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -122,8 +134,8 @@
       <HintPath>..\..\..\..\packages\NUnit.CompareNetObjects.0.1.9\lib\net45\NUnit.CompareNetObjects.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.7.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NUnit.3.7.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -131,11 +143,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Olympus.WebApi.1.0.0.1\lib\net461\Olympus.WebApi.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Olympus.WebApi.1.0.0.2\lib\net461\Olympus.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -288,9 +300,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports.Core</Name>
@@ -309,6 +318,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AssociatedAccount\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
