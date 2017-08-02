@@ -609,7 +609,7 @@ webpackJsonp([2],{
 	                getTitleFunction: "getSiteTitle"
 	            }
 	        },
-	        "Betradar Virtual Sports": {
+	        "Virtual Sports 2": {
 	            mainView: "sportType",
 	            sportType: {
 	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",

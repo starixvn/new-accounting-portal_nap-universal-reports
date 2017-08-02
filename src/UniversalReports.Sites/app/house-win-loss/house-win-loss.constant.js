@@ -507,7 +507,7 @@ import moment from "moment";
                 getTitleFunction: "getSiteTitle"
             }
         },
-        "Betradar Virtual Sports": {
+        "Virtual Sports 2": {
             mainView: "sportType",
             sportType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",

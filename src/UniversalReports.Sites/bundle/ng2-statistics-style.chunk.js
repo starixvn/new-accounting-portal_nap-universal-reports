@@ -1,19 +1,10 @@
-webpackJsonp([5],{
-
-/***/ 0:
+webpackJsonp([5],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(222);
+	(function webpackMissingModule() { throw new Error("Cannot find module \"./content/ng2-statistics.scss\""); }());
 
-
-/***/ },
-
-/***/ 222:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
-
-});
+]);
 //# sourceMappingURL=ng2-statistics-style.chunk.js.map
