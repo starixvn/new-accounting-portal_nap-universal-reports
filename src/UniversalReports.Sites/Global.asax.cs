@@ -11,6 +11,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
+using System.Linq;
 
 namespace UniversalReports.Sites
 {
@@ -59,12 +60,15 @@ namespace UniversalReports.Sites
                 return;
             }
 
+            var formContents = string.Join("&", Request.Form.AllKeys.Select(k => $"{k}={Request.Form[k]}"));
             var messageBuilder = new StringBuilder();
             messageBuilder.Append($"{exception.Message}");
             messageBuilder.Append($"\r\nType: {exception.GetType()}");
             messageBuilder.Append($"\r\nSource: {exception.Source}");
-            messageBuilder.Append($"\r\nDomain: {HttpContext.Current.Request.Headers["Host"]}");
+            messageBuilder.Append($"\r\nUrl: {Request.Url}");
+            messageBuilder.Append($"\r\nDomain: {Request.Headers["Host"]}");
             messageBuilder.Append($"\r\nQuery String: {Request.QueryString}");
+            messageBuilder.Append($"\r\nForm Content: {formContents}");
             messageBuilder.Append($"\r\nTarget Site: {exception.TargetSite}");
             messageBuilder.Append($"\r\nStack Trace: {exception.StackTrace}");
 

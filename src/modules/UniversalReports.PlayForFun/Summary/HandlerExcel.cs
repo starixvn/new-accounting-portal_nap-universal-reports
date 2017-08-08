@@ -16,13 +16,13 @@ namespace UniversalReports.PlayForFun.Summary
 
         private readonly PlayForFunService playForFunService;
 
-        private readonly ApplicationConfigurationService configurationService;
+        private readonly ConfigurationService configurationService;
 
         private readonly ExcelBuilder excelBuilder;
 
         public HandlerExcel(
             PlayForFunService playForFunService,
-            ApplicationConfigurationService configurationService,
+            ConfigurationService configurationService,
             ExcelBuilder excelBuilder)
         {
             this.playForFunService = playForFunService;

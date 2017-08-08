@@ -54,7 +54,8 @@
 		<add key="ClientValidationEnabled" value="true" />
 		<add key="UnobtrusiveJavaScriptEnabled" value="true" />
 		<add key="Environment" value="<#=site.Environment #>" />
-		<add key="StoredProcedurePath" value="App_Configuration" />
+		<!-- This setting is used for Rocketor only -->
+		<add key="StoredProcedurePath" value="App_Data\TEST" />
 	</appSettings>
 
 	<system.web>
@@ -109,7 +110,7 @@
 		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
 			<dependentAssembly>
 				<assemblyIdentity name="SimpleInjector" publicKeyToken="984CB50DEA722E99" culture="neutral"/>
-				 <bindingRedirect oldVersion="0.0.0.0-4.0.7.0" newVersion="4.0.7.0" />
+				 <bindingRedirect oldVersion="0.0.0.0-4.0.8.0" newVersion="4.0.8.0" />
 			</dependentAssembly>
 			<dependentAssembly>
 				<assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31BF3856AD364E35" culture="neutral" />

@@ -18,7 +18,7 @@ namespace UniversalReports.DatabaseTestSetup
             DbSettingProviderManager
               .StartNewSession()
               .Use(new OldConnectionStringProvider())
-              .UseDefaultDbSettingProvider("~/App_Data/LOCAL", false, true)
+              .UseDefaultDbSettingProvider("~/App_Data/TEST", false, true)
               .Run();
         }
     }

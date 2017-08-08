@@ -311,7 +311,7 @@
                 {
 					case SiteEnvironment.LOCAL:
 					case SiteEnvironment.DEV:
-                        return @"FormatName:DIRECT=http://10.35.35.253:808/msmq/Private$/entlib";
+                        return @"FormatName:DIRECT=http://10.18.200.103:808/msmq/Private$/entlib";
 
 					case SiteEnvironment.UAT:
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";

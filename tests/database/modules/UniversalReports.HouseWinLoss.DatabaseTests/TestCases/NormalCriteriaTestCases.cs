@@ -41,6 +41,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             };
 
             var otherSportsBetTypeCriteria = new OtherSports.BetType.Criteria { SportType = 99 };
+            var otherSportsNewCricketBetTypeCriteria = new OtherSports.NewCricket.Criteria { SportType = 50 };
             var otherSportsLiveNonLiveCriteria = new OtherSports.LiveNonLive.Criteria();
             var otherSportsSportTypeCriteria = new OtherSports.SportType.Criteria();
 
@@ -122,12 +123,26 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 BetType = 1101
             };
 
+            var virtualSportsBetradarBetTypeCriteria = new VirtualSportsBetradar.BetType.Criteria { SportType = 190 };
+            var virtualSportsBetradarSportTypeCriteria = new VirtualSportsBetradar.SportType.Criteria();
+            var virtualSportsBetradarMatchDetailCriteria = new VirtualSportsBetradar.MatchDetail.Criteria
+            {
+                BetType = 2700,
+                SportType = 190
+            };
+            var virtualSportsBetradarSiteCriteria = new VirtualSportsBetradar.Site.Criteria
+            {
+                SportType = 190,
+                BetType = 2700,
+                Site = "Credit"
+            };
+
             var criteriaList = new List<WinLossCriteria>
                 {
                     betTradeBetTypeCriteria,
                     betTradeSiteCriteria,
-                cashOutBetTypeCriteria,
-                cashOutSiteCriteria,
+                    cashOutBetTypeCriteria,
+                    cashOutSiteCriteria,
                     casinoBetTypeCriteria,
                     casinoProductCriteria,
                     casinoSiteCriteria,
@@ -136,6 +151,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     metricGamingSiteCriteria,
                     numberGameMatchDetailCriteria,
                     otherSportsBetTypeCriteria,
+                    otherSportsNewCricketBetTypeCriteria,
                     otherSportsLiveNonLiveCriteria,
                     otherSportsSportTypeCriteria,
                     parlayBetTypeCriteria,
@@ -159,7 +175,11 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     virtualSportsSiteCriteria,
                     virtualSportsRacingDetailCriteria,
                     fishingWorldBetTypeCriteria,
-                    fishingWorldSiteCriteria
+                    fishingWorldSiteCriteria,
+                    virtualSportsBetradarSportTypeCriteria,
+                    virtualSportsBetradarBetTypeCriteria,
+                    virtualSportsBetradarMatchDetailCriteria,
+                    virtualSportsBetradarSiteCriteria
                 };
 
             return criteriaList

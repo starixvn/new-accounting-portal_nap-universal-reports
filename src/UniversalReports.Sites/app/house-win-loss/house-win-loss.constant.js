@@ -487,6 +487,60 @@ import moment from "moment";
                 mainParameters: { productId: 25, isLive: 2 },
                 getTitleFunction: "getSiteTitle"
             }
+        },
+        "Lottery": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 28, isLive: 2 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 28, isLive: 2 },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
+        "Virtual Sports 2": {
+            mainView: "sportType",
+            sportType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/sport-type",
+                mainParameters: { productId: 27 },
+                getTitleFunction: "getProductTitle"
+            },
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/bet-type",
+                mainParameters: { productId: 27 },
+                getTitleFunction: "getSportTypeTitle"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl:  "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
+                mainParameters: {},
+                getTitleFunction: "getMatchDetailTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/site",
+                mainParameters: {},
+                getTitleFunction: "getSiteTitle"
+            }
         }
     };
     angular

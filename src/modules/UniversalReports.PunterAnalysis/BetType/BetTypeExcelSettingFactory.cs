@@ -7,9 +7,9 @@ namespace UniversalReports.PunterAnalysis.BetType
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\Bettype.xlsx";
 
-        private readonly ApplicationConfigurationService configurationService;
+        private readonly ConfigurationService configurationService;
 
-        public BetTypeExcelSettingFactory(ApplicationConfigurationService configurationService)
+        public BetTypeExcelSettingFactory(ConfigurationService configurationService)
         {
             this.configurationService = configurationService;
         }

@@ -18,7 +18,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             // Arrange
             var punterAnalysisService = Substitute.For<PlayForFunService>();
 
-            var configurationService = Substitute.For<ApplicationConfigurationService>();
+            var configurationService = Substitute.For<ConfigurationService>();
             configurationService.CurrentDirectory.Returns(string.Empty);
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
@@ -62,7 +62,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             punterAnalysisService.Query<SummaryModel>(Arg.Any<SummaryCriteria>()).Returns(new SummaryEntity<SummaryModel>());
             punterAnalysisService.Query<DetailModel>(Arg.Any<DetailCriteria>()).Returns(new SummaryEntity<DetailModel>());
 
-            var configurationService = Substitute.For<ApplicationConfigurationService>();
+            var configurationService = Substitute.For<ConfigurationService>();
             configurationService.CurrentDirectory.Returns(string.Empty);
 
             var excelBuilder = Substitute.For<ExcelBuilder>();

@@ -2,8 +2,11 @@
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using Olympus.FPSAPI.Client;
+using Olympus.FPSAPI.Client.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
@@ -27,15 +30,16 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             repository.FetchAsync<UserRoleModel>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUserRoleModel);
             repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("Site 1"));
 
-            var nonEmptyListOfUserDevice = new List<UserDevice>
+            var nonEmptyListOfUserDevice = new List<CustomerDevice>
             {
-                new UserDevice { Account = "User 1" }
+                new CustomerDevice {  Account = "User 1" }
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedUsers(Arg.Any<string>(), Arg.Any<string>()).Returns(nonEmptyListOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(nonEmptyListOfUserDevice);
 
+            var configurationService = Substitute.For<ConfigurationService>();
             // Act
-            var handler = new Handler(repository, fraudService);
+            var handler = new Handler(configurationService, fraudService, repository);
             var viewModel = await handler.Handle(new HttpParameterJson());
 
             // Assert

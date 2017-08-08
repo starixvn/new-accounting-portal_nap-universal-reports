@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
-using UniversalReports.WebAPI.Results;
+using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetCount
 {
