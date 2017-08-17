@@ -1,4 +1,5 @@
-﻿using Linq.DynamicSum;
+﻿using AutoMapper;
+using Linq.DynamicSum;
 using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Services;
@@ -25,28 +26,11 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
         {
-            return new WinLoss
-            {
-                MatchId = rawWinLoss.MatchId,
-                MatchCode = rawWinLoss.MatchCode,
-                EventDate = rawWinLoss.EventDate,
-                SportType = rawWinLoss.SportType,
-                IsNeutral = rawWinLoss.IsNeutral,
-                HomeId = rawWinLoss.HomeId,
-                AwayId = rawWinLoss.AwayId,
-                HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral),
-                AwayName = refService.GetTeamName(rawWinLoss.AwayId),
-                LeagueId = rawWinLoss.LeagueId,
-                LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId),
-                Commission = rawWinLoss.Commission,
-                MemberWinLoss = rawWinLoss.MemberWinLoss,
-                RealIncome = rawWinLoss.RealIncome,
-                VirtualIncome = rawWinLoss.VirtualIncome,
-                RealTurnover = rawWinLoss.RealTurnover,
-                VirtualTurnover = rawWinLoss.VirtualTurnover,
-                VarianceIncome = rawWinLoss.VarianceIncome,
-                SMAWinLoss = rawWinLoss.SMAWinLoss,
-            };
+            var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
+            winLoss.HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
+            winLoss.AwayName = refService.GetTeamName(rawWinLoss.AwayId);
+            winLoss.LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId);
+            return winLoss;
         }
 
         private string GetHomeName(int teamId, bool isNeutral)
