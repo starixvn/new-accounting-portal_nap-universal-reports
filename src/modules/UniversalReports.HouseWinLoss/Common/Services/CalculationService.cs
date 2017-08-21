@@ -96,9 +96,9 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return totalWinLoss;
         }
 
-        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> arawWinLosses)
+        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var nonRMWinLosses = arawWinLosses.Where(r => r.GroupName != "RM");
+            var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
             var grandTotal = new SiteWinLossSummary
             {
                 Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
