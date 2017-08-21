@@ -5,7 +5,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
     public interface GetTeamNameAndSuffixService
     {
-        string GetTeamNameWithSuffixByMatchCode(string teamNane, string matchCode);
+        string GetTeamNameWithSuffixByMatchCode(string teamName, string matchCode);
     }
 
     public class GetTeamNameAndSuffixServiceImp : GetTeamNameAndSuffixService
