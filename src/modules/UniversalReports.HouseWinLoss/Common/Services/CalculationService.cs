@@ -32,7 +32,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         public WinLoss FromRawWinLossByRowName(WinLossRaw rawWinLoss)
         {
             var winloss = FromRawWinLoss(rawWinLoss);
-            winloss.Name = rawWinLoss.RowName;
+            winloss.Name = GetMatchCode(rawWinLoss.RowName);
+
             return winloss;
         }
 
@@ -184,6 +185,32 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         {
             return rawWinLosses.Where(r => r.GroupName == "RM")
                 .Select(FromRawWinLossByRowName);
+        }
+
+        private static string GetMatchCode(string matchCode)
+        {
+            return string.IsNullOrEmpty(matchCode) ?
+                string.Empty :
+                string.Format(
+                          matchCode,
+                          "Season",
+                          "Nations Cup",
+                          "Match Day",
+                          "Match Day 1 Groups A&B",
+                          "Match Day 1 Groups C&D",
+                          "Match Day 1 Groups E&F",
+                          "Match Day 2 Groups A&B",
+                          "Match Day 2 Groups C&D",
+                          "Match Day 2 Groups E&F",
+                          "Match Day 3 Groups A&B",
+                          "Match Day 3 Groups C&D",
+                          "Match Day 3 Groups E&F",
+                          "Round16 - 1",
+                          "Round16 - 2",
+                          "Quarterfinal",
+                          "Semifinal Part 1",
+                          "Semifinal Part 2",
+                          "Final");
         }
     }
 }
