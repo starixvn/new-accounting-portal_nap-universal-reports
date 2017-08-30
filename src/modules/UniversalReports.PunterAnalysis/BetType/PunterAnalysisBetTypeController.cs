@@ -1,8 +1,8 @@
 ﻿using MediatR;
+using Olympus.WebApi.Results;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.PunterAnalysis.BetType.Model;
-using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.BetType
 {

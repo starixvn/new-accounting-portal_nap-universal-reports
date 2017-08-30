@@ -112,8 +112,8 @@
       <HintPath>..\..\packages\Fanex.Logging.1.0.0.0\lib\net40\Fanex.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.NAP.Core, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.1.0.5\lib\net40\Fanex.NAP.Core.dll</HintPath>
+    <Reference Include="Fanex.NAP.Core, Version=1.2.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.2.1.1\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -398,7 +398,7 @@
     </Content>
     <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\TEST\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\TEST\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
@@ -508,7 +508,7 @@
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <Content Include="App_Data\LIVE\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LIVE\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LIVE\DBDWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\LIVE\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\Fanex.Grid.js" />

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System.Web.Http;
+﻿using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
@@ -25,8 +24,7 @@ namespace UniversalReports.HouseWinLoss.Products
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
-            var winlosses = service.Query(criteria);
+            var winlosses = service.Query(queryModel);
             var gridOptions = builder.Build(winlosses, "Main");
             gridOptions = decorator.Build(gridOptions, "Products");
 
@@ -36,8 +34,7 @@ namespace UniversalReports.HouseWinLoss.Products
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
-            var winlosses = service.Query(criteria);
+            var winlosses = service.Query(queryModel);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
             gridOptions = decorator.Build(gridOptions, "Products");
             return new FanexExcelResult(gridOptions, Constants.SheetName);

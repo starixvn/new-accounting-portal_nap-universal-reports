@@ -46,14 +46,13 @@
             }
 
             function goBack(index) {
-                var activePane = this.getActivePane();
                 this.panes = this.panes.slice(0, index + 1);
                 var newActivePane = this.getActivePane();
                 if (angular.isFunction(newActivePane.$scope.show)) {
                     newActivePane.$scope.show();
                 }
 
-                activePane = this.panes[index];
+                var activePane = this.panes[index];
                 var dateRange = {
                     normalMode: activePane.data.normalMode,
                     startDate: activePane.data.startDate,
@@ -63,7 +62,6 @@
             }
 
             function goForward(level, data) {
-                var activePane = this.getActivePane();
                 var pane = new Pane(level, data);
                 this.addPane(pane);
             }

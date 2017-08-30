@@ -9,5 +9,7 @@ namespace UniversalReports.HouseWinLoss.Products
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public string[] Permissions { get; set; }
     }
 }

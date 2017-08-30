@@ -27,7 +27,9 @@ import moment from "moment";
         var vm = this;
         vm.minDate= moment("20110101", "YYYYMMDD");
         vm.currentLevel = 0;
-        vm.normalMode = true;
+        vm.accessDenied = modePermissions.length === 0 || productPermissions.length === 0;
+        vm.normalMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0;
+        vm.showBothMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0 && modePermissions.indexOf("HouseWinLossByProducts_HistoryMode") >= 0;
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
@@ -40,6 +42,7 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getDateRange = getDateRange;
         vm.updateDateRange = updateDateRange;
+
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
         });

@@ -12,7 +12,6 @@ import angular from "angular";
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElements = $element.find('.freegrid');
-        var majorMinorGridElement = angular.element(gridElements[0]);
         $scope.generate = generate;
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;

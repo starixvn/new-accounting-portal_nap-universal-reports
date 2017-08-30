@@ -40,9 +40,9 @@ namespace UniversalReports.Sites.Controllers
             const string Username = "sa";
             var user = userService.Get(Username);
 
-            var onUserId = CheckInUser(user);
+            var userLoginId = CheckInUser(user);
 
-            SaveCurrentSession(user, onUserId);
+            SaveCurrentSession(user, userLoginId);
             CreateAuthenticationTicket(user);
 
             return View(user);
@@ -68,12 +68,12 @@ namespace UniversalReports.Sites.Controllers
             return securityService.Login(loginParameter);
         }
 
-        private void SaveCurrentSession(User user, int onUserId)
+        private void SaveCurrentSession(User user, int userLoginId)
         {
             currentSession.Level = userService.GetUserLevel(user.Id, SiteId);
             currentSession.UserId = user.Id;
             currentSession.Username = user.Username;
-            currentSession.OnUserId = onUserId;
+            currentSession.OnUserId = userLoginId;
             currentSession.SessionId = Session.SessionID;
             currentSession.MenuItemList = userService.GetMenuItem(user.Id, SiteId, isActive: true).ToList();
         }

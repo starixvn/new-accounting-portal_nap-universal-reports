@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
+using Olympus.WebApi.Results;
 using SimpleInjector;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
-using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.Tests.SportType
 {
