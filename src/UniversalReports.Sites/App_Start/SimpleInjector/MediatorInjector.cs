@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
+using UniversalReports.UpdatedUsernameAndGivenCredit;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -19,6 +20,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
             yield return typeof(PlayForFunAttribute).GetTypeInfo().Assembly;
+            yield return typeof(UpdatedUsernameAndGivenCreditAttribute).GetTypeInfo().Assembly;
         }
     }
 }

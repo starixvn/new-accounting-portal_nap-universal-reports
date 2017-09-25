@@ -23,7 +23,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
-                .RegisterPlayForFunServices();
+                .RegisterPlayForFunServices()
+                .RegisterUpdatedUsernameAndGivenCreditServices();
 
             var homeControllerType = typeof(HomeController);
             Container.RegisterMvcControllers(homeControllerType.Assembly);

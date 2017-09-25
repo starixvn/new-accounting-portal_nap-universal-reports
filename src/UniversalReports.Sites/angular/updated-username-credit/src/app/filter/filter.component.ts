@@ -1,0 +1,92 @@
+import { Component, OnInit, Output,  EventEmitter } from '@angular/core';
+import * as moment from 'moment';
+import { FilterService } from './filter.service';
+import { TimePeriod, FilterModel } from './filter.model';
+import { CONFIG } from '../common/config';
+import { NgbDateStruct, DateHelper } from 'nap-components/date';
+import * as _ from 'lodash';
+
+@Component({
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.scss'],
+  providers: [
+    FilterService
+]
+})
+export class FilterComponent {
+  @Output() onGenerated = new EventEmitter<FilterModel>();
+  timePeriodSelectItems = this.filterService.getTimeSelectItems();
+  timePeriod: TimePeriod = TimePeriod.SpecificDate;
+  minStartDate: NgbDateStruct = { year: 2013, month: 1, day: 1 };
+  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+  minDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.balanceUpDate);
+  maxDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
+
+  constructor(private filterService: FilterService) { }
+
+  onTimePeriodChange() {
+    let endDate: moment.Moment = undefined;
+    let startDate: moment.Moment = undefined;
+    switch (this.timePeriod) {
+        case TimePeriod.Yesterday:
+            endDate = moment.utc(CONFIG.date.yesterday);
+            startDate = moment.utc(CONFIG.date.yesterday);
+            break;
+        case TimePeriod.CurrentWeek:
+            startDate = moment.utc(CONFIG.date.yesterday).startOf('week');
+            endDate = moment.utc(CONFIG.date.yesterday);
+            break;
+        case TimePeriod.LastWeek:
+            startDate = moment.utc(CONFIG.date.yesterday).startOf('week').subtract(1, 'week');
+            endDate = moment.utc(startDate).endOf('week');
+            break;
+        case TimePeriod.CurrentMonth:
+            startDate = moment.utc(CONFIG.date.yesterday).startOf('month');
+            endDate = moment.utc(CONFIG.date.yesterday);
+            break;
+        case TimePeriod.LastMonth:
+            startDate = moment.utc(CONFIG.date.yesterday).subtract(1, 'month').startOf('month');
+            endDate = moment.utc(startDate).endOf('month');
+            break;
+        case TimePeriod.SinceLastMonth:
+            startDate = moment.utc(CONFIG.date.yesterday).subtract(1, 'month').startOf('month');
+            endDate = moment.utc(CONFIG.date.yesterday);
+            break;
+        case TimePeriod.SpecificDate:
+            break;
+        case TimePeriod.LastThreeMonths:
+            startDate = moment.utc(CONFIG.date.yesterday).subtract(3, 'month').startOf('month');
+            endDate = moment.utc(CONFIG.date.yesterday).subtract(1, 'month').endOf('month');
+            break;
+        case TimePeriod.LastSixMonths:
+            startDate = moment.utc(CONFIG.date.yesterday).subtract(6, 'month').startOf('month');
+            endDate = moment.utc(CONFIG.date.yesterday).subtract(1, 'month').endOf('month');
+            break;
+    }
+
+    if (!_.isNil(startDate) && !_.isNil(endDate)) {
+        this.startDate = DateHelper.convertMomentToDateStruct(startDate);
+        this.endDate = DateHelper.convertMomentToDateStruct(endDate);
+    }
+  }
+
+  onDateChange() {
+    this.timePeriod = TimePeriod.SpecificDate;
+  }
+
+  onGenerate(username: string, reportBy: string) {
+    const filterModel = this.createFilterModel(username, reportBy);
+    this.onGenerated.emit(filterModel);
+  }
+
+  private createFilterModel(usename: string, reportBy: string) {
+      const fromDate =  DateHelper.convertDateStructToMoment(this.startDate);
+      const toDate =  DateHelper.convertDateStructToMoment(this.endDate);
+      const model = new FilterModel(fromDate, toDate, usename, reportBy);
+
+      return model;
+  }
+}

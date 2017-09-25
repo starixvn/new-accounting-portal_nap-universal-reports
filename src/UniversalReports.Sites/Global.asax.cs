@@ -44,8 +44,9 @@ namespace UniversalReports.Sites
         protected void Application_PostAuthorizeRequest()
         {
             var request = HttpContext.Current.Request;
-            if (request.Url.ToString().Contains("api/application/header")
-                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
+            if (request.Url.ToString().Contains("api/application/header" )
+                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion")
+                || request.Url.ToString().Contains("state-api/application/header"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             }

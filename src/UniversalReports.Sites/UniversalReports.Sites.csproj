@@ -293,6 +293,7 @@
     <Compile Include="App_Start\SimpleInjector\HouseWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndGivenCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\FakeLoginController.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NG2StatisticsController.cs" />
+    <Compile Include="Controllers\UpdatedUsernameAndGivenCreditController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -396,12 +398,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\LIVE\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
+    <Content Include="App_Data\TEST\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
@@ -729,6 +733,17 @@
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\updated-username-and-given-credit\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\updated-username-and-given-credit\assets\logo.png" />
+    <Content Include="wwwroot\updated-username-and-given-credit\assets\spinner.gif" />
+    <Content Include="wwwroot\updated-username-and-given-credit\favicon.ico" />
+    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\updated-username-and-given-credit\index.html" />
+    <Content Include="wwwroot\updated-username-and-given-credit\inline.bundle.js" />
+    <Content Include="wwwroot\updated-username-and-given-credit\main.bundle.js" />
+    <Content Include="wwwroot\updated-username-and-given-credit\polyfills.bundle.js" />
+    <Content Include="wwwroot\updated-username-and-given-credit\styles.bundle.css" />
+    <Content Include="wwwroot\updated-username-and-given-credit\vendor.bundle.js" />
     <Content Include="wwwroot\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -741,12 +756,21 @@
     <Content Include="wwwroot\play-for-fun\index.cshtml" />
     <Content Include="UniversalReports.Sites.Debug.ruleset" />
     <Content Include="UniversalReports.Sites.ruleset" />
+    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\updated-username-and-given-credit\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameAndGivenCredit.csproj">
+      <Project>{847c5ba4-ff43-4683-940f-30cfefa00892}</Project>
+      <Name>UniversalReports.UpdatedUsernameAndGivenCredit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
       <Name>UniversalReports.PlayForFun</Name>
