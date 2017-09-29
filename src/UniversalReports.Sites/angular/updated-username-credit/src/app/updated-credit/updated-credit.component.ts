@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 import { UpdatedCreditModel } from './updated-credit.model';
 import { UpdatedCreditService } from './updated-credit.service';
 import { BreadcrumbService } from './../common/breadcrumb.service';
-import { Grid } from '../grid/grid.model';
 import { FilterModel } from './../filter/filter.model';
 import { PaginationInstance, PaginationService } from 'nap-components/pagination';
 import { PaginationService as NgxPaginationService, PaginatePipe } from 'ngx-pagination';
@@ -13,7 +12,7 @@ import { PaginationService as NgxPaginationService, PaginatePipe } from 'ngx-pag
   templateUrl: './updated-credit.component.html',
   styleUrls: ['./updated-credit.component.scss']
 })
-export class UpdatedCreditComponent implements OnInit, Grid {
+export class UpdatedCreditComponent implements OnInit {
   breadcrumbItems: string[];
   updatedCreditData: UpdatedCreditModel[];
   displayUpdatedCreditData: UpdatedCreditModel[];
@@ -21,6 +20,7 @@ export class UpdatedCreditComponent implements OnInit, Grid {
   private paginatePipe: PaginatePipe;
 
   constructor(
+    private filterModel: FilterModel,
     private breadcrumbService: BreadcrumbService,
     private updatedCreditService: UpdatedCreditService,
     private paginationService: PaginationService,
@@ -29,9 +29,10 @@ export class UpdatedCreditComponent implements OnInit, Grid {
     }
 
   ngOnInit() {
+    this.query(this.filterModel);
   }
 
-  query(filterModel: FilterModel) {
+  private query(filterModel: FilterModel) {
       this.updatedCreditService.query(filterModel).subscribe(data => {
         const breadcrumb = this.breadcrumbService.createBreadcrumb(filterModel);
         this.breadcrumbItems = [breadcrumb];
@@ -41,12 +42,9 @@ export class UpdatedCreditComponent implements OnInit, Grid {
       });
   }
 
-  exportExcel(filterModel: FilterModel) {
+  exportExcel() {
+    this.updatedCreditService.exportExcel(this.filterModel);
   }
-
-  get hasExcel(): boolean {
-    return _.isNil(this.updatedCreditData) && this.updatedCreditData.length > 0;
-   }
 
   onPageChange() {
     this.createPagingUpdatedCreditData();

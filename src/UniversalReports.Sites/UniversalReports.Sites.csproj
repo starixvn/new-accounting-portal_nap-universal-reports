@@ -626,6 +626,8 @@
     <Content Include="ExcelTemplate\PunterAnalysis\Summary.xlsx" />
     <Content Include="ExcelTemplate\PunterAnalysis\League.xlsx" />
     <Content Include="ExcelTemplate\PlayForFun\Summary.xlsx" />
+    <Content Include="ExcelTemplate\UpdatedUsernameAndGivenCredit\UpdatedCredit.xlsx" />
+    <Content Include="ExcelTemplate\UpdatedUsernameAndGivenCredit\UpdatedUsername.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

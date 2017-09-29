@@ -13,7 +13,6 @@ import {
 } from '@angular/core';
 import { UpdatedUsernameComponent } from './../updated-username/updated-username.component';
 import { UpdatedCreditComponent } from './../updated-credit/updated-credit.component';
-import { Grid } from './grid.model';
 import { FilterModel } from './../filter/filter.model';
 import { QueryModelService } from './../common/query-model.service';
 import { BreadcrumbService } from './../common/breadcrumb.service';
@@ -54,7 +53,7 @@ export class GridComponent implements OnChanges, OnDestroy {
     this.clear();
 
     if (this.filterModel) {
-      this.createGrid();
+      this.createComponent();
     }
   }
 
@@ -62,18 +61,16 @@ export class GridComponent implements OnChanges, OnDestroy {
     this.clear();
   }
 
-  private generate() {
-    this.createGrid();
-  }
+  private createComponent() {
+    const injector = ReflectiveInjector.resolveAndCreate([
+      { provide: FilterModel, useValue: this.filterModel }
+    ], this.injector);
 
-  private createGrid() {
     const factory = this.getComponentFactory();
-    const component = this.container.createComponent(factory);
-    const grid = component.instance;
-    grid.query(this.filterModel);
+    const component = this.container.createComponent(factory, 0, injector);
   }
 
-  private getComponentFactory(): ComponentFactory<Grid> {
+  private getComponentFactory(): ComponentFactory<any> {
     switch (this.filterModel.reportBy) {
       case 'Updated Credit':
         return this.componentFactoryResolver.resolveComponentFactory(UpdatedCreditComponent);

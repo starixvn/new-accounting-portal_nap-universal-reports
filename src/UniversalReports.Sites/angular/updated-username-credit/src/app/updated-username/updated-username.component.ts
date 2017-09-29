@@ -4,7 +4,6 @@ import { UpdatedUsernameModel } from './updated-username.model';
 import { UpdatedUsernameService } from './updated-username.service';
 import { BreadcrumbService } from './../common/breadcrumb.service';
 import { FilterModel } from './../filter/filter.model';
-import { Grid } from './../grid/grid.model';
 import { PaginationService as NgxPaginationService, PaginatePipe } from 'ngx-pagination';
 import { PaginationService, PaginationInstance } from 'nap-components/pagination';
 
@@ -13,7 +12,7 @@ import { PaginationService, PaginationInstance } from 'nap-components/pagination
   templateUrl: './updated-username.component.html',
   styleUrls: ['./updated-username.component.scss']
 })
-export class UpdatedUsernameComponent implements OnInit, Grid {
+export class UpdatedUsernameComponent implements OnInit {
   breadcrumbItems: string[];
   updatedUsernameData: UpdatedUsernameModel[];
   displayUpdatedUsernameData: UpdatedUsernameModel[];
@@ -21,6 +20,7 @@ export class UpdatedUsernameComponent implements OnInit, Grid {
   private paginatePipe: PaginatePipe;
 
   constructor(
+    private filterModel: FilterModel,
     private breadcrumbService: BreadcrumbService,
     private updateUsernameService: UpdatedUsernameService,
     private paginationService: PaginationService,
@@ -29,9 +29,10 @@ export class UpdatedUsernameComponent implements OnInit, Grid {
   }
 
   ngOnInit() {
+    this.query(this.filterModel);
   }
 
-  query(filterModel: FilterModel) {
+  private query(filterModel: FilterModel) {
     this.updateUsernameService.query(filterModel).subscribe(
       data => {
         const breadcrumb = this.breadcrumbService.createBreadcrumb(filterModel);
@@ -42,11 +43,8 @@ export class UpdatedUsernameComponent implements OnInit, Grid {
       });
   }
 
-  exportExcel(filterModel: FilterModel) {
-  }
-
-  get hasExcel(): boolean {
-    return _.isNil(this.updatedUsernameData) && this.updatedUsernameData.length > 0;
+  exportExcel() {
+    this.updateUsernameService.exportExcel(this.filterModel);
   }
 
   onPageChange() {

@@ -1,16 +1,14 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
 {
     public interface UpdatedCreditService
     {
-        Task<IEnumerable<UpdatedCreditModel>> GetChangedCredit(Message message);
+        Task<IEnumerable<UpdatedCreditModel>> GetUpdatedCredit(BaseMessage message);
     }
 
     public class UpdatedCreditServiceImp : UpdatedCreditService
@@ -22,7 +20,7 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<UpdatedCreditModel>> GetChangedCredit(Message message)
+        public async Task<IEnumerable<UpdatedCreditModel>> GetUpdatedCredit(BaseMessage message)
         {
             var criteria = Mapper.Map<Criteria>(message);
 

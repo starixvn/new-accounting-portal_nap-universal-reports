@@ -1,18 +1,17 @@
 ﻿using AutoMapper;
 using Fanex.Data.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
 {
     public interface UpdatedUsernameService
     {
-        UpdatedUsernameModel GetChangeUsernameItem(UpdatedUsernameEntity changedUsernameEntity);
+        UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity changedUsernameEntity);
 
-        Task<IEnumerable<UpdatedUsernameModel>> GetChangedUsername(Message message);
+        Task<IEnumerable<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message);
     }
 
     public class UpdatedUsernameServiceImp : UpdatedUsernameService
@@ -27,19 +26,19 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
             this.logParseService = logParseService;
         }
 
-        public async Task<IEnumerable<UpdatedUsernameModel>> GetChangedUsername(Message message)
+        public async Task<IEnumerable<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message)
         {
             var criteria = Mapper.Map<Criteria>(message);
 
             var rawData = await repository.FetchAsync<UpdatedUsernameEntity>(criteria).ConfigureAwait(false);
 
-            var result = from item in rawData select GetChangeUsernameItem(item);
-       
+            var result = from item in rawData select GetUpdatedUsernameItem(item);
+
 
             return result;
         }
 
-        public UpdatedUsernameModel GetChangeUsernameItem(UpdatedUsernameEntity updatedUsernameEntity)
+        public UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity updatedUsernameEntity)
         {
             var changedUsernameLog = logParseService.GetUsernameLog(updatedUsernameEntity.TrackingValue);
             var changedUsername = Mapper.Map<UpdatedUsernameModel>(updatedUsernameEntity);

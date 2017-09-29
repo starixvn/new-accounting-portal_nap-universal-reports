@@ -12,9 +12,5 @@ export class AppComponent {
 
   generate(filterModel: FilterModel) {
     this.filterModel = filterModel;
-    console.log(
-      'Startdate is ' + filterModel.fromDate +
-      ' & Enddate is ' + filterModel.toDate +
-      ' & User name is ' + filterModel.userName);
   }
 }

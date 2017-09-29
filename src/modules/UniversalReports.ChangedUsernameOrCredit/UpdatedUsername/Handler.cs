@@ -1,8 +1,5 @@
 ﻿using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
@@ -18,7 +15,7 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
 
         public async Task<IEnumerable<UpdatedUsernameModel>> Handle(Message message)
         {
-            return await service.GetChangedUsername(message).ConfigureAwait(false);
+            return await service.GetUpdatedUsername(message).ConfigureAwait(false);
         }
     }
 }

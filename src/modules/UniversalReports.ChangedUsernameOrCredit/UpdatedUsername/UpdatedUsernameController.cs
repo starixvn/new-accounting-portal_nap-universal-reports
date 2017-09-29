@@ -1,8 +1,5 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus.WebApi.Results;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -23,6 +20,13 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
         {
             var viewModel = await mediator.Send(message).ConfigureAwait(false);
             return Json(viewModel);
+        }
+
+        [Route("excel")]
+        public async Task<IHttpActionResult> Query(ExcelMessage message)
+        {
+            var excelPackage = await mediator.Send(message).ConfigureAwait(false);
+            return new ExcelResult(excelPackage);
         }
     }
 }

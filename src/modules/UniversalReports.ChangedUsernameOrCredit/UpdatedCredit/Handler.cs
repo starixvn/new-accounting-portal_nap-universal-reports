@@ -1,8 +1,5 @@
 ﻿using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
@@ -18,7 +15,7 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
 
         public async Task<IEnumerable<UpdatedCreditModel>> Handle(Message message)
         {
-            return await service.GetChangedCredit(message).ConfigureAwait(false);
+            return await service.GetUpdatedCredit(message).ConfigureAwait(false);
         }
     }
 }
