@@ -40,12 +40,12 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
 
         public UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity updatedUsernameEntity)
         {
-            var changedUsernameLog = logParseService.GetUsernameLog(updatedUsernameEntity.TrackingValue);
-            var changedUsername = Mapper.Map<UpdatedUsernameModel>(updatedUsernameEntity);
-            changedUsername.FromUsername = changedUsernameLog.FromName;
-            changedUsername.ToUsername = changedUsernameLog.ToName;
+            var updatedUsernameLog = logParseService.GetUsernameLog(updatedUsernameEntity.TrackingValue);
+            var updatedUsername = Mapper.Map<UpdatedUsernameModel>(updatedUsernameEntity);
+            updatedUsername.FromUsername = updatedUsernameLog.FromName;
+            updatedUsername.ToUsername = updatedUsernameLog.ToName;
 
-            return changedUsername;
+            return updatedUsername;
         }
     }
 }

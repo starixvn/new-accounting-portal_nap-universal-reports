@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿using System.Text.RegularExpressions;
 
 namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
 {
@@ -11,12 +11,17 @@ namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
     {
         public UsernameLogModel GetUsernameLog(string tracking)
         {
-            var xElement = XElement.Parse(tracking);
+
+            Regex fromNameRegex = new Regex(@"(?<=\bFromName="")[^""]*");
+            Match fromNameMatch = fromNameRegex.Match(tracking);
+
+            Regex toNameRegex = new Regex(@"(?<=\bToName="")[^""]*");
+            Match toNameMatch = toNameRegex.Match(tracking);
 
             return new UsernameLogModel
             {
-                FromName = xElement.Attribute("FromName").Value,
-                ToName = xElement.Attribute("ToName").Value
+                FromName = fromNameMatch.Value,
+                ToName = toNameMatch.Value
             };
         }
     }

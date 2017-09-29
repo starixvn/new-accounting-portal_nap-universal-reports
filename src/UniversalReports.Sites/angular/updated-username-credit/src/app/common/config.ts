@@ -31,6 +31,6 @@ export let CONFIG = {
 
 @Injectable()
 export class CustomPaginationConfig extends PaginationConfig {
-    pageSizes = [20, 50, 100, 200];
-    itemsPerPage = 20;
+    pageSizes = [50, 100, 200, 500];
+    itemsPerPage = 50;
 }

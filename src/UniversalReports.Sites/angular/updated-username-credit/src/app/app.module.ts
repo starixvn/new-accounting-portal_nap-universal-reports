@@ -16,6 +16,7 @@ import { UpdatedCreditComponent } from './updated-credit/updated-credit.componen
 import { GridComponent } from './grid/grid.component';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
+import { CustomPaginationConfig } from './common/config';
 
 @NgModule({
   declarations: [
@@ -38,20 +39,23 @@ import { BreadcrumbModule } from 'nap-components/breadcrumb';
     ToastModule.forRoot(),
     NavbarModule.forRoot()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: PaginationConfig, useClass: CustomPaginationConfig }
+  ]
 })
 export class AppModule {
   constructor(private navbarService: NavbarService) {
     navbarService.url = 'state-api/application/header';
     navbarService.userMenus = [
-        {
-            name: 'Change Password',
-            link: 'UserInfo/ChangePassword'
-        },
-        {
-            name: 'Sign Out',
-            link: 'UserLogin/Login/LogOut'
-        }
+      {
+        name: 'Change Password',
+        link: 'UserInfo/ChangePassword'
+      },
+      {
+        name: 'Sign Out',
+        link: 'UserLogin/Login/LogOut'
+      }
     ];
-}
+  }
 }

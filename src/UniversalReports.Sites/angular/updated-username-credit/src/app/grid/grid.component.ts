@@ -19,7 +19,6 @@ import { BreadcrumbService } from './../common/breadcrumb.service';
 import { UpdatedUsernameService } from './../updated-username/updated-username.service';
 import { UpdatedCreditService } from './../updated-credit/updated-credit.service';
 import { PaginationConfig } from 'nap-components/pagination';
-import { CustomPaginationConfig } from '../common/config';
 
 @Component({
   selector: 'app-grid',
@@ -35,8 +34,7 @@ import { CustomPaginationConfig } from '../common/config';
     UpdatedCreditService,
     UpdatedUsernameService,
     QueryModelService,
-    BreadcrumbService,
-    { provide: PaginationConfig, useClass: CustomPaginationConfig }
+    BreadcrumbService
   ]
 })
 export class GridComponent implements OnChanges, OnDestroy {
