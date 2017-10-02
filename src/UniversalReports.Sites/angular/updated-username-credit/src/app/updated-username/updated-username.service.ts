@@ -21,8 +21,8 @@ export class UpdatedUsernameService {
 
     exportExcel(filterModel: FilterModel) {
         const url = `${this.url}/excel`;
-        const fromDate =  DateHelper.formatMomentDate(filterModel.fromDate, DateFormat.Date).replace(/ /g, '_');
-        const toDate =  DateHelper.formatMomentDate(filterModel.toDate, DateFormat.Date).replace(/ /g, '_');
+        const fromDate =  DateHelper.formatMomentDate(filterModel.fromDate, DateFormat.Date).replace(',', '').replace(/ /g, '_');
+        const toDate =  DateHelper.formatMomentDate(filterModel.toDate, DateFormat.Date).replace(',', '').replace(/ /g, '_');
         const queryModel = this.queryModelService.createQueryModel(filterModel);
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Updated_Username_report_From_${fromDate}_To_${toDate}.xlsx`;
