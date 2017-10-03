@@ -18,11 +18,11 @@ import { ToastService } from 'nap-components/toast';
 export class FilterComponent {
     @Output() onGenerated = new EventEmitter<FilterModel>();
     timePeriodSelectItems = this.filterService.getTimeSelectItems();
-    timePeriod: TimePeriod = TimePeriod.SpecificDate;
-    minStartDate: NgbDateStruct = { year: 2013, month: 1, day: 1 };
-    maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
-    startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
-    endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+    timePeriod: TimePeriod = TimePeriod.Today;
+    minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+    maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
+    startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
+    endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
     minDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.balanceUpDate);
     maxDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
 
@@ -32,6 +32,10 @@ export class FilterComponent {
         let endDate: moment.Moment = undefined;
         let startDate: moment.Moment = undefined;
         switch (this.timePeriod) {
+            case TimePeriod.Today:
+            endDate = moment.utc(CONFIG.date.today);
+            startDate = moment.utc(CONFIG.date.today);
+            break;
             case TimePeriod.Yesterday:
                 endDate = moment.utc(CONFIG.date.yesterday);
                 startDate = moment.utc(CONFIG.date.yesterday);

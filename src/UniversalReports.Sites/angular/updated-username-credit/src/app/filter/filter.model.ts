@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
 export enum TimePeriod {
+    Today,
     Yesterday,
     CurrentWeek,
     LastWeek,
