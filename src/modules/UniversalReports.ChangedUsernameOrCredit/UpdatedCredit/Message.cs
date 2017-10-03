@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using System.Collections.Generic;
-using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
+using UniversalReports.UpdatedUsernameAndCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {
     public class Message : BaseMessage, IRequest<IEnumerable<UpdatedCreditModel>>
     {

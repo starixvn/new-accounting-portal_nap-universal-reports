@@ -1,11 +1,11 @@
 ﻿using UniversalReports.Core.Configurations;
-using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
+using UniversalReports.UpdatedUsernameAndCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
 {
     public class UpdatedUsernameExcelSettingFactory : ExcelSettingFactory
     {
-        private const string TemplatePath = @"ExcelTemplate\UpdatedUsernameAndGivenCredit\UpdatedUsername.xlsx";
+        private const string TemplatePath = @"ExcelTemplate\UpdatedUsernameAndCredit\UpdatedUsername.xlsx";
 
         private readonly ConfigurationService configurationService;
 

@@ -22,7 +22,7 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
                 .RegisterPlayForFunServices()
-                .RegisterUpdatedUsernameAndGivenCreditServices();
+                .RegisterUpdatedUsernameAndCreditServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

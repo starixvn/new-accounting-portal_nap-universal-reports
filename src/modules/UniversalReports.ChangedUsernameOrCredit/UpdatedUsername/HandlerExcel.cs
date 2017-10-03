@@ -3,9 +3,9 @@ using MediatR;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
+using UniversalReports.UpdatedUsernameAndCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
 {
     public class HandlerExcel : IAsyncRequestHandler<ExcelMessage, ExcelPackage>
     {

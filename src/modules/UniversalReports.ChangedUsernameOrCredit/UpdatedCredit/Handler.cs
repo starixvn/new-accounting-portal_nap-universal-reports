@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {
     public class Handler : IAsyncRequestHandler<Message, IEnumerable<UpdatedCreditModel>>
     {

@@ -2,9 +2,9 @@
 using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
+using UniversalReports.UpdatedUsernameAndCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {
     public interface UpdatedCreditService
     {

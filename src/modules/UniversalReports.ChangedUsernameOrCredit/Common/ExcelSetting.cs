@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.UpdatedUsernameAndGivenCredit.Common
+﻿namespace UniversalReports.UpdatedUsernameAndCredit.Common
 {
     public class ExcelSetting
     {

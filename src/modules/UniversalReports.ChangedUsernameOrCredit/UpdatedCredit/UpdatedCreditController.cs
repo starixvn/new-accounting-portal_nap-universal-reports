@@ -3,7 +3,7 @@ using Olympus.WebApi.Results;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {
     [RoutePrefix("api/updated-credit")]
     public class UpdatedCreditController : ApiController

@@ -7,8 +7,8 @@
     <ProjectGuid>{847C5BA4-FF43-4683-940F-30CFEFA00892}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UniversalReports.UpdatedUsernameAndGivenCredit</RootNamespace>
-    <AssemblyName>UniversalReports.UpdatedUsernameAndGivenCredit</AssemblyName>
+    <RootNamespace>UniversalReports.UpdatedUsernameAndCredit</RootNamespace>
+    <AssemblyName>UniversalReports.UpdatedUsernameAndCredit</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -142,7 +142,7 @@
     <Compile Include="UpdatedCredit\Handler.cs" />
     <Compile Include="UpdatedCredit\Message.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditService.cs" />
-    <Compile Include="UpdatedUsernameAndGivenCreditAttribute.cs" />
+    <Compile Include="UpdatedUsernameAndCreditAttribute.cs" />
     <Compile Include="UpdatedUsername\ExcelMessage.cs" />
     <Compile Include="UpdatedUsername\HandlerExcel.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameEntity.cs" />

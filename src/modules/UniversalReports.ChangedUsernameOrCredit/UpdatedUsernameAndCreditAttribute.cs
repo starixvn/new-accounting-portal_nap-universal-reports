@@ -3,7 +3,7 @@
 namespace UniversalReports.UpdatedUsernameAndGivenCredit
 {
     [AttributeUsage(AttributeTargets.All)]
-    public sealed class UpdatedUsernameAndGivenCreditAttribute : Attribute
+    public sealed class UpdatedUsernameAndCreditAttribute : Attribute
     {
     }
 }

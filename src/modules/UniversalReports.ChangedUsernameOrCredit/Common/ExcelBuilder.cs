@@ -3,7 +3,7 @@ using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.Common
+namespace UniversalReports.UpdatedUsernameAndCredit.Common
 {
     public interface ExcelBuilder
     {

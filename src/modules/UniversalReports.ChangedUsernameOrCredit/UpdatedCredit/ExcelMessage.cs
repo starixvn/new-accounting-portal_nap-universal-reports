@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using OfficeOpenXml;
-using UniversalReports.UpdatedUsernameAndGivenCredit.Common;
+using UniversalReports.UpdatedUsernameAndCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {
     public class ExcelMessage : BaseMessage, IRequest<ExcelPackage>
     {

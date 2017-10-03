@@ -20,7 +20,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
             yield return typeof(PlayForFunAttribute).GetTypeInfo().Assembly;
-            yield return typeof(UpdatedUsernameAndGivenCreditAttribute).GetTypeInfo().Assembly;
+            yield return typeof(UpdatedUsernameAndCreditAttribute).GetTypeInfo().Assembly;
         }
     }
 }
