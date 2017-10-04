@@ -1,7 +1,7 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.Shared;

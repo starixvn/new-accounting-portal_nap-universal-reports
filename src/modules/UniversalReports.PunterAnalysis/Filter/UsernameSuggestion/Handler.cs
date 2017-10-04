@@ -1,9 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
 using Fanex.Data.Repository;
 using Fanex.NAP.Core.Web.Session;
 using MediatR;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Filter.UsernameSuggestion
 {

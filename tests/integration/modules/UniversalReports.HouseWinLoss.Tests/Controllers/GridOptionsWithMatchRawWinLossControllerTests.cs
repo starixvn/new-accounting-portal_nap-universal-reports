@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Models;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Web.Http.Results;
+using Fanex.Excel.Models;
+using NUnit.Framework;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers

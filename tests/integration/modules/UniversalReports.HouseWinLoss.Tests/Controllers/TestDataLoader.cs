@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using NUnit.Framework;
-using System.IO;
-using System.Runtime.CompilerServices;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {

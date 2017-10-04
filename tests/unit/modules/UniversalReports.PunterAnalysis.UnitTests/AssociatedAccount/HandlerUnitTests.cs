@@ -1,11 +1,11 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using Olympus.FPSAPI.Client.Model;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;

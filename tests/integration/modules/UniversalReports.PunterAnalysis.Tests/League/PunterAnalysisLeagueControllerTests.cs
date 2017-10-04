@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.Threading.Tasks;
+using NUnit.Framework;
 using Olympus.WebApi.Results;
 using SimpleInjector;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;

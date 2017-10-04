@@ -1,8 +1,8 @@
-﻿using Epplus.Mapper.Extensions;
+﻿using System.Collections.Generic;
+using System.IO;
+using Epplus.Mapper.Extensions;
 using Linq.DynamicSum;
 using OfficeOpenXml;
-using System.Collections.Generic;
-using System.IO;
 
 namespace UniversalReports.PunterAnalysis.Shared
 {

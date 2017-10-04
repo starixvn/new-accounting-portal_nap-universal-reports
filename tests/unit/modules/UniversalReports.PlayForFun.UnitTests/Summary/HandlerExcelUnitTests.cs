@@ -1,7 +1,7 @@
-﻿using Linq.DynamicSum;
+﻿using System.Threading.Tasks;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Detail.Model;

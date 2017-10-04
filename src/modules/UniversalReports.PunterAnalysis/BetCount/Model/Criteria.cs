@@ -1,5 +1,5 @@
-﻿using Fanex.Data.Repository;
-using System;
+﻿using System;
+using Fanex.Data.Repository;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model

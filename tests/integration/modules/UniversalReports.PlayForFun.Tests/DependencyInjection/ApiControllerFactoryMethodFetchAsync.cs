@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using Fanex.Data.Repository;
 using NSubstitute;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
-using System.Collections.Generic;
 using UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection

@@ -1,6 +1,6 @@
-﻿using Fanex.Data;
+﻿using System;
+using Fanex.Data;
 using Fanex.Data.Repository;
-using System;
 
 namespace UniversalReports.PunterAnalysis.Filter.League
 {

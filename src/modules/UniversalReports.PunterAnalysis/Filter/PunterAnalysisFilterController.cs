@@ -1,6 +1,6 @@
-﻿using MediatR;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using MediatR;
 using HttpParameterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.AvailableDatabase.HttpParameterJson;
 using HttpParameterAvailableDataRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.HttpParameterJson;
 using HttpParameterLeague = UniversalReports.PunterAnalysis.Filter.League.HttpParameterJson;

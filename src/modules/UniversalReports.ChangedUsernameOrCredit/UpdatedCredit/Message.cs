@@ -1,5 +1,5 @@
-﻿using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using MediatR;
 using UniversalReports.UpdatedUsernameAndCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit

@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Fanex.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
+using Fanex.Data;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;

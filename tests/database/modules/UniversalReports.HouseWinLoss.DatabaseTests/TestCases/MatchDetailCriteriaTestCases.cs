@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Data.Repository;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.MetricGaming.MatchDetail;
 

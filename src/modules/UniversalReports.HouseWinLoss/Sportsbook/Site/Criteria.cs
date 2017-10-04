@@ -15,6 +15,6 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public bool IsHedge { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Site-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Site-{Source}";
     }
 }

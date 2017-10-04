@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Olympus.WebApi.Results;
+﻿using Olympus.WebApi.Results;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MediatR;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
 namespace UniversalReports.PunterAnalysis.SportType

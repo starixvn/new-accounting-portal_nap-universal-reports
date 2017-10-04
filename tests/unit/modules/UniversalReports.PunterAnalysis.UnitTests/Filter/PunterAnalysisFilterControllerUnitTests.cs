@@ -1,7 +1,7 @@
-﻿using MediatR;
+﻿using System.Threading.Tasks;
+using MediatR;
 using NSubstitute;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter;
 using FilterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
 using FilterAvailableDateRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;

@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Bettrade.Site
     {
         public string Site { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Bettrade-Site-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Bettrade-Site-{Source}";
     }
 }

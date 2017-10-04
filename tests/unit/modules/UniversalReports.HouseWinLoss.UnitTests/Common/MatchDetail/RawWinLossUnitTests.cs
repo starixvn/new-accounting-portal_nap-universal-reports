@@ -1,7 +1,6 @@
-﻿using NUnit.CompareNetObjects;
+﻿using System;
+using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
-using System.Diagnostics.CodeAnalysis;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail

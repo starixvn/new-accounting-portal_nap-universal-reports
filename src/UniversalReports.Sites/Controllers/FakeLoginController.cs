@@ -1,14 +1,14 @@
-﻿using Fanex.NAP.Core.Models;
+﻿using System;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using Fanex.NAP.Core.Models;
 using Fanex.NAP.Core.Models.ParameterObject;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Auth;
 using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
-using System;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
 
 namespace UniversalReports.Sites.Controllers
 {

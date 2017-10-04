@@ -1,7 +1,7 @@
-﻿using Fanex.Data.Repository;
+﻿using System;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using System;
 using UniversalReports.PunterAnalysis.League;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.League

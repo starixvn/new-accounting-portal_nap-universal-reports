@@ -1,5 +1,5 @@
-﻿using Fanex.Excel.Models;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;

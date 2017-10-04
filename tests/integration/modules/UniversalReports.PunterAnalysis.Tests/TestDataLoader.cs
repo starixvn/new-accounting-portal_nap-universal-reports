@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using NUnit.Framework;
-using System.IO;
 
 namespace UniversalReports.PunterAnalysis.Tests
 {

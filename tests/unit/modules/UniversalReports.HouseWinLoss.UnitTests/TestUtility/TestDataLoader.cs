@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using NUnit.Framework;
-using System.IO;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.TestUtility
 {

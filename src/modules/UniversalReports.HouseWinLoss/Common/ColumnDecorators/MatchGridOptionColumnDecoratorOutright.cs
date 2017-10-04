@@ -1,8 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {

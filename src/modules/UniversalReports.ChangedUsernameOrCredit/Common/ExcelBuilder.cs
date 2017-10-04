@@ -1,7 +1,7 @@
-﻿using Epplus.Mapper.Extensions;
-using OfficeOpenXml;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Epplus.Mapper.Extensions;
+using OfficeOpenXml;
 
 namespace UniversalReports.UpdatedUsernameAndCredit.Common
 {
@@ -63,7 +63,6 @@ namespace UniversalReports.UpdatedUsernameAndCredit.Common
             this.startRowIndex = rowIndex;
         }
 
-
         private void SetSheetName(string sheetName)
         {
             statisticSheet.Name = sheetName;
@@ -78,6 +77,5 @@ namespace UniversalReports.UpdatedUsernameAndCredit.Common
         {
             statisticSheet.ApplyVertical(statistics, startRowIndex);
         }
-
     }
 }

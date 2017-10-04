@@ -1,5 +1,5 @@
-﻿using Epplus.Mapper.Annotations;
-using System;
+﻿using System;
+using Epplus.Mapper.Annotations;
 
 namespace UniversalReports.PlayForFun.Summary.Model
 {

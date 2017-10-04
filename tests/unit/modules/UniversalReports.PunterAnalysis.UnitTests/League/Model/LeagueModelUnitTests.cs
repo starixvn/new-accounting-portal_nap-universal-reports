@@ -1,6 +1,6 @@
-﻿using NUnit.CompareNetObjects;
+﻿using System.Collections.Generic;
+using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
 using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.League.Model

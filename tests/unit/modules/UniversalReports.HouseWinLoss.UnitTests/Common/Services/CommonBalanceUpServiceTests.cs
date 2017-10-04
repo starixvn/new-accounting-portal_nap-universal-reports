@@ -1,8 +1,8 @@
-﻿using Fanex.Caching;
+﻿using System;
+using Fanex.Caching;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using System;
 using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services

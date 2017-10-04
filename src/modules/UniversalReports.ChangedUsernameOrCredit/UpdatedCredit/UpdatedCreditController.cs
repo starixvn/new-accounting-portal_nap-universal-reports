@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Olympus.WebApi.Results;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using MediatR;
+using Olympus.WebApi.Results;
 
 namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
 {

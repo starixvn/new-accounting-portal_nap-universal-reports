@@ -1,7 +1,6 @@
 ﻿using Olympus.FPSAPI.Client;
 using SimpleInjector;
 using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.League;

@@ -1,10 +1,10 @@
-﻿using Fanex.NAP.Core.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+using Fanex.NAP.Core.Models;
 using Fanex.NAP.Core.Web.Session;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
 
 namespace UniversalReports.Application.Header
 {
@@ -18,6 +18,7 @@ namespace UniversalReports.Application.Header
         }
 
 #if DEBUG
+
         [AllowAnonymous]
 #endif
         [Route("api/application/header")]
@@ -42,13 +43,14 @@ namespace UniversalReports.Application.Header
         }
 
 #if DEBUG
+
         [AllowAnonymous]
 #endif
         [Route("state-api/application/header")]
         [HttpPost]
         public IHttpActionResult Header()
         {
-            var serializerSettings =  new JsonSerializerSettings
+            var serializerSettings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             };

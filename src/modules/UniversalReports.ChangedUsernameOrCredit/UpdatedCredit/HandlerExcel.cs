@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
 using OfficeOpenXml;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.UpdatedUsernameAndCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit

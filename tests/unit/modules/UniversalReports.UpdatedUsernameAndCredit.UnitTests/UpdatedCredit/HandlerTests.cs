@@ -1,9 +1,9 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit;
 
 namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests.UpdatedCredit

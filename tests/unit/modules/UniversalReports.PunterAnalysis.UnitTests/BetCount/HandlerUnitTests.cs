@@ -1,9 +1,9 @@
-﻿using Linq.DynamicSum;
+﻿using System.Threading.Tasks;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 

@@ -11,7 +11,6 @@ namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
     {
         public UsernameLogModel GetUsernameLog(string tracking)
         {
-
             Regex fromNameRegex = new Regex(@"(?<=\bFromName="")[^""]*");
             Match fromNameMatch = fromNameRegex.Match(tracking);
 

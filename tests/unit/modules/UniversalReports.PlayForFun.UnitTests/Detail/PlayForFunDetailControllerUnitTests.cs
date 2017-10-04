@@ -1,7 +1,7 @@
-﻿using MediatR;
+﻿using System.Threading.Tasks;
+using MediatR;
 using NSubstitute;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Detail;
 using UniversalReports.PlayForFun.Detail.Model;
 

@@ -6,6 +6,6 @@ namespace UniversalReports.NG2Statistics.Bettype
     {
         public bool IsDrillDown { get; set; }
 
-        public override string GetSettingKey() => "NG2-Statistics-Bettype"; 
+        public override string GetSettingKey() => "NG2-Statistics-Bettype";
     }
 }

@@ -1,6 +1,6 @@
-﻿using MediatR;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using MediatR;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook;
 using UniversalReports.PunterAnalysis.Performance.Summary;
 

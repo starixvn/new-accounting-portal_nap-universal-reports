@@ -15,10 +15,10 @@ namespace UniversalReports.Sites.Controllers
         {
         }
 
-
 #if !DEBUG
     [NapAuth(FunctionKey = FunctionKeys.UpdatedUsernameAndGivenCredit, Policy = Constant.Policy.Read)]
 #endif
+
         public ActionResult Index()
         {
             SetupGlobalJsObject();

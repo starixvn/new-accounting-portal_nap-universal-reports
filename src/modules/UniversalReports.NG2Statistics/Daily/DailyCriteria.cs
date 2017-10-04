@@ -6,6 +6,6 @@ namespace UniversalReports.NG2Statistics.Daily
     {
         public bool IsDrillDown { get; set; }
 
-        public override string GetSettingKey() => "NG2-Statistics-Daily"; 
+        public override string GetSettingKey() => "NG2-Statistics-Daily";
     }
 }

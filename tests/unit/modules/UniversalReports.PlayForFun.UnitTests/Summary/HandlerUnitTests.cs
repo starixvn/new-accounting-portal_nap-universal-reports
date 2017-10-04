@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Summary;
 using UniversalReports.PlayForFun.Summary.Model;

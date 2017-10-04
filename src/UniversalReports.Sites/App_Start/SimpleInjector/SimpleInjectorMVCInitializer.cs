@@ -1,7 +1,7 @@
+using System.Web.Mvc;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-using System.Web.Mvc;
 using UniversalReports.Sites.Controllers;
 using UniversalReports.Sites.SimpleInjector;
 

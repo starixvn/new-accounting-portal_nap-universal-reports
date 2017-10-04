@@ -1,8 +1,8 @@
-﻿using Fanex.Data.Repository;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using NUnit.Framework;
 using UniversalReports.PlayForFun.Detail.Model;
 using UniversalReports.PlayForFun.Filter.Product;
 using UniversalReports.PlayForFun.Summary.Model;

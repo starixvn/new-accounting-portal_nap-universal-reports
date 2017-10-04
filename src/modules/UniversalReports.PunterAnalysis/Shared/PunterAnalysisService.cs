@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using Linq.DynamicSum;
-using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Shared
 {

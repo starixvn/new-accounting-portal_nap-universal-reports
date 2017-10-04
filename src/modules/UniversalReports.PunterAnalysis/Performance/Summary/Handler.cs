@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
-using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Fanex.Data.Repository;
+using MediatR;
 using UniversalReports.PunterAnalysis.Performance.Summary.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 
