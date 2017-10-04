@@ -11,7 +11,7 @@ namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
     {
         UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity changedUsernameEntity);
 
-        Task<IEnumerable<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message);
+        Task<List<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message);
     }
 
     public class UpdatedUsernameServiceImp : UpdatedUsernameService
@@ -26,14 +26,13 @@ namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
             this.logParseService = logParseService;
         }
 
-        public async Task<IEnumerable<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message)
+        public async Task<List<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message)
         {
             var criteria = Mapper.Map<Criteria>(message);
 
             var rawData = await repository.FetchAsync<UpdatedUsernameEntity>(criteria).ConfigureAwait(false);
 
-            var result = from item in rawData select GetUpdatedUsernameItem(item);
-
+            var result = rawData.Select(item => GetUpdatedUsernameItem(item)).ToList();
 
             return result;
         }

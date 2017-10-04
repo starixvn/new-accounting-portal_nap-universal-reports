@@ -1,0 +1,32 @@
+﻿[  
+   {  
+      "Year":2017,
+      "Month":9,
+      "LogDate":"2017-09-28T02:28:04.453",
+      "Department":"IT",
+      "Admin":"sa",
+      "CurrentUsername":"WPRCIG2029",
+      "Level":"Member",
+      "Headline":"WPR",
+      "Super":"WPR",
+      "Master":"WPRCI",
+      "Agent":"WPRCIG2",
+      "FromUsername":"tempJane",
+      "ToUsername":"ti@ni % world & "
+   },
+   {  
+      "Year":2017,
+      "Month":9,
+      "LogDate":"2017-09-28T02:28:04.453",
+      "Department":"IT",
+      "Admin":"sa",
+      "CurrentUsername":"PHL-Data Center & Bandwidth",
+      "Level":"Member",
+      "Headline":"",
+      "Super":"EXPENSES",
+      "Master":"EXP-PHL",
+      "Agent":"COS-PHL",
+      "FromUsername":"PHL-Data Center & Bandwidth",
+      "ToUsername":"PHL-Data Center & Bandwidth19"
+   }
+]

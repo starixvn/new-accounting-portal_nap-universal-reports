@@ -1,0 +1,42 @@
+﻿using MediatR;
+using NSubstitute;
+using NUnit.Framework;
+using System.Threading.Tasks;
+using UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit;
+
+namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests.UpdatedCredit
+{
+    [TestFixture]
+    public class UpdatedCreditControllerTests
+    {
+        [Test]
+        public async Task Index_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var message = new Message();
+
+            // Act
+            var controller = new UpdatedCreditController(mediator);
+            await controller.Query(message);
+
+            // Assert
+            await mediator.Received().Send(Arg.Any<Message>());
+        }
+
+        [Test]
+        public async Task Excel_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var excelMessage = new ExcelMessage();
+
+            // Act
+            var controller = new UpdatedCreditController(mediator);
+            await controller.Excel(excelMessage);
+
+            // Assert
+            await mediator.Received().Send(Arg.Any<ExcelMessage>());
+        }
+    }
+}

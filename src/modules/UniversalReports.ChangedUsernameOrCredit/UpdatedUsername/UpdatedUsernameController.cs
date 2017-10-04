@@ -23,7 +23,7 @@ namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
         }
 
         [Route("excel")]
-        public async Task<IHttpActionResult> Query(ExcelMessage message)
+        public async Task<IHttpActionResult> Excel(ExcelMessage message)
         {
             var excelPackage = await mediator.Send(message).ConfigureAwait(false);
             return new ExcelResult(excelPackage);
