@@ -1,9 +1,9 @@
-﻿using Fanex.Data.Repository;
-using MediatR;
-using Olympus.FPSAPI.Client;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using MediatR;
+using Olympus.FPSAPI.Client;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
@@ -26,19 +26,19 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<List<UserRoleModel>> Handle(HttpParameterJson message)
         {
-            var siteName = await GetSiteName(message.CustId).ConfigureAwait(false);
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, message.Username, siteName).ConfigureAwait(false);
+            var site = await GetSiteName(message.CustId).ConfigureAwait(false);
+            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, message.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
             var usernames = associatedCustomers.Select(c => c.Account);
             var model = await GetAccountRoles(usernames).ConfigureAwait(false);
 
             return new List<UserRoleModel>(model);
         }
 
-        private async Task<string> GetSiteName(int custId)
+        private async Task<Site> GetSiteName(int custId)
         {
             var criteria = new UserSiteQueryCriteria { CustId = custId };
 
-            return await repository.GetAsync<string>(criteria).ConfigureAwait(false);
+            return await repository.GetAsync<Site>(criteria).ConfigureAwait(false);
         }
 
         private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<string> usernames)

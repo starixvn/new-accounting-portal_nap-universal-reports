@@ -115,7 +115,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.1\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.4\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -151,6 +151,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociatedAccount\Model\Site.cs" />
     <Compile Include="BetCount\BetCountExcelSettingFactory.cs" />
     <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
     <Compile Include="BetCount\Model\BetCountRawModel.cs" />

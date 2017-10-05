@@ -35,7 +35,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                 new CustomerDevice {  Account = "User 1" }
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns(nonEmptyListOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(nonEmptyListOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
             // Act
