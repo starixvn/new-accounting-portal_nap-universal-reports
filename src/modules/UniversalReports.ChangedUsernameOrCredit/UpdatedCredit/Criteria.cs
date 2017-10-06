@@ -1,7 +1,7 @@
 ﻿using System;
 using Fanex.Data.Repository;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 {
     public class Criteria : CriteriaBase
     {

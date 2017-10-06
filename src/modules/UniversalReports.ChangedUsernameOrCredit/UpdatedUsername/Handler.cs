@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public class Handler : IAsyncRequestHandler<Message, IEnumerable<UpdatedUsernameModel>>
     {

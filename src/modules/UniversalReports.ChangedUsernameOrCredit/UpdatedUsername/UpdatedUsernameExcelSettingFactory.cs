@@ -1,7 +1,7 @@
 ﻿using UniversalReports.Core.Configurations;
-using UniversalReports.UpdatedUsernameAndCredit.Common;
+using UniversalReports.UpdatedUsernameCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public class UpdatedUsernameExcelSettingFactory : ExcelSettingFactory
     {
@@ -21,8 +21,8 @@ namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
                 SheetName = "Updated Username",
                 StartRowIndex = 5,
                 TemplatePath = $"{configurationService.CurrentDirectory}\\{TemplatePath}",
-                Title = $"Updated Username report From {message.FromDate: MMM dd, yyyy} To  {message.ToDate: MMM dd, yyyy}",
-                TitleCellRange = "A1:N2",
+                Title = $"Updated Username report From {message.FromDate:MMM dd, yyyy} To {message.ToDate:MMM dd, yyyy}",
+                TitleCellRange = "A1:N2"
             };
         }
     }

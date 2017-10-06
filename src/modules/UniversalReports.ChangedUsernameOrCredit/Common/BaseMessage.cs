@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.Common
+namespace UniversalReports.UpdatedUsernameCredit.Common
 {
     public class BaseMessage
     {

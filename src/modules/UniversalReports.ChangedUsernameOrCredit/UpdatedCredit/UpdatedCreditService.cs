@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
-using UniversalReports.UpdatedUsernameAndCredit.Common;
+using UniversalReports.UpdatedUsernameCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 {
     public interface UpdatedCreditService
     {

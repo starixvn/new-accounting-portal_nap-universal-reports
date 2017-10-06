@@ -3,13 +3,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
-using UniversalReports.UpdatedUsernameAndCredit.Common;
+using UniversalReports.UpdatedUsernameCredit.Common;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public interface UpdatedUsernameService
     {
-        UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity changedUsernameEntity);
+        UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity updatedUsernameEntity);
 
         Task<List<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message);
     }

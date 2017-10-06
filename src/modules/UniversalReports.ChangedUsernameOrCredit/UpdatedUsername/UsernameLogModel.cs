@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+﻿namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public class UsernameLogModel
     {

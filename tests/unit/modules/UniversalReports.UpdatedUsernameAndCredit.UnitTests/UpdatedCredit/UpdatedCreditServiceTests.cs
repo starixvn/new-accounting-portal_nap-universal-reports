@@ -4,9 +4,9 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit;
+using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
 {
     [TestFixture]
     public class UpdatedCreditServiceTests

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public class UpdatedUsernameEntity
     {

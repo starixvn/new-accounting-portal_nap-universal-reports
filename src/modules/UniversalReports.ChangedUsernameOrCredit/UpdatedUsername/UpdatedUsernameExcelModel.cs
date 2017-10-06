@@ -1,7 +1,7 @@
 ﻿using System;
 using Epplus.Mapper.Annotations;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public class UpdatedUsernameExcelModel
     {

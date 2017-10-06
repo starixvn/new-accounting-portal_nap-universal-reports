@@ -3,7 +3,7 @@ using System.IO;
 using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.Common
+namespace UniversalReports.UpdatedUsernameCredit.Common
 {
     public interface ExcelBuilder
     {
@@ -45,7 +45,7 @@ namespace UniversalReports.UpdatedUsernameAndCredit.Common
             statisticSheet.OutLineSummaryBelow = false;
         }
 
-        private void ClearTemplate(ExcelPackage excelPackage)
+        private static void ClearTemplate(ExcelPackage excelPackage)
         {
             excelPackage.Workbook.Worksheets.Delete("Template");
         }

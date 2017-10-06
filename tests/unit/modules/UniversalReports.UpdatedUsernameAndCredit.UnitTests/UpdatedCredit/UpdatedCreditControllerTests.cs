@@ -2,9 +2,9 @@
 using MediatR;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit;
+using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests.UpdatedCredit
+namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
 {
     [TestFixture]
     public class UpdatedCreditControllerTests

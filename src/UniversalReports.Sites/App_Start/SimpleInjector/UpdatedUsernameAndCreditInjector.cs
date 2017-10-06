@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SimpleInjector;
-using UniversalReports.UpdatedUsernameAndCredit.Common;
-using UniversalReports.UpdatedUsernameAndCredit.UpdatedCredit;
-using UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername;
+using UniversalReports.UpdatedUsernameCredit.Common;
+using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
+using UniversalReports.UpdatedUsernameCredit.UpdatedUsername;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -18,9 +18,9 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<LogParseService, LogParseServiceImp>();
             container.Register<ExcelBuilder, ExcelBuilderImp>();
             container.RegisterConditional<ExcelSettingFactory, UpdatedCreditExcelSettingFactory>(
-               c => c.Consumer.ImplementationType == typeof(UpdatedUsernameAndCredit.UpdatedCredit.HandlerExcel));
+               c => c.Consumer.ImplementationType == typeof(UpdatedUsernameCredit.UpdatedCredit.HandlerExcel));
             container.RegisterConditional<ExcelSettingFactory, UpdatedUsernameExcelSettingFactory>(
-              c => c.Consumer.ImplementationType == typeof(UpdatedUsernameAndCredit.UpdatedUsername.HandlerExcel));
+              c => c.Consumer.ImplementationType == typeof(UpdatedUsernameCredit.UpdatedUsername.HandlerExcel));
 
             return container;
         }

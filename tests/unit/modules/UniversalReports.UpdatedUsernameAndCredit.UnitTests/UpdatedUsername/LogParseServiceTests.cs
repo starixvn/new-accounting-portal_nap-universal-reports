@@ -1,8 +1,8 @@
 ﻿using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername;
+using UniversalReports.UpdatedUsernameCredit.UpdatedUsername;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
 {
     [TestFixture]
     public class LogParseServiceTests

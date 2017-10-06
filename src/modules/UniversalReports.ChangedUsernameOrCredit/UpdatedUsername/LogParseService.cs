@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UpdatedUsername
+namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public interface LogParseService
     {

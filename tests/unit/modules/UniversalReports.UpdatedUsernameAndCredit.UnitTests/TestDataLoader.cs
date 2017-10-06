@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace UniversalReports.UpdatedUsernameAndCredit.UnitTests
+namespace UniversalReports.UpdatedUsernameCredit.UnitTests
 {
     internal static class TestDataLoader
     {
