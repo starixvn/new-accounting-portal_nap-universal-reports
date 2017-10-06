@@ -84,20 +84,7 @@ export class FilterComponent {
 
     onDateChange() {
         const startDate = DateHelper.convertDateStructToMoment(this.startDate);
-        const endDate = DateHelper.convertDateStructToMoment(this.endDate);
-        const diff = moment(startDate).diff(moment(endDate));
-
-        console.log(this.startDate);
-        console.log(this.endDate);
-        console.log(diff);
-
-        if (diff >= 0) {
-            this.endDate = this.startDate;
-        }
-
         this.timePeriod = TimePeriod.SpecificDate;
-        console.log(this.startDate);
-        console.log(this.endDate);
     }
 
     onGenerate(username: string, reportBy: string) {
