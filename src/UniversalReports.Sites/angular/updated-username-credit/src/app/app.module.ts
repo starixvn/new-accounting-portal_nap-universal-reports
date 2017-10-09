@@ -1,22 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import * as moment from 'moment';
-import { AppComponent } from './app.component';
-import { FilterComponent } from './filter/filter.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
 import { DateModule } from 'nap-components/date';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
 import { ToastService, ToastModule } from 'nap-components/toast';
 import { SpinnerService, SpinnerModule } from 'nap-components/spinner';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NumberFormatModule } from 'nap-components/number-format';
+import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { LegendModule } from 'nap-components/legend';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { UpdatedUsernameComponent } from './updated-username/updated-username.component';
 import { UpdatedCreditComponent } from './updated-credit/updated-credit.component';
 import { GridComponent } from './grid/grid.component';
-import { NumberFormatModule } from 'nap-components/number-format';
-import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { CustomPaginationConfig } from './common/config';
+import { AppComponent } from './app.component';
+import { FilterComponent } from './filter/filter.component';
+import { CustomNavbarService } from './custom-navbar-service';
 
 @NgModule({
   declarations: [
@@ -41,21 +42,8 @@ import { CustomPaginationConfig } from './common/config';
   ],
   bootstrap: [AppComponent],
   providers: [
+    { provide: NavbarService, useClass: CustomNavbarService },
     { provide: PaginationConfig, useClass: CustomPaginationConfig }
   ]
 })
-export class AppModule {
-  constructor(private navbarService: NavbarService) {
-    navbarService.url = 'state-api/application/header';
-    navbarService.userMenus = [
-      {
-        name: 'Change Password',
-        link: 'UserInfo/ChangePassword'
-      },
-      {
-        name: 'Sign Out',
-        link: 'UserLogin/Login/LogOut'
-      }
-    ];
-  }
-}
+export class AppModule { }

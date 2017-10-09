@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 
 export enum TimePeriod {
@@ -14,7 +13,6 @@ export enum TimePeriod {
     LastSixMonths
 }
 
-@Injectable()
 export class FilterModel {
     constructor(public fromDate: moment.Moment, public toDate: moment.Moment, public userName: string, public reportBy: string) { }
 }

@@ -7,7 +7,6 @@ import { FilterModel } from './filter/filter.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
   filterModel: FilterModel;
 
   generate(filterModel: FilterModel) {
