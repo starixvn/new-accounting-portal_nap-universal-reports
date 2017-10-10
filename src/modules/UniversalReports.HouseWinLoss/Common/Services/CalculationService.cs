@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -44,22 +45,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return winloss;
         }
 
-        private WinLoss FromRawWinLoss(WinLossRaw rawWinLoss)
+        private static WinLoss FromRawWinLoss(WinLossRaw rawWinLoss)
         {
-            return new WinLoss
-            {
-                Id = rawWinLoss.GroupId,
-                Commission = rawWinLoss.Commission,
-                MemberWinLoss = rawWinLoss.MemberWinLoss,
-                RealIncome = rawWinLoss.RealIncome,
-                RealTurnover = rawWinLoss.RealTurnover,
-                SMAWinLoss = rawWinLoss.SMAWinLoss,
-                VirtualIncome = rawWinLoss.VirtualIncome,
-                VirtualTurnover = rawWinLoss.VirtualTurnover,
-                VarianceIncome = rawWinLoss.VarianceIncome,
-                ExtraPT = rawWinLoss.ExtraPT,
-                AfterExtraPT = rawWinLoss.AfterExtraPT,
-            };
+            var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
+            winLoss.Id = rawWinLoss.GroupId;
+            return winLoss;
         }
 
         public WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses)

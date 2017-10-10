@@ -643,6 +643,25 @@ webpackJsonp([2],{
 	                mainParameters: {},
 	                getTitleFunction: "getSiteTitle"
 	            }
+	        },
+	        "Lucky 3": {
+	            mainView: "betType",
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+	                mainParameters: { productId: 26, isLive: 2 },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            site: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SiteController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+	                mainParameters: { productId: 26, isLive: 2 },
+	                getTitleFunction: "getSiteTitleLive"
+	            }
 	        }
 	    };
 	    angular.module("app.houseWinlossApp").constant("templateSetting", templateSetting);
