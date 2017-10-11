@@ -26,9 +26,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                      RoleName = "Master"
                  }
             };
+            var site = new Site { Name = "Site 1", IsCreditSite = false };
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<UserRoleModel>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUserRoleModel);
-            repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("Site 1"));
+            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
 
             var nonEmptyListOfUserDevice = new List<CustomerDevice>
             {

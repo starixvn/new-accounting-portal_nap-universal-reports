@@ -1,11 +1,8 @@
-﻿#if !DEBUG
+﻿using System.Web.Mvc;
 using Fanex.NAP.Core.Business;
 using Fanex.NAP.Core.Web.Attribute;
-using UniversalReports.Sites.Settings;
-#endif
-
-using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
 {
@@ -15,10 +12,7 @@ namespace UniversalReports.Sites.Controllers
         {
         }
 
-#if !DEBUG
-    [NapAuth(FunctionKey = FunctionKeys.UpdatedUsernameAndGivenCredit, Policy = Constant.Policy.Read)]
-#endif
-
+        [NapAuth(FunctionKey = FunctionKeys.UpdatedUsernameAndGivenCredit, Policy = Constant.Policy.Read)]
         public ActionResult Index()
         {
             SetupGlobalJsObject();
