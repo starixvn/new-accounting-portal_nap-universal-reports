@@ -2,9 +2,9 @@
 
 // Generated helper templates
 // Generated items
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.PRO.config
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.MNL.config
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.UAT.config
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.MASTER.config
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.DEV.config
-// Fanex.TicketControl.Website\Configuration\NewFolder1\Web.LOCAL.config
+// UniversalReports.Sites\App_Configuration\Web.PRO.config
+// UniversalReports.Sites\App_Configuration\Web.MNL.config
+// UniversalReports.Sites\App_Configuration\Web.UAT.config
+// UniversalReports.Sites\App_Configuration\Web.MASTER.config
+// UniversalReports.Sites\App_Configuration\Web.DEV.config
+// UniversalReports.Sites\App_Configuration\Web.LOCAL.config

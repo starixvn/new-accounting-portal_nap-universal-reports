@@ -1,7 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using NUnit.Framework;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
@@ -15,7 +14,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
     public class PerformanceModeDynamicRepositoryTests
     {
         [Test]
-        public async Task PunterPerformanceSummaryMonth_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryMonth_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new MonthCriteria
@@ -28,16 +27,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<MonthStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            await repository.FetchAsync<MonthStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSummaryBetType_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryBetType_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new BetTypeCriteria
@@ -50,16 +44,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<BetTypeStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            await repository.FetchAsync<BetTypeStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSummaryEvent_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryEvent_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new EventCriteria
@@ -72,18 +61,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<EventStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
+            await repository.FetchAsync<EventStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSummaryProductTurnover_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummaryProductTurnover_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new ProductTurnoverCriteria
@@ -96,16 +78,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<ProductTurnoverStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.ProductName, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            await repository.FetchAsync<ProductTurnoverStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSummarySport_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSummarySport_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new Performance.Summary.Criteria.SportCriteria
@@ -118,16 +95,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<Performance.Summary.Model.SportStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            await repository.FetchAsync<Performance.Summary.Model.SportStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSportsbookBetCount_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSportsbookBetCount_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new BetCountCriteria
@@ -140,16 +112,11 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<BetCountStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.EventType, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
+            await repository.FetchAsync<BetCountStatistic>(criteria);
         }
 
         [Test]
-        public async Task PunterPerformanceSportsbookSport_Test_ColumnIsMappedCorrectly()
+        public async Task PunterPerformanceSportsbookSport_Test_NoDatabaseException()
         {
             // Arrange
             var criteria = new SportsbookCriteria.SportCriteria
@@ -162,13 +129,7 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Act
             var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<SportsbookModel.SportStatistic>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.BetCount, Is.Not.Zero);
-            Assert.That(firstModel.Turnover, Is.Not.Zero);
-            Assert.That(firstModel.WinLoss, Is.Not.Zero);
+            await repository.FetchAsync<SportsbookModel.SportStatistic>(criteria);
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
+using Olympus.WebApi.Results;
 using SimpleInjector;
-using System;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
-using Olympus.WebApi.Results;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetType
 {

@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Linq;
-using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
-using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Products
 {
@@ -13,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.Products
 
         ProductGroupWinLoss GetProductGroup(IEnumerable<WinLossRaw> rawWinLosses, string groupName);
 
-        ProductWinLoss Query(WinLossCriteria criteria);
+        ProductWinLoss Query(QueryModel queryModel);
     }
 
     public class ServiceImp : Service
@@ -22,26 +21,32 @@ namespace UniversalReports.HouseWinLoss.Products
 
         private readonly CalculationService calculationService;
 
+        private readonly PermissionFilterService permissionFilterService;
+
         public ServiceImp(
             RawWinLossService rawWinLossService,
+            PermissionFilterService permissionFilterService,
             CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
+            this.permissionFilterService = permissionFilterService;
             this.calculationService = calculationService;
         }
 
-        public ProductWinLoss Query(WinLossCriteria criteria)
+        public ProductWinLoss Query(QueryModel queryModel)
         {
+            var criteria = Mapper.Map<Criteria>(queryModel);
             var rawWinLosses = rawWinLossService.Query(criteria);
+            var filteredRawWinLosses = permissionFilterService.Filter(rawWinLosses, queryModel.Permissions);
 
-            var rawSportsbookProducts = rawWinLosses.Where(r => Constants.NameSportsbook.Contains(r.GroupName));
-            var rawNonSportsbookProducts = rawWinLosses.Where(r => !Constants.NameSportsbook.Contains(r.GroupName) && r.GroupName != Constants.RM);
-            var rawRMWinLosses = rawWinLosses.Where(r => r.GroupName == Constants.RM);
+            var rawSportsbookProducts = filteredRawWinLosses.Where(r => ProductConstant.NameSportsbook.Contains(r.GroupName));
+            var rawNonSportsbookProducts = filteredRawWinLosses.Where(r => !ProductConstant.NameSportsbook.Contains(r.GroupName) && r.GroupName != ProductConstant.RM);
+            var rawRMWinLosses = filteredRawWinLosses.Where(r => r.GroupName == ProductConstant.RM);
 
             var sportsbookProducts = GetProductGroup(rawSportsbookProducts, "Sportsbook Total");
             var nonSportsbookProducts = GetProductGroup(rawNonSportsbookProducts, "Non-Sports Total");
             var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", filteredRawWinLosses);
             grandTotal = CalculateGrandTotal(grandTotal, sportsbookRMWinLosses);
             var result = new ProductWinLoss
             {

@@ -61,16 +61,7 @@
 	<system.web>
 		<pages controlRenderingCompatibilityVersion="4.0" />
 		<compilation debug="<#= site.DebugMode #>" targetFramework="4.6"/>
-	<#
-		if(site.Environment == SiteEnvironment.DEV){
-	#>
-		<authentication mode="None">
-			<forms ticketCompatibilityMode="Framework40" loginUrl="~/Common/SessionExpired" timeout="2880" defaultUrl="~/Home" path="/NAP-REPORTS"/>
-		</authentication>
-		<authorization>
-			<allow users="*" />
-		</authorization>
-	<#} else{ #>
+	
 		<authentication mode="Forms">
 			<forms
 			  name=".REPORTASPXAUTH"
@@ -82,7 +73,7 @@
 		<authorization>
 			<deny users="?" />
 		</authorization>
-	<# } #>
+	
 		<sessionState
 			cookieName=".Report_ASP.NET_SessionId"
 			mode="StateServer" timeout="30" <#=site.StateConnectionString#> />
@@ -92,6 +83,19 @@
 		<customErrors mode="<#=site.ErrorMode#>" defaultRedirect="~/Views/Errors/GeneralError.htm" />
 		<globalization culture="en-US" uiCulture="en-US" fileEncoding="utf-8" requestEncoding="utf-8" responseEncoding="utf-8" />
 	</system.web>
+<#
+    if(site.Environment == SiteEnvironment.DEV){
+#>
+    <location path="FakeLogin" allowOverride="true">
+        <system.web>
+          <authorization>
+             <allow users="*"/>
+          </authorization>
+        </system.web>
+      </location>
+<#
+    }
+#>
 	<system.webServer>
 	<handlers>
 		<remove name="ExtensionlessUrlHandler-Integrated-4.0" />

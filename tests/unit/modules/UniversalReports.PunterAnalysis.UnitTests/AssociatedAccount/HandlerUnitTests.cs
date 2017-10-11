@@ -32,12 +32,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 
             var nonEmptyListOfUserDevice = new List<CustomerDevice>
             {
-                new CustomerDevice {  Account = "User 1" }
+                new CustomerDevice { Account = "User 1" }
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
             fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(nonEmptyListOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
+            
             // Act
             var handler = new Handler(configurationService, fraudService, repository);
             var viewModel = await handler.Handle(new HttpParameterJson());

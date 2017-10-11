@@ -13,7 +13,7 @@ import moment from "moment";
                 controller: "ProductController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product",
-                mainParameters: {},
+                mainParameters: { permissions : productPermissions },
                 getTitleFunction: "getMainTitle"
             }
         },

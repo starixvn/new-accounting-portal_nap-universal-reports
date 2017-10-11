@@ -1,0 +1,19 @@
+﻿namespace UniversalReports.HouseWinLoss.Products
+{
+    public static class ProductConstant
+    {
+        public const string RM = "RM";
+
+        public const string OtherSports = "Other Sports";
+
+        public const string Soccer = "Soccer";
+
+        public static string[] NameSportsbook => new[]
+        {
+            "Soccer",
+            "Metric Gaming - Superlive",
+            "Other Sports",
+            "Parlay"
+        };
+    }
+}

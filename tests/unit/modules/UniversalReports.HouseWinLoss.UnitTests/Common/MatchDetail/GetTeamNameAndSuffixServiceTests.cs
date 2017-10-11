@@ -7,19 +7,19 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
     [Category("HouseWinLossUnitTests")]
     public class GetTeamNameAndSuffixServiceTests
     {
-        static object[] TestCaseSourceData =
+        private static object[] testCaseSourceData =
         {
-            new object[] {"Any Name", "3261(O )", "Any Name (O/U)" },
-            new object[] {"Any Name", "3261(o)" , "Any Name (O/U)"},
-            new object[] {"Any Name", "3261( o)" , "Any Name (O/U)"},
-            new object[] {"Any Name", "3261( O)" , "Any Name (O/U)"},
-            new object[] {"Any Name", "3261(h)" , "Any Name (HDP)"},
-            new object[] {"Any Name", "3261(H)" , "Any Name (HDP)"},
-            new object[] {"Any Name", "3261(h )" , "Any Name (HDP)"},
-            new object[] {"Any Name", "3261( H)", "Any Name (HDP)" }
+            new object[] { "Any Name", "3261(O )", "Any Name (O/U)" },
+            new object[] { "Any Name", "3261(o)", "Any Name (O/U)" },
+            new object[] { "Any Name", "3261( o)", "Any Name (O/U)" },
+            new object[] { "Any Name", "3261( O)", "Any Name (O/U)" },
+            new object[] { "Any Name", "3261(h)", "Any Name (HDP)" },
+            new object[] { "Any Name", "3261(H)", "Any Name (HDP)" },
+            new object[] { "Any Name", "3261(h )", "Any Name (HDP)" },
+            new object[] { "Any Name", "3261( H)", "Any Name (HDP)" }
         };
 
-        [Test, TestCaseSource("TestCaseSourceData")]
+        [Test, TestCaseSource("testCaseSourceData")]
         public void GetTeamNameWithSuffixByMatchCode_WithTeamAndMatchCode_ReturnRightTeamAndSuffix(string teamName, string matchCode, string teamNameWithSuffix)
         {
             // Arrange

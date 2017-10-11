@@ -12,16 +12,6 @@
 
         public const string SiteDefault = "ALL";
 
-        public const int SportTypeSoccer = 1;
-
-        public const string RM = "RM";
-
-        public static string[] NameSportsbook => new[]
-        {
-            "Soccer",
-            "Metric Gaming - Superlive",
-            "Other Sports",
-            "Parlay"
-        };
+        public const int SportTypeSoccer = 1;        
     }
 }

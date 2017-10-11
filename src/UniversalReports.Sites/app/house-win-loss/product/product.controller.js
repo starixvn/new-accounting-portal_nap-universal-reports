@@ -28,6 +28,7 @@ import numeral from "numeral";
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
+
             pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);

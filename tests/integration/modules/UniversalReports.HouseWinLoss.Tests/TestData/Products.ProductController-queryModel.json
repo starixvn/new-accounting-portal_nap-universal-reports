@@ -2,5 +2,9 @@
   "StartDate": "2016-06-05T00:00:00",
   "EndDate": "2016-06-05T00:00:00",
   "NormalMode": true,
-  "Title": "Any Title"
+  "Title": "Any Title",
+  "Permissions": [
+    "HouseWinLossByProducts_Sportsbook",
+    "HouseWinLossByProducts_ThirdPartyProducts"
+  ]
 }
