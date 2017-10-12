@@ -83,7 +83,6 @@ export class FilterComponent {
     }
 
     onDateChange() {
-        const startDate = DateHelper.convertDateStructToMoment(this.startDate);
         this.timePeriod = TimePeriod.SpecificDate;
     }
 
