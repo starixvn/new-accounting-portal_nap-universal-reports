@@ -1,6 +1,6 @@
-﻿using NUnit.CompareNetObjects;
+﻿using System;
+using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
 using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.UnitTests.Summary.Model

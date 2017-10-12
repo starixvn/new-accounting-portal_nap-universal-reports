@@ -1,9 +1,9 @@
-﻿using Fanex.Common;
-using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Common;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 
 namespace UniversalReports.NG2Statistics.Daily
 {

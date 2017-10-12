@@ -1,13 +1,11 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Performance.Summary;
-using UniversalReports.PunterAnalysis.Performance.Summary.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary

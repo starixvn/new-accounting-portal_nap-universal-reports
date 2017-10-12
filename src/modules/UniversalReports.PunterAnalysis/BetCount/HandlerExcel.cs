@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Shared;
 

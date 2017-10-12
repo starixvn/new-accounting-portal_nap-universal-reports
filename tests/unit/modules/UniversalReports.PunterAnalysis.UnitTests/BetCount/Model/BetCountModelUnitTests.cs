@@ -1,6 +1,6 @@
-﻿using NUnit.CompareNetObjects;
+﻿using System;
+using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetCount.Model

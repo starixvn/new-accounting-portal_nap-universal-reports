@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using System;
+using System.Threading.Tasks;
+using MediatR;
 using NSubstitute;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Performance;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook;
 using UniversalReports.PunterAnalysis.Performance.Summary;

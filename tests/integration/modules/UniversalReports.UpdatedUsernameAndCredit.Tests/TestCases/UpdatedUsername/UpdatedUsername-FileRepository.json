@@ -1,0 +1,30 @@
+﻿[
+  {
+    "Year": 2017,
+    "Month": 9,
+    "LogDate": "2017-09-28T02:28:04.453",
+    "Department": "IT",
+    "Admin": "sa",
+    "CurrentUsername": "WPRCIG2029",
+    "Level": "Member",
+    "Headline": "WPR",
+    "Super": "WPR",
+    "Master": "WPRCI",
+    "Agent": "WPRCIG2",
+    "TrackingValue": "<Acc_CustomerUpdUserName  FromName=\"tempJane\" ToName=\"ti@ni % world & \" userid=\"8\" IP=\"10.18.200.119\" ErrCode=\"0\" ErrMsg=\"\" />"
+  },
+  {
+    "Year": 2017,
+    "Month": 9,
+    "LogDate": "2017-09-28T02:28:04.453",
+    "Department": "IT",
+    "Admin": "sa",
+    "CurrentUsername": "PHL-Data Center & Bandwidth",
+    "Level": "Member",
+    "Headline": "",
+    "Super": "EXPENSES",
+    "Master": "EXP-PHL",
+    "Agent": "COS-PHL",
+    "TrackingValue": "<Acc_CustomerUpdUserName  FromName=\"PHL-Data Center & Bandwidth\" ToName=\"PHL-Data Center & Bandwidth19\" userid=\"8\" IP=\"10.18.200.119\" ErrCode=\"0\" ErrMsg=\"\" />"
+  }
+]

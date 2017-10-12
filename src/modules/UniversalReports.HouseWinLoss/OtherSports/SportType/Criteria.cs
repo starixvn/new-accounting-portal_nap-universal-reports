@@ -7,6 +7,6 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-{Source}";
     }
 }

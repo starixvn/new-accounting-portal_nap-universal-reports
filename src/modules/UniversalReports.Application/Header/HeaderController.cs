@@ -1,8 +1,10 @@
-﻿using Fanex.NAP.Core.Models;
-using Fanex.NAP.Core.Web.Session;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Fanex.NAP.Core.Models;
+using Fanex.NAP.Core.Web.Session;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace UniversalReports.Application.Header
 {
@@ -16,6 +18,7 @@ namespace UniversalReports.Application.Header
         }
 
 #if DEBUG
+
         [AllowAnonymous]
 #endif
         [Route("api/application/header")]
@@ -37,6 +40,37 @@ namespace UniversalReports.Application.Header
                 Username = currentSession.Username,
                 Menus = menus
             };
+        }
+
+#if DEBUG
+
+        [AllowAnonymous]
+#endif
+        [Route("state-api/application/header")]
+        [HttpPost]
+        public IHttpActionResult Header()
+        {
+            var serializerSettings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+
+            var isLocal = System.Web.HttpContext.Current.Request.IsLocal;
+            if (isLocal)
+            {
+                return Json(new Header
+                {
+                    Menus = GetFakeMenus()
+                }, serializerSettings);
+            }
+
+            var sessionMenus = currentSession.MenuItemList ?? new List<MenuItem>();
+            var menus = GetMenus(sessionMenus);
+            return Json(new Header
+            {
+                Username = currentSession.Username,
+                Menus = menus
+            }, serializerSettings);
         }
 
         private List<Menu> GetMenus(IList<MenuItem> menus)

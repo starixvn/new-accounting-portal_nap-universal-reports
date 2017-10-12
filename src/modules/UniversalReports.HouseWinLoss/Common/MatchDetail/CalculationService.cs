@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Linq.DynamicSum;
 using System.Collections.Generic;
 using System.Linq;
+using Linq.DynamicSum;
 using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail

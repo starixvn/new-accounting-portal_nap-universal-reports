@@ -1,7 +1,7 @@
-﻿using MediatR.SimpleInjector;
-using SimpleInjector;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
+using MediatR.SimpleInjector;
+using SimpleInjector;
 using UniversalReports.PlayForFun.Core;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector

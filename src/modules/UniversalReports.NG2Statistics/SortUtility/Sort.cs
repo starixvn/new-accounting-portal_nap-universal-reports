@@ -13,7 +13,7 @@ namespace UniversalReports.NG2Statistics.SortUtility
                 return;
             }
 
-            Comparison<T> compare = delegate(T a, T b)
+            Comparison<T> compare = delegate (T a, T b)
             {
                 var isAsc = string.Equals(sortDirection, SortDirectionConstants.Asc, StringComparison.OrdinalIgnoreCase);
                 var valueA = isAsc ? propInfo.GetValue(a, null) : propInfo.GetValue(b, null);

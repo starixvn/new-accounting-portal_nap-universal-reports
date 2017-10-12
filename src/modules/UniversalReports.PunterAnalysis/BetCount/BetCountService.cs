@@ -1,8 +1,8 @@
-﻿using Fanex.Data.Repository;
-using Linq.DynamicSum;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 using UniversalReports.PunterAnalysis.Shared;
 

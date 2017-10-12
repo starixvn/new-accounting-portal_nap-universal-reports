@@ -1,5 +1,5 @@
-﻿using Fanex.Data.Repository;
-using System;
+﻿using System;
+using Fanex.Data.Repository;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League
@@ -27,11 +27,13 @@ namespace UniversalReports.PunterAnalysis.League
             {
                 case PeriodType.Weekly:
                     return new LeagueServiceByWeek(repository, dateTimeService);
+
                 case PeriodType.Annually:
                 case PeriodType.Daily:
                 case PeriodType.Monthly:
                 case PeriodType.MonthRange:
                     return new LeagueServiceByMonth(repository);
+
                 default:
                     throw new NotImplementedException();
             }

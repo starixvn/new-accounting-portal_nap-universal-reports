@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 using OfficeOpenXml;
-using System;
 
 namespace UniversalReports.PunterAnalysis.League.Model
 {

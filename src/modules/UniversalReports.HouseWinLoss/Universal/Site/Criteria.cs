@@ -10,6 +10,6 @@ namespace UniversalReports.HouseWinLoss.Universal.Site
 
         public int IsLive { get; set; } = 2;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-Site-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Universal-Site-{Source}";
     }
 }

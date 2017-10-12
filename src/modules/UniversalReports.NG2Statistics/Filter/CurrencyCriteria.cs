@@ -4,7 +4,7 @@ namespace UniversalReports.NG2Statistics.Filter
 {
     public class CurrencyCriteria : CriteriaBase
     {
-        public override string GetSettingKey() => "NG2-Statistics-Currencies"; 
+        public override string GetSettingKey() => "NG2-Statistics-Currencies";
 
         public override bool IsValid() => true;
     }

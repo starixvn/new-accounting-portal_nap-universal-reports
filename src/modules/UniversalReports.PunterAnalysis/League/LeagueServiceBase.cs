@@ -1,8 +1,8 @@
-﻿using Fanex.Data.Repository;
-using Linq.DynamicSum;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League

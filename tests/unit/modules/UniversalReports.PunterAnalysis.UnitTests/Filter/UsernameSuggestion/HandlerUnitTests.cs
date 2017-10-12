@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Filter.UsernameSuggestion;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion

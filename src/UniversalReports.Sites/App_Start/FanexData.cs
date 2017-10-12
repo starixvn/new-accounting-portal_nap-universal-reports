@@ -1,7 +1,7 @@
-﻿using Fanex.Data;
+﻿using System.Configuration;
+using Fanex.Data;
 using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Data.OldConnectionStringProvider;
-using System.Configuration;
 
 namespace UniversalReports.Sites
 {

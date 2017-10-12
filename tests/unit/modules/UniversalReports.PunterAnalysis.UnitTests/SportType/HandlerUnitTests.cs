@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;

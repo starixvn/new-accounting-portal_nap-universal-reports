@@ -25,6 +25,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
         [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+
         public ActionResult Index()
         {
             SetupGlobalJsObject();

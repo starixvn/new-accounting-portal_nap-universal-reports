@@ -1,10 +1,10 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.Shared;

@@ -1,7 +1,7 @@
-﻿using Fanex.Excel.Enums;
-using Fanex.Excel.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Excel.Enums;
+using Fanex.Excel.Models;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.Bettype

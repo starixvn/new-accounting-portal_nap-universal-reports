@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using System.Web.Http;
+﻿using System.Web.Http;
+using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;

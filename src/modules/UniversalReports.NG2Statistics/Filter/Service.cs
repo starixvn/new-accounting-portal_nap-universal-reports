@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Fanex.Data.Repository;
 
 namespace UniversalReports.NG2Statistics.Filter
 {

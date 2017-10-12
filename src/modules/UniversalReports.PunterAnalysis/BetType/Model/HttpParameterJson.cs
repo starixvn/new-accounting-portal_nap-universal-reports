@@ -1,6 +1,6 @@
-﻿using Linq.DynamicSum;
+﻿using System;
+using Linq.DynamicSum;
 using MediatR;
-using System;
 
 namespace UniversalReports.PunterAnalysis.BetType.Model
 {

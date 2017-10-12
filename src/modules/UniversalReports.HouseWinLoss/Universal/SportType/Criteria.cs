@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Universal.SportType
     {
         public int ProductId { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-SportType-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Universal-SportType-{Source}";
     }
 }

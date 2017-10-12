@@ -1,0 +1,50 @@
+﻿[  
+   {  
+      "Year":2017,
+      "Month":10,
+      "LogDate":"2017-10-02T02:36:02.35",
+      "Department":"IT22",
+      "Admin":"sa",
+      "Username":"M318HK02",
+      "Level":"Agent",
+      "Headline":"M318HK",
+      "Super":"SA-HK$",
+      "Master":"M318HK",
+      "Agent":null,
+      "OldValue":0.0000,
+      "NewValue":15.0000,
+      "Remark":"Update Given Credit for Account M318HK02"
+   },
+   {  
+      "Year":2017,
+      "Month":10,
+      "LogDate":"2017-10-02T23:04:06.55",
+      "Department":"IT22",
+      "Admin":"sa",
+      "Username":"M318HK02",
+      "Level":"Agent",
+      "Headline":"M318HK",
+      "Super":"SA-HK$",
+      "Master":"M318HK",
+      "Agent":null,
+      "OldValue":0.1200,
+      "NewValue":100.0000,
+      "Remark":"Update Given Credit for Account M318HK02"
+   },
+   {  
+      "Year":2017,
+      "Month":10,
+      "LogDate":"2017-10-02T23:21:34.42",
+      "Department":"IT22",
+      "Admin":"sa",
+      "Username":"mrmb123",
+      "Level":"Master",
+      "Headline":null,
+      "Super":"SA-RMB",
+      "Master":null,
+      "Agent":null,
+      "OldValue":1302001002.0000,
+      "NewValue":1302001003.0000,
+      "Remark":"Update Given Credit for Account mrmb123"
+   }
+]

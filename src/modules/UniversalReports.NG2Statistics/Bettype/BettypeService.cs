@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using System.Linq;
+﻿using System.Linq;
+using AutoMapper;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 

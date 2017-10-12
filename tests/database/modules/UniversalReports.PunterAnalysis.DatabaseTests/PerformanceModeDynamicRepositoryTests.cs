@@ -1,11 +1,12 @@
-﻿using Fanex.Data.Repository;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using NUnit.Framework;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 using UniversalReports.PunterAnalysis.Performance.Summary.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Summary.Model;
+
 using SportsbookCriteria = UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using SportsbookModel = UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 

@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.Core.Tests.Configurations

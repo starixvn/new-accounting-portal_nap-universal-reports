@@ -1,9 +1,9 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.Shared;

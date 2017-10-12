@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using MediatR;
-using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Shared
 {

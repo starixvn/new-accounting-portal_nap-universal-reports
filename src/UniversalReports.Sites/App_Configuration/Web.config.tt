@@ -114,7 +114,7 @@
 		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
 			<dependentAssembly>
 				<assemblyIdentity name="SimpleInjector" publicKeyToken="984CB50DEA722E99" culture="neutral"/>
-				 <bindingRedirect oldVersion="0.0.0.0-4.0.8.0" newVersion="4.0.8.0" />
+				 <bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
 			</dependentAssembly>
 			<dependentAssembly>
 				<assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31BF3856AD364E35" culture="neutral" />
@@ -188,6 +188,14 @@
 			<dependentAssembly>
 				<assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
 				<bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+			</dependentAssembly>
+            <dependentAssembly>
+				<assemblyIdentity name="SimpleInjector" publicKeyToken="984cb50dea722e99" culture="neutral" />
+				<bindingRedirect oldVersion="0.0.0.0-4.0.11.0" newVersion="4.0.11.0" />
+			</dependentAssembly>
+			<dependentAssembly>
+				<assemblyIdentity name="EPPlus" publicKeyToken="ea159fdaa78159a1" culture="neutral" />
+				<bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
 			</dependentAssembly>
 		</assemblyBinding>
 	</runtime>

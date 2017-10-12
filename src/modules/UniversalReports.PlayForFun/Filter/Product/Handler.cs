@@ -1,7 +1,7 @@
-﻿using Fanex.Data.Repository;
-using MediatR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
+using MediatR;
 
 namespace UniversalReports.PlayForFun.Filter.Product
 {

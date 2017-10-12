@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Racing.BetType
     {
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Racing-BetType-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Racing-BetType-{Source}";
     }
 }

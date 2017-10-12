@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using Fanex.Data.CrossCutting.WrappingException;
-using Fanex.Logging;
-using System;
+﻿using System;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -12,6 +9,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
+using AutoMapper;
+using Fanex.Data.CrossCutting.WrappingException;
+using Fanex.Logging;
 
 namespace UniversalReports.Sites
 {
@@ -45,7 +45,8 @@ namespace UniversalReports.Sites
         {
             var request = HttpContext.Current.Request;
             if (request.Url.ToString().Contains("api/application/header")
-                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion"))
+                || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion")
+                || request.Url.ToString().Contains("state-api/application/header"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
             }

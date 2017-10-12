@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
-using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Summary.Model;
 

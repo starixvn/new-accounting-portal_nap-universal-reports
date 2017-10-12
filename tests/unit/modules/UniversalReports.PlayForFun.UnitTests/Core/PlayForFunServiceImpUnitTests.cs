@@ -1,10 +1,10 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Summary.Model;
 

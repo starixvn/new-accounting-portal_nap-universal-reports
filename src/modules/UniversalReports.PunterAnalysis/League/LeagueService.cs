@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Repository;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using UniversalReports.PunterAnalysis.League.Model;
 
 namespace UniversalReports.PunterAnalysis.League

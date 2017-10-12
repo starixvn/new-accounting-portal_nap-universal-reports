@@ -1,12 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook;
-using UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook

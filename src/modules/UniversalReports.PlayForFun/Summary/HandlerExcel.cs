@@ -1,8 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PlayForFun.Detail.Model;

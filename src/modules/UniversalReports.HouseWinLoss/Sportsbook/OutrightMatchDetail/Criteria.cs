@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.OutrightMatchDetail
     {
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Outright-MatchDetail-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Outright-MatchDetail-{Source}";
     }
 }

@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 
         public bool IsLive { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-NumberGame-MatchDetail-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-NumberGame-MatchDetail-{Source}";
     }
 }

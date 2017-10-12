@@ -13,6 +13,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
         [NapAuth(FunctionKey = FunctionKeys.PunterAnalysis, Policy = Constant.Policy.Read)]
+
         public ActionResult Index()
         {
             SetupGlobalJsObject();

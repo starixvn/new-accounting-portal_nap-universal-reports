@@ -1,6 +1,6 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using MediatR;
-using System.Threading.Tasks;
 
 namespace UniversalReports.PunterAnalysis.Filter.AvailableDatabase
 {

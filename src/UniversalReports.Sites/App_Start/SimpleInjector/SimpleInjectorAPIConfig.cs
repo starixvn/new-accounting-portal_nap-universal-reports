@@ -1,7 +1,7 @@
-﻿using SimpleInjector;
+﻿using System.Web.Http;
+using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
-using System.Web.Http;
 using UniversalReports.Sites.SimpleInjector;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(SimpleInjectorApiConfig), "Initialize")]
@@ -21,7 +21,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
-                .RegisterPlayForFunServices();
+                .RegisterPlayForFunServices()
+                .RegisterUpdatedUsernameAndCreditServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 

@@ -1,11 +1,11 @@
-﻿using Fanex.Data.Repository;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using Olympus.FPSAPI.Client.Model;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
@@ -26,9 +26,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                      RoleName = "Master"
                  }
             };
+            var site = new Site { Name = "Site 1", IsCreditSite = false };
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<UserRoleModel>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUserRoleModel);
-            repository.GetAsync<string>(Arg.Any<UserSiteQueryCriteria>()).Returns((object)Task.FromResult("Site 1"));
+            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
 
             var nonEmptyListOfUserDevice = new List<CustomerDevice>
             {

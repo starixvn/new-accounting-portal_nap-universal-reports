@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
 using OfficeOpenXml;
-using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType.Model;
 

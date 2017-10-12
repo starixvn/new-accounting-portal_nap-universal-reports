@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
     {
         public string Site { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-SystemParlay-{Source}"; 
+        public override string GetSettingKey() => $"HouseWinLoss-SystemParlay-{Source}";
     }
 }

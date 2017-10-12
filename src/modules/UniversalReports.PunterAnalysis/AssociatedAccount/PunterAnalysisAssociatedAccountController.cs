@@ -1,6 +1,6 @@
-﻿using MediatR;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using MediatR;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
