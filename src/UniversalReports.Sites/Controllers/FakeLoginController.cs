@@ -14,7 +14,7 @@ namespace UniversalReports.Sites.Controllers
 {
     public class FakeLoginController : Controller
     {
-        private const int SiteId = 98;
+        private const int SiteId = 3;
         private readonly IUserService userService;
         private readonly ISecurityService securityService;
         private readonly ICurrentSession currentSession;

@@ -26,6 +26,7 @@ namespace UniversalReports.Sites
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FanexData.Register();
+            FanexLogging.Register();
             Mapper.Initialize(cfg => cfg.CreateMissingTypeMaps = true);
         }
 
@@ -54,36 +55,7 @@ namespace UniversalReports.Sites
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            var exception = Server.GetLastError().GetBaseException();
-
-            if (exception is HttpException)
-            {
-                return;
-            }
-
-            var formContents = string.Join("&", Request.Form.AllKeys.Select(k => $"{k}={Request.Form[k]}"));
-            var messageBuilder = new StringBuilder();
-            messageBuilder.Append($"{exception.Message}");
-            messageBuilder.Append($"\r\nType: {exception.GetType()}");
-            messageBuilder.Append($"\r\nSource: {exception.Source}");
-            messageBuilder.Append($"\r\nUrl: {Request.Url}");
-            messageBuilder.Append($"\r\nDomain: {Request.Headers["Host"]}");
-            messageBuilder.Append($"\r\nQuery String: {Request.QueryString}");
-            messageBuilder.Append($"\r\nForm Content: {formContents}");
-            messageBuilder.Append($"\r\nTarget Site: {exception.TargetSite}");
-
-            var objectDbException = exception as ObjectDbException;
-            if (objectDbException != null)
-            {
-                messageBuilder.Append($"\r\nSettingKey: {objectDbException.SettingKey}");
-                foreach (DbParameter parameter in objectDbException.Parameters)
-                {
-                    messageBuilder.Append($"\r\nParamName: {parameter.ParameterName}. Value: {parameter.Value}");
-                }
-            }
-
-            messageBuilder.Append($"\r\nStack Trace: {exception.StackTrace}");
-            LogService.Error(messageBuilder.ToString());
+            FanexLogging.HandleApplicationError(Server);
         }
     }
 }

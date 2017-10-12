@@ -1,13 +1,16 @@
-﻿using Fanex.NAP.Core.Business;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Fanex.NAP.Core.Business;
+
+using Fanex.NAP.Core.Business;
+
 using Fanex.NAP.Core.Configuration;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Attribute;
 using Fanex.NAP.Core.Web.Session;
-using System.Linq;
-using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Sites.Settings;
+
 using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
@@ -25,7 +28,6 @@ namespace UniversalReports.Sites.Controllers
         }
 
         [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
-
         public ActionResult Index()
         {
             SetupGlobalJsObject();

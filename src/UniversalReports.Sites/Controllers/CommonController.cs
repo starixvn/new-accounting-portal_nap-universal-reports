@@ -7,8 +7,12 @@ namespace UniversalReports.Sites.Controllers
     {
         public ActionResult SessionExpired()
         {
+#if DEBUG
+            return RedirectToAction("Index", "FakeLogin");
+#else
             ViewBag.LegacyPath = LegacyUrlResolver.LegacyRootUri;
             return View();
+#endif
         }
     }
 }

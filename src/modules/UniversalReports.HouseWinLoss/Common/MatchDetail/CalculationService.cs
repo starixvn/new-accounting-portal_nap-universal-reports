@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Linq.DynamicSum;
 using UniversalReports.HouseWinLoss.Common.Services;
 

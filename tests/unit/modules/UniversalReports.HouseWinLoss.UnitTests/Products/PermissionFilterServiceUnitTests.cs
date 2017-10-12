@@ -1,7 +1,7 @@
-﻿using NUnit.CompareNetObjects;
-using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NUnit.CompareNetObjects;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Products;
 
