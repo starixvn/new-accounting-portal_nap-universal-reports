@@ -9,7 +9,7 @@ import { ToastService, ToastModule } from 'nap-components/toast';
 import { SpinnerService, SpinnerModule } from 'nap-components/spinner';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
-import { LegendModule } from 'nap-components/legend';
+import { LegendModule, LegendService } from 'nap-components/legend';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { UpdatedUsernameComponent } from './updated-username/updated-username.component';
 import { UpdatedCreditComponent } from './updated-credit/updated-credit.component';
@@ -46,4 +46,12 @@ import { CustomNavbarService } from './custom-navbar-service';
     { provide: PaginationConfig, useClass: CustomPaginationConfig }
   ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    private legendService: LegendService
+  ) {
+    legendService.resolveUrl = (id) => {
+      return `http://58.86.55.10/NAP-Reports-Legend-API/api/legend/${id}`;
+    };
+  }
+}
