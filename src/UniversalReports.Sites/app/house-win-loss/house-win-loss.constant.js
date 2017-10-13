@@ -35,6 +35,14 @@ import moment from "moment";
                 mainParameters: {},
                 getTitleFunction: "getSoccerMajorMinorTitle"
             },
+            soccerBetTypeFull: {
+                templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
+                controller: "SoccerBetTypeFullController",
+                service: "soccerBetTypeFullService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
+                mainParameters: {},
+                getTitleFunction: "getSoccerBetTypeTitle"
+            },
             soccerBetType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
@@ -72,7 +80,7 @@ import moment from "moment";
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
                 },
                 mainParameters: {},
-                getTitleFunction: "getMatchDetailTitle"
+                getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -80,7 +88,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
                 mainParameters: {},
-                getTitleFunction: "getSiteTitle"
+                getTitleFunction: "getSiteTitleLive"
             }
         },
         "Metric Gaming - Superlive": {

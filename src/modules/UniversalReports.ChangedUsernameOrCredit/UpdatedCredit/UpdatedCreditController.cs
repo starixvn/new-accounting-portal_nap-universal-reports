@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 
 namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 {
@@ -26,7 +26,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
         public async Task<IHttpActionResult> Excel(ExcelMessage message)
         {
             var excelPackage = await mediator.Send(message).ConfigureAwait(false);
-            return new ExcelResult(excelPackage);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
@@ -27,7 +27,7 @@ namespace UniversalReports.PlayForFun.Summary
         public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
         {
             var excelPackage = await mediator.Send(parameter).ConfigureAwait(false);
-            return new ExcelResult(excelPackage, "pl@y4o3un");
+            return new EpplusExcelResult(excelPackage, "pl@y4o3un");
         }
     }
 }

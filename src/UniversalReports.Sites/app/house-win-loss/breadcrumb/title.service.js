@@ -122,8 +122,8 @@ import angular from "angular";
         }
 
         function getMatchDetailTitleLive(data) {
-            return data.betTypeName
-                + getLiveText(data.isLive);
+            var isLiveText = data.isLive === 2 ? '' : (data.isLive === 1 ? ' "Live"' : ' "Non-Live"');
+            return data.betTypeName + isLiveText;
         }
 
         function getLiveText(isLive) {

@@ -72,7 +72,7 @@ import angular from "angular";
         function renderLiveNonLiveGrid(gridElement, data) {
             var titleInfo = {
                 text: tab.generateBreadcrumbHtmlWithSuffix(" LIVE/NON-LIVE"),
-                showCollapseExpandButton: false,
+                showCollapseExpandButton: true,
                 showExcelButton: false
             };
 
@@ -96,7 +96,7 @@ import angular from "angular";
                 betTypeNameMajorMinor: betTypeNameMajorMinor,
                 sportTypeName: betTypeNameMajorMinor
             });
-            tab.goForward('soccerBetType', data);
+            tab.goForward('soccerBetTypeFull', data);
         }
 
         function createLinksForLiveNonLive(data) {

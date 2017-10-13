@@ -2,6 +2,7 @@
 
 using SimpleInjector;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
+using BetTypeFull = UniversalReports.HouseWinLoss.Soccer.BetTypeFull;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
@@ -42,6 +43,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
             container.Register<Soccer.SumBetType.SumBetTypeGridOptionsBuilder, Soccer.SumBetType.SumBetTypeGridOptionsBuilderImp>();
             container.Register<Soccer.BaseService.BaseCalculationService, Soccer.BaseService.BaseCalculationServiceImp>();
+            container.Register<Soccer.BetTypeFull.AbstractFactory, Soccer.BetTypeFull.AbstractFactoryImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();

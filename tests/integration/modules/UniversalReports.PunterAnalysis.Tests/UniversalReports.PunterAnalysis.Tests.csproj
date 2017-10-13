@@ -158,8 +158,8 @@
       <HintPath>..\..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.4\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Olympus.WebApi.1.0.0.4\lib\net461\Olympus.WebApi.dll</HintPath>
+    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector, Version=4.0.11.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">

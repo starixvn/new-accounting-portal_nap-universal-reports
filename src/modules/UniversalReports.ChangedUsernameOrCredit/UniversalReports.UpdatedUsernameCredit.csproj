@@ -119,8 +119,8 @@
       <HintPath>..\..\..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olympus.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.WebApi.1.0.0.4\lib\net461\Olympus.WebApi.dll</HintPath>
+    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -143,7 +143,7 @@
     <Compile Include="Common\ExcelSettingFactory.cs" />
     <Compile Include="UpdatedCredit\ExcelMessage.cs" />
     <Compile Include="UpdatedCredit\HandlerExcel.cs" />
-    <Compile Include="UpdatedCredit\UpdatedCreditEntity.cs" />
+    <Compile Include="UpdatedCredit\UpdatedCreditEntity.generated.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditController.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditExcelModel.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditExcelSettingFactory.cs" />
@@ -155,7 +155,7 @@
     <Compile Include="UpdatedUsernameAndCreditAttribute.cs" />
     <Compile Include="UpdatedUsername\ExcelMessage.cs" />
     <Compile Include="UpdatedUsername\HandlerExcel.cs" />
-    <Compile Include="UpdatedUsername\UpdatedUsernameEntity.cs" />
+    <Compile Include="UpdatedUsername\UpdatedUsernameEntity.generated.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameController.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameExcelModel.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameExcelSettingFactory.cs" />

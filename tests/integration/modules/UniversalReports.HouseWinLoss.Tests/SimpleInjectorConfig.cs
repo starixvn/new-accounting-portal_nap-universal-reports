@@ -12,6 +12,7 @@ using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
+using Soccers = UniversalReports.HouseWinLoss.Soccer;
 
 namespace UniversalReports.HouseWinLoss.Tests
 {
@@ -52,11 +53,12 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
-            container.Register<Soccer.GroupBetType.GroupBetTypeWinLossService, Soccer.GroupBetType.GroupBetTypeWinLossServiceImp>();
-            container.Register<Soccer.SumBetType.SumBetTypeWinLossService, Soccer.SumBetType.SumBetTypeWinLossServiceImp>();
-            container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
-            container.Register<Soccer.SumBetType.SumBetTypeGridOptionsBuilder, Soccer.SumBetType.SumBetTypeGridOptionsBuilderImp>();
-            container.Register<Soccer.BaseService.BaseCalculationService, Soccer.BaseService.BaseCalculationServiceImp>();
+            container.Register<Soccers.GroupBetType.GroupBetTypeWinLossService, Soccers.GroupBetType.GroupBetTypeWinLossServiceImp>();
+            container.Register<Soccers.SumBetType.SumBetTypeWinLossService, Soccers.SumBetType.SumBetTypeWinLossServiceImp>();
+            container.Register<Soccers.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccers.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
+            container.Register<Soccers.SumBetType.SumBetTypeGridOptionsBuilder, Soccers.SumBetType.SumBetTypeGridOptionsBuilderImp>();
+            container.Register<Soccers.BaseService.BaseCalculationService, Soccers.BaseService.BaseCalculationServiceImp>();
+            container.Register<Soccers.BetTypeFull.AbstractFactory, Soccers.BetTypeFull.AbstractFactoryImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();

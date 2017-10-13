@@ -40,11 +40,12 @@ namespace UniversalReports.Application.Header
 
             var sessionMenus = currentSession.MenuItemList ?? new List<MenuItem>();
             var menus = GetMenus(sessionMenus);
-            return Json(new Header
+            var header = new Header
             {
                 Username = currentSession.Username,
                 Menus = menus
-            }, serializerSettings);
+            };
+            return Json(header, serializerSettings);
         }
 
         private List<Menu> GetMenus(IList<MenuItem> menus)

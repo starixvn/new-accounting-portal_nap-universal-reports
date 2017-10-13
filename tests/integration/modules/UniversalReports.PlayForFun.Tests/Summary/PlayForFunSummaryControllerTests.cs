@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PlayForFun.Summary;
 using UniversalReports.PlayForFun.Summary.Model;
@@ -33,7 +33,7 @@ namespace UniversalReports.PlayForFun.Tests.Summary
 
             // Act
             var httpActionResult = await controller.Excel(new HttpParameterExcel { Title = "Any Title", ProductName = "RNG Casino" });
-            var excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
+            var excelPackage = (httpActionResult as EpplusExcelResult).ExcelPackage;
             var summaryWorkSheet = excelPackage.Workbook.Worksheets[1];
             var detailWorkSheet = excelPackage.Workbook.Worksheets[2];
 

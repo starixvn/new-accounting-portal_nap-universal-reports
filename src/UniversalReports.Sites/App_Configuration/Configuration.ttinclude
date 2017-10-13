@@ -298,7 +298,7 @@
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
-                        return "stateConnectionString=\"tcpip=10.35.35.253:42424\"";
+                        return "stateConnectionString=\"tcpip=ha.nexdev.net:42424\"";
                 }
             }
         }

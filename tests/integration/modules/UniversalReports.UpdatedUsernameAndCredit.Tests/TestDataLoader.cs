@@ -6,7 +6,6 @@ namespace UniversalReports.UpdatedUsernameCredit.Tests
 {
     internal static class TestDataLoader
     {
-
         internal static T Load<T>(string name)
         {
             var testDirectory = TestContext.CurrentContext.TestDirectory;

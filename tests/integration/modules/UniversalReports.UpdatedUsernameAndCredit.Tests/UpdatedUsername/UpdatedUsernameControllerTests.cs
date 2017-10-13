@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.UpdatedUsernameCredit.Tests.DependencyInjection;
 using UniversalReports.UpdatedUsernameCredit.UpdatedUsername;
@@ -33,7 +33,7 @@ namespace UniversalReports.UpdatedUsernameCredit.Tests.UpdatedUsername
                     Username = string.Empty
                 });
 
-            var excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
+            var excelPackage = (httpActionResult as EpplusExcelResult).ExcelPackage;
             var workSheet = excelPackage.Workbook.Worksheets[1];
 
             // Assert

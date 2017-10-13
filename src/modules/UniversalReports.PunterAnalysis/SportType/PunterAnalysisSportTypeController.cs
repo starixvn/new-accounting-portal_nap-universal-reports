@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
 namespace UniversalReports.PunterAnalysis.SportType
@@ -27,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.SportType
         public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
         {
             var excelPackage = await mediator.Send(parameter).ConfigureAwait(false);
-            return new ExcelResult(excelPackage);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

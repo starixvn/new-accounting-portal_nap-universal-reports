@@ -5,7 +5,7 @@
         {
           "HeaderText": "Bet Type",
           "ShowCollapseExpand": false,
-          "Width": 180,
+          "Width": 210,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -128,7 +128,7 @@
     {
       "HeaderText": "Bet Type",
       "ShowCollapseExpand": true,
-      "Width": 180,
+      "Width": 210,
       "HeaderAlign": "center",
       "IsAbs": false,
       "AllowTruncate": false,

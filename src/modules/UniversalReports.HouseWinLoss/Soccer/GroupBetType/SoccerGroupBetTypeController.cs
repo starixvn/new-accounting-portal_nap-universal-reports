@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             var criteria = Mapper.Map<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, string.Empty);
-            gridOptions = decorator.Build(gridOptions, "Bet Type");
+            gridOptions = decorator.Build(gridOptions, "Bet Type", 210);
 
             return Json(gridOptions);
         }
@@ -37,7 +37,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
             var criteria = Mapper.Map<GroupBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
-            gridOptions = decorator.Build(gridOptions, "Bet Type");
+            gridOptions = decorator.Build(gridOptions, "Bet Type", 210);
 
             return new FanexExcelResult(gridOptions, Constants.SheetName);
         }

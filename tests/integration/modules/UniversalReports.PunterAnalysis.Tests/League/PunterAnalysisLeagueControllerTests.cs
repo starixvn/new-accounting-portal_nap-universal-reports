@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Results;
+using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
@@ -27,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.Tests.League
 
             // Act
             var httpActionResult = await controller.Excel(new HttpParameterExcel { PeriodType = 1, Title = "Any Title", Filter = "Any Filter" });
-            var excelPackage = (httpActionResult as ExcelResult).ExcelPackage;
+            var excelPackage = (httpActionResult as EpplusExcelResult).ExcelPackage;
             var workSheet = excelPackage.Workbook.Worksheets[1];
 
             // Assert

@@ -282,6 +282,13 @@
     <Compile Include="Soccer\BaseService\BaseCalculationService.cs" />
     <Compile Include="Soccer\BaseService\BaseBetTypeGridOptionsBuilder.cs" />
     <Compile Include="Soccer\BaseService\BaseBetTypeWinLossModel.cs" />
+    <Compile Include="Soccer\BetTypeFull\AbstractFactory.cs" />
+    <Compile Include="Soccer\BetTypeFull\GridOptionFactorySumBetType.cs" />
+    <Compile Include="Soccer\BetTypeFull\GridOptionFactoryBetType.cs" />
+    <Compile Include="Soccer\BetTypeFull\GridOptionFactoryGroupBetType.cs" />
+    <Compile Include="Soccer\BetTypeFull\GridOptionFactory.cs" />
+    <Compile Include="Soccer\BetTypeFull\ExcelQueryModel.cs" />
+    <Compile Include="Soccer\BetTypeFull\SoccerBetTypeFullController.cs" />
     <Compile Include="Soccer\BetType\BetTypeCriteria.cs" />
     <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\BetType\QueryModel.cs" />
@@ -405,9 +412,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Start\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
