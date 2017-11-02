@@ -153,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="TestData\Bullfighting.MatchDetail.BullfightingMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bullfighting.MatchDetail.BullfightingMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Bullfighting.MatchDetail.BullfightingMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

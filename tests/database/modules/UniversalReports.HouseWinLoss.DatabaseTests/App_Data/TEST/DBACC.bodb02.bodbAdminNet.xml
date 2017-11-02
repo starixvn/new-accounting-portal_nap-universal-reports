@@ -89,5 +89,7 @@
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Bullfighting-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bullfighting_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Bullfighting-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bullfighting_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
 </Functions>

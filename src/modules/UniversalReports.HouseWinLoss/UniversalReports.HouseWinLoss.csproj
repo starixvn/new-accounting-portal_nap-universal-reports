@@ -128,6 +128,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullfighting\MatchDetail\Criteria.cs" />
+    <Compile Include="Bullfighting\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="Bullfighting\MatchDetail\QueryModel.cs" />
+    <Compile Include="Bullfighting\MatchDetail\BullfightingMatchDetailController.cs" />
     <Compile Include="CashOut\BetType\CashOutBetTypeController.cs" />
     <Compile Include="CashOut\BetType\Criteria.cs" />
     <Compile Include="CashOut\BetType\ExcelQueryModel.cs" />
