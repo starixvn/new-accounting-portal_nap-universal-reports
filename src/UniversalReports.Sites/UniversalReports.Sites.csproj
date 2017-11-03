@@ -776,17 +776,17 @@
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\punter-analysis\index.cshtml" />
-    <Content Include="wwwroot\updated-username-and-given-credit\3rdpartylicenses.txt" />
-    <Content Include="wwwroot\updated-username-and-given-credit\assets\logo.png" />
-    <Content Include="wwwroot\updated-username-and-given-credit\assets\spinner.gif" />
-    <Content Include="wwwroot\updated-username-and-given-credit\favicon.ico" />
-    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.912ec66d7572ff821749.svg" />
-    <Content Include="wwwroot\updated-username-and-given-credit\index.html" />
-    <Content Include="wwwroot\updated-username-and-given-credit\inline.bundle.js" />
-    <Content Include="wwwroot\updated-username-and-given-credit\main.bundle.js" />
-    <Content Include="wwwroot\updated-username-and-given-credit\polyfills.bundle.js" />
-    <Content Include="wwwroot\updated-username-and-given-credit\styles.bundle.css" />
-    <Content Include="wwwroot\updated-username-and-given-credit\vendor.bundle.js" />
+    <Content Include="wwwroot\updated-username-credit\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\updated-username-credit\assets\logo.png" />
+    <Content Include="wwwroot\updated-username-credit\assets\spinner.gif" />
+    <Content Include="wwwroot\updated-username-credit\favicon.ico" />
+    <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\updated-username-credit\index.html" />
+    <Content Include="wwwroot\updated-username-credit\inline.bundle.js" />
+    <Content Include="wwwroot\updated-username-credit\main.bundle.js" />
+    <Content Include="wwwroot\updated-username-credit\polyfills.bundle.js" />
+    <Content Include="wwwroot\updated-username-credit\styles.bundle.css" />
+    <Content Include="wwwroot\updated-username-credit\vendor.bundle.js" />
     <Content Include="wwwroot\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -799,11 +799,11 @@
     <Content Include="wwwroot\play-for-fun\index.cshtml" />
     <Content Include="UniversalReports.Sites.Debug.ruleset" />
     <Content Include="UniversalReports.Sites.ruleset" />
-    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\updated-username-and-given-credit\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\updated-username-and-given-credit\index.cshtml" />
+    <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\updated-username-credit\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

@@ -16,7 +16,7 @@ namespace UniversalReports.Sites.Controllers
         public ActionResult Index()
         {
             SetupGlobalJsObject();
-            return View("~/wwwroot/updated-username-and-given-credit/index.cshtml");
+            return View("~/wwwroot/updated-username-credit/index.cshtml");
         }
     }
 }
