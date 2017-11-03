@@ -49,7 +49,7 @@ import angular from "angular";
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
             var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
-            var hasDetailDrilldown = angular.isDefined(template) && betTypeId !== betradarVirtualSportsMixParlayBettype;
+            var hasDetailDrilldown = angular.isDefined(template) && parseInt(betTypeId) !== betradarVirtualSportsMixParlayBettype;
 
             if (betTypeRow.SubRows && hasDetailDrilldown) {
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
