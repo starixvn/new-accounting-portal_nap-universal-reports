@@ -1,0 +1,46 @@
+[
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 1,
+    "AwayId": 1,
+    "MemberWinLoss": 100.0,
+    "SMAWinLoss": 100.0,
+    "Commission": 10.0,
+    "RealIncome": 200.0,
+    "RealTurnover": 400.0
+  },
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 2,
+    "AwayId": 2,
+    "MemberWinLoss": 200.0,
+    "SMAWinLoss": 200.0,
+    "Commission": 20.0,
+    "RealIncome": 400.0,
+    "RealTurnover": 800.0
+  },
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 3,
+    "AwayId": 3,
+    "MemberWinLoss": 300.0,
+    "SMAWinLoss": 300.0,
+    "Commission": 30.0,
+    "RealIncome": 600.0,
+    "RealTurnover": 1200.0
+  },
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 4,
+    "AwayId": 4,
+    "MemberWinLoss": 400.0,
+    "SMAWinLoss": 400.0,
+    "Commission": 40.0,
+    "RealIncome": 800.0,
+    "RealTurnover": 1600.0
+  }
+]

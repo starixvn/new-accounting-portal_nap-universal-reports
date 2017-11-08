@@ -1,0 +1,81 @@
+{
+  "Leagues": [
+    {
+      "League": "",
+      "Matches": [
+        {
+          "League": "",
+          "MatchCode": "",
+          "HomeName": "",
+          "AwayName": "",
+          "MemberWinLoss": 100.0,
+          "SMAWinLoss": 100.0,
+          "Commission": 10.0,
+          "RealIncome": 200.0,
+          "RealTurnover": 400.0,
+          "RealMargin": 0.5
+        },
+        {
+          "League": "",
+          "MatchCode": "",
+          "HomeName": "",
+          "AwayName": "",
+          "MemberWinLoss": 200.0,
+          "SMAWinLoss": 200.0,
+          "Commission": 20.0,
+          "RealIncome": 400.0,
+          "RealTurnover": 800.0,
+          "RealMargin": 0.5
+        },
+        {
+          "League": "",
+          "MatchCode": "",
+          "HomeName": "",
+          "AwayName": "",
+          "MemberWinLoss": 300.0,
+          "SMAWinLoss": 300.0,
+          "Commission": 30.0,
+          "RealIncome": 600.0,
+          "RealTurnover": 1200.0,
+          "RealMargin": 0.5
+        },
+        {
+          "League": "",
+          "MatchCode": "",
+          "HomeName": "",
+          "AwayName": "",
+          "MemberWinLoss": 400.0,
+          "SMAWinLoss": 400.0,
+          "Commission": 40.0,
+          "RealIncome": 800.0,
+          "RealTurnover": 1600.0,
+          "RealMargin": 0.5
+        }
+      ],
+      "Total": {
+        "League": "",
+        "MatchCode": "",
+        "HomeName": "",
+        "AwayName": "",
+        "MemberWinLoss": 1000.0,
+        "SMAWinLoss": 1000.0,
+        "Commission": 100.0,
+        "RealIncome": 2000.0,
+        "RealTurnover": 4000.0,
+        "RealMargin": 0.5
+      }
+    }
+  ],
+  "Total": {
+    "League": "",
+    "MatchCode": "",
+    "HomeName": "",
+    "AwayName": "",
+    "MemberWinLoss": 1000.0,
+    "SMAWinLoss": 1000.0,
+    "Commission": 100.0,
+    "RealIncome": 2000.0,
+    "RealTurnover": 4000.0,
+    "RealMargin": 0.5
+  }
+}

@@ -10,6 +10,7 @@ using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
+using MatchDetail3rd = UniversalReports.HouseWinLoss.Common.MatchDetail3rd;
 using MatchDetailByCode = UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.HouseWinLoss.Soccer;
@@ -76,6 +77,11 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
 
+            container.Register<CommonServices.RemotingRef3rdService, CommonServices.RemotingRef3rdServiceImp>();
+            container.Register<MatchDetail3rd.CalculationService, MatchDetail3rd.CalculationServiceImp>();
+            container.Register<MatchDetail3rd.RawWinLossService, MatchDetail3rd.RawWinLossServiceImp>();
+            container.Register<MatchDetail3rd.WinLossService, MatchDetail3rd.WinLossServiceImp>();
+            container.Register<MatchDetail3rd.GridOptionsBuilder, MatchDetail3rd.GridOptionsBuilderImp>();
 
             container.Verify();
         }

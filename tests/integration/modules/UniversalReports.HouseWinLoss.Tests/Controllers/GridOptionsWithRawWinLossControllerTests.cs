@@ -55,8 +55,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController",
                     "VirtualSportsBetradar.BetType.VirtualSportsBetradarBetTypeController",
                     "VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController",
-                    "VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController",
-                     "Bullfighting.MatchDetail.BullfightingMatchDetailController"
+                    "VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController"
                 };
             }
         }

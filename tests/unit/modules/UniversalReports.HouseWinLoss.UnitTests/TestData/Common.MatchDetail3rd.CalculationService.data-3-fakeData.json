@@ -1,0 +1,24 @@
+[
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 1,
+    "AwayId": 1,
+    "MemberWinLoss": 100.0,
+    "SMAWinLoss": 100.0,
+    "Commission": 10.0,
+    "RealIncome": 200.0,
+    "RealTurnover": 400.0
+  },
+  {
+    "League": "",
+    "MatchCode": "",
+    "HomeId": 2,
+    "AwayId": 2,
+    "MemberWinLoss": 200.0,
+    "SMAWinLoss": 200.0,
+    "Commission": 20.0,
+    "RealIncome": 400.0,
+    "RealTurnover": 800.0
+  }
+]

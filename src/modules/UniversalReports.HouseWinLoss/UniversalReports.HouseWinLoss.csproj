@@ -100,7 +100,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\RemotingRef.2.0.0.12\lib\net40\RemotingRef.dll</HintPath>
+      <HintPath>..\..\..\packages\RemotingRef.2.0.0.13-beta1\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting">
@@ -175,7 +175,17 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator3rd.cs" />
     <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
+    <Compile Include="Common\MatchDetail3rd\CalculationService.cs" />
+    <Compile Include="Common\MatchDetail3rd\GridOptionBuilder.cs" />
+    <Compile Include="Common\MatchDetail3rd\LeagueWinLoss.cs" />
+    <Compile Include="Common\MatchDetail3rd\MatchDetail3rdController.cs" />
+    <Compile Include="Common\MatchDetail3rd\RawWinLoss.cs" />
+    <Compile Include="Common\MatchDetail3rd\RawWinLossService.cs" />
+    <Compile Include="Common\MatchDetail3rd\WinLoss.cs" />
+    <Compile Include="Common\MatchDetail3rd\WinLossModel.cs" />
+    <Compile Include="Common\MatchDetail3rd\WinLossService.cs" />
     <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
     <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />
     <Compile Include="Common\MatchDetailByCode\MatchDetailByCodeController.cs" />
@@ -186,6 +196,7 @@
     <Compile Include="Common\MatchDetail\WinLossService.cs" />
     <Compile Include="Common\MatchDetail\MatchDetailController.cs" />
     <Compile Include="Common\MatchDetail\WinLossModel.cs" />
+    <Compile Include="Common\Services\RemotingRef3rdService.cs" />
     <Compile Include="Configuration\Constants.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />

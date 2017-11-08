@@ -103,7 +103,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\RemotingRef.2.0.0.12\lib\net40\RemotingRef.dll</HintPath>
+      <HintPath>..\..\..\..\packages\RemotingRef.2.0.0.13-beta1\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector, Version=4.0.11.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
@@ -133,9 +133,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperSetup.cs" />
+    <Compile Include="Common\Services\RemotingRef3rdServiceTests.cs" />
     <Compile Include="Common\Services\RemotingRefServiceTests.cs" />
     <Compile Include="ComparisonAssert.cs" />
     <Compile Include="Controllers\BaseControllerTests.cs" />
+    <Compile Include="Controllers\GridOptionsWithMatch3rdRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithMatchRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\TestDataLoader.cs" />

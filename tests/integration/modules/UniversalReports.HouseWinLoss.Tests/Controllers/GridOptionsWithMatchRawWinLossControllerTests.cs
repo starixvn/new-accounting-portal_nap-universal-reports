@@ -17,7 +17,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                      "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
                      "Sportsbook.MatchDetail.SportsbookMatchDetailController",
                      "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
-                     "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController"
+                     "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
                 };
             }
         }

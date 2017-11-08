@@ -137,12 +137,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 Site = "Credit"
             };
 
-            var bullfightingMatchDetailCriteria = new Bullfighting.MatchDetail.Criteria
-            {
-                BetType = 1004,
-                SportType = 207
-            };
-
             var criteriaList = new List<WinLossCriteria>
                 {
                     betTradeBetTypeCriteria,
@@ -185,8 +179,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     virtualSportsBetradarSportTypeCriteria,
                     virtualSportsBetradarBetTypeCriteria,
                     virtualSportsBetradarMatchDetailCriteria,
-                    virtualSportsBetradarSiteCriteria,
-                    bullfightingMatchDetailCriteria
+                    virtualSportsBetradarSiteCriteria
                 };
 
             return criteriaList

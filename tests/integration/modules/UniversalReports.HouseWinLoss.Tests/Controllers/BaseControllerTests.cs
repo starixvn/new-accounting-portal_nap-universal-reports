@@ -6,6 +6,7 @@ using NSubstitute;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.Common.Models;
+using MatchDetail3rd = UniversalReports.HouseWinLoss.Common.MatchDetail3rd;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -42,6 +43,27 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             };
             var repository = Substitute.For<IDynamicRepository>();
             repository.Fetch<RawWinLoss>(Arg.Any<ICriteria>())
+                .Returns(fakeData);
+            repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
+                .Returns(fakeBalanceUpRange);
+
+            var simpleInjector = new SimpleInjectorConfig(repository);
+
+            var controllerFullName = $"UniversalReports.HouseWinLoss.{controllerName}, UniversalReports.HouseWinLoss";
+            var controllerType = Type.GetType(controllerFullName);
+            return simpleInjector.Container.GetInstance(controllerType) as ApiController;
+        }
+
+        internal ApiController GetControllerWithMatch3rdRawWinLoss(string controllerName)
+        {
+            var fakeData = TestDataLoader.Load<List<MatchDetail3rd.RawWinLoss>>(controllerName, "fakeData");
+            var fakeBalanceUpRange = new BalanceUpRange
+            {
+                BalanceUpDate = new DateTime(2016, 01, 01),
+                MoveBetsDate = new DateTime(2016, 01, 01)
+            };
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.Fetch<MatchDetail3rd.RawWinLoss>(Arg.Any<ICriteria>())
                 .Returns(fakeData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);

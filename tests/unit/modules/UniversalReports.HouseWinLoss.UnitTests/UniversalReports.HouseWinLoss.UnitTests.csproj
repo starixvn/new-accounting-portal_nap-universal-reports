@@ -119,6 +119,10 @@
     <Compile Include="Common\Criteria\FakeWinLossCriteria.cs" />
     <Compile Include="Common\ColumnBuilders\GridOptionColumnRemovalUnitTests.cs" />
     <Compile Include="Common\Criteria\FakeWinLossCriteriaUnitTests.cs" />
+    <Compile Include="Common\MatchDetail3rd\CalculationServiceUnitTests.cs" />
+    <Compile Include="Common\MatchDetail3rd\RawWinLossUnitTests.cs" />
+    <Compile Include="Common\MatchDetail3rd\WinLossServiceTests.cs" />
+    <Compile Include="Common\MatchDetail3rd\WinLossUnitTests.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\GetTeamNameAndSuffixServiceTests.cs" />
     <Compile Include="Common\MatchDetail\RawWinLossUnitTests.cs" />
@@ -192,25 +196,55 @@
     <None Include="TestData\Common.BasicWinLoss.BasicWinLossService.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\Common.MatchDetail3rd.WinLossService-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.WinLossService-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-2-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-2-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-2-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-2-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-3-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-3-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-3-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-3-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-4-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-4-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Common.MatchDetail3rd.CalculationService.data-4-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Common.MatchDetail.CalculationService.data-4-fakeData.json">
@@ -340,6 +374,7 @@
   <ItemGroup>
     <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

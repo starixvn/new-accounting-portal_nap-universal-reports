@@ -1,0 +1,12 @@
+{
+  "League": "",
+  "MatchCode": "",
+  "HomeName": "",
+  "AwayName": "",
+  "MemberWinLoss": 1000.0,
+  "SMAWinLoss": 1000.0,
+  "Commission": 100.0,
+  "RealIncome": 2000.0,
+  "RealTurnover": 4000.0,
+  "RealMargin": 0.5
+}
