@@ -39,19 +39,26 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 + (isNeutral ? " (N)" : string.Empty);
         }
 
+        private string GetLeague(int leagueId, string leagueCode)
+        {
+            string leagueName = refService.GetLeagueName(leagueId);
+
+            return string.IsNullOrEmpty(leagueCode) ? leagueName : $"{leagueCode} - {leagueName}";
+        }
+
         public IEnumerable<LeagueWinLoss> CalculateLeagues(IEnumerable<RawWinLoss> rawWinLoss)
         {
             return rawWinLoss.Where(x => x.LeagueId > 0 && x.MatchId > 0)
-                .GroupBy(x => x.LeagueId)
-                .Select(x => CalculateLeague(x, x.Key))
+                .GroupBy(x => new { x.LeagueId, x.LeagueCode })
+                .Select(x => CalculateLeague(x, x.Key.LeagueId, x.Key.LeagueCode))
                 .OrderBy(x => x.LeagueName);
         }
 
-        public LeagueWinLoss CalculateLeague(IEnumerable<RawWinLoss> rawWinLoss, int leagueId)
+        public LeagueWinLoss CalculateLeague(IEnumerable<RawWinLoss> rawWinLoss, int leagueId, string leagueCode)
         {
             var leagueTotal = CalculateSumWinLoss(rawWinLoss);
             leagueTotal.LeagueId = leagueId;
-            leagueTotal.LeagueName = refService.GetLeagueName(leagueId);
+            leagueTotal.LeagueName = GetLeague(leagueId, leagueCode);
             var matches = rawWinLoss.Select(FromRawWinLoss)
                 .OrderBy(m => m.MatchCode)
                 .ThenBy(m => m.HomeName);
@@ -62,12 +69,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 Matches = matches.ToList(),
                 Total = leagueTotal
             };
-        }
-
-        public IEnumerable<WinLoss> CalculateMatches(IEnumerable<RawWinLoss> rawWinLoss)
-        {
-            return rawWinLoss.Where(x => x.LeagueId > 0 && x.MatchId > 0)
-                .Select(FromRawWinLoss);
         }
 
         public WinLoss CalculateSumWinLoss(IEnumerable<RawWinLoss> rawWinLosses)
@@ -82,6 +83,13 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             return rawWinLosses.Where(r => r.MatchId == 0 && r.LeagueId == 0)
                                .Select(FromRawWinLoss);
+        }
+    }
+
+    public class Calculation3rdServiceImp : CalculationServiceImp
+    {
+        public Calculation3rdServiceImp(RemotingRef3rdServiceImp refService) : base(refService)
+        {
         }
     }
 }

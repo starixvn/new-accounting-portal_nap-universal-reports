@@ -17,7 +17,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Common.Services
         {
             var service = new RemotingRef3rdServiceImp();
 
-            var teamName = service.Get3rdTeamName(1);
+            var teamName = service.GetTeamName(1);
 
             Assert.That(teamName, Is.Not.Null);
         }
@@ -27,7 +27,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Common.Services
         {
             var service = new RemotingRef3rdServiceImp();
 
-            var leagueName = service.Get3rdLeagueName(1);
+            var leagueName = service.GetLeagueName(1);
 
             Assert.That(leagueName, Is.Not.Null);
         }

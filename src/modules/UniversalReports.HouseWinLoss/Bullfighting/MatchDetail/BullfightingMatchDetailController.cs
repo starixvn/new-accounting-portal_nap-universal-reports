@@ -1,14 +1,14 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Common.MatchDetail3rd;
+using UniversalReports.HouseWinLoss.Common.MatchDetail;
 
 namespace UniversalReports.HouseWinLoss.Bullfighting.MatchDetail
 {
     [RoutePrefix("api/house-win-loss-by-products/bullfighting/match-detail")]
-    public class BullfightingMatchDetailController : MatchDetail3rdController
+    public class BullfightingMatchDetailController : MatchDetailController
     {
-        public BullfightingMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecorator3rd decorator)
+        public BullfightingMatchDetailController(WinLossService3rdImp service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
             : base(service, builder, decorator)
         {
         }

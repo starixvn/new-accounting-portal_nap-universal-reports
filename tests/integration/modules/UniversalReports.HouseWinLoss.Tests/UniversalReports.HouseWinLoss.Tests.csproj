@@ -137,7 +137,6 @@
     <Compile Include="Common\Services\RemotingRefServiceTests.cs" />
     <Compile Include="ComparisonAssert.cs" />
     <Compile Include="Controllers\BaseControllerTests.cs" />
-    <Compile Include="Controllers\GridOptionsWithMatch3rdRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithMatchRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\TestDataLoader.cs" />

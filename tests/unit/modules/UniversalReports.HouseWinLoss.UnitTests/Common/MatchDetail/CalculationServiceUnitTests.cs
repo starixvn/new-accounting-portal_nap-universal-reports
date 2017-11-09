@@ -79,7 +79,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
             var calculationService = new CalculationServiceImp(remotingRefService);
 
             // Act
-            var result = calculationService.CalculateLeague(fakeData, AnyLeagueId);
+            var result = calculationService.CalculateLeague(fakeData, AnyLeagueId, string.Empty);
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);
@@ -96,22 +96,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
 
             // Act
             var result = calculationService.CalculateRM(fakeData).ToList();
-
-            // Assert
-            ComparisonAssert.AreEqual(expected, result);
-        }
-
-        [Test]
-        public void CalculateMatches_ShouldReturnRightMatches()
-        {
-            // Arrange
-            var fakeData = TestDataLoader.Load<List<RawWinLoss>>("Common.MatchDetail.CalculationService.data-6-fakeData");
-            var expected = TestDataLoader.Load<List<WinLoss>>("Common.MatchDetail.CalculationService.data-6-expected");
-
-            var calculationService = new CalculationServiceImp(remotingRefService);
-
-            // Act
-            var result = calculationService.CalculateMatches(fakeData).ToList();
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

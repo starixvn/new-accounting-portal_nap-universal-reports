@@ -1,6 +1,8 @@
 [
   {
-    "League": "BLA4-Bullfighting - League 4",
+    "LeagueId": 4,
+    "LeagueCode": "BLA4",
+    "MatchId": 1000000004,
     "MatchCode": "match code test 1",
     "HomeId": 1,
     "AwayId": 2,
@@ -11,7 +13,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA4-Bullfighting - League 4",
+    "LeagueId": 4,
+    "LeagueCode": "BLA4",
+    "MatchId": 1000000005,
     "MatchCode": "match code test 2",
     "HomeId": 1,
     "AwayId": 2,
@@ -22,7 +26,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA5-Bullfighting - League 5",
+    "LeagueId": 4,
+    "LeagueCode": "BLA4",
+    "MatchId": 1000000006,
     "MatchCode": "match code test 3",
     "HomeId": 1,
     "AwayId": 2,
@@ -33,7 +39,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA5-Bullfighting - League 5",
+    "LeagueId": 5,
+    "LeagueCode": "BLA5",
+    "MatchId": 1000000007,
     "MatchCode": "match code test 4",
     "HomeId": 1,
     "AwayId": 2,
@@ -44,7 +52,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA5-Bullfighting - League 5",
+    "LeagueId": 5,
+    "LeagueCode": "BLA5",
+    "MatchId": 1000000008,
     "MatchCode": "match code test 5",
     "HomeId": 1,
     "AwayId": 2,
@@ -55,7 +65,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA5-Bullfighting - League 5",
+    "LeagueId": 5,
+    "LeagueCode": "BLA5",
+    "MatchId": 1000000008,
     "MatchCode": "match code test 6",
     "HomeId": 1,
     "AwayId": 2,
@@ -66,7 +78,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA5-Bullfighting - League 5",
+    "LeagueId": 5,
+    "LeagueCode": "BLA5",
+    "MatchId": 1000000009,
     "MatchCode": "match code test 7",
     "HomeId": 1,
     "AwayId": 2,
@@ -77,7 +91,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA6-Bullfighting - League 6",
+    "LeagueId": 6,
+    "LeagueCode": "BLA6",
+    "MatchId": 1000000010,
     "MatchCode": "match code test 8",
     "HomeId": 1,
     "AwayId": 2,
@@ -88,7 +104,9 @@
     "RealTurnover": 0
   },
   {
-    "League": "BLA6-Bullfighting - League 6",
+    "LeagueId": 6,
+    "LeagueCode": "BLA6",
+    "MatchId": 1000000011,
     "MatchCode": "match code test 9",
     "HomeId": 1,
     "AwayId": 2,

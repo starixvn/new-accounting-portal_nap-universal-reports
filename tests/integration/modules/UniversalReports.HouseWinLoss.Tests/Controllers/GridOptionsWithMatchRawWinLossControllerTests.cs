@@ -18,6 +18,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                      "Sportsbook.MatchDetail.SportsbookMatchDetailController",
                      "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
                      "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
+                      "Bullfighting.MatchDetail.BullfightingMatchDetailController"
                 };
             }
         }
@@ -67,6 +68,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 case "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController":
                     return TestDataLoader.Load<VirtualSports.SportsbookDetail.QueryModel>(controllerName, "queryModel");
 
+                case "Bullfighting.MatchDetail.BullfightingMatchDetailController":
+                    return TestDataLoader.Load<Bullfighting.MatchDetail.QueryModel>(controllerName, "queryModel");
+
                 default:
                     throw new NotImplementedException();
             }
@@ -87,6 +91,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 
                 case "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController":
                     return TestDataLoader.Load<VirtualSports.SportsbookDetail.ExcelQueryModel>(controllerName, "queryModel");
+
+                case "Bullfighting.MatchDetail.BullfightingMatchDetailController":
+                    return TestDataLoader.Load<Bullfighting.MatchDetail.ExcelQueryModel>(controllerName, "queryModel");
 
                 default:
                     throw new NotImplementedException();

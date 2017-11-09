@@ -119,10 +119,6 @@
     <Compile Include="Common\Criteria\FakeWinLossCriteria.cs" />
     <Compile Include="Common\ColumnBuilders\GridOptionColumnRemovalUnitTests.cs" />
     <Compile Include="Common\Criteria\FakeWinLossCriteriaUnitTests.cs" />
-    <Compile Include="Common\MatchDetail3rd\CalculationServiceUnitTests.cs" />
-    <Compile Include="Common\MatchDetail3rd\RawWinLossUnitTests.cs" />
-    <Compile Include="Common\MatchDetail3rd\WinLossServiceTests.cs" />
-    <Compile Include="Common\MatchDetail3rd\WinLossUnitTests.cs" />
     <Compile Include="Common\MatchDetail\CalculationServiceUnitTests.cs" />
     <Compile Include="Common\MatchDetail\GetTeamNameAndSuffixServiceTests.cs" />
     <Compile Include="Common\MatchDetail\RawWinLossUnitTests.cs" />
