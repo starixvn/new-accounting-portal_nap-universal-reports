@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
@@ -26,9 +27,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 
             var rawData = await repository.FetchAsync<UpdatedCreditEntity>(criteria).ConfigureAwait(false);
 
-            var result = Mapper.Map<IEnumerable<UpdatedCreditModel>>(rawData);
-
-            return result;
+            return Mapper.Map<List<UpdatedCreditModel>>(rawData.ToList());
         }
     }
 }

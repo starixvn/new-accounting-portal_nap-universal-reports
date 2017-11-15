@@ -139,6 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Common\BaseMessage.cs" />
     <Compile Include="Common\ExcelBuilder.cs" />
     <Compile Include="Common\ExcelSetting.cs" />

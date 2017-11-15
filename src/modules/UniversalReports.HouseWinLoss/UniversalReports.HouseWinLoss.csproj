@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Bullfighting\MatchDetail\Criteria.cs" />
     <Compile Include="Bullfighting\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Bullfighting\MatchDetail\QueryModel.cs" />

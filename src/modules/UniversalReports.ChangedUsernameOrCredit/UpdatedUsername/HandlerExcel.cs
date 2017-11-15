@@ -24,7 +24,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
         {
             var model = await service.GetUpdatedUsername(message).ConfigureAwait(false);
 
-            var excelViewModel = Mapper.Map<IEnumerable<UpdatedUsernameModel>, IEnumerable<UpdatedUsernameExcelModel>>(
+            var excelViewModel = Mapper.Map<IEnumerable<UpdatedUsernameModel>, List<UpdatedUsernameExcelModel>>(
                 model,
                 option =>
                 {

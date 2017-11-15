@@ -106,7 +106,7 @@
     <Compile Include="UpdatedCredit\UpdatedCreditControllerTests.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditExcelSettingFactoryTests.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditServiceTests.cs" />
-    <Compile Include="UpdatedUsernameAndCreditAutoMapperSetup.cs" />
+    <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="UpdatedUsername\HandlerTests.cs" />
     <Compile Include="UpdatedUsername\LogParseServiceTests.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameControllerTests.cs" />

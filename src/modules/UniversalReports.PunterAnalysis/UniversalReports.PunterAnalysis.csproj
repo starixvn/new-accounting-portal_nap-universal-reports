@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssociatedAccount\Model\Site.cs" />
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="BetCount\BetCountExcelSettingFactory.cs" />
     <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
     <Compile Include="BetCount\Model\BetCountRawModel.cs" />

@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="BaseServices\BaseModel.cs" />
     <Compile Include="Bettype\BettypeController.cs" />
     <Compile Include="Bettype\BettypeCriteria.cs" />

@@ -1,0 +1,39 @@
+﻿using AutoMapper;
+using Linq.DynamicSum;
+
+namespace UniversalReports.PunterAnalysis
+{
+    public static class AutoMapperConfiguration
+    {
+        public static void InitializePunterAnalysis(this IProfileExpression cfg)
+        {
+            cfg.CreateMap<SummaryEntity<BetCount.Model.BetCountModel>, SummaryEntity<BetCount.Model.BetCountExcelModel>>();
+            cfg.CreateMap<SummaryEntity<BetType.Model.BetTypeModel>, SummaryEntity<BetType.Model.BetTypeExcelModel>>();
+            cfg.CreateMap<SummaryEntity<SportType.Model.SportTypeModel>, SummaryEntity<SportType.Model.SportTypeExcelModel>>();
+            cfg.CreateMap<SummaryEntity<Summary.Model.SummaryModel>, SummaryEntity<Summary.Model.SummaryExcelModel>>();
+            cfg.CreateMap<BetCount.Model.HttpParameterExcel, BetCount.Model.Criteria>();
+            cfg.CreateMap<BetCount.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<BetCount.Model.HttpParameterJson, BetCount.Model.Criteria>();
+            cfg.CreateMap<BetType.Model.HttpParameterExcel, BetType.Model.Criteria>();
+            cfg.CreateMap<BetType.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<BetType.Model.HttpParameterJson, BetType.Model.Criteria>();
+            cfg.CreateMap<Filter.League.HttpParameterJson, Filter.League.QueryCriteria>();
+            cfg.CreateMap<Filter.UsernameSuggestion.HttpParameterJson, Filter.UsernameSuggestion.QueryCriteria>();
+            cfg.CreateMap<League.Model.HttpParameterExcel, League.Model.Criteria>();
+            cfg.CreateMap<League.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<League.Model.HttpParameterJson, League.Model.Criteria>();
+            cfg.CreateMap<Performance.Sportsbook.SportsbookHttpParameterJson, Performance.Sportsbook.Criteria.SportCriteria>();
+            cfg.CreateMap<Performance.Summary.SummaryHttpParameterJson, Performance.Summary.Criteria.BetTypeCriteria>();
+            cfg.CreateMap<Performance.Summary.SummaryHttpParameterJson, Performance.Summary.Criteria.EventCriteria>();
+            cfg.CreateMap<Performance.Summary.SummaryHttpParameterJson, Performance.Summary.Criteria.MonthCriteria>();
+            cfg.CreateMap<Performance.Summary.SummaryHttpParameterJson, Performance.Summary.Criteria.ProductTurnoverCriteria>();
+            cfg.CreateMap<Performance.Summary.SummaryHttpParameterJson, Performance.Summary.Criteria.SportCriteria>();
+            cfg.CreateMap<SportType.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<SportType.Model.HttpParameterExcel, SportType.Model.Criteria>();
+            cfg.CreateMap<SportType.Model.HttpParameterJson, SportType.Model.Criteria>();
+            cfg.CreateMap<Summary.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<Summary.Model.HttpParameterExcel, Summary.Model.Criteria>();
+            cfg.CreateMap<Summary.Model.HttpParameterJson, Summary.Model.Criteria>();
+        }
+    }
+}

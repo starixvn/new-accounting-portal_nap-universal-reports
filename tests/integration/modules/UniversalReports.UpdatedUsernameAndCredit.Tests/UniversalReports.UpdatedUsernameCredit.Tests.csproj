@@ -172,7 +172,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDataLoader.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditControllerTests.cs" />
-    <Compile Include="UpdatedUsernameAndCreditAutoMapperSetup.cs" />
+    <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="UpdatedUsername\UpdatedUsernameControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
