@@ -155,6 +155,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleInjectorConfig.cs" />
     <Compile Include="Soccer\BetTypeFull\SoccerBetTypeFullControllerTests.cs" />
+    <Compile Include="TestDoubles\RemotingRef3rdServiceStub.cs" />
     <Compile Include="TestDoubles\RemotingRefServiceStub.cs" />
     <Compile Include="Controllers\UniversalBetTypeControllerTests.cs" />
   </ItemGroup>

@@ -10,6 +10,7 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Bettrade.BetType.QueryModel, Bettrade.BetType.Criteria>();
             cfg.CreateMap<Bettrade.Site.ExcelQueryModel, Bettrade.Site.Criteria>();
             cfg.CreateMap<Bettrade.Site.QueryModel, Bettrade.Site.Criteria>();
+            cfg.CreateMap<Bullfighting.MatchDetail.QueryModel, Bullfighting.MatchDetail.Criteria>();
             cfg.CreateMap<CashOut.BetType.ExcelQueryModel, CashOut.BetType.Criteria>();
             cfg.CreateMap<CashOut.BetType.QueryModel, CashOut.BetType.Criteria>();
             cfg.CreateMap<CashOut.Site.ExcelQueryModel, CashOut.Site.Criteria>();
