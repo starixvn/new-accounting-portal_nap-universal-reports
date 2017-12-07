@@ -568,7 +568,34 @@ import moment from "moment";
                 mainParameters: { productId: 26, isLive: 2 },
                 getTitleFunction: "getSiteTitleLive"
             }
-        }
+        },
+        "Bullfighting": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/bet-type",
+                mainParameters: { productId: 30, sportType: 207, isLive: 2 },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/universal/site",
+                mainParameters: { productId: 30, isLive: 2 },
+                getTitleFunction: "getSiteTitle"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl:  "api/house-win-loss-by-products/bullfighting/match-detail",
+                mainParameters: { sportType: 207 },
+                getTitleFunction: "getMatchDetailTitle"
+            }
+        },
     };
     angular
         .module("app.houseWinlossApp")

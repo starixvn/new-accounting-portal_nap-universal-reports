@@ -19,12 +19,16 @@ namespace UniversalReports.PunterAnalysis.Performance
         [Route("summary")]
         public async Task<IHttpActionResult> Summary(SummaryHttpParameterJson parameter)
         {
-            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
-            return Json(viewModel);
+            return await Handle(parameter).ConfigureAwait(false);
         }
 
         [Route("sportsbook")]
         public async Task<IHttpActionResult> Sportsbook(SportsbookHttpParameterJson parameter)
+        {
+            return await Handle(parameter).ConfigureAwait(false);
+        }
+
+        private async Task<IHttpActionResult> Handle<TResponse>(IRequest<TResponse> parameter)
         {
             var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);

@@ -24,6 +24,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public int LeagueId { get; set; }
 
+        public string LeagueCode { get; set; }
+
         public decimal MemberWinLoss { get; set; }
 
         public decimal SMAWinLoss { get; set; }
@@ -50,6 +52,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 HomeName = string.Empty,
                 IsNeutral = false,
                 LeagueId = 0,
+                LeagueCode = string.Empty,
                 MatchCode = string.Empty,
                 MatchId = 0,
                 EventDate = DateTime.MinValue,

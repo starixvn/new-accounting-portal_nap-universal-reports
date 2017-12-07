@@ -12,6 +12,11 @@ using System.Web.SessionState;
 using AutoMapper;
 using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Logging;
+using UniversalReports.HouseWinLoss;
+using UniversalReports.NG2Statistics;
+using UniversalReports.PlayForFun;
+using UniversalReports.PunterAnalysis;
+using UniversalReports.UpdatedUsernameCredit;
 
 namespace UniversalReports.Sites
 {
@@ -27,7 +32,14 @@ namespace UniversalReports.Sites
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FanexData.Register();
             FanexLogging.Register();
-            Mapper.Initialize(cfg => cfg.CreateMissingTypeMaps = true);
+            Mapper.Initialize(cfg =>
+            {
+                cfg.InitializeHouseWinLoss();
+                cfg.InitializeNG2Statistics();
+                cfg.InitializePlayForFun();
+                cfg.InitializePunterAnalysis();
+                cfg.InitializeUpdatedUsernameCredit();
+            });
         }
 
         private static void ChangeApplicationName()

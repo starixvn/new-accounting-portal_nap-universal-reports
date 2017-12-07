@@ -4,7 +4,6 @@ using NSubstitute;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Configurations;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
 {
@@ -18,7 +17,6 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection.SimpleInjector
             container.Register<CacheService>(() => new CacheServiceImpl());
             container.Register(() => currentSession);
             container.Register<BalanceUpService, BalanceUpServiceImp>();
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<ConfigurationService, ConfigurationServiceImp>();
 

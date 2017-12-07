@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
+using UniversalReports.HouseWinLoss;
 
 [SetUpFixture]
-public class PlayForFunAutoMapperSetup
+public class AutoMapperSetup
 {
     [OneTimeSetUp]
-    public void PlayForFunOneTimeSetUp()
+    public void OneTimeSetUp()
     {
-        Mapper.Initialize(cfg => cfg.CreateMissingTypeMaps = true);
+        Mapper.Initialize(cfg =>
+        {
+            cfg.InitializeHouseWinLoss();
+        });
     }
 }

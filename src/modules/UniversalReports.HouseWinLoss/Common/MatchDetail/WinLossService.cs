@@ -35,4 +35,11 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             };
         }
     }
+
+    public class WinLossService3rdImp : WinLossServiceImp
+    {
+        public WinLossService3rdImp(RawWinLossService rawWinLossService, Calculation3rdServiceImp calculationService) : base(rawWinLossService, calculationService)
+        {
+        }
+    }
 }

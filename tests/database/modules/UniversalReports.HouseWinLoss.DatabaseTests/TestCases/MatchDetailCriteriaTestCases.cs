@@ -35,12 +35,19 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     SportType = 181
                 };
 
+                var bullfightingMatchDetailCriteria = new Bullfighting.MatchDetail.Criteria
+                {
+                    BetType = 1004,
+                    SportType = 207
+                };
+
                 var result = new List<WinLossCriteria>
             {
                 metricGamingMatchDetailCriteria,
                 sportsbookMatchDetailCriteria,
                 sportsbookOutrightMatchDetailCriteria,
-                virtualSportsSportsbookDetailCriteria
+                virtualSportsSportsbookDetailCriteria,
+                bullfightingMatchDetailCriteria
             };
                 return result
                     .Select(i => new[]

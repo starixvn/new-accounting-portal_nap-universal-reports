@@ -33,6 +33,8 @@ namespace UniversalReports.HouseWinLoss.Tests
 
             container.Register<CacheService>(() => new CacheServiceImpl());
             container.Register<CommonServices.RemotingRefService, RemotingRefServiceStub>();
+            container.Register<CommonServices.RemotingRef3rdServiceImp, RemotingRef3rdServiceStub>();
+
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
@@ -75,7 +77,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
-
 
             container.Verify();
         }
