@@ -47,3 +47,5 @@ Sources/Sites/app/*concat.js
 *.REMOTE
 **/package-lock.json
 /src/UniversalReports.Sites/App_Data/user-activity*.json
+**/package-lock.json
+*.csproj.user

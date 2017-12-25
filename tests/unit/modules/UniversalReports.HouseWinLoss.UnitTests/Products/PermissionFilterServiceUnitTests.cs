@@ -73,6 +73,39 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             Assert.That(result, IsDeeplyEqual.To(expected));
         }
 
+        [Test]
+        public void Filter_PermissionSoccer_ReturnsAllData()
+        {
+            // Arrage
+            var winLossRaws = CreateWinLossRawTestCases();
+            var permissions = new string[] { "HouseWinLossByProducts_Soccer" };
+
+            // Act
+            var service = new PermissionFilterServiceImp();
+            var result = service.Filter(winLossRaws, permissions).ToArray();
+
+            // Assert
+            var expected = CreateSoccerPermissionProductsWinLossRaw().ToArray();
+            Assert.That(result, IsDeeplyEqual.To(expected));
+        }
+
+        [Test]
+        public void Filter_PermissionOtherSports_ReturnsAllData()
+        {
+            // Arrage
+            var winLossRaws = CreateWinLossRawTestCases();
+            var permissions = new string[] { "HouseWinLossByProducts_OtherSports" };
+
+            // Act
+            var service = new PermissionFilterServiceImp();
+            var result = service.Filter(winLossRaws, permissions).ToArray();
+
+            // Assert
+            var expected = CreateOtherSportsPermissionProductsWinLossRaw().ToArray();
+            Assert.That(result, IsDeeplyEqual.To(expected));
+        }
+
+
         private IEnumerable<WinLossRaw> CreateWinLossRawTestCases()
         {
             yield return CreateWinLossRaw("Soccer");
@@ -105,6 +138,19 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             {
                 GroupName = groupName
             };
+        }
+
+        private IEnumerable<WinLossRaw> CreateSoccerPermissionProductsWinLossRaw()
+        {
+            yield return CreateWinLossRaw("Soccer");
+            yield return CreateWinLossRaw("Parlay");
+            yield return CreateWinLossRaw("RM");
+        }
+
+        private IEnumerable<WinLossRaw> CreateOtherSportsPermissionProductsWinLossRaw()
+        {
+            yield return CreateWinLossRaw("Other Sports");
+            yield return CreateWinLossRaw("Parlay");
         }
     }
 }

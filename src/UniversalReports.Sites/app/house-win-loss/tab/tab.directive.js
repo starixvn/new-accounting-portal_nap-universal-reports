@@ -45,27 +45,15 @@ import angular from "angular";
         function getMainPane(data) {
             var hasMainPagePermission = productPermissions.indexOf("HouseWinLossByProducts_AllProducts") >= 0
                             || productPermissions.indexOf("HouseWinLossByProducts_Sportsbook") >= 0
-                            || productPermissions.indexOf("HouseWinLossByProducts_ThirdPartyProducts") >= 0;
-            var hasOnlySoccerPermission = productPermissions.indexOf("HouseWinLossByProducts_Soccer") >= 0;
-            var hasOnlyOtherSportsPermission = productPermissions.indexOf("HouseWinLossByProducts_OtherSports") >= 0;
+                            || productPermissions.indexOf("HouseWinLossByProducts_ThirdPartyProducts") >= 0
+                            || productPermissions.indexOf("HouseWinLossByProducts_Soccer") >= 0
+                            || productPermissions.indexOf("HouseWinLossByProducts_OtherSports") >= 0;
             var hasOnlySoccerLivePermission = productPermissions.indexOf("HouseWinLossByProducts_SoccerLive") >= 0;
             var hasOnlySoccerNonLivePermission = productPermissions.indexOf("HouseWinLossByProducts_SoccerNonLive") >= 0;
 
             if (hasMainPagePermission) {
                 data.productName = "Main";
                 return new Pane('product', data);
-            }
-
-            if (hasOnlySoccerPermission) {
-                data.productName = "Soccer";
-                data.isLive = 2;
-                return new Pane('soccerLiveNonLive', data);
-            }
-
-            if (hasOnlyOtherSportsPermission) {
-                data.productName = "Other Sports";
-                data.isLive = 2;
-                return new Pane('liveNonLive', data);
             }
 
             if (hasOnlySoccerLivePermission) {

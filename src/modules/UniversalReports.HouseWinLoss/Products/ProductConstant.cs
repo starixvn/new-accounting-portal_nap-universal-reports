@@ -14,5 +14,18 @@
             "Other Sports",
             "Parlay"
         };
+
+        public static string[] SoccerPermissionProducts => new[]
+       {
+            "Soccer",
+            "Parlay",
+            "RM"
+        };
+
+        public static string[] OtherSportsPermissionProducts => new[]
+        {
+            "Other Sports",
+            "Parlay"
+        };
     }
 }

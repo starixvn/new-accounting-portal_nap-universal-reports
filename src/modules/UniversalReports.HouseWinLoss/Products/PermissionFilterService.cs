@@ -21,9 +21,22 @@ namespace UniversalReports.HouseWinLoss.Products
 
         private static IEnumerable<WinLossRaw> FilterSportsbook(IEnumerable<WinLossRaw> winLossRaws, IEnumerable<string> permissions)
         {
-            return permissions.Contains(PermissionKeys.Sportsbook) || permissions.Contains(PermissionKeys.AllProducts)
-                ? winLossRaws
-                : winLossRaws.Where(r => !ProductConstant.NameSportsbook.Contains(r.GroupName) && r.GroupName != ProductConstant.RM);
+            if (permissions.Contains(PermissionKeys.Sportsbook) || permissions.Contains(PermissionKeys.AllProducts))
+            {
+                return winLossRaws;
+            }
+
+            if (permissions.Contains(PermissionKeys.Soccer))
+            {
+                return winLossRaws.Where(r => ProductConstant.SoccerPermissionProducts.Contains(r.GroupName));
+            }
+
+            if (permissions.Contains(PermissionKeys.OtherSports))
+            {
+                return winLossRaws.Where(r => ProductConstant.OtherSportsPermissionProducts.Contains(r.GroupName));
+            }
+
+            return winLossRaws.Where(r => !ProductConstant.NameSportsbook.Contains(r.GroupName) && r.GroupName != ProductConstant.RM);
         }
 
         private static IEnumerable<WinLossRaw> FilterThirdPartyProducts(IEnumerable<WinLossRaw> winLossRaws, IEnumerable<string> permissions)
