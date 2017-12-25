@@ -2216,7 +2216,7 @@ webpackJsonp([2],{
 	
 	                var canViewMatchDetail = pane.data.endDate.diff(pane.data.startDate, 'days') <= 3;
 	                if (canViewMatchDetail) {
-	                    $scope.createDrilldownLinks(data.bodyRows);
+	                    $scope.createDrilldownLinks(data.bodyRows, pane.data.isLive);
 	                    createLinkChargeCom(data.footerRows);
 	                }
 	
