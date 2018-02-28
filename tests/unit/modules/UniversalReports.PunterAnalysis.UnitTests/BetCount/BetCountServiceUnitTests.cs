@@ -24,8 +24,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<BetCountRawModel>(Arg.Any<Criteria>()).Returns(fakeData);
 
-            var dateTimeService = Substitute.For<DateTimeService>();
-            dateTimeService.GetWeekOfYearIso8601(Arg.Any<DateTime>()).Returns(4);
+            var dateTimeService = new DateTimeServiceImp();
 
             var service = new BetCountServiceImp(repository, dateTimeService);
 

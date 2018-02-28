@@ -3,6 +3,7 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.PunterAnalysis.League;
+using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.League
 {
@@ -17,7 +18,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public string CreateLeagueService_Test(int periodType)
         {
             var repository = Substitute.For<IDynamicRepository>();
-            var factory = new LeagueServiceFactoryImp(repository);
+            var dateTimeService = Substitute.For<DateTimeService>();
+            var factory = new LeagueServiceFactoryImp(repository, dateTimeService);
             var service = factory.CreateLeagueService(periodType);
 
             return service.GetType().Name;
@@ -29,7 +31,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         public void CreateLeagueService_InvalidPeriodType_ThrowsNotImplementedException(int periodType)
         {
             var repository = Substitute.For<IDynamicRepository>();
-            var factory = new LeagueServiceFactoryImp(repository);
+            var dateTimeService = Substitute.For<DateTimeService>();
+            var factory = new LeagueServiceFactoryImp(repository, dateTimeService);
 
             Assert.That(() => factory.CreateLeagueService(periodType), Throws.TypeOf<NotImplementedException>());
         }

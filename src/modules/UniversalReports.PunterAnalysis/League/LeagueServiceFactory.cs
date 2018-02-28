@@ -13,14 +13,16 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private readonly IDynamicRepository repository;
 
-        public LeagueServiceFactoryImp(IDynamicRepository repository)
+        private readonly DateTimeService dateTimeService;
+
+        public LeagueServiceFactoryImp(IDynamicRepository repository, DateTimeService dateTimeService)
         {
             this.repository = repository;
+            this.dateTimeService = dateTimeService;
         }
 
         public LeagueService CreateLeagueService(int periodType)
         {
-            var dateTimeService = new DateTimeServiceImp();
             var periodTypeEnum = (PeriodType)periodType;
 
             switch (periodTypeEnum)
