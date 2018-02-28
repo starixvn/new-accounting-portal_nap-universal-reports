@@ -8,6 +8,8 @@ namespace UniversalReports.PunterAnalysis.Shared
         DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
 
         int GetWeekOfYearIso8601(DateTime dateTime);
+
+        string FormatDateTimeByPeriodType(int periodType, DateTime date);
     }
 
     public class DateTimeServiceImp : DateTimeService
@@ -35,6 +37,21 @@ namespace UniversalReports.PunterAnalysis.Shared
                 : dateTime;
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(realDate, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
+
+        public string FormatDateTimeByPeriodType(int periodType, DateTime date)
+        {
+            switch ((PeriodType)periodType)
+            {
+                case PeriodType.Daily:
+                    return $"{date:yyyy-MM-dd}";
+
+                case PeriodType.Weekly:
+                    return $"{date:MM/yyyy} - Week {GetWeekOfYearIso8601(date)}";
+
+                default:
+                    return $"{date:MM/yyyy}";
+            }
         }
     }
 }

@@ -14,22 +14,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 {
     public class BetCountServiceUnitTests
     {
-        public static object[] FormatDateTimeCases
-        {
-            get
-            {
-                return new[]
-                {
-                    new object[] { 0, new DateTime(2017, 1, 23), "01/2017" },
-                    new object[] { 1, new DateTime(2017, 1, 23), "2017-01-23" },
-                    new object[] { 2, new DateTime(2017, 1, 23), "01/2017 - Week 4" },
-                    new object[] { 3, new DateTime(2017, 1, 23), "01/2017" },
-                    new object[] { 4, new DateTime(2017, 1, 23), "01/2017" },
-                    new object[] { 5, new DateTime(2017, 1, 23), "01/2017" }
-                };
-            }
-        }
-
         [Test]
         public async Task Query_WithNewCriteria_ReturnRightBetCountModel()
         {
@@ -50,23 +34,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 
             // Assert
             Assert.That(result, IsDeeplyEqual.To(expectedData));
-        }
-
-        [Test]
-        [TestCaseSource(nameof(FormatDateTimeCases))]
-        public void FormatDateTimeByPeriodType_WithPeriodType_ReturnRightDateTimeFormat(int periodType, DateTime date, string formatDate)
-        {
-            // Arrange
-            var repository = Substitute.For<IDynamicRepository>();
-            var dateTimeService = Substitute.For<DateTimeService>();
-            dateTimeService.GetWeekOfYearIso8601(Arg.Any<DateTime>()).Returns(4);
-            var service = new BetCountServiceImp(repository, dateTimeService);
-
-            // Act
-            var result = service.FormatDateTimeByPeriodType(periodType, date);
-
-            // Assert
-            Assert.AreEqual(result, formatDate);
         }
 
         private List<BetCountRawModel> CreateBetCountRawModel()

@@ -27,6 +27,23 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Shared
             }
         }
 
+        public static object[] FormatDateTimeCases
+        {
+            get
+            {
+                return new[]
+                {
+                    new object[] { 0, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 1, new DateTime(2017, 1, 23), "2017-01-23" },
+                    new object[] { 2, new DateTime(2017, 1, 23), "01/2017 - Week 4" },
+                    new object[] { 3, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 4, new DateTime(2017, 1, 23), "01/2017" },
+                    new object[] { 5, new DateTime(2017, 1, 23), "01/2017" }
+                };
+            }
+        }
+
+
         [Test]
         [TestCase(2012, 0, ExpectedResult = "12/26/2011")]
         [TestCase(2012, 1, ExpectedResult = "1/2/2012")]
@@ -53,6 +70,20 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Shared
 
             // Assert
             Assert.AreEqual(result, week);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(FormatDateTimeCases))]
+        public void FormatDateTimeByPeriodType_WithPeriodType_ReturnRightDateTimeFormat(int periodType, DateTime date, string formatDate)
+        {
+            // Arrange
+            var service = new DateTimeServiceImp();
+
+            // Act
+            var result = service.FormatDateTimeByPeriodType(periodType, date);
+
+            // Assert
+            Assert.AreEqual(result, formatDate);
         }
     }
 }
