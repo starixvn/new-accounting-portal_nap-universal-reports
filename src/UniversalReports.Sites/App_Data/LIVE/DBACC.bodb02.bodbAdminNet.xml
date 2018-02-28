@@ -91,6 +91,10 @@
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bullfighting-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Bullfighting_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bullfighting-MatchDetail-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_Bullfighting_MatchDetail_14" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_BetType_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-BetType-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_BetType_14_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_Site_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-Site-BetTrans14" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_Site_14_xpre" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="PlayForFun">
     <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />

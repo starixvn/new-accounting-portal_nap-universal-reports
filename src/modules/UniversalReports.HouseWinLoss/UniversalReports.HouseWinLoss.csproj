@@ -163,6 +163,14 @@
     <Compile Include="Casino\Product\CasinoProductController.cs" />
     <Compile Include="Casino\Product\ExcelQueryModel.cs" />
     <Compile Include="Casino\Product\QueryModel.cs" />
+    <Compile Include="ColossusBet\BetType\Criteria.cs" />
+    <Compile Include="ColossusBet\BetType\ExcelQueryModel.cs" />
+    <Compile Include="ColossusBet\BetType\QueryModel.cs" />
+    <Compile Include="ColossusBet\BetType\ColossusBetBetTypeController.cs" />
+    <Compile Include="ColossusBet\Site\Criteria.cs" />
+    <Compile Include="ColossusBet\Site\ExcelQueryModel.cs" />
+    <Compile Include="ColossusBet\Site\QueryModel.cs" />
+    <Compile Include="ColossusBet\Site\ColossusBetSiteController.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridDataRowBuilder.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridOptionsBuilder.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />

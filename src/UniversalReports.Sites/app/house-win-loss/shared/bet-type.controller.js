@@ -48,6 +48,8 @@ import angular from "angular";
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
+            var isFreePlay = betTypeName === 'Colossus Bets (Free Play)';
+
             var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
             var hasDetailDrilldown = angular.isDefined(template) && parseInt(betTypeId) !== betradarVirtualSportsMixParlayBettype;
 
@@ -58,7 +60,7 @@ import angular from "angular";
                 for (var i = 0; i < betTypeRow.SubRows.length; i++) {
                     var siteRow = betTypeRow.SubRows[i];
                     var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + siteName + '</a>';
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ',' + isFreePlay + ')">' + siteName + '</a>';
                 }
             }
         }
@@ -78,7 +80,7 @@ import angular from "angular";
             gridElement.fanexGrid(data);
         }
 
-        function generateSite(betType, betTypeName, site, isLive) {
+        function generateSite(betType, betTypeName, site, isLive, isFreePlay) {
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
@@ -86,7 +88,8 @@ import angular from "angular";
                 betTypeName: betTypeName,
                 site: site,
                 isLive: isLive,
-                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
+                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1,
+                isFreePlay: isFreePlay
             });
 
             tab.goForward('site', data);

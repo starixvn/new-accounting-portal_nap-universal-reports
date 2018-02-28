@@ -137,6 +137,14 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 Site = "Credit"
             };
 
+            var colossusBetBetTypeCriteria = new ColossusBet.BetType.Criteria();
+            var colossusBetSiteCriteria = new ColossusBet.Site.Criteria
+            {
+                Site = "Deposit",
+                BetType = 18000,
+                IsFreePlay = true
+            };
+
             var criteriaList = new List<WinLossCriteria>
                 {
                     betTradeBetTypeCriteria,
@@ -179,7 +187,9 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     virtualSportsBetradarSportTypeCriteria,
                     virtualSportsBetradarBetTypeCriteria,
                     virtualSportsBetradarMatchDetailCriteria,
-                    virtualSportsBetradarSiteCriteria
+                    virtualSportsBetradarSiteCriteria,
+                    colossusBetBetTypeCriteria,
+                    colossusBetSiteCriteria
                 };
 
             return criteriaList
