@@ -40,23 +40,8 @@ namespace UniversalReports.PunterAnalysis.BetCount
                 DrawCount = rawModel.DrawCount,
                 WinCount = rawModel.WinCount,
                 WinLoss = rawModel.WinLoss,
-                Date = FormatDateTimeByPeriodType(periodType, rawModel.Date)
+                Date = dateTimeService.FormatDateTimeByPeriodType(periodType, rawModel.Date)
             };
-        }
-
-        public string FormatDateTimeByPeriodType(int periodType, DateTime date)
-        {
-            switch ((PeriodType)periodType)
-            {
-                case PeriodType.Daily:
-                    return $"{date:yyyy-MM-dd}";
-
-                case PeriodType.Weekly:
-                    return $"{date:MM/yyyy} - Week {dateTimeService.GetWeekOfYearIso8601(date)}";
-
-                default:
-                    return $"{date:MM/yyyy}";
-            }
         }
     }
 }

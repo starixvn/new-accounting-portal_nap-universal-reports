@@ -103,7 +103,10 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<VirtualSportsBetradar.Site.QueryModel, VirtualSportsBetradar.Site.Criteria>();
             cfg.CreateMap<VirtualSportsBetradar.SportType.ExcelQueryModel, VirtualSportsBetradar.SportType.Criteria>();
             cfg.CreateMap<VirtualSportsBetradar.SportType.QueryModel, VirtualSportsBetradar.SportType.Criteria>();
-
+            cfg.CreateMap<ColossusBet.BetType.ExcelQueryModel, ColossusBet.BetType.Criteria>();
+            cfg.CreateMap<ColossusBet.BetType.QueryModel, ColossusBet.BetType.Criteria>();
+            cfg.CreateMap<ColossusBet.Site.ExcelQueryModel, ColossusBet.Site.Criteria>();
+            cfg.CreateMap<ColossusBet.Site.QueryModel, ColossusBet.Site.Criteria>();
         }
     }
 }

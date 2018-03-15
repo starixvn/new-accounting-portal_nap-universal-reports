@@ -46,6 +46,8 @@
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bullfighting-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bullfighting_MatchDetail_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-ColossusBet-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
