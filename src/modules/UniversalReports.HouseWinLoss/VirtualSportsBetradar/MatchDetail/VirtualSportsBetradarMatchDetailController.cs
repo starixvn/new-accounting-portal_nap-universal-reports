@@ -1,14 +1,14 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
+using UniversalReports.HouseWinLoss.Common.MatchDetail;
 
 namespace UniversalReports.HouseWinLoss.VirtualSportsBetradar.MatchDetail
 {
     [RoutePrefix("api/house-win-loss-by-products/virtual-sports-betradar/match-detail")]
-    public class VirtualSportsBetradarMatchDetailController : MatchDetailByCodeController
+    public class VirtualSportsBetradarMatchDetailController : MatchDetailController
     {
-        public VirtualSportsBetradarMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorByCode decorator)
+        public VirtualSportsBetradarMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
             : base(service, builder, decorator)
         {
         }

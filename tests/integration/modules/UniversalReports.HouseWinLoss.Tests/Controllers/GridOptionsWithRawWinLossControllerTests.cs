@@ -52,7 +52,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "VirtualSports.SportType.VirtualSportsSportTypeController",
                     "FishingWorld.BetType.FishingWorldBetTypeController",
                     "FishingWorld.Site.FishingWorldSiteController",
-                    "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController",
                     "VirtualSportsBetradar.BetType.VirtualSportsBetradarBetTypeController",
                     "VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController",
                     "VirtualSportsBetradar.SportType.VirtualSportsBetradarSportTypeController",
