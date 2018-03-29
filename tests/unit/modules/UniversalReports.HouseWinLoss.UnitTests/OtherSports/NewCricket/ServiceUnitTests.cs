@@ -21,15 +21,17 @@ namespace UniversalReports.HouseWinLoss.UnitTests.OtherSports.NewCricket
             var expected = TestDataLoader.Load<WinLossModel>("OtherSports.NewCricket.Service.data-1-expected");
 
             // Act
-            var calculateService = new CalculationServiceImp();
+            var refService = Substitute.For<RemotingRefService>();
+            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
-            var service = new WinLossServiceImp(rawWinLossService, calculateService);
+            var service = new WinLossServiceImp(rawWinLossService, calculationService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
 
             // Assert
-            ComparisonAssert.AreEqual(result, expected);
+            ComparisonAssert.AreEqual(expected, result);
         }
     }
 }

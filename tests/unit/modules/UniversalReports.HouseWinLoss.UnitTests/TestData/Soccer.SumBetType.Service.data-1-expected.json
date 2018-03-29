@@ -14,11 +14,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 20.0,
         "VirtualTurnover": 20.0,
+        "VirtualMargin": 1.0,
         "RealMargin": 1.0,
-        "VirtualMargin": 1.0
+        "IsEmpty": false
       },
       "Credit": {
-        "Name": "Credit",
+        "Name": "Any Name",
         "Id": 1,
         "MemberWinLoss": 10.0,
         "SMAWinLoss": 10.0,
@@ -30,11 +31,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 10.0,
         "VirtualTurnover": 10.0,
+        "VirtualMargin": 1.0,
         "RealMargin": 1.0,
-        "VirtualMargin": 1.0
+        "IsEmpty": false
       },
       "Deposit": {
-        "Name": "Deposit",
+        "Name": "Any Name",
         "Id": 1,
         "MemberWinLoss": 10.0,
         "SMAWinLoss": 10.0,
@@ -46,9 +48,11 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 10.0,
         "VirtualTurnover": 10.0,
+        "VirtualMargin": 1.0,
         "RealMargin": 1.0,
-        "VirtualMargin": 1.0
-      }
+        "IsEmpty": false
+      },
+      "IsEmpty": false
     }
   ],
   "GrandTotal": {
@@ -65,8 +69,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 20.0,
       "VirtualTurnover": 20.0,
+      "VirtualMargin": 1.0,
       "RealMargin": 1.0,
-      "VirtualMargin": 1.0
+      "IsEmpty": false
     },
     "Credit": {
       "Name": "Credit",
@@ -81,8 +86,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 10.0,
       "VirtualTurnover": 10.0,
+      "VirtualMargin": 1.0,
       "RealMargin": 1.0,
-      "VirtualMargin": 1.0
+      "IsEmpty": false
     },
     "Deposit": {
       "Name": "Deposit",
@@ -97,9 +103,11 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 10.0,
       "VirtualTurnover": 10.0,
+      "VirtualMargin": 1.0,
       "RealMargin": 1.0,
-      "VirtualMargin": 1.0
-    }
+      "IsEmpty": false
+    },
+    "IsEmpty": false
   },
   "MainTotal": {
     "Name": "Main Bet Types Total",
@@ -114,8 +122,9 @@
     "AfterExtraPT": 0.0,
     "RealTurnover": 20.0,
     "VirtualTurnover": 20.0,
+    "VirtualMargin": 1.0,
     "RealMargin": 1.0,
-    "VirtualMargin": 1.0
+    "IsEmpty": false
   },
   "OtherTotal": {
     "Name": "Other Bet Types Total",
@@ -130,8 +139,9 @@
     "AfterExtraPT": 0.0,
     "RealTurnover": 0.0,
     "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
     "RealMargin": 0.0,
-    "VirtualMargin": 0.0
+    "IsEmpty": true
   },
   "HedgeTotal": {
     "Name": "Hedge Total",
@@ -146,12 +156,13 @@
     "AfterExtraPT": 0.0,
     "RealTurnover": 0.0,
     "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
     "RealMargin": 0.0,
-    "VirtualMargin": 0.0
+    "IsEmpty": true
   },
   "RM": [
     {
-      "Name": "Deposit",
+      "Name": "Any Name",
       "Id": 1,
       "MemberWinLoss": 0.0,
       "SMAWinLoss": 0.0,
@@ -163,8 +174,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 0.0,
       "VirtualTurnover": 0.0,
+      "VirtualMargin": 0.0,
       "RealMargin": 0.0,
-      "VirtualMargin": 0.0
+      "IsEmpty": true
     }
   ]
 }

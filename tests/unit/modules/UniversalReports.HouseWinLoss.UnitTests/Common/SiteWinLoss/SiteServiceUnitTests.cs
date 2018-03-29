@@ -20,7 +20,9 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Common.SiteWinLoss.SiteService.data-1-fakeData");
             var expected = TestDataLoader.Load<SiteWinLossModel>("Common.SiteWinLoss.SiteService.data-1-expected");
 
-            var calculationService = new CalculationServiceImp();
+            var refService = Substitute.For<RemotingRefService>();
+            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
 
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);

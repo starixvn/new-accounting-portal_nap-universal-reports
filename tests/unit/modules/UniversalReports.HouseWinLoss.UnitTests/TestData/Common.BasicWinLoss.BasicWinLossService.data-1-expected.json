@@ -14,11 +14,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 1890.0,
         "VirtualTurnover": 2100.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
+        "IsEmpty": false
       },
       "Credit": {
-        "Name": "Credit",
+        "Name": "Any Name",
         "Id": 1,
         "MemberWinLoss": 100.0,
         "SMAWinLoss": 110.0,
@@ -30,11 +31,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 900.0,
         "VirtualTurnover": 1000.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
+        "IsEmpty": false
       },
       "Deposit": {
-        "Name": "Deposit",
+        "Name": "Any Name",
         "Id": 1,
         "MemberWinLoss": 110.0,
         "SMAWinLoss": 120.0,
@@ -46,9 +48,11 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 990.0,
         "VirtualTurnover": 1100.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
-      }
+        "IsEmpty": false
+      },
+      "IsEmpty": false
     },
     {
       "Total": {
@@ -64,11 +68,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 1890.0,
         "VirtualTurnover": 2100.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
+        "IsEmpty": false
       },
       "Credit": {
-        "Name": "Credit",
+        "Name": "Any Name",
         "Id": 2,
         "MemberWinLoss": 100.0,
         "SMAWinLoss": 110.0,
@@ -80,11 +85,12 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 900.0,
         "VirtualTurnover": 1000.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
+        "IsEmpty": false
       },
       "Deposit": {
-        "Name": "Deposit",
+        "Name": "Any Name",
         "Id": 2,
         "MemberWinLoss": 110.0,
         "SMAWinLoss": 120.0,
@@ -96,14 +102,16 @@
         "AfterExtraPT": 0.0,
         "RealTurnover": 990.0,
         "VirtualTurnover": 1100.0,
+        "VirtualMargin": 0.6,
         "RealMargin": 0.5556,
-        "VirtualMargin": 0.6
-      }
+        "IsEmpty": false
+      },
+      "IsEmpty": false
     }
   ],
   "RM": [
     {
-      "Name": "8RM",
+      "Name": "Any Name",
       "Id": 0,
       "MemberWinLoss": 100.0,
       "SMAWinLoss": 110.0,
@@ -115,11 +123,12 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 900.0,
       "VirtualTurnover": 1000.0,
+      "VirtualMargin": 0.6,
       "RealMargin": 0.5556,
-      "VirtualMargin": 0.6
+      "IsEmpty": false
     },
     {
-      "Name": "BARM",
+      "Name": "Any Name",
       "Id": 0,
       "MemberWinLoss": 110.0,
       "SMAWinLoss": 120.0,
@@ -131,8 +140,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 990.0,
       "VirtualTurnover": 1100.0,
+      "VirtualMargin": 0.6,
       "RealMargin": 0.5556,
-      "VirtualMargin": 0.6
+      "IsEmpty": false
     }
   ],
   "GrandTotal": {
@@ -149,8 +159,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 3780.0,
       "VirtualTurnover": 4200.0,
+      "VirtualMargin": 0.6,
       "RealMargin": 0.5556,
-      "VirtualMargin": 0.6
+      "IsEmpty": false
     },
     "Credit": {
       "Name": "Credit",
@@ -165,8 +176,9 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 1800.0,
       "VirtualTurnover": 2000.0,
+      "VirtualMargin": 0.6,
       "RealMargin": 0.5556,
-      "VirtualMargin": 0.6
+      "IsEmpty": false
     },
     "Deposit": {
       "Name": "Deposit",
@@ -181,8 +193,10 @@
       "AfterExtraPT": 0.0,
       "RealTurnover": 1980.0,
       "VirtualTurnover": 2200.0,
+      "VirtualMargin": 0.6,
       "RealMargin": 0.5556,
-      "VirtualMargin": 0.6
-    }
+      "IsEmpty": false
+    },
+    "IsEmpty": false
   }
 }

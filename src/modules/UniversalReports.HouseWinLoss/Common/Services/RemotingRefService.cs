@@ -7,6 +7,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         string GetTeamName(int teamId);
 
         string GetLeagueName(int leagueId);
+
+        string GetMatchCode(string matchCode);
     }
 
     public class RemotingRefServiceImp : RemotingRefService
@@ -22,6 +24,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             var leagueIdString = leagueId.ToString();
             return RefData.GetLeagueName(leagueIdString, "en", string.Empty);
         }
+
+        public string GetMatchCode(string matchCode)
+        {
+            return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
+        }
     }
 
     public class RemotingRef3rdServiceImp : RemotingRefService
@@ -36,6 +43,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         {
             var teamIdString = teamId.ToString();
             return RefData.GetTeamName3rd(teamIdString, "en", string.Empty);
+        }
+
+        public string GetMatchCode(string matchCode)
+        {
+            return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
         }
     }
 }
