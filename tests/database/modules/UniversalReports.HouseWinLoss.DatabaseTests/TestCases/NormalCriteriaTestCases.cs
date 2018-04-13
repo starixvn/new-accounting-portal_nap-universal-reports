@@ -90,7 +90,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 SportType = 1,
                 BetType = 1,
                 Site = "Credit",
-                IsHedge = false,
+                IsHedge = 2,
                 IsLive = 2
             };
 
