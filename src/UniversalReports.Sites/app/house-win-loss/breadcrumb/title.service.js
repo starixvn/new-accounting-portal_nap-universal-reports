@@ -127,9 +127,10 @@ import angular from "angular";
         }
 
         function getLiveText(isLive) {
-            return ' "'
-                + (isLive ? 'Live' : 'Non-Live')
-                + '" ';
+            var isLiveValue = parseInt(isLive);
+            var isLiveText = isLiveValue === 2 ? '' : (isLiveValue === 1 ? ' "Live"' : ' "Non-Live"');
+            
+            return isLiveText;
         }
     }
 })(angular);
