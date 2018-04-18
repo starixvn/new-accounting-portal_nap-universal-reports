@@ -21,7 +21,9 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.GroupBetType
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Soccer.GroupBetType.Service.data-1-fakeData");
             var expected = TestDataLoader.Load<GroupBetTypeWinLossModel>("Soccer.GroupBetType.Service.data-1-expected");
 
-            var calculatorService = new BaseCalculationServiceImp();
+            var refService = Substitute.For<RemotingRefService>();
+            var calculatorService = new BaseCalculationServiceImp(refService);
+            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 

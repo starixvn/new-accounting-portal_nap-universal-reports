@@ -30,6 +30,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             winLoss.HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
             winLoss.AwayName = refService.GetTeamName(rawWinLoss.AwayId);
             winLoss.LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId);
+            winLoss.MatchCode = refService.GetMatchCode(winLoss.MatchCode);
             return winLoss;
         }
 

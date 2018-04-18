@@ -129,9 +129,10 @@ import angular from "angular";
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
-                isLive: isLive,
-                isHedge: betTypeName && betTypeName.indexOf("(hedge)") > -1
+                isLive: isLive
             });
+
+            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
 
             tab.goForward('site', data);
         }
@@ -147,14 +148,14 @@ import angular from "angular";
             data.isHedge = getHedgeParameters(data.sportType, betTypeName);
 
             tab.goForward('matchDetail', data);
+        }
 
-            function getHedgeParameters(sportType, betTypeName) {
-                if (sportType && sportType > 1) {
-                    return 2;
-                }
-
-                return betTypeName && betTypeName.indexOf("(hedge)") > -1 ? 1 : 0;
+        function getHedgeParameters(sportType, betTypeName) {
+            if (sportType && sportType > 1) {
+                return 2;
             }
+
+            return betTypeName && betTypeName.indexOf("(hedge)") > -1 ? 1 : 0;
         }
 
         function exportExcel() {

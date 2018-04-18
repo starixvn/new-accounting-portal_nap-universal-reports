@@ -13,5 +13,10 @@ namespace UniversalReports.HouseWinLoss.Tests.TestDoubles
         {
             return $"Team {teamId}";
         }
+
+        public string GetMatchCode(string matchCode)
+        {
+            return matchCode;
+        }
     }
 }

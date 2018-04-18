@@ -1,6 +1,6 @@
 [
   {
-    "Name": "8RM",
+    "Name": "Any Name",
     "Id": 0,
     "MemberWinLoss": 100.0,
     "SMAWinLoss": 110.0,
@@ -12,11 +12,12 @@
     "AfterExtraPT": 0.0,
     "RealTurnover": 900.0,
     "VirtualTurnover": 1000.0,
+    "VirtualMargin": 0.6,
     "RealMargin": 0.5556,
-    "VirtualMargin": 0.6
+    "IsEmpty": false
   },
   {
-    "Name": "BARM",
+    "Name": "Any Name",
     "Id": 0,
     "MemberWinLoss": 110.0,
     "SMAWinLoss": 120.0,
@@ -28,7 +29,8 @@
     "AfterExtraPT": 0.0,
     "RealTurnover": 990.0,
     "VirtualTurnover": 1100.0,
+    "VirtualMargin": 0.6,
     "RealMargin": 0.5556,
-    "VirtualMargin": 0.6
+    "IsEmpty": false
   }
 ]

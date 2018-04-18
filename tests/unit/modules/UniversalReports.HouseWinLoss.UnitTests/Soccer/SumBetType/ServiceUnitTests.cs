@@ -22,7 +22,9 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.SumBetType
             var expected = TestDataLoader.Load<SumBetTypeWinLossModel>("Soccer.SumBetType.Service.data-1-expected");
 
             // Act
-            var calculatorService = new BaseCalculationServiceImp();
+            var refService = Substitute.For<RemotingRefService>();
+            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            var calculatorService = new BaseCalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 

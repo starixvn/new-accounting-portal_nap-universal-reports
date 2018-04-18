@@ -19,6 +19,10 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
 
     public class BaseCalculationServiceImp : CalculationServiceImp, BaseCalculationService
     {
+        public BaseCalculationServiceImp(RemotingRefService refService) : base(refService)
+        {
+        }
+
         public List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryGroups(IEnumerable<WinLossRaw> rawWinLosses)
         {
             var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
