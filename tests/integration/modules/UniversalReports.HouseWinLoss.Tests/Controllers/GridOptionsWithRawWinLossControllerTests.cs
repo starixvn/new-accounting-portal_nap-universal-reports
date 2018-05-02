@@ -69,6 +69,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var expected = TestDataLoader.LoadTestContent(controllerName, "expected");
             var controller = GetControllerWithRawWinLoss(controllerName);
 
+
             var methodInfo = controller.GetType().GetMethod("Json", new[] { queryModel.GetType() });
             var result = methodInfo.Invoke(controller, new[] { queryModel });
             var gridOptions = (result as JsonResult<GridOptions>).Content;

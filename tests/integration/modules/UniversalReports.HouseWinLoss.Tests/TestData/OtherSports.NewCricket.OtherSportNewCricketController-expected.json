@@ -71,7 +71,7 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Income",
+          "HeaderText": "House",
           "ShowCollapseExpand": false,
           "Width": 300,
           "HeaderAlign": "center",
@@ -212,7 +212,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Virtual",
+      "HeaderText": "Virtual Winloss",
       "ShowCollapseExpand": false,
       "Width": 100,
       "HeaderAlign": "center",
@@ -230,7 +230,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Real",
+      "HeaderText": "Real Income",
       "ShowCollapseExpand": false,
       "Width": 100,
       "HeaderAlign": "center",

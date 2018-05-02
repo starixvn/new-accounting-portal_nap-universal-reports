@@ -96,7 +96,6 @@ namespace UniversalReports.HouseWinLoss.Products
                 winLoss.VarianceIncome += item.VarianceIncome;
                 winLoss.VirtualIncome += item.VirtualIncome;
                 winLoss.RealIncome += item.RealIncome;
-                winLoss.AfterExtraPT += item.AfterExtraPT;
                 winLoss.ExtraPT += item.ExtraPT;
             }
 

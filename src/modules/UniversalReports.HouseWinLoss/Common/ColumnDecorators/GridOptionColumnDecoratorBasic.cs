@@ -12,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 
         public GridOptions Build(GridOptions gridOptions, string mainColumnText, int mainColumnWidth = 180)
         {
-            RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, AfterExtraPTIndex, ExtraPTIndex, VirtualIncomeIndex, VarianceIndex);
+            RemoveBodyAndFooterColumn(gridOptions, VirtualMarginIndex, VirtualTurnoverIndex, VirtualIncomeIndex, VarianceIndex, ExtraPTIndex);
             gridOptions.CustomizeHeader = false;
             gridOptions.Columns = BuildBasicColumns(mainColumnText, mainColumnWidth);
             gridOptions.GroupHeaderRows = BuildBasicGroupHeaderRows(mainColumnText, mainColumnWidth);

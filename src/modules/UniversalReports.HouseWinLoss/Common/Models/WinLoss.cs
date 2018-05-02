@@ -22,8 +22,6 @@ namespace UniversalReports.HouseWinLoss.Common.Models
 
         public decimal ExtraPT { get; set; }
 
-        public decimal AfterExtraPT { get; set; }
-
         public decimal RealTurnover { get; set; }
 
         public decimal VirtualTurnover { get; set; }

@@ -11,7 +11,6 @@
     "VirtualIncome": 400.0,
     "VarianceIncome": -100.0,
     "ExtraPT": 0.0,
-    "AfterExtraPT": 0.0,
     "RealTurnover": 1000.0,
     "VirtualTurnover": 1200.0
   },
@@ -27,7 +26,6 @@
     "VirtualIncome": 410.0,
     "VarianceIncome": -100.0,
     "ExtraPT": 0.0,
-    "AfterExtraPT": 0.0,
     "RealTurnover": 1100.0,
     "VirtualTurnover": 1300.0
   }

@@ -27,6 +27,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         public string GetMatchCode(string matchCode)
         {
+            if (string.IsNullOrEmpty(matchCode))
+            {
+                return string.Empty;
+            }
+
             return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
         }
     }
@@ -47,6 +52,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         public string GetMatchCode(string matchCode)
         {
+            if (string.IsNullOrEmpty(matchCode))
+            {
+                return string.Empty;
+            }
+
             return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
         }
     }
