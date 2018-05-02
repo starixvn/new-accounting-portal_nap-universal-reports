@@ -90,11 +90,15 @@ namespace UniversalReports.HouseWinLoss.Products
         {
             foreach (var item in rawWinLoss)
             {
-                winLoss.MemberWinLoss += item.MemberWinLoss;
+                if (!item.Name.Contains("8RM") && !item.Name.Contains("BARM"))
+                {
+                    winLoss.MemberWinLoss += item.MemberWinLoss;
+                    winLoss.VirtualIncome += item.VirtualIncome;
+                }
+
                 winLoss.SMAWinLoss += item.SMAWinLoss;
                 winLoss.Commission += item.Commission;
                 winLoss.VarianceIncome += item.VarianceIncome;
-                winLoss.VirtualIncome += item.VirtualIncome;
                 winLoss.RealIncome += item.RealIncome;
                 winLoss.ExtraPT += item.ExtraPT;
             }

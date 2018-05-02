@@ -5976,7 +5976,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -3495340.0,
+          "Value": -3476307.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6026,7 +6026,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 515351.0,
+          "Value": 534384.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6102,7 +6102,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": -3554051.0,
+              "Value": -3541435.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6152,7 +6152,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": 451066.0,
+              "Value": 463682.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6228,7 +6228,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": 58711.0,
+              "Value": 65128.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6278,7 +6278,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": 64285.0,
+              "Value": 70702.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
