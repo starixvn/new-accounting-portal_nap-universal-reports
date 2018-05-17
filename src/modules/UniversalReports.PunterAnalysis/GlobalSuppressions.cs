@@ -6,3 +6,4 @@
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S2436:Reduce the number of generic parameters in the 'HandlerExcelBase.Handle' method to no more than the 2 authorized.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.PunterAnalysis.Shared.HandlerExcelBase.Handle``3(MediatR.IRequest{OfficeOpenXml.ExcelPackage})~System.Threading.Tasks.Task{OfficeOpenXml.ExcelPackage}")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 419 characters long line (which is greater than 200 authorized).", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S1450:Private fields only used as local variables in methods should become local variables.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.PunterAnalysis.League.LeagueServiceFactory")]
