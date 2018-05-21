@@ -61,6 +61,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
                 new Columns(columnIndex++, "MatchCode", item.Name, alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),

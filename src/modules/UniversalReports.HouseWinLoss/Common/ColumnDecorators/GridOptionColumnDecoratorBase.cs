@@ -6,8 +6,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 {
     public class GridOptionColumnDecoratorBase
     {
-        protected const int ExtraPTIndex = 3;
-
         protected const int VarianceIndex = 5;
 
         protected const int VirtualIncomeIndex = 6;
@@ -26,13 +24,13 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 
         protected const int MatchDetailAwayIndex = 3;
 
-        protected const int MatchDetailVarianceIndex = 7;
+        protected const int MatchDetailVarianceIndex = 8;
 
-        protected const int MatchDetailVirtualIncomeIndex = 8;
+        protected const int MatchDetailVirtualIncomeIndex = 9;
 
-        protected const int MatchDetailVirtualTurnoverIndex = 10;
+        protected const int MatchDetailVirtualTurnoverIndex = 11;
 
-        protected const int MatchDetailVirtualMarginIndex = 12;
+        protected const int MatchDetailVirtualMarginIndex = 13;
 
         private readonly GridOptionColumnRemoval columnRemoval;
 

@@ -72,6 +72,23 @@
           "TextFont": []
         },
         {
+          "HeaderText": "Extra PT",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "ExtraPT",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "HeaderText": "Commission",
           "ShowCollapseExpand": false,
           "Width": 100,
@@ -419,7 +436,7 @@
         {
           "Name": "Home",
           "Value": "League 10",
-          "MergeColNumber": 13,
+          "MergeColNumber": 14,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -488,6 +505,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 307254.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -643,6 +670,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 3982.0,
           "CssClass": null,
@@ -782,6 +819,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": -57099.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -937,6 +984,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 638.0,
           "CssClass": null,
@@ -1084,6 +1141,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 1815.0,
           "CssClass": null,
@@ -1201,6 +1268,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 12779.0,
           "CssClass": null,
@@ -1299,7 +1376,7 @@
         {
           "Name": "Home",
           "Value": "League 72",
-          "MergeColNumber": 13,
+          "MergeColNumber": 14,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -1368,6 +1445,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 6316.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1485,6 +1572,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 6316.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1604,6 +1701,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 783528.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

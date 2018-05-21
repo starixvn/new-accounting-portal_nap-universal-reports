@@ -61,5 +61,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                       : 0;
             }
         }
+
+        public decimal ExtraPT { get; set; }
     }
 }

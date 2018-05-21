@@ -54,6 +54,23 @@
           "TextFont": []
         },
         {
+          "HeaderText": "Extra PT",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "ExtraPT",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "HeaderText": "Commission",
           "ShowCollapseExpand": false,
           "Width": 100,
@@ -168,6 +185,24 @@
       "IsAbs": false,
       "AllowTruncate": false,
       "Name": "SMAWinLoss",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
+      "HeaderText": "Extra PT",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "FormatPositive": "$",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "ExtraPT",
       "Value": null,
       "CssClass": null,
       "CustomAttr": null,
@@ -352,6 +387,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 40449.0,
           "CssClass": null,
@@ -468,6 +513,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 40264.0,
               "CssClass": null,
@@ -576,6 +631,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -18810.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -702,6 +767,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 53201.0,
           "CssClass": null,
@@ -818,6 +893,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 52272.0,
               "CssClass": null,
@@ -926,6 +1011,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -54245.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -1052,6 +1147,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 3547.0,
           "CssClass": null,
@@ -1168,6 +1273,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 3534.0,
               "CssClass": null,
@@ -1276,6 +1391,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -28211.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -1402,6 +1527,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 13250.0,
           "CssClass": null,
@@ -1518,6 +1653,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 13192.0,
               "CssClass": null,
@@ -1626,6 +1771,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": 8300.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -1752,6 +1907,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 1.0,
           "CssClass": null,
@@ -1868,6 +2033,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1.0,
               "CssClass": null,
@@ -1975,6 +2150,16 @@
             },
             {
               "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -2102,6 +2287,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 1039.0,
           "CssClass": null,
@@ -2218,6 +2413,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1034.0,
               "CssClass": null,
@@ -2326,6 +2531,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": 2172.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2452,6 +2667,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 5.0,
           "CssClass": null,
@@ -2568,6 +2793,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 5.0,
               "CssClass": null,
@@ -2676,6 +2911,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": 265.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2802,6 +3047,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -2918,6 +3173,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -3025,6 +3290,16 @@
             },
             {
               "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -3152,6 +3427,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 275.0,
           "CssClass": null,
@@ -3268,6 +3553,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 275.0,
               "CssClass": null,
@@ -3376,6 +3671,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -3556.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -3502,6 +3807,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -3618,6 +3933,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -3726,6 +4051,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -7.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -3852,6 +4187,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -3968,6 +4313,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4075,6 +4430,16 @@
             },
             {
               "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4202,6 +4567,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -4318,6 +4693,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4425,6 +4810,16 @@
             },
             {
               "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4552,6 +4947,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 264.0,
           "CssClass": null,
@@ -4668,6 +5073,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 264.0,
               "CssClass": null,
@@ -4775,6 +5190,16 @@
             },
             {
               "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4904,6 +5329,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 112031.0,
           "CssClass": null,
@@ -5020,6 +5455,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 110841.0,
               "CssClass": null,
@@ -5128,6 +5573,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -94092.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -5254,6 +5709,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -5361,6 +5826,16 @@
         },
         {
           "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
           "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,

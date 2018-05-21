@@ -42,6 +42,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public decimal VirtualTurnover { get; set; }
 
+        public decimal ExtraPT { get; set; }
+
         public static RawWinLoss operator +(RawWinLoss a, RawWinLoss b)
         {
             return new RawWinLoss
@@ -58,6 +60,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 EventDate = DateTime.MinValue,
                 SportType = 0,
                 SMAWinLoss = a.SMAWinLoss + b.SMAWinLoss,
+                ExtraPT = a.ExtraPT + b.ExtraPT,
                 MemberWinLoss = a.MemberWinLoss + b.MemberWinLoss,
                 Commission = a.Commission + b.Commission,
                 RealIncome = a.RealIncome + b.RealIncome,
