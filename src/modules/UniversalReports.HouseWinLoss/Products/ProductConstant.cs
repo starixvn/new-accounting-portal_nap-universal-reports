@@ -11,7 +11,6 @@
         public static string[] NameSportsbook => new[]
         {
             "Soccer",
-            "Metric Gaming - Superlive",
             "Other Sports",
             "Parlay"
         };

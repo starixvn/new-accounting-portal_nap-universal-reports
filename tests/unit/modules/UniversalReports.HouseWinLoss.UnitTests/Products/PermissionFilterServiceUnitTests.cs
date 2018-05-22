@@ -87,7 +87,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
         private IEnumerable<WinLossRaw> CreateOnlySportsbookWinLossRaw()
         {
             yield return CreateWinLossRaw("Soccer");
-            yield return CreateWinLossRaw("Metric Gaming - Superlive");
             yield return CreateWinLossRaw("Other Sports");
             yield return CreateWinLossRaw("Parlay");
             yield return CreateWinLossRaw("RM");
@@ -95,6 +94,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
 
         private IEnumerable<WinLossRaw> CreateOnlyThirdPartyWinLossRaw()
         {
+            yield return CreateWinLossRaw("Metric Gaming - Superlive");
             yield return CreateWinLossRaw("Number Game");
             yield return CreateWinLossRaw("Virtual Sports");
         }

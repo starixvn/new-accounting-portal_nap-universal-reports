@@ -16,7 +16,7 @@ import angular from "angular";
 
         function Builder(pane) {
             var defaultCollapseAllGroups = service.defaultCollapseAllGroups;
-            var hiddenColumns = [1, 2];
+            var hiddenColumns = [1, 2, 3];
             this.getButtonHtml = getButtonHtml;
             this.build = build;
             this.toggle = toggle;
