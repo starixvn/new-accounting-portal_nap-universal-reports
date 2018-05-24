@@ -13,6 +13,7 @@ namespace UniversalReports.Sites.Controllers
         }
 
         [NapAuth(FunctionKey = FunctionKeys.PlayForFunStatistics, Policy = Constant.Policy.Read)]
+        [UserActivityFilter]
         public ActionResult Index()
         {
             SetupGlobalJsObject();
