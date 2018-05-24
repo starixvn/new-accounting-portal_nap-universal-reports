@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>UniversalReports.PlayForFun.Debug.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>UniversalReports.PlayForFun.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -184,7 +184,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="UniversalReports.PlayForFun.Debug.ruleset" />
     <None Include="UniversalReports.PlayForFun.ruleset" />
   </ItemGroup>
   <ItemGroup>

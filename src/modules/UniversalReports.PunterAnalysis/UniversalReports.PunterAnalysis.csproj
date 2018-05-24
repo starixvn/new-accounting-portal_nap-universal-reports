@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>UniversalReports.PunterAnalysis.Debug.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>UniversalReports.PunterAnalysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -232,8 +232,8 @@
     <Compile Include="League\LeagueServiceBase.cs" />
     <Compile Include="League\LeagueServiceByWeek.cs" />
     <Compile Include="League\LeagueServiceFactory.cs">
-		<SonarQubeExclude>true</SonarQubeExclude>
-	</Compile>
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="League\Model\Criteria.cs" />
     <Compile Include="League\Model\HttpParameterExcel.cs" />
     <Compile Include="League\Model\HttpParameterJson.cs" />
@@ -291,7 +291,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="UniversalReports.PunterAnalysis.Debug.ruleset" />
     <None Include="UniversalReports.PunterAnalysis.ruleset" />
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>UniversalReports.MVC.Debug.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>UniversalReports.MVC.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -151,7 +151,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="UniversalReports.MVC.Debug.ruleset" />
     <None Include="UniversalReports.MVC.ruleset" />
   </ItemGroup>
   <ItemGroup>

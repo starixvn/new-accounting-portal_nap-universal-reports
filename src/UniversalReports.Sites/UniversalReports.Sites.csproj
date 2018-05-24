@@ -43,7 +43,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>UniversalReports.Sites.Debug.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>UniversalReports.Sites.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -802,7 +802,6 @@
     <Content Include="wwwroot\play-for-fun\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\play-for-fun\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\play-for-fun\index.cshtml" />
-    <Content Include="UniversalReports.Sites.Debug.ruleset" />
     <Content Include="UniversalReports.Sites.ruleset" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
