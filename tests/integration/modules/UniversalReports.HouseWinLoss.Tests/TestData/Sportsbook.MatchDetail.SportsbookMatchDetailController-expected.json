@@ -266,7 +266,6 @@
       "Width": 100,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
-      "FormatPositive": "$",
       "IsAbs": false,
       "AllowTruncate": false,
       "Name": "ExtraPT",
@@ -386,7 +385,7 @@
     {
       "HeaderText": "Virtual",
       "ShowCollapseExpand": false,
-      "Width": 50,
+      "Width": 100,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00%",
       "FormatPositive": "$",
@@ -404,7 +403,7 @@
     {
       "HeaderText": "Real",
       "ShowCollapseExpand": false,
-      "Width": 50,
+      "Width": 100,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00%",
       "FormatPositive": "$",
