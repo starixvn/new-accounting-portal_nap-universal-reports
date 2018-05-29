@@ -45,7 +45,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 100, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Extra PT", Name = "ExtraPT",  Width = 100, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 100, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "House Income", Name = "RealIncome", Width = 100, MergeColNumber = 3 },
+                new HeaderColumns { HeaderText = "House", Name = "RealIncome", Width = 100, MergeColNumber = 3 },
                 new HeaderColumns { HeaderText = "House Turnover", Name = "VirtualTurnover",  Width = 100, MergeColNumber = 2 },
                 new HeaderColumns { HeaderText = "Margin", Name = "VirtualMargin",  Width = 100, MergeColNumber = 2 }
             };

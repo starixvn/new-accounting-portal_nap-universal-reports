@@ -106,9 +106,9 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Income",
+          "HeaderText": "House Real Income",
           "ShowCollapseExpand": false,
-          "Width": 100,
+          "Width": 120,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -123,9 +123,9 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Turnover",
+          "HeaderText": "House Real Turnover",
           "ShowCollapseExpand": false,
-          "Width": 100,
+          "Width": 120,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -295,9 +295,9 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Income",
+      "HeaderText": "House Real Income",
       "ShowCollapseExpand": false,
-      "Width": 100,
+      "Width": 120,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
       "FormatPositive": "$",
@@ -313,9 +313,9 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Turnover",
+      "HeaderText": "House Real Turnover",
       "ShowCollapseExpand": false,
-      "Width": 100,
+      "Width": 120,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
       "IsAbs": false,

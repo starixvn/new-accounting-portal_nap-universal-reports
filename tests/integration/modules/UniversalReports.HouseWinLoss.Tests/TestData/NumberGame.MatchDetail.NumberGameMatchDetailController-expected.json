@@ -86,7 +86,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Income",
+      "HeaderText": "House Real Income",
       "ShowCollapseExpand": false,
       "Width": 120,
       "HeaderAlign": "center",
@@ -104,7 +104,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Turnover",
+      "HeaderText": "House Real Turnover",
       "ShowCollapseExpand": false,
       "Width": 120,
       "HeaderAlign": "center",

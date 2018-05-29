@@ -106,7 +106,7 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Income",
+          "HeaderText": "House",
           "ShowCollapseExpand": false,
           "Width": 100,
           "HeaderAlign": "center",
