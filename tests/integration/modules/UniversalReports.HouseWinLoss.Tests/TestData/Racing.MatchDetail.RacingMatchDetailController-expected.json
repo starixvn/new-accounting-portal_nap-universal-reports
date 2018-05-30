@@ -155,7 +155,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Goodwood(UK)",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -871,7 +871,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Kilbeggan(IRL)",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -1157,7 +1157,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Listowel(IRL)",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -1873,7 +1873,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Perth(UK)",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -2417,7 +2417,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Turffontein(SA)",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,

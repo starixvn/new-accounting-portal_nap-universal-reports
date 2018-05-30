@@ -155,7 +155,7 @@
         {
           "Name": "MemberWinLoss",
           "Value": "Number Game",
-          "MergeColNumber": 6,
+          "MergeColNumber": 7,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
