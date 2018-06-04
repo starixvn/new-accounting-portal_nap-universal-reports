@@ -10,7 +10,8 @@
     "SMAWinLoss": 16,
     "Commission": 0,
     "RealIncome": -1,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 4,
@@ -23,7 +24,8 @@
     "SMAWinLoss": 35,
     "Commission": 0,
     "RealIncome": -3,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 4,
@@ -36,7 +38,8 @@
     "SMAWinLoss": 45,
     "Commission": 0,
     "RealIncome": -4,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 5,
@@ -49,7 +52,8 @@
     "SMAWinLoss": 2,
     "Commission": 0,
     "RealIncome": -7,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 5,
@@ -62,7 +66,8 @@
     "SMAWinLoss": 125,
     "Commission": 1,
     "RealIncome": -11,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 5,
@@ -75,7 +80,8 @@
     "SMAWinLoss": 31,
     "Commission": 1,
     "RealIncome": -17,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 5,
@@ -88,7 +94,8 @@
     "SMAWinLoss": 148,
     "Commission": 1,
     "RealIncome": -13,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 6,
@@ -101,7 +108,8 @@
     "SMAWinLoss": 95,
     "Commission": 0,
     "RealIncome": -10,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "LeagueId": 6,
@@ -114,6 +122,7 @@
     "SMAWinLoss": -21,
     "Commission": 0,
     "RealIncome": -3,
-    "RealTurnover": 0
+    "RealTurnover": 0,
+    "ExtraPT": 0
   }
 ]

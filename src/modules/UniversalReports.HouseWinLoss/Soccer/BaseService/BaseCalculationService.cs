@@ -114,8 +114,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
                 VirtualIncome = winLosses.Sum(r => r.VirtualIncome),
                 VirtualTurnover = winLosses.Sum(r => r.VirtualTurnover),
                 VarianceIncome = winLosses.Sum(r => r.VarianceIncome),
-                ExtraPT = winLosses.Sum(r => r.ExtraPT),
-                AfterExtraPT = winLosses.Sum(r => r.AfterExtraPT)
+                ExtraPT = winLosses.Sum(r => r.ExtraPT)
             };
         }
     }

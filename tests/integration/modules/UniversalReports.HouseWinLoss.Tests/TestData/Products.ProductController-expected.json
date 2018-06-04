@@ -54,6 +54,23 @@
           "TextFont": []
         },
         {
+          "HeaderText": "Extra PT",
+          "ShowCollapseExpand": false,
+          "Width": 100,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "ExtraPT",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "HeaderText": "Commission",
           "ShowCollapseExpand": false,
           "Width": 100,
@@ -71,7 +88,7 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Income",
+          "HeaderText": "House",
           "ShowCollapseExpand": false,
           "Width": 100,
           "HeaderAlign": "center",
@@ -79,7 +96,7 @@
           "AllowTruncate": false,
           "Name": "VirtualIncome",
           "Value": null,
-          "MergeColNumber": 5,
+          "MergeColNumber": 3,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "",
@@ -177,6 +194,23 @@
       "TextFont": []
     },
     {
+      "HeaderText": "Extra PT",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "ExtraPT",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
       "HeaderText": "Commission",
       "ShowCollapseExpand": false,
       "Width": 100,
@@ -212,7 +246,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Virtual",
+      "HeaderText": "Virtual Winloss",
       "ShowCollapseExpand": false,
       "Width": 100,
       "HeaderAlign": "center",
@@ -230,7 +264,7 @@
       "TextFont": []
     },
     {
-      "HeaderText": "Real",
+      "HeaderText": "Real Income",
       "ShowCollapseExpand": false,
       "Width": 100,
       "HeaderAlign": "center",
@@ -239,42 +273,6 @@
       "IsAbs": false,
       "AllowTruncate": false,
       "Name": "RealIncome",
-      "Value": null,
-      "CssClass": null,
-      "CustomAttr": null,
-      "CellAlign": "right",
-      "StartIndex": [],
-      "EndIndex": [],
-      "TextFont": []
-    },
-    {
-      "HeaderText": "Extra PT",
-      "ShowCollapseExpand": false,
-      "Width": 100,
-      "HeaderAlign": "center",
-      "FormatNumber": "0,0.00",
-      "FormatPositive": "$",
-      "IsAbs": false,
-      "AllowTruncate": false,
-      "Name": "ExtraPT",
-      "Value": null,
-      "CssClass": null,
-      "CustomAttr": null,
-      "CellAlign": "right",
-      "StartIndex": [],
-      "EndIndex": [],
-      "TextFont": []
-    },
-    {
-      "HeaderText": "After Extra PT",
-      "ShowCollapseExpand": false,
-      "Width": 100,
-      "HeaderAlign": "center",
-      "FormatNumber": "0,0.00",
-      "FormatPositive": "$",
-      "IsAbs": false,
-      "AllowTruncate": false,
-      "Name": "AfterExtraPT",
       "Value": null,
       "CssClass": null,
       "CustomAttr": null,
@@ -388,6 +386,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": -61293.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 152376.0,
           "CssClass": null,
@@ -420,26 +428,6 @@
         {
           "Name": "RealIncome",
           "Value": 363190.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -61293.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": 424483.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -524,6 +512,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": -61293.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 151113.0,
               "CssClass": null,
@@ -556,26 +554,6 @@
             {
               "Name": "RealIncome",
               "Value": 307777.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -61293.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 369070.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -660,6 +638,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1263.0,
               "CssClass": null,
@@ -691,26 +679,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 55413.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 55413.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -769,416 +737,6 @@
       "Columns": [
         {
           "Name": "Main",
-          "Value": "Metric Gaming - Superlive",
-          "CssClass": null,
-          "CustomAttr": "0",
-          "CellAlign": "left",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "MemberWinLoss",
-          "Value": -33.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "SMAWinLoss",
-          "Value": 20.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "Commission",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "VarianceIncome",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "VirtualIncome",
-          "Value": -12.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealIncome",
-          "Value": -12.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -1.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -11.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "VirtualTurnover",
-          "Value": 25.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealTurnover",
-          "Value": 25.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "VirtualMargin",
-          "Value": -0.48,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "RealMargin",
-          "Value": -0.48,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        }
-      ],
-      "CssClass": "",
-      "CustomAttr": "product",
-      "SubRows": [
-        {
-          "Columns": [
-            {
-              "Name": "Main",
-              "Value": "Credit",
-              "CssClass": null,
-              "CustomAttr": "0",
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "MemberWinLoss",
-              "Value": -33.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "SMAWinLoss",
-              "Value": 20.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "Commission",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VarianceIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualIncome",
-              "Value": -12.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealIncome",
-              "Value": -12.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -1.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -11.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualTurnover",
-              "Value": 25.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealTurnover",
-              "Value": 25.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualMargin",
-              "Value": -0.48,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealMargin",
-              "Value": -0.48,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            }
-          ],
-          "CssClass": "",
-          "CustomAttr": null
-        },
-        {
-          "Columns": [
-            {
-              "Name": "Main",
-              "Value": "Deposit",
-              "CssClass": null,
-              "CustomAttr": "0",
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "MemberWinLoss",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "SMAWinLoss",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "Commission",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VarianceIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualTurnover",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealTurnover",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "VirtualMargin",
-              "Value": "N/A",
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "RealMargin",
-              "Value": "N/A",
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            }
-          ],
-          "CssClass": "",
-          "CustomAttr": null
-        }
-      ]
-    },
-    {
-      "Columns": [
-        {
-          "Name": "Main",
           "Value": "Other Sports",
           "CssClass": null,
           "CustomAttr": "0",
@@ -1200,6 +758,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 685393.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": -11470.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1240,26 +808,6 @@
         {
           "Name": "RealIncome",
           "Value": -132070.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -11470.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -120600.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1344,6 +892,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": -11470.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 7018.0,
               "CssClass": null,
@@ -1376,26 +934,6 @@
             {
               "Name": "RealIncome",
               "Value": -130150.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -11470.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -118680.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -1480,6 +1018,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 16.0,
               "CssClass": null,
@@ -1511,26 +1059,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -1920.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -1920.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -1618,6 +1146,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": -5151.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 1419.0,
           "CssClass": null,
@@ -1650,26 +1188,6 @@
         {
           "Name": "RealIncome",
           "Value": -41402.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -5151.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -36250.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -1754,6 +1272,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": -5151.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1417.0,
               "CssClass": null,
@@ -1786,26 +1314,6 @@
             {
               "Name": "RealIncome",
               "Value": -37128.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -5151.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -31976.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -1890,6 +1398,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 2.0,
               "CssClass": null,
@@ -1921,26 +1439,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -4274.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -4274.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -2009,7 +1507,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -3116913.0,
+          "Value": -3116880.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2019,7 +1517,17 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 3145782.0,
+          "Value": 3145762.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": -77914.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2049,7 +1557,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 560066.0,
+          "Value": 560078.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2059,27 +1567,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": 189706.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -77915.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": 267622.0,
+          "Value": 189718.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2089,7 +1577,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 68614787.0,
+          "Value": 68614762.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2099,7 +1587,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 78969369.0,
+          "Value": 78969344.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2145,7 +1633,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": -3182554.0,
+              "Value": -3182521.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2155,7 +1643,17 @@
             },
             {
               "Name": "SMAWinLoss",
-              "Value": 3163488.0,
+              "Value": 3163468.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": -77914.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2185,7 +1683,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": 490014.0,
+              "Value": 490026.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2195,27 +1693,7 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 140487.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -77915.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 218403.0,
+              "Value": 140499.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2225,7 +1703,7 @@
             },
             {
               "Name": "VirtualTurnover",
-              "Value": 67411256.0,
+              "Value": 67411231.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2235,7 +1713,7 @@
             },
             {
               "Name": "RealTurnover",
-              "Value": 77586464.0,
+              "Value": 77586439.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2300,6 +1778,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1281.0,
               "CssClass": null,
@@ -2331,26 +1819,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 49219.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 49219.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -2438,6 +1906,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -2469,26 +1947,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -12616.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -12616.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -2574,6 +2032,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -2605,26 +2073,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -6417.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -6417.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -2698,6 +2146,386 @@
       "Columns": [
         {
           "Name": "Main",
+          "Value": "Metric Gaming - Superlive",
+          "CssClass": null,
+          "CustomAttr": "0",
+          "CellAlign": "left",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "MemberWinLoss",
+          "Value": -33.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 20.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": -1.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "Commission",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VarianceIncome",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualIncome",
+          "Value": -12.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealIncome",
+          "Value": -12.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualTurnover",
+          "Value": 25.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealTurnover",
+          "Value": 25.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "VirtualMargin",
+          "Value": -0.48,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "RealMargin",
+          "Value": -0.48,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        }
+      ],
+      "CssClass": "",
+      "CustomAttr": "product",
+      "SubRows": [
+        {
+          "Columns": [
+            {
+              "Name": "Main",
+              "Value": "Credit",
+              "CssClass": null,
+              "CustomAttr": "0",
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "MemberWinLoss",
+              "Value": -33.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "SMAWinLoss",
+              "Value": 20.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": -1.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "Commission",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VarianceIncome",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualIncome",
+              "Value": -12.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealIncome",
+              "Value": -12.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualTurnover",
+              "Value": 25.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealTurnover",
+              "Value": 25.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualMargin",
+              "Value": -0.48,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealMargin",
+              "Value": -0.48,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            }
+          ],
+          "CssClass": "",
+          "CustomAttr": null
+        },
+        {
+          "Columns": [
+            {
+              "Name": "Main",
+              "Value": "Deposit",
+              "CssClass": null,
+              "CustomAttr": "0",
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "MemberWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "SMAWinLoss",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "Commission",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VarianceIncome",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualIncome",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealIncome",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualTurnover",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealTurnover",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "VirtualMargin",
+              "Value": "N/A",
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "RealMargin",
+              "Value": "N/A",
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            }
+          ],
+          "CssClass": "",
+          "CustomAttr": null
+        }
+      ]
+    },
+    {
+      "Columns": [
+        {
+          "Name": "Main",
           "Value": "Number Game",
           "CssClass": null,
           "CustomAttr": "0",
@@ -2719,6 +2547,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 36879.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": -88.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2759,26 +2597,6 @@
         {
           "Name": "RealIncome",
           "Value": -13536.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -88.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -13447.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -2863,6 +2681,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": -88.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -2895,26 +2723,6 @@
             {
               "Name": "RealIncome",
               "Value": -15066.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -88.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -14977.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -2999,6 +2807,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -3030,26 +2848,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 1530.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 1530.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -3137,6 +2935,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 374.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 30326.0,
           "CssClass": null,
@@ -3169,26 +2977,6 @@
         {
           "Name": "RealIncome",
           "Value": 4671.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 374.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": 4297.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -3273,6 +3061,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 374.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 30326.0,
               "CssClass": null,
@@ -3305,26 +3103,6 @@
             {
               "Name": "RealIncome",
               "Value": 4999.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 374.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 4625.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -3409,6 +3187,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -3440,26 +3228,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -328.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -328.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -3547,6 +3315,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": -20.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 1810.0,
           "CssClass": null,
@@ -3579,26 +3357,6 @@
         {
           "Name": "RealIncome",
           "Value": -9813.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -20.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -9792.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -3683,6 +3441,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": -20.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 1810.0,
               "CssClass": null,
@@ -3715,26 +3483,6 @@
             {
               "Name": "RealIncome",
               "Value": -9727.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -20.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -9706.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -3819,6 +3567,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -3850,26 +3608,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -86.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -86.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -3957,6 +3695,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -3989,26 +3737,6 @@
         {
           "Name": "RealIncome",
           "Value": 905.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": 904.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -4093,6 +3821,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4125,26 +3863,6 @@
             {
               "Name": "RealIncome",
               "Value": 887.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 886.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -4229,6 +3947,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4260,26 +3988,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 18.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 18.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4367,6 +4075,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -4398,26 +4116,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -7117.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -7117.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -4503,6 +4201,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4534,26 +4242,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -6651.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -6651.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4639,6 +4327,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -4670,26 +4368,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -466.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -466.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -4777,6 +4455,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 63.0,
           "CssClass": null,
@@ -4808,26 +4496,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -551.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -551.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -4913,6 +4581,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 51.0,
               "CssClass": null,
@@ -4944,26 +4622,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -535.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -535.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5049,6 +4707,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 12.0,
               "CssClass": null,
@@ -5080,26 +4748,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -16.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -16.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5187,6 +4835,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -5218,26 +4876,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -2.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -2.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -5323,6 +4961,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -5354,26 +5002,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5459,6 +5087,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -5490,26 +5128,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -2.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -2.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5597,6 +5215,16 @@
           "TextFont": []
         },
         {
+          "Name": "ExtraPT",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 32.0,
           "CssClass": null,
@@ -5628,26 +5256,6 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -239.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 0.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
           "Value": -239.0,
           "CssClass": null,
           "CustomAttr": null,
@@ -5733,6 +5341,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 32.0,
               "CssClass": null,
@@ -5764,26 +5382,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -239.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": -239.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5869,6 +5467,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 0.0,
               "CssClass": null,
@@ -5900,26 +5508,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -5988,7 +5576,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -359394.0,
+          "Value": -359427.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -5998,7 +5586,17 @@
         },
         {
           "Name": "SMAWinLoss",
-          "Value": 300495.0,
+          "Value": 300515.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": 265.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6028,7 +5626,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": -25682.0,
+          "Value": -25694.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6038,27 +5636,7 @@
         },
         {
           "Name": "RealIncome",
-          "Value": -25682.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": 266.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": -25947.0,
+          "Value": -25694.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6068,7 +5646,7 @@
         },
         {
           "Name": "VirtualTurnover",
-          "Value": 5656642.0,
+          "Value": 5656667.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6078,7 +5656,7 @@
         },
         {
           "Name": "RealTurnover",
-          "Value": 5656642.0,
+          "Value": 5656667.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6124,7 +5702,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": -358881.0,
+              "Value": -358914.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6134,7 +5712,17 @@
             },
             {
               "Name": "SMAWinLoss",
-              "Value": 299629.0,
+              "Value": 299649.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 265.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6164,7 +5752,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": -26332.0,
+              "Value": -26344.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6174,27 +5762,7 @@
             },
             {
               "Name": "RealIncome",
-              "Value": -26332.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 266.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": -26597.0,
+              "Value": -26344.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6204,7 +5772,7 @@
             },
             {
               "Name": "VirtualTurnover",
-              "Value": 5627497.0,
+              "Value": 5627522.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6214,7 +5782,7 @@
             },
             {
               "Name": "RealTurnover",
-              "Value": 5627497.0,
+              "Value": 5627522.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6279,6 +5847,16 @@
               "TextFont": []
             },
             {
+              "Name": "ExtraPT",
+              "Value": 0.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
               "Name": "Commission",
               "Value": 12.0,
               "CssClass": null,
@@ -6310,26 +5888,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 650.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 650.0,
               "CssClass": null,
               "CustomAttr": null,
@@ -6417,7 +5975,7 @@
         },
         {
           "Name": "MemberWinLoss",
-          "Value": -3495340.0,
+          "Value": -3476307.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6428,6 +5986,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": 3446277.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "ExtraPT",
+          "Value": -77649.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6457,7 +6025,7 @@
         },
         {
           "Name": "VirtualIncome",
-          "Value": 515351.0,
+          "Value": 534384.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6468,26 +6036,6 @@
         {
           "Name": "RealIncome",
           "Value": 144991.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "ExtraPT",
-          "Value": -77649.0,
-          "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
-          "StartIndex": [],
-          "EndIndex": [],
-          "TextFont": []
-        },
-        {
-          "Name": "AfterExtraPT",
-          "Value": 222642.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -6553,7 +6101,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": -3554051.0,
+              "Value": -3541435.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6564,6 +6112,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": 3463117.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": -77649.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6593,7 +6151,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": 451066.0,
+              "Value": 463682.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6604,26 +6162,6 @@
             {
               "Name": "RealIncome",
               "Value": 101539.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": -77649.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
-              "Value": 179190.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6689,7 +6227,7 @@
             },
             {
               "Name": "MemberWinLoss",
-              "Value": 58711.0,
+              "Value": 65128.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6700,6 +6238,16 @@
             {
               "Name": "SMAWinLoss",
               "Value": -16840.0,
+              "CssClass": null,
+              "CustomAttr": null,
+              "CellAlign": "right",
+              "StartIndex": [],
+              "EndIndex": [],
+              "TextFont": []
+            },
+            {
+              "Name": "ExtraPT",
+              "Value": 0.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6729,7 +6277,7 @@
             },
             {
               "Name": "VirtualIncome",
-              "Value": 64285.0,
+              "Value": 70702.0,
               "CssClass": null,
               "CustomAttr": null,
               "CellAlign": "right",
@@ -6739,26 +6287,6 @@
             },
             {
               "Name": "RealIncome",
-              "Value": 43452.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "ExtraPT",
-              "Value": 0.0,
-              "CssClass": null,
-              "CustomAttr": null,
-              "CellAlign": "right",
-              "StartIndex": [],
-              "EndIndex": [],
-              "TextFont": []
-            },
-            {
-              "Name": "AfterExtraPT",
               "Value": 43452.0,
               "CssClass": null,
               "CustomAttr": null,

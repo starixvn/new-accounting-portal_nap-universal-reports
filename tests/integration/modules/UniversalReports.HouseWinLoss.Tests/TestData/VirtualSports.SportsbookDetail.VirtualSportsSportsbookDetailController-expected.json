@@ -72,6 +72,23 @@
           "TextFont": []
         },
         {
+          "HeaderText": "Extra PT",
+          "ShowCollapseExpand": false,
+          "Width": 120,
+          "HeaderAlign": "center",
+          "IsAbs": false,
+          "AllowTruncate": false,
+          "Name": "ExtraPT",
+          "Value": null,
+          "MergeRowNumber": 2,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "HeaderText": "Commission",
           "ShowCollapseExpand": false,
           "Width": 100,
@@ -89,9 +106,9 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Income",
+          "HeaderText": "House Real Income",
           "ShowCollapseExpand": false,
-          "Width": 100,
+          "Width": 120,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -106,9 +123,9 @@
           "TextFont": []
         },
         {
-          "HeaderText": "House Turnover",
+          "HeaderText": "House Real Turnover",
           "ShowCollapseExpand": false,
-          "Width": 100,
+          "Width": 120,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -244,6 +261,23 @@
       "TextFont": []
     },
     {
+      "HeaderText": "Extra PT",
+      "ShowCollapseExpand": false,
+      "Width": 100,
+      "HeaderAlign": "center",
+      "FormatNumber": "0,0.00",
+      "IsAbs": false,
+      "AllowTruncate": false,
+      "Name": "ExtraPT",
+      "Value": null,
+      "CssClass": null,
+      "CustomAttr": null,
+      "CellAlign": "right",
+      "StartIndex": [],
+      "EndIndex": [],
+      "TextFont": []
+    },
+    {
       "HeaderText": "Commission",
       "ShowCollapseExpand": false,
       "Width": 100,
@@ -261,9 +295,9 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Income",
+      "HeaderText": "House Real Income",
       "ShowCollapseExpand": false,
-      "Width": 100,
+      "Width": 120,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
       "FormatPositive": "$",
@@ -279,9 +313,9 @@
       "TextFont": []
     },
     {
-      "HeaderText": "House Turnover",
+      "HeaderText": "House Real Turnover",
       "ShowCollapseExpand": false,
-      "Width": 100,
+      "Width": 120,
       "HeaderAlign": "center",
       "FormatNumber": "0,0.00",
       "IsAbs": false,
@@ -330,7 +364,7 @@
         {
           "Name": "Home",
           "Value": "League 26061",
-          "MergeColNumber": 9,
+          "MergeColNumber": 10,
           "TdClass": " bold",
           "CssClass": null,
           "CustomAttr": null,
@@ -399,6 +433,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": -11.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -514,6 +558,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -613,6 +667,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": -19.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -728,6 +792,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -835,6 +909,16 @@
           "TextFont": []
         },
         {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
           "Name": "Commission",
           "Value": 0.0,
           "CssClass": null,
@@ -904,6 +988,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": -43.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",
@@ -983,6 +1077,16 @@
         {
           "Name": "SMAWinLoss",
           "Value": -43.0,
+          "CssClass": null,
+          "CustomAttr": null,
+          "CellAlign": "right",
+          "StartIndex": [],
+          "EndIndex": [],
+          "TextFont": []
+        },
+        {
+          "Name": "SMAWinLoss",
+          "Value": 0.0,
           "CssClass": null,
           "CustomAttr": null,
           "CellAlign": "right",

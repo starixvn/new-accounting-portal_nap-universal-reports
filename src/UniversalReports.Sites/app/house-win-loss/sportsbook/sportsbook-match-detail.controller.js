@@ -42,6 +42,7 @@ import angular from "angular";
                 betTypeName: pane.data.betTypeName,
                 leagueName: leagueName,
                 traderName: traderName,
+                matchId: pane.data.matchId,
                 liveName: getLiveName(pane.data.isLive),
                 matchInformation: data.MatchInformation,
                 closePopup: closePopup

@@ -9,7 +9,8 @@
     "SMAWinLoss": -11,
     "Commission": 0,
     "RealIncome": 2,
-    "RealTurnover": 4
+    "RealTurnover": 4,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18544875,
@@ -21,7 +22,8 @@
     "SMAWinLoss": 8,
     "Commission": 0,
     "RealIncome": -2,
-    "RealTurnover": 2
+    "RealTurnover": 2,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18544899,
@@ -33,7 +35,8 @@
     "SMAWinLoss": -19,
     "Commission": 0,
     "RealIncome": 4,
-    "RealTurnover": 10
+    "RealTurnover": 10,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18544914,
@@ -45,7 +48,8 @@
     "SMAWinLoss": -11,
     "Commission": 0,
     "RealIncome": 2,
-    "RealTurnover": 1
+    "RealTurnover": 1,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18544916,
@@ -57,10 +61,7 @@
     "SMAWinLoss": -10,
     "Commission": 0,
     "RealIncome": 2,
-    "RealTurnover": 1
+    "RealTurnover": 1,
+    "ExtraPT": 0
   }
 ]
-
-
-
-

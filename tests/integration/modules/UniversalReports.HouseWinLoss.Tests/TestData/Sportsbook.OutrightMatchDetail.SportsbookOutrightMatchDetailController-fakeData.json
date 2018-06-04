@@ -17,7 +17,8 @@
     "VirtualIncome": -0,
     "VarianceIncome": 0,
     "RealTurnover": 0,
-    "VirtualTurnover": 0
+    "VirtualTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "MatchId": 7135340,
@@ -37,7 +38,8 @@
     "VirtualIncome": -0,
     "VarianceIncome": 0,
     "RealTurnover": 0,
-    "VirtualTurnover": 0
+    "VirtualTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "MatchId": 7135341,
@@ -57,7 +59,8 @@
     "VirtualIncome": -7,
     "VarianceIncome": 0,
     "RealTurnover": 7,
-    "VirtualTurnover": 7
+    "VirtualTurnover": 7,
+    "ExtraPT": 0
   },
   {
     "MatchId": 7135343,
@@ -77,7 +80,8 @@
     "VirtualIncome": -0,
     "VarianceIncome": 0,
     "RealTurnover": 0,
-    "VirtualTurnover": 0
+    "VirtualTurnover": 0,
+    "ExtraPT": 0
   },
   {
     "MatchId": 7135345,
@@ -97,6 +101,7 @@
     "VirtualIncome": -1,
     "VarianceIncome": 0,
     "RealTurnover": 1,
-    "VirtualTurnover": 1
+    "VirtualTurnover": 1,
+    "ExtraPT": 0
   }
 ]

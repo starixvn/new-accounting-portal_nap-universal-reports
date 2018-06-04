@@ -17,7 +17,8 @@
     "VirtualIncome": 29394,
     "VarianceIncome": 0,
     "RealTurnover": -787129,
-    "VirtualTurnover": -787129
+    "VirtualTurnover": -787129,
+    "ExtraPT": 0
   },
   {
     "MatchId": 0,
@@ -37,7 +38,8 @@
     "VirtualIncome": 3154,
     "VarianceIncome": 0,
     "RealTurnover": -36451,
-    "VirtualTurnover": -36451
+    "VirtualTurnover": -36451,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18499570,
@@ -57,7 +59,8 @@
     "VirtualIncome": -103347,
     "VarianceIncome": -45448,
     "RealTurnover": 1471787,
-    "VirtualTurnover": 1117483
+    "VirtualTurnover": 1117483,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18485844,
@@ -77,7 +80,8 @@
     "VirtualIncome": -92992,
     "VarianceIncome": -15152,
     "RealTurnover": 1531782,
-    "VirtualTurnover": 1357553
+    "VirtualTurnover": 1357553,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18499571,
@@ -97,7 +101,8 @@
     "VirtualIncome": 13074,
     "VarianceIncome": -28719,
     "RealTurnover": 1819707,
-    "VirtualTurnover": 1556941
+    "VirtualTurnover": 1556941,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18510611,
@@ -117,7 +122,8 @@
     "VirtualIncome": 27992,
     "VarianceIncome": -25813,
     "RealTurnover": 1020531,
-    "VirtualTurnover": 866018
+    "VirtualTurnover": 866018,
+    "ExtraPT": 0
   },
   {
     "MatchId": 18499575,
@@ -137,6 +143,7 @@
     "VirtualIncome": -607,
     "VarianceIncome": -24144,
     "RealTurnover": 981706,
-    "VirtualTurnover": 830519
+    "VirtualTurnover": 830519,
+    "ExtraPT": 0
   }
 ]

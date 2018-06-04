@@ -61,6 +61,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
                 new Columns(columnIndex++, "MatchCode", item.Name, alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
@@ -76,7 +77,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             var colummns = new List<Columns>
                {
                     new Columns(columnIndex++, "MatchCode", string.Empty),
-                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 6, Bold = true, CellAlignment = HAlignment.Left }
+                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 7, Bold = true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };

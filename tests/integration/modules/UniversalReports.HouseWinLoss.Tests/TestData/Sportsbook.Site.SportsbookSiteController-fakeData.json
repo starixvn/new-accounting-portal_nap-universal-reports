@@ -11,7 +11,6 @@
     "VirtualIncome": -2452,
     "VarianceIncome": -3678,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 74576,
     "VirtualTurnover": 29830
   },
@@ -27,7 +26,6 @@
     "VirtualIncome": 500858,
     "VarianceIncome": 24170,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 6434739,
     "VirtualTurnover": 6027571
   },
@@ -43,7 +41,6 @@
     "VirtualIncome": 6025,
     "VarianceIncome": 6257,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 364542,
     "VirtualTurnover": 187198
   },
@@ -59,7 +56,6 @@
     "VirtualIncome": -171610,
     "VarianceIncome": -213592,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 6980056,
     "VirtualTurnover": 3443545
   },
@@ -75,7 +71,6 @@
     "VirtualIncome": -73999,
     "VarianceIncome": -58624,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 1311731,
     "VirtualTurnover": 737112
   },
@@ -91,7 +86,6 @@
     "VirtualIncome": 3159,
     "VarianceIncome": 0,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 69026,
     "VirtualTurnover": 69026
   },
@@ -107,7 +101,6 @@
     "VirtualIncome": -6234,
     "VarianceIncome": 0,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 17604,
     "VirtualTurnover": 17604
   },
@@ -123,7 +116,6 @@
     "VirtualIncome": -191305,
     "VarianceIncome": 59580,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 7954894,
     "VirtualTurnover": 8227982
   },
@@ -139,7 +131,6 @@
     "VirtualIncome": -34250,
     "VarianceIncome": -21766,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 4651904,
     "VirtualTurnover": 4051053
   },
@@ -155,7 +146,6 @@
     "VirtualIncome": -5828,
     "VarianceIncome": -1776,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 47077,
     "VirtualTurnover": 43278
   },
@@ -171,7 +161,6 @@
     "VirtualIncome": -173090,
     "VarianceIncome": 18586,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 3813713,
     "VirtualTurnover": 4105370
   }

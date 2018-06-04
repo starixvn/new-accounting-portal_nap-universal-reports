@@ -77,7 +77,6 @@ namespace UniversalReports.HouseWinLoss.Common.Services
                 VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
                 VarianceIncome = winlosses.Sum(r => r.VarianceIncome),
                 ExtraPT = winlosses.Sum(r => r.ExtraPT),
-                AfterExtraPT = winlosses.Sum(r => r.AfterExtraPT),
                 RealTurnover = winlosses.Sum(r => r.RealTurnover),
                 SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
                 VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)

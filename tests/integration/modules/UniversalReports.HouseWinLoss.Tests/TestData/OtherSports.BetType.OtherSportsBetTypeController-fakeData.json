@@ -11,7 +11,6 @@
     "VirtualIncome": -2833,
     "VarianceIncome": 1695,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 102101,
     "VirtualTurnover": 57637
   },
@@ -27,7 +26,6 @@
     "VirtualIncome": 1887,
     "VarianceIncome": 158,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 11377,
     "VirtualTurnover": 9188
   },
@@ -43,7 +41,6 @@
     "VirtualIncome": -158,
     "VarianceIncome": -364,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 5551,
     "VirtualTurnover": 2942
   },
@@ -59,7 +56,6 @@
     "VirtualIncome": 87,
     "VarianceIncome": -106,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 538,
     "VirtualTurnover": 369
   },
@@ -75,7 +71,6 @@
     "VirtualIncome": -653,
     "VarianceIncome": 1899,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 41785,
     "VirtualTurnover": 24532
   },
@@ -91,7 +86,6 @@
     "VirtualIncome": -783,
     "VarianceIncome": 152,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 2736,
     "VirtualTurnover": 1926
   },
@@ -107,7 +101,6 @@
     "VirtualIncome": -10302,
     "VarianceIncome": -2183,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 811658,
     "VirtualTurnover": 581409
   },
@@ -123,7 +116,6 @@
     "VirtualIncome": 4620,
     "VarianceIncome": -2699,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 41744,
     "VirtualTurnover": 28353
   },
@@ -139,7 +131,6 @@
     "VirtualIncome": 670,
     "VarianceIncome": 1660,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 17337,
     "VirtualTurnover": 8064
   },
@@ -155,7 +146,6 @@
     "VirtualIncome": 181,
     "VarianceIncome": 47,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 2159,
     "VirtualTurnover": 1364
   },
@@ -171,7 +161,6 @@
     "VirtualIncome": -122,
     "VarianceIncome": 0,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 123,
     "VirtualTurnover": 123
   },
@@ -187,7 +176,6 @@
     "VirtualIncome": -21,
     "VarianceIncome": 0,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 21,
     "VirtualTurnover": 21
   },
@@ -203,7 +191,6 @@
     "VirtualIncome": -11409,
     "VarianceIncome": -12446,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 258331,
     "VirtualTurnover": 183395
   },
@@ -219,7 +206,6 @@
     "VirtualIncome": -754,
     "VarianceIncome": -311,
     "ExtraPT": 0,
-    "AfterExtraPT": 0,
     "RealTurnover": 14483,
     "VirtualTurnover": 10007
   }

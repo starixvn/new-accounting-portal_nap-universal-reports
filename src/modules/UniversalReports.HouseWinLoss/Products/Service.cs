@@ -90,13 +90,10 @@ namespace UniversalReports.HouseWinLoss.Products
         {
             foreach (var item in rawWinLoss)
             {
-                winLoss.MemberWinLoss += item.MemberWinLoss;
                 winLoss.SMAWinLoss += item.SMAWinLoss;
                 winLoss.Commission += item.Commission;
                 winLoss.VarianceIncome += item.VarianceIncome;
-                winLoss.VirtualIncome += item.VirtualIncome;
                 winLoss.RealIncome += item.RealIncome;
-                winLoss.AfterExtraPT += item.AfterExtraPT;
                 winLoss.ExtraPT += item.ExtraPT;
             }
 

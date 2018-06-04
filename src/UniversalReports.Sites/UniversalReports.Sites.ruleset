@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="SonarQube - Olympus / NAP Universal Reports Sonar way" ToolsVersion="14.0">
   <Include Path="..\..\sonarqube\nap-universal-reportscsharp.ruleset" Action="Default" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1064" Action="Warning" />
+  </Rules>
 </RuleSet>

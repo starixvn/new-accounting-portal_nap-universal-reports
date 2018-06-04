@@ -71,7 +71,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     ColumnIndex = columnIndex,
                     Name = "Home",
                     Value = leagueName,
-                    MergeColNumber = 13,
+                    MergeColNumber = 14,
                     Bold = true,
                     CellAlignment = HAlignment.Left
                 }
@@ -153,6 +153,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             {
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
