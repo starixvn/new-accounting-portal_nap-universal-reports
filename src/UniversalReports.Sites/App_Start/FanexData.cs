@@ -1,7 +1,7 @@
-﻿using System.Configuration;
-using Fanex.Data;
+﻿using Fanex.Data;
 using Fanex.Data.CrossCutting.WrappingException;
 using Fanex.Data.OldConnectionStringProvider;
+using Fanex.NAP.Core.Configuration;
 
 namespace UniversalReports.Sites
 {
@@ -9,8 +9,7 @@ namespace UniversalReports.Sites
     {
         public static void Register()
         {
-            var environment = ConfigurationManager.AppSettings["Environment"];
-            var resourceFolder = environment == "PRO" || environment == "MNL" || environment == "MASTER"
+            var resourceFolder = NapSettings.Settings.Environment == "LIVE"
                ? "LIVE"
                : "TEST";
             DbSettingProviderManager
