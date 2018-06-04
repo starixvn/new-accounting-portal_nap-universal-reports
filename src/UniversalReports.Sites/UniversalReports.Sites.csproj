@@ -449,9 +449,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\LIVE\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LIVE\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\TEST\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
