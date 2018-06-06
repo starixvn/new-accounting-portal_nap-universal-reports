@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Fanex.Data.Repository;
 using MediatR;
 
@@ -16,7 +17,7 @@ namespace UniversalReports.Exchange.Report
 
         public async Task<IEnumerable<ExchangeEntity>> Handle(HttpParameterJson message)
         {
-            var criteria = new Criteria();
+            var criteria = Mapper.Map<Criteria>(message);
             return await repository.FetchAsync<ExchangeEntity>(criteria).ConfigureAwait(false);
         }
     }
