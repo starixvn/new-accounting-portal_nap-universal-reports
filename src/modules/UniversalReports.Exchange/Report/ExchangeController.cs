@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
+using Olympus.WebApi.Epplus;
 
 namespace UniversalReports.Exchange.Report
 {
@@ -19,6 +20,13 @@ namespace UniversalReports.Exchange.Report
         {
             var viewModel = await mediator.Send(httpParameter).ConfigureAwait(false);
             return Json(viewModel);
+        }
+
+        [Route("excel")]
+        public async Task<IHttpActionResult> Excel(HttpParameterExcel httpParameter)
+        {
+            var excelPackage = await mediator.Send(httpParameter).ConfigureAwait(false);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

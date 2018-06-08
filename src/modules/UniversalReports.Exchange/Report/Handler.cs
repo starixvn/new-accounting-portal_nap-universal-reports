@@ -1,24 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
-using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using MediatR;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<ExchangeEntity>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, SummaryEntity<ExchangeEntity>>
     {
-        private readonly IDynamicRepository repository;
+        private readonly Service service;
 
-        public Handler(IDynamicRepository repository)
+        public Handler(Service service)
         {
-            this.repository = repository;
+            this.service = service;
         }
 
-        public async Task<IEnumerable<ExchangeEntity>> Handle(HttpParameterJson message)
+        public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson message)
         {
-            var criteria = Mapper.Map<Criteria>(message);
-            return await repository.FetchAsync<ExchangeEntity>(criteria).ConfigureAwait(false);
+            
+            return await service.Query(message).ConfigureAwait(false);
         }
     }
 }

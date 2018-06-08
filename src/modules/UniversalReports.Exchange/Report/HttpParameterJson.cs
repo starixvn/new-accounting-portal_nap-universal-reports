@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using Linq.DynamicSum;
 using MediatR;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class HttpParameterJson : IRequest<IEnumerable<ExchangeEntity>>
+    public class HttpParameterJson : IRequest<SummaryEntity<ExchangeEntity>>
     {
         public DateTime FromDate { get; set; }
 

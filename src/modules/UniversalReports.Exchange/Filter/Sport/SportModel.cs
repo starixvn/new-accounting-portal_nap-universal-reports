@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.Exchange.Filter.Sport
 {
-    public class SportEntity
+    public class SportModel
     {
         public string SportName { get; set; }
 

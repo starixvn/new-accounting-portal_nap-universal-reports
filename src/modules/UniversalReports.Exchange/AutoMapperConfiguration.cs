@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Linq.DynamicSum;
 using UniversalReports.Exchange.Report;
 
 namespace UniversalReports.Exchange
@@ -9,7 +10,8 @@ namespace UniversalReports.Exchange
         {
 
             cfg.CreateMap<HttpParameterJson, Criteria>();
-
+            cfg.CreateMap<HttpParameterExcel, HttpParameterJson>();
+            cfg.CreateMap<SummaryEntity<ExchangeEntity>, SummaryEntity<ExchangeExcelEntity>>();
         }
     }
 }

@@ -3,13 +3,14 @@ import {
   TreeviewItem, TreeviewConfig, TreeviewEventParser,
   DownlineTreeviewEventParser, DownlineTreeviewItem
 } from 'ngx-treeview';
+import { DateHelper, DateFormat } from 'nap-components/date';
 import * as moment from 'moment';
 import { FilterService } from './filter.service';
 import { TimePeriod, FilterModel } from './filter.model';
 import { CONFIG } from '../common/config';
-import { NapDateStruct, DateHelper, DateFormat } from 'nap-components/date';
 import * as _ from 'lodash';
 import { ToastService } from 'nap-components/toast';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-filter',
@@ -24,26 +25,30 @@ export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
   timePeriod: TimePeriod = TimePeriod.LastMonth;
-  minStartDate: NapDateStruct = { year: 2014, month: 1, day: 1 };
-  maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
-  startDate: NapDateStruct = DateHelper.convertMomentToDateStruct(
+  minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(
     moment.utc(CONFIG.date.today)
       .subtract(1, 'month')
       .startOf('month'));
-  endDate: NapDateStruct = DateHelper.convertMomentToDateStruct(
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(
     moment.utc(CONFIG.date.today)
       .subtract(1, 'month')
       .endOf('month'));
   licenseeTreeviewItems: TreeviewItem[];
   sportTreeviewItems: TreeviewItem[];
-  treeviewConfig: TreeviewConfig;
+  treeviewConfig: TreeviewConfig = {
+    isShowAllCheckBox: true,
+    isShowCollapseExpand: true,
+    isShowFilter: true,
+    maxHeight: 500
+};
   private selectedLicenseeTreeviewItems: DownlineTreeviewItem[];
   private selectedSportTreeviewItems: DownlineTreeviewItem[];
 
   constructor(private filterService: FilterService, private toastService: ToastService) { }
 
   ngOnInit() {
-    this.createTreeViewConfig();
     this.getLicensee();
     this.getSport();
   }
@@ -117,14 +122,6 @@ export class FilterComponent implements OnInit {
 
   getSport() {
     this.filterService.getSport().subscribe(sportTreeViewItems => this.sportTreeviewItems = sportTreeViewItems);
-  }
-
-  createTreeViewConfig() {
-    this.treeviewConfig = new TreeviewConfig();
-    this.treeviewConfig.hasAllCheckBox = true;
-    this.treeviewConfig.hasFilter = true;
-    this.treeviewConfig.hasCollapseExpand = true;
-    this.treeviewConfig.maxHeight = 500;
   }
 
   private createFilterModel() {

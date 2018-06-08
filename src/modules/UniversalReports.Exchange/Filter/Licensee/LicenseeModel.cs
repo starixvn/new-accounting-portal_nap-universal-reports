@@ -1,6 +1,6 @@
 ﻿namespace UniversalReports.Exchange.Filter.Licensee
 {
-    public class LicenseeEntity
+    public class LicenseeModel
     {
         public string LicenseeName { get; set; }
 

@@ -14,3 +14,8 @@ export interface Exchange {
     PayToSupplier: number;
     CompanyNetIncome: number;
   }
+
+  export interface ExchangeModel {
+    Entities: Exchange[];
+    Total: Exchange;
+  }

@@ -34,7 +34,7 @@ import { GridComponent } from './grid/grid.component';
     BreadcrumbModule,
     SpinnerModule.forRoot(),
     ToastModule.forRoot(),
-    NavbarModule.forRoot()
+    NavbarModule.forRoot(),
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace UniversalReports.Exchange.Filter.Sport
 {
-    public class HttpParameterJson : IRequest<IEnumerable<SportEntity>>
+    public class HttpParameterJson : IRequest<IEnumerable<SportModel>>
     {
     }
 }

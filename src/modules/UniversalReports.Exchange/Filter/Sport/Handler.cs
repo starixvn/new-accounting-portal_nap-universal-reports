@@ -5,7 +5,7 @@ using MediatR;
 
 namespace UniversalReports.Exchange.Filter.Sport
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SportEntity>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SportModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,10 +14,10 @@ namespace UniversalReports.Exchange.Filter.Sport
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<SportEntity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<SportModel>> Handle(HttpParameterJson message)
         {
             var criteria = new Criteria();
-            return await repository.FetchAsync<SportEntity>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<SportModel>(criteria).ConfigureAwait(false);
         }
     }
 }

@@ -5,7 +5,7 @@ using MediatR;
 
 namespace UniversalReports.Exchange.Filter.Licensee
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<LicenseeEntity>>
+    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<LicenseeModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,10 +14,10 @@ namespace UniversalReports.Exchange.Filter.Licensee
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<LicenseeEntity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<LicenseeModel>> Handle(HttpParameterJson message)
         {
             var criteria = new Criteria();
-            return await repository.FetchAsync<LicenseeEntity>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<LicenseeModel>(criteria).ConfigureAwait(false);
         }
     }
 }

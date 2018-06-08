@@ -29,5 +29,26 @@
         public decimal PayToSupplier { get; set; }
 
         public decimal CompanyNetIncome { get; set; }
+
+        public static ExchangeEntity operator +(ExchangeEntity a, ExchangeEntity b)
+        {
+            return new ExchangeEntity
+            {
+                LicenseeName = "Grand Total",
+                MemberCount = a.MemberCount + b.MemberCount,
+                BetCount = a.BetCount + b.BetCount,
+                TurnOver = a.TurnOver + b.TurnOver,
+                MemberWinLoss = a.MemberWinLoss + b.MemberWinLoss,
+                MemberCommission = a.MemberCommission + b.MemberCommission,
+                MemberTotal = a.MemberTotal + b.MemberTotal,
+                LicenseeWinLoss = a.LicenseeWinLoss + b.LicenseeWinLoss,
+                LicenseeCommission = a.LicenseeCommission + b.LicenseeCommission,
+                LicenseeTotal = a.LicenseeTotal + b.LicenseeTotal,
+                CompanyWinLoss = a.CompanyWinLoss + b.CompanyWinLoss,
+                CompanyCommission = a.CompanyCommission + b.CompanyCommission,
+                PayToSupplier = a.PayToSupplier + b.PayToSupplier,
+                CompanyNetIncome = a.CompanyNetIncome + b.CompanyNetIncome,
+            };
+        }
     }
 }
