@@ -554,10 +554,11 @@
     <Content Include="wwwroot\exchange\favicon.ico" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\exchange\index.html" />
-    <Content Include="wwwroot\exchange\main.js" />
-    <Content Include="wwwroot\exchange\polyfills.js" />
-    <Content Include="wwwroot\exchange\runtime.js" />
-    <Content Include="wwwroot\exchange\styles.css" />
+    <Content Include="wwwroot\exchange\inline.bundle.js" />
+    <Content Include="wwwroot\exchange\main.bundle.js" />
+    <Content Include="wwwroot\exchange\polyfills.bundle.js" />
+    <Content Include="wwwroot\exchange\styles.bundle.css" />
+    <Content Include="wwwroot\exchange\vendor.bundle.js" />
     <Content Include="wwwroot\play-for-fun\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\play-for-fun\index.html" />
     <Content Include="wwwroot\play-for-fun\inline.bundle.js" />

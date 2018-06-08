@@ -24,17 +24,11 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
-  timePeriod: TimePeriod = TimePeriod.LastMonth;
+  timePeriod: TimePeriod = TimePeriod.Today;
   minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
-  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(
-    moment.utc(CONFIG.date.today)
-      .subtract(1, 'month')
-      .startOf('month'));
-  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(
-    moment.utc(CONFIG.date.today)
-      .subtract(1, 'month')
-      .endOf('month'));
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
   licenseeTreeviewItems: TreeviewItem[];
   sportTreeviewItems: TreeviewItem[];
   treeviewConfig: TreeviewConfig = {
@@ -54,6 +48,10 @@ export class FilterComponent implements OnInit {
   }
 
   onGenerate() {
+    if (!this.isValid) {
+      return;
+    }
+
     const filterModel = this.createFilterModel();
     this.generated.emit(filterModel);
   }
@@ -135,5 +133,15 @@ export class FilterComponent implements OnInit {
     };
 
     return model;
+  }
+
+  private get isValid(): boolean {
+    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
+    if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
+        this.toastService.activate(`Date range selection is limited to 3 months to protect system's performance!`);
+        return false;
+    }
+
+    return true;
   }
 }

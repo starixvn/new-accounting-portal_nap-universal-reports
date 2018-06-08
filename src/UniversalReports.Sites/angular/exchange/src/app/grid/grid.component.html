@@ -62,7 +62,7 @@
     <td class="text-right" [napDecimalFormat]="item.CompanyWinLoss"></td>
     <td class="text-right" [napDecimalFormat]="item.CompanyCommission"></td>
     <td class="text-right" [napDecimalFormat]="item.PayToSupplier"></td>
-    <td class="text-right" [napIntegerFormat]="item.CompanyNetIncome"></td>
+    <td class="text-right" [napDecimalFormat]="item.CompanyNetIncome"></td>
 </ng-template>
 <div *ngIf="exchangeModel" [ngSwitch]="exchangeModel.Entities.length > 0">
     <div class="grid">
@@ -117,7 +117,7 @@
                             <td class="text-right" [napDecimalFormat]="exchangeModel.Total.CompanyWinLoss"></td>
                             <td class="text-right" [napDecimalFormat]="exchangeModel.Total.CompanyCommission"></td>
                             <td class="text-right" [napDecimalFormat]="exchangeModel.Total.PayToSupplier"></td>
-                            <td class="text-right" [napIntegerFormat]="exchangeModel.Total.CompanyNetIncome"></td>
+                            <td class="text-right" [napDecimalFormat]="exchangeModel.Total.CompanyNetIncome"></td>
                         </tr>
                         <tr>
                             <td colspan="14">
