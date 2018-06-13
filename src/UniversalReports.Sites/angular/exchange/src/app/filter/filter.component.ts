@@ -24,11 +24,11 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
-  timePeriod: TimePeriod = TimePeriod.Today;
+  timePeriod: TimePeriod = TimePeriod.Yesterday;
   minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
-  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
-  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
-  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   licenseeTreeviewItems: TreeviewItem[];
   sportTreeviewItems: TreeviewItem[];
   treeviewConfig: TreeviewConfig = {
@@ -60,10 +60,6 @@ export class FilterComponent implements OnInit {
     let endDate: moment.Moment;
     let startDate: moment.Moment;
     switch (this.timePeriod) {
-      case TimePeriod.Today:
-        endDate = moment.utc(CONFIG.date.today);
-        startDate = moment.utc(CONFIG.date.today);
-        break;
       case TimePeriod.Yesterday:
         endDate = moment.utc(CONFIG.date.yesterday);
         startDate = moment.utc(CONFIG.date.yesterday);
@@ -71,6 +67,10 @@ export class FilterComponent implements OnInit {
       case TimePeriod.CurrentWeek:
         startDate = moment.utc(CONFIG.date.today).startOf('week');
         endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
         break;
       case TimePeriod.LastWeek:
         startDate = moment.utc(CONFIG.date.today).startOf('week').subtract(1, 'week');
@@ -79,6 +79,10 @@ export class FilterComponent implements OnInit {
       case TimePeriod.CurrentMonth:
         startDate = moment.utc(CONFIG.date.today).startOf('month');
         endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
         break;
       case TimePeriod.LastMonth:
         startDate = moment.utc(CONFIG.date.today).subtract(1, 'month').startOf('month');
@@ -87,6 +91,10 @@ export class FilterComponent implements OnInit {
       case TimePeriod.SinceLastMonth:
         startDate = moment.utc(CONFIG.date.today).subtract(1, 'month').startOf('month');
         endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
         break;
       case TimePeriod.SpecificDate:
         break;
