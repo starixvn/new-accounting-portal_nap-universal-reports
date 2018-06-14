@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -13,9 +13,11 @@ import { SpinnerService, SpinnerModule } from 'nap-components/spinner';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
-import { CustomPaginationConfig } from './common/config';
+import { CustomPaginationConfig, DateConfig, CONFIG } from './common/config';
 import { CustomNavbarService } from './custom-navbar-service';
 import { GridComponent } from './grid/grid.component';
+import { AppService } from './app.service';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,25 @@ import { GridComponent } from './grid/grid.component';
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },
-    { provide: PaginationConfig, useClass: CustomPaginationConfig }
+    { provide: PaginationConfig, useClass: CustomPaginationConfig },
+    AppService,
+    {
+        provide: APP_INITIALIZER,
+        useFactory: initConfiguration,
+        deps: [AppService],
+        multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function initConfiguration(service: AppService): Function {
+  return () => new Promise(resolve => {
+      service.getToday().subscribe(model => {
+          const today = moment.utc(model);
+          CONFIG.date = new DateConfig(today);
+          resolve(true);
+      });
+  });
+}

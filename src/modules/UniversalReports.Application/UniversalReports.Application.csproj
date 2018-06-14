@@ -81,6 +81,7 @@
     <Compile Include="Header\Menu.cs" />
     <Compile Include="Header\HeaderController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerTime\ServerTimeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
