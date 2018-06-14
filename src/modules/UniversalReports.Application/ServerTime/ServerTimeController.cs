@@ -9,7 +9,7 @@ namespace UniversalReports.Application.ServerTime
         [HttpPost]
         public IHttpActionResult Today()
         {
-            return Json(DateTime.Now);
+            return Json(new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day));
         }
     }
 }
