@@ -694,6 +694,7 @@
     <Content Include="ExcelTemplate\UpdatedUsernameAndCredit\UpdatedCredit.xlsx" />
     <Content Include="ExcelTemplate\UpdatedUsernameAndCredit\UpdatedUsername.xlsx" />
     <Content Include="ExcelTemplate\Exchange\Exchange.xlsx" />
+    <Content Include="deployment.ignore" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
