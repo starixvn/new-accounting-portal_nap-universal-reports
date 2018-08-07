@@ -1,0 +1,34 @@
+﻿[
+  {
+    "LicenseeName": "Any name",
+    "MemberCount": 1,
+    "BetCount": 1,
+    "TurnOver": 22,
+    "MemberWinLoss": 10,
+    "MemberCommission": 1,
+    "MemberTotal": 11,
+    "LicenseeWinLoss": 6,
+    "LicenseeCommission": 1,
+    "LicenseeTotal": 7,
+    "CompanyWinLoss": 15,
+    "CompanyCommission": 2,
+    "PayToSupplier": 1,
+    "CompanyNetIncome": 18
+  },
+  {
+    "LicenseeName": "Any name 1",
+    "MemberCount": 2,
+    "BetCount": 2,
+    "TurnOver": 25,
+    "MemberWinLoss": 5,
+    "MemberCommission": 1,
+    "MemberTotal": 6,
+    "LicenseeWinLoss": 8,
+    "LicenseeCommission": 1,
+    "LicenseeTotal": 9,
+    "CompanyWinLoss": 17,
+    "CompanyCommission": 2,
+    "PayToSupplier": 1,
+    "CompanyNetIncome": 20
+  }
+]

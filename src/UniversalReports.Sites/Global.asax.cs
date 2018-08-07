@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 using AutoMapper;
-using Fanex.Data.CrossCutting.WrappingException;
-using Fanex.Logging;
+using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
 using UniversalReports.NG2Statistics;
 using UniversalReports.PlayForFun;
@@ -39,6 +34,7 @@ namespace UniversalReports.Sites
                 cfg.InitializePlayForFun();
                 cfg.InitializePunterAnalysis();
                 cfg.InitializeUpdatedUsernameCredit();
+                cfg.InitializeExchange();
             });
         }
 

@@ -9,5 +9,6 @@
         public const string PunterAnalysis = "PunterAnalysis";
         public const string PlayForFunStatistics = "PlayForFunStatistics";
         public const string UpdatedUsernameAndGivenCredit = "UpdatedUsername_CreditList";
+        public const string Exchange = "Exchange";
     }
 }

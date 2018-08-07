@@ -56,10 +56,9 @@
     <CodeAnalysisRuleSet>UniversalReports.Sites.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-	<!-- Exclude the project from analysis -->
-	<SonarQubeExclude>true</SonarQubeExclude>
+    <!-- Exclude the project from analysis -->
+    <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
-
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
@@ -331,6 +330,7 @@
     <Compile Include="App_Start\FanexLogging.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\SimpleInjector\ExchangeInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PlayForFunInjector.cs" />
@@ -343,6 +343,7 @@
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\ExchangeController.cs" />
     <Compile Include="Controllers\FakeLoginController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
@@ -449,9 +450,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\LIVE\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\LIVE\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\TEST\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -545,6 +548,17 @@
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\exchange\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\exchange\assets\logo.png" />
+    <Content Include="wwwroot\exchange\assets\spinner.gif" />
+    <Content Include="wwwroot\exchange\favicon.ico" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\exchange\index.html" />
+    <Content Include="wwwroot\exchange\inline.bundle.js" />
+    <Content Include="wwwroot\exchange\main.bundle.js" />
+    <Content Include="wwwroot\exchange\polyfills.bundle.js" />
+    <Content Include="wwwroot\exchange\styles.bundle.css" />
+    <Content Include="wwwroot\exchange\vendor.bundle.js" />
     <Content Include="wwwroot\play-for-fun\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\play-for-fun\index.html" />
     <Content Include="wwwroot\play-for-fun\inline.bundle.js" />
@@ -679,6 +693,8 @@
     <Content Include="ExcelTemplate\PlayForFun\Summary.xlsx" />
     <Content Include="ExcelTemplate\UpdatedUsernameAndCredit\UpdatedCredit.xlsx" />
     <Content Include="ExcelTemplate\UpdatedUsernameAndCredit\UpdatedUsername.xlsx" />
+    <Content Include="ExcelTemplate\Exchange\Exchange.xlsx" />
+    <Content Include="deployment.ignore" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -813,6 +829,11 @@
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\updated-username-credit\index.cshtml" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\exchange\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -822,6 +843,10 @@
     <ProjectReference Include="..\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameCredit.csproj">
       <Project>{847c5ba4-ff43-4683-940f-30cfefa00892}</Project>
       <Name>UniversalReports.UpdatedUsernameCredit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
+      <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
+      <Name>UniversalReports.Exchange</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>

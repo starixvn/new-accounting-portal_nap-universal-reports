@@ -1,0 +1,19 @@
+@import '~nap-theme/scss/filter';
+.filter-container {
+    .col-nap {
+        .group-nap {
+            &>label {
+                float: left;
+                width: 80px;
+                line-height: 25px;
+            }
+            &>.control-nap {
+                float: left;
+                width: 200px;
+            }
+        }
+    }
+    .col-buttons {
+        margin-left: 20px;
+    }
+}

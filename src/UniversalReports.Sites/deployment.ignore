@@ -1,0 +1,7 @@
+\\src
+\\CodeAnalysis
+packages.config
+package.json
+tsconfig.json
+tslint.json
+\\App_Data\\user-activity-.*-.*.json
