@@ -5,7 +5,6 @@ using NUnit.Framework;
 using UniversalReports.PunterAnalysis.Filter;
 using FilterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
 using FilterAvailableDateRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
-using FilterLeague = UniversalReports.PunterAnalysis.Filter.League;
 using FilterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using FilterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
 using FilterSportTypeLeague = UniversalReports.PunterAnalysis.Filter.SportTypeLeague;
@@ -43,21 +42,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
 
             // Assert
             await mediator.Received().Send(Arg.Any<FilterAvailableDateRange.HttpParameterJson>());
-        }
-
-        [Test]
-        public async Task League_Always_CallMediatorSend()
-        {
-            // Arrange
-            var mediator = Substitute.For<IMediator>();
-            var httpParameterJson = new FilterLeague.HttpParameterJson();
-
-            // Act
-            var controller = new PunterAnalysisFilterController(mediator);
-            await controller.League(httpParameterJson);
-
-            // Assert
-            await mediator.Received().Send(Arg.Any<FilterLeague.HttpParameterJson>());
         }
 
         [Test]

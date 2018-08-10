@@ -189,6 +189,7 @@
     <Compile Include="ComparisonAssert.cs" />
     <Compile Include="Controllers\BaseControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithMatchRawWinLossControllerTests.cs" />
+    <Compile Include="Controllers\TwoGridOptionsWithRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\GridOptionsWithRawWinLossControllerTests.cs" />
     <Compile Include="Controllers\TestDataLoader.cs" />
     <Compile Include="GlobalSuppressions.cs" />

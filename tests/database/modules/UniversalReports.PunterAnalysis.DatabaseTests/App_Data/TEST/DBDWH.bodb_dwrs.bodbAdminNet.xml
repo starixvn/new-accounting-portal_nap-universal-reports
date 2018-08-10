@@ -17,10 +17,6 @@
       <Mapping DataField="Value" ObjectProperty="Value" />
       <Mapping DataField="RenderType" ObjectProperty="RenderType" />
     </Setting>
-    <Setting Key="Punter-LeagueQuery" SpName="Acc_TopPunterSelLeagues" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="leagueid" ObjectProperty="Id" />
-      <Mapping DataField="leaguename" ObjectProperty="Name" />
-    </Setting>
     <Setting Key="Punter-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-AvailableDateRangeQuery" SpName="Acc_Punter_GetDateRangeSupport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-SportsbookSportBetTypeQuery" SpName="Acc_Punter_League_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">

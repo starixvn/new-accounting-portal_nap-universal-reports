@@ -3,7 +3,6 @@ using System.Web.Http;
 using MediatR;
 using HttpParameterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.AvailableDatabase.HttpParameterJson;
 using HttpParameterAvailableDataRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.HttpParameterJson;
-using HttpParameterLeague = UniversalReports.PunterAnalysis.Filter.League.HttpParameterJson;
 using HttpParameterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType.HttpParameterJson;
 using HttpParameterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType.HttpParameterJson;
 using HttpParameterSportTypeLeague = UniversalReports.PunterAnalysis.Filter.SportTypeLeague.HttpParameterJson;
@@ -29,12 +28,6 @@ namespace UniversalReports.PunterAnalysis.Filter
 
         [Route("available-date-range")]
         public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
-        {
-            return await Handle(parameter).ConfigureAwait(false);
-        }
-
-        [Route("league")]
-        public async Task<IHttpActionResult> League(HttpParameterLeague parameter)
         {
             return await Handle(parameter).ConfigureAwait(false);
         }

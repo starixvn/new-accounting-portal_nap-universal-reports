@@ -17,7 +17,6 @@ namespace UniversalReports.PunterAnalysis
             cfg.CreateMap<BetType.Model.HttpParameterExcel, BetType.Model.Criteria>();
             cfg.CreateMap<BetType.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
             cfg.CreateMap<BetType.Model.HttpParameterJson, BetType.Model.Criteria>();
-            cfg.CreateMap<Filter.League.HttpParameterJson, Filter.League.QueryCriteria>();
             cfg.CreateMap<Filter.UsernameSuggestion.HttpParameterJson, Filter.UsernameSuggestion.QueryCriteria>();
             cfg.CreateMap<League.Model.HttpParameterExcel, League.Model.Criteria>();
             cfg.CreateMap<League.Model.HttpParameterExcel, Shared.ExcelSettingParams>();

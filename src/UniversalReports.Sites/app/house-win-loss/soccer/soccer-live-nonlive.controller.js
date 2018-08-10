@@ -27,12 +27,8 @@ import angular from "angular";
             $scope.viewSetting = viewSetting;
 
             pane.service.getData(viewSetting, pane.data).then(function (data) {
-                liveNonLiveGridOptions = data;
-                renderAll();
-            });
-
-            pane.service.getMajorMinorData(pane.data).then(function (data) {
-                majorMinorGridOptions = data;
+                majorMinorGridOptions = data[0];
+                liveNonLiveGridOptions = data[1];                
                 renderAll();
             });
 

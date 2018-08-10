@@ -361,6 +361,7 @@
     <Compile Include="Soccer\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="Soccer\LiveNonLive\QueryModel.cs" />
     <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveController.cs" />
+    <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveWinLossService.cs" />
     <Compile Include="Soccer\MajorMinor\Criteria.cs" />
     <Compile Include="Soccer\MajorMinor\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorMinor\QueryModel.cs" />

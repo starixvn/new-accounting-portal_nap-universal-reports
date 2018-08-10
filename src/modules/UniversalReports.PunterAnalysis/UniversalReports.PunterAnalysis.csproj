@@ -223,10 +223,6 @@
     <Compile Include="Filter\ProductSportBetType\QueryCriteria.cs" />
     <Compile Include="Filter\PunterAnalysisFilterController.cs" />
     <Compile Include="Filter\ProductSportBetType\Handler.cs" />
-    <Compile Include="Filter\League\Handler.cs" />
-    <Compile Include="Filter\League\HttpParameterJson.cs" />
-    <Compile Include="Filter\League\LeagueEntity.cs" />
-    <Compile Include="Filter\League\QueryCriteria.cs" />
     <Compile Include="Filter\SportsbookSportBetType\Handler.cs" />
     <Compile Include="Filter\SportsbookSportBetType\HttpParameterJson.cs" />
     <Compile Include="Filter\SportsbookSportBetType\QueryCriteria.cs" />

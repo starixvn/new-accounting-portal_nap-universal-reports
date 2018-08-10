@@ -24,8 +24,7 @@
     <Setting Key="HouseWinLoss-Racing-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Racing-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Soccer-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_LiveNonLive_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-Soccer-Major-Minor-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-MajorMinor-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -88,10 +87,6 @@
       <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
       <Mapping DataField="Value" ObjectProperty="Value" />
       <Mapping DataField="RenderType" ObjectProperty="RenderType" />
-    </Setting>
-    <Setting Key="Punter-LeagueQuery" SpName="Acc_TopPunterSelLeagues" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="leagueid" ObjectProperty="Id" />
-      <Mapping DataField="leaguename" ObjectProperty="Name" />
     </Setting>
     <Setting Key="Punter-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-AvailableDateRangeQuery" SpName="Acc_Punter_GetDateRangeSupport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

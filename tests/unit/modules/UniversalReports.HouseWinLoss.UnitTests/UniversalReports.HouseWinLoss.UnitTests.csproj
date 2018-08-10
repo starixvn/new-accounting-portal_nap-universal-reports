@@ -159,6 +159,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soccer\BetTypeFull\AbstractFactoryUnitTests.cs" />
     <Compile Include="Soccer\GroupBetType\ServiceUnitTests.cs" />
+    <Compile Include="Soccer\LiveNonLive\ServiceUnitTests.cs" />
     <Compile Include="Soccer\SumBetType\ServiceUnitTests.cs" />
     <Compile Include="TestUtility\ComparisonAssert.cs" />
     <Compile Include="TestUtility\TestDataLoader.cs" />
@@ -359,7 +360,13 @@
     <None Include="TestData\Products.Service.data-2-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\Soccer.LiveNonLive.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Soccer.GroupBetType.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Soccer.LiveNonLive.Service.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Soccer.GroupBetType.Service.data-1-fakeData.json">

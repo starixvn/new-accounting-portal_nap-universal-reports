@@ -47,7 +47,7 @@ namespace UniversalReports.Exchange.DatabaseTests
             // Arrange
             var criteria = new Report.Criteria()
             {
-                FromDate = DateTime.Now.AddMonths(-3),
+                FromDate = DateTime.Now.AddYears(-30),
                 ToDate = DateTime.Now,
                 LicenseeId = "1, 2, 3",
                 SportType = "1,2,4,7,7522"

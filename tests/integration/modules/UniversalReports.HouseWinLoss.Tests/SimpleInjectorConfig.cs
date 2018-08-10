@@ -63,6 +63,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Soccers.SumBetType.SumBetTypeGridOptionsBuilder, Soccers.SumBetType.SumBetTypeGridOptionsBuilderImp>();
             container.Register<Soccers.BaseService.BaseCalculationService, Soccers.BaseService.BaseCalculationServiceImp>();
             container.Register<Soccers.BetTypeFull.AbstractFactory, Soccers.BetTypeFull.AbstractFactoryImp>();
+            container.Register<Soccers.LiveNonLive.SoccerLiveNonLiveWinLossService, Soccers.LiveNonLive.SoccerLiveNonLiveWinLossServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
