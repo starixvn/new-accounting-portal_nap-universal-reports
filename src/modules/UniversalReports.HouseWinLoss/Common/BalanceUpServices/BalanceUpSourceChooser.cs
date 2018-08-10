@@ -13,8 +13,6 @@ namespace UniversalReports.HouseWinLoss.Common.BalanceUpServices
     {
         private const string BetTrans = "BetTrans";
 
-        private const string BetTrans14 = "BetTrans14";
-
         private const string Warehouse = "Warehouse";
 
         private readonly BalanceUpService balanceUpService;
@@ -27,21 +25,16 @@ namespace UniversalReports.HouseWinLoss.Common.BalanceUpServices
         public string Determine(WinLossCriteria criteria)
         {
             return criteria.NormalMode
-                 ? GetBalanceUpSource(criteria.StartDate)
+                 ? GetDataSource(criteria.StartDate)
                  : Warehouse;
         }
 
-        private string GetBalanceUpSource(DateTime date)
+        private string GetDataSource(DateTime date)
         {
             var balanceUpRange = balanceUpService.Query();
 
-            if (date > balanceUpRange.MoveBetsDate)
-            {
-                return BetTrans;
-            }
-
-            return date >= balanceUpRange.BalanceUpDate
-                ? BetTrans14
+            return date > balanceUpRange.MoveBetsDate
+                ? BetTrans
                 : Warehouse;
         }
     }
