@@ -14,6 +14,6 @@ namespace UniversalReports.ActualMemberBet.Product
 
         public int CurrencyId { get; set; }
 
-        public int OddsType { get; set; }
+        public string OddsType { get; set; }
     }
 }

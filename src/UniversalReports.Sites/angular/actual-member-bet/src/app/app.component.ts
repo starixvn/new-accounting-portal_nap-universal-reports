@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { FilterModel } from './filter/filter.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  filterModel: FilterModel;
+
+  generate(filterModel: FilterModel) {
+    console.log(filterModel);
+    this.filterModel = filterModel;
+  }
 }

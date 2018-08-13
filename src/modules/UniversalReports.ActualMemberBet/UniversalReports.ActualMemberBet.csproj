@@ -38,6 +38,14 @@
       <HintPath>..\..\..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Epplus.Mapper.1.0.0.9\lib\net461\Epplus.Mapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -54,8 +62,12 @@
       <HintPath>..\..\..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -80,12 +92,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualMemberBetAttribute.cs" />
+    <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Bettype\BetTypeActualMemberBet.cs" />
-    <Compile Include="Bettype\BettypeController.cs" />
+    <Compile Include="Bettype\ActualMemberBetBettypeController.cs" />
+    <Compile Include="Bettype\BetTypeActualMemberBetExcel.cs" />
+    <Compile Include="Bettype\BettypeExcelBuilder.cs" />
     <Compile Include="Bettype\Criteria.cs" />
     <Compile Include="Bettype\Handler.cs" />
+    <Compile Include="Bettype\HandlerExcel.cs" />
     <Compile Include="Bettype\HttpParameter.cs" />
-    <Compile Include="Common\BaseModel.cs" />
+    <Compile Include="Bettype\HttpParameterExcel.cs" />
+    <Compile Include="Common\ActualMemberBetService.cs" />
     <Compile Include="Filter\Currency.cs" />
     <Compile Include="Filter\ActualMemberBetFilterController.cs" />
     <Compile Include="Filter\CurrencyCriteria.cs" />
@@ -100,16 +118,29 @@
     <Compile Include="Filter\SiteHandler.cs" />
     <Compile Include="Filter\SiteHttpParameter.cs" />
     <Compile Include="Product\Criteria.cs" />
+    <Compile Include="Product\ProductExcelBuilder.cs" />
     <Compile Include="Product\Handler.cs" />
+    <Compile Include="Product\HandlerExcel.cs" />
     <Compile Include="Product\HttpParameter.cs" />
+    <Compile Include="Product\HttpParameterExcel.cs" />
     <Compile Include="Product\ProductActualMemberBet.cs" />
-    <Compile Include="Product\ProductController.cs" />
+    <Compile Include="Product\ActutalMemberBetProductController.cs" />
+    <Compile Include="Product\ProductActualMemberBetExcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

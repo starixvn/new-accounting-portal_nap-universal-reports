@@ -4,6 +4,6 @@
     {
         public int CurrencyId { get; set; }
 
-        public int CurrencyName { get; set; }
+        public string CurrencyName { get; set; }
     }
 }

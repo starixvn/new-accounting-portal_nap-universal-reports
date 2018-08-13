@@ -13,7 +13,7 @@ namespace UniversalReports.ActualMemberBet.Bettype
 
         public int CurrencyId { get; set; }
 
-        public int OddsType { get; set; }
+        public string OddsType { get; set; }
 
         public string KeyId { get; set; }
 

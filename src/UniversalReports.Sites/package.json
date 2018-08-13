@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@angular/cli": "^6.0.8",
     "angular": "1.5.8",
     "angular-moment": "1.0.1",
     "angular-route": "1.5.8",

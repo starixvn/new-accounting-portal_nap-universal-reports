@@ -2,6 +2,7 @@
 using System.Reflection;
 using MediatR.SimpleInjector;
 using SimpleInjector;
+using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
@@ -23,6 +24,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(PlayForFunAttribute).GetTypeInfo().Assembly;
             yield return typeof(UpdatedUsernameAndCreditAttribute).GetTypeInfo().Assembly;
             yield return typeof(ExchangeAttribute).GetTypeInfo().Assembly;
+            yield return typeof(ActualMemberBetAttribute).GetTypeInfo().Assembly;
         }
     }
 }

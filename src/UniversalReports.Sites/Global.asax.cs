@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 using AutoMapper;
+using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
 using UniversalReports.NG2Statistics;
@@ -35,6 +36,7 @@ namespace UniversalReports.Sites
                 cfg.InitializePunterAnalysis();
                 cfg.InitializeUpdatedUsernameCredit();
                 cfg.InitializeExchange();
+                cfg.InitializeActualMemberBet();
             });
         }
 

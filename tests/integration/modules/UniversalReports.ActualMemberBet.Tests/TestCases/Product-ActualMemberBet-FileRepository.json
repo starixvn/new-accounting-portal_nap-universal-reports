@@ -1,0 +1,24 @@
+﻿[
+  {
+    "KeyId": "Any key",
+    "ProductName": "Any product name",
+    "BetCount": 1,
+    "MemberTurnoverRM": 22,
+    "MemberNetWinLoss": 10,
+    "HouseRealTurnover": 1,
+    "HouseVirtualTurnover": 11,
+    "HouseRealIncome": 6,
+    "HouseVirtualWinLoss": 1
+  },
+  {
+    "KeyId": "Any key 1",
+    "ProductName": "Any product name 1",
+    "BetCount": 2,
+    "MemberTurnoverRM": 25,
+    "MemberNetWinLoss": 5,
+    "HouseRealTurnover": 1,
+    "HouseVirtualTurnover": 6,
+    "HouseRealIncome": 6,
+    "HouseVirtualWinLoss": 8
+  }
+]

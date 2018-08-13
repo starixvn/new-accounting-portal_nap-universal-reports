@@ -1,16 +1,54 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
+import { FilterComponent } from './filter/filter.component';
+import { DateModule } from 'nap-components/date';
+import { HttpModule } from 'nap-components/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastModule } from 'nap-components/toast';
+import { NavbarModule, NavbarService } from 'nap-components/navbar';
+import { SpinnerModule } from 'nap-components/spinner';
+import { CONFIG, DateConfig } from './common/config';
+import { AppService } from './app.service';
+import * as moment from 'moment';
+import { CustomNavbarService } from './custom-navbar-service';
+import { GridModule } from './grid/grid.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule.forRoot(),
+    DateModule,
+    HttpModule.forRoot(),
+    ToastModule.forRoot(),
+    NavbarModule.forRoot(),
+    SpinnerModule.forRoot(),
+    GridModule
   ],
-  providers: [],
+  providers: [
+    { provide: NavbarService, useClass: CustomNavbarService },
+    AppService,
+    {
+        provide: APP_INITIALIZER,
+        useFactory: initConfiguration,
+        deps: [AppService],
+        multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function initConfiguration(service: AppService): Function {
+  return () => new Promise(resolve => {
+      service.getToday().subscribe(model => {
+          const today = moment.utc(model);
+          CONFIG.date = new DateConfig(today);
+          resolve(true);
+      });
+  });
+}

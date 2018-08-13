@@ -10,5 +10,6 @@
         public const string PlayForFunStatistics = "PlayForFunStatistics";
         public const string UpdatedUsernameAndGivenCredit = "UpdatedUsername_CreditList";
         public const string Exchange = "Exchange";
+        public const string ActualMemberBet = "ActualMemberBet";
     }
 }

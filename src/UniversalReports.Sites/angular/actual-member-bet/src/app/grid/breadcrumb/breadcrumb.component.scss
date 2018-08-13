@@ -1,0 +1,36 @@
+.header {
+    background: -webkit-linear-gradient(#ffcc33, #ffcc35);
+    font-weight: bold;
+    display: flex;
+    margin-bottom: .1rem;
+    padding: .1rem;
+    .breadcrumb {
+        margin-right: auto;
+        margin-bottom: 0;
+        background-color: transparent;
+    }
+    .toolbox {
+        padding: 0 .4rem;
+        [class*="icon-"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+        }
+        .filter {
+            display: inline-block;
+            margin-right: .3rem;
+            .icon-filter {
+                background: url("images/filter.png") no-repeat scroll 0 0 transparent;
+            }
+        }
+        .excel {
+            display: inline-block;
+            margin-top: .3rem;
+            margin-right: .3rem;
+            .icon-excel {
+                background: url("images/excel.png") no-repeat scroll 0 0 transparent;
+            }
+        }
+    }
+}

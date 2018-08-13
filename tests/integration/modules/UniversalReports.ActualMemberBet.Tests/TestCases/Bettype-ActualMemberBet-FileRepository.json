@@ -1,0 +1,24 @@
+﻿[
+  {
+    "BettypeName": "Any bettype name",
+    "BetCount": 1,
+    "MemberTurnoverRM": 22,
+    "MemberTurnoverMYOdds": 25,
+    "MemberNetWinLoss": 10,
+    "HouseRealTurnoverMYOdds": 1,
+    "HouseVirtualTurnoverMyOdds": 11,
+    "HouseRealIncome": 6,
+    "HouseVirtualWinLoss": 1
+  },
+  {
+    "BettypeName": "Any bettype name 1",
+    "BetCount": 2,
+    "MemberTurnoverRM": 25,
+    "MemberTurnoverMYOdds": 25,
+    "MemberNetWinLoss": 5,
+    "HouseRealTurnoverMYOdds": 1,
+    "HouseVirtualTurnoverMyOdds": 6,
+    "HouseRealIncome": 6,
+    "HouseVirtualWinLoss": 8
+  }
+]

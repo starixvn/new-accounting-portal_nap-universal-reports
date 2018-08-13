@@ -2,8 +2,8 @@
 {
     public class Odds
     {
-        public int OddsType { get; set; }
+        public string OddsType { get; set; }
 
-        public int OddsTypeName { get; set; }
+        public string OddsTypeName { get; set; }
     }
 }

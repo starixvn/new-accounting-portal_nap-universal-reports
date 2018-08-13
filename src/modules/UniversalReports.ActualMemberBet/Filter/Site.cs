@@ -4,6 +4,6 @@
     {
         public int SiteType { get; set; }
 
-        public int SiteName { get; set; }
+        public string SiteName { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="Actual-Member-Bet">
+    <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Actual-Member-Bet-Odds" SpName="Acc_Rpt_ActualMemberBet_OddsTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Actual-Member-Bet-BetType" SpName="Acc_Rpt_ActualMemberBet_Detail" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Actual-Member-Bet-Product" SpName="Acc_Rpt_ActualMemberBet" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Actual-Member-Bet-Currency" SpName="Acc_Rpt_ActualMemberBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
+</Functions>
