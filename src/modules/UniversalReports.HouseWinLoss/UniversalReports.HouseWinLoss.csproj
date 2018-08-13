@@ -255,6 +255,7 @@
     <Compile Include="MetricGaming\LiveNonLive\Criteria.cs" />
     <Compile Include="MetricGaming\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveController.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveWinLossService.cs" />
     <Compile Include="MetricGaming\LiveNonLive\QueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\Criteria.cs" />
     <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveWinLossService.cs" />
     <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
     <Compile Include="OtherSports\NewCricket\Criteria.cs" />
     <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />

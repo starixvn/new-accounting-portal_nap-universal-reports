@@ -153,6 +153,8 @@
     <Compile Include="Common\Services\CommonBalanceUpServiceTests.cs" />
     <Compile Include="Common\SiteWinLoss\SiteServiceUnitTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\ServiceUnitTests.cs" />
+    <Compile Include="OtherSports\LiveNonLive\ServiceUnitTests.cs" />
     <Compile Include="OtherSports\NewCricket\ServiceUnitTests.cs" />
     <Compile Include="Products\PermissionFilterServiceUnitTests.cs" />
     <Compile Include="Products\ServiceUnitTests.cs" />
@@ -342,6 +344,12 @@
     <None Include="TestData\Common.SiteWinLoss.SiteService.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\MetricGaming.LiveNonLive.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\MetricGaming.LiveNonLive.Service.data-1-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\OtherSports.NewCricket.Service.data-1-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -360,10 +368,16 @@
     <None Include="TestData\Products.Service.data-2-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\OtherSports.LiveNonLive.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\Soccer.LiveNonLive.Service.data-1-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Soccer.GroupBetType.Service.data-1-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\OtherSports.LiveNonLive.Service.data-1-fakeData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="TestData\Soccer.LiveNonLive.Service.data-1-fakeData.json">

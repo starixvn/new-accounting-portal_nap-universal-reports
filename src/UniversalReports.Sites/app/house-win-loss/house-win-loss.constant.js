@@ -22,7 +22,7 @@ import moment from "moment";
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
                 controller: "SoccerLiveNonLiveController",
-                service: "soccerLiveNonLiveService",
+                service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer/live-nonlive",
                 mainParameters: {},
                 getTitleFunction: "getSoccerLiveNonLiveTitle"
@@ -96,8 +96,8 @@ import moment from "moment";
             liveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
                 controller: "MetricGamingLiveNonLiveController",
-                service: "metricGamingLiveNonLiveService",
-                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/live-none-live",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/live-non-live",
                 mainParameters: {},
                 getTitleFunction: "getProductTitleLiveNonLive"
             },
@@ -131,7 +131,7 @@ import moment from "moment";
             liveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
                 controller: "OtherSportsLiveNonLiveController",
-                service: "otherSportsLiveNonLiveService",
+                service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/other-sports/live-non-live",
                 mainParameters: {},
                 getTitleFunction: "getProductTitleLiveNonLive"

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
     <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -26,13 +26,11 @@
     <Setting Key="HouseWinLoss-Racing-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Racing_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-MajorMinor-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-MetricGaming-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-MetricGaming-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-MetricGaming-BetType-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-OtherSports-LiveNonLive-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_LiveNonLive" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-OtherSports-SportType-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-OtherSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-OtherSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Sportsbook-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />

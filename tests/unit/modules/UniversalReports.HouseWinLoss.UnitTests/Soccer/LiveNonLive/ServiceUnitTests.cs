@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
@@ -8,7 +7,6 @@ using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.HouseWinLoss.Soccer.LiveNonLive;
 using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
-using BaseCalculationServiceImp = UniversalReports.HouseWinLoss.Soccer.BaseService.BaseCalculationServiceImp;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.LiveNonLive
 {
@@ -25,13 +23,13 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.LiveNonLive
 
             // Act
             var refService = Substitute.For<RemotingRefService>();
-            var calculatorService = new BaseCalculationServiceImp(refService);
+            var calculatorService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
 
             var service = new SoccerLiveNonLiveWinLossServiceImp(rawWinLossService, calculatorService);
             var result = service.Query(Arg.Any<WinLossCriteria>());
-            
+
             // Assert
             ComparisonAssert.AreEqual(expected, result);
         }

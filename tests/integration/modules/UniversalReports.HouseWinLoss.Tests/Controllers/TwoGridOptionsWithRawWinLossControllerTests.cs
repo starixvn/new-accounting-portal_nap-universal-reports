@@ -14,6 +14,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 return new[]
                 {
                     "Soccer.LiveNonLive.SoccerLiveNonLiveController",
+                    "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
+                    "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
                 };
             }
         }
@@ -25,7 +27,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var queryModel = GetQueryModel(controllerName);
             var expected = TestDataLoader.LoadTestContent(controllerName, "expected");
             var controller = GetControllerWithRawWinLoss(controllerName);
-
 
             var methodInfo = controller.GetType().GetMethod("Json", new[] { queryModel.GetType() });
             var result = methodInfo.Invoke(controller, new[] { queryModel });

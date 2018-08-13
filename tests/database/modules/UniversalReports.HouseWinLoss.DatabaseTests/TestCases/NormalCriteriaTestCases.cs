@@ -43,7 +43,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             var otherSportsBetTypeCriteria = new OtherSports.BetType.Criteria { SportType = 99 };
             var otherSportsNewCricketBetTypeCriteria = new OtherSports.NewCricket.Criteria { SportType = 50 };
             var otherSportsLiveNonLiveCriteria = new OtherSports.LiveNonLive.Criteria();
-            var otherSportsSportTypeCriteria = new OtherSports.SportType.Criteria();
 
             var parlayBetTypeCriteria = new Parlay.BetType.Criteria();
             var parlaySiteCriteria = new Parlay.Site.Criteria { Site = "Credit" };
@@ -70,11 +69,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 IsMajor = true
             };
             var soccerLiveNonLiveCriteria = new Soccer.LiveNonLive.Criteria();
-            var soccerMajorMinorCriteria = new Soccer.MajorMinor.Criteria
-            {
-                IsLive = 2
-            };
-
             var soccerSumBetTypeCriteria = new Soccer.SumBetType.SumBetTypeCriteria
             {
                 IsMajor = true
@@ -154,14 +148,12 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     casinoBetTypeCriteria,
                     casinoProductCriteria,
                     casinoSiteCriteria,
-                    metricGamingBetTypeCriteria,
                     metricGamingLiveNonLiveCriteria,
                     metricGamingSiteCriteria,
                     numberGameMatchDetailCriteria,
                     otherSportsBetTypeCriteria,
                     otherSportsNewCricketBetTypeCriteria,
                     otherSportsLiveNonLiveCriteria,
-                    otherSportsSportTypeCriteria,
                     parlayBetTypeCriteria,
                     parlaySiteCriteria,
                     productCriteria,
@@ -171,7 +163,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     racingMatchDetailCriteria,
                     soccerBetTypeCriteria,
                     soccerLiveNonLiveCriteria,
-                    soccerMajorMinorCriteria,
                     soccerSumBetTypeCriteria,
                     soccerGroupBetTypeCriteria,
                     sportsbookSiteCriteria,

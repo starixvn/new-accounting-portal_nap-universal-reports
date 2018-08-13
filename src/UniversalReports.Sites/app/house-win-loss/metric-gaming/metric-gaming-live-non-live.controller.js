@@ -5,9 +5,9 @@ import angular from "angular";
     angular
         .module('app.houseWinlossApp')
         .controller('MetricGamingLiveNonLiveController', MetricGamingLiveNonLiveController);
-    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'metricGamingLiveNonLiveService', 'showHideColumnService', 'titleService'];
+    MetricGamingLiveNonLiveController.$inject = ['$scope', '$element', 'fanexGridService', 'showHideColumnService', 'titleService'];
 
-    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, metricGamingLiveNonLiveService, showHideColumnService, titleService) {
+    function MetricGamingLiveNonLiveController($scope, $element, fanexGridService, showHideColumnService, titleService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
@@ -27,12 +27,8 @@ import angular from "angular";
                 liveNonLiveGridOptions;
 
             pane.service.getData(viewSetting, pane.data).then(function (data) {
-                liveNonLiveGridOptions = data;
-                renderAll();
-            });
-
-            pane.service.getBetTypeData(viewSetting, pane.data).then(function (data) {
-                betTypeGridOptions = data;
+                betTypeGridOptions = data[0];
+                liveNonLiveGridOptions = data[1];   
                 renderAll();
             });
 

@@ -469,11 +469,8 @@
     <Content Include="app\root\crosscutting\http-response.service.js" />
     <Content Include="app\house-win-loss\shared\match-detail.controller.js" />
     <Content Include="app\house-win-loss\metric-gaming\metric-gaming-live-non-live.controller.js" />
-    <Content Include="app\house-win-loss\metric-gaming\metric-gaming-live-non-live.service.js" />
-    <Content Include="app\house-win-loss\other-sports\other-sports-live-non-live.service.js" />
     <Content Include="app\house-win-loss\other-sports\other-sports-live-non-live.controller.js" />
     <Content Include="app\house-win-loss\soccer\soccer-live-nonlive.controller.js" />
-    <Content Include="app\house-win-loss\soccer\soccer-live-nonlive.service.js" />
     <Content Include="app\house-win-loss\tab\tab.service.js" />
     <Content Include="app\house-win-loss\tab\pane.service.js" />
     <Content Include="app\house-win-loss\tab\tab.directive.html" />

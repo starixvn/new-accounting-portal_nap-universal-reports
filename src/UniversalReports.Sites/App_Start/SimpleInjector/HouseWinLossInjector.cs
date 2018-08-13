@@ -6,6 +6,7 @@ using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
+using MetricGaming = UniversalReports.HouseWinLoss.MetricGaming;
 using OtherSports = UniversalReports.HouseWinLoss.OtherSports;
 using Parlay = UniversalReports.HouseWinLoss.Parlay;
 using Products = UniversalReports.HouseWinLoss.Products;
@@ -46,9 +47,10 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Soccer.LiveNonLive.SoccerLiveNonLiveWinLossService, Soccer.LiveNonLive.SoccerLiveNonLiveWinLossServiceImp>();
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
+            container.Register<OtherSports.LiveNonLive.OtherSportsLiveNonLiveWinLossService, OtherSports.LiveNonLive.OtherSportsLiveNonLiveWinLossServiceImp>();
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
             container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>();
-
+            container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>();

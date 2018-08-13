@@ -33,7 +33,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
 
             var majorMinorSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(majorMinorRawWinLosses);
             var majorMinorGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", majorMinorRawWinLosses);
-            var majorMinorAllRMData = calculationService.CalculateRM(majorMinorRawWinLosses);
+            var majorMinorAllRMData = calculationService.CalculateRM(rawWinLosses);
 
             yield return new BasicWinLossModel
             {
@@ -46,7 +46,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
 
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
-            var liveNonLiveAllRMData = calculationService.CalculateRM(liveNonLiveRawWinLosses);
+            var liveNonLiveAllRMData = calculationService.CalculateRM(rawWinLosses);
 
             yield return new BasicWinLossModel
             {

@@ -40,7 +40,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
         private IEnumerable<GridOptions> BuildGridOptions(QueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            var winlosses = service.Query(criteria);
+            var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), "Major/Minor");
             yield return decorator.Build(majorMinorGridOptions, "Major/Minor");
@@ -53,7 +53,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            var winlosses = service.Query(criteria);
+            var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), "Major/Minor");
             majorMinorGridOptions = decorator.Build(majorMinorGridOptions, queryModel.MajorMinorTitle);
