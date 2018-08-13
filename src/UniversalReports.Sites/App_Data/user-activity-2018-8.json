@@ -8,3 +8,11 @@
 {"User":"sa","Controller":"ActualMemberBet","Action":"Index","Url":"http://localhost:9902/UniversalReports/ActualMemberBet","Time":"2018-08-13T08:57:43.2282422+07:00"}
 {"User":"sa","Controller":"HouseWinLossByProducts","Action":"Index","Url":"http://localhost:9902/UniversalReports/HouseWinLossByProducts","Time":"2018-08-13T13:22:06.4943478+07:00"}
 {"User":"sa","Controller":"Exchange","Action":"Index","Url":"http://localhost:9902/UniversalReports/Exchange","Time":"2018-08-13T13:25:08.891495+07:00"}
+{"User":"sa","Controller":"HouseWinLossByProducts","Action":"Index","Url":"http://localhost:9902/UniversalReports/HouseWinLossByProducts","Time":"2018-08-13T13:56:21.7628795+07:00"}
+{"User":"sa","Controller":"ActualMemberBet","Action":"Index","Url":"http://localhost:9902/UniversalReports/ActualMemberBet","Time":"2018-08-13T13:56:41.6140979+07:00"}
+{"User":"sa","Controller":"ActualMemberBet","Action":"Index","Url":"http://localhost:9902/UniversalReports/ActualMemberBet","Time":"2018-08-13T13:56:47.1988573+07:00"}
+{"User":"sa","Controller":"HouseWinLossByProducts","Action":"Index","Url":"http://localhost:9902/UniversalReports/HouseWinLossByProducts","Time":"2018-08-13T14:01:36.0332473+07:00"}
+{"User":"sa","Controller":"ActualMemberBet","Action":"Index","Url":"http://localhost:9902/UniversalReports/ActualMemberBet","Time":"2018-08-13T14:02:08.0220976+07:00"}
+{"User":"sa","Controller":"HouseWinLossByProducts","Action":"Index","Url":"http://localhost:9902/UniversalReports/HouseWinLossByProducts","Time":"2018-08-13T14:06:09.1635758+07:00"}
+{"User":"sa","Controller":"HouseWinLossByProducts","Action":"Index","Url":"http://localhost:9902/UniversalReports/HouseWinLossByProducts","Time":"2018-08-13T14:06:34.1517056+07:00"}
+{"User":"sa","Controller":"ActualMemberBet","Action":"Index","Url":"http://localhost:9902/UniversalReports/ActualMemberBet","Time":"2018-08-13T14:06:44.9910607+07:00"}
