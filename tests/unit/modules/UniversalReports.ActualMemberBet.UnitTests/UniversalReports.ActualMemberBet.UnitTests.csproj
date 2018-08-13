@@ -126,11 +126,13 @@
     <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="Bettype\ActualMemberBetBettypeControllerTests.cs" />
     <Compile Include="Bettype\BetTypeActualMemberBetTests.cs" />
+    <Compile Include="Bettype\HandlerTests.cs" />
     <Compile Include="Filter\ActualMemberBetFilterControllerTests.cs" />
     <Compile Include="Filter\CurrencyHandlerTests.cs" />
     <Compile Include="Filter\OddsHandlerTests.cs" />
     <Compile Include="Filter\SiteHandlerTests.cs" />
     <Compile Include="Product\ActutalMemberBetProductControllerTests.cs" />
+    <Compile Include="Product\HandlerTests.cs" />
     <Compile Include="Product\ProductActualMemberBetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
