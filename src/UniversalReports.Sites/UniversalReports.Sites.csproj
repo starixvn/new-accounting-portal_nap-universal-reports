@@ -586,7 +586,9 @@
     <Content Include="wwwroot\actual-member-bet\assets\logo.png" />
     <Content Include="wwwroot\actual-member-bet\assets\spinner.gif" />
     <Content Include="wwwroot\actual-member-bet\favicon.ico" />
+    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\actual-member-bet\index.cshtml" />
     <Content Include="wwwroot\actual-member-bet\index.html" />
     <Content Include="wwwroot\actual-member-bet\inline.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\main.bundle.js" />
@@ -881,11 +883,9 @@
     <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\exchange\index.cshtml" />
-    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.af7ae505a9eed503f8b8" />
-    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.b06871f281fee6b241d6" />
-    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580" />
-    <Content Include="wwwroot\actual-member-bet\index.cshtml" />
+    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
