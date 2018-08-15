@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.ActualMemberBet.Filter
 {
-    public class CurrencyHandler : IAsyncRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>
+    public class CurrencyHandler : IRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.ActualMemberBet.Filter
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<Currency>> Handle(CurrencyHttpParameter message)
+        public async Task<IEnumerable<Currency>> Handle(CurrencyHttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = new CurrencyCriteria();
             return await repository.FetchAsync<Currency>(criteria).ConfigureAwait(false);

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
@@ -6,7 +7,7 @@ using UniversalReports.ActualMemberBet.Common;
 
 namespace UniversalReports.ActualMemberBet.Bettype
 {
-    public class Handler : IAsyncRequestHandler<HttpParameter, SummaryEntity<BetTypeActualMemberBet>>
+    public class Handler : IRequestHandler<HttpParameter, SummaryEntity<BetTypeActualMemberBet>>
     {
         private readonly ActualMemberBetService service;
 
@@ -15,9 +16,9 @@ namespace UniversalReports.ActualMemberBet.Bettype
             this.service = service;
         }
 
-        public async Task<SummaryEntity<BetTypeActualMemberBet>> Handle(HttpParameter message)
+        public async Task<SummaryEntity<BetTypeActualMemberBet>> Handle(HttpParameter request, CancellationToken cancellationToken)
         {
-            var criteria = Mapper.Map<Criteria>(message);
+            var criteria = Mapper.Map<Criteria>(request);
             return await service.Query<BetTypeActualMemberBet>(criteria).ConfigureAwait(false);
         }
     }

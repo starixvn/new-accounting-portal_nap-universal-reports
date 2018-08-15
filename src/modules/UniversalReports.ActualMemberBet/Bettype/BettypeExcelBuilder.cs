@@ -52,9 +52,7 @@ namespace UniversalReports.ActualMemberBet.Bettype
 
         private void BuilTitle(HttpParameterExcel excelParams)
         {
-            var fromDate = $"{excelParams.FromDate: MMM dd, yyyy}";
-            var toDate = $"{excelParams.ToDate: MMM dd, yyyy}";
-            bettypeActualMemberBetSheet.Cells["A1:I1"].Value = $"Actual Member Bet From {fromDate} to {toDate} > {excelParams.ProductName}";
+            bettypeActualMemberBetSheet.Cells["A1:I1"].Value = $"Main > {excelParams.ProductName}";
         }
 
         private void ClearTemplate()

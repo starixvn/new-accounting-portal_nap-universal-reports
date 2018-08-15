@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.Exchange.Filter.Licensee
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<LicenseeModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<LicenseeModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.Exchange.Filter.Licensee
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<LicenseeModel>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<LicenseeModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new Criteria();
             return await repository.FetchAsync<LicenseeModel>(criteria).ConfigureAwait(false);

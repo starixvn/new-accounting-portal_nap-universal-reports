@@ -4,7 +4,7 @@
       <div class="group-nap">
         <label>From Date</label>
         <div class="control-nap">
-          <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="maxEndDate"></nap-date-picker>
+          <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="maxEndDate" (dateChange)="onDateChangeFrom()"></nap-date-picker>
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
       <div class="group-nap">
         <label>To Date</label>
         <div class="control-nap">
-          <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate"></nap-date-picker>
+          <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate" (dateChange)="onDateChangeTo()"></nap-date-picker>
         </div>
       </div>
     </div>

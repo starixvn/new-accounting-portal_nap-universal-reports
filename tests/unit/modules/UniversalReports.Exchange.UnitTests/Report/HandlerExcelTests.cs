@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
@@ -18,7 +19,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
             var handleExcel = new HandlerExcel(service, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
+            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().Build(Arg.Any<HttpParameterExcel>(), Arg.Any<SummaryEntity<ExchangeExcelEntity>>());
@@ -36,7 +37,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
             var excelParams = new HttpParameterExcel();
 
             // Act
-            await handleExcel.Handle(excelParams);
+            await handleExcel.Handle(excelParams, new CancellationToken());
 
             // Assert
             excelBuilder.Received().Build(

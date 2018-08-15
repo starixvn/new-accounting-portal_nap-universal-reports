@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
@@ -21,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
             var handler = new Handler(repositoryWithEmptyData);
 
             // Act
-            var viewModel = await handler.Handle(new SummaryHttpParameterJson());
+            var viewModel = await handler.Handle(new SummaryHttpParameterJson(), new CancellationToken());
 
             // Assert
             var expected = CreateEmptyViewModelJson();
@@ -61,7 +62,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
 
             // Act
             var handler = new Handler(repositoryWithNonEmptyMonthStatistics);
-            var viewModel = await handler.Handle(new SummaryHttpParameterJson());
+            var viewModel = await handler.Handle(new SummaryHttpParameterJson(), new CancellationToken());
 
             // Assert
             var expected = CreateViewModelJsonWithRightSummaryStatistic();

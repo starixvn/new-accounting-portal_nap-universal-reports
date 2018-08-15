@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
@@ -21,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDatabase
             var parameter = new HttpParameterJson();
             var handler = new Handler(repository);
 
-            return await handler.Handle(parameter);
+            return await handler.Handle(parameter, new CancellationToken());
         }
     }
 }

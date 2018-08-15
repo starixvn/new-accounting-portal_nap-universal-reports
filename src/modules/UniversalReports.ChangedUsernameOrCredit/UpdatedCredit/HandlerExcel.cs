@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
@@ -7,7 +8,7 @@ using UniversalReports.UpdatedUsernameCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 {
-    public class HandlerExcel : IAsyncRequestHandler<ExcelMessage, ExcelPackage>
+    public class HandlerExcel : IRequestHandler<ExcelMessage, ExcelPackage>
     {
         private readonly UpdatedCreditService service;
         private readonly ExcelSettingFactory excelSettingFactory;
@@ -20,9 +21,9 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
             this.excelBuilder = excelBuilder;
         }
 
-        public async Task<ExcelPackage> Handle(ExcelMessage message)
+        public async Task<ExcelPackage> Handle(ExcelMessage request, CancellationToken cancellationToken)
         {
-            var model = await service.GetUpdatedCredit(message).ConfigureAwait(false);
+            var model = await service.GetUpdatedCredit(request).ConfigureAwait(false);
 
             var excelViewModel = Mapper.Map<IEnumerable<UpdatedCreditModel>, List<UpdatedCreditExcelModel>>(
                 model,
@@ -39,7 +40,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
                        });
                    });
 
-            var excelSetting = excelSettingFactory.CreateSetting(message);
+            var excelSetting = excelSettingFactory.CreateSetting(request);
 
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
 

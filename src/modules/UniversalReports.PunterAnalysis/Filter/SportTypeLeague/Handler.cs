@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SportTypeLeagueEntity>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<SportTypeLeagueEntity>>
     {
         private readonly IDynamicRepository repository;
 
@@ -15,13 +15,13 @@ namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<SportTypeLeagueEntity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<SportTypeLeagueEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new QueryCriteria
             {
-                SportId = message.SportId,
-                SearchText = message.SearchText,
-                SearchExactly = message.SearchExactly
+                SportId = request.SportId,
+                SearchText = request.SearchText,
+                SearchExactly = request.SearchExactly
             };
             return await repository.FetchAsync<SportTypeLeagueEntity>(criteria).ConfigureAwait(false);
         }

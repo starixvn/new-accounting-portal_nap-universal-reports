@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
@@ -32,7 +33,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDateRange
             var parameter = new HttpParameterJson();
             var handler = new Handler(repository);
 
-            var dateRange = await handler.Handle(parameter);
+            var dateRange = await handler.Handle(parameter, new CancellationToken());
 
             Assert.That(dateRange, IsDeeplyEqual.To(valueFromRepository));
         }

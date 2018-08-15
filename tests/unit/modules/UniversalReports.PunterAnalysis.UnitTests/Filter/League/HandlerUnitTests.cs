@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
@@ -33,7 +34,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.League
             var parameter = new HttpParameterJson { FromDate = DateTime.Today, ToDate = DateTime.Today, SportId = 1 };
             var handler = new Handler(repository);
 
-            var result = await handler.Handle(parameter);
+            var result = await handler.Handle(parameter, new CancellationToken());
 
             Assert.That(result, IsDeeplyEqual.To(valueFromRepository));
         }

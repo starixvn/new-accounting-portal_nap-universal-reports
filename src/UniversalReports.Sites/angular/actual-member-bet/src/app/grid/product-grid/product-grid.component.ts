@@ -37,7 +37,7 @@ export class ProductGridComponent implements Grid {
 
     get title(): string {
         const filterModel = this.gridService.filterModel;
-        return `Actual Member Bet Report From ${filterModel.fromDate} To ${filterModel.toDate}`;
+        return `Main`;
     }
 
     showBettype(keyId: string, productName: string) {

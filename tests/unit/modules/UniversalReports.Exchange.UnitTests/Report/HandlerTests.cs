@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoFixture;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.Exchange.Report;
 
 namespace UniversalReports.Exchange.UnitTests.Report
@@ -25,7 +26,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
             var handler = new Handler(service);
 
             // Act
-            var model = await handler.Handle(new HttpParameterJson());
+            var model = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(exchangeModel));

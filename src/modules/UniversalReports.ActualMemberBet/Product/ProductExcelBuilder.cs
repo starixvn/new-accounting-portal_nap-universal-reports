@@ -8,7 +8,7 @@ namespace UniversalReports.ActualMemberBet.Product
 {
     public interface ProductExcelBuilder
     {
-        ExcelPackage Build(HttpParameterExcel excelParams, SummaryEntity<ProductActualMemberBetExcel> productActualMemberBetExcel);
+        ExcelPackage Build(SummaryEntity<ProductActualMemberBetExcel> productActualMemberBetExcel);
     }
 
     public class ProductExcelBuilderImp : ProductExcelBuilder
@@ -29,10 +29,10 @@ namespace UniversalReports.ActualMemberBet.Product
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(HttpParameterExcel excelParams, SummaryEntity<ProductActualMemberBetExcel> productActualMemberBetExcel)
+        public ExcelPackage Build(SummaryEntity<ProductActualMemberBetExcel> productActualMemberBetExcel)
         {
             LoadTemplate();
-            BuilTitle(excelParams);
+            BuilTitle();
             productActualMemberBetSheet.ApplyVertical(productActualMemberBetExcel.Entities, StartRowIndex);
             productActualMemberBetSheet.ApplyModel(totalSheet, productActualMemberBetExcel.Total, StartRowIndex + productActualMemberBetExcel.Entities.Count);
             ClearTemplate();
@@ -50,11 +50,9 @@ namespace UniversalReports.ActualMemberBet.Product
             }
         }
 
-        private void BuilTitle(HttpParameterExcel excelParams)
+        private void BuilTitle()
         {
-            var fromDate = $"{excelParams.FromDate: MMM dd, yyyy}";
-            var toDate = $"{excelParams.ToDate: MMM dd, yyyy}";
-            productActualMemberBetSheet.Cells["A1:H1"].Value = $"Actual Member Bet From {fromDate} to {toDate}";
+            productActualMemberBetSheet.Cells["A1:H1"].Value = "Main";
         }
 
         private void ClearTemplate()

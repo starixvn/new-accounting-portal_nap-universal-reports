@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
@@ -21,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModel>(), Arg.Any<ExcelSetting>());
@@ -51,7 +52,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));

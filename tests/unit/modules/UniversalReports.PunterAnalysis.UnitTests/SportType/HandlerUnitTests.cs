@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoFixture;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
@@ -25,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.SportType
 
             // Act
             var handler = new Handler(service);
-            var viewModel = await handler.Handle(new HttpParameterJson());
+            var viewModel = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));

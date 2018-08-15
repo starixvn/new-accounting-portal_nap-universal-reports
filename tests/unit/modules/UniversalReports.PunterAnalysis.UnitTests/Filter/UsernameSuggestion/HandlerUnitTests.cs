@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using Fanex.NAP.Core.Web.Session;
@@ -37,7 +38,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion
             var parameter = new HttpParameterJson { RoleId = 1, Username = "Any Username" };
             var handler = new Handler(currentSession, repository);
 
-            var usernames = await handler.Handle(parameter);
+            var usernames = await handler.Handle(parameter, new CancellationToken());
 
             Assert.That(usernames, IsDeeplyEqual.To(valueFromRepository));
         }

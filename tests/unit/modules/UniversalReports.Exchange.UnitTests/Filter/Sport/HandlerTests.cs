@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using AutoFixture;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.Exchange.Filter.Sport;
 
 namespace UniversalReports.Exchange.UnitTests.Filter.Sport
@@ -26,7 +27,7 @@ namespace UniversalReports.Exchange.UnitTests.Filter.Sport
             var handler = new Handler(repository);
 
             // Act
-            var model = await handler.Handle(new HttpParameterJson());
+            var model = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(sport));

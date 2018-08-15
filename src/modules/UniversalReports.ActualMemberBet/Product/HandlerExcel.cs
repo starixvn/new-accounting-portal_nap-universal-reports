@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
@@ -7,7 +8,7 @@ using UniversalReports.ActualMemberBet.Common;
 
 namespace UniversalReports.ActualMemberBet.Product
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : IRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private readonly ActualMemberBetService service;
 
@@ -19,12 +20,12 @@ namespace UniversalReports.ActualMemberBet.Product
             this.excelBuilder = excelBuilder;
         }
 
-        public async Task<ExcelPackage> Handle(HttpParameterExcel message)
+        public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            var criteria = Mapper.Map<Criteria>(message);
+            var criteria = Mapper.Map<Criteria>(request);
             var productActualMemberBet = await service.Query<ProductActualMemberBet>(criteria).ConfigureAwait(false);
             var productActualMemberBetExcel = Mapper.Map<SummaryEntity<ProductActualMemberBetExcel>>(productActualMemberBet);
-            var excelPackage = excelBuilder.Build(message, productActualMemberBetExcel);
+            var excelPackage = excelBuilder.Build(productActualMemberBetExcel);
             return excelPackage;
         }
     }

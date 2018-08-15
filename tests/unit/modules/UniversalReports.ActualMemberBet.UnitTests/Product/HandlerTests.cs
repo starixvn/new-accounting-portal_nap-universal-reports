@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoFixture;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.ActualMemberBet.Common;
 using UniversalReports.ActualMemberBet.Product;
 
@@ -26,7 +27,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Product
             var handler = new Handler(service);
 
             // Act
-            var model = await handler.Handle(new HttpParameter());
+            var model = await handler.Handle(new HttpParameter(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(fakeModel));

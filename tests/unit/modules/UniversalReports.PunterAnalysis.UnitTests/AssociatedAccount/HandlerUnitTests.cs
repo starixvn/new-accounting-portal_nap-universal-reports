@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
@@ -39,10 +40,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(nonEmptyListOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
-            
+
             // Act
             var handler = new Handler(configurationService, fraudService, repository);
-            var viewModel = await handler.Handle(new HttpParameterJson());
+            var viewModel = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
             var expected = new List<UserRoleModel>(nonEmptyListOfUserRoleModel);

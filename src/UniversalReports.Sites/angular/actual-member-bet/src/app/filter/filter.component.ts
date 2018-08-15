@@ -42,6 +42,44 @@ export class FilterComponent implements OnInit {
     this.generated.emit(filterModel);
   }
 
+  onDateChangeFrom() {
+    let startDate: moment.Moment;
+    let endDate: moment.Moment;
+    let tempStartDate: moment.Moment;
+    let tempEndDate: moment.Moment;
+
+    startDate = DateHelper.convertDateStructToMoment(this.startDate);
+    endDate =  DateHelper.convertDateStructToMoment(this.endDate);
+    tempStartDate = moment.utc(startDate);
+    const maxEndDate = startDate.add(3, 'month');
+
+    if (maxEndDate.isBefore(endDate)) {
+      tempEndDate = moment.utc(maxEndDate);
+    }
+
+    this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
+    this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
+  }
+
+  onDateChangeTo() {
+    let startDate: moment.Moment;
+    let endDate: moment.Moment;
+    let tempStartDate: moment.Moment;
+    let tempEndDate: moment.Moment;
+
+    startDate = DateHelper.convertDateStructToMoment(this.startDate);
+    endDate =  DateHelper.convertDateStructToMoment(this.endDate);
+    tempEndDate = moment.utc(endDate);
+    const minStartDate = endDate.subtract(3, 'month');
+
+    if (minStartDate.isAfter(startDate)) {
+      tempStartDate = moment.utc(minStartDate);
+    }
+
+    this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
+    this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
+  }
+
   private getOdds() {
     this.filterService.getOdds().subscribe(odds => this.odds = odds);
   }

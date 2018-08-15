@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using AutoFixture;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
 
 namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
@@ -25,7 +26,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
             var handler = new Handler(service);
 
             // Act
-            var model = await handler.Handle(new Message());
+            var model = await handler.Handle(new Message(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(updatedCreditModel));

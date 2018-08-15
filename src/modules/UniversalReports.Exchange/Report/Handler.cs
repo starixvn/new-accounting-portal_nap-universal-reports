@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Linq.DynamicSum;
 using MediatR;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, SummaryEntity<ExchangeEntity>>
+    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<ExchangeEntity>>
     {
         private readonly Service service;
 
@@ -14,10 +14,10 @@ namespace UniversalReports.Exchange.Report
             this.service = service;
         }
 
-        public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson message)
+        public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            
-            return await service.Query(message).ConfigureAwait(false);
+
+            return await service.Query(request).ConfigureAwait(false);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
@@ -26,7 +27,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var handleExcel = new HandlerExcel(punterAnalysisService, configurationService, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
@@ -72,7 +73,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             handleExcel.CreateProductDetailSetting(Arg.Any<string>(), Arg.Any<string>()).Returns(productDetailExcelSetting);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(

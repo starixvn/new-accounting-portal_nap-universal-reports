@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.Exchange.Filter.Sport
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SportModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<SportModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.Exchange.Filter.Sport
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<SportModel>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<SportModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new Criteria();
             return await repository.FetchAsync<SportModel>(criteria).ConfigureAwait(false);

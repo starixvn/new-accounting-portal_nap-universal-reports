@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using AutoFixture;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.ActualMemberBet.Filter;
 
 namespace UniversalReports.ActualMemberBet.UnitTests.Filter
@@ -26,7 +27,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             var handler = new SiteHandler(repository);
 
             // Act
-            var model = await handler.Handle(new SiteHttpParameter());
+            var model = await handler.Handle(new SiteHttpParameter(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(currencies));

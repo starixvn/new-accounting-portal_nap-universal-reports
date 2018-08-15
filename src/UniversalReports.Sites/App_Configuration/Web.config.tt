@@ -113,19 +113,19 @@
         <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
           <dependentAssembly>
             <assemblyIdentity name="SimpleInjector" publicKeyToken="984CB50DEA722E99" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-4.0.12.0" newVersion="4.0.12.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-4.3.0.0" newVersion="4.3.0.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31BF3856AD364E35" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-5.2.6.0" newVersion="5.2.6.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-5.2.6.0" newVersion="5.2.6.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-10.0.0.0" newVersion="10.0.0.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-11.0.0.0" newVersion="11.0.0.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
@@ -181,19 +181,15 @@
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
-            <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-5.2.6.0" newVersion="5.2.6.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0"/>
-          </dependentAssembly>
-          <dependentAssembly>
-            <assemblyIdentity name="SimpleInjector" publicKeyToken="984cb50dea722e99" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-4.0.12.0" newVersion="4.0.12.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-5.2.6.0" newVersion="5.2.6.0"/>
           </dependentAssembly>
           <dependentAssembly>
             <assemblyIdentity name="EPPlus" publicKeyToken="ea159fdaa78159a1" culture="neutral"/>
-            <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0"/>
+            <bindingRedirect oldVersion="0.0.0.0-4.5.2.1" newVersion="4.5.2.1"/>
           </dependentAssembly>
         </assemblyBinding>
       </runtime>

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.ActualMemberBet.Filter
 {
-    public class SiteHandler : IAsyncRequestHandler<SiteHttpParameter, IEnumerable<Site>>
+    public class SiteHandler : IRequestHandler<SiteHttpParameter, IEnumerable<Site>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.ActualMemberBet.Filter
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<Site>> Handle(SiteHttpParameter message)
+        public async Task<IEnumerable<Site>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = new SiteCriteria();
             return await repository.FetchAsync<Site>(criteria).ConfigureAwait(false);
