@@ -9,7 +9,10 @@
             }
             &>.control-nap {
                 float: left;
-                width: 200px;
+                width: 150px;
+            }
+            &>.width-100 {
+                width: 100px !important;
             }
         }
     }

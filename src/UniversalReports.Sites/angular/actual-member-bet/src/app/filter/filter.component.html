@@ -19,7 +19,7 @@
     <div class="col-nap">
       <div class="group-nap">
         <label class="col-form-label">Site</label>
-        <div class="control-nap">
+        <div class="control-nap width-100">
           <select class="form-control" #siteSelect>
             <option *ngFor="let site of sites" value={{site.SiteType}}>
               {{site.SiteName}}
@@ -31,7 +31,7 @@
     <div class="col-nap">
       <div class="group-nap">
         <label class="col-form-label">Currency</label>
-        <div class="control-nap">
+        <div class="control-nap width-100">
           <select class="form-control" #currencySelect>
             <option *ngFor="let currency of currencies" value={{currency.CurrencyId}}>
               {{currency.CurrencyName}}
@@ -43,7 +43,7 @@
     <div class="col-nap">
       <div class="group-nap">
         <label class="col-form-label">Odds Type</label>
-        <div class="control-nap">
+        <div class="control-nap width-100">
           <select class="form-control" #oddsSelect>
             <option *ngFor="let odd of odds" value={{odd.OddsType}}>
               {{odd.OddsTypeName}}
