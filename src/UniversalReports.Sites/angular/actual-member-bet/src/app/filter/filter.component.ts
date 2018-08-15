@@ -5,7 +5,6 @@ import { FilterModel, Currency, Site, Odds } from './filter.model';
 import { CONFIG } from '../common/config';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FilterService } from './filter.service';
-import { ToastService } from 'nap-components/toast';
 
 @Component({
   selector: 'app-filter',
@@ -25,7 +24,7 @@ export class FilterComponent implements OnInit {
   sites: Site[];
   odds: Odds[];
 
-  constructor(private filterService: FilterService, private toastService: ToastService) { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit() {
     this.getCurrency();
@@ -34,10 +33,6 @@ export class FilterComponent implements OnInit {
   }
 
   onGenerate(siteType: number, currencyId: number, oddsType: number) {
-    if (!this.isValid) {
-      return;
-    }
-
     const filterModel = this.createFilterModel(siteType, currencyId, oddsType);
     this.generated.emit(filterModel);
   }
@@ -104,15 +99,5 @@ export class FilterComponent implements OnInit {
     };
 
     return model;
-  }
-
-  private get isValid(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
-    if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-        this.toastService.activate(`Date range selection is limited to 3 months to protect system's performance!`);
-        return false;
-    }
-
-    return true;
   }
 }
