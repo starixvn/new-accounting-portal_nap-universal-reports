@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Criteria;
@@ -29,7 +30,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var majorMinorRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Contains("Live"));
+            var majorMinorRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer-Major Bet Types", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Soccer-Minor Bet Types", StringComparison.CurrentCultureIgnoreCase));
 
             var majorMinorSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(majorMinorRawWinLosses);
             var majorMinorGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", majorMinorRawWinLosses);
@@ -42,7 +44,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
                 GrandTotal = majorMinorGrandTotal
             };
 
-            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Contains("Bet Types"));
+            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Soccer Non-Live", StringComparison.CurrentCultureIgnoreCase));
 
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);

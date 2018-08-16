@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Criteria;
@@ -29,7 +30,8 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var sportTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Contains("Live") && !r.GroupName.Contains("Other Sports"));
+            var sportTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Equals("Other Sports Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                && !r.GroupName.Equals("Other Sports Non-Live", StringComparison.CurrentCultureIgnoreCase));
             var sportTypeSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(sportTypeRawWinLosses);
             var sportTypeGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", sportTypeRawWinLosses);
             var sportTypeAllRMData = calculationService.CalculateRM(rawWinLosses);
@@ -41,7 +43,8 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
                 GrandTotal = sportTypeGrandTotal
             };
 
-            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Contains("Live") && r.GroupName.Contains("Other Sports"));
+            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Other Sports Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Other Sports Non-Live", StringComparison.CurrentCultureIgnoreCase));
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
             var liveNonLiveAllRMData = calculationService.CalculateRM(rawWinLosses);

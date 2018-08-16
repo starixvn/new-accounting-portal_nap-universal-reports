@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Criteria;
@@ -29,7 +30,8 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var betTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Contains("Live") && !r.GroupName.Contains("Metric Gaming"));
+            var betTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Equals("Metric Gaming - Superlive Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                && !r.GroupName.Equals("Metric Gaming - Superlive Non-Live", StringComparison.CurrentCultureIgnoreCase));
             var betTypeSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(betTypeRawWinLosses);
             var betTypeGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", betTypeRawWinLosses);
 
@@ -39,7 +41,8 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
                 GrandTotal = betTypeGrandTotal
             };
 
-            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Contains("Live") && r.GroupName.Contains("Metric Gaming"));
+            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Metric Gaming - Superlive Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Metric Gaming - Superlive Non-Live", StringComparison.CurrentCultureIgnoreCase));
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
 
