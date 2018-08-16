@@ -46,6 +46,7 @@ export class FilterComponent implements OnInit {
     startDate = DateHelper.convertDateStructToMoment(this.startDate);
     endDate =  DateHelper.convertDateStructToMoment(this.endDate);
     tempStartDate = moment.utc(startDate);
+    tempEndDate =  moment.utc(endDate);
     const maxEndDate = startDate.add(3, 'month');
 
     if (maxEndDate.isBefore(endDate)) {
@@ -64,6 +65,7 @@ export class FilterComponent implements OnInit {
 
     startDate = DateHelper.convertDateStructToMoment(this.startDate);
     endDate =  DateHelper.convertDateStructToMoment(this.endDate);
+    tempStartDate = moment.utc(startDate);
     tempEndDate = moment.utc(endDate);
     const minStartDate = endDate.subtract(3, 'month');
 

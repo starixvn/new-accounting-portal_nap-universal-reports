@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { ProductData } from './product-grid.model';
 import { HttpService } from 'nap-components/http';
 import { GridService } from '../grid.service';
@@ -22,8 +23,8 @@ export class ProductGridService {
     exportExcel() {
         const url = `${this.url}/excel`;
         const excelQueryModel = this.gridService.filterModel;
-        const fromDate =  excelQueryModel.fromDate.replace(',', '').replace(/ /g, '_');
-        const toDate = excelQueryModel.toDate.replace(',', '').replace(/ /g, '_');
+        const fromDate = moment(excelQueryModel.fromDate).format('YYYY_MM_DD');
+        const toDate = moment(excelQueryModel.toDate).format('YYYY_MM_DD');
         this.httpService.download(url, this.gridService.filterModel).subscribe(response => {
             const fileName = `Actual_Member_Bet_Report_From_${fromDate}_To_${toDate}.xlsx`;
             Helper.saveExcel(response, fileName);

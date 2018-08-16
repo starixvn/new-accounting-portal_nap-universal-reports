@@ -1,9 +1,10 @@
-import { BettypeData } from './bettype-grid.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 import { GridService } from '../grid.service';
 import { HttpService } from 'nap-components/http';
 import { Helper } from 'nap-components/helper';
+import { BettypeData } from './bettype-grid.model';
 
 @Injectable()
 export class BettypeGridService {
@@ -22,8 +23,8 @@ export class BettypeGridService {
     exportExcel() {
         const url = `${this.url}/excel`;
         const excelQueryModel = this.createExcelQueryModel();
-        const fromDate =  excelQueryModel.fromDate.replace(',', '').replace(/ /g, '_');
-        const toDate = excelQueryModel.toDate.replace(',', '').replace(/ /g, '_');
+        const fromDate = moment(excelQueryModel.fromDate).format('YYYY_MM_DD');
+        const toDate = moment(excelQueryModel.toDate).format('YYYY_MM_DD');
         this.httpService.download(url, excelQueryModel).subscribe(response => {
             const fileName = `Actual_Member_Bet_Report_From_${fromDate}_To_${toDate}.xlsx`;
             Helper.saveExcel(response, fileName);
