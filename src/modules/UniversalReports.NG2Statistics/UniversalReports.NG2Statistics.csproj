@@ -158,6 +158,10 @@
       <HintPath>..\..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Olympus.UniversalReports.MVC.1.0.0\lib\net461\UniversalReports.MVC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebActivator">
       <HintPath>..\..\..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
       <Private>True</Private>
