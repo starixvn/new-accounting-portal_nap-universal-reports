@@ -1,25 +1,25 @@
-<div class="filter-container">
+<div class="nap-filter">
   <div class="row">
-    <div class="col-nap">
-      <div class="group-nap">
+    <div class="nap-col">
+      <div class="nap-group">
         <label>From Date</label>
-        <div class="control-nap">
+        <div class="nap-control">
           <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="endDate" (dateChange)="onDateChangeFrom()"></nap-date-picker>
         </div>
       </div>
     </div>
-    <div class="col-nap">
-      <div class="group-nap">
+    <div class="nap-col">
+      <div class="nap-group">
         <label>To Date</label>
-        <div class="control-nap">
+        <div class="nap-control">
           <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate" (dateChange)="onDateChangeTo()"></nap-date-picker>
         </div>
       </div>
     </div>
-    <div class="col-nap">
-      <div class="group-nap">
+    <div class="nap-col">
+      <div class="nap-group">
         <label class="col-form-label">Site</label>
-        <div class="control-nap width-100">
+        <div class="nap-control width-100">
           <select class="form-control" #siteSelect>
             <option *ngFor="let site of sites" value={{site.SiteType}}>
               {{site.SiteName}}
@@ -28,10 +28,10 @@
         </div>
       </div>
     </div>
-    <div class="col-nap">
-      <div class="group-nap">
+    <div class="nap-col">
+      <div class="nap-group">
         <label class="col-form-label">Currency</label>
-        <div class="control-nap width-100">
+        <div class="nap-control width-100">
           <select class="form-control" #currencySelect>
             <option *ngFor="let currency of currencies" value={{currency.CurrencyId}}>
               {{currency.CurrencyName}}
@@ -40,10 +40,10 @@
         </div>
       </div>
     </div>
-    <div class="col-nap">
-      <div class="group-nap">
+    <div class="nap-col">
+      <div class="nap-group">
         <label class="col-form-label">Odds Type</label>
-        <div class="control-nap width-100">
+        <div class="nap-control width-100">
           <select class="form-control" #oddsSelect>
             <option *ngFor="let odd of odds" value={{odd.OddsType}}>
               {{odd.OddsTypeName}}
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="col-nap col-buttons">
+    <div class="nap-col col-buttons">
       <button class="btn btn-primary" (click)="onGenerate(siteSelect.value, currencySelect.value, oddsSelect.value)">GENERATE</button>
     </div>
   </div>

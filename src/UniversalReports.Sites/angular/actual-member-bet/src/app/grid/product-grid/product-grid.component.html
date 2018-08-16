@@ -43,7 +43,7 @@
   <td class="text-right" [napDecimalFormat]="item.HouseVirtualWinLoss"></td>
 </ng-template>
 <div *ngIf="productData" [ngSwitch]="productData.Entities.length > 0">
-  <div class="grid">
+  <div class="nap-grid">
       <div style="width: 1010px;">
           <div class="header">
               <table>
@@ -56,7 +56,7 @@
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tbody>
                       <tr *ngFor="let item of productData.Entities">
-                          <ng-template [ngTemplateOutlet]="rowItem" [ngOutletContext]="{ item: item }">
+                          <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
                           </ng-template>
                       </tr>
                   </tbody>

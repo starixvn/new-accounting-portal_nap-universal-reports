@@ -2,13 +2,18 @@
 
 @import '~nap-theme/css/theme.css';
 @import '~font-awesome/css/font-awesome.min.css';
-.spinner-loading {
-    background-image: url("assets/spinner.gif");
+body {
+  padding-top: 2rem;
 }
+
+.spinner-loading {
+  background-image: url("assets/spinner.gif");
+}
+
 .navbar-brand {
-    .logo {
-        background-image: url("assets/logo.png");
-        height: 16px;
-        width: 147px;
-    }
+  .logo {
+    background-image: url("assets/logo.png");
+    height: 16px;
+    width: 147px;
+  }
 }

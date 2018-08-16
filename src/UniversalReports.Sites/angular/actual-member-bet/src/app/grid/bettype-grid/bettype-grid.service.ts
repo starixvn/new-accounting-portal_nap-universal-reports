@@ -27,7 +27,7 @@ export class BettypeGridService {
         const toDate = moment(excelQueryModel.toDate).format('YYYY_MM_DD');
         this.httpService.download(url, excelQueryModel).subscribe(response => {
             const fileName = `Actual_Member_Bet_Report_From_${fromDate}_To_${toDate}.xlsx`;
-            Helper.saveExcel(response, fileName);
+            Helper.downloadFile(response, fileName);
         });
     }
 

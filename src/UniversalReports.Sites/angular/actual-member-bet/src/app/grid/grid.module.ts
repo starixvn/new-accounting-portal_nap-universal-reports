@@ -9,12 +9,14 @@ import { ProductGridService } from './product-grid/product-grid.service';
 import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { NumberFormatModule } from 'nap-components/number-format';
+import { BreadcrumbModule } from 'nap-components/breadcrumb';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         NumberFormatModule,
+        BreadcrumbModule
     ],
     declarations: [
         GridComponent,

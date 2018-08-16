@@ -1,4 +1,11 @@
+<ng-template #breadcrumbToolboxTemplate>
+  <div class="breadcrumb-toolbox">
+      <div class="toolbox-item">
+          <i class="fa fa-file-excel-o" aria-hidden="true" title="Export excel" (click)="exportExcel()"></i>
+      </div>
+  </div>
+</ng-template>
 <div class="d-inline-block">
-  <app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+  <nap-breadcrumb [items]="breadcrumbItems" (itemClick)="onBreadcrumbItemClick($event)" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
   <div #container></div>
 </div>
