@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "nap-components/http";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { HttpService } from 'nap-components/http';
+import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
 
 @Injectable()

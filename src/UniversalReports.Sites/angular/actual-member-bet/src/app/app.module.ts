@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { DateModule } from 'nap-components/date';
 import { HttpModule } from 'nap-components/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
 import { SpinnerModule } from 'nap-components/spinner';
 import { CONFIG, DateConfig } from './common/config';
