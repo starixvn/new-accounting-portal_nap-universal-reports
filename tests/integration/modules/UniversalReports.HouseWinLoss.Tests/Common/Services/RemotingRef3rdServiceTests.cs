@@ -5,7 +5,7 @@ using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Tests.Common.Services
 {
-    public class RemotingRef3rdServiceTests
+    public class RemotingRef3RDServiceTests
     {
         [Test]
         public void GetTeamName_ReturnsNotNullString()
