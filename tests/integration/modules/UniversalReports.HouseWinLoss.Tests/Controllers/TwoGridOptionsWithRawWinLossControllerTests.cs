@@ -35,7 +35,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             ComparisonAssert.AreEqualJson(expected, gridOptions);
         }
 
-        [TestCaseSource(nameof(ControllerList))]
+        [TestCaseSource(nameof(TwoGridOptionsControllerList))]
         [Category("ControllersTests")]
         public void Test_Excel_Successful(string controllerName)
         {

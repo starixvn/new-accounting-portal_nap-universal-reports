@@ -55,7 +55,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
             var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
-            var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Typer");
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Type");
             majorMinorGridOptions = decorator.Build(majorMinorGridOptions, queryModel.SportTypeTitle);
 
             var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
