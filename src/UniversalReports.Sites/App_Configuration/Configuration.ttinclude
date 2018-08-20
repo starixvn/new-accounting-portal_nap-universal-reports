@@ -163,7 +163,7 @@
                     case SiteEnvironment.SIT:
 						return "http://172.16.4.106:1710/api";
                     case SiteEnvironment.UAT:
-						return "http://10.2.23.6:7257/api";
+						return "http://10.40.40.248:1710/api";
 					case SiteEnvironment.PRO:
 						return "http://10.40.40.22:1710/api";
 					case SiteEnvironment.MNL:
@@ -294,7 +294,7 @@
                     case SiteEnvironment.MNL:
                         return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
                     case SiteEnvironment.UAT:
-                        return "stateConnectionString=\"tcpip=10.40.40.73:42424\"";
+                        return "stateConnectionString=\"tcpip=10.40.40.47:42424\"";
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
