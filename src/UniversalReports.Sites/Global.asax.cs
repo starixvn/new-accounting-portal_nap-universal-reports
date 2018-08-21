@@ -20,7 +20,7 @@ namespace UniversalReports.Sites
         protected void Application_Start()
         {
             ChangeApplicationName();
-
+            RemotingRef.Register();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

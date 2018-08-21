@@ -39,6 +39,10 @@
     </div>
     <script type="text/javascript">
         var napConfig = @Html.Raw(Json.Encode(napConfig));
+        if (location.protocol === 'https:'){
+            napConfig.RootUrl = napConfig.RootUrl.replace("http://","https://");
+        }
+
     </script>
     <script src="~/bundle/lib.chunk.js?v=1.0.4"></script>
     <script src="~/bundle/app.chunk.js?v=1.0.4"></script>

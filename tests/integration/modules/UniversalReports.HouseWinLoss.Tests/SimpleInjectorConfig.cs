@@ -2,6 +2,7 @@
 
 using Fanex.Caching;
 using Fanex.Data.Repository;
+using Fanex.RemotingRef;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
@@ -32,6 +33,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register(() => repository);
 
             container.Register<CacheService>(() => new CacheServiceImpl());
+            container.Register<IRemotingRefService, RemotingRefService>();
             container.Register<CommonServices.RemotingRefService, RemotingRefServiceStub>();
             container.Register<CommonServices.RemotingRef3rdServiceImp, RemotingRef3rdServiceStub>();
 

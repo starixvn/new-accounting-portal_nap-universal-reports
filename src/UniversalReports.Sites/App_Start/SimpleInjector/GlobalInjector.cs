@@ -5,6 +5,7 @@ using Fanex.NAP.Core.Service.Impl;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
+using Fanex.RemotingRef;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Configurations;
@@ -30,6 +31,7 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.Register<IDynamicRepository, DynamicRepository>();
             container.Register<ConfigurationService, ConfigurationServiceImp>();
+            container.Register<IRemotingRefService, RemotingRefService>();
 
             return container;
         }

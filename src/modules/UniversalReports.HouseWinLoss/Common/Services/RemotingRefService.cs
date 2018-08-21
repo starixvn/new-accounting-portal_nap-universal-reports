@@ -1,4 +1,4 @@
-﻿using RemotingRef;
+﻿using Fanex.RemotingRef;
 
 namespace UniversalReports.HouseWinLoss.Common.Services
 {
@@ -13,16 +13,23 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
     public class RemotingRefServiceImp : RemotingRefService
     {
+        private readonly IRemotingRefService remotingRefService;
+
+        public RemotingRefServiceImp(IRemotingRefService remotingRefService)
+        {
+            this.remotingRefService = remotingRefService;
+        }
+
         public string GetTeamName(int teamId)
         {
             var teamIdString = teamId.ToString();
-            return RefData.GetTeamName(teamIdString, "en", string.Empty);
+            return remotingRefService.GetTeamName(teamIdString, "en", string.Empty);
         }
 
         public string GetLeagueName(int leagueId)
         {
             var leagueIdString = leagueId.ToString();
-            return RefData.GetLeagueName(leagueIdString, "en", string.Empty);
+            return remotingRefService.GetLeagueName(leagueIdString, "en", string.Empty);
         }
 
         public string GetMatchCode(string matchCode)
@@ -32,22 +39,29 @@ namespace UniversalReports.HouseWinLoss.Common.Services
                 return string.Empty;
             }
 
-            return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
+            return remotingRefService.GetBetRadarMatchCodeFormat(matchCode, "en");
         }
     }
 
     public class RemotingRef3rdServiceImp : RemotingRefService
     {
+        private readonly IRemotingRefService remotingRefService;
+
+        public RemotingRef3rdServiceImp(IRemotingRefService remotingRefService)
+        {
+            this.remotingRefService = remotingRefService;
+        }
+
         public virtual string GetLeagueName(int leagueId)
         {
             var leagueIdString = leagueId.ToString();
-            return RefData.GetLeagueName3rd(leagueIdString, "en", string.Empty);
+            return remotingRefService.GetLeagueName3rd(leagueIdString, "en", string.Empty);
         }
 
         public virtual string GetTeamName(int teamId)
         {
             var teamIdString = teamId.ToString();
-            return RefData.GetTeamName3rd(teamIdString, "en", string.Empty);
+            return remotingRefService.GetTeamName3rd(teamIdString, "en", string.Empty);
         }
 
         public string GetMatchCode(string matchCode)
@@ -57,7 +71,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
                 return string.Empty;
             }
 
-            return RefData.GetBetRadarMatchCodeFormat(matchCode, "en");
+            return remotingRefService.GetBetRadarMatchCodeFormat(matchCode, "en");
         }
     }
 }

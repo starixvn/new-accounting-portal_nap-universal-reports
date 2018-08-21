@@ -1,21 +1,17 @@
-﻿using NUnit.Framework;
-using RemotingRef;
+﻿using Fanex.RemotingRef;
+using NSubstitute;
+using NUnit.Framework;
 using UniversalReports.HouseWinLoss.Common.Services;
 
 namespace UniversalReports.HouseWinLoss.Tests.Common.Services
 {
     public class RemotingRefServiceTests
     {
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
-            RefData.GetBetTypeName("1", string.Empty);
-        }
-
         [Test]
         public void GetTeamName_ReturnsNotNullString()
         {
-            var service = new RemotingRefServiceImp();
+            var remotingRefService = Substitute.For<IRemotingRefService>();
+            var service = new RemotingRefServiceImp(remotingRefService);
 
             var teamName = service.GetTeamName(5);
 
@@ -25,7 +21,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Common.Services
         [Test]
         public void GetLeagueName_ReturnsNotNullString()
         {
-            var service = new RemotingRefServiceImp();
+            var remotingRefService = Substitute.For<IRemotingRefService>();
+            var service = new RemotingRefServiceImp(remotingRefService);
 
             var leagueName = service.GetLeagueName(3);
 
