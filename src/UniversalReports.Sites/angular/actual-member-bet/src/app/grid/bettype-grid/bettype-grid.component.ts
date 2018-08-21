@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Grid } from '../grid.model';
 import { GridService } from '../grid.service';
@@ -6,13 +6,13 @@ import { BettypeGridService } from './bettype-grid.service';
 import { BettypeData } from './bettype-grid.model';
 
 @Component({
-  selector: 'app-bettype-grid',
-  templateUrl: './bettype-grid.component.html',
-  styleUrls: ['./bettype-grid.component.scss']
+    selector: 'app-bettype-grid',
+    templateUrl: './bettype-grid.component.html',
+    styleUrls: ['./bettype-grid.component.scss']
 })
 export class BettypeGridComponent implements Grid {
 
-  bettypeData: BettypeData;
+    bettypeData: BettypeData;
 
     constructor(
         private gridService: GridService,
@@ -22,6 +22,7 @@ export class BettypeGridComponent implements Grid {
     query() {
         this.bettypeService.query().subscribe(data => {
             this.bettypeData = data;
+            this.gridService.showGridCompletedSubject.next(0);
         });
     }
 

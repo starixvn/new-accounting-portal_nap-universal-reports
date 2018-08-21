@@ -1,60 +1,68 @@
 import {
-  Component,
-  OnInit,
-  Input,
-  ViewContainerRef,
-  ViewChild,
-   Injector,
-  Renderer,
-  ComponentFactoryResolver,
-  ComponentRef,
-  ComponentFactory,
-  SimpleChanges,
-  OnDestroy,
-  OnChanges} from '@angular/core';
+    Component,
+    OnInit,
+    Input,
+    ViewContainerRef,
+    ViewChild,
+    Renderer,
+    ComponentFactoryResolver,
+    ComponentRef,
+    ComponentFactory,
+    SimpleChanges,
+    OnDestroy,
+    OnChanges
+} from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { FilterModel } from '../filter/filter.model';
 import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { Grid, GridType } from './grid.model';
 import { GridService } from './grid.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
-  entryComponents: [
-    ProductGridComponent,
-    BettypeGridComponent
-  ]
+    selector: 'app-grid',
+    templateUrl: './grid.component.html',
+    styleUrls: ['./grid.component.scss'],
+    entryComponents: [
+        ProductGridComponent,
+        BettypeGridComponent
+    ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() filterModel: FilterModel;
-  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
-  GridType = GridType;
-  gridType = GridType.Product;
-  breadcrumbItems: string[];
-  private components: ComponentRef<Grid>[] = [];
+    @Input() filterModel: FilterModel;
+    @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private injector: Injector,
-    private renderer: Renderer,
-    private service: GridService) { }
+    gridType = GridType.Product;
+    breadcrumbItems: string[];
+    private showGridCompletedSubscription: Subscription;
+    private generateBetTypeGridSubscription: Subscription;
+    private latestComponent: ComponentRef<Grid>;
+    private components: ComponentRef<Grid>[] = [];
+    private filterChanging: boolean;
+
+    constructor(
+        private componentFactoryResolver: ComponentFactoryResolver,
+        private renderer: Renderer,
+        private service: GridService) { }
 
     ngOnInit() {
-        this.service.generate = (gridType: GridType) => this.generate(gridType);
-        this.service.goBack = (index: number) => this.goBack(index);
+        this.service.showGridCompletedSubject = new Subject<number>();
+        this.service.generateBetTypeGridSubject = new Subject<number>();
+        this.showGridCompletedSubscription = this.service.showGridCompletedSubject.subscribe(() => this.showGridCompleted());
+        this.generateBetTypeGridSubscription = this.service.generateBetTypeGridSubject.subscribe(() => this.generateBetTypeGrid());
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.clear();
-        this.gridType = GridType.Product;
+        this.filterChanging = true;
         this.service.filterModel = this.filterModel;
-        this.createGrid();
+        this.latestComponent = this.createGridComponent();
     }
 
     ngOnDestroy() {
         this.clear();
+        this.showGridCompletedSubscription.unsubscribe();
+        this.generateBetTypeGridSubscription.unsubscribe();
     }
 
     private clear() {
@@ -62,17 +70,9 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
         this.components = [];
     }
 
-    private generate(gridType: GridType) {
-        this.gridType = gridType;
-        this.createGrid();
-    }
-
-    private goBack(index: number) {
-        while (this.components.length - 1 > index) {
-            const component = this.components.pop();
-            component.destroy();
-        }
-        this.afterGridChange();
+    private generateBetTypeGrid() {
+        this.gridType = GridType.Bettype;
+        this.latestComponent = this.createGridComponent();
     }
 
     private getComponentFactory(): ComponentFactory<Grid> {
@@ -86,19 +86,36 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
         }
     }
 
-    private createGrid() {
+    private createGridComponent(): ComponentRef<Grid> {
         const factory = this.getComponentFactory();
         const component = this.container.createComponent(factory);
-        this.components.push(component);
         const grid = component.instance;
         grid.query();
-        this.afterGridChange();
+        return component;
     }
 
-    private afterGridChange() {
+    private showGridCompleted() {
+        if (this.filterChanging) {
+            const removeIndex = this.gridType === GridType.Product ? 0 : 1;
+            this.destroyComponentsFrom(removeIndex);
+        }
+
+        this.components.push(this.latestComponent);
+        this.filterChanging = false;
+        this.showGridAndBreadcrumb();
+    }
+
+    private destroyComponentsFrom(index: number) {
+        while (this.components.length - 1 >= index) {
+            const component = this.components.pop();
+            component.destroy();
+        }
+    }
+
+    private showGridAndBreadcrumb() {
         this.service.activeGrid = this.components[this.components.length - 1].instance;
         this.updateBreadcrumb();
-        this.showCurrentAndHideLast();
+        this.showOnlyLastGrid();
     }
 
     private updateBreadcrumb() {
@@ -109,13 +126,30 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
         });
     }
 
-    private showCurrentAndHideLast() {
+    private showOnlyLastGrid() {
         const length = this.components.length;
         const currentComponent = this.components[length - 1];
         this.renderer.setElementAttribute(currentComponent.location.nativeElement, 'hidden', null);
-        if (length > 1) {
-            const lastComponent = this.components[length - 2];
-            this.renderer.setElementAttribute(lastComponent.location.nativeElement, 'hidden', 'hidden');
+
+        for (let i = 0; i < this.components.length - 1; i++) {
+            const component = this.components[i];
+            this.renderer.setElementAttribute(component.location.nativeElement, 'hidden', 'hidden');
         }
     }
+
+    onBreadcrumbItemClick(event: Event) {
+        this.gridType = GridType.Product;
+        this.destroyComponentsFrom(1);
+        this.showGridAndBreadcrumb();
+    }
+
+    exportExcel() {
+        if (this.components.length === 0) {
+            return;
+        }
+        const component = this.components[this.components.length - 1];
+        const grid = component.instance;
+        grid.exportExcel();
+    }
+
 }

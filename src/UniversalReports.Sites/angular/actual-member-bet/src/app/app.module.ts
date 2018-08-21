@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { DateModule } from 'nap-components/date';
 import { HttpModule } from 'nap-components/http';
-import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
 import { SpinnerModule } from 'nap-components/spinner';
 import { CONFIG, DateConfig } from './common/config';
@@ -31,10 +31,10 @@ import { GridModule } from './grid/grid.module';
     { provide: NavbarService, useClass: CustomNavbarService },
     AppService,
     {
-        provide: APP_INITIALIZER,
-        useFactory: initConfiguration,
-        deps: [AppService],
-        multi: true
+      provide: APP_INITIALIZER,
+      useFactory: initConfiguration,
+      deps: [AppService],
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
@@ -43,10 +43,10 @@ export class AppModule { }
 
 export function initConfiguration(service: AppService): Function {
   return () => new Promise(resolve => {
-      service.getToday().subscribe(model => {
-          const today = moment.utc(model);
-          CONFIG.date = new DateConfig(today);
-          resolve(true);
-      });
+    service.getToday().subscribe(model => {
+      const today = moment.utc(model);
+      CONFIG.date = new DateConfig(today);
+      resolve(true);
+    });
   });
 }

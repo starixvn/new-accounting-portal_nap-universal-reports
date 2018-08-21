@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GridComponent } from './grid.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { GridService } from './grid.service';
 import { BettypeGridService } from './bettype-grid/bettype-grid.service';
 import { ProductGridService } from './product-grid/product-grid.service';
@@ -20,7 +19,6 @@ import { BreadcrumbModule } from 'nap-components/breadcrumb';
     ],
     declarations: [
         GridComponent,
-        BreadcrumbComponent,
         ProductGridComponent,
         BettypeGridComponent
     ],

@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{C483DC63-7993-4863-8602-BE8EED4DF99C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.MVC", "src\shared\UniversalReports.MVC\UniversalReports.MVC.csproj", "{21081CDE-E5A1-4A31-9EF0-E0AC65547881}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DE058F5A-050F-4458-B87B-01567F1F5631}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{C053837F-4E18-4573-A8D7-E71BE83695CA}"
@@ -39,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		FXCop\FxCopDictionary.xml = FXCop\FxCopDictionary.xml
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Application", "src\modules\UniversalReports.Application\UniversalReports.Application.csproj", "{2592C02B-B254-4EDE-9A42-9A0094763EFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistics", "src\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
 EndProject
@@ -110,10 +106,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21081CDE-E5A1-4A31-9EF0-E0AC65547881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21081CDE-E5A1-4A31-9EF0-E0AC65547881}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21081CDE-E5A1-4A31-9EF0-E0AC65547881}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21081CDE-E5A1-4A31-9EF0-E0AC65547881}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -122,10 +114,6 @@ Global
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2592C02B-B254-4EDE-9A42-9A0094763EFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -246,7 +234,6 @@ Global
 		{C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{4EAF4282-993D-47AF-AA53-A4ECE6B1E3D4} = {C074583A-B1D9-412C-8649-DD98B9234224}
 		{C483DC63-7993-4863-8602-BE8EED4DF99C} = {C074583A-B1D9-412C-8649-DD98B9234224}
-		{21081CDE-E5A1-4A31-9EF0-E0AC65547881} = {C053837F-4E18-4573-A8D7-E71BE83695CA}
 		{C053837F-4E18-4573-A8D7-E71BE83695CA} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{B738DF95-4EF2-44AD-857E-51A084A2922D} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{40B587AD-AD21-4771-B52C-0E672245A49F} = {C483DC63-7993-4863-8602-BE8EED4DF99C}
@@ -257,7 +244,6 @@ Global
 		{FD42C969-EAA2-4487-AA8A-CD5439BA3698} = {C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB}
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{2592C02B-B254-4EDE-9A42-9A0094763EFD} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{C92F93F9-051F-4531-97EC-0A66CFD44693} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{94BAB182-85DE-4715-B396-BB6696D8BC81} = {C053837F-4E18-4573-A8D7-E71BE83695CA}
 		{399BC912-0469-423D-A587-E7F56E174EBC} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
@@ -288,7 +274,7 @@ Global
 		{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

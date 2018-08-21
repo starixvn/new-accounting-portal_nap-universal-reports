@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { Grid, GridType } from '../grid.model';
+import { Grid } from '../grid.model';
 import { ProductData } from './product-grid.model';
 import { GridService } from '../grid.service';
 import { ProductGridService } from './product-grid.service';
 
 @Component({
-  selector: 'app-product-grid',
-  templateUrl: './product-grid.component.html',
-  styleUrls: ['./product-grid.component.scss']
+    selector: 'app-product-grid',
+    templateUrl: './product-grid.component.html',
+    styleUrls: ['./product-grid.component.scss']
 })
 export class ProductGridComponent implements Grid {
 
-  productData: ProductData;
+    productData: ProductData;
 
-  constructor(
+    constructor(
         private gridService: GridService,
         private productGridService: ProductGridService,
     ) { }
 
     query() {
-        this.productGridService.query().subscribe(data => this.productData = data);
+        this.productGridService.query().subscribe(data => {
+            this.productData = data;
+            this.gridService.showGridCompletedSubject.next(1);
+        });
     }
 
     exportExcel() {
@@ -36,14 +39,13 @@ export class ProductGridComponent implements Grid {
     }
 
     get title(): string {
-        const filterModel = this.gridService.filterModel;
         return `Main`;
     }
 
     showBettype(keyId: string, productName: string) {
         this.gridService.keyId = keyId;
         this.gridService.productName = productName;
-        this.gridService.generate(GridType.Bettype);
+        this.gridService.generateBetTypeGridSubject.next(0);
     }
 
 }
