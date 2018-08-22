@@ -42,22 +42,24 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 };
 
                 var result = new List<WinLossCriteria>
-            {
-                metricGamingMatchDetailCriteria,
-                sportsbookMatchDetailCriteria,
-                sportsbookOutrightMatchDetailCriteria,
-                virtualSportsSportsbookDetailCriteria,
-                bullfightingMatchDetailCriteria
-            };
-                return result
+                {
+                    metricGamingMatchDetailCriteria,
+                    sportsbookMatchDetailCriteria,
+                    sportsbookOutrightMatchDetailCriteria,
+                    virtualSportsSportsbookDetailCriteria,
+                    bullfightingMatchDetailCriteria
+                };
+
+                var cases = result
                     .Select(i => new[]
                     {
                     WinLossCriteriaFactory.CreateBetTransCriteria(i),
-                    WinLossCriteriaFactory.CreateBetTrans14Criteria(i),
                     WinLossCriteriaFactory.CreateWarehouseCriteria(i)
                     })
                     .SelectMany(l => l)
                     .ToArray();
+
+                return cases;
             }
         }
     }

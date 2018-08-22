@@ -50,7 +50,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
         public async Task Handle_RepositoryReturnsNonEmptyData_ShouldReturnViewModelJsonWithRightSportsbookStatistic()
         {
             // Arrange
-            var repositoryWithNonEmptySportStatistics = CreateRepositoryWithNonEmptySportStatistics();
+            var repositoryWithNonEmptySportStatistics = CreateRepositoryWithNonEmptyStatistics();
 
             // Act
             var handler = new Handler(repositoryWithNonEmptySportStatistics);
@@ -61,12 +61,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }
 
-        private IDynamicRepository CreateRepositoryWithNonEmptySportStatistics()
+        private IDynamicRepository CreateRepositoryWithNonEmptyStatistics()
         {
             var sportStatistics = CreateSportStatistics();
+            var betCountStatistics = CreateBetCountStatistics();
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<SportStatistic>(Arg.Any<ICriteria>()).Returns(sportStatistics);
-            repository.FetchAsync<BetCountStatistic>(Arg.Any<ICriteria>()).Returns(new List<BetCountStatistic>());
+            repository.FetchAsync<BetCountStatistic>(Arg.Any<ICriteria>()).Returns(betCountStatistics);
 
             return repository;
         }
@@ -90,6 +91,20 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             };
 
             return new List<SportStatistic> { firstSportStatistic, secondSportStatistic };
+        }
+
+        private List<BetCountStatistic> CreateBetCountStatistics()
+        {
+            var betCountStatistic = new BetCountStatistic
+            {
+                EventType = "EventType",
+                Turnover = 100
+            };
+
+            return new List<BetCountStatistic>
+            {
+                betCountStatistic
+            };
         }
 
         private ViewModelJson CreateViewModelJsonWithRightSportsbookStatistic()
