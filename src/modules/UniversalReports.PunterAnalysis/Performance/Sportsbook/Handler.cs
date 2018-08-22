@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
@@ -9,7 +10,7 @@ using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 
 namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
 {
-    public class Handler : IAsyncRequestHandler<SportsbookHttpParameterJson, ViewModelJson>
+    public class Handler : IRequestHandler<SportsbookHttpParameterJson, ViewModelJson>
     {
         private readonly IDynamicRepository repository;
 
@@ -18,10 +19,10 @@ namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
             this.repository = repository;
         }
 
-        public async Task<ViewModelJson> Handle(SportsbookHttpParameterJson message)
+        public async Task<ViewModelJson> Handle(SportsbookHttpParameterJson request, CancellationToken cancellationToken)
         {
             var viewModel = new ViewModelJson();
-            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(message).ConfigureAwait(false);
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request).ConfigureAwait(false);
             viewModel.SummaryStatistic = QuerySummaryStatistics(viewModel.SportStatistics);
             return viewModel;
         }

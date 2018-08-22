@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
 namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
-    public class Handler : IAsyncRequestHandler<Message, IEnumerable<UpdatedUsernameModel>>
+    public class Handler : IRequestHandler<Message, IEnumerable<UpdatedUsernameModel>>
     {
         private readonly UpdatedUsernameService service;
 
@@ -13,9 +14,9 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
             this.service = service;
         }
 
-        public async Task<IEnumerable<UpdatedUsernameModel>> Handle(Message message)
+        public async Task<IEnumerable<UpdatedUsernameModel>> Handle(Message request, CancellationToken cancellationToken)
         {
-            return await service.GetUpdatedUsername(message).ConfigureAwait(false);
+            return await service.GetUpdatedUsername(request).ConfigureAwait(false);
         }
     }
 }

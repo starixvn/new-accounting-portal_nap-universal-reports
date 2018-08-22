@@ -133,19 +133,11 @@
             get
             {
                 switch(Environment)
-                {
-					case SiteEnvironment.DEV:
-					case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-						return "false";
-                    case SiteEnvironment.SIT:
-                    case SiteEnvironment.UAT:
+                {					
 					case SiteEnvironment.PRO:
 						return "true";
-					case SiteEnvironment.MNL:
-                        return "false";
 					default:
-                        return string.Empty;
+                        return "false";
                 }
             }
         }
@@ -163,7 +155,7 @@
                     case SiteEnvironment.SIT:
 						return "http://172.16.4.106:1710/api";
                     case SiteEnvironment.UAT:
-						return "http://10.40.40.248:1710/api";
+						return "http://10.40.40.248:1710/main/api";
 					case SiteEnvironment.PRO:
 						return "http://10.40.40.22:1710/api";
 					case SiteEnvironment.MNL:
@@ -240,20 +232,24 @@
             }
         }
 
-		public string UMAddress
+		public string ONEbookUMAddress
         {
             get
             {
                 switch(Environment)
                 {
+                    case SiteEnvironment.DEV:
+					case SiteEnvironment.LOCAL:
+					case SiteEnvironment.MASTER:
+                        return "http://ha.nexdev.net:8889/api";
                     case SiteEnvironment.PRO:
-                        return "tcp://10.40.40.150:8990/UMControllerInterface";
-                    case SiteEnvironment.MNL:
-                        return "tcp://10.2.96.1:8990/UMControllerInterface";
+                        return "http://10.40.40.22:8889/api";
                     case SiteEnvironment.UAT:
-                        return "tcp://10.40.40.150:8990/UMControllerInterface";
-					case SiteEnvironment.SIT:
-						return "http://172.16.4.106:8889/api";
+                        return "http://10.40.40.248:8889/api";
+                    case SiteEnvironment.SIT:
+                        return "http://172.16.4.106:8889/api";
+                    case SiteEnvironment.MNL:
+                        return "http://10.2.98.3:8889/api";
                     default:
                         return string.Empty;
                 }
@@ -269,16 +265,8 @@
                     case SiteEnvironment.PRO:
                     case SiteEnvironment.MNL:
                         return "true";
-
-                    case SiteEnvironment.UAT:
-					case SiteEnvironment.SIT:
-                    case SiteEnvironment.DEV:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-                        return "false";
-
                     default:
-                        return string.Empty;
+                        return "false";
                 }
             }
         }

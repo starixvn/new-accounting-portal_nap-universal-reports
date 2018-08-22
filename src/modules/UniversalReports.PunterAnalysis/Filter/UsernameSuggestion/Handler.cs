@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
@@ -7,7 +8,7 @@ using MediatR;
 
 namespace UniversalReports.PunterAnalysis.Filter.UsernameSuggestion
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<string>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<string>>
     {
         private readonly IDynamicRepository repository;
 
@@ -19,9 +20,9 @@ namespace UniversalReports.PunterAnalysis.Filter.UsernameSuggestion
             this.currentSession = currentSession;
         }
 
-        public async Task<IEnumerable<string>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<string>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            var criteria = Mapper.Map<QueryCriteria>(message);
+            var criteria = Mapper.Map<QueryCriteria>(request);
             criteria.CustId = currentSession.UserId;
             return await repository.FetchAsync<string>(criteria).ConfigureAwait(false);
         }

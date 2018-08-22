@@ -3,7 +3,7 @@ using UniversalReports.Exchange.Report;
 
 namespace UniversalReports.Exchange.Tests.DependencyInjection.SimpleInjector
 {
-    internal static class UpdatedUsernameAndCreditInjector
+    internal static class ExchangeInjector
     {
         internal static Container RegisterExchangeServices(this Container container)
         {

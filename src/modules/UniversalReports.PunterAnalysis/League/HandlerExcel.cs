@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using OfficeOpenXml;
@@ -7,7 +8,7 @@ using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : IRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private readonly LeagueServiceFactory leagueServiceFactory;
 
@@ -22,12 +23,12 @@ namespace UniversalReports.PunterAnalysis.League
             this.excelBuilder = excelBuilder;
         }
 
-        public async Task<ExcelPackage> Handle(HttpParameterExcel message)
+        public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            var criteria = Mapper.Map<Criteria>(message);
-            var leagueService = leagueServiceFactory.CreateLeagueService(message.PeriodType);
+            var criteria = Mapper.Map<Criteria>(request);
+            var leagueService = leagueServiceFactory.CreateLeagueService(request.PeriodType);
             var model = await leagueService.Query(criteria).ConfigureAwait(false);
-            var excelSettingParams = Mapper.Map<ExcelSettingParams>(message);
+            var excelSettingParams = Mapper.Map<ExcelSettingParams>(request);
             var excelSetting = setting.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);
             return excelPackage;

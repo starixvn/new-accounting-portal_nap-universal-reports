@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NSubstitute;
@@ -20,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             var handler = new Handler(repositoryWithEmptyData);
 
             // Act
-            var viewModel = await handler.Handle(new SportsbookHttpParameterJson());
+            var viewModel = await handler.Handle(new SportsbookHttpParameterJson(), new CancellationToken());
 
             // Assert
             var expected = CreateEmptyViewModelJson();
@@ -53,7 +54,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
 
             // Act
             var handler = new Handler(repositoryWithNonEmptySportStatistics);
-            var viewModel = await handler.Handle(new SportsbookHttpParameterJson());
+            var viewModel = await handler.Handle(new SportsbookHttpParameterJson(), new CancellationToken());
 
             // Assert
             var expected = CreateViewModelJsonWithRightSportsbookStatistic();

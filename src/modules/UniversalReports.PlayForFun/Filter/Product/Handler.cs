@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.PlayForFun.Filter.Product
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<ProductEntity>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<ProductEntity>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.PlayForFun.Filter.Product
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<ProductEntity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<ProductEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new Criteria();
             return await repository.FetchAsync<ProductEntity>(criteria).ConfigureAwait(false);

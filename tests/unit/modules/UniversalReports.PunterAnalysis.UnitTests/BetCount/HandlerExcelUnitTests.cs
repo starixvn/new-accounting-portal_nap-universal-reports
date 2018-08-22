@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
@@ -20,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var handleExcel = new HandlerExcel(betCountService, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
+            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<BetCountExcelModel>>(), Arg.Any<ExcelSetting>());
@@ -51,7 +52,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var handleExcel = new HandlerExcel(betCountService, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(

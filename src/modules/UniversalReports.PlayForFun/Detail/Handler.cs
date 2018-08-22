@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
@@ -7,7 +8,7 @@ using UniversalReports.PlayForFun.Detail.Model;
 
 namespace UniversalReports.PlayForFun.Detail
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, SummaryEntity<DetailModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<DetailModel>>
     {
         private readonly PlayForFunService playForFunService;
 
@@ -16,9 +17,9 @@ namespace UniversalReports.PlayForFun.Detail
             this.playForFunService = playForFunService;
         }
 
-        public async Task<SummaryEntity<DetailModel>> Handle(HttpParameterJson message)
+        public async Task<SummaryEntity<DetailModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            var criteria = Mapper.Map<DetailCriteria>(message);
+            var criteria = Mapper.Map<DetailCriteria>(request);
             return await playForFunService.Query<DetailModel>(criteria).ConfigureAwait(false);
         }
     }

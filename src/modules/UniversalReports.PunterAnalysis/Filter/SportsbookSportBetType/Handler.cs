@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
 
 namespace UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, IEnumerable<SportsbookSportBetTypeEntity>>
+    public class Handler : IRequestHandler<HttpParameterJson, IEnumerable<SportsbookSportBetTypeEntity>>
     {
         private readonly IDynamicRepository repository;
 
@@ -14,7 +15,7 @@ namespace UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<SportsbookSportBetTypeEntity>> Handle(HttpParameterJson message)
+        public async Task<IEnumerable<SportsbookSportBetTypeEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new QueryCriteria();
             return await repository.FetchAsync<SportsbookSportBetTypeEntity>(criteria).ConfigureAwait(false);

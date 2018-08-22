@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
@@ -10,7 +11,7 @@ using UniversalReports.PlayForFun.Summary.Model;
 
 namespace UniversalReports.PlayForFun.Summary
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : IRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private const string TemplatePath = @"ExcelTemplate\PlayForFun\Summary.xlsx";
 
@@ -30,18 +31,18 @@ namespace UniversalReports.PlayForFun.Summary
             this.excelBuilder = excelBuilder;
         }
 
-        public async Task<ExcelPackage> Handle(HttpParameterExcel message)
+        public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            var summaryCriteria = Mapper.Map<SummaryCriteria>(message);
+            var summaryCriteria = Mapper.Map<SummaryCriteria>(request);
             var summaryModel = await playForFunService.Query<SummaryModel>(summaryCriteria).ConfigureAwait(false);
             var summaryExcelViewModel = Mapper.Map<SummaryEntity<SummaryExcelModel>>(summaryModel);
 
-            var detailCriteria = Mapper.Map<DetailCriteria>(message);
+            var detailCriteria = Mapper.Map<DetailCriteria>(request);
             var detailModel = await playForFunService.Query<DetailModel>(detailCriteria).ConfigureAwait(false);
             var detailExcelViewModel = Mapper.Map<SummaryEntity<DetailExcelModel>>(detailModel);
 
-            var sumamryExcelSetting = CreateSummarySetting(message.Title);
-            var detailExcelSetting = CreateProductDetailSetting(message.Title, message.ProductName);
+            var sumamryExcelSetting = CreateSummarySetting(request.Title);
+            var detailExcelSetting = CreateProductDetailSetting(request.Title, request.ProductName);
 
             var excelPackage = excelBuilder.CreateExcelPackage(
                 summaryExcelViewModel,

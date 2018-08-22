@@ -5,7 +5,7 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
+using AutoFixture;
 using UniversalReports.Exchange.Report;
 
 namespace UniversalReports.Exchange.UnitTests.Report

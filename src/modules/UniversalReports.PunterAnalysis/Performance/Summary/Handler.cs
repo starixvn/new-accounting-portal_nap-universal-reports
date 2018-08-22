@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using Fanex.Data.Repository;
@@ -9,7 +10,7 @@ using UniversalReports.PunterAnalysis.Performance.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Performance.Summary
 {
-    public class Handler : IAsyncRequestHandler<SummaryHttpParameterJson, ViewModelJson>
+    public class Handler : IRequestHandler<SummaryHttpParameterJson, ViewModelJson>
     {
         private readonly IDynamicRepository repository;
 
@@ -18,15 +19,15 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
             this.repository = repository;
         }
 
-        public async Task<ViewModelJson> Handle(SummaryHttpParameterJson message)
+        public async Task<ViewModelJson> Handle(SummaryHttpParameterJson request, CancellationToken cancellationToken)
         {
             var viewModel = new ViewModelJson();
 
-            viewModel.MonthStatistics = await Query<MonthStatistic, MonthCriteria>(message).ConfigureAwait(false);
-            viewModel.ProductTurnoverStatistics = await Query<ProductTurnoverStatistic, ProductTurnoverCriteria>(message).ConfigureAwait(false);
-            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(message).ConfigureAwait(false);
-            viewModel.BetTypeStatistics = await Query<BetTypeStatistic, BetTypeCriteria>(message).ConfigureAwait(false);
-            viewModel.EventStatistics = await Query<EventStatistic, EventCriteria>(message).ConfigureAwait(false);
+            viewModel.MonthStatistics = await Query<MonthStatistic, MonthCriteria>(request).ConfigureAwait(false);
+            viewModel.ProductTurnoverStatistics = await Query<ProductTurnoverStatistic, ProductTurnoverCriteria>(request).ConfigureAwait(false);
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request).ConfigureAwait(false);
+            viewModel.BetTypeStatistics = await Query<BetTypeStatistic, BetTypeCriteria>(request).ConfigureAwait(false);
+            viewModel.EventStatistics = await Query<EventStatistic, EventCriteria>(request).ConfigureAwait(false);
             viewModel.SummaryStatistic = QuerySummaryStatistic(viewModel.MonthStatistics);
 
             return viewModel;

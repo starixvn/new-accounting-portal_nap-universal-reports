@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AutoFixture;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
 
@@ -22,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
 
             // Act
             var handler = new Handler(factory);
-            var viewModel = await handler.Handle(new HttpParameterJson());
+            var viewModel = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
             Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using MediatR;
@@ -9,7 +10,7 @@ using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
-    public class Handler : IAsyncRequestHandler<HttpParameterJson, List<UserRoleModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, List<UserRoleModel>>
     {
         private readonly IDynamicRepository repository;
 
@@ -24,10 +25,10 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             this.repository = repository;
         }
 
-        public async Task<List<UserRoleModel>> Handle(HttpParameterJson message)
+        public async Task<List<UserRoleModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            var site = await GetSiteName(message.CustId).ConfigureAwait(false);
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, message.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
+            var site = await GetSiteName(request.CustId).ConfigureAwait(false);
+            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
             var usernames = associatedCustomers.Select(c => c.Account);
             var model = await GetAccountRoles(usernames).ConfigureAwait(false);
 

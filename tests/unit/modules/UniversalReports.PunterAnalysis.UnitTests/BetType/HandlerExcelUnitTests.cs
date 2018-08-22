@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
@@ -21,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>());
+            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<BetTypeExcelModel>>(), Arg.Any<ExcelSetting>());
@@ -51,7 +52,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
 
             // Act
-            await handleExcel.Handle(new HttpParameterExcel());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
@@ -6,7 +7,7 @@ using OfficeOpenXml;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class HandlerExcel : IAsyncRequestHandler<HttpParameterExcel, ExcelPackage>
+    public class HandlerExcel : IRequestHandler<HttpParameterExcel, ExcelPackage>
     {
         private readonly Service service;
 
@@ -18,12 +19,12 @@ namespace UniversalReports.Exchange.Report
             this.excelBuilder = excelBuilder;
         }
 
-        public async Task<ExcelPackage> Handle(HttpParameterExcel message)
+        public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            var jsonMessage = Mapper.Map<HttpParameterJson>(message);
+            var jsonMessage = Mapper.Map<HttpParameterJson>(request);
             var exchange = await service.Query(jsonMessage).ConfigureAwait(false);
             var exchangeExcelModel = Mapper.Map<SummaryEntity<ExchangeExcelEntity>>(exchange);
-            var excelPackage = excelBuilder.Build(message, exchangeExcelModel);
+            var excelPackage = excelBuilder.Build(request, exchangeExcelModel);
             return excelPackage;
         }
     }
