@@ -91,6 +91,10 @@ MIT
 MIT
 MIT
 
+@angular/forms@5.1.2
+MIT
+MIT
+
 css-loader@0.28.11
 MIT
 Copyright JS Foundation and other contributors
@@ -115,10 +119,6 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 nap-theme@2.0.6
-MIT
-MIT
-
-@angular/forms@5.1.2
 MIT
 MIT
 

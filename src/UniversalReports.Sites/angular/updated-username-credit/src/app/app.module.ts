@@ -51,7 +51,7 @@ export class AppModule {
     private legendService: LegendService
   ) {
     legendService.resolveUrl = (id) => {
-      return `http://58.86.55.10/NAP-Reports-Legend-API/api/legend/${id}`;
+      return `https://nap.oneops.net/NAP-Reports-Legend-API/api/legend/${id}`;
     };
   }
 }

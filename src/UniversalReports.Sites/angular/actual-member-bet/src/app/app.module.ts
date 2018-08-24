@@ -7,6 +7,7 @@ import { HttpModule } from 'nap-components/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
 import { SpinnerModule } from 'nap-components/spinner';
+import { LegendModule, LegendService } from 'nap-components/legend';
 import { CONFIG, DateConfig } from './common/config';
 import { AppService } from './app.service';
 import * as moment from 'moment';
@@ -25,6 +26,7 @@ import { GridModule } from './grid/grid.module';
     HttpModule.forRoot(),
     NavbarModule.forRoot(),
     SpinnerModule.forRoot(),
+    LegendModule.forRoot(),
     GridModule
   ],
   providers: [
@@ -39,7 +41,16 @@ import { GridModule } from './grid/grid.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(
+    private legendService: LegendService
+  ) {
+    legendService.resolveUrl = (id) => {
+      return `https://nap.oneops.net/NAP-Reports-Legend-API/api/legend/${id}`;
+    };
+  }
+}
 
 export function initConfiguration(service: AppService): Function {
   return () => new Promise(resolve => {

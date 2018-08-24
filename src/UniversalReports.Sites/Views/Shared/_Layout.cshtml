@@ -29,6 +29,7 @@
     <meta name="description" content="Universal Reports" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
     <link href="~/bundle/app-style.css" rel="stylesheet" />
     @RenderSection("Styles", false)
 </head>
@@ -41,6 +42,7 @@
         var napConfig = @Html.Raw(Json.Encode(napConfig));
         if (location.protocol === 'https:'){
             napConfig.RootUrl = napConfig.RootUrl.replace("http://","https://");
+            napConfig.LegacyPath= napConfig.LegacyPath.replace("http://","https://");
         }
 
     </script>
