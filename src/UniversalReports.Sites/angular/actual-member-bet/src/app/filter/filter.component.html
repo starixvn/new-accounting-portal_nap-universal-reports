@@ -1,4 +1,5 @@
 <div class="nap-filter">
+  <nap-legend [legendId]="580" [legendTitle]="'Actual Member Bet Legend'"></nap-legend>
   <div class="row">
     <div class="nap-col">
       <div class="nap-group">
@@ -23,7 +24,7 @@
           <select class="form-control" #siteSelect>
             <option *ngFor="let site of sites" value={{site.SiteType}}>
               {{site.SiteName}}
-          </option>
+            </option>
           </select>
         </div>
       </div>
@@ -35,7 +36,7 @@
           <select class="form-control" #currencySelect>
             <option *ngFor="let currency of currencies" value={{currency.CurrencyId}}>
               {{currency.CurrencyName}}
-          </option>
+            </option>
           </select>
         </div>
       </div>
@@ -47,7 +48,7 @@
           <select class="form-control" #oddsSelect>
             <option *ngFor="let odd of odds" value={{odd.OddsType}}>
               {{odd.OddsTypeName}}
-          </option>
+            </option>
           </select>
         </div>
       </div>
