@@ -9,8 +9,11 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests
     {
         [Test]
         [Category("RepositoryTests")]
-        [TestCaseSource(typeof(MatchDetailCriteriaTestCases), nameof(MatchDetailCriteriaTestCases.CriteriaCases))]
-        [TestCaseSource(typeof(NormalCriteriaTestCases), nameof(NormalCriteriaTestCases.CriteriaCases))]
+        [TestCaseSource(typeof(MatchDetailCriteriaTestCases), nameof(MatchDetailCriteriaTestCases.BettransCriteriaCases))]
+        [TestCaseSource(typeof(MatchDetailCriteriaTestCases), nameof(MatchDetailCriteriaTestCases.WarehouseCriteriaCases))]
+        [TestCaseSource(typeof(NormalCriteriaTestCases), nameof(NormalCriteriaTestCases.BettransCriteriaCases))]
+        [TestCaseSource(typeof(NormalCriteriaTestCases), nameof(NormalCriteriaTestCases.WarehouseCriteriaCases))]
+
         public void Fetch_Successful(ICriteria criteria)
         {
             var repository = new DynamicRepository();

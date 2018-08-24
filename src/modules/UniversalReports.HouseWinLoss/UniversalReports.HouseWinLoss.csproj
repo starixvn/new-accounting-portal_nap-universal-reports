@@ -401,6 +401,14 @@
     <Compile Include="FishingWorld\Site\ExcelQueryModel.cs" />
     <Compile Include="FishingWorld\Site\QueryModel.cs" />
     <Compile Include="FishingWorld\Site\FishingWorldSiteController.cs" />
+    <Compile Include="PokerGames\BetType\Criteria.cs" />
+    <Compile Include="PokerGames\BetType\ExcelQueryModel.cs" />
+    <Compile Include="PokerGames\BetType\QueryModel.cs" />
+    <Compile Include="PokerGames\BetType\PokerGamesBetTypeController.cs" />
+    <Compile Include="PokerGames\Site\Criteria.cs" />
+    <Compile Include="PokerGames\Site\ExcelQueryModel.cs" />
+    <Compile Include="PokerGames\Site\QueryModel.cs" />
+    <Compile Include="PokerGames\Site\PokerGamesSiteController.cs" />
     <Compile Include="Universal\BetType\ExcelLiveNonLiveQueryModel.cs" />
     <Compile Include="Universal\SportType\Criteria.cs" />
     <Compile Include="Universal\SportType\ExcelQueryModel.cs" />
