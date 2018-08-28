@@ -10,7 +10,7 @@ namespace UniversalReports.Sites
         public static void Register()
         {
             var resourceFolder = NapSettings.Settings.Environment == "LIVE"
-               ? "LIVE"
+               ? "PRO"
                : "TEST";
             DbSettingProviderManager
              .StartNewSession()

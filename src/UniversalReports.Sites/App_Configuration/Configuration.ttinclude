@@ -52,17 +52,8 @@
                 {
                     case SiteEnvironment.PRO:
                              return "On";
-
-                    case SiteEnvironment.MNL:
-                    case SiteEnvironment.UAT:
-					case SiteEnvironment.SIT:
-                    case SiteEnvironment.DEV:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-                        return "Off";
-
                     default:
-                        return string.Empty;
+                        return "Off";
                 }
             }
         }
@@ -75,19 +66,27 @@
                 {
                     case SiteEnvironment.PRO:
                         return "false";
-                    case SiteEnvironment.MNL:
-                    case SiteEnvironment.UAT:
-					case SiteEnvironment.SIT:
-                    case SiteEnvironment.DEV:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
-                        return "true";
-
                     default:
-                        return string.Empty;
+                        return "true";
                 }
             }
         }
+
+        public string StoredProcedurePath
+        {
+            get
+            {
+                switch(Environment)
+                {
+                    case SiteEnvironment.PRO:
+                        return "App_Data\\PRO";
+                    default:
+                        return "App_Data\\TEST";
+                }
+            }
+        }
+
+        
 
         public string NapEnvironment
         {
@@ -98,15 +97,8 @@
                     case SiteEnvironment.PRO:
                     case SiteEnvironment.MNL:
                         return "LIVE";
-                    case SiteEnvironment.UAT:
-					case SiteEnvironment.SIT:
-                    case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.DEV:
-                    case SiteEnvironment.MASTER:
-                        return "UAT";
-
                     default:
-                        return string.Empty;
+                        return "UAT";
                 }
             }
         }

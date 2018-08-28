@@ -503,8 +503,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\LIVE\DBEXT.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LIVE\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
+    <Content Include="App_Data\PRO\DBEXT.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\PRO\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\TEST\DBEXT.bodb02.bodbAdminNet.xml" />
@@ -640,9 +640,9 @@
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
     <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
-    <Content Include="App_Data\LIVE\DBACC.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LIVE\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\LIVE\DBWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\PRO\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\Fanex.Grid.js" />

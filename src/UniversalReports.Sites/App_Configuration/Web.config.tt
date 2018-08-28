@@ -62,7 +62,7 @@
 		<add key="ClientValidationEnabled" value="true" />
 		<add key="UnobtrusiveJavaScriptEnabled" value="true" />
 		<!-- This setting is used for Rocketor only -->
-		<add key="StoredProcedurePath" value="App_Data\TEST" />
+		<add key="StoredProcedurePath" value="<#=site.StoredProcedurePath#>" />
 	</appSettings>
 
 	<system.web>
