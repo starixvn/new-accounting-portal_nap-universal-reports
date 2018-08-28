@@ -36,6 +36,7 @@
     <Setting Key="HouseWinLoss-Sportsbook-Outright-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Parlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Parlay" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-SystemParlay-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-SystemParlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_SystemParlay_14" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-FishingWorld-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_BetType" DbName="DBACC.bodb02.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-FishingWorld-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_FishingWorld_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSportsBetradar-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
