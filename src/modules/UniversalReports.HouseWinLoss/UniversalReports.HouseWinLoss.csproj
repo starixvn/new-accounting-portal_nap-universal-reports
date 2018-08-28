@@ -155,9 +155,9 @@
       <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.ValueTuple, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
@@ -165,9 +165,8 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="UniversalReports.MVC">
       <HintPath>..\..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="WebActivator">
       <HintPath>..\..\..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
@@ -255,6 +254,7 @@
     <Compile Include="MetricGaming\LiveNonLive\Criteria.cs" />
     <Compile Include="MetricGaming\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveController.cs" />
+    <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveWinLossService.cs" />
     <Compile Include="MetricGaming\LiveNonLive\QueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\Criteria.cs" />
     <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
@@ -264,6 +264,7 @@
     <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
+    <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveWinLossService.cs" />
     <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
     <Compile Include="OtherSports\NewCricket\Criteria.cs" />
     <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />
@@ -361,6 +362,7 @@
     <Compile Include="Soccer\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="Soccer\LiveNonLive\QueryModel.cs" />
     <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveController.cs" />
+    <Compile Include="Soccer\LiveNonLive\SoccerLiveNonLiveWinLossService.cs" />
     <Compile Include="Soccer\MajorMinor\Criteria.cs" />
     <Compile Include="Soccer\MajorMinor\ExcelQueryModel.cs" />
     <Compile Include="Soccer\MajorMinor\QueryModel.cs" />

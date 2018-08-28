@@ -40,28 +40,6 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BalanceUpServices
         }
 
         [Test]
-        public void Determine_NormalMode_StartDateBetweenBalanceUpRange_ReturnsBetTrans14Source()
-        {
-            // Arrange
-            var criteria = new FakeWinLossCriteria
-            {
-                NormalMode = true,
-                StartDate = new DateTime(2015, 07, 01),
-                EndDate = new DateTime(2015, 11, 01)
-            };
-
-            var balanceUpService = Substitute.For<BalanceUpService>();
-            balanceUpService.Query().Returns(BalanceUpRange);
-            var balancerUpSourceChooser = new BalanceUpSourceChooserImp(balanceUpService);
-
-            // Act
-            var result = balancerUpSourceChooser.Determine(criteria);
-
-            // Assert
-            Assert.AreEqual("BetTrans14", result);
-        }
-
-        [Test]
         public void Determine_NormalMode_StartDateBeforeBalanceUpRange_ReturnsWarehouseSource()
         {
             // Arrange

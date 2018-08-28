@@ -23,11 +23,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "Casino.Product.CasinoProductController",
                     "Casino.Site.CasinoSiteController",
                     "MetricGaming.BetType.MetricGamingBetTypeController",
-                    "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
                     "MetricGaming.Site.MetricGamingSiteController",
                     "NumberGame.MatchDetail.NumberGameMatchDetailController",
                     "OtherSports.BetType.OtherSportsBetTypeController",
-                    "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
                     "OtherSports.SportType.OtherSportsSportTypeController",
                     "OtherSports.NewCricket.OtherSportNewCricketController",
                     "Parlay.BetType.ParlayBetTypeController",
@@ -39,7 +37,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "Racing.SportType.RacingSportTypeController",
                     "Soccer.BetType.SoccerBetTypeController",
                     "Soccer.GroupBetType.SoccerGroupBetTypeController",
-                    "Soccer.LiveNonLive.SoccerLiveNonLiveController",
                     "Soccer.MajorMinor.SoccerMajorMinorController",
                     "Soccer.SumBetType.SoccerSumBetTypeController",
                     "Sportsbook.Site.SportsbookSiteController",
@@ -91,7 +88,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             Assert.That(workbook.NumberOfSheets, Is.EqualTo(1));
         }
 
-        private object GetQueryModel(string controllerName)
+        protected object GetQueryModel(string controllerName)
         {
             var queryModelType = GetQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
@@ -100,7 +97,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             return generic.Invoke(null, new object[] { controllerName, "queryModel" });
         }
 
-        private Type GetQueryModelType(string controllerName)
+        protected Type GetQueryModelType(string controllerName)
         {
             var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
             var queryModelName = controllerName.Substring(0, lastPointIndex) + ".QueryModel";
@@ -108,7 +105,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             return Type.GetType(queryModelFullName);
         }
 
-        private object GetExcelQueryModel(string controllerName)
+        protected object GetExcelQueryModel(string controllerName)
         {
             var queryModelType = GetExcelQueryModelType(controllerName);
             var method = typeof(TestDataLoader).GetMethod("Load", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
@@ -117,7 +114,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             return generic.Invoke(null, new object[] { controllerName, "queryModel" });
         }
 
-        private Type GetExcelQueryModelType(string controllerName)
+        protected Type GetExcelQueryModelType(string controllerName)
         {
             var lastPointIndex = controllerName.LastIndexOf(".", StringComparison.CurrentCultureIgnoreCase);
             var queryModelName = controllerName.Substring(0, lastPointIndex) + ".ExcelQueryModel";

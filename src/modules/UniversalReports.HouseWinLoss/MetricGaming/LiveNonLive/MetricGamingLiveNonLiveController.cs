@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using AutoMapper;
 using Fanex.Excel.Models;
@@ -9,34 +10,60 @@ using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
 {
-    [RoutePrefix("api/house-win-loss-by-products/metric-gaming-superlive/live-none-live")]
-    public class MetricGamingLiveNonLiveController : BasicWinLossController
+    [RoutePrefix("api/house-win-loss-by-products/metric-gaming-superlive/live-non-live")]
+    public class MetricGamingLiveNonLiveController : ApiController
     {
+        private readonly MetricGamingLiveNonLiveWinLossService service;
+
+        private readonly BasicGridOptionsBuilder builder;
+
+        private readonly GridOptionColumnDecorator decorator;
+
         public MetricGamingLiveNonLiveController(
-            BasicWinLossService service,
+            MetricGamingLiveNonLiveWinLossService service,
             BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
-        : base(service, builder, decorator)
         {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
 
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
+            var gridOptions = BuildGridOptions(queryModel);
+
+            return Json(gridOptions);
+        }
+
+        private IEnumerable<GridOptions> BuildGridOptions(QueryModel queryModel)
+        {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria, "Live/Non-Live", 220);
+            var winlosses = service.Query(criteria).ToArray();
+
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Bet Type");
+            yield return decorator.Build(majorMinorGridOptions, "Bet Type", 220);
+
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
+            yield return decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", 220);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var betTypeCriteria = Mapper.Map<BetType.Criteria>(queryModel);
-            var betTypeGridOptions = GetGridOptions(betTypeCriteria, "Bet Type", queryModel.BetTypeTitle, 220);
+            var criteria = Mapper.Map<Criteria>(queryModel);
+            var winlosses = service.Query(criteria).ToArray();
 
-            var liveNonLiveCriteria = Mapper.Map<Criteria>(queryModel);
-            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle, 220);
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Bet Type");
+            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, queryModel.BetTypeTitle, 220);
 
-            return new FanexExcelResult(new List<GridOptions> { betTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
+            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, queryModel.LiveNonLiveTitle, 220);
+
+            return new FanexExcelResult(
+                new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
+                Constants.SheetName);
         }
     }
 }

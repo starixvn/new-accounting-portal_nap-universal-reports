@@ -15,7 +15,6 @@ using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.Availabl
 using BetCountCriteria = UniversalReports.PunterAnalysis.BetCount.Model.Criteria;
 using BetTypeCriteria = UniversalReports.PunterAnalysis.BetType.Model.Criteria;
 using LeagueCriteria = UniversalReports.PunterAnalysis.League.Model.Criteria;
-using LeagueFilter = UniversalReports.PunterAnalysis.Filter.League;
 using ProductSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.ProductSportBetType;
 using SportsbookSportBetTypeFilter = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType;
 using SportTypeCriteria = UniversalReports.PunterAnalysis.SportType.Model.Criteria;
@@ -203,27 +202,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
             Assert.That(firstModel.BetTypeName, Is.Not.Null.And.Not.Empty);
             Assert.That(firstModel.Value, Is.Not.Zero);
             Assert.That(firstModel.RenderType, Is.GreaterThanOrEqualTo(1));
-        }
-
-        [Test]
-        public async Task PunterLeagueSp_Test_ColumnIsMappedCorrectly()
-        {
-            // Arrange
-            var criteria = new LeagueFilter.QueryCriteria
-            {
-                FromDate = new DateTime(2016, 1, 1),
-                ToDate = new DateTime(2100, 12, 1),
-                SportId = 1
-            };
-
-            // Act
-            var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<LeagueFilter.LeagueEntity>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.Id, Is.Not.Zero);
-            Assert.That(firstModel.Name, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]

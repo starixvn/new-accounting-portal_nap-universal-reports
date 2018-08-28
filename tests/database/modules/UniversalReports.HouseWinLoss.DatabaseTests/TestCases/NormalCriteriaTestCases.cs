@@ -70,11 +70,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 IsMajor = true
             };
             var soccerLiveNonLiveCriteria = new Soccer.LiveNonLive.Criteria();
-            var soccerMajorMinorCriteria = new Soccer.MajorMinor.Criteria
-            {
-                IsLive = 2
-            };
-
+            var soccerMajorMinorLiveCriteria = new Soccer.MajorMinor.Criteria();
             var soccerSumBetTypeCriteria = new Soccer.SumBetType.SumBetTypeCriteria
             {
                 IsMajor = true
@@ -154,8 +150,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     casinoBetTypeCriteria,
                     casinoProductCriteria,
                     casinoSiteCriteria,
-                    metricGamingBetTypeCriteria,
                     metricGamingLiveNonLiveCriteria,
+                    metricGamingBetTypeCriteria,
                     metricGamingSiteCriteria,
                     numberGameMatchDetailCriteria,
                     otherSportsBetTypeCriteria,
@@ -171,7 +167,7 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     racingMatchDetailCriteria,
                     soccerBetTypeCriteria,
                     soccerLiveNonLiveCriteria,
-                    soccerMajorMinorCriteria,
+                    soccerMajorMinorLiveCriteria,
                     soccerSumBetTypeCriteria,
                     soccerGroupBetTypeCriteria,
                     sportsbookSiteCriteria,
@@ -192,15 +188,16 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     colossusBetSiteCriteria
                 };
 
-            return criteriaList
+            var cases = criteriaList
                 .Select(i => new[]
                 {
                 WinLossCriteriaFactory.CreateBetTransCriteria(i),
-                WinLossCriteriaFactory.CreateBetTrans14Criteria(i),
                 WinLossCriteriaFactory.CreateWarehouseCriteria(i)
                 })
                 .SelectMany(l => l)
                 .ToArray();
+
+            return cases;
         }
     }
 }

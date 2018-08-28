@@ -26,12 +26,8 @@ import angular from "angular";
                 liveNonLiveGridOptions;
 
             pane.service.getData(viewSetting, pane.data).then(function (data) {
-                liveNonLiveGridOptions = data;
-                renderAll();
-            });
-
-            pane.service.getSportTypeData(viewSetting, pane.data).then(function (data) {
-                sportTypeGridOptions = data;
+                sportTypeGridOptions = data[0];
+                liveNonLiveGridOptions = data[1];  
                 renderAll();
             });
 

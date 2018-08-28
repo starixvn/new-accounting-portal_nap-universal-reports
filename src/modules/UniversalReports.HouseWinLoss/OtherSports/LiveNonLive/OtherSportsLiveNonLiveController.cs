@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using AutoMapper;
 using Fanex.Excel.Models;
@@ -10,33 +11,59 @@ using UniversalReports.MVC.Results;
 namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
 {
     [RoutePrefix("api/house-win-loss-by-products/other-sports/live-non-live")]
-    public class OtherSportsLiveNonLiveController : BasicWinLossController
+    public class OtherSportsLiveNonLiveController : ApiController
     {
+        private readonly OtherSportsLiveNonLiveWinLossService service;
+
+        private readonly BasicGridOptionsBuilder builder;
+
+        private readonly GridOptionColumnDecorator decorator;
+
         public OtherSportsLiveNonLiveController(
-            BasicWinLossService service,
+            OtherSportsLiveNonLiveWinLossService service,
             BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
-        : base(service, builder, decorator)
         {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
 
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
+            var gridOptions = BuildGridOptions(queryModel);
+
+            return Json(gridOptions);
+        }
+
+        private IEnumerable<GridOptions> BuildGridOptions(QueryModel queryModel)
+        {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria, "Live/Non-Live");
+            var winlosses = service.Query(criteria).ToArray();
+
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Type");
+            yield return decorator.Build(majorMinorGridOptions, "Sport Type");
+
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
+            yield return decorator.Build(liveNonLiveGridOptions, "Live/Non-Live");
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var sportTypeCriteria = Mapper.Map<SportType.Criteria>(queryModel);
-            var sportTypeGridOptions = GetGridOptions(sportTypeCriteria, "Sport Type", queryModel.SportTypeTitle);
+            var criteria = Mapper.Map<Criteria>(queryModel);
+            var winlosses = service.Query(criteria).ToArray();
 
-            var liveNonLiveCriteria = Mapper.Map<Criteria>(queryModel);
-            var liveNonLiveGridOptions = GetGridOptions(liveNonLiveCriteria, "Live/Non-Live", queryModel.LiveNonLiveTitle);
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Type");
+            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, queryModel.SportTypeTitle);
 
-            return new FanexExcelResult(new List<GridOptions> { sportTypeGridOptions, liveNonLiveGridOptions }, Constants.SheetName);
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
+            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, queryModel.LiveNonLiveTitle);
+
+            return new FanexExcelResult(
+                new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
+                Constants.SheetName);
         }
     }
 }

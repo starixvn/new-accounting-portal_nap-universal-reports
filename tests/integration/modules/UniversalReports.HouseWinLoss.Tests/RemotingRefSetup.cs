@@ -10,8 +10,8 @@ public class RemotingRefSetup
     public void OneTimeSetUp()
     {
         RefDataTypeContainer
-                .ConnectTo(new Uri(ConfigurationManager.AppSettings["RemoteRefURL"]))
-                .FromApplication("Universal Reports")
+                .ConnectTo(new Uri(ConfigurationManager.AppSettings["Fanex.RemotingRef.Service.Url"]))
+                .FromApplication("NAP - Reports - Universal")
                 .SupportOnlyDefaultLanguage();
     }
 }

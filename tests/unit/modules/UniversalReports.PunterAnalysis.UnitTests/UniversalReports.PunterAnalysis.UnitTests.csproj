@@ -158,7 +158,6 @@
     <Compile Include="Shared\DateTimeServiceImpUnitTests.cs" />
     <Compile Include="Filter\AvailableDatabase\HandlerUnitTests.cs" />
     <Compile Include="Filter\AvailableDateRange\HandlerUnitTests.cs" />
-    <Compile Include="Filter\League\HandlerUnitTests.cs" />
     <Compile Include="Filter\ProductSportBetType\HandlerUnitTests.cs" />
     <Compile Include="Filter\PunterAnalysisFilterControllerUnitTests.cs" />
     <Compile Include="Filter\SportsbookSportBetType\HandlerUnitTests.cs" />
