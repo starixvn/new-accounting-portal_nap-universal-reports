@@ -55,11 +55,11 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
             var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
-            var majorMinorGridOptions = builder.Build(winlosses.First(), "Major/Minor");
-            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, queryModel.MajorMinorTitle);
+            var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.MajorMinorTitle);
+            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Major/Minor");
 
-            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
-            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, queryModel.LiveNonLiveTitle);
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), queryModel.LiveNonLiveTitle);
+            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, "Live/Non-Live");
 
             return new FanexExcelResult(
                 new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },
