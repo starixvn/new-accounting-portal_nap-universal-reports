@@ -67,22 +67,6 @@
             }
         }
 
-        public string StoredProcedurePath
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                        return "App_Data\\PRO";
-                    default:
-                        return "App_Data\\TEST";
-                }
-            }
-        }
-
-        
-
         public string NapEnvironment
         {
             get
