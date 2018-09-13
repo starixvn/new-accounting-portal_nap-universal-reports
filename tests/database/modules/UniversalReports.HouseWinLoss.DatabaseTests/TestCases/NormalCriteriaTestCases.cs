@@ -7,9 +7,28 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
 {
     public static class NormalCriteriaTestCases
     {
-        public static ICriteria[] CriteriaCases => CreateCriteriaTestCase();
+        public static ICriteria[] BettransCriteriaCases => CreateBettransCriteriaTestCase();
+        public static ICriteria[] WarehouseCriteriaCases => CreateWarehouseCriteriaTestCase();
 
-        private static ICriteria[] CreateCriteriaTestCase()
+        private static ICriteria[] CreateBettransCriteriaTestCase()
+        {
+            var criteriaList = CreateCriteriaTestCase();
+
+            return criteriaList
+                .Select(i => WinLossCriteriaFactory.CreateBetTransCriteria(i))
+                .ToArray();
+        }
+
+        private static ICriteria[] CreateWarehouseCriteriaTestCase()
+        {
+            var criteriaList = CreateCriteriaTestCase();
+
+            return criteriaList
+                .Select(i => WinLossCriteriaFactory.CreateWarehouseCriteria(i))
+                .ToArray();
+        }
+
+        private static List<WinLossCriteria> CreateCriteriaTestCase()
         {
             var betTradeBetTypeCriteria = new Bettrade.BetType.Criteria();
             var betTradeSiteCriteria = new Bettrade.Site.Criteria { Site = "Deposit" };
@@ -141,63 +160,62 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 IsFreePlay = true
             };
 
+            var pokerGamesBetTypeCriteria = new PokerGames.BetType.Criteria { ProductId = 33 };
+            var pokerGamesSiteCriteria = new PokerGames.Site.Criteria
+            {
+                Site = "Deposit",
+                BetType = 18000,
+            };
+
             var criteriaList = new List<WinLossCriteria>
-                {
-                    betTradeBetTypeCriteria,
-                    betTradeSiteCriteria,
-                    cashOutBetTypeCriteria,
-                    cashOutSiteCriteria,
-                    casinoBetTypeCriteria,
-                    casinoProductCriteria,
-                    casinoSiteCriteria,
-                    metricGamingLiveNonLiveCriteria,
-                    metricGamingBetTypeCriteria,
-                    metricGamingSiteCriteria,
-                    numberGameMatchDetailCriteria,
-                    otherSportsBetTypeCriteria,
-                    otherSportsNewCricketBetTypeCriteria,
-                    otherSportsLiveNonLiveCriteria,
-                    otherSportsSportTypeCriteria,
-                    parlayBetTypeCriteria,
-                    parlaySiteCriteria,
-                    productCriteria,
-                    racingBetTypeCriteria,
-                    racingSportTypeCriteria,
-                    racingSiteCriteria,
-                    racingMatchDetailCriteria,
-                    soccerBetTypeCriteria,
-                    soccerLiveNonLiveCriteria,
-                    soccerMajorMinorLiveCriteria,
-                    soccerSumBetTypeCriteria,
-                    soccerGroupBetTypeCriteria,
-                    sportsbookSiteCriteria,
-                    universalSportTypeCriteria,
-                    universalBetTypeCriteria,
-                    universalSiteCriteria,
-                    virtualSportsBetTypeCriteria,
-                    virtualSportsSportTypeCriteria,
-                    virtualSportsSiteCriteria,
-                    virtualSportsRacingDetailCriteria,
-                    fishingWorldBetTypeCriteria,
-                    fishingWorldSiteCriteria,
-                    virtualSportsBetradarSportTypeCriteria,
-                    virtualSportsBetradarBetTypeCriteria,
-                    virtualSportsBetradarMatchDetailCriteria,
-                    virtualSportsBetradarSiteCriteria,
-                    colossusBetBetTypeCriteria,
-                    colossusBetSiteCriteria
-                };
-
-            var cases = criteriaList
-                .Select(i => new[]
-                {
-                WinLossCriteriaFactory.CreateBetTransCriteria(i),
-                WinLossCriteriaFactory.CreateWarehouseCriteria(i)
-                })
-                .SelectMany(l => l)
-                .ToArray();
-
-            return cases;
+            {
+                betTradeBetTypeCriteria,
+                betTradeSiteCriteria,
+                cashOutBetTypeCriteria,
+                cashOutSiteCriteria,
+                casinoBetTypeCriteria,
+                casinoProductCriteria,
+                casinoSiteCriteria,
+                metricGamingLiveNonLiveCriteria,
+                metricGamingBetTypeCriteria,
+                metricGamingSiteCriteria,
+                numberGameMatchDetailCriteria,
+                otherSportsBetTypeCriteria,
+                otherSportsNewCricketBetTypeCriteria,
+                otherSportsLiveNonLiveCriteria,
+                otherSportsSportTypeCriteria,
+                parlayBetTypeCriteria,
+                parlaySiteCriteria,
+                productCriteria,
+                racingBetTypeCriteria,
+                racingSportTypeCriteria,
+                racingSiteCriteria,
+                racingMatchDetailCriteria,
+                soccerBetTypeCriteria,
+                soccerLiveNonLiveCriteria,
+                soccerMajorMinorLiveCriteria,
+                soccerSumBetTypeCriteria,
+                soccerGroupBetTypeCriteria,
+                sportsbookSiteCriteria,
+                universalSportTypeCriteria,
+                universalBetTypeCriteria,
+                universalSiteCriteria,
+                virtualSportsBetTypeCriteria,
+                virtualSportsSportTypeCriteria,
+                virtualSportsSiteCriteria,
+                virtualSportsRacingDetailCriteria,
+                fishingWorldBetTypeCriteria,
+                fishingWorldSiteCriteria,
+                virtualSportsBetradarSportTypeCriteria,
+                virtualSportsBetradarBetTypeCriteria,
+                virtualSportsBetradarMatchDetailCriteria,
+                virtualSportsBetradarSiteCriteria,
+                colossusBetBetTypeCriteria,
+                colossusBetSiteCriteria,
+                pokerGamesBetTypeCriteria,
+                pokerGamesSiteCriteria
+            };
+            return criteriaList;
         }
     }
 }

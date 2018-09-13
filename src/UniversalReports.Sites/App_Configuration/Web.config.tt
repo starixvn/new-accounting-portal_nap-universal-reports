@@ -62,7 +62,7 @@
 		<add key="ClientValidationEnabled" value="true" />
 		<add key="UnobtrusiveJavaScriptEnabled" value="true" />
 		<!-- This setting is used for Rocketor only -->
-		<add key="StoredProcedurePath" value="<#=site.StoredProcedurePath#>" />
+		<add key="StoredProcedurePath" value="App_Data" />
 	</appSettings>
 
 	<system.web>
@@ -105,10 +105,6 @@
 #>
 	<system.webServer>
 	<handlers>
-		<remove name="ExtensionlessUrlHandler-Integrated-4.0" />
-		<remove name="OPTIONSVerbHandler" />
-		<remove name="TRACEVerbHandler" />
-		<add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
 	</handlers>
 	<staticContent>
 		<remove fileExtension=".woff" />

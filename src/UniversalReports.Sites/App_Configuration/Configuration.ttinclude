@@ -11,10 +11,6 @@
         },
         new SiteInfo
         {
-            Environment = SiteEnvironment.MASTER
-        },
-        new SiteInfo
-        {
             Environment = SiteEnvironment.UAT
         },
         new SiteInfo
@@ -32,7 +28,6 @@
     {
         DEV,
         LOCAL,
-        MASTER,
         UAT,
 		SIT,
         MNL,
@@ -71,22 +66,6 @@
                 }
             }
         }
-
-        public string StoredProcedurePath
-        {
-            get
-            {
-                switch(Environment)
-                {
-                    case SiteEnvironment.PRO:
-                        return "App_Data\\PRO";
-                    default:
-                        return "App_Data\\TEST";
-                }
-            }
-        }
-
-        
 
         public string NapEnvironment
         {
@@ -142,7 +121,6 @@
                 {
 					case SiteEnvironment.DEV:
 					case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
 						return "http://ha.nexdev.net:1711/api";
                     case SiteEnvironment.SIT:
 						return "http://172.16.4.106:1710/api";
@@ -166,7 +144,6 @@
                 {
 					case SiteEnvironment.DEV:
 					case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
 						return "HTAiA6W/kzs0PjSnm3ll1kD7tXPyDyO0gTeD8Nz6078=";
                     case SiteEnvironment.SIT:
 						return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
@@ -188,7 +165,6 @@
                 {
 					case SiteEnvironment.DEV:
 					case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
 						return "localhost:9902";
                     case SiteEnvironment.SIT:
                         return "nap-report.playthefun.com";
@@ -212,7 +188,6 @@
                 {
 					case SiteEnvironment.DEV:
 					case SiteEnvironment.LOCAL:
-                    case SiteEnvironment.MASTER:
                     case SiteEnvironment.SIT:
                     case SiteEnvironment.UAT:
 					case SiteEnvironment.PRO:
@@ -231,8 +206,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.DEV:
-					case SiteEnvironment.LOCAL:
-					case SiteEnvironment.MASTER:
+					case SiteEnvironment.LOCAL:					
                         return "http://ha.nexdev.net:8889/api";
                     case SiteEnvironment.PRO:
                         return "http://10.40.40.22:8889/api";
@@ -297,7 +271,7 @@
                         return @"FormatName:DIRECT=tcp://10.40.40.73/private$/entlib";
 
                     case SiteEnvironment.PRO:
-                        return @"FormatName:DIRECT=http://10.40.40.22/msmq/Private$/entlib";
+                        return @"FormatName:DIRECT=tcp:10.40.40.22\private$\entlib";
 
 					case SiteEnvironment.SIT:
                         return @"FormatName:DIRECT=tcp://172.16.4.106/private$/entlib";

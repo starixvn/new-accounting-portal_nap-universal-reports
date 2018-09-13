@@ -5,6 +5,5 @@
 // UniversalReports.Sites\App_Configuration\Web.PRO.config
 // UniversalReports.Sites\App_Configuration\Web.MNL.config
 // UniversalReports.Sites\App_Configuration\Web.UAT.config
-// UniversalReports.Sites\App_Configuration\Web.MASTER.config
 // UniversalReports.Sites\App_Configuration\Web.DEV.config
 // UniversalReports.Sites\App_Configuration\Web.LOCAL.config

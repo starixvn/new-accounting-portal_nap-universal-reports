@@ -59,7 +59,7 @@ namespace UniversalReports.Sites
                 || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion")
                 || request.Url.ToString().Contains("state-api/application/header"))
             {
-                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+                HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.ReadOnly);
             }
         }
 

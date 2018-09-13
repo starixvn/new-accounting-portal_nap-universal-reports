@@ -8,40 +8,60 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
 {
     public static class MatchDetailCriteriaTestCases
     {
-        public static ICriteria[] CriteriaCases
+        public static ICriteria[] BettransCriteriaCases => CreateBettransCriteriaTestCase();
+        public static ICriteria[] WarehouseCriteriaCases => CreateWarehouseCriteriaTestCase();
+
+        private static ICriteria[] CreateBettransCriteriaTestCase()
         {
-            get
+            var criteriaList = CreateCriteriaTestCase();
+
+            return criteriaList
+                .Select(i => WinLossCriteriaFactory.CreateBetTransCriteria(i))
+                .ToArray();
+        }
+
+        private static ICriteria[] CreateWarehouseCriteriaTestCase()
+        {
+            var criteriaList = CreateCriteriaTestCase();
+
+            return criteriaList
+                .Select(i => WinLossCriteriaFactory.CreateWarehouseCriteria(i))
+                .ToArray();
+        }
+
+        public static List<WinLossCriteria> CreateCriteriaTestCase()
+        {
+
+            var metricGamingMatchDetailCriteria = new Criteria
             {
-                var metricGamingMatchDetailCriteria = new Criteria
-                {
-                    BetType = 1,
-                    IsLive = 2
-                };
-                var sportsbookMatchDetailCriteria = new Sportsbook.MatchDetail.Criteria
-                {
-                    BetType = 1,
-                    SportType = 1,
-                    IsLive = 2,
-                    IsHedge = 2
-                };
-                var sportsbookOutrightMatchDetailCriteria = new Sportsbook.OutrightMatchDetail.Criteria
-                {
-                    SportType = 1
-                };
+                BetType = 1,
+                IsLive = 2
+            };
+            var sportsbookMatchDetailCriteria = new Sportsbook.MatchDetail.Criteria
+            {
+                BetType = 1,
+                SportType = 1,
+                IsLive = 2,
+                IsHedge = 2
+            };
+            var sportsbookOutrightMatchDetailCriteria = new Sportsbook.OutrightMatchDetail.Criteria
+            {
+                SportType = 1
+            };
 
-                var virtualSportsSportsbookDetailCriteria = new VirtualSports.SportsbookDetail.Criteria
-                {
-                    BetType = 1231,
-                    SportType = 181
-                };
+            var virtualSportsSportsbookDetailCriteria = new VirtualSports.SportsbookDetail.Criteria
+            {
+                BetType = 1231,
+                SportType = 181
+            };
 
-                var bullfightingMatchDetailCriteria = new Bullfighting.MatchDetail.Criteria
-                {
-                    BetType = 1004,
-                    SportType = 207
-                };
+            var bullfightingMatchDetailCriteria = new Bullfighting.MatchDetail.Criteria
+            {
+                BetType = 1004,
+                SportType = 207
+            };
 
-                var result = new List<WinLossCriteria>
+            var criteriaList = new List<WinLossCriteria>
                 {
                     metricGamingMatchDetailCriteria,
                     sportsbookMatchDetailCriteria,
@@ -50,17 +70,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                     bullfightingMatchDetailCriteria
                 };
 
-                var cases = result
-                    .Select(i => new[]
-                    {
-                    WinLossCriteriaFactory.CreateBetTransCriteria(i),
-                    WinLossCriteriaFactory.CreateWarehouseCriteria(i)
-                    })
-                    .SelectMany(l => l)
-                    .ToArray();
 
-                return cases;
-            }
+            return criteriaList;
         }
     }
 }
