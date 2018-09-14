@@ -18,6 +18,7 @@
     <Setting Key="HouseWinLoss-VirtualSports-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_Site" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-VirtualSports-Racing-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-VirtualSports-Sportsbook-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-MajorMinor-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
