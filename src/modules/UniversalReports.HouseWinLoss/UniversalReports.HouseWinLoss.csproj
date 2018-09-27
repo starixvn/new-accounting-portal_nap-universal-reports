@@ -246,6 +246,14 @@
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\BetType\Criteria.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\BetType\SoccerMinorBetTypeController.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\BetType\ExcelQueryModel.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\BetType\QueryModel.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\SportType\Criteria.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\SportType\ExcelQueryModel.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\SportType\SoccerMinorSportTypeController.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\SportType\QueryModel.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MetricGaming\BetType\Criteria.cs" />
     <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
@@ -484,6 +492,7 @@
     <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

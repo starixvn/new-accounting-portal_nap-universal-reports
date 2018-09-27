@@ -398,6 +398,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\DailyWinLoss2hSoccerMinorController.cs" />
     <Compile Include="Controllers\ExchangeController.cs" />
     <Compile Include="Controllers\FakeLoginController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
@@ -417,8 +418,22 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor.constant.js" />
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.controller.js" />
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.service.js" />
     <Content Include="app\house-win-loss\shared\bet-type.new-cricket.controller.js" />
+    <Content Include="app\house-win-loss\shared\breadcrumb\breadcrumb.service.js" />
+    <Content Include="app\house-win-loss\shared\breadcrumb\title.service.js" />
+    <Content Include="app\house-win-loss\shared\filter\filter.directive.html" />
+    <Content Include="app\house-win-loss\shared\filter\filter.directive.js" />
+    <Content Include="app\house-win-loss\shared\grid\product-show-hide-column.service.js" />
+    <Content Include="app\house-win-loss\shared\grid\show-hide-column.service.js" />
     <Content Include="app\house-win-loss\shared\remote-data.service.js" />
+    <Content Include="app\house-win-loss\shared\tab\pane.directive.js" />
+    <Content Include="app\house-win-loss\shared\tab\pane.service.js" />
+    <Content Include="app\house-win-loss\shared\tab\tab.directive.html" />
+    <Content Include="app\house-win-loss\shared\tab\tab.directive.js" />
+    <Content Include="app\house-win-loss\shared\tab\tab.service.js" />
     <Content Include="app\house-win-loss\shared\three-fanex-grid-with-title.html" />
     <Content Include="app\house-win-loss\soccer\soccer-bet-type.service.js" />
     <Content Include="app\house-win-loss\soccer\soccer-bettype-full.controller.js" />
@@ -454,12 +469,8 @@
     <Content Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.js" />
     <Content Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.template.html" />
     <Content Include="app\root\legacy\legacy.service.js" />
-    <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\app.js" />
-    <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
     <Content Include="app\house-win-loss\casino\casino-product.controller.js" />
-    <Content Include="app\house-win-loss\grid\product-show-hide-column.service.js" />
-    <Content Include="app\house-win-loss\grid\show-hide-column.service.js" />
     <Content Include="app\house-win-loss\parlay\parlay-bet-type.controller.js" />
     <Content Include="app\house-win-loss\sportsbook\sportsbook-match-detail.controller.js" />
     <Content Include="app\house-win-loss\soccer\soccer.constant.js" />
@@ -470,11 +481,6 @@
     <Content Include="app\house-win-loss\metric-gaming\metric-gaming-live-non-live.controller.js" />
     <Content Include="app\house-win-loss\other-sports\other-sports-live-non-live.controller.js" />
     <Content Include="app\house-win-loss\soccer\soccer-live-nonlive.controller.js" />
-    <Content Include="app\house-win-loss\tab\tab.service.js" />
-    <Content Include="app\house-win-loss\tab\pane.service.js" />
-    <Content Include="app\house-win-loss\tab\tab.directive.html" />
-    <Content Include="app\house-win-loss\tab\pane.directive.js" />
-    <Content Include="app\house-win-loss\tab\tab.directive.js" />
     <Content Include="app\root\components\legend\legend.directive.js" />
     <Content Include="app\root\components\legend\legend.service.js" />
     <Content Include="app\root\components\header\header.service.js" />
@@ -484,7 +490,6 @@
     <Content Include="app\house-win-loss\shared\bet-type.controller.js" />
     <Content Include="app\house-win-loss\house-win-loss.constant.js" />
     <Content Include="app\house-win-loss\house-win-loss.service.js" />
-    <Content Include="app\house-win-loss\filter\filter.directive.js" />
     <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
@@ -516,6 +521,8 @@
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
+    <Content Include="bundle\daily-winloss-2h-soccer-minor-style.chunk.js" />
+    <Content Include="bundle\daily-winloss-2h-soccer-minor.chunk.js" />
     <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
     <Content Include="bundle\house-win-loss-style.chunk.js" />
     <Content Include="bundle\house-win-loss-style.css" />
@@ -674,7 +681,6 @@
     <Content Include="app\root\crosscutting\fanex-grid.service.js" />
     <Content Include="app\root\crosscutting\logger.service.js" />
     <Content Include="app\house-win-loss\house-win-loss.controller.js" />
-    <Content Include="app\house-win-loss\filter\filter.directive.html" />
     <Content Include="app\house-win-loss\product\product.controller.js" />
     <Content Include="app\root\components\alert\alert.directive.html" />
     <Content Include="app\root\components\alert\alert.directive.js" />
@@ -764,6 +770,8 @@
     <Content Include="ExcelTemplate\PunterAnalysis\AssociatedAccount.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="bundle\daily-winloss-2h-soccer-minor-style.chunk.js.map" />
+    <Content Include="bundle\daily-winloss-2h-soccer-minor.chunk.js.map" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -906,6 +914,7 @@
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="Views\DailyWinLoss2hSoccerMinor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

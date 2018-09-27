@@ -44,6 +44,8 @@
     <Setting Key="HouseWinLoss-ColossusBet-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_ColossusBet_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-PokerGames-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_PokerGames_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-PokerGames-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_PokerGames_Site" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-Minor-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Soccer-Minor-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="PlayForFun">
     <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />

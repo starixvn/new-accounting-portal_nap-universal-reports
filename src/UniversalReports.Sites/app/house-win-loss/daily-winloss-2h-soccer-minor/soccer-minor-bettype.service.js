@@ -1,0 +1,39 @@
+//import angular from "angular";
+(function (angular) {
+    'use strict';
+
+    angular
+        .module('app.houseWinlossApp')
+        .factory('soccerMinorBetTypeService', soccerMinorBetTypeService);
+
+    soccerMinorBetTypeService.$inject = ['$http', 'httpResponseService'];
+    function soccerMinorBetTypeService($http, httpResponseService) {
+        var service = {
+            getData: getData,
+            exportExcel: exportExcel
+        };
+
+        return service;
+
+        function getData(data, isLive) {
+            var url = "api/house-win-loss-by-products/soccer-minor/bet-type";
+            var httpData = {};
+            angular.extend(httpData, data);
+            httpData.isLive = isLive;
+            return $http.post(url, httpData)
+                            .then(httpResponseService.getDataComplete)
+                            .catch(httpResponseService.getDataFailed);
+        }
+
+        function exportExcel(viewSetting, data, fileName) {
+            var url = 'api/house-win-loss-by-products/soccer-minor/bet-type/excel';
+            var httpData = {};
+            angular.extend(httpData, data);
+            return $http.post(url, httpData, { responseType: "arraybuffer" })
+                .then(function (response) {
+                    httpResponseService.saveExcelFile(response.data, fileName);
+                })
+                .catch(httpResponseService.getDataFailed);
+        }
+    }
+})(angular);

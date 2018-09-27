@@ -13,7 +13,7 @@ import angular from "angular";
             scope: {
                 panes: '='
             },
-            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
+            templateUrl: 'app/house-win-loss/shared/tab/tab.directive.html',
             controller: controller,
             controllerAs: 'vm',
             bindToController: true
