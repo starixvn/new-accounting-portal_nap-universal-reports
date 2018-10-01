@@ -26,22 +26,20 @@ module.exports = {
             "./app/root/**/*.less",
             "./app/root/**/*.css"]),
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js",
-            "./app/house-win-loss/**/*.js",
-            "./app/house-win-loss/shared/**/*.js"],
-            { ignore: ["./app/house-win-loss/daily-winloss-2h-soccer-minor/*.js", "./app/house-win-loss/daily-winloss-2h-soccer-minor.constant.js"] }),
+            "./app/house-win-loss/**/*.js"],
+            { ignore: ["./app/house-win-loss/daily-winloss-2h-soccer-minor/*.js"] }),
         "house-win-loss-style": ["./content/house-win-loss.scss", "./content/scoreInformation.scss"],
         "ng2-statistics": glob.sync(["./app/ng2-statistics/*.js", "./app/ng2-statistics/**/*.js"]),
         "ng2-statistics-style": ["./content/ng2-statistics.scss"],
         "daily-winloss-2h-soccer-minor": glob.sync(["./app/house-win-loss/*.js",
-            "./app/house-win-loss/shared/*.js",
-            "./app/house-win-loss/product/*.js",
-            "./app/house-win-loss/sportsbook/*.js",
-            "./app/house-win-loss/soccer/*.js",
-            "./app/house-win-loss/shared/**/*.js",
-            "./app/house-win-loss/product/*.js",
-            "./app/house-win-loss/daily-winloss-2h-soccer-minor/*.js"],
+            "./app/house-win-loss/**/*.js"],
             {
-                ignore: "./app/house-win-loss/house-win-loss.constant.js"
+            ignore: ["./app/house-win-loss/house-win-loss.constant.js",
+                    "./app/house-win-loss/tab/pane.service.js",
+                    "./app/house-win-loss/casino/*.js",
+                    "./app/house-win-loss/metric-gaming/*.js",
+                    "./app/house-win-loss/other-sports/*.js",
+                    "./app/house-win-loss/parlay/*.js"]
             })
     },
     output: {

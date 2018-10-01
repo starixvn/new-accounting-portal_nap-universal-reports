@@ -5,43 +5,43 @@ webpackJsonp([3],{
 
 	__webpack_require__(170);
 	__webpack_require__(171);
-	__webpack_require__(202);
+	__webpack_require__(201);
+	__webpack_require__(172);
 	__webpack_require__(173);
 	__webpack_require__(174);
+	__webpack_require__(175);
+	__webpack_require__(202);
+	__webpack_require__(179);
+	__webpack_require__(180);
+	__webpack_require__(181);
 	__webpack_require__(203);
 	__webpack_require__(204);
 	__webpack_require__(205);
-	__webpack_require__(206);
 	__webpack_require__(182);
+	__webpack_require__(183);
+	__webpack_require__(184);
 	__webpack_require__(185);
 	__webpack_require__(186);
 	__webpack_require__(187);
 	__webpack_require__(188);
 	__webpack_require__(189);
 	__webpack_require__(190);
-	__webpack_require__(183);
-	__webpack_require__(184);
-	__webpack_require__(175);
-	__webpack_require__(176);
-	__webpack_require__(177);
 	__webpack_require__(191);
 	__webpack_require__(192);
 	__webpack_require__(193);
 	__webpack_require__(194);
 	__webpack_require__(195);
-	__webpack_require__(178);
-	__webpack_require__(179);
-	__webpack_require__(180);
-	__webpack_require__(181);
 	__webpack_require__(196);
 	__webpack_require__(197);
 	__webpack_require__(198);
-	module.exports = __webpack_require__(199);
+	__webpack_require__(206);
+	__webpack_require__(199);
+	module.exports = __webpack_require__(200);
 
 
 /***/ },
 
-/***/ 202:
+/***/ 201:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -684,7 +684,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 203:
+/***/ 202:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -763,7 +763,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 204:
+/***/ 203:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -922,7 +922,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 205:
+/***/ 204:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1058,7 +1058,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 206:
+/***/ 205:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1166,6 +1166,89 @@ webpackJsonp([3],{
 	            angular.extend(httpData, { title: title });
 	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
 	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+
+/***/ 206:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('napPane', napPane);
+	
+	    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
+	    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
+	        function Pane(viewLevel, data) {
+	            this.viewLevel = viewLevel;
+	            this.data = data;
+	            this.$scope = undefined;
+	            this.$element = undefined;
+	            this.generate = generate;
+	            this.show = show;
+	            this.compileAll = compileAll;
+	            this.compileLinks = compileLinks;
+	            this.compileDrilldown = compileDrilldown;
+	            this.getFileName = getFileName;
+	
+	            if (angular.isUndefined(this.viewLevel) || angular.isUndefined(this.data)) {
+	                $log.error('Invalid pane');
+	                return;
+	            }
+	
+	            this.viewSetting = houseWinlossService.getViewSetting(data.productName, viewLevel, data);
+	            if (this.viewSetting === undefined) {
+	                loggerService.logError('Sorry, the configuration is corrupted, please notify the administrators.');
+	                throw 'Sorry, the configuration is corrupted, please notify the administrators.';
+	            }
+	
+	            this.templateUrl = this.viewSetting.templateUrl;
+	            this.controller = this.viewSetting.controller;
+	            this.service = $injector.get(this.viewSetting.service);
+	
+	            function generate() {
+	                this.$scope.generate(this.viewSetting);
+	            }
+	
+	            function show() {
+	                var gridElement = this.$element.find('.freegrid');
+	                gridElement.fanexGrid('resizeGrid');
+	            }
+	
+	            function getFileName() {
+	                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	            }
+	
+	            function compileAll() {
+	                this.compileLinks();
+	                var elements = this.$element.find('.nap-component');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileLinks() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	                elements = this.$element.find('.breadcrumb');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileDrilldown() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	            }
+	        }
+	
+	        return Pane;
 	    }
 	})(_angular2.default);
 

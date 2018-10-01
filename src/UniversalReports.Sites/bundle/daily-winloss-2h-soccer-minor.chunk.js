@@ -33,13 +33,12 @@ webpackJsonp([2],{
 	__webpack_require__(197);
 	__webpack_require__(198);
 	__webpack_require__(199);
-	__webpack_require__(200);
-	module.exports = __webpack_require__(201);
+	module.exports = __webpack_require__(200);
 
 
 /***/ },
 
-/***/ 172:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -131,14 +130,90 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 200:
-/***/ function(module, exports) {
+/***/ 177:
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('napPane', napPane);
+	
+	    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
+	    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
+	        function Pane(viewLevel, data) {
+	            this.viewLevel = viewLevel;
+	            this.data = data;
+	            this.$scope = undefined;
+	            this.$element = undefined;
+	            this.generate = generate;
+	            this.show = show;
+	            this.compileAll = compileAll;
+	            this.compileLinks = compileLinks;
+	            this.compileDrilldown = compileDrilldown;
+	            this.getFileName = getFileName;
+	
+	            if (angular.isUndefined(this.viewLevel) || angular.isUndefined(this.data)) {
+	                $log.error('Invalid pane');
+	                return;
+	            }
+	
+	            this.viewSetting = houseWinlossService.getViewSetting(data.productName, viewLevel, data);
+	            if (this.viewSetting === undefined) {
+	                loggerService.logError('Sorry, the configuration is corrupted, please notify the administrators.');
+	                throw 'Sorry, the configuration is corrupted, please notify the administrators.';
+	            }
+	
+	            this.templateUrl = this.viewSetting.templateUrl;
+	            this.controller = this.viewSetting.controller;
+	            this.service = $injector.get(this.viewSetting.service);
+	
+	            function generate() {
+	                this.$scope.generate(this.viewSetting);
+	            }
+	
+	            function show() {
+	                var gridElement = this.$element.find('.freegrid');
+	                gridElement.fanexGrid('resizeGrid');
+	            }
+	
+	            function getFileName() {
+	                return 'Daily_Win_Loss_2h_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	            }
+	
+	            function compileAll() {
+	                this.compileLinks();
+	                var elements = this.$element.find('.nap-component');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileLinks() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	                elements = this.$element.find('.breadcrumb');
+	                $compile(elements)(this.$scope);
+	            }
+	
+	            function compileDrilldown() {
+	                var elements = this.$element.find('.drill-down');
+	                $compile(elements)(this.$scope);
+	            }
+	        }
+	
+	        return Pane;
+	    }
+	})(_angular2.default);
 
 /***/ },
 
-/***/ 201:
+/***/ 178:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -167,7 +242,7 @@ webpackJsonp([2],{
 	        }
 	
 	        function exportExcel(viewSetting, data, fileName) {
-	            var url = 'api/house-win-loss-by-products/soccer-minor/bet-type/excel';
+	            var url = 'api/house-win-loss-by-products/soccer-minor/bet-type-full/excel';
 	            var httpData = {};
 	            angular.extend(httpData, data);
 	            return $http.post(url, httpData, { responseType: "arraybuffer" }).then(function (response) {

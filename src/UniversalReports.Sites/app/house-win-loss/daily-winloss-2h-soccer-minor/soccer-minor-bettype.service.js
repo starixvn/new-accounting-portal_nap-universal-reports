@@ -26,7 +26,7 @@
         }
 
         function exportExcel(viewSetting, data, fileName) {
-            var url = 'api/house-win-loss-by-products/soccer-minor/bet-type/excel';
+            var url = 'api/house-win-loss-by-products/soccer-minor/bet-type-full/excel';
             var httpData = {};
             angular.extend(httpData, data);
             return $http.post(url, httpData, { responseType: "arraybuffer" })

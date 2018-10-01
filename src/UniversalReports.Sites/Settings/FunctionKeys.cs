@@ -11,5 +11,6 @@
         public const string UpdatedUsernameAndGivenCredit = "UpdatedUsername_CreditList";
         public const string Exchange = "Exchange";
         public const string ActualMemberBet = "ActualMemberBet";
+        public const string DailyWinLoss2hSoccerMinorBettype = "DailyWinLoss2hSoccerMinorBettype";
     }
 }

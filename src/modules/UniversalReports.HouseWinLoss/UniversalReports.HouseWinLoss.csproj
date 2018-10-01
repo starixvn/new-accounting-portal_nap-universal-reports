@@ -250,6 +250,7 @@
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\SoccerMinorBetTypeController.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\ExcelQueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\QueryModel.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\BetType\SoccerMinorBetTypeFullController.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SportType\Criteria.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SportType\ExcelQueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SportType\SoccerMinorSportTypeController.cs" />

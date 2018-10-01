@@ -47845,8 +47845,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 172 */,
-/* 173 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47870,7 +47869,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 174 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47933,7 +47932,568 @@
 	})(_angular2.default, undefined);
 
 /***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('breadcrumbService', breadcrumbService);
+	
+	    breadcrumbService.$inject = [];
+	    function breadcrumbService() {
+	        var service = {
+	            generateHtml: generateHtml,
+	            generateText: generateText
+	        };
+	        return service;
+	
+	        function generateHtml(list) {
+	            var html = '<ol class="breadcrumb">';
+	            for (var i = 0; i < list.length; i++) {
+	                var title = list[i];
+	                var isLast = i === list.length - 1;
+	                if (isLast) {
+	                    html += '<li class="active">' + title + '</li>';
+	                } else {
+	                    html += '<li><a href data-ng-click="tab.goBack(' + i + ')">' + title + '</a></li>';
+	                }
+	            }
+	
+	            return html;
+	        }
+	
+	        function generateText(list) {
+	            return list.join(' > ');
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
 /* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('titleService', titleService);
+	
+	    titleService.$inject = ['soccerConstants'];
+	    function titleService(soccerConstants) {
+	        var service = {
+	            getMainTitle: getMainTitle,
+	            getProductTitle: getProductTitle,
+	            getProductTitleLiveNonLive: getProductTitleLiveNonLive,
+	            getProductTitleLive: getProductTitleLive,
+	            getSoccerLiveNonLiveTitle: getSoccerLiveNonLiveTitle,
+	            getSoccerMajorMinorTitle: getSoccerMajorMinorTitle,
+	            getSoccerBetTypeTitle: getSoccerBetTypeTitle,
+	            getSportsbookBetTypeTitle: getSportsbookBetTypeTitle,
+	            getBetTypeLiveNonLiveTitle: getBetTypeLiveNonLiveTitle,
+	            getCasinoProductTitle: getCasinoProductTitle,
+	            getSportTypeTitle: getSportTypeTitle,
+	            getSportTypeTitleLive: getSportTypeTitleLive,
+	            getSiteTitle: getSiteTitle,
+	            getSiteTitleLive: getSiteTitleLive,
+	            getMatchDetailTitle: getMatchDetailTitle,
+	            getMatchDetailTitleLive: getMatchDetailTitleLive,
+	            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle
+	        };
+	        return service;
+	
+	        function getMainTitle(data) {
+	            return 'Main';
+	        }
+	
+	        function getProductTitle(data) {
+	            return data.productName;
+	        }
+	
+	        function getProductTitleLiveNonLive(data, isLast) {
+	            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
+	        }
+	
+	        function getProductTitleLive(data) {
+	            return data.productName + getLiveText(data.isLive);
+	        }
+	
+	        function getSoccerLiveNonLiveTitle(data, isLast) {
+	            return isLast ? ' SOCCER LIVE/NON-LIVE' : "SOCCER";
+	        }
+	
+	        function getSoccerMajorMinorTitle(data) {
+	            if (data.isLive === soccerConstants.LiveNonLive) {
+	                return data.productName + ' ' + "MAJOR/MINOR";
+	            } else {
+	                var liveNonLive = data.isLive === soccerConstants.Live ? "LIVE" : "NON-LIVE";
+	                return data.productName + ' ' + liveNonLive;
+	            }
+	        }
+	
+	        function getSoccerBetTypeTitle(data) {
+	            var majorMinor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
+	            if (data.isLive === soccerConstants.LiveNonLive) {
+	                return data.productName + majorMinor + ' BET TYPES';
+	            } else {
+	                var liveNonLive = data.isLive === soccerConstants.Live ? '"LIVE"' : '"NON-LIVE"';
+	                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
+	            }
+	        }
+	
+	        function getSportsbookBetTypeTitle(data) {
+	            var sportType = getSportTypeTitle(data);
+	            var product = getProductTitleLive(data);
+	            var viewingFromSportType = sportType !== undefined;
+	            return viewingFromSportType ? sportType : product;
+	        }
+	
+	        function getBetTypeLiveNonLiveTitle(data) {
+	            return data.isLive === undefined ? data.productName : data.productName + getLiveText(data.isLive);
+	        }
+	
+	        function getCasinoProductTitle(data) {
+	            return data.casinoProductName;
+	        }
+	
+	        function getSportTypeTitle(data) {
+	            return data.sportTypeName;
+	        }
+	
+	        function getSportTypeTitleLive(data) {
+	            return data.sportTypeName + getLiveText(data.isLive);
+	        }
+	
+	        function getSiteTitle(data) {
+	            var site = data.site === undefined ? "ALL" : data.site;
+	            return data.betTypeName + ' | ' + site + ' Site';
+	        }
+	
+	        function getSiteTitleLive(data) {
+	            return data.betTypeName + getLiveText(data.isLive) + '| ' + data.site + ' Site';
+	        }
+	
+	        function getMatchDetailTitle(data) {
+	            return data.betTypeName;
+	        }
+	
+	        function getMatchDetailTitleLive(data) {
+	            var isLiveText = data.isLive === 2 ? '' : data.isLive === 1 ? ' "Live"' : ' "Non-Live"';
+	            return data.betTypeName + isLiveText;
+	        }
+	
+	        function getLiveText(isLive) {
+	            var isLiveValue = parseInt(isLive);
+	            var isLiveText = isLiveValue === 2 ? '' : isLiveValue === 1 ? ' "Live"' : ' "Non-Live"';
+	
+	            return isLiveText;
+	        }
+	
+	        function getSoccerMinorBetTypeTitle() {
+	            return 'SOCCER MINOR BET TYPES';
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _moment = __webpack_require__(5);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').directive('napFilter', napFilter);
+	
+	    function napFilter() {
+	        var directive = {
+	            restrict: 'EA',
+	            scope: {},
+	            templateUrl: 'app/house-win-loss/filter/filter.directive.html',
+	            replace: true,
+	            controller: controller,
+	            controllerAs: 'vm',
+	            bindToController: true
+	        };
+	        return directive;
+	    }
+	
+	    controller.$inject = ['$scope', '$rootScope', 'config', 'moment'];
+	    function controller($scope, $rootScope, config, moment) {
+	        /*jshint validthis: true */
+	        var vm = this;
+	        vm.minDate = moment("20110101", "YYYYMMDD");
+	        vm.currentLevel = 0;
+	        vm.accessDenied = modePermissions.length === 0 || productPermissions.length === 0;
+	        vm.normalMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0;
+	        vm.showBothMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0 && modePermissions.indexOf("HouseWinLossByProducts_HistoryMode") >= 0;
+	        vm.today = config.today;
+	        vm.yesterday = config.yesterday;
+	        vm.date = config.today;
+	        vm.startDate = moment.utc(config.yesterday).startOf('month');
+	        vm.endDate = moment.utc(config.yesterday);
+	        vm.generate = generate;
+	        vm.todayClicked = todayClicked;
+	        vm.yesterdayClicked = yesterdayClicked;
+	        vm.viewNormalMode = viewNormalMode;
+	        vm.viewHistoryMode = viewHistoryMode;
+	        vm.getDateRange = getDateRange;
+	        vm.updateDateRange = updateDateRange;
+	
+	        $scope.$on('nap-filter-date', function (event, data) {
+	            updateDateRange(data);
+	        });
+	
+	        function generate() {
+	            vm.dateRange = getDateRange();
+	            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+	        }
+	
+	        function todayClicked() {
+	            vm.date = vm.today;
+	            vm.generate();
+	        }
+	
+	        function yesterdayClicked() {
+	            vm.date = vm.yesterday;
+	            vm.generate();
+	        }
+	
+	        function viewNormalMode() {
+	            vm.normalMode = true;
+	
+	            $('.filter-note').css('display', 'block');
+	            $rootScope.$broadcast('nap-filter-switch');
+	        }
+	
+	        function viewHistoryMode() {
+	            vm.normalMode = false;
+	
+	            $('.filter-note').css('display', 'none');
+	            $rootScope.$broadcast('nap-filter-switch');
+	        }
+	
+	        function getDateRange() {
+	            if (vm.normalMode) {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.date,
+	                    endDate: vm.date
+	                };
+	            } else {
+	                return {
+	                    normalMode: vm.normalMode,
+	                    startDate: vm.startDate,
+	                    endDate: vm.endDate
+	                };
+	            }
+	        }
+	
+	        function updateDateRange(dateRange) {
+	            vm.normalMode = dateRange.normalMode;
+	            if (vm.normalMode) {
+	                vm.date = dateRange.startDate;
+	            } else {
+	                vm.startDate = dateRange.startDate;
+	                vm.endDate = dateRange.endDate;
+	            }
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').service('productShowHideColumnService', productShowHideColumnService);
+	
+	    productShowHideColumnService.$inject = ['$log', '$timeout'];
+	    function productShowHideColumnService($log, $timeout) {
+	        var service = {
+	            defaultCollapseAllGroups: true,
+	            Builder: Builder
+	        };
+	        return service;
+	
+	        function Builder(pane) {
+	            var defaultCollapseAllGroups = service.defaultCollapseAllGroups;
+	            var hiddenColumns = [1, 2];
+	            this.getButtonHtml = getButtonHtml;
+	            this.build = build;
+	            this.toggle = toggle;
+	
+	            function toggle() {
+	                if (defaultCollapseAllGroups !== service.defaultCollapseAllGroups) {
+	                    var customButton = pane.$element.find('.btExpand').first();
+	                    $timeout(function () {
+	                        customButton.trigger('click');
+	                    });
+	                }
+	            }
+	
+	            function getButtonHtml() {
+	                var buttonClass = !defaultCollapseAllGroups ? 'expanded' : 'collapsed';
+	                return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
+	            }
+	
+	            function build(listOfGridElements, listOfGridOptions) {
+	                if (!angular.isArray(listOfGridElements)) {
+	                    listOfGridElements = [listOfGridElements];
+	                }
+	                if (!angular.isArray(listOfGridOptions)) {
+	                    listOfGridOptions = [listOfGridOptions];
+	                }
+	                if (listOfGridElements.length !== listOfGridOptions.length) {
+	                    $log.error('Invalid parameters');
+	                    return;
+	                }
+	
+	                pane.$scope.showHideColumns = showHideColumns;
+	                for (var i = 0; i < listOfGridOptions.length; i++) {
+	                    var gridOptions = listOfGridOptions[i];
+	                    gridOptions.hiddenColumns = hiddenColumns;
+	                    gridOptions.enableHiddenColumns = !defaultCollapseAllGroups;
+	                    gridOptions.defaultCollapseAllGroups = defaultCollapseAllGroups;
+	                }
+	
+	                function showHideColumns($event) {
+	                    defaultCollapseAllGroups = !defaultCollapseAllGroups;
+	                    service.defaultCollapseAllGroups = defaultCollapseAllGroups;
+	                    for (var i = 0; i < listOfGridOptions.length; i++) {
+	                        var gridElement = listOfGridElements[i];
+	                        var gridOptions = listOfGridOptions[i];
+	                        gridOptions.enableHiddenColumns = defaultCollapseAllGroups;
+	                        gridOptions.defaultCollapseAllGroups = true;
+	                        if (gridOptions.enableHiddenColumns) {
+	                            gridElement.fanexGrid("hideColumns", gridOptions, hiddenColumns);
+	                        } else {
+	                            gridElement.fanexGrid("hideColumns", gridOptions, []);
+	                        }
+	                    }
+	
+	                    pane.compileDrilldown();
+	                    var target = angular.element($event.target);
+	                    if (!defaultCollapseAllGroups) {
+	                        target.removeClass('collapsed').addClass('expanded');
+	                    } else {
+	                        target.removeClass('expanded').addClass('collapsed');
+	                    }
+	                }
+	            }
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('showHideColumnService', showHideColumnService);
+	
+	    showHideColumnService.$inject = ['$log', '$timeout', 'productShowHideColumnService'];
+	    function showHideColumnService($log, $timeout, productShowHideColumnService) {
+	        function Builder(pane) {
+	            var defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
+	            this.getButtonHtml = getButtonHtml;
+	            this.build = build;
+	            this.toggle = toggle;
+	
+	            function raiseDefaultClick() {
+	                var buttons = pane.$element.find('.btExpand');
+	                var customButton = buttons.first();
+	                if (!defaultCollapseAllGroups) {
+	                    customButton.removeClass('collapsed').addClass('expanded');
+	                } else {
+	                    customButton.removeClass('expanded').addClass('collapsed');
+	                }
+	
+	                var defaultButtons = buttons.not(':eq(0)');
+	                $timeout(function () {
+	                    defaultButtons.trigger('click');
+	                });
+	            }
+	
+	            function toggle() {
+	                if (defaultCollapseAllGroups != productShowHideColumnService.defaultCollapseAllGroups) {
+	                    defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
+	                    raiseDefaultClick();
+	                }
+	            }
+	
+	            function getButtonHtml() {
+	                var buttonClass = !defaultCollapseAllGroups ? 'expanded' : 'collapsed';
+	                return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
+	            }
+	
+	            function build(listOfGridElements, listOfGridOptions) {
+	                if (!angular.isArray(listOfGridElements)) {
+	                    listOfGridElements = [listOfGridElements];
+	                }
+	                if (!angular.isArray(listOfGridOptions)) {
+	                    listOfGridOptions = [listOfGridOptions];
+	                }
+	                if (listOfGridElements.length !== listOfGridOptions.length) {
+	                    $log.error('Invalid parameters');
+	                    return;
+	                }
+	
+	                pane.$scope.showHideColumns = showHideColumns;
+	                for (var i = 0; i < listOfGridOptions.length; i++) {
+	                    var gridOptions = listOfGridOptions[i];
+	                    gridOptions.defaultCollapseAllGroups = defaultCollapseAllGroups;
+	                }
+	
+	                function showHideColumns($event) {
+	                    defaultCollapseAllGroups = !defaultCollapseAllGroups;
+	                    productShowHideColumnService.defaultCollapseAllGroups = defaultCollapseAllGroups;
+	                    raiseDefaultClick();
+	                }
+	            }
+	        };
+	
+	        return Builder;
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _numeral = __webpack_require__(116);
+	
+	var _numeral2 = _interopRequireDefault(_numeral);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').controller('ProductController', ProductController);
+	
+	    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'houseWinlossService', 'productShowHideColumnService'];
+	    function ProductController($element, $scope, fanexGridService, houseWinlossService, productShowHideColumnService) {
+	        var pane = $scope.pane;
+	        var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.show = showHideColumnBuilder.toggle;
+	        $scope.generate = generate;
+	        $scope.generateProduct = generateProduct;
+	        $scope.viewSetting = {};
+	
+	        function generateProduct(productName) {
+	            var data = {};
+	            angular.extend(data, pane.data);
+	            angular.extend(data, { productName: productName });
+	            var level = houseWinlossService.getMainView(productName);
+	            tab.goForward(level, data);
+	        }
+	
+	        function generate(viewSetting) {
+	            $scope.viewSetting = viewSetting;
+	
+	            pane.service.getData(viewSetting, pane.data).then(function (data) {
+	                showHideColumnBuilder.build(gridElement, data);
+	                createLinks(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showCollapseExpandButton: true,
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel,
+	                customButtons: showHideColumnBuilder.getButtonHtml()
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+	            data.bottomBorderWidth = 3;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function createLinks(data) {
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var productRow = data.bodyRows[i];
+	                var customAttr = productRow.CustomAttr;
+	                if (customAttr === 'product') {
+	                    var productName = productRow.Columns[0].Value;
+	                    productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
+	                }
+	            }
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            var httpData = { title: title };
+	            angular.extend(httpData, pane.data);
+	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48066,7 +48626,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 176 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48188,7 +48748,7 @@
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 177 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48249,7 +48809,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 178 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48310,7 +48870,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 179 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48366,7 +48926,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 180 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48418,7 +48978,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 181 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48497,258 +49057,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _numeral = __webpack_require__(116);
-	
-	var _numeral2 = _interopRequireDefault(_numeral);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('ProductController', ProductController);
-	
-	    ProductController.$inject = ['$element', '$scope', 'fanexGridService', 'houseWinlossService', 'productShowHideColumnService'];
-	    function ProductController($element, $scope, fanexGridService, houseWinlossService, productShowHideColumnService) {
-	        var pane = $scope.pane;
-	        var showHideColumnBuilder = new productShowHideColumnService.Builder(pane);
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.show = showHideColumnBuilder.toggle;
-	        $scope.generate = generate;
-	        $scope.generateProduct = generateProduct;
-	        $scope.viewSetting = {};
-	
-	        function generateProduct(productName) {
-	            var data = {};
-	            angular.extend(data, pane.data);
-	            angular.extend(data, { productName: productName });
-	            var level = houseWinlossService.getMainView(productName);
-	            tab.goForward(level, data);
-	        }
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                showHideColumnBuilder.build(gridElement, data);
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showCollapseExpandButton: true,
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel,
-	                customButtons: showHideColumnBuilder.getButtonHtml()
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function createLinks(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var productRow = data.bodyRows[i];
-	                var customAttr = productRow.CustomAttr;
-	                if (customAttr === 'product') {
-	                    var productName = productRow.Columns[0].Value;
-	                    productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = { title: title };
-	            angular.extend(httpData, pane.data);
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
-	
-	    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
-	    function SportsbookMatchDetailController($scope, $element, fanexGridService, $uibModal, $uibModalStack) {
-	        var pane = $scope.pane;
-	        var tab = $scope.tab;
-	        var gridElement = $element.find('.freegrid');
-	        $scope.generate = generate;
-	        $scope.viewMatchInformation = viewMatchInformation;
-	        $scope.viewSetting = {};
-	
-	        function generate(viewSetting) {
-	            $scope.viewSetting = viewSetting;
-	            pane.service.getData(viewSetting, pane.data).then(function (data) {
-	                createLinks(data);
-	                renderGrid(data);
-	                pane.compileAll();
-	            });
-	        }
-	
-	        function viewMatchInformation(sportType, matchId, eventDate, leagueName, matchCode) {
-	            pane.data.sportType = sportType;
-	            pane.data.matchId = matchId;
-	            pane.data.eventDate = eventDate;
-	            pane.data.matchCode = matchCode;
-	            pane.service.getMatchInformation(pane.data).then(function (data) {
-	                showPopup(data, leagueName);
-	            });
-	        }
-	
-	        function showPopup(data, leagueName) {
-	            var traderName = data && data.TraderName && data.TraderName !== '' ? data.TraderName : "Unassigned";
-	            var newScope = $scope.$new();
-	            angular.extend(newScope, {
-	                sportTypeName: pane.data.sportTypeName,
-	                betTypeName: pane.data.betTypeName,
-	                leagueName: leagueName,
-	                traderName: traderName,
-	                matchId: pane.data.matchId,
-	                liveName: getLiveName(pane.data.isLive),
-	                matchInformation: data.MatchInformation,
-	                closePopup: closePopup
-	            });
-	            $uibModal.open({
-	                templateUrl: 'app/house-win-loss/sportsbook/sportsbook-match-information.html',
-	                size: 'match-information',
-	                scope: newScope
-	            });
-	        }
-	
-	        function getLiveName(data) {
-	
-	            if (data === 1) {
-	                return "Live!";
-	            } else if (data === 0) {
-	                return "Non-Live!";
-	            } else {
-	                return " ";
-	            }
-	        }
-	
-	        function closePopup() {
-	            $uibModalStack.dismissAll("Close");
-	        }
-	        function createLinks(data) {
-	            for (var i = 0; i < data.bodyRows.length; i++) {
-	                var bodyRow = data.bodyRows[i];
-	                var customAttr = bodyRow.Columns[0].CustomAttr;
-	                if (customAttr) {
-	                    var matchName = bodyRow.Columns[0].Value;
-	                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
-	                }
-	            }
-	        }
-	
-	        function renderGrid(data) {
-	            var titleInfo = {
-	                text: tab.generateBreadcrumbHtml(),
-	                showExcelButton: true,
-	                exportExcelFunction: exportExcel
-	            };
-	
-	            data.titleInfo = titleInfo;
-	            data.showPager = true;
-	            data.pagerOption = {
-	                itemsPerPage: 50,
-	                currentPage: 0,
-	                itemsPerPageArray: [50, 100, 200, 500],
-	                totalItem: data.bodyRows.length,
-	                afterPagedFunction: function afterPagedFunction() {
-	                    pane.compileDrilldown();
-	                }
-	            };
-	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
-	            data.bottomBorderWidth = 3;
-	            gridElement.fanexGrid(data);
-	        }
-	
-	        function exportExcel() {
-	            var title = tab.generateBreadcrumbText();
-	            var httpData = {};
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, { title: title });
-	
-	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
-	
-	    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'legacyService', 'remoteDataService'];
-	    function sportsbookMatchDetailService($http, httpResponseService, legacyService, remoteDataService) {
-	        var service = {
-	            getMatchInformation: getMatchInformation,
-	            getData: remoteDataService.getData,
-	            exportExcel: remoteDataService.exportExcel
-	        };
-	        return service;
-	
-	        function getMatchInformation(data) {
-	            var httpData = {
-	                matchId: data.matchId,
-	                betType: data.betType,
-	                sportType: data.sportType,
-	                reportDate: data.eventDate,
-	                matchCode: data.matchCode
-	            };
-	
-	            var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
-	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 185 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48823,7 +49132,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 186 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49003,7 +49312,7 @@
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 187 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49054,7 +49363,7 @@
 	})(angular);
 
 /***/ },
-/* 188 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49191,7 +49500,7 @@
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 189 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49274,7 +49583,7 @@
 	})(_angular2.default, undefined);
 
 /***/ },
-/* 190 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49299,479 +49608,172 @@
 	})(_angular2.default);
 
 /***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('breadcrumbService', breadcrumbService);
-	
-	    breadcrumbService.$inject = [];
-	    function breadcrumbService() {
-	        var service = {
-	            generateHtml: generateHtml,
-	            generateText: generateText
-	        };
-	        return service;
-	
-	        function generateHtml(list) {
-	            var html = '<ol class="breadcrumb">';
-	            for (var i = 0; i < list.length; i++) {
-	                var title = list[i];
-	                var isLast = i === list.length - 1;
-	                if (isLast) {
-	                    html += '<li class="active">' + title + '</li>';
-	                } else {
-	                    html += '<li><a href data-ng-click="tab.goBack(' + i + ')">' + title + '</a></li>';
-	                }
-	            }
-	
-	            return html;
-	        }
-	
-	        function generateText(list) {
-	            return list.join(' > ');
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 192 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('titleService', titleService);
-	
-	    titleService.$inject = ['soccerConstants'];
-	    function titleService(soccerConstants) {
-	        var service = {
-	            getMainTitle: getMainTitle,
-	            getProductTitle: getProductTitle,
-	            getProductTitleLiveNonLive: getProductTitleLiveNonLive,
-	            getProductTitleLive: getProductTitleLive,
-	            getSoccerLiveNonLiveTitle: getSoccerLiveNonLiveTitle,
-	            getSoccerMajorMinorTitle: getSoccerMajorMinorTitle,
-	            getSoccerBetTypeTitle: getSoccerBetTypeTitle,
-	            getSportsbookBetTypeTitle: getSportsbookBetTypeTitle,
-	            getBetTypeLiveNonLiveTitle: getBetTypeLiveNonLiveTitle,
-	            getCasinoProductTitle: getCasinoProductTitle,
-	            getSportTypeTitle: getSportTypeTitle,
-	            getSportTypeTitleLive: getSportTypeTitleLive,
-	            getSiteTitle: getSiteTitle,
-	            getSiteTitleLive: getSiteTitleLive,
-	            getMatchDetailTitle: getMatchDetailTitle,
-	            getMatchDetailTitleLive: getMatchDetailTitleLive,
-	            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle
-	        };
-	        return service;
-	
-	        function getMainTitle(data) {
-	            return 'Main';
-	        }
-	
-	        function getProductTitle(data) {
-	            return data.productName;
-	        }
-	
-	        function getProductTitleLiveNonLive(data, isLast) {
-	            return isLast ? data.productName + ' Live/Non-Live ' : data.productName;
-	        }
-	
-	        function getProductTitleLive(data) {
-	            return data.productName + getLiveText(data.isLive);
-	        }
-	
-	        function getSoccerLiveNonLiveTitle(data, isLast) {
-	            return isLast ? ' SOCCER LIVE/NON-LIVE' : "SOCCER";
-	        }
-	
-	        function getSoccerMajorMinorTitle(data) {
-	            if (data.isLive === soccerConstants.LiveNonLive) {
-	                return data.productName + ' ' + "MAJOR/MINOR";
-	            } else {
-	                var liveNonLive = data.isLive === soccerConstants.Live ? "LIVE" : "NON-LIVE";
-	                return data.productName + ' ' + liveNonLive;
-	            }
-	        }
-	
-	        function getSoccerBetTypeTitle(data) {
-	            var majorMinor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
-	            if (data.isLive === soccerConstants.LiveNonLive) {
-	                return data.productName + majorMinor + ' BET TYPES';
-	            } else {
-	                var liveNonLive = data.isLive === soccerConstants.Live ? '"LIVE"' : '"NON-LIVE"';
-	                return data.productName + majorMinor + " BET TYPES " + liveNonLive;
-	            }
-	        }
-	
-	        function getSportsbookBetTypeTitle(data) {
-	            var sportType = getSportTypeTitle(data);
-	            var product = getProductTitleLive(data);
-	            var viewingFromSportType = sportType !== undefined;
-	            return viewingFromSportType ? sportType : product;
-	        }
-	
-	        function getBetTypeLiveNonLiveTitle(data) {
-	            return data.isLive === undefined ? data.productName : data.productName + getLiveText(data.isLive);
-	        }
-	
-	        function getCasinoProductTitle(data) {
-	            return data.casinoProductName;
-	        }
-	
-	        function getSportTypeTitle(data) {
-	            return data.sportTypeName;
-	        }
-	
-	        function getSportTypeTitleLive(data) {
-	            return data.sportTypeName + getLiveText(data.isLive);
-	        }
-	
-	        function getSiteTitle(data) {
-	            var site = data.site === undefined ? "ALL" : data.site;
-	            return data.betTypeName + ' | ' + site + ' Site';
-	        }
-	
-	        function getSiteTitleLive(data) {
-	            return data.betTypeName + getLiveText(data.isLive) + '| ' + data.site + ' Site';
-	        }
-	
-	        function getMatchDetailTitle(data) {
-	            return data.betTypeName;
-	        }
-	
-	        function getMatchDetailTitleLive(data) {
-	            var isLiveText = data.isLive === 2 ? '' : data.isLive === 1 ? ' "Live"' : ' "Non-Live"';
-	            return data.betTypeName + isLiveText;
-	        }
-	
-	        function getLiveText(isLive) {
-	            var isLiveValue = parseInt(isLive);
-	            var isLiveText = isLiveValue === 2 ? '' : isLiveValue === 1 ? ' "Live"' : ' "Non-Live"';
-	
-	            return isLiveText;
-	        }
-	
-	        function getSoccerMinorBetTypeTitle() {
-	            return 'SOCCER MINOR BET TYPES';
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	var _moment = __webpack_require__(5);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').directive('napFilter', napFilter);
-	
-	    function napFilter() {
-	        var directive = {
-	            restrict: 'EA',
-	            scope: {},
-	            templateUrl: 'app/house-win-loss/shared/filter/filter.directive.html',
-	            replace: true,
-	            controller: controller,
-	            controllerAs: 'vm',
-	            bindToController: true
-	        };
-	        return directive;
-	    }
-	
-	    controller.$inject = ['$scope', '$rootScope', 'config', 'moment'];
-	    function controller($scope, $rootScope, config, moment) {
-	        /*jshint validthis: true */
-	        var vm = this;
-	        vm.minDate = moment("20110101", "YYYYMMDD");
-	        vm.currentLevel = 0;
-	        vm.accessDenied = modePermissions.length === 0 || productPermissions.length === 0;
-	        vm.normalMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0;
-	        vm.showBothMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0 && modePermissions.indexOf("HouseWinLossByProducts_HistoryMode") >= 0;
-	        vm.today = config.today;
-	        vm.yesterday = config.yesterday;
-	        vm.date = config.today;
-	        vm.startDate = moment.utc(config.yesterday).startOf('month');
-	        vm.endDate = moment.utc(config.yesterday);
-	        vm.generate = generate;
-	        vm.todayClicked = todayClicked;
-	        vm.yesterdayClicked = yesterdayClicked;
-	        vm.viewNormalMode = viewNormalMode;
-	        vm.viewHistoryMode = viewHistoryMode;
-	        vm.getDateRange = getDateRange;
-	        vm.updateDateRange = updateDateRange;
-	
-	        $scope.$on('nap-filter-date', function (event, data) {
-	            updateDateRange(data);
-	        });
-	
-	        function generate() {
-	            vm.dateRange = getDateRange();
-	            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
-	        }
-	
-	        function todayClicked() {
-	            vm.date = vm.today;
-	            vm.generate();
-	        }
-	
-	        function yesterdayClicked() {
-	            vm.date = vm.yesterday;
-	            vm.generate();
-	        }
-	
-	        function viewNormalMode() {
-	            vm.normalMode = true;
-	
-	            $('.filter-note').css('display', 'block');
-	            $rootScope.$broadcast('nap-filter-switch');
-	        }
-	
-	        function viewHistoryMode() {
-	            vm.normalMode = false;
-	
-	            $('.filter-note').css('display', 'none');
-	            $rootScope.$broadcast('nap-filter-switch');
-	        }
-	
-	        function getDateRange() {
-	            if (vm.normalMode) {
-	                return {
-	                    normalMode: vm.normalMode,
-	                    startDate: vm.date,
-	                    endDate: vm.date
-	                };
-	            } else {
-	                return {
-	                    normalMode: vm.normalMode,
-	                    startDate: vm.startDate,
-	                    endDate: vm.endDate
-	                };
-	            }
-	        }
-	
-	        function updateDateRange(dateRange) {
-	            vm.normalMode = dateRange.normalMode;
-	            if (vm.normalMode) {
-	                vm.date = dateRange.startDate;
-	            } else {
-	                vm.startDate = dateRange.startDate;
-	                vm.endDate = dateRange.endDate;
-	            }
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').service('productShowHideColumnService', productShowHideColumnService);
-	
-	    productShowHideColumnService.$inject = ['$log', '$timeout'];
-	    function productShowHideColumnService($log, $timeout) {
-	        var service = {
-	            defaultCollapseAllGroups: true,
-	            Builder: Builder
-	        };
-	        return service;
-	
-	        function Builder(pane) {
-	            var defaultCollapseAllGroups = service.defaultCollapseAllGroups;
-	            var hiddenColumns = [1, 2];
-	            this.getButtonHtml = getButtonHtml;
-	            this.build = build;
-	            this.toggle = toggle;
-	
-	            function toggle() {
-	                if (defaultCollapseAllGroups !== service.defaultCollapseAllGroups) {
-	                    var customButton = pane.$element.find('.btExpand').first();
-	                    $timeout(function () {
-	                        customButton.trigger('click');
-	                    });
-	                }
-	            }
-	
-	            function getButtonHtml() {
-	                var buttonClass = !defaultCollapseAllGroups ? 'expanded' : 'collapsed';
-	                return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
-	            }
-	
-	            function build(listOfGridElements, listOfGridOptions) {
-	                if (!angular.isArray(listOfGridElements)) {
-	                    listOfGridElements = [listOfGridElements];
-	                }
-	                if (!angular.isArray(listOfGridOptions)) {
-	                    listOfGridOptions = [listOfGridOptions];
-	                }
-	                if (listOfGridElements.length !== listOfGridOptions.length) {
-	                    $log.error('Invalid parameters');
-	                    return;
-	                }
-	
-	                pane.$scope.showHideColumns = showHideColumns;
-	                for (var i = 0; i < listOfGridOptions.length; i++) {
-	                    var gridOptions = listOfGridOptions[i];
-	                    gridOptions.hiddenColumns = hiddenColumns;
-	                    gridOptions.enableHiddenColumns = !defaultCollapseAllGroups;
-	                    gridOptions.defaultCollapseAllGroups = defaultCollapseAllGroups;
-	                }
-	
-	                function showHideColumns($event) {
-	                    defaultCollapseAllGroups = !defaultCollapseAllGroups;
-	                    service.defaultCollapseAllGroups = defaultCollapseAllGroups;
-	                    for (var i = 0; i < listOfGridOptions.length; i++) {
-	                        var gridElement = listOfGridElements[i];
-	                        var gridOptions = listOfGridOptions[i];
-	                        gridOptions.enableHiddenColumns = defaultCollapseAllGroups;
-	                        gridOptions.defaultCollapseAllGroups = true;
-	                        if (gridOptions.enableHiddenColumns) {
-	                            gridElement.fanexGrid("hideColumns", gridOptions, hiddenColumns);
-	                        } else {
-	                            gridElement.fanexGrid("hideColumns", gridOptions, []);
-	                        }
-	                    }
-	
-	                    pane.compileDrilldown();
-	                    var target = angular.element($event.target);
-	                    if (!defaultCollapseAllGroups) {
-	                        target.removeClass('collapsed').addClass('expanded');
-	                    } else {
-	                        target.removeClass('expanded').addClass('collapsed');
-	                    }
-	                }
-	            }
-	        }
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('showHideColumnService', showHideColumnService);
-	
-	    showHideColumnService.$inject = ['$log', '$timeout', 'productShowHideColumnService'];
-	    function showHideColumnService($log, $timeout, productShowHideColumnService) {
-	        function Builder(pane) {
-	            var defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
-	            this.getButtonHtml = getButtonHtml;
-	            this.build = build;
-	            this.toggle = toggle;
-	
-	            function raiseDefaultClick() {
-	                var buttons = pane.$element.find('.btExpand');
-	                var customButton = buttons.first();
-	                if (!defaultCollapseAllGroups) {
-	                    customButton.removeClass('collapsed').addClass('expanded');
-	                } else {
-	                    customButton.removeClass('expanded').addClass('collapsed');
-	                }
-	
-	                var defaultButtons = buttons.not(':eq(0)');
-	                $timeout(function () {
-	                    defaultButtons.trigger('click');
-	                });
-	            }
-	
-	            function toggle() {
-	                if (defaultCollapseAllGroups != productShowHideColumnService.defaultCollapseAllGroups) {
-	                    defaultCollapseAllGroups = productShowHideColumnService.defaultCollapseAllGroups;
-	                    raiseDefaultClick();
-	                }
-	            }
-	
-	            function getButtonHtml() {
-	                var buttonClass = !defaultCollapseAllGroups ? 'expanded' : 'collapsed';
-	                return '<input type="button" class="btExpand customized ' + buttonClass + ' nap-component" title="Collapse/Expand" data-ng-click="showHideColumns($event)" />';
-	            }
-	
-	            function build(listOfGridElements, listOfGridOptions) {
-	                if (!angular.isArray(listOfGridElements)) {
-	                    listOfGridElements = [listOfGridElements];
-	                }
-	                if (!angular.isArray(listOfGridOptions)) {
-	                    listOfGridOptions = [listOfGridOptions];
-	                }
-	                if (listOfGridElements.length !== listOfGridOptions.length) {
-	                    $log.error('Invalid parameters');
-	                    return;
-	                }
-	
-	                pane.$scope.showHideColumns = showHideColumns;
-	                for (var i = 0; i < listOfGridOptions.length; i++) {
-	                    var gridOptions = listOfGridOptions[i];
-	                    gridOptions.defaultCollapseAllGroups = defaultCollapseAllGroups;
-	                }
-	
-	                function showHideColumns($event) {
-	                    defaultCollapseAllGroups = !defaultCollapseAllGroups;
-	                    productShowHideColumnService.defaultCollapseAllGroups = defaultCollapseAllGroups;
-	                    raiseDefaultClick();
-	                }
-	            }
-	        };
-	
-	        return Builder;
-	    }
-	})(_angular2.default);
-
-/***/ },
 /* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').controller('SportsbookMatchDetailController', SportsbookMatchDetailController);
+	
+	    SportsbookMatchDetailController.$inject = ['$scope', '$element', 'fanexGridService', '$uibModal', '$uibModalStack'];
+	    function SportsbookMatchDetailController($scope, $element, fanexGridService, $uibModal, $uibModalStack) {
+	        var pane = $scope.pane;
+	        var tab = $scope.tab;
+	        var gridElement = $element.find('.freegrid');
+	        $scope.generate = generate;
+	        $scope.viewMatchInformation = viewMatchInformation;
+	        $scope.viewSetting = {};
+	
+	        function generate(viewSetting) {
+	            $scope.viewSetting = viewSetting;
+	            pane.service.getData(viewSetting, pane.data).then(function (data) {
+	                createLinks(data);
+	                renderGrid(data);
+	                pane.compileAll();
+	            });
+	        }
+	
+	        function viewMatchInformation(sportType, matchId, eventDate, leagueName, matchCode) {
+	            pane.data.sportType = sportType;
+	            pane.data.matchId = matchId;
+	            pane.data.eventDate = eventDate;
+	            pane.data.matchCode = matchCode;
+	            pane.service.getMatchInformation(pane.data).then(function (data) {
+	                showPopup(data, leagueName);
+	            });
+	        }
+	
+	        function showPopup(data, leagueName) {
+	            var traderName = data && data.TraderName && data.TraderName !== '' ? data.TraderName : "Unassigned";
+	            var newScope = $scope.$new();
+	            angular.extend(newScope, {
+	                sportTypeName: pane.data.sportTypeName,
+	                betTypeName: pane.data.betTypeName,
+	                leagueName: leagueName,
+	                traderName: traderName,
+	                matchId: pane.data.matchId,
+	                liveName: getLiveName(pane.data.isLive),
+	                matchInformation: data.MatchInformation,
+	                closePopup: closePopup
+	            });
+	            $uibModal.open({
+	                templateUrl: 'app/house-win-loss/sportsbook/sportsbook-match-information.html',
+	                size: 'match-information',
+	                scope: newScope
+	            });
+	        }
+	
+	        function getLiveName(data) {
+	
+	            if (data === 1) {
+	                return "Live!";
+	            } else if (data === 0) {
+	                return "Non-Live!";
+	            } else {
+	                return " ";
+	            }
+	        }
+	
+	        function closePopup() {
+	            $uibModalStack.dismissAll("Close");
+	        }
+	        function createLinks(data) {
+	            for (var i = 0; i < data.bodyRows.length; i++) {
+	                var bodyRow = data.bodyRows[i];
+	                var customAttr = bodyRow.Columns[0].CustomAttr;
+	                if (customAttr) {
+	                    var matchName = bodyRow.Columns[0].Value;
+	                    bodyRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="viewMatchInformation(' + customAttr + ')">' + matchName + '</a>';
+	                }
+	            }
+	        }
+	
+	        function renderGrid(data) {
+	            var titleInfo = {
+	                text: tab.generateBreadcrumbHtml(),
+	                showExcelButton: true,
+	                exportExcelFunction: exportExcel
+	            };
+	
+	            data.titleInfo = titleInfo;
+	            data.showPager = true;
+	            data.pagerOption = {
+	                itemsPerPage: 50,
+	                currentPage: 0,
+	                itemsPerPageArray: [50, 100, 200, 500],
+	                totalItem: data.bodyRows.length,
+	                afterPagedFunction: function afterPagedFunction() {
+	                    pane.compileDrilldown();
+	                }
+	            };
+	            data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
+	            data.bottomBorderWidth = 3;
+	            gridElement.fanexGrid(data);
+	        }
+	
+	        function exportExcel() {
+	            var title = tab.generateBreadcrumbText();
+	            var httpData = {};
+	            angular.extend(httpData, pane.data);
+	            angular.extend(httpData, { title: title });
+	
+	            pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _angular = __webpack_require__(119);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	(function (angular) {
+	    'use strict';
+	
+	    angular.module('app.houseWinlossApp').factory('sportsbookMatchDetailService', sportsbookMatchDetailService);
+	
+	    sportsbookMatchDetailService.$inject = ['$http', 'httpResponseService', 'legacyService', 'remoteDataService'];
+	    function sportsbookMatchDetailService($http, httpResponseService, legacyService, remoteDataService) {
+	        var service = {
+	            getMatchInformation: getMatchInformation,
+	            getData: remoteDataService.getData,
+	            exportExcel: remoteDataService.exportExcel
+	        };
+	        return service;
+	
+	        function getMatchInformation(data) {
+	            var httpData = {
+	                matchId: data.matchId,
+	                betType: data.betType,
+	                sportType: data.sportType,
+	                reportDate: data.eventDate,
+	                matchCode: data.matchCode
+	            };
+	
+	            var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
+	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
+	        }
+	    }
+	})(_angular2.default);
+
+/***/ },
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49828,89 +49830,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _angular = __webpack_require__(119);
-	
-	var _angular2 = _interopRequireDefault(_angular);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	(function (angular) {
-	    'use strict';
-	
-	    angular.module('app.houseWinlossApp').factory('napPane', napPane);
-	
-	    napPane.$inject = ['$log', '$compile', '$injector', 'houseWinlossService', 'showHideColumnService'];
-	    function napPane($log, $compile, $injector, houseWinlossService, showHideColumnService) {
-	        function Pane(viewLevel, data) {
-	            this.viewLevel = viewLevel;
-	            this.data = data;
-	            this.$scope = undefined;
-	            this.$element = undefined;
-	            this.generate = generate;
-	            this.show = show;
-	            this.compileAll = compileAll;
-	            this.compileLinks = compileLinks;
-	            this.compileDrilldown = compileDrilldown;
-	            this.getFileName = getFileName;
-	
-	            if (angular.isUndefined(this.viewLevel) || angular.isUndefined(this.data)) {
-	                $log.error('Invalid pane');
-	                return;
-	            }
-	
-	            this.viewSetting = houseWinlossService.getViewSetting(data.productName, viewLevel, data);
-	            if (this.viewSetting === undefined) {
-	                loggerService.logError('Sorry, the configuration is corrupted, please notify the administrators.');
-	                throw 'Sorry, the configuration is corrupted, please notify the administrators.';
-	            }
-	
-	            this.templateUrl = this.viewSetting.templateUrl;
-	            this.controller = this.viewSetting.controller;
-	            this.service = $injector.get(this.viewSetting.service);
-	
-	            function generate() {
-	                this.$scope.generate(this.viewSetting);
-	            }
-	
-	            function show() {
-	                var gridElement = this.$element.find('.freegrid');
-	                gridElement.fanexGrid('resizeGrid');
-	            }
-	
-	            function getFileName() {
-	                return 'House_Win_Loss_By_Products_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
-	            }
-	
-	            function compileAll() {
-	                this.compileLinks();
-	                var elements = this.$element.find('.nap-component');
-	                $compile(elements)(this.$scope);
-	            }
-	
-	            function compileLinks() {
-	                var elements = this.$element.find('.drill-down');
-	                $compile(elements)(this.$scope);
-	                elements = this.$element.find('.breadcrumb');
-	                $compile(elements)(this.$scope);
-	            }
-	
-	            function compileDrilldown() {
-	                var elements = this.$element.find('.drill-down');
-	                $compile(elements)(this.$scope);
-	            }
-	        }
-	
-	        return Pane;
-	    }
-	})(_angular2.default);
-
-/***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49933,7 +49853,7 @@
 	            scope: {
 	                panes: '='
 	            },
-	            templateUrl: 'app/house-win-loss/shared/tab/tab.directive.html',
+	            templateUrl: 'app/house-win-loss/tab/tab.directive.html',
 	            controller: controller,
 	            controllerAs: 'vm',
 	            bindToController: true
@@ -50008,7 +49928,7 @@
 	})(_angular2.default);
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';

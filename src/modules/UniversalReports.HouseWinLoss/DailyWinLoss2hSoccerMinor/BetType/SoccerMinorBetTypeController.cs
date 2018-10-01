@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using AutoMapper;
-using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 {
@@ -16,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,
             GridOptionColumnDecoratorVirtual decorator)
-         : base(service, builder, decorator)
+            : base(service, builder, decorator)
         {
         }
 
@@ -31,18 +27,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            criteria.IsLive = 2;
-            var sumGridOption = GetGridOptions(criteria, "Bet Type", queryModel.BetTypeFullTitle, 210);
-
-            criteria.IsLive = 1;
-            var liveGridOption = GetGridOptions(criteria, "Bet Type", queryModel.BetTypeLiveTitle, 210);
-
-            criteria.IsLive = 0;
-            var noneLiveGridOption = GetGridOptions(criteria, "Bet Type", queryModel.BetTypeLiveTitle, 210);
-
-            return new FanexExcelResult(
-                new List<GridOptions> { sumGridOption, liveGridOption, noneLiveGridOption },
-                Constants.SheetName);
+            return Excel(criteria, "Bet Type", queryModel.BetTypeFullTitle, 210);
         }
     }
 }

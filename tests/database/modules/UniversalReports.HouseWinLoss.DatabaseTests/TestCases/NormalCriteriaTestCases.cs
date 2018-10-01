@@ -154,6 +154,10 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 BetType = 18000,
             };
 
+            var dailyWinLoss2hSoccerMinorSportTypeCriteria = new DailyWinLoss2hSoccerMinor.SportType.Criteria();
+
+            var dailyWinLoss2hSoccerMinorBetTypeCriteria = new DailyWinLoss2hSoccerMinor.BetType.Criteria();
+
             var criteriaList = new List<WinLossCriteria>
             {
                 betTradeBetTypeCriteria,
@@ -196,7 +200,9 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 colossusBetBetTypeCriteria,
                 colossusBetSiteCriteria,
                 pokerGamesBetTypeCriteria,
-                pokerGamesSiteCriteria
+                pokerGamesSiteCriteria,
+                dailyWinLoss2hSoccerMinorSportTypeCriteria,
+                dailyWinLoss2hSoccerMinorBetTypeCriteria
             };
             return criteriaList;
         }
