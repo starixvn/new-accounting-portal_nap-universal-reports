@@ -172,7 +172,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociatedAccount\AssociatedFacade.cs" />
+    <Compile Include="AssociatedAccount\AssociatedAccountExcelSettingFactory.cs" />
+    <Compile Include="AssociatedAccount\HandlerExcel.cs" />
+    <Compile Include="AssociatedAccount\Model\AssociatedSummaryExcelModel.cs" />
+    <Compile Include="AssociatedAccount\Model\HttpParameterExcel.cs" />
+    <Compile Include="AssociatedAccount\Model\MemberPerformanceCriteria.cs" />
     <Compile Include="AssociatedAccount\Model\Site.cs" />
+    <Compile Include="AssociatedAccount\Model\AssociatedSummaryModel.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="BetCount\BetCountExcelSettingFactory.cs" />
     <Compile Include="BetCount\Model\BetCountExcelModel.cs" />
@@ -188,9 +195,7 @@
     <Compile Include="Shared\HandlerExcelBase.cs" />
     <Compile Include="Shared\PunterAnalysisExcelBuilder.cs" />
     <Compile Include="AssociatedAccount\Handler.cs" />
-    <Compile Include="AssociatedAccount\Model\UserRoleModel.cs" />
     <Compile Include="AssociatedAccount\Model\UserSiteQueryCriteria.cs" />
-    <Compile Include="AssociatedAccount\Model\UserRoleQueryCriteria.cs" />
     <Compile Include="AssociatedAccount\Model\HttpParameterJson.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountController.cs" />
     <Compile Include="BetCount\Handler.cs" />

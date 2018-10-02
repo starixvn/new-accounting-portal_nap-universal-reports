@@ -10,20 +10,6 @@ namespace UniversalReports.HouseWinLoss.PokerGames.BetType
 
         public int IsLive { get; set; } = 2;
 
-        public override string GetSettingKey() => $"HouseWinLoss-PokerGames-BetType-{Source}";
-
-        public Criteria Clone()
-        {
-            return new Criteria
-            {
-                ProductId = ProductId,
-                SportType = SportType,
-                IsLive = IsLive,
-                StartDate = StartDate,
-                EndDate = EndDate,
-                NormalMode = NormalMode,
-                Source = Source
-            };
-        }
+        public override string GetSettingKey() => $"HouseWinLoss-PokerGames-BetType-{Source}";     
     }
 }

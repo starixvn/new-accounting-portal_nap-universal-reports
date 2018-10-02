@@ -16,9 +16,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         {
             // Arrange
             var betCountService = Substitute.For<BetCountService>();
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(betCountService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(betCountService, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var setting = new ExcelSetting
+            var excelSetting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
                 StartRowIndex = 5,
@@ -45,11 +45,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var betCountService = Substitute.For<BetCountService>();
             betCountService.Query(Arg.Any<Criteria>()).Returns(new SummaryEntity<BetCountModel>());
 
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
-            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
+            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(excelSetting);
 
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(betCountService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(betCountService, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
@@ -57,7 +57,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             // Assert
             excelBuilder.Received().CreateExcelPackage(
                 Arg.Is<SummaryEntity<BetCountExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-                Arg.Is(setting));
+                Arg.Is(excelSetting));
         }
     }
 }

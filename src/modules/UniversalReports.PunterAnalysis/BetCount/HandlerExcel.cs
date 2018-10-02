@@ -13,14 +13,14 @@ namespace UniversalReports.PunterAnalysis.BetCount
     {
         private readonly BetCountService betCountService;
 
-        private readonly ExcelSettingFactory setting;
+        private readonly ExcelSettingFactory excelSettingFactory;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        public HandlerExcel(BetCountService betCountService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
+        public HandlerExcel(BetCountService betCountService, ExcelSettingFactory excelSettingFactory, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.betCountService = betCountService;
-            this.setting = setting;
+            this.excelSettingFactory = excelSettingFactory;
             this.excelBuilder = excelBuilder;
         }
 
@@ -30,7 +30,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
             var model = await betCountService.Query(criteria).ConfigureAwait(false);
             var excelViewModel = Mapper.Map<SummaryEntity<BetCountExcelModel>>(model);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(request);
-            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelSetting = excelSettingFactory.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
             return excelPackage;
         }

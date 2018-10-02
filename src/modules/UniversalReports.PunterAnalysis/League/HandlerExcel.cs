@@ -12,14 +12,14 @@ namespace UniversalReports.PunterAnalysis.League
     {
         private readonly LeagueServiceFactory leagueServiceFactory;
 
-        private readonly ExcelSettingFactory setting;
+        private readonly ExcelSettingFactory excelSettingFactory;
 
         private readonly LeagueExcelBuilder excelBuilder;
 
-        public HandlerExcel(LeagueServiceFactory leagueServiceFactory, ExcelSettingFactory setting, LeagueExcelBuilder excelBuilder)
+        public HandlerExcel(LeagueServiceFactory leagueServiceFactory, ExcelSettingFactory excelSettingFactory, LeagueExcelBuilder excelBuilder)
         {
             this.leagueServiceFactory = leagueServiceFactory;
-            this.setting = setting;
+            this.excelSettingFactory = excelSettingFactory;
             this.excelBuilder = excelBuilder;
         }
 
@@ -29,7 +29,7 @@ namespace UniversalReports.PunterAnalysis.League
             var leagueService = leagueServiceFactory.CreateLeagueService(request.PeriodType);
             var model = await leagueService.Query(criteria).ConfigureAwait(false);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(request);
-            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelSetting = excelSettingFactory.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(model, excelSetting);
             return excelPackage;
         }

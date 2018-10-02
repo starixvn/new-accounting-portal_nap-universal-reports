@@ -33,6 +33,9 @@ namespace UniversalReports.PunterAnalysis
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Summary.Model.Criteria>();
             cfg.CreateMap<Summary.Model.HttpParameterJson, Summary.Model.Criteria>();
+
+            cfg.CreateMap<AssociatedAccount.Model.AssociatedSummaryModel, AssociatedAccount.Model.AssociatedSummaryExcelModel>();
+            cfg.CreateMap<AssociatedAccount.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
         }
     }
 }

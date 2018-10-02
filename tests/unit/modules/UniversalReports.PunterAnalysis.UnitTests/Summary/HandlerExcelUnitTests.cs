@@ -17,9 +17,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         {
             // Arrange
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(punterAnalysisService, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
@@ -32,7 +32,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         public async Task Handle_WithAnyParametters_ExecuteCreatePackageWithValidParameter()
         {
             // Arrange
-            var setting = new ExcelSetting
+            var excelSetting = new ExcelSetting
             {
                 SheetName = "AnySheetName",
                 StartRowIndex = 8,
@@ -46,11 +46,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
             punterAnalysisService.Query<SummaryModel>(Arg.Any<ICriteria>()).Returns(new SummaryEntity<SummaryModel>());
 
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
-            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(setting);
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
+            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(excelSetting);
 
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
-            var handleExcel = new HandlerExcel(punterAnalysisService, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(punterAnalysisService, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
@@ -58,7 +58,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             // Assert
             excelBuilder.Received().CreateExcelPackage(
                Arg.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-               Arg.Is(setting));
+               Arg.Is(excelSetting));
         }
     }
 }

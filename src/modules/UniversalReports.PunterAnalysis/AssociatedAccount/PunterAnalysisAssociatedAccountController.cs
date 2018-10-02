@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
+using OfficeOpenXml;
+using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
@@ -20,6 +22,13 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
         {
             var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
             return Json(viewModel);
+        }
+
+        [Route("excel")]
+        public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
+        {
+            var excelPackage = await mediator.Send<ExcelPackage>(parameter).ConfigureAwait(false);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

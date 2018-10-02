@@ -19,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
             get
             {
                 return Turnover == 0
-                    ? (object)"N/A" :
+                    ? "N/A" :
                     (object)(WinLoss / Turnover);
             }
         }

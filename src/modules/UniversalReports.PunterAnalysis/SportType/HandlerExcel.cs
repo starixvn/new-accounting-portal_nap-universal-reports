@@ -9,8 +9,8 @@ namespace UniversalReports.PunterAnalysis.SportType
 {
     public class HandlerExcel : HandlerExcelBase, IRequestHandler<HttpParameterExcel, ExcelPackage>
     {
-        public HandlerExcel(PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
-            : base(punterAnalysisService, setting, excelBuilder)
+        public HandlerExcel(PunterAnalysisService punterAnalysisService, ExcelSettingFactory excelSettingFactory, PunterAnalysisExcelBuilder excelBuilder)
+            : base(punterAnalysisService, excelSettingFactory, excelBuilder)
         {
         }
 

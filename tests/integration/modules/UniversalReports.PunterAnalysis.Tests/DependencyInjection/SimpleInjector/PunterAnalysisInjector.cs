@@ -1,6 +1,7 @@
 ﻿using Olympus.FPSAPI.Client;
 using SimpleInjector;
 using UniversalReports.Core.Configurations;
+using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetType;
 using UniversalReports.PunterAnalysis.League;
@@ -14,11 +15,11 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
     {
         internal static Container RegisterPunterAnalysisServices(this Container container)
         {
+            container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<PunterAnalysisService, PunterAnalysisServiceImp>();
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
             container.Register<FraudServiceWrapper, FraudServiceWrapperImp>();
-            container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<PunterAnalysisExcelBuilder, PunterAnalysisExcelBuilderImp>();
             container.RegisterConditional<ExcelSettingFactory, BetTypeExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetType.HandlerExcel));
@@ -30,8 +31,12 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Summary.HandlerExcel));
             container.RegisterConditional<ExcelSettingFactory, LeagueExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.League.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, AssociatedAccountExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.AssociatedAccount.HandlerExcel));
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
+
+            container.Register<AssociatedFacade, AssociatedFacadeImp>();
 
             return container;
         }

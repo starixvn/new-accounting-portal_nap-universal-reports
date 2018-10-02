@@ -17,9 +17,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             // Arrange
             var emptyExcelViewModel = new ReportModel();
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
-            var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(factory, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
@@ -45,11 +45,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             };
 
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
-            var excelSetting = Substitute.For<ExcelSettingFactory>();
-            excelSetting.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
+            var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
+            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
 
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
-            var handleExcel = new HandlerExcel(factory, excelSetting, excelBuilder);
+            var handleExcel = new HandlerExcel(factory, excelSettingFactory, excelBuilder);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());

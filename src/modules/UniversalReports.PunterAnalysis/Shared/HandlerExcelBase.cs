@@ -11,14 +11,14 @@ namespace UniversalReports.PunterAnalysis.Shared
     {
         private readonly PunterAnalysisService punterAnalysisService;
 
-        private readonly ExcelSettingFactory setting;
+        private readonly ExcelSettingFactory excelSettingFactory;
 
         private readonly PunterAnalysisExcelBuilder excelBuilder;
 
-        protected HandlerExcelBase(PunterAnalysisService punterAnalysisService, ExcelSettingFactory setting, PunterAnalysisExcelBuilder excelBuilder)
+        protected HandlerExcelBase(PunterAnalysisService punterAnalysisService, ExcelSettingFactory excelSettingFactory, PunterAnalysisExcelBuilder excelBuilder)
         {
             this.punterAnalysisService = punterAnalysisService;
-            this.setting = setting;
+            this.excelSettingFactory = excelSettingFactory;
             this.excelBuilder = excelBuilder;
         }
 
@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.Shared
             var model = await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
             var excelViewModel = Mapper.Map<SummaryEntity<TExcelModel>>(model);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(message);
-            var excelSetting = setting.CreateSetting(excelSettingParams);
+            var excelSetting = excelSettingFactory.CreateSetting(excelSettingParams);
             var excelPackage = excelBuilder.CreateExcelPackage(excelViewModel, excelSetting);
             return excelPackage;
         }

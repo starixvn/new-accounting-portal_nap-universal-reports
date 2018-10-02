@@ -1,0 +1,32 @@
+﻿{
+  "Entities": [
+    {
+      "Username": "member01",
+      "RoleName": "Member",
+      "WinLoss": 300,
+      "Turnover": 500,
+      "BetCount": 5
+    },
+    {
+      "Username": "member02",
+      "RoleName": "Member",
+      "WinLoss": 0,
+      "Turnover": 0,
+      "BetCount": 0
+    },
+    {
+      "Username": "agent01",
+      "RoleName": "Agent",
+      "WinLoss": 0,
+      "Turnover": 0,
+      "BetCount": 0
+    }
+  ],
+  "Total": {
+    "Username": "",
+    "RoleName": "",
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  }
+}

@@ -94,7 +94,7 @@ namespace UniversalReports.ActualMemberBet.DatabaseTests
             // Arrange
             var criteria = new Bettype.Criteria()
             {
-                FromDate = DateTime.Now.AddMonths(-1),
+                FromDate = DateTime.Now.AddYears(-3),
                 ToDate = DateTime.Now,
                 CurrencyId = -9999,
                 OddsType = "1",
