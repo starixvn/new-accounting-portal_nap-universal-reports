@@ -1,3 +1,4 @@
+@import '~nap-theme/scss/table';
 :host {
     display: inline-block;
 }
@@ -10,6 +11,7 @@
         background: #fff;
         font-weight: bold;
     }
+    
     .summary {
         .box {
             background-color: #fff;
@@ -43,6 +45,13 @@
         &.number-positive,
         &>.number-positive {
             color: red;
+        }
+    }
+    .nap-table {
+        width: 100%;
+        margin-bottom: 1rem;
+        th {
+            text-align: left !important;
         }
     }
 }

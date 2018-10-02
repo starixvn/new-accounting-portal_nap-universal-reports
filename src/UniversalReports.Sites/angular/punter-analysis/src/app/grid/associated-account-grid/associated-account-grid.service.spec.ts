@@ -1,22 +1,25 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { TreeviewItem } from 'ngx-treeview';
 import * as _ from 'lodash';
-import { Helper } from 'nap-components/src/helper';
-import { HttpService } from 'nap-components/src/http.service';
+import { HttpService } from 'nap-components/http';
 import { GridService } from '../grid.service';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
-import { UserRoleItem } from './associated-account-grid.model';
 import { fakeUserFilterModel } from '../../filter/filter.model.spec';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { AppModule } from '../../app.module';
 
 describe('AssociatedAccountGridService', () => {
 
     const expectedQueryModel = {
         custId: 1,
-        userName: 'Customer 1'
+        userName: 'Customer 1',
+        leagueId: 0,
+        orderBy: 1,
+        sortBy: 1,
+        periodType: 1,
+        fromDate: '2016-01-01T00:00:00',
+        toDate: '2016-02-02T00:00:00',
+        listCombinationId: '1,2'
     };
     const expectedExcelModel = {
         custId: 1,

@@ -5,12 +5,13 @@ import {
 } from 'ngx-treeview';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import { IOption } from 'nap-components/src/select';
-import { SelectItem } from 'nap-components/src/dropdown-select';
-import { ToastService } from 'nap-components/src/toast';
-import { TypeaheadQuery } from 'nap-components/src/dropdown-typeahead';
-import { RoleId, SortBy } from 'nap-components/src/model';
-import { NgbDateStruct, NgbDate, DateHelper, DateRange } from 'nap-components/src/date';
+import { IOption } from 'nap-components/select';
+import { SelectItem } from 'nap-components/dropdown-select';
+import { ToastService } from 'nap-components/toast';
+import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
+import { RoleId, SortBy } from 'nap-components/model';
+import { DateHelper, DateRange } from 'nap-components/date';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import {
     SearchBy, PeriodType, OrderBy, FilterModelWrapper
 } from './filter.model.main';
@@ -29,7 +30,6 @@ import { PeriodTypeEventModel } from './period-type/period-type.model';
     selector: 'nap-filter',
     templateUrl: './filter.component.html',
     styleUrls: [
-        '../../../node_modules/nap-components/src/style/filter.scss',
         './filter.component.scss'
     ],
     providers: [
@@ -55,11 +55,13 @@ export class FilterComponent implements OnInit {
     orderByOptions = this.getOrderByOptions();
     minDate: NgbDateStruct;
     maxDate: NgbDateStruct;
-    productTreeviewItems: TreeviewItem[];
+    productTreeviewItems: TreeviewItem[] = [];
     productTreeviewConfig: TreeviewConfig = {
-        isShowAllCheckBox: true,
-        isShowCollapseExpand: true,
-        isShowFilter: true,
+        hasAllCheckBox: true,
+        hasCollapseExpand: true,
+        hasFilter: true,
+        hasDivider: false,
+        decoupleChildFromParent: false,
         maxHeight: 500
     };
 
@@ -68,11 +70,13 @@ export class FilterComponent implements OnInit {
     leagueId: number;
     leagueName = '';
     leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
-    betTypeTreeviewItems: TreeviewItem[];
+    betTypeTreeviewItems: TreeviewItem[] = [];
     betTypeTreeviewConfig: TreeviewConfig = {
-        isShowAllCheckBox: true,
-        isShowCollapseExpand: false,
-        isShowFilter: true,
+        hasAllCheckBox: true,
+        hasCollapseExpand: false,
+        hasFilter: true,
+        hasDivider: false,
+        decoupleChildFromParent: false,
         maxHeight: 500
     };
 
@@ -87,9 +91,9 @@ export class FilterComponent implements OnInit {
         private service: FilterService,
         private toastService: ToastService
     ) {
-        const todayNgbDate = NgbDate.fromToday();
+        const todayNgbDate = DateHelper.convertMomentToDateStruct(moment().startOf('day'));
         this.minDate = { year: todayNgbDate.year - 1, month: todayNgbDate.month, day: todayNgbDate.day };
-        this.maxDate = todayNgbDate.toDateStruct();
+        this.maxDate = todayNgbDate;
     }
 
     get isUserNameRequired(): boolean {
@@ -118,8 +122,8 @@ export class FilterComponent implements OnInit {
 
     ngOnInit() {
         this.service.queryDataWarehouseDateRange().subscribe(model => {
-            this.minDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MinDate));
-            this.maxDate = DateHelper.convertDateToDateStruct(DateHelper.convertStringToDate(model.MaxDate));
+            this.minDate = DateHelper.convertMomentToDateStruct(moment.utc(model.MinDate));
+            this.maxDate = DateHelper.convertMomentToDateStruct(moment.utc(model.MaxDate));
             this.monthRangeToDate = { year: this.maxDate.year, month: this.maxDate.month, day: 1 };
             let momentFromDate = DateHelper.convertDateStructToMoment(this.maxDate).subtract(5, 'months');
             const momentMinDate = DateHelper.convertDateStructToMoment(this.minDate);
@@ -276,7 +280,9 @@ export class FilterComponent implements OnInit {
             words = words.filter(word => word.trim() !== '');
             searchText = words.join(',');
             return this.service.querySportTypeLeague(this.sportType, searchText, false)
-                .map(list => list.map(item => item.LeagueName));
+                .map(list => {
+                 return   list.map(item => item.LeagueName)
+                });
         });
     }
 

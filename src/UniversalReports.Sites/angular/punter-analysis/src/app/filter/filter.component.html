@@ -1,4 +1,4 @@
-<div class="jumbotron filter-container">
+<div class="nap-filter">
     <nap-legend [legendId]="218" [legendTitle]="'Punter Analysis Legend'"></nap-legend>
     <div class="row">
         <div class="col-x1">
@@ -42,7 +42,7 @@
                 <label class="col-form-label">From</label>
             </div>
             <div class="col-value">
-                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate"></nap-month-picker>
+                <nap-month-picker class="month-range" [hasYearLabel]="false" [hasMonthLabel]="false"  [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate"></nap-month-picker>
             </div>
         </div>
         <div class="col-x2">
@@ -50,7 +50,7 @@
                 <label class="col-form-label">To</label>
             </div>
             <div class="col-value">
-                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate"></nap-month-picker>
+                <nap-month-picker class="month-range" [hasYearLabel]="false" [hasMonthLabel]="false" [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate"></nap-month-picker>
             </div>
         </div>
     </div>

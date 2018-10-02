@@ -3,7 +3,15 @@ export interface AssociatedAccountGridModel {
     custName: string;
 }
 
-export interface UserRoleItem {
+export interface AssociatedAccountItem {
     Username: string;
     RoleName: string;
+    WinLoss: number;
+    Turnover: number;
+    BetCount: number;
+}
+
+export interface AssociatedAccountData {
+    Entities: AssociatedAccountItem[];
+    Total: AssociatedAccountItem;
 }

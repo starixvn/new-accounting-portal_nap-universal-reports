@@ -3,9 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { TreeviewItem } from 'ngx-treeview';
 import * as _ from 'lodash';
-import { RoleId, SortBy } from 'nap-components/src/model';
-import { Helper } from 'nap-components/src/helper';
-import { HttpService } from 'nap-components/src/http.service';
+import { RoleId, SortBy } from 'nap-components/model';
+import { Helper } from 'nap-components/helper';
+import { HttpService } from 'nap-components/http';
 import { GridService } from '../grid.service';
 import { BetTypeGridService } from './bet-type-grid.service';
 import { BetTypeGridModel } from './bet-type-grid.model';
@@ -94,7 +94,7 @@ describe('BetTypeGridService', () => {
     it('exportExcel', inject([HttpService, GridService, BetTypeGridService],
         (httpService: HttpService, gridService: GridService, service: BetTypeGridService) => {
             const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
-            const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
+            const saveSpy = spyOn(Helper, 'downloadFile').and.callFake(() => { });
 
             function expectModel(fakeFilterModel: FilterModel, expectedExcel: any, expectedFileName: string) {
                 gridService.filterModel = fakeFilterModel;

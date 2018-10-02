@@ -4,10 +4,10 @@
     <col style="width: 90px" />
     <col style="width: 120px" />
 </ng-template>
-<div *ngIf="data" class="grid">
+<div *ngIf="data" class="nap-grid" [ngSwitch]="hasData">
     <div [ngStyle]="{'width.px': 271 + data.GroupNames.length * 450 }">
         <div class="header">
-            <table [class.empty-data]="!hasData">
+            <table>
                 <colgroup>
                     <col style="width: 250px" />
                     <ng-template ngFor [ngForOf]="data.GroupNames">
@@ -28,14 +28,9 @@
                         </ng-template>
                     </tr>
                 </thead>
-                <tbody *ngIf="!hasData">
-                    <tr>
-                        <th [colSpan]="1 + data.GroupNames.length * 4">There is no data</th>
-                    </tr>
-                </tbody>
             </table>
         </div>
-        <div *ngIf="hasData" class="body">
+        <div *ngSwitchCase="true" class="body">
             <table class="table-striped">
                 <colgroup>
                     <col style="width: 250px" />
@@ -56,7 +51,16 @@
                 </tbody>
             </table>
         </div>
-        <div class="footer" *ngIf="hasData">
+        <div *ngSwitchCase="false" class="body stretch">
+            <table>
+                <tbody>
+                    <tr>
+                        <th [colSpan]="1 + data.GroupNames.length * 4" class="no-data">There is no data</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngSwitchCase="true" class="footer">
             <table>
                 <colgroup>
                     <col style="width: 250px" />

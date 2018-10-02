@@ -1,20 +1,19 @@
-import { Component, DebugElement } from '@angular/core';
-import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
-import { BrowserModule, By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
-import { PaginationInstance } from 'ng2-pagination';
-import { expect } from 'nap-components/src/testing';
+import { PaginationInstance } from 'nap-components/pagination';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
-import { PeriodType } from '../../filter/filter.model.main';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
 import { AssociatedAccountGridModel } from './associated-account-grid.model';
 import { AssociatedAccountGridComponent } from './associated-account-grid.component';
-import { UserRoleItem } from './associated-account-grid.model';
+import { AssociatedAccountData } from './associated-account-grid.model';
 import { AppModule } from '../../app.module';
 import { fakeUserFilterModel } from '../../filter/filter.model.spec';
+import { expect } from '../../../testing';
 
 class Page {
     constructor(
@@ -23,7 +22,12 @@ class Page {
 
     queryEntityRow(rowIndex: number): DebugElement {
         const tableDebugElements = this.fixture.debugElement.queryAll(By.css('table'));
-        return tableDebugElements[1].query(By.css('tr'));
+        return tableDebugElements[1].queryAll(By.css('tr'))[rowIndex];
+    }
+
+    queryTotalRow(): DebugElement {
+        const tableDebugElements = this.fixture.debugElement.queryAll(By.css('table'));
+        return tableDebugElements[2].query(By.css('tr'));
     }
 }
 
@@ -53,12 +57,20 @@ describe('AssociatedAccountGridComponent', () => {
     });
 
     it('should have one table to show message "There is no data"', () => {
-        component.data = [];
+        component.data = {
+            Entities: [],
+            Total: {
+                Username: '',
+                RoleName: '',
+                WinLoss: 0,
+                Turnover: 0,
+                BetCount: 0
+            }
+        };
         fixture.detectChanges();
         const tableDebugElements = fixture.debugElement.queryAll(By.css('table'));
-        expect(tableDebugElements.length).toBe(1);
-        const rowDebugElements = tableDebugElements[0].queryAll(By.css('tr'));
-        const firstTdCell = rowDebugElements[1].query(By.css('th'));
+        expect(tableDebugElements.length).toBe(2);
+        const firstTdCell = tableDebugElements[1].query(By.css('th'));
         expect(firstTdCell.nativeElement).toHaveText('There is no data');
     });
 
@@ -80,10 +92,38 @@ describe('AssociatedAccountGridComponent', () => {
                 custName: 'Customer 1'
             };
 
-            const fakeData: UserRoleItem[] = [
-                { Username: 'User 1', RoleName: 'master' },
-                { Username: 'User 2', RoleName: 'member' }
-            ];
+            const fakeData: AssociatedAccountData = {
+                Entities: [
+                    {
+                        Username: 'member01',
+                        RoleName: 'Member',
+                        WinLoss: 300,
+                        Turnover: 500,
+                        BetCount: 5
+                    },
+                    {
+                        Username: 'member02',
+                        RoleName: 'Member',
+                        WinLoss: 0,
+                        Turnover: 0,
+                        BetCount: 0
+                    },
+                    {
+                        Username: 'agent01',
+                        RoleName: 'Agent',
+                        WinLoss: 0,
+                        Turnover: 0,
+                        BetCount: 0
+                    }
+                ],
+                Total: {
+                    Username: '',
+                    RoleName: '',
+                    WinLoss: 300,
+                    Turnover: 500,
+                    BetCount: 5
+                }
+            };
 
             service = fixture.debugElement.injector.get(AssociatedAccountGridService);
             service.model = fakeAssociatedAccountGridModel;
@@ -91,6 +131,16 @@ describe('AssociatedAccountGridComponent', () => {
 
             component.query().subscribe();
             fixture.detectChanges();
+        });
+
+        it('should have 3 items for pagination', () => {
+            const expectedConfig: PaginationInstance = {
+                id: 'custom',
+                itemsPerPage: 100,
+                currentPage: 1,
+                totalItems: 3
+            };
+            expect(component.config).toEqual(expectedConfig);
         });
 
         it('should mark hasData as true if entities is not empty', () => {
@@ -101,9 +151,65 @@ describe('AssociatedAccountGridComponent', () => {
             expect(component.title).toBe('Associated accounts of Punter Customer 1');
         });
 
-        it('should have 2 tables', () => {
+        it('should have 3 tables', () => {
             const tables = fixture.debugElement.queryAll(By.css('table'));
-            expect(tables.length).toBe(2);
+            expect(tables.length).toBe(3);
+        });
+
+        it('should invoke exportExcel in service when call exportExcel', () => {
+            const spy = spyOn(service, 'exportExcel').and.callFake(() => { });
+            component.exportExcel();
+            expect(spy.calls.count()).toBe(1);
+        });
+
+        it('all cells of first row should match', () => {
+            const cellValues = [];
+            const expectedCellValue = ['member01', 'Member', '300.00', '500.00', '60.00%', '5'];
+            const row = page.queryEntityRow(0);
+            const tds = row.queryAll(By.css('td'));
+
+            for (const td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
+        });
+
+        it('all cells of second row should match', () => {
+            const cellValues = [];
+            const expectedCellValue = ['member02', 'Member', '0.00', '0.00', 'N/A', '0'];
+            const row = page.queryEntityRow(1);
+            const tds = row.queryAll(By.css('td'));
+
+            for (const td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
+        });
+        it('all cells of third row should match', () => {
+            const cellValues = [];
+            const expectedCellValue = ['agent01', 'Agent', '', '', '', ''];
+            const row = page.queryEntityRow(2);
+            const tds = row.queryAll(By.css('td'));
+
+            for (const td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
+        });
+        it('all cells of total row should match', () => {
+            const cellValues = [];
+            const expectedCellValue = ['Total', '', '300.00', '500.00', '60.00%', '5'];
+            const row = page.queryTotalRow();
+            const tds = row.queryAll(By.css('td'));
+
+            for (const td of tds) {
+                cellValues.push(td.nativeElement.innerText);
+            }
+
+            expect(cellValues).toEqual(expectedCellValue);
         });
     });
 });

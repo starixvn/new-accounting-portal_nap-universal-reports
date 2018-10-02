@@ -1,18 +1,15 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { TreeviewItem } from 'ngx-treeview';
 import * as _ from 'lodash';
-import { Helper } from 'nap-components/src/helper';
-import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/helper';
+import { HttpService } from 'nap-components/http';
 import { GridService } from '../grid.service';
 import { GridType, LiveStatus } from '../grid.model';
 import { BetCountGridService } from './bet-count-grid.service';
 import { BetCountGridModel } from './bet-count-grid.model';
-import { BetCountData } from './bet-count-grid.model';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
 import { FilterModel } from '../../filter/filter.model';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { AppModule } from '../../app.module';
 
 describe('BetCountGridService', () => {
@@ -189,7 +186,7 @@ describe('BetCountGridService', () => {
     it('exportExcel', inject([HttpService, GridService, BetCountGridService],
         (httpService: HttpService, gridService: GridService, service: BetCountGridService) => {
             const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
-            const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
+            const saveSpy = spyOn(Helper, 'downloadFile').and.callFake(() => { });
 
             function expectModel(model: BetCountGridModel, filterModel: FilterModel, expectedExcel: any, expectedFileName: string) {
                 service.model = model;

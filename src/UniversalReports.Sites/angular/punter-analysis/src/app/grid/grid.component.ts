@@ -18,10 +18,7 @@ import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
 @Component({
     selector: 'nap-grid',
     templateUrl: './grid.component.html',
-    styleUrls: [
-        '../../../node_modules/nap-components/src/style/grid.scss',
-        './grid.component.scss'
-    ],
+    styleUrls: ['./grid.component.scss'],
     entryComponents: [
         SummaryGridComponent,
         BetCountGridComponent,

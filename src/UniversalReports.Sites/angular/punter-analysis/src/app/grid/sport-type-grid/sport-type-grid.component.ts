@@ -10,7 +10,8 @@ import { SportTypeGridService } from './sport-type-grid.service';
 
 @Component({
     selector: 'nap-sport-type-grid',
-    templateUrl: './sport-type-grid.component.html'
+    templateUrl: './sport-type-grid.component.html',
+    styleUrls: ['../grid.component.scss']
 })
 export class SportTypeGridComponent implements Grid {
     data: SportTypeData;

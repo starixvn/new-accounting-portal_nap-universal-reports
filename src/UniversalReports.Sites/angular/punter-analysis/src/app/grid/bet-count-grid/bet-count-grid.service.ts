@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from 'nap-components/src/http.service';
-import { Helper } from 'nap-components/src/helper';
+import { HttpService } from 'nap-components/http';
+import { Helper } from 'nap-components/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
@@ -34,7 +34,7 @@ export class BetCountGridService {
         this.httpService.download(url, queryModel).subscribe(response => {
             const gridTypeName = this.commonService.getGridTypeTitle(this.model.fromGridType);
             const fileName = `Top_Punter_${gridTypeName}_Bet_Count_${wrapper.searchByFileName}_${wrapper.dateFromToFileName}.xlsx`;
-            Helper.saveExcel(response, fileName);
+            Helper.downloadFile(response, fileName);
         });
     }
 

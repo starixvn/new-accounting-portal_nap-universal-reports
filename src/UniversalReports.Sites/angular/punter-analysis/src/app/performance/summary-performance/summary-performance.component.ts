@@ -1,16 +1,14 @@
 import { Component, Input } from '@angular/core';
 import * as _ from 'lodash';
-import { ChartDirective } from 'nap-components/src/chart';
-import { DateHelper } from 'nap-components/src/date';
-import { NumberFormat, NumberHelper } from 'nap-components/src/number';
-import { FilterModel } from '../../filter/filter.model';
+import { ChartDirective } from 'nap-components/chart';
+import { DateHelper } from 'nap-components/date';
+import { NumberFormatHelper, NumberFormatType } from 'nap-components/number-format';
 import { FilterModelWrapper, PeriodType } from '../../filter/filter.model.main';
 import { Performance, PerformanceType } from '../performance.model';
 import { PerformanceService } from '../performance.service';
 import { SummaryPerformanceService } from './summary-performance.service';
 import { PerformanceStatistic } from './summary-performance.model';
 import { RomanFormatter } from '../common/roman-formatter';
-import { groupName, displayLimit } from '../common/config';
 
 function rgba(colour: Array<number>, alpha: number): string {
     return 'rgba(' + colour.concat(alpha).join(',') + ')';
@@ -51,7 +49,7 @@ export class SummaryPerformanceComponent implements Performance {
             tooltips: {
                 callbacks: {
                     label: function (tooltipItem) {
-                        return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
+                        return NumberFormatHelper.format(tooltipItem.yLabel, NumberFormatType.Decimal);
                     }
                 }
             },
@@ -76,7 +74,7 @@ export class SummaryPerformanceComponent implements Performance {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                        return NumberHelper.format(value, NumberFormat.Integer);
+                        return NumberFormatHelper.format(value, NumberFormatType.Integer);
                     }
                 }
             }
@@ -90,7 +88,7 @@ export class SummaryPerformanceComponent implements Performance {
                 mode: 'label',
                 callbacks: {
                     label: function (tooltipItem) {
-                        return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
+                        return NumberFormatHelper.format(tooltipItem.yLabel, NumberFormatType.Decimal);
                     }
                 }
             },
@@ -163,7 +161,7 @@ export class SummaryPerformanceComponent implements Performance {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                        return NumberHelper.format(value, NumberFormat.Decimal);
+                        return NumberFormatHelper.format(value, NumberFormatType.Decimal);
                     }
                 }
             }
@@ -188,8 +186,7 @@ export class SummaryPerformanceComponent implements Performance {
 
         // month labels
         this.monthLabels = monthStatistics.map(item => {
-            const date = DateHelper.convertStringToDate(item.Date);
-            const dateStruct = DateHelper.convertDateToDateStruct(date);
+            const dateStruct = DateHelper.convertStringToDateStruct(item.Date);
             return `${dateStruct.month}/${dateStruct.year}`;
         });
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
-import { PaginationInstance } from 'ng2-pagination';
+import { PaginationInstance } from 'nap-components/pagination';
 import { GridService } from '../grid.service';
 import { Grid, GridType } from '../grid.model';
 import { SummaryData } from './summary-grid.model';
@@ -12,7 +12,8 @@ import { SportTypeGridService } from '../sport-type-grid/sport-type-grid.service
 
 @Component({
     selector: 'nap-summary-grid',
-    templateUrl: './summary-grid.component.html'
+    templateUrl: './summary-grid.component.html',
+    styleUrls: ['../grid.component.scss']
 })
 export class SummaryGridComponent implements Grid {
     config: PaginationInstance;

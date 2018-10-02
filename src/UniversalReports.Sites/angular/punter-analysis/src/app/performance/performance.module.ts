@@ -1,8 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'nap-components/src/chart';
-import { NumberFormatModule } from 'nap-components/src/number/number-format.module';
+import { ChartsModule } from 'nap-components/chart';
+import { NumberFormatModule } from 'nap-components/number-format';
 import { PerformanceComponent } from './performance.component';
 import { PerformanceService } from './performance.service';
 import { SummaryPerformanceComponent } from './summary-performance/summary-performance.component';

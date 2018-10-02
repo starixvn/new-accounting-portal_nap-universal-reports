@@ -1,8 +1,6 @@
 import * as _ from 'lodash';
-import { DownlineTreeviewItem } from 'ngx-treeview';
-import { SelectItem } from 'nap-components/src/dropdown-select';
-import { RoleId, SortBy } from 'nap-components/src/model';
-import { NgbDateStruct, DateFormat, DateHelper } from 'nap-components/src/date';
+import { DateFormat, DateHelper } from 'nap-components/date';
+import { NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { FilterModel } from './filter.model';
 import { PerformanceFilterModel } from './filter.model.performance';
 import { CommonUserLeagueFilterModel } from './filter.model.common-user-league';
@@ -27,6 +25,38 @@ export enum OrderBy {
     Margin = 3
 }
 
+
+export class UserLeagueFilterModelWrapper {
+    constructor(private model: CommonUserLeagueFilterModel) { }
+
+    get periodTitle(): string {
+        switch (this.model.periodType) {
+            case PeriodType.Daily:
+                return 'Daily';
+            case PeriodType.Weekly:
+                return 'Weekly';
+            case PeriodType.Monthly:
+            case PeriodType.MonthRange:
+                return 'Monthly';
+            case PeriodType.Annually:
+                return 'Annually';
+        }
+    }
+
+    get listCombinationId(): string {
+        return this.model.selectedBetTypeTreeviewItems.map(betTypeItem => betTypeItem.item.value).join(',');
+    }
+
+    get orderByTitle(): string {
+        return this.model.orderByOptions.filter(option => option.value === this.model.orderBy)[0].text;
+    }
+
+    get sortByTitle(): string {
+        return this.model.sortByOptions.filter(option => option.value === this.model.sortBy)[0].text;
+    }
+}
+
+
 export class FilterModelWrapper {
     readonly userLeagueModel: CommonUserLeagueFilterModel;
     readonly userLeagueWrapper: UserLeagueFilterModelWrapper;
@@ -36,18 +66,18 @@ export class FilterModelWrapper {
         switch (periodType) {
             case PeriodType.Daily:
             case PeriodType.Weekly:
-                const fromDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Date);
-                const toDateString = DateHelper.formatDateStruct(toDate, DateFormat.Date);
+                const fromDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(fromDate), DateFormat.Date);
+                const toDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(toDate), DateFormat.Date);
                 return `from ${fromDateString} to ${toDateString}`;
             case PeriodType.Monthly:
-                const monthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
+                const monthDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(fromDate), DateFormat.Month);
                 return `in ${monthDateString}`;
             case PeriodType.MonthRange:
-                const fromMonthDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Month);
-                const toMonthDateString = DateHelper.formatDateStruct(toDate, DateFormat.Month);
+                const fromMonthDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(fromDate), DateFormat.Month);
+                const toMonthDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(toDate), DateFormat.Month);
                 return `from ${fromMonthDateString} to ${toMonthDateString}`;
             case PeriodType.Annually:
-                const yearDateString = DateHelper.formatDateStruct(fromDate, DateFormat.Year);
+                const yearDateString = DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(fromDate), DateFormat.Year);
                 return `in ${yearDateString}`;
         }
 
@@ -167,35 +197,5 @@ export class FilterModelWrapper {
             this.filterModel.toDate);
         dateFromToDateString = dateFromToDateString.replace(/ /g, '_').replace(/,/g, '');
         return dateFromToDateString;
-    }
-}
-
-export class UserLeagueFilterModelWrapper {
-    constructor(private model: CommonUserLeagueFilterModel) { }
-
-    get periodTitle(): string {
-        switch (this.model.periodType) {
-            case PeriodType.Daily:
-                return 'Daily';
-            case PeriodType.Weekly:
-                return 'Weekly';
-            case PeriodType.Monthly:
-            case PeriodType.MonthRange:
-                return 'Monthly';
-            case PeriodType.Annually:
-                return 'Annually';
-        }
-    }
-
-    get listCombinationId(): string {
-        return this.model.selectedBetTypeTreeviewItems.map(betTypeItem => betTypeItem.item.value).join(',');
-    }
-
-    get orderByTitle(): string {
-        return this.model.orderByOptions.filter(option => option.value === this.model.orderBy)[0].text;
-    }
-
-    get sortByTitle(): string {
-        return this.model.sortByOptions.filter(option => option.value === this.model.sortBy)[0].text;
     }
 }

@@ -1,13 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { DateHelper } from 'nap-components/src/date';
-import { NumberFormat, NumberHelper } from 'nap-components/src/number';
-import { FilterModel } from '../../filter/filter.model';
+import { Component } from '@angular/core';
+import { NumberFormatHelper, NumberFormatType } from 'nap-components/number-format';
 import { FilterModelWrapper, PeriodType } from '../../filter/filter.model.main';
 import { Performance } from '../performance.model';
 import { PerformanceService } from '../performance.service';
 import { ProductPerformanceService } from './product-performance.service';
 import { SportsbookStatistic } from './product-performance.model';
-import { SummaryPerformanceComponent } from '../summary-performance/summary-performance.component';
 import { RomanFormatter } from '../common/roman-formatter';
 import { groupName, displayLimit } from '../common/config';
 
@@ -44,7 +41,7 @@ export class ProductPerformanceComponent implements Performance {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                        return NumberHelper.format(value, NumberFormat.Integer);
+                        return NumberFormatHelper.format(value, NumberFormatType.Integer);
                     }
                 }
             }
@@ -58,7 +55,7 @@ export class ProductPerformanceComponent implements Performance {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                        return NumberHelper.format(value, NumberFormat.Integer);
+                        return NumberFormatHelper.format(value, NumberFormatType.Integer);
                     }
                 }
             }
@@ -74,7 +71,7 @@ export class ProductPerformanceComponent implements Performance {
             tooltips: {
                 callbacks: {
                     label: function (tooltipItem) {
-                        return NumberHelper.format(tooltipItem.yLabel, NumberFormat.Decimal);
+                        return NumberFormatHelper.format(tooltipItem.yLabel, NumberFormatType.Decimal);
                     }
                 }
             },
@@ -105,7 +102,7 @@ export class ProductPerformanceComponent implements Performance {
                 callbacks: {
                     label: function (tooltipItem, data) {
                         const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                        return NumberHelper.format(value, NumberFormat.Decimal);
+                        return NumberFormatHelper.format(value, NumberFormatType.Decimal);
                     }
                 }
             }

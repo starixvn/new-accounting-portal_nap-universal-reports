@@ -61,14 +61,14 @@
                 <div class="col-label">
                     <label class="col-form-label">From</label>
                 </div>
-                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate"
+                <nap-month-picker class="month-range" [hasYearLabel]="false" [hasMonthLabel]="false" [(date)]="monthRangeFromDate" [minDate]="minDate" [maxDate]="monthRangeToDate"
                     (dateChange)="onMonthRangeDateChange()"></nap-month-picker>
             </div>
             <div class="col-x3">
                 <div class="col-label">
                     <label class="col-form-label">To</label>
                 </div>
-                <nap-month-picker class="month-range" [isShowLabel]="false" [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate"
+                <nap-month-picker class="month-range" [hasYearLabel]="false" [hasMonthLabel]="false" [(date)]="monthRangeToDate" [minDate]="monthRangeFromDate" [maxDate]="maxDate"
                     (dateChange)="onMonthRangeDateChange()"></nap-month-picker>
             </div>
         </div>

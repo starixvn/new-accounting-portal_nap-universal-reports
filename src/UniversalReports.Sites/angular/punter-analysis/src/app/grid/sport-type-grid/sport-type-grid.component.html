@@ -7,44 +7,55 @@
         <col style="width: 120px" />
     </colgroup>
 </ng-template>
-<div *ngIf="data" class="grid">
+<ng-template #thead>
+    <thead>
+        <tr>
+            <th>Sport Type</th>
+            <th>Win Loss</th>
+            <th>Turnover</th>
+            <th>Margin</th>
+            <th>Bet Count</th>
+        </tr>
+    </thead>
+</ng-template>
+<div *ngIf="data" class="nap-grid" [ngSwitch]="hasData">
     <div style="width: 718px">
         <div class="header">
-            <table [class.empty-data]="!hasData">
+            <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                <thead>
-                    <tr>
-                        <th>Sport Type</th>
-                        <th>Win Loss</th>
-                        <th>Turnover</th>
-                        <th>Margin</th>
-                        <th>Bet Count</th>
-                    </tr>
-                </thead>
-                <tbody *ngIf="!hasData">
-                    <tr>
-                        <th colspan="5">There is no data</th>
-                    </tr>
-                </tbody>
+                <ng-template [ngTemplateOutlet]="thead"></ng-template>
             </table>
         </div>
-        <div *ngIf="hasData" class="body">
+        <div *ngSwitchCase="true" class="body">
             <table class="table-striped">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
                     <tr *ngFor="let item of data.Entities">
-                        <td><a href="javascript:;" (click)="showBetType(item.SportId, item.SportName)">{{ item.SportName }}</a></td>
+                        <td><a href="javascript:;" (click)="showBetType(item.SportId, item.SportName)">{{
+                                item.SportName }}</a></td>
                         <td class="number" [napDecimalFormat]="item.WinLoss"></td>
                         <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                         <td class="text-right">
-                            <a href="javascript:;" (click)="showBetCount(item.SportId, item.SportName)" [napIntegerFormat]="item.BetCount"></a>
+                            <a href="javascript:;" (click)="showBetCount(item.SportId, item.SportName)"
+                                [napIntegerFormat]="item.BetCount"></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="footer" *ngIf="hasData">
+        <div *ngSwitchCase="false" class="body stretch">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="no-data" colspan="5">
+                            There is no data
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngSwitchCase="true" class="footer">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tfoot>

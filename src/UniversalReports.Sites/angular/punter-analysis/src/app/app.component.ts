@@ -6,9 +6,7 @@ import { SearchBy } from './filter/filter.model.main';
 @Component({
   selector: 'nap-root',
   templateUrl: './app.component.html',
-  styleUrls: [
-    '../../../components/src/style/header.scss'
-  ]
+  styleUrls: ['./app.component.scss' ]
 })
 export class AppComponent {
   SearchBy = SearchBy;

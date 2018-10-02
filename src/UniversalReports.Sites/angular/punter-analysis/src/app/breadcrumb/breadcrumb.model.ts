@@ -1,5 +1,3 @@
-import { TreeviewItem } from 'ngx-treeview';
-
 export interface BreadcrumbFilter {
     getFilterColumns(): string[];
     filterColumns(selectedColumns: string[]);

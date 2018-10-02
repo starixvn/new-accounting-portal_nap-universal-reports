@@ -10,7 +10,8 @@ import { BetTypeGridService } from './bet-type-grid.service';
 
 @Component({
     selector: 'nap-bet-type-grid',
-    templateUrl: './bet-type-grid.component.html'
+    templateUrl: './bet-type-grid.component.html',
+    styleUrls: ['../grid.component.scss']
 })
 export class BetTypeGridComponent implements Grid {
     LiveStatus = LiveStatus;

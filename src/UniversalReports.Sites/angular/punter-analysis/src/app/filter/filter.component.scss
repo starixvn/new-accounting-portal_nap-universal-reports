@@ -1,3 +1,25 @@
+@import '~nap-theme/scss/filter';
+.nap-col {
+    .nap-group {
+        &>label {
+            float: left;
+            width: 80px;
+            line-height: 25px;
+        }
+        &>.nap-control {
+            float: left;
+            width: 150px;
+        }
+        &>.width-100 {
+            width: 100px !important;
+        }
+    }
+}
+
+.col-buttons {
+    margin-left: 20px;
+}
+
 :host /deep/ .col-form-label {
     font-weight: bold;
     padding-right: .5rem;
@@ -12,7 +34,7 @@
     margin-bottom: .3rem;
     .col-x1 {
         float: left;
-        width: 330px;
+        width: 340px;
         $margin: 100px;
         .col-label {
             width: $margin;
@@ -23,7 +45,7 @@
     }
     .col-x2 {
         float: left;
-        width: 330px;
+        width: 340px;
         $margin: 120px;
         .col-label {
             width: $margin;

@@ -10,7 +10,8 @@ import { LeagueGridService } from './league-grid.service';
 
 @Component({
     selector: 'nap-league-grid',
-    templateUrl: './league-grid.component.html'
+    templateUrl: './league-grid.component.html',
+    styleUrls: ['../grid.component.scss']
 })
 export class LeagueGridComponent implements Grid, BreadcrumbFilter {
     private orginalData: LeagueData;

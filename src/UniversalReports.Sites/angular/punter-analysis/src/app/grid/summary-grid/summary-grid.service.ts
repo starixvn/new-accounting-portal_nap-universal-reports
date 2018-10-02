@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from 'nap-components/src/http.service';
-import { Helper } from 'nap-components/src/helper';
-import { NumberFormat, NumberHelper } from 'nap-components/src/number';
-import { FilterModel } from '../../filter/filter.model';
+import { HttpService } from 'nap-components/http';
+import { Helper } from 'nap-components/helper';
+import { NumberFormatHelper, NumberFormatType } from 'nap-components/number-format';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
@@ -64,7 +62,8 @@ export class SummaryGridService {
         const topRow = filterModelWrapper.userLeagueModel.topRow;
         const orderByTitle = filterModelWrapper.userLeagueWrapper.orderByTitle;
         const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
-        filterLines.push(`Top rows: ${NumberHelper.format(topRow, NumberFormat.Integer)} - Order by: ${orderByTitle}, ${sortByTitle}`);
+        const topRowString = NumberFormatHelper.format(topRow, NumberFormatType.Integer);
+        filterLines.push(`Top rows: ${topRowString} - Order by: ${orderByTitle}, ${sortByTitle}`);
         filterLines.push(`Sport Type: ${filterModelWrapper.selectedSportTypes}`);
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
@@ -72,7 +71,7 @@ export class SummaryGridService {
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_Summary_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
-            Helper.saveExcel(response, fileName);
+            Helper.downloadFile(response, fileName);
         });
     }
 
