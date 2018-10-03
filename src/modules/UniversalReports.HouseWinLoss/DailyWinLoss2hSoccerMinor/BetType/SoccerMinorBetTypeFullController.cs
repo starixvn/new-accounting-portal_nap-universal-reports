@@ -44,7 +44,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 
             return new FanexExcelResult(
                 new List<GridOptions> { sumGridOption, liveGridOption, noneLiveGridOption },
-                Constants.SheetName);
+                Constants.SoccerMinorBetTypesSheetName);
         }
 
         private GridOptions GetGridOptions(WinLossCriteria criteria, string title)

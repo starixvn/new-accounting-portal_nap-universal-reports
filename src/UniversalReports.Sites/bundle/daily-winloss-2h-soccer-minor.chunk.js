@@ -185,7 +185,7 @@ webpackJsonp([2],{
 	            }
 	
 	            function getFileName() {
-	                return 'Daily_Win_Loss_2h_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
+	                return 'Daily_Win_Loss_2h_Soccer_Minor_Bet_Types_From_' + this.data.startDate.format('DD_MM_YYYY') + '_To_' + this.data.endDate.format('DD_MM_YYYY') + '.xls';
 	            }
 	
 	            function compileAll() {

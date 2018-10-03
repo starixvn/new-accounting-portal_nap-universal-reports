@@ -2,6 +2,8 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.SportType
 {
@@ -24,7 +26,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.SportType
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, "Sport Type", queryModel.Title);
+            var gridOptions = GetGridOptions(criteria, "Sport Type", queryModel.Title);
+            return new FanexExcelResult(gridOptions, Constants.SoccerMinorBetTypesSheetName);
         }
     }
 }
