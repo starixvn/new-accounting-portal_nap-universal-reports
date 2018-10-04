@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
     public class AssociatedFacadeUnitTests
     {
         [Test]
-        public async Task Query_Always_ReturnsSumDataOfDataFromRepository()
+        public async Task Query_FPSRetunsNonEmptyUsernameList_ReturnsSumDataOfDataFromRepository()
         {
             // Arrange
             var site = new Site { Name = "site01", IsCreditSite = false };
@@ -49,9 +49,13 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
             repository.FetchAsync<AssociatedSummaryModel>(Arg.Any<ICriteria>()).Returns(memberNonEmptySummary);
 
-            var emptyListOfUserDevice = new List<CustomerDevice> { };
+            var listOfUserDevice = new List<CustomerDevice> {
+                 new CustomerDevice { Account = "member01" },
+                 new CustomerDevice { Account = "member02" },
+                 new CustomerDevice { Account = "agent01" },
+            };
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(emptyListOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(listOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
 
@@ -71,6 +75,36 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             {
                 Entities = expectedEntities,
                 Total = new AssociatedSummaryModel { Username = string.Empty, BetCount = 1, RoleName = string.Empty, Turnover = 100, WinLoss = 100 }
+            };
+            Assert.That(viewModel, IsDeeplyEqual.To(expected));
+        }
+
+        [Test]
+        public async Task Query_FPSRetunsEmptyUsernameList_ReturnsEmptySummaryEntity()
+        {
+            // Arrange
+            var site = new Site { Name = "site01", IsCreditSite = false };
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
+
+            var emptyListOfUserDevice = new List<CustomerDevice> { };
+            var fraudService = Substitute.For<FraudServiceWrapper>();
+            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(emptyListOfUserDevice);
+
+            var configurationService = Substitute.For<ConfigurationService>();
+
+            // Act
+            var facade = new AssociatedFacadeImp(configurationService, fraudService, repository);
+            var viewModel = await facade.Query(new HttpParameterJson()).ConfigureAwait(false);
+
+            // Assert
+            var expectedEntities = new List<AssociatedSummaryModel>();
+
+            var expected = new SummaryEntity<AssociatedSummaryModel>
+            {
+                Entities = expectedEntities,
+                Total = new AssociatedSummaryModel()
             };
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'nap-components/http';
 import { Helper } from 'nap-components/helper';
+import { NumberFormatHelper, NumberFormatType } from 'nap-components/number-format';
 import { AssociatedAccountGridModel, AssociatedAccountData } from './associated-account-grid.model';
-import { FilterModelWrapper } from '../../filter/filter.model.main';
+import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 
 @Injectable()
@@ -45,10 +46,20 @@ export class AssociatedAccountGridService {
         const queryModel = this.createQueryModel();
         queryModel.title = `Associated accounts of Punter ${this.model.custName} ${filterModelWrapper.dateFromToTitle}`;
         const filterLines = [];
+        if (filterModel.searchBy === SearchBy.User) {
+            filterLines.push(`Depth: ${filterModelWrapper.depthTitle} - Account name: ${filterModelWrapper.userNameTitle}`);
+        } else if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push('User Name: All');
+        }
+        const topRow = filterModelWrapper.userLeagueModel.topRow;
         const orderByTitle = filterModelWrapper.userLeagueWrapper.orderByTitle;
         const sortByTitle = filterModelWrapper.userLeagueWrapper.sortByTitle;
-        filterLines.push(`Order by: ${orderByTitle}, ${sortByTitle}`);
+        const topRowString = NumberFormatHelper.format(topRow, NumberFormatType.Integer);
+        filterLines.push(`Top rows: ${topRowString} - Order by: ${orderByTitle}, ${sortByTitle}`);
         filterLines.push(`Sport Type: ${filterModelWrapper.selectedSportTypes}`);
+        if (filterModel.searchBy === SearchBy.League) {
+            filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
+        }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Associated_Accounts_Of_Punter_${this.model.custName}_${filterModelWrapper.dateFromToFileName}.xlsx`;

@@ -34,8 +34,10 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             var site = await GetSiteName(request.CustId).ConfigureAwait(false);
             var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
 
-            var usernames = associatedCustomers.Select(c => c.Account);
-            var summaries = await GetMemberSummaries(request, usernames).ConfigureAwait(false);
+            var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
+            var summaries = usernames.Any()
+                ? await GetMemberSummaries(request, usernames).ConfigureAwait(false)
+                : new List<AssociatedSummaryModel>();
 
             return summaries
                 .CalculateSummaryEntity();

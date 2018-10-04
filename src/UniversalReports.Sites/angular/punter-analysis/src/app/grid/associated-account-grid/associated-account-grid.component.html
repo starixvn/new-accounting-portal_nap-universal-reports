@@ -39,7 +39,7 @@
                             <td class="number" [napDecimalFormat]="item.WinLoss"></td>
                             <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                             <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
-                            <td class="number" [napIntegerFormat]> {{item.BetCount}} </td>
+                            <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
                         </ng-template>
                         <ng-template [ngIf]="item.RoleName != '' && item.RoleName != 'Member'">
                             <td class="word-break-all">{{ item.Username }}</td>
