@@ -1,18 +1,15 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { TreeviewItem } from 'ngx-treeview';
 import * as _ from 'lodash';
-import { Helper } from 'nap-components/src/helper';
-import { HttpService } from 'nap-components/src/http.service';
+import { Helper } from 'nap-components/helper';
+import { HttpService } from 'nap-components/http';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
 import { CommonService } from '../common.service';
 import { LeagueGridService } from './league-grid.service';
 import { LeagueGridModel } from './league-grid.model';
-import { LeagueData } from './league-grid.model';
 import { FilterModel } from '../../filter/filter.model';
-import { SearchBy, OrderBy, PeriodType } from '../../filter/filter.model.main';
 import { fakeUserFilterModel, fakeLeagueFilterModel } from '../../filter/filter.model.spec';
 import { AppModule } from '../../app.module';
 
@@ -127,7 +124,7 @@ describe('LeagueGridService', () => {
     it('exportExcel', inject([HttpService, GridService, LeagueGridService],
         (httpService: HttpService, gridService: GridService, service: LeagueGridService) => {
             const downloadSpy = spyOn(httpService, 'download').and.returnValue(Observable.of(null));
-            const saveSpy = spyOn(Helper, 'saveExcel').and.callFake(() => { });
+            const saveSpy = spyOn(Helper, 'downloadFile').and.callFake(() => { });
 
             function expectModel(fakeFilterModel: FilterModel, expectedExcel: any, expectedFileName: string) {
                 gridService.filterModel = fakeFilterModel;

@@ -16,10 +16,7 @@ import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
 @Component({
     selector: 'nap-performance',
     templateUrl: './performance.component.html',
-    styleUrls: [
-        '../../../node_modules/nap-components/src/style/table.scss',
-        './performance.component.scss'
-    ],
+    styleUrls: ['./performance.component.scss'],
     entryComponents: [
         SummaryPerformanceComponent,
         ProductPerformanceComponent

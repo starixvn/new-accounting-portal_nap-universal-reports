@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
 
         public int Depth { get; set; }
 
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         public string ListCombinationId { get; set; }
 

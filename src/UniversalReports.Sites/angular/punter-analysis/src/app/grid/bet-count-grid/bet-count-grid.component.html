@@ -7,28 +7,27 @@
         <col style="width: 120px" />
     </colgroup>
 </ng-template>
-<div *ngIf="data" class="grid">
+<ng-template #thead>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Bet Count</th>
+            <th>Win Count</th>
+            <th>Draw Count</th>
+            <th>Win Loss</th>
+        </tr>
+    </thead>
+</ng-template>
+
+<div *ngIf="data" class="nap-grid" [ngSwitch]="hasData"> 
     <div style="width: 638px">
         <div class="header">
-            <table [class.empty-data]="!hasData">
+            <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Bet Count</th>
-                        <th>Win Count</th>
-                        <th>Draw Count</th>
-                        <th>Win Loss</th>
-                    </tr>
-                </thead>
-                <tbody *ngIf="!hasData">
-                    <tr>
-                        <th colspan="5">There is no data</th>
-                    </tr>
-                </tbody>
+                <ng-template [ngTemplateOutlet]="thead"></ng-template>
             </table>
         </div>
-        <div *ngIf="hasData" class="body">
+        <div *ngSwitchCase="true" class="body">
             <table class="table-striped">
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
@@ -42,7 +41,19 @@
                 </tbody>
             </table>
         </div>
-        <div class="footer" *ngIf="hasData">
+
+        <div *ngSwitchCase="false" class="body stretch">
+            <table>
+                <tbody>
+                    <tr>
+                        <th class="no-data" colspan="5">
+                            There is no data
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngSwitchCase="true" class="footer">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tfoot>

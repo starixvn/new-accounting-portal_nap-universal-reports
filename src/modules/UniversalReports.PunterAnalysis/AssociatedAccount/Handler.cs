@@ -1,53 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using MediatR;
-using Olympus.FPSAPI.Client;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
-    public class Handler : IRequestHandler<HttpParameterJson, List<UserRoleModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<AssociatedSummaryModel>>
     {
-        private readonly IDynamicRepository repository;
+        private readonly AssociatedFacade associatedFacade;
 
-        private readonly FraudServiceWrapper fraudServiceWrapper;
-
-        private readonly ConfigurationService configurationService;
-
-        public Handler(ConfigurationService configurationService, FraudServiceWrapper fraudServiceWrapper, IDynamicRepository repository)
+        public Handler(AssociatedFacade associatedFacade)
         {
-            this.configurationService = configurationService;
-            this.fraudServiceWrapper = fraudServiceWrapper;
-            this.repository = repository;
+            this.associatedFacade = associatedFacade;
         }
 
-        public async Task<List<UserRoleModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
+        public async Task<SummaryEntity<AssociatedSummaryModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            var site = await GetSiteName(request.CustId).ConfigureAwait(false);
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
-            var usernames = associatedCustomers.Select(c => c.Account);
-            var model = await GetAccountRoles(usernames).ConfigureAwait(false);
-
-            return new List<UserRoleModel>(model);
-        }
-
-        private async Task<Site> GetSiteName(int custId)
-        {
-            var criteria = new UserSiteQueryCriteria { CustId = custId };
-
-            return await repository.GetAsync<Site>(criteria).ConfigureAwait(false);
-        }
-
-        private async Task<IEnumerable<UserRoleModel>> GetAccountRoles(IEnumerable<string> usernames)
-        {
-            var listUsername = string.Join(",", usernames);
-            var criteria = new UserRoleQueryCriteria { ListUserName = listUsername };
-
-            return await repository.FetchAsync<UserRoleModel>(criteria).ConfigureAwait(false);
+            return await associatedFacade.Query(request).ConfigureAwait(false);
         }
     }
 }

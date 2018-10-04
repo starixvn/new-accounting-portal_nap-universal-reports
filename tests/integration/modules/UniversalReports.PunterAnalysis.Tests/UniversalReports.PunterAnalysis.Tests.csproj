@@ -218,6 +218,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerTests.cs" />
     <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -239,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="ExcelTemplate\PunterAnalysis\AssociatedAccount.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -255,6 +259,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="TestCases\AssociatedAccount-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\AssociatedAccount-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\AssociatedAccount-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\AssociatedAccount-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\AssociatedAccount-FileRepository.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestCases\BetCount-Excel-ExpectedBody.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -347,9 +366,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AssociatedAccount\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
   </ItemGroup>

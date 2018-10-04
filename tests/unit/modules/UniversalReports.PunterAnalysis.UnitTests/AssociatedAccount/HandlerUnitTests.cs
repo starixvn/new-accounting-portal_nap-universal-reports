@@ -1,53 +1,33 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using Fanex.Data.Repository;
+using AutoFixture;
+using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Olympus.FPSAPI.Client;
-using Olympus.FPSAPI.Client.Model;
-using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.AssociatedAccount;
-using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
+using UniversalReports.PunterAnalysis.BetCount;
+using UniversalReports.PunterAnalysis.BetCount.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 {
     public class HandlerUnitTests
     {
+        private readonly Fixture fixture = new Fixture();
+
         [Test]
-        public async Task Handle_Always_ReturnsListOfUserRoleFromRepository()
+        public async Task Handle_Always_ReturnsReportModelFromService()
         {
             // Arrange
-            var nonEmptyListOfUserRoleModel = new List<UserRoleModel>
-            {
-                 new UserRoleModel
-                 {
-                     Username = "User 1",
-                     RoleName = "Master"
-                 }
-            };
-            var site = new Site { Name = "Site 1", IsCreditSite = false };
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<UserRoleModel>(Arg.Any<ICriteria>()).Returns(nonEmptyListOfUserRoleModel);
-            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
-
-            var nonEmptyListOfUserDevice = new List<CustomerDevice>
-            {
-                new CustomerDevice { Account = "User 1" }
-            };
-            var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(nonEmptyListOfUserDevice);
-
-            var configurationService = Substitute.For<ConfigurationService>();
+            var anyReportModel = fixture.Create<SummaryEntity<BetCountModel>>();
+            var service = Substitute.For<BetCountService>();
+            service.Query(Arg.Any<Criteria>()).Returns(anyReportModel);
 
             // Act
-            var handler = new Handler(configurationService, fraudService, repository);
+            var handler = new Handler(service);
             var viewModel = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
-            var expected = new List<UserRoleModel>(nonEmptyListOfUserRoleModel);
-            Assert.That(viewModel, IsDeeplyEqual.To(expected));
+            Assert.That(viewModel, IsDeeplyEqual.To(anyReportModel));
         }
     }
 }

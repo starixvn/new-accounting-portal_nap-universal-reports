@@ -28,24 +28,28 @@
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas napChart [datasets]="marginDatasets" [labels]="monthLabels" chartType="bar" [options]="marginOptions"></canvas>
+        <canvas style="width: 406px; height: 203px;" napChart [datasets]="marginDatasets" [labels]="monthLabels"
+          chartType="bar" [options]="marginOptions"></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="box">
-        <canvas napChart [datasets]="winLossTurnoverDatasets" [labels]="monthLabels" [options]="winLossTurnoverOptions" chartType="bar"></canvas>
+        <canvas style="width: 406px; height: 203px;" napChart [datasets]="winLossTurnoverDatasets" [labels]="monthLabels"
+          [options]="winLossTurnoverOptions" chartType="bar"></canvas>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6">
       <div class="box">
-        <canvas napChart [datasets]="betCountDatasets" [labels]="monthLabels" chartType="pie" [options]="betCountOptions"></canvas>
+        <canvas style="width: 406px; height: 406px;" napChart [datasets]="betCountDatasets" [labels]="monthLabels"
+          chartType="pie" [options]="betCountOptions"></canvas>
       </div>
     </div>
     <div class="col-6">
       <div class="box">
-        <canvas napChart [data]="productData" [labels]="productLabels" chartType="pie" [options]="productOptions" (chartClick)="chartClicked($event)"></canvas>
+        <canvas style="width: 406px; height: 406px;" napChart [data]="productData" [labels]="productLabels" chartType="pie"
+          [options]="productOptions" (chartClick)="chartClicked($event)"></canvas>
       </div>
     </div>
   </div>

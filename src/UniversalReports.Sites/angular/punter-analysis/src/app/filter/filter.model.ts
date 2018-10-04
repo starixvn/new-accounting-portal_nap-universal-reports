@@ -1,8 +1,6 @@
 import * as _ from 'lodash';
-import { DownlineTreeviewItem } from 'ngx-treeview';
-import { SelectItem } from 'nap-components/src/dropdown-select';
-import { RoleId, SortBy } from 'nap-components/src/model';
-import { NgbDateStruct, DateFormat, DateHelper } from 'nap-components/src/date';
+import { SelectItem } from 'nap-components/dropdown-select';
+import { NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { SearchBy } from './filter.model.main';
 import { UserFilterModel } from './filter.model.user';
 import { LeagueFilterModel } from './filter.model.league';

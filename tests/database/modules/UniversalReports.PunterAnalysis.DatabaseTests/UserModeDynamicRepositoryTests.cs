@@ -9,7 +9,6 @@ using UniversalReports.PunterAnalysis.BetType.Model;
 using UniversalReports.PunterAnalysis.League.Model;
 using UniversalReports.PunterAnalysis.SportType.Model;
 using UniversalReports.PunterAnalysis.Summary.Model;
-using AssociatedAccountCriteria = UniversalReports.PunterAnalysis.AssociatedAccount.Model.UserRoleQueryCriteria;
 using AvailableDatabaseFilter = UniversalReports.PunterAnalysis.Filter.AvailableDatabase;
 using AvailableDateRangeFilter = UniversalReports.PunterAnalysis.Filter.AvailableDateRange;
 using BetCountCriteria = UniversalReports.PunterAnalysis.BetCount.Model.Criteria;
@@ -38,25 +37,6 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
 
             // Assert
             Assert.That(status, Is.Not.Zero);
-        }
-
-        [Test]
-        public async Task AssociatedAccountSp_Test_ColumnIsMappedCorrectly()
-        {
-            // Arrange
-            var criteria = new AssociatedAccountCriteria
-            {
-                ListUserName = "B15T6666XXX,B49TAA75111,M83RM0320B,PKMP88245,S95M0505005"
-            };
-
-            // Act
-            var repository = new DynamicRepository();
-            var models = await repository.FetchAsync<UserRoleModel>(criteria);
-
-            // Assert
-            var firstModel = models.First();
-            Assert.That(firstModel.Username, Is.Not.Null.And.Not.Empty);
-            Assert.That(firstModel.RoleName, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]

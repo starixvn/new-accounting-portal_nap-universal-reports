@@ -1,16 +1,14 @@
 import * as _ from 'lodash';
 import {
-    SearchBy, PeriodType, OrderBy, FilterModelWrapper
+    SearchBy, PeriodType, OrderBy
 } from './filter.model.main';
 
 import { FilterModel } from './filter.model';
 import { UserFilterModel } from './filter.model.user';
 import { LeagueFilterModel } from './filter.model.league';
 import { PerformanceFilterModel } from './filter.model.performance';
-import { Depth } from './filter.model.depth';
-import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
 
-import { RoleId, SortBy } from 'nap-components/src/model';
+import { RoleId, SortBy } from 'nap-components/model';
 import { TreeviewItem } from 'ngx-treeview';
 
 const commonModel = {

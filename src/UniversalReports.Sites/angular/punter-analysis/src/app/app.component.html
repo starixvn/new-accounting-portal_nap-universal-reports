@@ -1,9 +1,11 @@
 <nap-navbar></nap-navbar>
 <div class="container-fluid" style="min-width: 1000px">
-  <div class="header-container">
-    Fraud & Risk /
-    <span class="active">Punter Analysis</span>
-  </div>
+  <div class="nap-header">
+    <div class="title">
+        Fraud &amp; Risk /
+        <span class="active">Punter Analysis</span>
+    </div>
+</div>
   <nap-filter (generate)="onGenerate($event)" (reset)="onReset()"></nap-filter>
   <nap-toast></nap-toast>
   <div *ngIf="filterModel" [ngSwitch]="filterModel.searchBy">

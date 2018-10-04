@@ -71,7 +71,6 @@
     </Setting>
   </Function>
   <Function Name="Punter-Analysis">
-    <Setting Key="Punter-RoleQuery" SpName="Acc_Punter_GetRoleName" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -106,6 +105,7 @@
     <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_PerformanceByMember" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="Actual-Member-Bet">
     <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

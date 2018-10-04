@@ -1,11 +1,10 @@
-import { Component, DebugElement } from '@angular/core';
-import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
-import { BrowserModule, By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
-import { PaginationInstance } from 'ng2-pagination';
-import { expect } from 'nap-components/src/testing';
+import { PaginationInstance } from 'nap-components/pagination';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
@@ -16,9 +15,9 @@ import { SportTypeGridService } from '../sport-type-grid/sport-type-grid.service
 import { SportTypeGridModel } from '../sport-type-grid/sport-type-grid.model';
 import { SummaryGridService } from './summary-grid.service';
 import { SummaryGridComponent } from './summary-grid.component';
-import { SummaryData } from './summary-grid.model';
 import { fakeData } from './summary-grid.model.spec';
 import { AppModule } from '../../app.module';
+import { expect } from '../../../testing';
 
 class Page {
     constructor(
@@ -69,9 +68,8 @@ describe('SummaryGridComponent', () => {
         };
         fixture.detectChanges();
         const tableDebugElements = fixture.debugElement.queryAll(By.css('table'));
-        expect(tableDebugElements.length).toBe(1);
-        const rowDebugElements = tableDebugElements[0].queryAll(By.css('tr'));
-        const firstTdCell = rowDebugElements[1].query(By.css('th'));
+        expect(tableDebugElements.length).toBe(2);
+        const firstTdCell = tableDebugElements[1].query(By.css('th'));
         expect(firstTdCell.nativeElement).toHaveText('There is no data');
     });
 

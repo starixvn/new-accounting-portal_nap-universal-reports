@@ -1,0 +1,28 @@
+﻿using System;
+using Fanex.Data.Repository;
+
+namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
+{
+    public class MemberPerformanceCriteria : CriteriaBase
+    {
+        public string Username { get; set; }
+
+        public int LeagueId { get; set; }
+
+        public int OrderBy { get; set; }
+
+        public int SortBy { get; set; }
+
+        public int PeriodType { get; set; }
+
+        public DateTime FromDate { get; set; }
+
+        public DateTime ToDate { get; set; }
+
+        public string ListCombinationId { get; set; }
+
+        public override string GetSettingKey() => "Punter-PerformanceOfMembers";
+
+        public override bool IsValid() => true;
+    }
+}

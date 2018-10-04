@@ -29,8 +29,12 @@ namespace UniversalReports.Sites.SimpleInjector
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Summary.HandlerExcel));
             container.RegisterConditional<ExcelSettingFactory, LeagueExcelSettingFactory>(
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.League.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, AssociatedAccountExcelSettingFactory>(
+                c => c.Consumer.ImplementationType == typeof(PunterAnalysis.AssociatedAccount.HandlerExcel));
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
+
+            container.Register<AssociatedFacade, AssociatedFacadeImp>();
 
             return container;
         }

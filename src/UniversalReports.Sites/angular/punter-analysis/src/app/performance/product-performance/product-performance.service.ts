@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { HttpService } from 'nap-components/src/http.service';
-import { Helper } from 'nap-components/src/helper';
+import { HttpService } from 'nap-components/http';
+import { Helper } from 'nap-components/helper';
 import { FilterModel } from '../../filter/filter.model';
 import { FilterModelWrapper } from '../../filter/filter.model.main';
 import { PerformanceService } from '../performance.service';

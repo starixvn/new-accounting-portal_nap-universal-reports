@@ -16,13 +16,7 @@
       "es2016",
       "dom"
     ],
-    "paths": {
-      "@angular/*": [
-        "../node_modules/nap-components/node_modules/@angular/*"
-      ],
-      "rxjs/*": [
-        "../node_modules/nap-components/node_modules/rxjs/*"
-      ]
+    "paths": {     
     }
   }
 }

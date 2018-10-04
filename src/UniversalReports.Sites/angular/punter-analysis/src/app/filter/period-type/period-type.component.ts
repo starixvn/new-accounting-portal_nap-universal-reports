@@ -1,8 +1,9 @@
 import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
-import { SelectItem } from 'nap-components/src/dropdown-select';
-import { DateHelper, NgbDateStruct, NgbDate } from 'nap-components/src/date';
+import * as moment from 'moment';
+import { SelectItem } from 'nap-components/dropdown-select';
+import { DateHelper } from 'nap-components/date';
 import { PeriodType } from '../filter.model.main';
 import { PeriodTypeEventModel } from './period-type.model';
 
@@ -33,19 +34,18 @@ export class PeriodTypeComponent implements OnChanges {
     monthRangeToDate: NgbDateStruct;
 
     private emittedModel: PeriodTypeEventModel;
-
+    private todayNgbDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment().startOf('day'));
     constructor() {
-        const todayNgbDate = NgbDate.fromToday();
-        this.initDefaultDate(todayNgbDate.toDateStruct());
+        this.initDefaultDate(this.todayNgbDate);
     }
 
     ngOnChanges(changes: SimpleChanges) {
         const maxDateChange = changes['maxDate'];
         if (maxDateChange) {
             const maxDateStruct: NgbDateStruct = maxDateChange.currentValue;
-            const maxDate = NgbDate.from(maxDateStruct);
-            const todayDate = NgbDate.fromToday();
-            if (maxDate.before(todayDate)) {
+            const maxDate = DateHelper.convertDateStructToMoment(maxDateStruct);
+            const todayDate = DateHelper.convertDateStructToMoment(this.todayNgbDate);
+            if (maxDate.isBefore(todayDate)) {
                 this.initDefaultDate(maxDateStruct);
             }
         }
@@ -158,10 +158,10 @@ export class PeriodTypeComponent implements OnChanges {
         if (this.weeklyToDate) {
             const lastDayOfWeek = DateHelper.getLastDayOfWeek(this.weeklyToDate);
             if (this.maxDate) {
-                const maxNgbDate = NgbDate.fromDateStruct(this.maxDate);
-                const lastNgDayOfWeek = NgbDate.fromDateStruct(lastDayOfWeek);
-                if (maxNgbDate.after(lastNgDayOfWeek)) {
-                    return lastNgDayOfWeek;
+                const maxNgbDate = DateHelper.convertDateStructToMoment(this.maxDate);
+                const lastNgDayOfWeek = DateHelper.convertDateStructToMoment(lastDayOfWeek);
+                if (maxNgbDate.isAfter(lastNgDayOfWeek)) {
+                    return DateHelper.convertMomentToDateStruct(lastNgDayOfWeek);
                 } else {
                     return this.maxDate;
                 }

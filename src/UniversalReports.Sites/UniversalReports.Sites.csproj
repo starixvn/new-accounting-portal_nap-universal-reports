@@ -631,6 +631,9 @@
     <Content Include="wwwroot\play-for-fun\polyfills.bundle.js" />
     <Content Include="wwwroot\play-for-fun\styles.bundle.css" />
     <Content Include="wwwroot\play-for-fun\vendor.bundle.js" />
+    <Content Include="wwwroot\punter-analysis\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\punter-analysis\assets\logo.png" />
+    <Content Include="wwwroot\punter-analysis\assets\spinner.gif" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\punter-analysis\index.html" />
     <Content Include="wwwroot\punter-analysis\inline.bundle.js" />
@@ -638,7 +641,6 @@
     <Content Include="wwwroot\punter-analysis\polyfills.bundle.js" />
     <Content Include="wwwroot\punter-analysis\scripts.bundle.js" />
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
-    <Content Include="wwwroot\punter-analysis\vendor.bundle.js" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
     <Content Include="App_Data\PRO\DBACC.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\PRO\DBAGE.bodb02.bodbAdminNet.xml" />
@@ -759,6 +761,9 @@
     <Content Include="deployment.ignore" />
     <Content Include="ExcelTemplate\ActualMemberBet\BettypeActualMemberBet.xlsx" />
     <Content Include="ExcelTemplate\ActualMemberBet\ProductActualMemberBet.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\AssociatedAccount.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

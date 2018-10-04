@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { DateHelper } from 'nap-components/src/date';
-import { HttpService } from 'nap-components/src/http.service';
-import { Helper } from 'nap-components/src/helper';
+import { DateHelper } from 'nap-components/date';
+import { HttpService } from 'nap-components/http';
+import { Helper } from 'nap-components/helper';
 import { SearchBy, FilterModelWrapper } from '../../filter/filter.model.main';
 import { GridService } from '../grid.service';
 import { LiveStatus } from '../grid.model';
@@ -43,7 +43,7 @@ export class LeagueGridService {
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Top_Punter_League_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
-            Helper.saveExcel(response, fileName);
+            Helper.downloadFile(response, fileName);
         });
     }
 

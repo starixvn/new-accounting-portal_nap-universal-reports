@@ -22,8 +22,9 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
         private static ICriteria[] CreateWarehouseCriteriaTestCase()
         {
             var criteriaList = CreateCriteriaTestCase();
-
+            var racingCriteriaList = CreateRacingCriteriaTestCase();
             return criteriaList
+                .Union(racingCriteriaList)
                 .Select(i => WinLossCriteriaFactory.CreateWarehouseCriteria(i))
                 .ToArray();
         }
@@ -68,20 +69,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
             var parlaySiteCriteria = new Parlay.Site.Criteria { Site = "Credit" };
 
             var productCriteria = new Products.Criteria();
-
-            var racingBetTypeCriteria = new Racing.BetType.Criteria { SportType = 151 };
-            var racingSportTypeCriteria = new Racing.SportType.Criteria();
-            var racingSiteCriteria = new Racing.Site.Criteria
-            {
-                SportType = 151,
-                BetType = 31,
-                Site = "Credit"
-            };
-            var racingMatchDetailCriteria = new Racing.MatchDetail.Criteria
-            {
-                BetType = 31,
-                SportType = 151
-            };
 
             var soccerBetTypeCriteria = new Soccer.BetType.BetTypeCriteria
             {
@@ -187,10 +174,6 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 parlayBetTypeCriteria,
                 parlaySiteCriteria,
                 productCriteria,
-                racingBetTypeCriteria,
-                racingSportTypeCriteria,
-                racingSiteCriteria,
-                racingMatchDetailCriteria,
                 soccerBetTypeCriteria,
                 soccerLiveNonLiveCriteria,
                 soccerMajorMinorLiveCriteria,
@@ -214,6 +197,32 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 colossusBetSiteCriteria,
                 pokerGamesBetTypeCriteria,
                 pokerGamesSiteCriteria
+            };
+            return criteriaList;
+        }
+
+        private static List<WinLossCriteria> CreateRacingCriteriaTestCase()
+        {
+            var racingBetTypeCriteria = new Racing.BetType.Criteria { SportType = 151 };
+            var racingSportTypeCriteria = new Racing.SportType.Criteria();
+            var racingSiteCriteria = new Racing.Site.Criteria
+            {
+                SportType = 151,
+                BetType = 31,
+                Site = "Credit"
+            };
+            var racingMatchDetailCriteria = new Racing.MatchDetail.Criteria
+            {
+                BetType = 31,
+                SportType = 151
+            };
+
+            var criteriaList = new List<WinLossCriteria>
+            {
+                racingBetTypeCriteria,
+                racingSportTypeCriteria,
+                racingSiteCriteria,
+                racingMatchDetailCriteria,
             };
             return criteriaList;
         }

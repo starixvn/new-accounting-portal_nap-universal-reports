@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Fanex.Data.Repository;
 using NUnit.Framework;
+using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Criteria;
 using UniversalReports.PunterAnalysis.Performance.Sportsbook.Model;
 using UniversalReports.PunterAnalysis.Performance.Summary.Criteria;
@@ -126,6 +127,27 @@ namespace UniversalReports.PunterAnalysis.DatabaseTests
                 ToDate = new DateTime(2100, 12, 1),
                 Depth = 1,
                 Username = "MR1RMB30328"
+            };
+
+            // Act
+            var repository = new DynamicRepository();
+            await repository.FetchAsync<SportsbookModel.SportStatistic>(criteria);
+        }
+
+        [Test]
+        public async Task PunterMemberPerformanceCriteria_Test_NoDatabaseException()
+        {
+            // Arrange
+            var criteria = new MemberPerformanceCriteria
+            {
+                FromDate = new DateTime(2016, 1, 1),
+                ToDate = new DateTime(2100, 12, 1),
+                Username = "AB88MBEuro,NH3333QU004,SDFF0000000,TVA4HT000006,SDED0002000,mbb11,VC8877938,M863HK01325,SDF10201000,NH34H002001",
+                ListCombinationId = "100001,100002,100003,100902,118999,200001,200002,200003,200007,200008,200010,200012,200020,1100001,1100002,1100003,1100010,1100020",
+                LeagueId = 0,
+                OrderBy = 1,
+                SortBy = 2,
+                PeriodType = 3
             };
 
             // Act

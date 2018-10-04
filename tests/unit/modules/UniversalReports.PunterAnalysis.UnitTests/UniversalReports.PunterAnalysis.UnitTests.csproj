@@ -149,6 +149,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssociatedAccount\AssociatedAccountExcelSettingUnitTests.cs" />
+    <Compile Include="AssociatedAccount\HandlerExcelUnitTests.cs" />
+    <Compile Include="AssociatedAccount\HandlerUnitTests.cs" />
     <Compile Include="AutoMapperSetup.cs" />
     <Compile Include="BetCount\BetCountExcelSettingFactoryUnitTests.cs" />
     <Compile Include="BetCount\BetCountServiceUnitTests.cs" />
@@ -189,7 +192,7 @@
     <Compile Include="BetType\HandlerUnitTests.cs" />
     <Compile Include="BetType\Model\BetTypeModelUnitTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerUnitTests.cs" />
-    <Compile Include="AssociatedAccount\HandlerUnitTests.cs" />
+    <Compile Include="AssociatedAccount\AssociatedFacadeUnitTests.cs" />
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerUnitTests.cs" />
     <Compile Include="BetCount\HandlerUnitTests.cs" />
     <Compile Include="BetCount\Model\BetCountModelUnitTests.cs" />

@@ -2,12 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { TreeviewItem, TreeItem } from 'ngx-treeview';
-import { RoleId } from 'nap-components/src/model';
-import { NgbDateStruct, DateHelper, DateRange } from 'nap-components/src/date';
-import { SelectItem } from 'nap-components/src/dropdown-select';
-import { IOption } from 'nap-components/src/select';
-import { HttpService } from 'nap-components/src/http.service';
-import { FilterModel } from './filter.model';
+import { RoleId } from 'nap-components/model';
+import { HttpService } from 'nap-components/http';
 import { SportsbookSportTypeBetType } from './filter.model.sportsbook-sporttype-bettype';
 export interface DataWarehouseDateRange {
     MinDate: string;

@@ -1,4 +1,4 @@
-import { RoleId } from 'nap-components/src/model';
+import { RoleId } from 'nap-components/model';
 
 export interface Depth {
     role: RoleId;
