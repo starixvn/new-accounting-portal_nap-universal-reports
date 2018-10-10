@@ -61,13 +61,27 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 SportType = 207
             };
 
+            var soccerMinorMatchDetailCriteria = new DailyWinLoss2hSoccerMinor.MatchDetail.Criteria
+            {
+                BetType = 1,
+                SportType = 1,
+                IsLive = 2,
+                IsHedge = 2
+            };
+            var soccerMinorOutrightMatchDetailCriteria = new DailyWinLoss2hSoccerMinor.OutrightMatchDetail.Criteria
+            {
+                SportType = 1
+            };
+
             var criteriaList = new List<WinLossCriteria>
                 {
                     metricGamingMatchDetailCriteria,
                     sportsbookMatchDetailCriteria,
                     sportsbookOutrightMatchDetailCriteria,
                     virtualSportsSportsbookDetailCriteria,
-                    bullfightingMatchDetailCriteria
+                    bullfightingMatchDetailCriteria,
+                    soccerMinorMatchDetailCriteria,
+                    soccerMinorOutrightMatchDetailCriteria
                 };
 
 

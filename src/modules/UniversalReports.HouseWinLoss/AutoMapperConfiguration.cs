@@ -115,6 +115,12 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.SportType.ExcelQueryModel, DailyWinLoss2hSoccerMinor.SportType.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.BetType.QueryModel, DailyWinLoss2hSoccerMinor.BetType.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.BetType.ExcelQueryModel, DailyWinLoss2hSoccerMinor.BetType.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.MatchDetail.QueryModel, DailyWinLoss2hSoccerMinor.MatchDetail.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.MatchDetail.ExcelQueryModel, DailyWinLoss2hSoccerMinor.MatchDetail.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.OutrightMatchDetail.QueryModel, DailyWinLoss2hSoccerMinor.OutrightMatchDetail.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.OutrightMatchDetail.ExcelQueryModel, DailyWinLoss2hSoccerMinor.OutrightMatchDetail.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.Site.QueryModel, DailyWinLoss2hSoccerMinor.Site.Criteria>();
+            cfg.CreateMap<DailyWinLoss2hSoccerMinor.Site.ExcelQueryModel, DailyWinLoss2hSoccerMinor.Site.Criteria>();
         }
     }
 }

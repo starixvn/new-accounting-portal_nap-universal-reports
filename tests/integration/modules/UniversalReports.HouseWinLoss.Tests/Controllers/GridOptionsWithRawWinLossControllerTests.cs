@@ -57,7 +57,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                     "PokerGames.BetType.PokerGamesBetTypeController",
                     "PokerGames.Site.PokerGamesSiteController",
                      "DailyWinLoss2hSoccerMinor.SportType.SoccerMinorSportTypeController",
-                     "DailyWinLoss2hSoccerMinor.BetType.SoccerMinorBetTypeController"
+                     "DailyWinLoss2hSoccerMinor.BetType.SoccerMinorBetTypeController",
+                     "DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController"
                 };
             }
         }

@@ -289,6 +289,33 @@
     <None Include="TestData\DailyWinLoss2hSoccerMinor.BetType.GridOptionService-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\VirtualSportsBetradar.Site.VirtualSportsBetradarSiteController-expected.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

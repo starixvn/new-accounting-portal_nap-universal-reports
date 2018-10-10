@@ -158,6 +158,15 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
 
             var dailyWinLoss2hSoccerMinorBetTypeCriteria = new DailyWinLoss2hSoccerMinor.BetType.Criteria();
 
+            var soccerMinorSiteCriteria = new DailyWinLoss2hSoccerMinor.Site.Criteria
+            {
+                SportType = 1,
+                BetType = 1,
+                Site = "Credit",
+                IsHedge = 2,
+                IsLive = 2
+            };
+
             var criteriaList = new List<WinLossCriteria>
             {
                 betTradeBetTypeCriteria,
@@ -202,7 +211,8 @@ namespace UniversalReports.HouseWinLoss.DatabaseTests.TestCases
                 pokerGamesBetTypeCriteria,
                 pokerGamesSiteCriteria,
                 dailyWinLoss2hSoccerMinorSportTypeCriteria,
-                dailyWinLoss2hSoccerMinorBetTypeCriteria
+                dailyWinLoss2hSoccerMinorBetTypeCriteria,
+                soccerMinorSiteCriteria
             };
             return criteriaList;
         }

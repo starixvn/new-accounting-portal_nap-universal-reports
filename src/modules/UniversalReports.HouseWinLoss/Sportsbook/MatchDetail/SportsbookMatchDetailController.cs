@@ -2,6 +2,7 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
+using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 {
@@ -24,7 +25,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, queryModel.Title);
+            return Excel(criteria, queryModel.Title, Constants.SheetName);
         }
     }
 }

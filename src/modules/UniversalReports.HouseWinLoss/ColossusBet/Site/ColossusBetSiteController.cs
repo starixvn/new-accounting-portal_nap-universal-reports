@@ -2,6 +2,7 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.SiteWinLoss;
+using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.ColossusBet.Site
 {
@@ -24,7 +25,7 @@ namespace UniversalReports.HouseWinLoss.ColossusBet.Site
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, queryModel.Site, queryModel.Title);
+            return Excel(criteria, queryModel.Site, queryModel.Title, Constants.SheetName);
         }
     }
 }
