@@ -26,7 +26,7 @@ export class UpdatedUsernameService {
         const queryModel = this.queryModelService.createQueryModel(filterModel);
         this.httpService.download(url, queryModel).subscribe(response => {
             const fileName = `Updated_Username_report_From_${fromDate}_To_${toDate}.xlsx`;
-            Helper.saveExcel(response, fileName);
+            Helper.downloadFile(response, fileName);
         });
     }
 }

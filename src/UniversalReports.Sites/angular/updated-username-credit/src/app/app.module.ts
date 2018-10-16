@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import * as moment from 'moment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
 import { DateModule } from 'nap-components/date';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
-import { ToastService, ToastModule } from 'nap-components/toast';
-import { SpinnerService, SpinnerModule } from 'nap-components/spinner';
+import { ToastModule } from 'nap-components/toast';
+import { SpinnerModule } from 'nap-components/spinner';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { LegendModule, LegendService } from 'nap-components/legend';
@@ -48,7 +47,7 @@ import { CustomNavbarService } from './custom-navbar-service';
 })
 export class AppModule {
   constructor(
-    private legendService: LegendService
+    legendService: LegendService
   ) {
     legendService.resolveUrl = (id) => {
       return `https://nap.oneops.net/NAP-Reports-Legend-API/api/legend/${id}`;
