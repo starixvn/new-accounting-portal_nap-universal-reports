@@ -2,7 +2,6 @@
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
-using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail
@@ -31,10 +30,10 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             return Json(gridOptions);
         }
 
-        protected IHttpActionResult Excel(WinLossCriteria criteria, string title)
+        protected IHttpActionResult Excel(WinLossCriteria criteria, string title, string sheetName)
         {
             var gridOptions = GetGridOptions(criteria, title);
-            return new FanexExcelResult(gridOptions, Constants.SheetName);
+            return new FanexExcelResult(gridOptions, sheetName);
         }
 
         private GridOptions GetGridOptions(WinLossCriteria criteria, string title)

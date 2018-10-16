@@ -3,6 +3,7 @@ using System.Web.Http.Results;
 using Fanex.Excel.Models;
 using NUnit.Framework;
 using UniversalReports.MVC.Results;
+using dailyWinLoss2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -19,7 +20,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                      "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
                      "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
                      "Bullfighting.MatchDetail.BullfightingMatchDetailController",
-                     "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController"
+                     "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController",
+                     "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController",
+                     "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController"
                 };
             }
         }
@@ -75,6 +78,12 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 case "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController":
                     return TestDataLoader.Load<VirtualSportsBetradar.MatchDetail.QueryModel>(controllerName, "queryModel");
 
+                case "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController":
+                    return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.MatchDetail.QueryModel>(controllerName, "queryModel");
+
+                case "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController":
+                    return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.OutrightMatchDetail.QueryModel>(controllerName, "queryModel");
+
                 default:
                     throw new NotImplementedException();
             }
@@ -101,6 +110,12 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 
                 case "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController":
                     return TestDataLoader.Load<VirtualSportsBetradar.MatchDetail.ExcelQueryModel>(controllerName, "queryModel");
+
+                case "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController":
+                    return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.MatchDetail.ExcelQueryModel>(controllerName, "queryModel");
+
+                case "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController":
+                    return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.OutrightMatchDetail.ExcelQueryModel>(controllerName, "queryModel");
 
                 default:
                     throw new NotImplementedException();

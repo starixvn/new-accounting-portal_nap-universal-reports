@@ -13,6 +13,7 @@ using Products = UniversalReports.HouseWinLoss.Products;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
 
+
 namespace UniversalReports.Sites.SimpleInjector
 {
     internal static class HouseWinLossInjector

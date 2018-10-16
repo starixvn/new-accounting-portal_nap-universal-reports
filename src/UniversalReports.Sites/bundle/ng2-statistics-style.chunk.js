@@ -1,2 +1,2 @@
-webpackJsonp([5],{0:function(n,o,c){n.exports=c(221)},221:function(n,o){}});
+webpackJsonp([7],{0:function(n,o,c){n.exports=c(217)},217:function(n,o){}});
 //# sourceMappingURL=ng2-statistics-style.chunk.js.map

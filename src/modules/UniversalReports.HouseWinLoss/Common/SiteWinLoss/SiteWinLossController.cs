@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
-using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
@@ -30,13 +29,13 @@ namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
             return Json(gridOptions);
         }
 
-        protected IHttpActionResult Excel(WinLossCriteria criteria, string site, string title)
+        protected IHttpActionResult Excel(WinLossCriteria criteria, string site, string title, string sheetName)
         {
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, title);
             gridOptions = decorator.Build(gridOptions, site);
 
-            return new FanexExcelResult(gridOptions, Constants.SheetName);
+            return new FanexExcelResult(gridOptions, sheetName);
         }
     }
 }

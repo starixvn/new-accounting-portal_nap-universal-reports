@@ -24,7 +24,8 @@ import angular from "angular";
             getSiteTitle: getSiteTitle,
             getSiteTitleLive: getSiteTitleLive,
             getMatchDetailTitle: getMatchDetailTitle,
-            getMatchDetailTitleLive: getMatchDetailTitleLive
+            getMatchDetailTitleLive: getMatchDetailTitleLive,
+            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle
         };
         return service;
 
@@ -131,6 +132,10 @@ import angular from "angular";
             var isLiveText = isLiveValue === 2 ? '' : (isLiveValue === 1 ? ' "Live"' : ' "Non-Live"');
             
             return isLiveText;
+        }
+
+        function getSoccerMinorBetTypeTitle() {
+            return 'SOCCER MINOR BET TYPES';
         }
     }
 })(angular);

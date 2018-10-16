@@ -12,6 +12,8 @@
 
         public const string SiteDefault = "ALL";
 
-        public const int SportTypeSoccer = 1;        
+        public const int SportTypeSoccer = 1;
+
+        public const string SoccerMinorBetTypesSheetName = "Soccer Minor Bet Types";
     }
 }

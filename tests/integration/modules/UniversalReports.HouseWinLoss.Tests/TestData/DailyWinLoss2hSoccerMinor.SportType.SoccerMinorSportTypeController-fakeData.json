@@ -1,0 +1,44 @@
+[
+  {
+    "GroupName": "Soccer-Minor Bet Types",
+    "GroupId": 0,
+    "RowName": "Credit",
+    "MemberWinLoss": 20961,
+    "SMAWinLoss": -18007,
+    "Commission": 119,
+    "RealIncome": 3073,
+    "VirtualIncome": 3073,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "RealTurnover": 12002,
+    "VirtualTurnover": 12002
+  },
+  {
+    "GroupName": "Soccer-Minor Bet Types",
+    "GroupId": 0,
+    "RowName": "Deposit",
+    "MemberWinLoss": -538,
+    "SMAWinLoss": 457,
+    "Commission": 0,
+    "RealIncome": -80,
+    "VirtualIncome": -80,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "RealTurnover": 115,
+    "VirtualTurnover": 115
+  },
+  {
+    "GroupName": "RM",
+    "GroupId": 0,
+    "RowName": "8RM Total",
+    "MemberWinLoss": -166348,
+    "SMAWinLoss": 125653,
+    "Commission": 1287,
+    "RealIncome": -39407,
+    "VirtualIncome": -39407,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "RealTurnover": 128621,
+    "VirtualTurnover": 128621
+  }
+]
