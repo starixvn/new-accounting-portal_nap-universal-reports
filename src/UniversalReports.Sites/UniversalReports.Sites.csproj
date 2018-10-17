@@ -421,6 +421,7 @@
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-winloss-2h-soccer-minor.constant.js" />
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\filter.directive.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.service.js" />
     <Content Include="app\house-win-loss\filter\filter.directive.html" />
     <Content Include="app\house-win-loss\filter\filter.directive.js" />

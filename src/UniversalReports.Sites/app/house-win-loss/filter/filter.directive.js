@@ -42,6 +42,8 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getDateRange = getDateRange;
         vm.updateDateRange = updateDateRange;
+        vm.dataMenuId = 487;
+        vm.legentTitle = 'House Win Loss Legend';
 
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);

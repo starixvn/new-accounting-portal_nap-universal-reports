@@ -39,7 +39,8 @@ module.exports = {
                     "./app/house-win-loss/casino/*.js",
                     "./app/house-win-loss/metric-gaming/*.js",
                     "./app/house-win-loss/other-sports/*.js",
-                    "./app/house-win-loss/parlay/*.js"]
+                    "./app/house-win-loss/parlay/*.js",
+                    "./app/house-win-loss/filter/*.js"]
             })
     },
     output: {
