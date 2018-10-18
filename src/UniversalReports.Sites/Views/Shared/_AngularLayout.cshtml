@@ -1,5 +1,16 @@
 ﻿@{
     var baseHref = Request.ApplicationPath + "/";
+    var napConfig = new
+    {
+        Today = Convert.ToInt64(DateTime.Now
+           .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
+           .TotalMilliseconds),
+        RootUrl = ViewBag.RootUrl,
+        LegacyPath = ViewBag.LegacyPath,
+        BalanceUp = Convert.ToInt64(ViewBag.BalanceUp.BalanceUpDate
+           .Subtract(new DateTime(1970, 1, 1, 0, 0, 0))
+           .TotalMilliseconds)
+    };
 }
 <!doctype html>
 <html>
@@ -8,10 +19,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="@baseHref">
     <title>@ViewBag.Title</title>
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     @RenderSection("Head", false)
+    <script type="text/javascript">
+        var napConfig = @Html.Raw(Json.Encode(napConfig));
+        if (location.protocol === 'https:'){
+            napConfig.RootUrl = napConfig.RootUrl.replace("http://","https://");
+            napConfig.LegacyPath= napConfig.LegacyPath.replace("http://","https://");
+        }
+
+    </script>
 </head>
 <body>
     @RenderBody()
+    <script type="text/javascript">
+
+        var xmlhttp = new XMLHttpRequest();
+        var mostVisitedUrl = napConfig.LegacyPath + "/Home/UpdateMostVisitedPageCountByUrl?Url=" + encodeURI(location.pathname);
+        xmlhttp.open("GET", mostVisitedUrl, true);
+        xmlhttp.send();
+    </script>
 </body>
 </html>

@@ -29,7 +29,7 @@
     <meta name="description" content="Universal Reports" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>@ViewBag.Title</title>
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <link href="~/bundle/app-style.css" rel="stylesheet" />
     @RenderSection("Styles", false)
 </head>
@@ -49,5 +49,13 @@
     <script src="~/bundle/lib.chunk.js?v=1.0.4"></script>
     <script src="~/bundle/app.chunk.js?v=1.0.4"></script>
     @RenderSection("Scripts", false)
+    <script type="text/javascript">
+
+        var xmlhttp = new XMLHttpRequest();
+        var mostVisitedUrl = napConfig.LegacyPath + "/Home/UpdateMostVisitedPageCountByUrl?Url=" + encodeURI(location.pathname);
+        xmlhttp.open("GET", mostVisitedUrl, true);
+        xmlhttp.send();
+
+    </script>
 </body>
 </html>
