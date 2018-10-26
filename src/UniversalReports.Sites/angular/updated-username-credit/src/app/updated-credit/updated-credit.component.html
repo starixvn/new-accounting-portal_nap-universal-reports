@@ -63,12 +63,12 @@
     <td>{{ item.Remark }}</td>
 </ng-template>
 <div *ngIf="updatedCreditData" [ngSwitch]="updatedCreditData.length > 0">
-    <div class="grid">
-        <div style="position: fixed; width: 100%; margin: 0 -10px;">
+    <div class="nap-grid">
+        <div style="width: 2270px;">
             <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
             <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
         </div>
-        <div style="width: 2270px; margin-top: 27px;">
+        <div style="width: 2270px">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -80,7 +80,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tbody>
                         <tr *ngFor="let item of displayUpdatedCreditData; let i = index">
-                            <ng-template [ngTemplateOutlet]="rowItem" [ngOutletContext]="{ item: item, index: paginationInstance.itemsPerPage * (paginationInstance.currentPage - 1) + i + 1 }">
+                            <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item, index: paginationInstance.itemsPerPage * (paginationInstance.currentPage - 1) + i + 1 }">
                             </ng-template>
                         </tr>
                     </tbody>

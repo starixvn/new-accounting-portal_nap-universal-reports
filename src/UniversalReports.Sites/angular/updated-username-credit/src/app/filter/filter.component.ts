@@ -3,7 +3,8 @@ import * as moment from 'moment';
 import { FilterService } from './filter.service';
 import { TimePeriod, FilterModel } from './filter.model';
 import { CONFIG } from '../common/config';
-import { NgbDateStruct, DateHelper } from 'nap-components/date';
+import { DateHelper } from 'nap-components/date';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
 import { ToastService } from 'nap-components/toast';
 
@@ -33,8 +34,8 @@ export class FilterComponent {
     constructor(private filterService: FilterService, private toastService: ToastService) { }
 
     onTimePeriodChange() {
-        let endDate: moment.Moment = undefined;
-        let startDate: moment.Moment = undefined;
+        let endDate: moment.Moment;
+        let startDate: moment.Moment;
         switch (this.timePeriod) {
             case TimePeriod.Today:
                 endDate = moment.utc(CONFIG.date.today);

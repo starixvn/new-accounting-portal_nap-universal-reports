@@ -18,7 +18,7 @@ import { QueryModelService } from './../common/query-model.service';
 import { BreadcrumbService } from './../common/breadcrumb.service';
 import { UpdatedUsernameService } from './../updated-username/updated-username.service';
 import { UpdatedCreditService } from './../updated-credit/updated-credit.service';
-import { PaginationConfig } from 'nap-components/pagination';
+
 
 @Component({
   selector: 'app-grid',

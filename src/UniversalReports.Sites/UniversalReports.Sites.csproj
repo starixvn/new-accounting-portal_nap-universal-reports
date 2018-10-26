@@ -890,7 +890,6 @@
     <Content Include="wwwroot\updated-username-credit\main.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\polyfills.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\styles.bundle.css" />
-    <Content Include="wwwroot\updated-username-credit\vendor.bundle.js" />
     <Content Include="wwwroot\web.config">
       <SubType>Designer</SubType>
     </Content>

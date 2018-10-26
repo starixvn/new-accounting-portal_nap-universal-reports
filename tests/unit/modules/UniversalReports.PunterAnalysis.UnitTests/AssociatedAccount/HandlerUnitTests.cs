@@ -5,8 +5,8 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.PunterAnalysis.BetCount;
-using UniversalReports.PunterAnalysis.BetCount.Model;
+using UniversalReports.PunterAnalysis.AssociatedAccount;
+using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 {
@@ -15,15 +15,15 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
         private readonly Fixture fixture = new Fixture();
 
         [Test]
-        public async Task Handle_Always_ReturnsReportModelFromService()
+        public async Task Handle_Always_ReturnsReportModelFromFacade()
         {
             // Arrange
-            var anyReportModel = fixture.Create<SummaryEntity<BetCountModel>>();
-            var service = Substitute.For<BetCountService>();
-            service.Query(Arg.Any<Criteria>()).Returns(anyReportModel);
+            var anyReportModel = fixture.Create<SummaryEntity<AssociatedSummaryModel>>();
+            var facade = Substitute.For<AssociatedFacade>();
+            facade.Query(Arg.Any<HttpParameterJson>()).Returns(anyReportModel);
 
             // Act
-            var handler = new Handler(service);
+            var handler = new Handler(facade);
             var viewModel = await handler.Handle(new HttpParameterJson(), new CancellationToken());
 
             // Assert
