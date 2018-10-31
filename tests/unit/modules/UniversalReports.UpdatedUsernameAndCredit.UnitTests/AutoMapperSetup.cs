@@ -1,17 +1,19 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.UpdatedUsernameCredit;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.UpdatedUsernameCredit
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.CreateMissingTypeMaps = true;
-            cfg.InitializeUpdatedUsernameCredit();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMissingTypeMaps = true;
+                cfg.InitializeUpdatedUsernameCredit();
+            });
+        }
     }
 }

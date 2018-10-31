@@ -1,16 +1,19 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.HouseWinLoss;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.HouseWinLoss.UnitTests
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
+
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.InitializeHouseWinLoss();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.InitializeHouseWinLoss();
+            });
+        }
     }
 }

@@ -1,17 +1,19 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.PunterAnalysis;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.PunterAnalysis.Tests
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.CreateMissingTypeMaps = true;
-            cfg.InitializePunterAnalysis();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMissingTypeMaps = true;
+                cfg.InitializePunterAnalysis();
+            });
+        }
     }
 }

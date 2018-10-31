@@ -1,17 +1,19 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.PlayForFun;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.PlayForFun.UnitTests
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.CreateMissingTypeMaps = true;
-            cfg.InitializePlayForFun();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMissingTypeMaps = true;
+                cfg.InitializePlayForFun();
+            });
+        }
     }
 }
