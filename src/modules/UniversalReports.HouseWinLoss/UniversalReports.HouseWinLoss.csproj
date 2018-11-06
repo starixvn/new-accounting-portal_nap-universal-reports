@@ -230,7 +230,6 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.cs" />
-    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecorator3rd.cs" />
     <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
     <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
     <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />
