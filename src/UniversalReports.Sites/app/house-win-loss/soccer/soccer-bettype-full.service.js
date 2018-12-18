@@ -19,7 +19,7 @@
             var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
             var isSumBetType = isMajor && isLive === 2;
             var isGroupBetType = isMajor && isLive === 0;
-            var url = "api/house-win-loss-by-products/soccer/bettype";
+            var url = "api/house-win-loss-by-products/basic-grid";
             if (isSumBetType) {
                 url = "api/house-win-loss-by-products/soccer/sum-bettype";
             }

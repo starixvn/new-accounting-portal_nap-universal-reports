@@ -40,8 +40,8 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
                 controller: "SoccerBetTypeFullController",
                 service: "soccerBetTypeFullService",
-                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
+                mainParameters: { sheetName: "House Win Loss by Products",  type: "soccer-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
                 getTitleFunction: "getSoccerBetTypeTitle"
             },
             soccerBetType: {

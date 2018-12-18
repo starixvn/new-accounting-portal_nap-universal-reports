@@ -16,7 +16,7 @@
         return service;
 
         function getData(data, isLive) {
-            var url = "api/house-win-loss-by-products/soccer-minor/bet-type";
+            var url = "api/house-win-loss-by-products/basic-grid";
             var httpData = {};
             angular.extend(httpData, data);
             httpData.isLive = isLive;

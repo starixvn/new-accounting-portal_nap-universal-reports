@@ -19,7 +19,7 @@ import moment from "moment";
                 controller: "SoccerBetTypeFullController",
                 service: "soccerMinorBetTypeService",
                 serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
-                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 210 },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
                 getTitleFunction: "getSoccerMinorBetTypeTitle"
             },
             matchDetail: {

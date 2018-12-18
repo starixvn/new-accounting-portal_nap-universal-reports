@@ -72,7 +72,7 @@ webpackJsonp([2],{
 	                controller: "SoccerBetTypeFullController",
 	                service: "soccerMinorBetTypeService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
-	                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 210 },
+	                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
 	                getTitleFunction: "getSoccerMinorBetTypeTitle"
 	            },
 	            matchDetail: {
@@ -324,7 +324,7 @@ webpackJsonp([2],{
 	        return service;
 	
 	        function getData(data, isLive) {
-	            var url = "api/house-win-loss-by-products/soccer-minor/bet-type";
+	            var url = "api/house-win-loss-by-products/basic-grid";
 	            var httpData = {};
 	            angular.extend(httpData, data);
 	            httpData.isLive = isLive;

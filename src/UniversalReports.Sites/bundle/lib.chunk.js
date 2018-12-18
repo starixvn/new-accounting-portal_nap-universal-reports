@@ -49057,17 +49057,21 @@
 	            var betTypeFullGridOptions, betTypeLiveGridOptions, betTypeNonLiveGridOptions;
 	            $scope.viewSetting = viewSetting;
 	
-	            pane.service.getData(pane.data, 2).then(function (data) {
+	            var httpData = {};
+	            angular.extend(httpData, pane.data);
+	            angular.extend(httpData, viewSetting.mainParameters);
+	
+	            pane.service.getData(httpData, 2).then(function (data) {
 	                betTypeFullGridOptions = data;
 	                renderAll();
 	            });
 	
-	            pane.service.getData(pane.data, 1).then(function (data) {
+	            pane.service.getData(httpData, 1).then(function (data) {
 	                betTypeLiveGridOptions = data;
 	                renderAll();
 	            });
 	
-	            pane.service.getData(pane.data, 0).then(function (data) {
+	            pane.service.getData(httpData, 0).then(function (data) {
 	                betTypeNonLiveGridOptions = data;
 	                renderAll();
 	            });
@@ -49222,7 +49226,7 @@
 	            var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
 	            var isSumBetType = isMajor && isLive === 2;
 	            var isGroupBetType = isMajor && isLive === 0;
-	            var url = "api/house-win-loss-by-products/soccer/bettype";
+	            var url = "api/house-win-loss-by-products/basic-grid";
 	            if (isSumBetType) {
 	                url = "api/house-win-loss-by-products/soccer/sum-bettype";
 	            } else if (isGroupBetType) {
