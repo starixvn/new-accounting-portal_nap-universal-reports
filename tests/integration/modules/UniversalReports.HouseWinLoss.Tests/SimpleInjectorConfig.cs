@@ -71,7 +71,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
-            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>();
             container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>();
             container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>();
             container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>();
