@@ -2,7 +2,7 @@
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Soccer.BetType;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 {
@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 
         public GridOptions CreateGridOption(ExcelQueryModel queryModel, string title, int isLive)
         {
-            var criteria = Mapper.Map<BetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<SoccerBetTypeCriteria>(queryModel);
             criteria.IsLive = isLive;
 
             var winlosses = basicWinLossService.Query(criteria);

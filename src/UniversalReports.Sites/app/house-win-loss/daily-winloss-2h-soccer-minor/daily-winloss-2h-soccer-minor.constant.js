@@ -10,16 +10,16 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/sport-type",
-                mainParameters: {},
+                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
+                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-sport-type", mainColumnText: "Sport Type", mainColumnWidth: 210 },
                 getTitleFunction: "getMainTitle"
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
                 controller: "SoccerBetTypeFullController",
                 service: "soccerMinorBetTypeService",
-                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/bet-type",
-                mainParameters: {},
+                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
+                mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 210 },
                 getTitleFunction: "getSoccerMinorBetTypeTitle"
             },
             matchDetail: {
@@ -31,15 +31,15 @@ import moment from "moment";
                         ? 'api/house-win-loss-by-products/soccer-minor/outright-match-detail'
                         : 'api/house-win-loss-by-products/soccer-minor/match-detail';
                 },
-                mainParameters: { sportType: 1 },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1 },
                 getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SiteController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/site",
-                mainParameters: { sportType: 1 },
+                serviceBaseUrl: "api/house-win-loss-by-products/basic-site-grid",
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site" },
                 getTitleFunction: "getSiteTitleLive"
             }
         }

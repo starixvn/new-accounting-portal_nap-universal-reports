@@ -13,7 +13,6 @@ using Products = UniversalReports.HouseWinLoss.Products;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
 
-
 namespace UniversalReports.Sites.SimpleInjector
 {
     internal static class HouseWinLossInjector
@@ -29,6 +28,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>();
             container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>();
             container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>();
+            container.Register<BasicWinLoss.BasicWinLossModelFactory, BasicWinLoss.BasicWinLossModelFactoryImp>();
             container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>();
             container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>();
             container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>();

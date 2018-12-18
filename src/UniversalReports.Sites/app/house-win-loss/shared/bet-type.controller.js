@@ -87,6 +87,7 @@ import angular from "angular";
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
+                mainColumnText: site,
                 isLive: isLive,
                 isFreePlay: isFreePlay
             });

@@ -15,14 +15,14 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             {
                 return new[]
                 {
-                     "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
-                     "Sportsbook.MatchDetail.SportsbookMatchDetailController",
-                     "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
-                     "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
-                     "Bullfighting.MatchDetail.BullfightingMatchDetailController",
-                     "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController",
-                     "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController",
-                     "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController"
+                    "Bullfighting.MatchDetail.BullfightingMatchDetailController",
+                    "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController",
+                    "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController",
+                    "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
+                    "Sportsbook.MatchDetail.SportsbookMatchDetailController",
+                    "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
+                    "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
+                    "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController"
                 };
             }
         }

@@ -36,10 +36,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core", "src\shared\UniversalReports.Core\UniversalReports.Core.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.UnitTests", "tests\unit\modules\UniversalReports.HouseWinLoss.UnitTests\UniversalReports.HouseWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.Tests", "tests\integration\modules\UniversalReports.HouseWinLoss.Tests\UniversalReports.HouseWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PunterAnalysis", "src\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj", "{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PunterAnalysis.UnitTests", "tests\unit\modules\UniversalReports.PunterAnalysis.UnitTests\UniversalReports.PunterAnalysis.UnitTests.csproj", "{6D6F9E96-BBC5-4028-A665-A3D7B2F9324D}"
@@ -78,6 +74,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.ActualMemb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.ActualMemberBet.Tests", "tests\integration\modules\UniversalReports.ActualMemberBet.Tests\UniversalReports.ActualMemberBet.Tests.csproj", "{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.UnitTests", "tests\unit\modules\UniversalReports.HouseWinLoss.UnitTests\UniversalReports.HouseWinLoss.UnitTests.csproj", "{399BC912-0469-423D-A587-E7F56E174EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.HouseWinLoss.Tests", "tests\integration\modules\UniversalReports.HouseWinLoss.Tests\UniversalReports.HouseWinLoss.Tests.csproj", "{20840F01-19DC-43CE-B649-C4AC5C912F93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,14 +100,6 @@ Global
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -172,6 +164,14 @@ Global
 		{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399BC912-0469-423D-A587-E7F56E174EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20840F01-19DC-43CE-B649-C4AC5C912F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,8 +189,6 @@ Global
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
 		{C92F93F9-051F-4531-97EC-0A66CFD44693} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{94BAB182-85DE-4715-B396-BB6696D8BC81} = {C053837F-4E18-4573-A8D7-E71BE83695CA}
-		{399BC912-0469-423D-A587-E7F56E174EBC} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
-		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 		{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{6D6F9E96-BBC5-4028-A665-A3D7B2F9324D} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C} = {F73C2584-286D-49E1-9DE1-768A517F5719}
@@ -207,9 +205,11 @@ Global
 		{2D0401AB-8145-4C02-8C23-0B1CE8920C66} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{7E09EF46-E579-4B8B-A9D4-2CDCF8C5CCBD} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{A9C0633F-AA1C-4ECB-B690-07BF06DF2E32} = {F73C2584-286D-49E1-9DE1-768A517F5719}
+		{399BC912-0469-423D-A587-E7F56E174EBC} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
+		{20840F01-19DC-43CE-B649-C4AC5C912F93} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

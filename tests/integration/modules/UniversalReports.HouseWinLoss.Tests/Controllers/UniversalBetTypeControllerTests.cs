@@ -5,8 +5,8 @@ using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.NG2.BetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
-using UniversalReports.HouseWinLoss.Universal.BetType;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Universal.BetType
@@ -29,9 +29,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Universal.BetType
             Assert.That(workbook.NumberOfSheets, Is.EqualTo(1));
         }
 
-        private UniversalBetTypeController CreateController()
+        private NG2BetTypeController CreateController()
         {
-            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Universal.BetType.UniversalBetTypeController", "fakeData");
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("NG2.BetType.NG2BetTypeController", "fakeData");
             var fakeBalanceUpRange = new BalanceUpRange
             {
                 BalanceUpDate = new DateTime(2016, 01, 01),
@@ -45,8 +45,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Universal.BetType
 
             var simpleInjector = new SimpleInjectorConfig(repository);
 
-            var controllerType = typeof(UniversalBetTypeController);
-            return simpleInjector.Container.GetInstance(controllerType) as UniversalBetTypeController;
+            var controllerType = typeof(NG2BetTypeController);
+            return simpleInjector.Container.GetInstance(controllerType) as NG2BetTypeController;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<SoccerMinor2hBetTypeCriteria>(queryModel);
             criteria.IsLive = 2;
             var sumGridOption = GetGridOptions(criteria, queryModel.BetTypeFullTitle);
 

@@ -5,8 +5,8 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
-using UniversalReports.HouseWinLoss.Soccer.BetType;
 using UniversalReports.HouseWinLoss.Soccer.GroupBetType;
 using UniversalReports.HouseWinLoss.Soccer.SumBetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
@@ -52,7 +52,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Soccer.BetTypeFull
                 .Returns(fakeFullData);
             repository.Fetch<WinLossRaw>(Arg.Any<GroupBetTypeCriteria>())
                 .Returns(fakeNonLiveData);
-            repository.Fetch<WinLossRaw>(Arg.Any<BetTypeCriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Any<SoccerBetTypeCriteria>())
                 .Returns(fakeLiveData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);

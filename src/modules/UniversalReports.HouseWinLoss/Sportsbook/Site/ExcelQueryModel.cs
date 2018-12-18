@@ -1,7 +1,0 @@
-﻿namespace UniversalReports.HouseWinLoss.Sportsbook.Site
-{
-    public class ExcelQueryModel : QueryModel
-    {
-        public string Title { get; set; }
-    }
-}

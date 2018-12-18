@@ -80,6 +80,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
+            container.Register<BasicWinLoss.BasicWinLossModelFactory, BasicWinLoss.BasicWinLossModelFactoryImp>();
 
             container.Verify();
         }
