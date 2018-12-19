@@ -5,22 +5,22 @@ webpackJsonp([3],{
 
 	__webpack_require__(170);
 	__webpack_require__(171);
-	__webpack_require__(201);
+	__webpack_require__(204);
 	__webpack_require__(172);
 	__webpack_require__(173);
 	__webpack_require__(174);
 	__webpack_require__(175);
-	__webpack_require__(202);
-	__webpack_require__(203);
-	__webpack_require__(180);
-	__webpack_require__(181);
-	__webpack_require__(204);
 	__webpack_require__(205);
 	__webpack_require__(206);
+	__webpack_require__(180);
+	__webpack_require__(181);
+	__webpack_require__(207);
 	__webpack_require__(182);
 	__webpack_require__(183);
 	__webpack_require__(184);
 	__webpack_require__(185);
+	__webpack_require__(208);
+	__webpack_require__(209);
 	__webpack_require__(186);
 	__webpack_require__(187);
 	__webpack_require__(188);
@@ -34,14 +34,17 @@ webpackJsonp([3],{
 	__webpack_require__(196);
 	__webpack_require__(197);
 	__webpack_require__(198);
-	__webpack_require__(207);
 	__webpack_require__(199);
-	module.exports = __webpack_require__(200);
+	__webpack_require__(200);
+	__webpack_require__(201);
+	__webpack_require__(210);
+	__webpack_require__(202);
+	module.exports = __webpack_require__(203);
 
 
 /***/ },
 
-/***/ 201:
+/***/ 204:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -305,13 +308,29 @@ webpackJsonp([3],{
 	            }
 	        },
 	        "Number Game": {
-	            mainView: "betType",
-	            betType: {
-	                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-	                controller: "BetTypeLiveNonLiveController",
+	            mainView: "sportType",
+	            sportType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "NG2SportTypeController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-bet-type", mainColumnText: "Bet Type" },
+	                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-sport-type", mainColumnText: "Sport Type" },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            league: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "NG2LeagueController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+	                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-league", mainColumnText: "League" },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+	                controller: "NG2BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
 	                getTitleFunction: "getBetTypeLiveNonLiveTitle"
 	            },
 	            site: {
@@ -319,7 +338,7 @@ webpackJsonp([3],{
 	                controller: "SiteController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-site" },
+	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-site" },
 	                getTitleFunction: "getSiteTitleLive"
 	            },
 	            matchDetail: {
@@ -491,7 +510,7 @@ webpackJsonp([3],{
 	            },
 	            betType: {
 	                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-	                controller: "BetTypeLiveNonLiveController",
+	                controller: "NG2LiveNonLiveController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
 	                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, type: "universal-bet-type", mainColumnText: "Bet Type" },
@@ -688,7 +707,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 202:
+/***/ 205:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -767,7 +786,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 203:
+/***/ 206:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -887,7 +906,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 204:
+/***/ 207:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1047,7 +1066,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 205:
+/***/ 208:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1183,7 +1202,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 206:
+/***/ 209:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1297,7 +1316,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 207:
+/***/ 210:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

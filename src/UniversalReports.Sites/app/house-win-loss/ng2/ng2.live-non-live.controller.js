@@ -4,10 +4,10 @@ import angular from "angular";
 
     angular
         .module('app.houseWinlossApp')
-        .controller('BetTypeLiveNonLiveController', BetTypeLiveNonLiveController);
+        .controller('NG2LiveNonLiveController', NG2LiveNonLiveController);
 
-    BetTypeLiveNonLiveController.$inject = ['$scope', '$controller', '$element', 'houseWinlossService', 'fanexGridService', 'showHideColumnService'];
-    function BetTypeLiveNonLiveController($scope, $controller, $element, houseWinlossService, fanexGridService, showHideColumnService) {
+    NG2LiveNonLiveController.$inject = ['$scope', '$controller', '$element', 'houseWinlossService', 'fanexGridService', 'showHideColumnService'];
+    function NG2LiveNonLiveController($scope, $controller, $element, houseWinlossService, fanexGridService, showHideColumnService) {
         angular.extend(this, $controller('BetTypeController', {
             $scope: $scope,
             $element: $element,
@@ -102,7 +102,7 @@ import angular from "angular";
             angular.extend(httpData, pane.data);
             angular.extend(httpData, { liveTitle: liveTitle, nonLiveTitle: nonLiveTitle });
 
-            var serviceBaseUrl = $scope.viewSetting.serviceBaseUrl + "-live-non-live";
+            var serviceBaseUrl = "api/house-win-loss-by-products/ng2-live-non-live";
             var viewSetting = {};
             angular.extend(viewSetting, $scope.viewSetting);
             angular.extend(viewSetting, { serviceBaseUrl: serviceBaseUrl });

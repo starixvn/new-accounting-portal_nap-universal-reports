@@ -428,6 +428,9 @@
     <Content Include="app\house-win-loss\filter\filter.directive.js" />
     <Content Include="app\house-win-loss\grid\product-show-hide-column.service.js" />
     <Content Include="app\house-win-loss\grid\show-hide-column.service.js" />
+    <Content Include="app\house-win-loss\number-game\number-game.bet-type.controller.js" />
+    <Content Include="app\house-win-loss\number-game\number-game.league.controller.js" />
+    <Content Include="app\house-win-loss\number-game\number-game.sport-type.controller.js" />
     <Content Include="app\house-win-loss\shared\bet-type.new-cricket.controller.js" />
     <Content Include="app\house-win-loss\shared\remote-data.service.js" />
     <Content Include="app\house-win-loss\shared\three-fanex-grid-with-title.html" />
@@ -496,7 +499,7 @@
       <Link>FxCopDictionary.xml</Link>
     </CodeAnalysisDictionary>
     <Content Include="app\house-win-loss\shared\two-fanex-grid-with-title.html" />
-    <Content Include="app\house-win-loss\shared\bet-type.live-non-live.controller.js" />
+    <Content Include="app\house-win-loss\ng2\ng2.live-non-live.controller.js" />
     <Content Include="app\house-win-loss\shared\fanex-grid-with-title.html" />
     <Content Include="app\house-win-loss\shared\site.controller.js" />
     <Content Include="app\root\components\click\click.directive.js" />

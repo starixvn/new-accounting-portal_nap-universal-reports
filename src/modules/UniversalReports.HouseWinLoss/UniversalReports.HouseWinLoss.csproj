@@ -206,6 +206,9 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.native.cs" />
+    <Compile Include="Common\Criteria\NumberGameLeagueCriteria.cs" />
+    <Compile Include="Common\Criteria\NumberGameBetTypeCriteria.cs" />
+    <Compile Include="Common\Criteria\NumberGameSiteCriteria.cs" />
     <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
     <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
     <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />

@@ -260,13 +260,29 @@ import moment from "moment";
             }
         },
         "Number Game": {
-            mainView: "betType",
-            betType: {
-                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-                controller: "BetTypeLiveNonLiveController",
+            mainView: "sportType",
+            sportType:{
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "NG2SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-sport-type", mainColumnText: "Sport Type" },
+                getTitleFunction: "getProductTitle"
+            },
+            league:{
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "NG2LeagueController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-league", mainColumnText: "League" },
+                getTitleFunction: "getProductTitle"
+            },
+            betType: {
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "NG2BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getBetTypeLiveNonLiveTitle"
             },
             site: {
@@ -274,7 +290,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-site" },
                 getTitleFunction: "getSiteTitleLive"
             },
             matchDetail: {
@@ -448,7 +464,7 @@ import moment from "moment";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-                controller: "BetTypeLiveNonLiveController",
+                controller: "NG2LiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
                 mainParameters: { sheetName: "House Win Loss by Products", productId: 23, type: "universal-bet-type", mainColumnText: "Bet Type" },

@@ -30,7 +30,7 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
         }
 
 
-        [Route("api/house-win-loss-by-products/basic-grid/bet-type-live-non-live/excel")]
+        [Route("api/house-win-loss-by-products/ng2-live-non-live/excel")]
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)
         {
             var criteria = Mapper.Map<UniversalBetTypeCriteria>(queryModel);

@@ -4,6 +4,8 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 {
     public class Criteria : WinLossCriteria
     {
+        public int LeagueId { get; set; }
+
         public int BetType { get; set; }
 
         public bool IsLive { get; set; }
