@@ -21,7 +21,7 @@
             angular.extend(httpData, viewSetting.mainParameters);
             httpData.isLive = isLive;
 
-            var url = "api/house-win-loss-by-products/basic-grid";            
+            var url = "api/house-win-loss-by-products/soccer-minor/bet-type";
             return $http.post(url, httpData)
                             .then(httpResponseService.getDataComplete)
                             .catch(httpResponseService.getDataFailed);

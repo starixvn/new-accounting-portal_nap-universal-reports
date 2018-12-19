@@ -10,6 +10,7 @@ using MetricGaming = UniversalReports.HouseWinLoss.MetricGaming;
 using OtherSports = UniversalReports.HouseWinLoss.OtherSports;
 using Parlay = UniversalReports.HouseWinLoss.Parlay;
 using Products = UniversalReports.HouseWinLoss.Products;
+using SimpleGrid = UniversalReports.HouseWinLoss.SimpleGrid;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
 
@@ -28,7 +29,6 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<BasicWinLoss.BasicWinLossService, BasicWinLoss.BasicWinLossServiceImp>();
             container.Register<BasicWinLoss.BasicGridOptionsBuilder, BasicWinLoss.BasicGridOptionsBuilderImp>();
             container.Register<BasicWinLoss.BasicGridDataRowBuilder, BasicWinLoss.BasicGridDataRowBuilderImp>();
-            container.Register<BasicWinLoss.BasicWinLossModelFactory, BasicWinLoss.BasicWinLossModelFactoryImp>();
             container.Register<MatchDetail.CalculationService, MatchDetail.CalculationServiceImp>();
             container.Register<MatchDetail.RawWinLossService, MatchDetail.RawWinLossServiceImp>();
             container.Register<MatchDetail.WinLossService, MatchDetail.WinLossServiceImp>();
@@ -39,6 +39,8 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
+            container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();
+
             container.Register<Soccer.GroupBetType.GroupBetTypeWinLossService, Soccer.GroupBetType.GroupBetTypeWinLossServiceImp>();
             container.Register<Soccer.SumBetType.SumBetTypeWinLossService, Soccer.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
@@ -52,6 +54,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
             container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>();
             container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
+
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>();

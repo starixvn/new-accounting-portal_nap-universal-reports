@@ -1,8 +1,9 @@
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
 {
-    public class SoccerMajorMinorCriteria : WinLossCriteria
+    public class Criteria : WinLossCriteria
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 

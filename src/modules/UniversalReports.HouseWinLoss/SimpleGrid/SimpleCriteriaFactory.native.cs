@@ -4,16 +4,16 @@ using System.Web.Script.Serialization;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 
-namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
+namespace UniversalReports.HouseWinLoss.SimpleGrid
 {
-    public interface BasicWinLossModelFactory
+    public interface SimpleCriteriaFactory
     {
         WinLossCriteria CreateCriteria(Dictionary<string, object> queryModel);
 
         GridDecorationModel CreateGridDecorationModel(Dictionary<string, object> queryModel);
     }
 
-    public class BasicWinLossModelFactoryImp : BasicWinLossModelFactory
+    public class SimpleCriteriaFactoryImp : SimpleCriteriaFactory
     {
         private readonly JavaScriptSerializer serializer = new JavaScriptSerializer();
 
@@ -40,11 +40,6 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             { "racing-bet-type", typeof(RacingBetTypeCriteria)},
             { "racing-site", typeof(RacingSiteCriteria)},
             { "racing-sport-type", typeof(RacingSportTypeCriteria)},
-            { "soccer-bet-type", typeof(SoccerBetTypeCriteria)},
-            { "soccer-major-minor", typeof(SoccerMajorMinorCriteria)},
-            { "soccer-minor-bet-type", typeof(SoccerMinor2hBetTypeCriteria)},
-            { "soccer-minor-site", typeof(SoccerMinor2hSiteCriteria)},
-            { "soccer-minor-sport-type", typeof(SoccerMinor2hSportTypeCriteria)},
             { "sportsbook-site", typeof(SportsbookSiteCriteria)},
             { "universal-bet-type", typeof(UniversalBetTypeCriteria)},
             { "universal-site", typeof(UniversalSiteCriteria)},

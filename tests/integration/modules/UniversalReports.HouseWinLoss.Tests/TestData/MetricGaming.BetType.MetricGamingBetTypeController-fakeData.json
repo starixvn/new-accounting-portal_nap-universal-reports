@@ -1,0 +1,32 @@
+[
+  {
+    "GroupName": "Every Single Minute",
+    "GroupId": 804,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": -56,
+    "SMAWinLoss": 40,
+    "Commission": 0,
+    "RealIncome": -15,
+    "VirtualIncome": -15,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "RealTurnover": 15,
+    "VirtualTurnover": 15
+  },
+  {
+    "GroupName": "Next Set Piece",
+    "GroupId": 803,
+    "RowName": "Credit",
+    "IsLive": false,
+    "MemberWinLoss": 22,
+    "SMAWinLoss": -20,
+    "Commission": 0,
+    "RealIncome": 2,
+    "VirtualIncome": 2,
+    "VarianceIncome": 0,
+    "ExtraPT": 0,
+    "RealTurnover": 10,
+    "VirtualTurnover": 10
+  }
+]

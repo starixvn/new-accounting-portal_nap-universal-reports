@@ -1,8 +1,9 @@
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
 {
-    public class SoccerMinor2hSiteCriteria : WinLossCriteria
+    public class Criteria : WinLossCriteria
     {
         public int SportType { get; set; }
 

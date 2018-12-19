@@ -56,6 +56,9 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
+            container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();
+
+
             container.Register<Soccers.GroupBetType.GroupBetTypeWinLossService, Soccers.GroupBetType.GroupBetTypeWinLossServiceImp>();
             container.Register<Soccers.SumBetType.SumBetTypeWinLossService, Soccers.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccers.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccers.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
@@ -79,7 +82,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
-            container.Register<BasicWinLoss.BasicWinLossModelFactory, BasicWinLoss.BasicWinLossModelFactoryImp>();
 
             container.Verify();
         }

@@ -5,7 +5,6 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
@@ -45,11 +44,11 @@ namespace UniversalReports.HouseWinLoss.Tests.DailyWinLoss2hSoccerMinor.BetType
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<WinLossRaw>(Arg.Is<SoccerMinor2hBetTypeCriteria>(x => x.IsLive == 2))
+            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 2))
                 .Returns(fakeFullData);
-            repository.Fetch<WinLossRaw>(Arg.Is<SoccerMinor2hBetTypeCriteria>(x => x.IsLive == 1))
+            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 1))
                 .Returns(fakeNonLiveData);
-            repository.Fetch<WinLossRaw>(Arg.Is<SoccerMinor2hBetTypeCriteria>(x => x.IsLive == 0))
+            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 0))
                 .Returns(fakeLiveData);
             repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);

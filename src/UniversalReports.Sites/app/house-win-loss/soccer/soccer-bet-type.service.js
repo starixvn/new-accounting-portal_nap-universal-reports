@@ -57,7 +57,7 @@ import angular from "angular";
         {
             return data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? true : false;
         }
-
+       
         function buildUrl(isLive, isMajor)
         {
             var url = "api/house-win-loss-by-products/soccer/bettype";

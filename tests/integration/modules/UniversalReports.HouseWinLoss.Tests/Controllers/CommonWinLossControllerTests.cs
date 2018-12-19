@@ -15,8 +15,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             {
                 return new[]
                 {
-                    "Common.BasicWinLoss.BasicWinLossController",
-                    "Common.SiteWinLoss.SiteWinLossController"
+                    "SimpleGrid.SimpleGridController",
+                    "SimpleGrid.SimpleSiteGridController",
                 };
             }
         }

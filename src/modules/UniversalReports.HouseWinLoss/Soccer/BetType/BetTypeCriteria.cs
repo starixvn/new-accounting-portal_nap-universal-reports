@@ -1,8 +1,9 @@
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+namespace UniversalReports.HouseWinLoss.Soccer.BetType
 {
-    public class SoccerBetTypeCriteria : WinLossCriteria
+    public class BetTypeCriteria : WinLossCriteria
     {
         public bool IsMajor { get; set; }
 

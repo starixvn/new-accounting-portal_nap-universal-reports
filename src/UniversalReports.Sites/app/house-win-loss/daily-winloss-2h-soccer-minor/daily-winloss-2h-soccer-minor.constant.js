@@ -10,7 +10,7 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/sport-type",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-sport-type", mainColumnText: "Sport Type", mainColumnWidth: 210 },
                 getTitleFunction: "getMainTitle"
             },
@@ -18,7 +18,7 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
                 controller: "SoccerBetTypeFullController",
                 service: "soccerMinorBetTypeService",
-                serviceBaseUrl: "api/house-win-loss-by-products/basic-grid",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/bet-type",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
                 getTitleFunction: "getSoccerMinorBetTypeTitle"
             },
@@ -38,7 +38,7 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SiteController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/basic-site-grid",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/site",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site" },
                 getTitleFunction: "getSiteTitleLive"
             }

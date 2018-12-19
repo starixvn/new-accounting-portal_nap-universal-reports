@@ -1,57 +1,48 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 {
-    [RoutePrefix("api/house-win-loss-by-products/basic-grid")]
     public class BasicWinLossController : ApiController
     {
-        private readonly BasicWinLossModelFactory modelFactory;
-
-        private readonly BasicWinLossService service;
-
-        private readonly BasicGridOptionsBuilder builder;
-
-        private readonly GridOptionColumnDecorator decorator;
-
         public BasicWinLossController(
-            BasicWinLossModelFactory modelFactory,
-           BasicWinLossService service,
-           BasicGridOptionsBuilder builder,
-           GridOptionColumnDecorator decorator)
+            BasicWinLossService service,
+            BasicGridOptionsBuilder builder,
+            GridOptionColumnDecorator decorator)
         {
-            this.modelFactory = modelFactory;
-            this.service = service;
-            this.builder = builder;
-            this.decorator = decorator;
+            Service = service;
+            Builder = builder;
+            Decorator = decorator;
         }
 
-        [Route("")]
-        public IHttpActionResult Json(Dictionary<string, object> queryModel)
-        {
-            var gridOptions = GetGridOptions(queryModel);
+        protected BasicWinLossService Service { get; }
 
+        protected BasicGridOptionsBuilder Builder { get; }
+
+        protected GridOptionColumnDecorator Decorator { get; }
+
+        protected IHttpActionResult Json(WinLossCriteria criteria, string mainColumnText, int mainColumnWidth = 180)
+        {
+            var gridOptions = GetGridOptions(criteria, mainColumnText, string.Empty, mainColumnWidth);
             return Json(gridOptions);
         }
 
         [Route("excel")]
-        public IHttpActionResult Excel(Dictionary<string, object> queryModel)
+        protected IHttpActionResult Excel(WinLossCriteria criteria, string mainColumnText, string title, int mainColumnWidth = 180)
         {
-            var gridOptions = GetGridOptions(queryModel);
-
-            return new FanexExcelResult(gridOptions, queryModel["sheetName"].ToString());
+            var gridOptions = GetGridOptions(criteria, mainColumnText, title, mainColumnWidth);
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
         }
 
-        private GridOptions GetGridOptions(Dictionary<string, object> queryModel)
+        protected GridOptions GetGridOptions(WinLossCriteria criteria, string mainColumnText, string title = "", int mainColumnWidth = 180)
         {
-            var criteria = modelFactory.CreateCriteria(queryModel);
-            var decorationModel = modelFactory.CreateGridDecorationModel(queryModel);
-            var winlosses = service.Query(criteria);
-            var gridOptions = builder.Build(winlosses, decorationModel.Title);
-            return decorator.Build(gridOptions, decorationModel.MainColumnText, decorationModel.MainColumnWidth);
+            var winlosses = Service.Query(criteria);
+            var gridOptions = Builder.Build(winlosses, title);
+            return Decorator.Build(gridOptions, mainColumnText, mainColumnWidth);
         }
     }
 }

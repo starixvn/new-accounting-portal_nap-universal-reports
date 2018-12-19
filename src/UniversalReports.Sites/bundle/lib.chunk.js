@@ -49223,7 +49223,7 @@
 	            var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
 	            var isSumBetType = isMajor && isLive === 2;
 	            var isGroupBetType = isMajor && isLive === 0;
-	            var url = "api/house-win-loss-by-products/basic-grid";
+	            var url = "api/house-win-loss-by-products/soccer/bettype";
 	            if (isSumBetType) {
 	                url = "api/house-win-loss-by-products/soccer/sum-bettype";
 	            } else if (isGroupBetType) {

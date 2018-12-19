@@ -15,13 +15,24 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             {
                 return new[]
                 {
+                    "DailyWinLoss2hSoccerMinor.SportType.SoccerMinorSportTypeController",
+                    "DailyWinLoss2hSoccerMinor.BetType.SoccerMinorBetTypeController",
+                    "DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController",
+                    "MetricGaming.BetType.MetricGamingBetTypeController",
+                    "MetricGaming.Site.MetricGamingSiteController",
                     "NumberGame.MatchDetail.NumberGameMatchDetailController",
+                    "OtherSports.BetType.OtherSportsBetTypeController",
+                    "OtherSports.SportType.OtherSportsSportTypeController",
                     "OtherSports.NewCricket.OtherSportNewCricketController",
+                    "Parlay.BetType.ParlayBetTypeController",
                     "Parlay.Site.ParlaySiteController",
                     "Products.ProductController",
                     "Racing.MatchDetail.RacingMatchDetailController",
+                    "Soccer.BetType.SoccerBetTypeController",
                     "Soccer.GroupBetType.SoccerGroupBetTypeController",
+                    "Soccer.MajorMinor.SoccerMajorMinorController",
                     "Soccer.SumBetType.SoccerSumBetTypeController",
+                    "Sportsbook.Site.SportsbookSiteController",
                     "VirtualSports.RacingDetail.VirtualSportsRacingDetailController"
                 };
             }
