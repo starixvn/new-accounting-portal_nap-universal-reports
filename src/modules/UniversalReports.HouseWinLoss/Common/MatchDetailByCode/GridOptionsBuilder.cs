@@ -20,13 +20,20 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpperInvariant(),
-                BodyRows = BuildBodyRows(winLoss.Leagues),
+                BodyRows = winLoss.Leagues.Count == 1 ? BuildSingleLeague(winLoss.Leagues.First()) : BuildBodyRows(winLoss.Leagues),
                 FooterRows = BuildFooter(winLoss.Total),
                 ShowFooter = true,
                 ShowDistinctRow = false
             };
 
             return gridOptions;
+        }
+
+        private List<GridDataRow> BuildSingleLeague(LeagueWinLoss league)
+        {
+            return league.Matches.
+                Select(m => BuildDataRow(m, HAlignment.Center)).
+                ToList();
         }
 
         private List<GridDataRow> BuildBodyRows(IEnumerable<LeagueWinLoss> leagues)

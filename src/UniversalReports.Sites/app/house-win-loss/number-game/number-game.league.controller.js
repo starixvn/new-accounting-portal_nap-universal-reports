@@ -4,10 +4,10 @@ import angular from "angular";
 
     angular
         .module('app.houseWinlossApp')
-        .controller('NG2LeagueController', NG2LeagueController);
+        .controller('NGLeagueController', NGLeagueController);
 
-    NG2LeagueController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-    function NG2LeagueController($injector, $scope, $element, fanexGridService, showHideColumnService) {
+    NGLeagueController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+    function NGLeagueController($injector, $scope, $element, fanexGridService, showHideColumnService) {
         var pane = $scope.pane;
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
@@ -16,9 +16,10 @@ import angular from "angular";
         $scope.generate = generate;
         $scope.generateBetType = generateBetType;
         $scope.viewSetting = {};
-        
+        $scope.sportType = 0;
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
+            $scope.sportType = pane.data.sportType;
             pane.service.getData(viewSetting, pane.data).then(function (data) {
                 showHideColumnBuilder.build(gridElement, data);
                 createLinks(data);
@@ -47,7 +48,7 @@ import angular from "angular";
                 var sportTypeRow = data.bodyRows[i];
                 var leagueId = sportTypeRow.Columns[0].CustomAttr;
                 var leagueName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + leagueId + ',\'' + leagueName.replace(/'/g, "\\'") + ')">' + leagueName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + leagueId + ',\'' + leagueName.replace(/'/g, "\\'") + '\')">' + leagueName + '</a>';
             }
         }
 
@@ -56,7 +57,8 @@ import angular from "angular";
             angular.extend(data, pane.data);
             angular.extend(data, {
                 leagueId: leagueId,
-                leagueName: leagueName
+                leagueName: leagueName,
+                sportType: $scope.sportType
             });
             tab.goForward('betType', data);
         }

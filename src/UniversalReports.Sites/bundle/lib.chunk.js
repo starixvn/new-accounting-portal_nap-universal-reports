@@ -48009,6 +48009,7 @@
 	            getCasinoProductTitle: getCasinoProductTitle,
 	            getSportTypeTitle: getSportTypeTitle,
 	            getSportTypeTitleLive: getSportTypeTitleLive,
+	            getLeagueTitle: getLeagueTitle,
 	            getSiteTitle: getSiteTitle,
 	            getSiteTitleLive: getSiteTitleLive,
 	            getMatchDetailTitle: getMatchDetailTitle,
@@ -48073,6 +48074,10 @@
 	
 	        function getSportTypeTitle(data) {
 	            return data.sportTypeName;
+	        }
+	
+	        function getLeagueTitle(data) {
+	            return data.leagueName;
 	        }
 	
 	        function getSportTypeTitleLive(data) {
@@ -48435,7 +48440,6 @@
 	        var showHideColumnBuilder = new showHideColumnService(pane);
 	        var tab = $scope.tab;
 	        var gridElement = $element.find('.freegrid');
-	        var betradarVirtualSportsMixParlayBettype = 2799;
 	        $scope.show = showHideColumnBuilder.toggle;
 	        $scope.generate = generate;
 	        $scope.generateSite = generateSite;
@@ -48473,11 +48477,11 @@
 	            var betTypeId = betTypeRow.Columns[0].CustomAttr;
 	
 	            if (betTypeRow.SubRows) {
-	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + ')">' + betTypeName + '</a>';
+	                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
 	                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
 	                    var siteRow = betTypeRow.SubRows[i];
 	                    var siteName = siteRow.Columns[0].Value;
-	                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + ')">' + siteName + '</a>';
+	                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\')">' + siteName + '</a>';
 	                }
 	            }
 	        }
@@ -48497,7 +48501,7 @@
 	            gridElement.fanexGrid(data);
 	        }
 	
-	        function generateSite(betType, betTypeName, site, isLive) {
+	        function generateSite(betType, betTypeName, site) {
 	            var data = {};
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
@@ -48507,8 +48511,6 @@
 	                mainColumnText: site,
 	                leagueId: $scope.leagueId
 	            });
-	
-	            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
 	
 	            tab.goForward('site', data);
 	        }
@@ -48546,10 +48548,10 @@
 	(function (angular) {
 	    'use strict';
 	
-	    angular.module('app.houseWinlossApp').controller('NG2LeagueController', NG2LeagueController);
+	    angular.module('app.houseWinlossApp').controller('NGLeagueController', NGLeagueController);
 	
-	    NG2LeagueController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
-	    function NG2LeagueController($injector, $scope, $element, fanexGridService, showHideColumnService) {
+	    NGLeagueController.$inject = ['$injector', '$scope', '$element', 'fanexGridService', 'showHideColumnService'];
+	    function NGLeagueController($injector, $scope, $element, fanexGridService, showHideColumnService) {
 	        var pane = $scope.pane;
 	        var showHideColumnBuilder = new showHideColumnService(pane);
 	        var tab = $scope.tab;
@@ -48558,9 +48560,10 @@
 	        $scope.generate = generate;
 	        $scope.generateBetType = generateBetType;
 	        $scope.viewSetting = {};
-	
+	        $scope.sportType = 0;
 	        function generate(viewSetting) {
 	            $scope.viewSetting = viewSetting;
+	            $scope.sportType = pane.data.sportType;
 	            pane.service.getData(viewSetting, pane.data).then(function (data) {
 	                showHideColumnBuilder.build(gridElement, data);
 	                createLinks(data);
@@ -48589,7 +48592,7 @@
 	                var sportTypeRow = data.bodyRows[i];
 	                var leagueId = sportTypeRow.Columns[0].CustomAttr;
 	                var leagueName = sportTypeRow.Columns[0].Value;
-	                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + leagueId + ',\'' + leagueName.replace(/'/g, "\\'") + ')">' + leagueName + '</a>';
+	                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + leagueId + ',\'' + leagueName.replace(/'/g, "\\'") + '\')">' + leagueName + '</a>';
 	            }
 	        }
 	
@@ -48598,7 +48601,8 @@
 	            angular.extend(data, pane.data);
 	            angular.extend(data, {
 	                leagueId: leagueId,
-	                leagueName: leagueName
+	                leagueName: leagueName,
+	                sportType: $scope.sportType
 	            });
 	            tab.goForward('betType', data);
 	        }
@@ -48667,7 +48671,7 @@
 	                var sportTypeRow = data.bodyRows[i];
 	                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
 	                var sportTypeName = sportTypeRow.Columns[0].Value;
-	                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + ')">' + sportTypeName + '</a>';
+	                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
 	            }
 	        }
 	

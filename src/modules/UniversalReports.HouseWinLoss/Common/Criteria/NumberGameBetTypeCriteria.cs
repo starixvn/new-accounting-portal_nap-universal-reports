@@ -4,10 +4,8 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
     {
         public int LeagueId { get; set; }
 
-        public int ProductId { get; set; }
-
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-NumberGame-BetType-{Source}";
     }
 }

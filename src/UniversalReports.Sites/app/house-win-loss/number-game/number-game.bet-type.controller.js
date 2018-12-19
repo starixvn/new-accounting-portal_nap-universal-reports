@@ -12,7 +12,6 @@ import angular from "angular";
         var showHideColumnBuilder = new showHideColumnService(pane);
         var tab = $scope.tab;
         var gridElement = $element.find('.freegrid');
-        const betradarVirtualSportsMixParlayBettype = 2799;
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateSite = generateSite;
@@ -48,13 +47,13 @@ import angular from "angular";
         function createDrilldownLink(betTypeRow) {
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
-            
+
             if (betTypeRow.SubRows) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + ')">' + betTypeName + '</a>';
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
                 for (var i = 0; i < betTypeRow.SubRows.length; i++) {
                     var siteRow = betTypeRow.SubRows[i];
                     var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + ')">' + siteName + '</a>';
+                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\')">' + siteName + '</a>';
                 }
             }
         }
@@ -74,7 +73,7 @@ import angular from "angular";
             gridElement.fanexGrid(data);
         }
 
-        function generateSite(betType, betTypeName, site, isLive) {
+        function generateSite(betType, betTypeName, site) {
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
@@ -85,15 +84,13 @@ import angular from "angular";
                 leagueId: $scope.leagueId
             });
 
-            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
-
             tab.goForward('site', data);
         }
 
         function generateMatchDetail(betType, betTypeName) {
             var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data,{
+            angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
                 leagueId: $scope.leagueId

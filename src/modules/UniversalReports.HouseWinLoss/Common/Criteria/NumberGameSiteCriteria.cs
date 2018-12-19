@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
 
         public string Site { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-Site-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-NumberGame-Site-{Source}";
     }
 }

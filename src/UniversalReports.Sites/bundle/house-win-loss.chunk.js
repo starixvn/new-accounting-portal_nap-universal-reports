@@ -311,27 +311,27 @@ webpackJsonp([3],{
 	            mainView: "sportType",
 	            sportType: {
 	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-	                controller: "NG2SportTypeController",
+	                controller: "NGSportTypeController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-	                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-sport-type", mainColumnText: "Sport Type" },
+	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-sport-type", mainColumnText: "Sport Type" },
 	                getTitleFunction: "getProductTitle"
 	            },
 	            league: {
 	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-	                controller: "NG2LeagueController",
+	                controller: "NGLeagueController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-	                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-league", mainColumnText: "League" },
-	                getTitleFunction: "getProductTitle"
+	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-league", mainColumnText: "League" },
+	                getTitleFunction: "getSportTypeTitle"
 	            },
 	            betType: {
-	                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-	                controller: "NG2BetTypeController",
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "NGBetTypeController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
 	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
-	                getTitleFunction: "getBetTypeLiveNonLiveTitle"
+	                getTitleFunction: "getLeagueTitle"
 	            },
 	            site: {
 	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -339,7 +339,7 @@ webpackJsonp([3],{
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
 	                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-site" },
-	                getTitleFunction: "getSiteTitleLive"
+	                getTitleFunction: "getSiteTitle"
 	            },
 	            matchDetail: {
 	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -347,7 +347,7 @@ webpackJsonp([3],{
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/number-game/match-detail",
 	                mainParameters: { sheetName: "House Win Loss by Products" },
-	                getTitleFunction: "getMatchDetailTitleLive"
+	                getTitleFunction: "getMatchDetailTitle"
 	            }
 	        },
 	        "Virtual Sports": {

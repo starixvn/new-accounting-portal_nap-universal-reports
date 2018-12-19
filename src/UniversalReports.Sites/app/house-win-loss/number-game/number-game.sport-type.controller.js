@@ -47,7 +47,7 @@ import angular from "angular";
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
                 var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + ')">' + sportTypeName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
             }
         }
        
