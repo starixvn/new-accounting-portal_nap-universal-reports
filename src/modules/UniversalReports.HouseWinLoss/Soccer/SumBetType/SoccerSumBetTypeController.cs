@@ -15,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 
         private readonly GridOptionColumnDecorator decorator;
 
-        public SoccerSumBetTypeController(SumBetTypeWinLossService service, SumBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerSumBetTypeController(SumBetTypeWinLossService service, SumBetTypeGridOptionsBuilder builder, GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;

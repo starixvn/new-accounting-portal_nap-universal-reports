@@ -202,7 +202,6 @@
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorByCode.native.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorBasic.native.cs" />
     <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorFull.native.cs" />
-    <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorVirtual.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.native.cs" />
@@ -332,7 +331,7 @@
     <Compile Include="Racing\MatchDetail\Criteria.cs" />
     <Compile Include="Racing\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\Criteria\RacingSportTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleWinLossController.cs" />
+    <Compile Include="SimpleGrid\SimpleGridController.cs" />
     <Compile Include="SimpleGrid\SimpleCriteriaFactory.native.cs" />
     <Compile Include="Soccer\BaseService\BaseGridOptionsBuilder.cs" />
     <Compile Include="Soccer\BaseService\BaseCalculationService.cs" />

@@ -34,7 +34,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
             GroupBetTypeGridOptionsBuilder groupBetTypeGridOptionsBuilder,
             BasicWinLossService basicWinLossService,
             BasicGridOptionsBuilder basicGridOptionsBuilder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
         {
             this.sumBetTypeWinLossService = sumBetTypeWinLossService;
             this.sumBetTypeGridOptionsBuilder = sumBetTypeGridOptionsBuilder;

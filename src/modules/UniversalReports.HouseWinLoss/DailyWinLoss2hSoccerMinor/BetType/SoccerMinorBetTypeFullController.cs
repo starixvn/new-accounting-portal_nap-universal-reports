@@ -17,12 +17,12 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 
         private readonly BasicGridOptionsBuilder builder;
 
-        private readonly GridOptionColumnDecoratorVirtual decorator;
+        private readonly GridOptionColumnDecoratorFull decorator;
 
         public SoccerMinorBetTypeFullController(
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;

@@ -22,7 +22,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
         public OtherSportsLiveNonLiveController(
             OtherSportsLiveNonLiveWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;

@@ -65,7 +65,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.BetTypeFull
             var basicGridOptionsBuilder = Substitute.For<BasicGridOptionsBuilder>();
 
             var columnRemoval = Substitute.For<GridOptionColumnRemoval>();
-            var decorator = Substitute.For<GridOptionColumnDecoratorVirtual>(columnRemoval);
+            var decorator = Substitute.For<GridOptionColumnDecoratorFull>(columnRemoval);
 
             return new AbstractFactoryImp(
                 sumBetTypeWinLossService,

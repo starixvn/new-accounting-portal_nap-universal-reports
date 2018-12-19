@@ -16,7 +16,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
         public OtherSportNewCricketController(
             WinLossService service,
             GridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;
