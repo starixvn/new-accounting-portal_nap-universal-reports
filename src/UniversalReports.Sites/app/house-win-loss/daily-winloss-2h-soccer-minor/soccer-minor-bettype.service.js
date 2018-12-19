@@ -15,11 +15,13 @@
 
         return service;
 
-        function getData(data, isLive) {
-            var url = "api/house-win-loss-by-products/basic-grid";
+        function getData(viewSetting, data, isLive) {
             var httpData = {};
             angular.extend(httpData, data);
+            angular.extend(httpData, viewSetting.mainParameters);
             httpData.isLive = isLive;
+
+            var url = "api/house-win-loss-by-products/basic-grid";            
             return $http.post(url, httpData)
                             .then(httpResponseService.getDataComplete)
                             .catch(httpResponseService.getDataFailed);

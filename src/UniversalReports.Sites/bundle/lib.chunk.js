@@ -48967,15 +48967,16 @@
 	
 	        return service;
 	
-	        function getData(data) {
+	        function getData(viewSetting, data) {
 	            var isMajor = buildMajorFlag(data);
 	            var isLive = data.isLive;
 	
-	            var httpData = {
-	                isMajor: isMajor,
-	                normalMode: data.normalMode
-	            };
+	            var httpData = {};
+	
 	            angular.extend(httpData, data);
+	            angular.extend(httpData, viewSetting.mainParameters);
+	            httpData.isMajor = isMajor;
+	            httpData.normalMode = data.normalMode;
 	
 	            var url = buildUrl(isLive, isMajor);
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
@@ -49057,21 +49058,17 @@
 	            var betTypeFullGridOptions, betTypeLiveGridOptions, betTypeNonLiveGridOptions;
 	            $scope.viewSetting = viewSetting;
 	
-	            var httpData = {};
-	            angular.extend(httpData, pane.data);
-	            angular.extend(httpData, viewSetting.mainParameters);
-	
-	            pane.service.getData(httpData, 2).then(function (data) {
+	            pane.service.getData(viewSetting, pane.data, 2).then(function (data) {
 	                betTypeFullGridOptions = data;
 	                renderAll();
 	            });
 	
-	            pane.service.getData(httpData, 1).then(function (data) {
+	            pane.service.getData(viewSetting, pane.data, 1).then(function (data) {
 	                betTypeLiveGridOptions = data;
 	                renderAll();
 	            });
 	
-	            pane.service.getData(httpData, 0).then(function (data) {
+	            pane.service.getData(viewSetting, pane.data, 0).then(function (data) {
 	                betTypeNonLiveGridOptions = data;
 	                renderAll();
 	            });
@@ -49222,7 +49219,7 @@
 	
 	        return service;
 	
-	        function getData(data, isLive) {
+	        function getData(viewSetting, data, isLive) {
 	            var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
 	            var isSumBetType = isMajor && isLive === 2;
 	            var isGroupBetType = isMajor && isLive === 0;
@@ -49233,9 +49230,12 @@
 	                url = "api/house-win-loss-by-products/soccer/group-bettype";
 	            }
 	
-	            var httpData = { isMajor: isMajor };
+	            var httpData = {};
 	            angular.extend(httpData, data);
+	            angular.extend(httpData, viewSetting.mainParameters);
 	            httpData.isLive = isLive;
+	            httpData.isMajor = isMajor;
+	
 	            return $http.post(url, httpData).then(httpResponseService.getDataComplete).catch(httpResponseService.getDataFailed);
 	        }
 	

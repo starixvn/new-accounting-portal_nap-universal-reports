@@ -15,15 +15,17 @@ import angular from "angular";
 
         return service;
 
-        function getData(data) {
+        function getData(viewSetting, data) {           
             var isMajor = buildMajorFlag(data);
             var isLive = data.isLive;
 
-            var httpData = {               
-                isMajor: isMajor,
-                normalMode: data.normalMode
+            var httpData = {                              
             };
+
             angular.extend(httpData, data);
+            angular.extend(httpData, viewSetting.mainParameters);
+            httpData.isMajor =isMajor;
+            httpData.normalMode= data.normalMode;
 
             var url = buildUrl(isLive, isMajor);            
             return $http.post(url, httpData)

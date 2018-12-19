@@ -34,21 +34,17 @@ import angular from "angular";
             $scope.viewSetting = viewSetting;
             
 
-            var httpData = {};
-            angular.extend(httpData, pane.data);
-            angular.extend(httpData, viewSetting.mainParameters);
-
-            pane.service.getData(httpData, 2).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 2).then(function (data) {
                 betTypeFullGridOptions = data;
                 renderAll();
             });
 
-            pane.service.getData(httpData, 1).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 1).then(function (data) {
                 betTypeLiveGridOptions = data;
                 renderAll();
             });
 
-            pane.service.getData(httpData, 0).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 0).then(function (data) {
                 betTypeNonLiveGridOptions = data;
                 renderAll();
             });
