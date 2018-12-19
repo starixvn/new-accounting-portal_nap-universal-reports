@@ -535,7 +535,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-betradar-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
