@@ -9,34 +9,28 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class GridOptionsWithRawWinLossControllerTests : BaseControllerTests
     {
-        public static string[] ControllerList
+        public static string[] ControllerList => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    "DailyWinLoss2hSoccerMinor.SportType.SoccerMinorSportTypeController",
-                    "DailyWinLoss2hSoccerMinor.BetType.SoccerMinorBetTypeController",
-                    "DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController",
-                    "MetricGaming.BetType.MetricGamingBetTypeController",
-                    "MetricGaming.Site.MetricGamingSiteController",
-                    "NumberGame.MatchDetail.NumberGameMatchDetailController",
-                    "OtherSports.BetType.OtherSportsBetTypeController",
-                    "OtherSports.SportType.OtherSportsSportTypeController",
-                    "OtherSports.NewCricket.OtherSportNewCricketController",
-                    "Parlay.BetType.ParlayBetTypeController",
-                    "Parlay.Site.ParlaySiteController",
-                    "Products.ProductController",
-                    "Racing.MatchDetail.RacingMatchDetailController",
-                    "Soccer.BetType.SoccerBetTypeController",
-                    "Soccer.GroupBetType.SoccerGroupBetTypeController",
-                    "Soccer.MajorMinor.SoccerMajorMinorController",
-                    "Soccer.SumBetType.SoccerSumBetTypeController",
-                    "Sportsbook.Site.SportsbookSiteController",
-                    "VirtualSports.RacingDetail.VirtualSportsRacingDetailController"
-                };
-            }
-        }
+            "DailyWinLoss2hSoccerMinor.SportType.SoccerMinorSportTypeController",
+            "DailyWinLoss2hSoccerMinor.BetType.SoccerMinorBetTypeController",
+            "DailyWinLoss2hSoccerMinor.Site.SoccerMinorSiteController",
+            "MetricGaming.BetType.MetricGamingBetTypeController",
+            "MetricGaming.Site.MetricGamingSiteController",
+            "NumberGame.MatchDetail.NumberGameMatchDetailController",
+            "OtherSports.BetType.OtherSportsBetTypeController",
+            "OtherSports.SportType.OtherSportsSportTypeController",
+            "OtherSports.NewCricket.OtherSportNewCricketController",
+            "Parlay.BetType.ParlayBetTypeController",
+            "Parlay.Site.ParlaySiteController",
+            "Products.ProductController",
+            "Racing.MatchDetail.RacingMatchDetailController",
+            "Soccer.BetType.SoccerBetTypeController",
+            "Soccer.GroupBetType.SoccerGroupBetTypeController",
+            "Soccer.MajorMinor.SoccerMajorMinorController",
+            "Soccer.SumBetType.SoccerSumBetTypeController",
+            "Sportsbook.Site.SportsbookSiteController",
+            "VirtualSports.RacingDetail.VirtualSportsRacingDetailController"
+        };
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]
@@ -45,7 +39,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var queryModel = GetQueryModel(controllerName);
             var expected = TestDataLoader.LoadTestContent(controllerName, "expected");
             var controller = GetControllerWithRawWinLoss(controllerName);
-
 
             var methodInfo = controller.GetType().GetMethod("Json", new[] { queryModel.GetType() });
             var result = methodInfo.Invoke(controller, new[] { queryModel });

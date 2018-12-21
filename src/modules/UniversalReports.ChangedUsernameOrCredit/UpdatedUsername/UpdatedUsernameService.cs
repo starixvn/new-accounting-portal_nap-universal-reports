@@ -9,8 +9,6 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
     public interface UpdatedUsernameService
     {
-        UpdatedUsernameModel GetUpdatedUsernameItem(UpdatedUsernameEntity updatedUsernameEntity);
-
         Task<List<UpdatedUsernameModel>> GetUpdatedUsername(BaseMessage message);
     }
 
@@ -32,7 +30,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 
             var rawData = await repository.FetchAsync<UpdatedUsernameEntity>(criteria).ConfigureAwait(false);
 
-            var result = rawData.Select(item => GetUpdatedUsernameItem(item)).ToList();
+            var result = rawData.Select(GetUpdatedUsernameItem).ToList();
 
             return result;
         }

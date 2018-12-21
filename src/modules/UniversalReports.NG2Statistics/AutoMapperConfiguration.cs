@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using UniversalReports.NG2Statistics;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.Bettype;
 using UniversalReports.NG2Statistics.Daily;

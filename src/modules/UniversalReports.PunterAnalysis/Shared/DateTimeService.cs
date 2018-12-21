@@ -7,8 +7,6 @@ namespace UniversalReports.PunterAnalysis.Shared
     {
         DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
 
-        int GetWeekOfYearIso8601(DateTime dateTime);
-
         string FormatDateTimeByPeriodType(int periodType, DateTime date);
     }
 

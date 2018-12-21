@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Web;
-using Fanex.Data;
-using Fanex.Data.CrossCutting.WrappingException;
-using Fanex.Data.OldConnectionStringProvider;
+﻿using System.Web;
 using Fanex.Logging.Extensions.Database;
 using Fanex.Logging.Extensions.Web;
 

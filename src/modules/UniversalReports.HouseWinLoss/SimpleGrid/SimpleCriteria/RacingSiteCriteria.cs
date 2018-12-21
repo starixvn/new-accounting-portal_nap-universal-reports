@@ -1,4 +1,6 @@
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+using UniversalReports.HouseWinLoss.Common.Criteria;
+
+namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 {
     public class RacingSiteCriteria : WinLossCriteria
     {

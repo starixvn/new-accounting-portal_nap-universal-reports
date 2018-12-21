@@ -5,8 +5,8 @@ using AutoMapper;
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
-using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.NG2.BetType
@@ -28,7 +28,6 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
             this.builder = builder;
             this.decorator = decorator;
         }
-
 
         [Route("api/house-win-loss-by-products/ng2-live-non-live/excel")]
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
 
-namespace UniversalReports.UpdatedUsernameCredit
+namespace UniversalReports.UpdatedUsernameCredit.UnitTests
 {
     [SetUpFixture]
     public class AutoMapperSetup

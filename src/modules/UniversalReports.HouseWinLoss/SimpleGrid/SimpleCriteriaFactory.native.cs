@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Script.Serialization;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 
 namespace UniversalReports.HouseWinLoss.SimpleGrid
 {
@@ -17,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
     {
         private readonly JavaScriptSerializer serializer = new JavaScriptSerializer();
 
-        private static readonly Dictionary<string, Type> criteriaTypes = new Dictionary<string, Type>
+        private static readonly Dictionary<string, Type> CriteriaTypes = new Dictionary<string, Type>
         {
             { "bettrade-bet-type", typeof(BetTradeBetTypeCriteria)},
             { "bettrade-site", typeof(BetTradeSiteCriteria)},
@@ -53,12 +54,12 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
         {
             var criteriaType = queryModel["type"].ToString();
 
-            if (!criteriaTypes.ContainsKey(criteriaType))
+            if (!CriteriaTypes.ContainsKey(criteriaType))
             {
                 throw new ArgumentException("queryModel[\"type\"]");
             }
 
-            var targetType = criteriaTypes[criteriaType];
+            var targetType = CriteriaTypes[criteriaType];
             var criteria = serializer.Deserialize(serializer.Serialize(queryModel), targetType);
 
             return (WinLossCriteria)criteria;

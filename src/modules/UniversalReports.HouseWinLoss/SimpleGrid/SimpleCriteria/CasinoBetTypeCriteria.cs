@@ -1,6 +1,7 @@
 using Fanex.Data;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 {
     public class CasinoBetTypeCriteria : WinLossCriteria
     {

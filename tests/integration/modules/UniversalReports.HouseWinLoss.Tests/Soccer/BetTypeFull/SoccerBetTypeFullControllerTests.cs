@@ -59,7 +59,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Soccer.BetTypeFull
 
             var simpleInjector = new SimpleInjectorConfig(repository);
 
-            var controllerFullName = $"UniversalReports.HouseWinLoss.Soccer.BetTypeFull.SoccerBetTypeFullController, UniversalReports.HouseWinLoss";
+            var controllerFullName = "UniversalReports.HouseWinLoss.Soccer.BetTypeFull.SoccerBetTypeFullController, UniversalReports.HouseWinLoss";
             var controllerType = Type.GetType(controllerFullName);
             return simpleInjector.Container.GetInstance(controllerType) as ApiController;
         }

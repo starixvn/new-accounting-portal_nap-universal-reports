@@ -14,15 +14,9 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
         public decimal Turnover { get; set; }
 
         [Cell("D8")]
-        public object Margin
-        {
-            get
-            {
-                return Turnover == 0
-                    ? "N/A" :
-                    (object)(WinLoss / Turnover);
-            }
-        }
+        public object Margin => Turnover == 0
+            ? "N/A" :
+            (object)(WinLoss / Turnover);
 
         [Cell("E8")]
         public int BetCount { get; set; }

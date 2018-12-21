@@ -42,25 +42,13 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public decimal VirtualTurnover { get; set; }
 
-        public decimal RealMargin
-        {
-            get
-            {
-                return RealTurnover != 0
-                       ? Math.Round(RealIncome / RealTurnover, 4, MidpointRounding.AwayFromZero)
-                       : 0;
-            }
-        }
+        public decimal RealMargin => RealTurnover != 0
+            ? Math.Round(RealIncome / RealTurnover, 4, MidpointRounding.AwayFromZero)
+            : 0;
 
-        public decimal VirtualMargin
-        {
-            get
-            {
-                return VirtualTurnover != 0
-                      ? Math.Round(VirtualIncome / VirtualTurnover, 4, MidpointRounding.AwayFromZero)
-                      : 0;
-            }
-        }
+        public decimal VirtualMargin => VirtualTurnover != 0
+            ? Math.Round(VirtualIncome / VirtualTurnover, 4, MidpointRounding.AwayFromZero)
+            : 0;
 
         public decimal ExtraPT { get; set; }
     }

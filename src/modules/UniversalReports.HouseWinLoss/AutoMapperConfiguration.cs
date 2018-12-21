@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 
 namespace UniversalReports.HouseWinLoss
 {

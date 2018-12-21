@@ -9,23 +9,17 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class GridOptionsWithMatchRawWinLossControllerTests : BaseControllerTests
     {
-        public static string[] ControllerList
+        public static string[] ControllerList => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    "Bullfighting.MatchDetail.BullfightingMatchDetailController",
-                    "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController",
-                    "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController",
-                    "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
-                    "Sportsbook.MatchDetail.SportsbookMatchDetailController",
-                    "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
-                    "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
-                    "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController"
-                };
-            }
-        }
+            "Bullfighting.MatchDetail.BullfightingMatchDetailController",
+            "DailyWinLoss2hSoccerMinor.MatchDetail.SoccerMinorMatchDetailController",
+            "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController",
+            "MetricGaming.MatchDetail.MetricGamingMatchDetailController",
+            "Sportsbook.MatchDetail.SportsbookMatchDetailController",
+            "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
+            "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
+            "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController"
+        };
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]

@@ -7,18 +7,12 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class TwoGridOptionsWithRawWinLossControllerTests : GridOptionsWithRawWinLossControllerTests
     {
-        public static string[] TwoGridOptionsControllerList
+        public static string[] TwoGridOptionsControllerList => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    "Soccer.LiveNonLive.SoccerLiveNonLiveController",
-                    "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
-                    "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
-                };
-            }
-        }
+            "Soccer.LiveNonLive.SoccerLiveNonLiveController",
+            "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
+            "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
+        };
 
         [TestCaseSource(nameof(TwoGridOptionsControllerList))]
         [Category("ControllersTests")]
@@ -39,7 +33,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
         [Category("ControllersTests")]
         public void Test_Excel_Successful(string controllerName)
         {
-            base.Excel_Successful(controllerName);
+            Excel_Successful(controllerName);
         }
     }
 }

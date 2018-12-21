@@ -4,22 +4,15 @@ using Fanex.Excel.Models;
 using NUnit.Framework;
 using UniversalReports.MVC.Results;
 
-
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
     public class CommonWinLossControllerTests : BaseControllerTests
     {
-        public static string[] ControllerList
+        public static string[] ControllerList => new[]
         {
-            get
-            {
-                return new[]
-                {
-                    "SimpleGrid.SimpleGridController",
-                    "SimpleGrid.SimpleSiteGridController",
-                };
-            }
-        }
+            "SimpleGrid.SimpleGridController",
+            "SimpleGrid.SimpleSiteGridController",
+        };
 
         [TestCaseSource(nameof(ControllerList))]
         [Category("ControllersTests")]
@@ -28,7 +21,6 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             var queryModel = GetQueryModel(controllerName);
             var expected = TestDataLoader.LoadTestContent(controllerName, "expected");
             var controller = GetControllerWithRawWinLoss(controllerName);
-
 
             var methodInfo = controller.GetType().GetMethod("Json", new[] { queryModel.GetType() });
             var result = methodInfo.Invoke(controller, new[] { queryModel });
@@ -55,7 +47,5 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
         {
             return TestDataLoader.Load<Dictionary<string, object>>(controllerName, "queryModel");
         }
-
-
     }
 }

@@ -8,10 +8,6 @@ namespace UniversalReports.HouseWinLoss.Products
 {
     public interface Service
     {
-        List<WinLoss> GetRMWinLoss(IEnumerable<WinLossRaw> rawWinLosses);
-
-        ProductGroupWinLoss GetProductGroup(IEnumerable<WinLossRaw> rawWinLosses, string groupName);
-
         ProductWinLoss Query(QueryModel queryModel);
     }
 
