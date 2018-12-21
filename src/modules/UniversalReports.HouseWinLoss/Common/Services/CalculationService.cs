@@ -37,7 +37,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return winloss;
         }
 
-        public WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss)
+        private static WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss)
         {
             var winloss = FromRawWinLoss(rawWinLoss);
             winloss.Name = rawWinLoss.GroupName;

@@ -94,7 +94,7 @@
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
-          "Name": "VirtualIncome",
+          "Name": "VarianceIncome",
           "Value": null,
           "MergeColNumber": 3,
           "CssClass": null,

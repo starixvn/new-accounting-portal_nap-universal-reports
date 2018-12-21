@@ -50,10 +50,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Shared
         public void GetWeekOfYearIso8601_Test(DateTime date, int week)
         {
             // Arrange
-            var service = new DateTimeServiceImp();
-
             // Act
-            var result = service.GetWeekOfYearIso8601(date);
+            var result = DateTimeServiceImp.GetWeekOfYearIso8601(date);
 
             // Assert
             Assert.AreEqual(result, week);
