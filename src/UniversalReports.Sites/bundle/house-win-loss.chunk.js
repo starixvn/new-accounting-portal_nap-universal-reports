@@ -613,7 +613,7 @@ webpackJsonp([3],{
 	                controller: "SiteController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-	                mainParameters: { sheetName: "House Win Loss by Products", type: "virutal-sports-betradar-site" },
+	                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-betradar-site" },
 	                getTitleFunction: "getSiteTitle"
 	            }
 	        },
