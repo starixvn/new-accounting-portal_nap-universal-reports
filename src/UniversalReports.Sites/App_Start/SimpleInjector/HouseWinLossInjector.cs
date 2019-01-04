@@ -10,9 +10,9 @@ using MetricGaming = UniversalReports.HouseWinLoss.MetricGaming;
 using OtherSports = UniversalReports.HouseWinLoss.OtherSports;
 using Parlay = UniversalReports.HouseWinLoss.Parlay;
 using Products = UniversalReports.HouseWinLoss.Products;
+using SimpleGrid = UniversalReports.HouseWinLoss.SimpleGrid;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
-
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -39,6 +39,8 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
+            container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();
+
             container.Register<Soccer.GroupBetType.GroupBetTypeWinLossService, Soccer.GroupBetType.GroupBetTypeWinLossServiceImp>();
             container.Register<Soccer.SumBetType.SumBetTypeWinLossService, Soccer.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccer.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccer.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
@@ -52,11 +54,10 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
             container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>();
             container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
+
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
-            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>();
             container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>();
-            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>();
             container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>();
             container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>();

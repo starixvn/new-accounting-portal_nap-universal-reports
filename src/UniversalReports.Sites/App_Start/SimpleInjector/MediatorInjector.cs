@@ -6,7 +6,7 @@ using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
-using UniversalReports.UpdatedUsernameAndGivenCredit;
+using UniversalReports.UpdatedUsernameCredit;
 
 namespace UniversalReports.Sites.SimpleInjector
 {

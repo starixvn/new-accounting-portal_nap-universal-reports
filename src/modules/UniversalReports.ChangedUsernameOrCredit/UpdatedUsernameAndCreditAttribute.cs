@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UniversalReports.UpdatedUsernameAndGivenCredit
+namespace UniversalReports.UpdatedUsernameCredit
 {
     [AttributeUsage(AttributeTargets.All)]
     public sealed class UpdatedUsernameAndCreditAttribute : Attribute

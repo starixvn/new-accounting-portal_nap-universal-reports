@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Fanex.Data.Repository;
-using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using UniversalReports.PunterAnalysis.League;
@@ -15,11 +13,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         {
             // Arrange
             var emptyGroup = new Dictionary<int, List<int>>();
-            var repository = Substitute.For<IDynamicRepository>();
 
             // Act
-            var service = new LeagueServiceByMonth(repository);
-            var mappingGroups = service.GetMappingGroups(new List<LeagueMappingModel>());
+            var mappingGroups = LeagueServiceBase.GetMappingGroups(new List<LeagueMappingModel>());
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(emptyGroup));
         }
@@ -33,11 +29,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var mappingGroupsWithYearAndMonthOrderedAsc = CreateMappingGroupsWithYearAndMonthOrderedAsc();
             var leagueMappingModelListWithYearAndMonthUnordered = TestDataLoader.Load<List<LeagueMappingModel>>(InputFileName);
 
-            var repository = Substitute.For<IDynamicRepository>();
-
             // Act
-            var service = new LeagueServiceByMonth(repository);
-            var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
+            var mappingGroups = LeagueServiceBase.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));
         }
@@ -50,11 +43,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
 
             var mappingGroupsWithYearAndMonthOrderedAsc = CreateMappingGroupsWithYearAndMonthOrderedAsc();
             var leagueMappingModelListWithYearAndMonthUnordered = TestDataLoader.Load<List<LeagueMappingModel>>(InputFileName);
-            var repository = Substitute.For<IDynamicRepository>();
 
-            // Act
-            var service = new LeagueServiceByMonth(repository);
-            var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
+            // Act            
+            var mappingGroups = LeagueServiceBase.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));
         }
@@ -68,11 +59,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var mappingGroupsWithYearAndMonthOrderedAsc = CreateMappingGroupsWithYearAndMonthOrderedAsc();
             var leagueMappingModelListWithYearAndMonthUnordered = TestDataLoader.Load<List<LeagueMappingModel>>(InputFileName);
 
-            var repository = Substitute.For<IDynamicRepository>();
-
             // Act
-            var service = new LeagueServiceByMonth(repository);
-            var mappingGroups = service.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
+            var mappingGroups = LeagueServiceBase.GetMappingGroups(leagueMappingModelListWithYearAndMonthUnordered);
 
             Assert.That(mappingGroups, IsDeeplyEqual.To(mappingGroupsWithYearAndMonthOrderedAsc));
         }

@@ -41,7 +41,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         protected abstract LeagueMappingModel Transform(LeagueRawModel rawModel);
 
-        public Dictionary<int, List<int>> GetMappingGroups(IEnumerable<LeagueMappingModel> entities)
+        public static Dictionary<int, List<int>> GetMappingGroups(IEnumerable<LeagueMappingModel> entities)
         {
             return entities.Select(e => new { e.Year, e.MonthOrWeek })
                             .GroupBy(e => e.Year)

@@ -10,7 +10,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.SportType
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/sport-type")]
     public class SoccerMinorSportTypeController : BasicWinLossController
     {
-        public SoccerMinorSportTypeController(BasicWinLossService service, BasicGridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerMinorSportTypeController(BasicWinLossService service, BasicGridOptionsBuilder builder, GridOptionColumnDecoratorFull decorator)
          : base(service, builder, decorator)
         {
         }

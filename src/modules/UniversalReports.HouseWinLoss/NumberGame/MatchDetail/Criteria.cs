@@ -4,9 +4,9 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 {
     public class Criteria : WinLossCriteria
     {
-        public int BetType { get; set; }
+        public int LeagueId { get; set; }
 
-        public bool IsLive { get; set; }
+        public int BetType { get; set; }
 
         public override string GetSettingKey() => $"HouseWinLoss-NumberGame-MatchDetail-{Source}";
     }

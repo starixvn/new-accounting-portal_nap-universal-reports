@@ -26,27 +26,7 @@ import angular from "angular";
                 pane.compileAll();
             });
         }
-
-        function generateBetType(sportType, sportTypeName, isLive) {
-            var data = {};
-            angular.extend(data, pane.data);
-            angular.extend(data, {
-                sportType: sportType,
-                sportTypeName: sportTypeName,
-                isLive: isLive
-            });
-            tab.goForward('betType', data);
-        }
-
-        function createLinks(data, isLive) {
-            for (var i = 0; i < data.bodyRows.length; i++) {
-                var sportTypeRow = data.bodyRows[i];
-                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
-                var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + sportTypeName + '</a>';
-            }
-        }
-
+      
         function renderGrid(data) {
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
@@ -61,6 +41,28 @@ import angular from "angular";
             data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
         }
+
+        function createLinks(data, isLive) {
+            for (var i = 0; i < data.bodyRows.length; i++) {
+                var sportTypeRow = data.bodyRows[i];
+                var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
+                var sportTypeName = sportTypeRow.Columns[0].Value;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + sportTypeName + '</a>';
+            }
+        }
+
+
+        function generateBetType(sportType, sportTypeName, isLive) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                sportType: sportType,
+                sportTypeName: sportTypeName,
+                isLive: isLive
+            });
+            tab.goForward('betType', data);
+        }
+
 
         function exportExcel() {
             pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);

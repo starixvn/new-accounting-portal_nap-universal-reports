@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SimpleInjector;
+﻿using SimpleInjector;
 using UniversalReports.UpdatedUsernameCredit.Common;
 using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
 using UniversalReports.UpdatedUsernameCredit.UpdatedUsername;

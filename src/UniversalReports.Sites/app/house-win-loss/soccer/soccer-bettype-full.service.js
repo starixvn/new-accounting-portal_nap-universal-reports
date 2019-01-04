@@ -10,12 +10,12 @@
     function soccerBetTypeFullService($http, httpResponseService) {
         var service = {
             getData: getData,
-            exportExcel: exportExcel            
+            exportExcel: exportExcel
         };
 
         return service;
 
-        function getData(data, isLive) {
+        function getData(viewSetting, data, isLive) {
             var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
             var isSumBetType = isMajor && isLive === 2;
             var isGroupBetType = isMajor && isLive === 0;
@@ -27,9 +27,12 @@
                 url = "api/house-win-loss-by-products/soccer/group-bettype";
             }
 
-            var httpData = { isMajor: isMajor };
+            var httpData = {};
             angular.extend(httpData, data);
+            angular.extend(httpData, viewSetting.mainParameters);
             httpData.isLive = isLive;
+            httpData.isMajor = isMajor;
+
             return $http.post(url, httpData)
                             .then(httpResponseService.getDataComplete)
                             .catch(httpResponseService.getDataFailed);

@@ -2,7 +2,6 @@
 using System.Reflection;
 using MediatR.SimpleInjector;
 using SimpleInjector;
-using UniversalReports.UpdatedUsernameAndGivenCredit;
 
 namespace UniversalReports.UpdatedUsernameCredit.Tests.DependencyInjection.SimpleInjector
 {

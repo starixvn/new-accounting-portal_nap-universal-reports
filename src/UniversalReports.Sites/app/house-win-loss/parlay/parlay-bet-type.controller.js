@@ -38,7 +38,8 @@ import moment from "moment";
             angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
-                site: site
+                site: site,
+                mainColumnText: site
             });
             tab.goForward('site', data);
         }

@@ -56,6 +56,9 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
+            container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();
+
+
             container.Register<Soccers.GroupBetType.GroupBetTypeWinLossService, Soccers.GroupBetType.GroupBetTypeWinLossServiceImp>();
             container.Register<Soccers.SumBetType.SumBetTypeWinLossService, Soccers.SumBetType.SumBetTypeWinLossServiceImp>();
             container.Register<Soccers.GroupBetType.GroupBetTypeGridOptionsBuilder, Soccers.GroupBetType.GroupBetTypeGridOptionsBuilderImp>();
@@ -71,9 +74,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
-            container.Register<Decorator.GridOptionColumnDecoratorExtraPT, Decorator.GridOptionColumnDecoratorExtraPT>();
             container.Register<Decorator.GridOptionColumnDecoratorFull, Decorator.GridOptionColumnDecoratorFull>();
-            container.Register<Decorator.GridOptionColumnDecoratorVirtual, Decorator.GridOptionColumnDecoratorVirtual>();
             container.Register<Decorator.GridOptionColumnRemoval, Decorator.GridOptionColumnRemovalImp>();
             container.Register<Decorator.MatchGridOptionColumnDecorator, Decorator.MatchGridOptionColumnDecoratorByCode>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorByCode, Decorator.MatchGridOptionColumnDecoratorByCode>();

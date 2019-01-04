@@ -1,6 +1,4 @@
-﻿using System;
-using Fanex.Data.Repository;
-using UniversalReports.PunterAnalysis.Shared;
+﻿using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.League.Model
 {

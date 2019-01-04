@@ -32,18 +32,19 @@ import angular from "angular";
                 betTypeLiveGridOptions,
                 betTypeNonLiveGridOptions;
             $scope.viewSetting = viewSetting;
+            
 
-            pane.service.getData(pane.data, 2).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 2).then(function (data) {
                 betTypeFullGridOptions = data;
                 renderAll();
             });
 
-            pane.service.getData(pane.data, 1).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 1).then(function (data) {
                 betTypeLiveGridOptions = data;
                 renderAll();
             });
 
-            pane.service.getData(pane.data, 0).then(function (data) {
+            pane.service.getData(viewSetting, pane.data, 0).then(function (data) {
                 betTypeNonLiveGridOptions = data;
                 renderAll();
             });
@@ -129,6 +130,7 @@ import angular from "angular";
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
+                mainColumnText: site,
                 isLive: isLive
             });
 

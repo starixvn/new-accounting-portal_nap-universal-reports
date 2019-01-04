@@ -9,8 +9,6 @@ namespace UniversalReports.HouseWinLoss.Common.Services
     {
         WinLoss FromRawWinLossByRowName(WinLossRaw rawWinLoss);
 
-        WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss);
-
         SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
         SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
@@ -19,13 +17,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
 
-        WinLoss CreateEmptyWinLoss(int id, string name);
-
         IEnumerable<WinLoss> CalculateRM(IEnumerable<WinLossRaw> rawWinLosses);
-
-        SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<WinLossRaw> rawWinLosses);
-
-        WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses);
     }
 
     public class CalculationServiceImp : CalculationService
@@ -45,7 +37,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return winloss;
         }
 
-        public WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss)
+        private static WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss)
         {
             var winloss = FromRawWinLoss(rawWinLoss);
             winloss.Name = rawWinLoss.GroupName;

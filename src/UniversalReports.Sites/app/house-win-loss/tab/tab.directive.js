@@ -70,7 +70,6 @@ import angular from "angular";
                 return new Pane('soccerMajorMinor', data);
             }
 
-            hasProductPermission = [];
             data.productName = "Main";
             return new Pane('product', data);
         }

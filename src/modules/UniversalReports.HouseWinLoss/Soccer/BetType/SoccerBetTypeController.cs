@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         public SoccerBetTypeController(
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
          : base(service, builder, decorator)
         {
         }

@@ -22,7 +22,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
         public MetricGamingLiveNonLiveController(
             MetricGamingLiveNonLiveWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
         {
             this.service = service;
             this.builder = builder;

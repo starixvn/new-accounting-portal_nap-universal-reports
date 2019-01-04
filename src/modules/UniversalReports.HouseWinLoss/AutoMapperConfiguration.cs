@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 
 namespace UniversalReports.HouseWinLoss
 {
@@ -6,27 +7,9 @@ namespace UniversalReports.HouseWinLoss
     {
         public static void InitializeHouseWinLoss(this IProfileExpression cfg)
         {
-            cfg.CreateMap<Bettrade.BetType.ExcelQueryModel, Bettrade.BetType.Criteria>();
-            cfg.CreateMap<Bettrade.BetType.QueryModel, Bettrade.BetType.Criteria>();
-            cfg.CreateMap<Bettrade.Site.ExcelQueryModel, Bettrade.Site.Criteria>();
-            cfg.CreateMap<Bettrade.Site.QueryModel, Bettrade.Site.Criteria>();
             cfg.CreateMap<Bullfighting.MatchDetail.QueryModel, Bullfighting.MatchDetail.Criteria>();
-            cfg.CreateMap<CashOut.BetType.ExcelQueryModel, CashOut.BetType.Criteria>();
-            cfg.CreateMap<CashOut.BetType.QueryModel, CashOut.BetType.Criteria>();
-            cfg.CreateMap<CashOut.Site.ExcelQueryModel, CashOut.Site.Criteria>();
-            cfg.CreateMap<CashOut.Site.QueryModel, CashOut.Site.Criteria>();
-            cfg.CreateMap<Casino.BetType.ExcelQueryModel, Casino.BetType.Criteria>();
-            cfg.CreateMap<Casino.BetType.QueryModel, Casino.BetType.Criteria>();
-            cfg.CreateMap<Casino.Product.ExcelQueryModel, Casino.Product.Criteria>();
-            cfg.CreateMap<Casino.Product.QueryModel, Casino.Product.Criteria>();
-            cfg.CreateMap<Casino.Site.ExcelQueryModel, Casino.Site.Criteria>();
-            cfg.CreateMap<Casino.Site.QueryModel, Casino.Site.Criteria>();
             cfg.CreateMap<Common.MatchDetail.RawWinLoss, Common.MatchDetail.WinLoss>();
             cfg.CreateMap<Common.Models.WinLossRaw, Common.Models.WinLoss>();
-            cfg.CreateMap<FishingWorld.BetType.ExcelQueryModel, FishingWorld.BetType.Criteria>();
-            cfg.CreateMap<FishingWorld.BetType.QueryModel, FishingWorld.BetType.Criteria>();
-            cfg.CreateMap<FishingWorld.Site.ExcelQueryModel, FishingWorld.Site.Criteria>();
-            cfg.CreateMap<FishingWorld.Site.QueryModel, FishingWorld.Site.Criteria>();
             cfg.CreateMap<MetricGaming.BetType.ExcelQueryModel, MetricGaming.BetType.Criteria>();
             cfg.CreateMap<MetricGaming.BetType.QueryModel, MetricGaming.BetType.Criteria>();
             cfg.CreateMap<MetricGaming.LiveNonLive.ExcelQueryModel, MetricGaming.BetType.Criteria>();
@@ -51,14 +34,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Parlay.Site.QueryModel, Parlay.Site.Criteria>();
             cfg.CreateMap<Products.ExcelQueryModel, Products.Criteria>();
             cfg.CreateMap<Products.QueryModel, Products.Criteria>();
-            cfg.CreateMap<Racing.BetType.ExcelQueryModel, Racing.BetType.Criteria>();
-            cfg.CreateMap<Racing.BetType.QueryModel, Racing.BetType.Criteria>();
             cfg.CreateMap<Racing.MatchDetail.ExcelQueryModel, Racing.MatchDetail.Criteria>();
             cfg.CreateMap<Racing.MatchDetail.QueryModel, Racing.MatchDetail.Criteria>();
-            cfg.CreateMap<Racing.Site.ExcelQueryModel, Racing.Site.Criteria>();
-            cfg.CreateMap<Racing.Site.QueryModel, Racing.Site.Criteria>();
-            cfg.CreateMap<Racing.SportType.ExcelQueryModel, Racing.SportType.Criteria>();
-            cfg.CreateMap<Racing.SportType.QueryModel, Racing.SportType.Criteria>();
             cfg.CreateMap<Soccer.BetType.ExcelQueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetType.QueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.SumBetType.SumBetTypeCriteria>();
@@ -78,39 +55,14 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Sportsbook.OutrightMatchDetail.QueryModel, Sportsbook.OutrightMatchDetail.Criteria>();
             cfg.CreateMap<Sportsbook.Site.ExcelQueryModel, Sportsbook.Site.Criteria>();
             cfg.CreateMap<Sportsbook.Site.QueryModel, Sportsbook.Site.Criteria>();
-            cfg.CreateMap<Universal.BetType.ExcelLiveNonLiveQueryModel, Universal.BetType.Criteria>();
-            cfg.CreateMap<Universal.BetType.ExcelQueryModel, Universal.BetType.Criteria>();
-            cfg.CreateMap<Universal.BetType.QueryModel, Universal.BetType.Criteria>();
-            cfg.CreateMap<Universal.Site.ExcelQueryModel, Universal.Site.Criteria>();
-            cfg.CreateMap<Universal.Site.QueryModel, Universal.Site.Criteria>();
-            cfg.CreateMap<Universal.SportType.ExcelQueryModel, Universal.SportType.Criteria>();
-            cfg.CreateMap<Universal.SportType.QueryModel, Universal.SportType.Criteria>();
-            cfg.CreateMap<VirtualSports.BetType.ExcelQueryModel, VirtualSports.BetType.Criteria>();
-            cfg.CreateMap<VirtualSports.BetType.QueryModel, VirtualSports.BetType.Criteria>();
+
+            cfg.CreateMap<NG2.BetType.ExcelLiveNonLiveQueryModel, UniversalBetTypeCriteria>();
             cfg.CreateMap<VirtualSports.RacingDetail.ExcelQueryModel, VirtualSports.RacingDetail.Criteria>();
             cfg.CreateMap<VirtualSports.RacingDetail.QueryModel, VirtualSports.RacingDetail.Criteria>();
-            cfg.CreateMap<VirtualSports.Site.ExcelQueryModel, VirtualSports.Site.Criteria>();
-            cfg.CreateMap<VirtualSports.Site.QueryModel, VirtualSports.Site.Criteria>();
             cfg.CreateMap<VirtualSports.SportsbookDetail.ExcelQueryModel, VirtualSports.SportsbookDetail.Criteria>();
             cfg.CreateMap<VirtualSports.SportsbookDetail.QueryModel, VirtualSports.SportsbookDetail.Criteria>();
-            cfg.CreateMap<VirtualSports.SportType.ExcelQueryModel, VirtualSports.SportType.Criteria>();
-            cfg.CreateMap<VirtualSports.SportType.QueryModel, VirtualSports.SportType.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.BetType.ExcelQueryModel, VirtualSportsBetradar.BetType.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.BetType.QueryModel, VirtualSportsBetradar.BetType.Criteria>();
             cfg.CreateMap<VirtualSportsBetradar.MatchDetail.ExcelQueryModel, VirtualSportsBetradar.MatchDetail.Criteria>();
             cfg.CreateMap<VirtualSportsBetradar.MatchDetail.QueryModel, VirtualSportsBetradar.MatchDetail.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.Site.ExcelQueryModel, VirtualSportsBetradar.Site.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.Site.QueryModel, VirtualSportsBetradar.Site.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.SportType.ExcelQueryModel, VirtualSportsBetradar.SportType.Criteria>();
-            cfg.CreateMap<VirtualSportsBetradar.SportType.QueryModel, VirtualSportsBetradar.SportType.Criteria>();
-            cfg.CreateMap<ColossusBet.BetType.ExcelQueryModel, ColossusBet.BetType.Criteria>();
-            cfg.CreateMap<ColossusBet.BetType.QueryModel, ColossusBet.BetType.Criteria>();
-            cfg.CreateMap<ColossusBet.Site.ExcelQueryModel, ColossusBet.Site.Criteria>();
-            cfg.CreateMap<ColossusBet.Site.QueryModel, ColossusBet.Site.Criteria>();
-            cfg.CreateMap<PokerGames.BetType.ExcelQueryModel, PokerGames.BetType.Criteria>();
-            cfg.CreateMap<PokerGames.BetType.QueryModel, PokerGames.BetType.Criteria>();
-            cfg.CreateMap<PokerGames.Site.ExcelQueryModel, PokerGames.Site.Criteria>();
-            cfg.CreateMap<PokerGames.Site.QueryModel, PokerGames.Site.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.SportType.QueryModel, DailyWinLoss2hSoccerMinor.SportType.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.SportType.ExcelQueryModel, DailyWinLoss2hSoccerMinor.SportType.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.BetType.QueryModel, DailyWinLoss2hSoccerMinor.BetType.Criteria>();

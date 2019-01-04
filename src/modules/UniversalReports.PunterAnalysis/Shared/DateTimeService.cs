@@ -7,8 +7,6 @@ namespace UniversalReports.PunterAnalysis.Shared
     {
         DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear);
 
-        int GetWeekOfYearIso8601(DateTime dateTime);
-
         string FormatDateTimeByPeriodType(int periodType, DateTime date);
     }
 
@@ -29,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.Shared
             return result.AddDays(-3);
         }
 
-        public int GetWeekOfYearIso8601(DateTime dateTime)
+        public static int GetWeekOfYearIso8601(DateTime dateTime)
         {
             var day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(dateTime);
             var realDate = day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday

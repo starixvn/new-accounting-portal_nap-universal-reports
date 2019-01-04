@@ -21,6 +21,7 @@ import angular from "angular";
             getCasinoProductTitle: getCasinoProductTitle,
             getSportTypeTitle: getSportTypeTitle,
             getSportTypeTitleLive: getSportTypeTitleLive,
+            getLeagueTitle: getLeagueTitle,
             getSiteTitle: getSiteTitle,
             getSiteTitleLive: getSiteTitleLive,
             getMatchDetailTitle: getMatchDetailTitle,
@@ -96,6 +97,10 @@ import angular from "angular";
 
         function getSportTypeTitle(data) {
             return data.sportTypeName;
+        }
+
+        function getLeagueTitle(data) {
+            return data.leagueName;
         }
 
         function getSportTypeTitleLive(data) {

@@ -1,17 +1,19 @@
 ﻿using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.Exchange;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.Exchange.UnitTests
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.CreateMissingTypeMaps = true;
-            cfg.InitializeExchange();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMissingTypeMaps = true;
+                cfg.InitializeExchange();
+            });
+        }
     }
 }

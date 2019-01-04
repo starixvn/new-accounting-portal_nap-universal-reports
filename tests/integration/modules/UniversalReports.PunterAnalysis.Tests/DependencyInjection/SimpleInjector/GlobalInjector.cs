@@ -1,5 +1,4 @@
 ﻿using Fanex.Caching;
-using Fanex.Data.Repository;
 using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using SimpleInjector;

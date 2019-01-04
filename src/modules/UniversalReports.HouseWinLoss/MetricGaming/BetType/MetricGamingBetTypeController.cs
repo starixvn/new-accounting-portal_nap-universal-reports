@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
         public MetricGamingBetTypeController(
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorVirtual decorator)
+            GridOptionColumnDecoratorFull decorator)
          : base(service, builder, decorator)
         {
         }

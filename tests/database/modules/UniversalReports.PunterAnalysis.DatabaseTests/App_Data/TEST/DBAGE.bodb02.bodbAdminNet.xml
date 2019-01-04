@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions>
-  <Function Name="Punter Analysis">
-    <Setting Key="Punter-UserNameSuggestion" SpName="Acc_CustomerSelUserSearch" DbName="DBAGE.bodb02.bodbAdminNet" />
-  </Function>
-</Functions>

@@ -1,18 +1,20 @@
 ﻿
 using AutoMapper;
 using NUnit.Framework;
-using UniversalReports.ActualMemberBet;
 
-[SetUpFixture]
-public class AutoMapperSetup
+namespace UniversalReports.ActualMemberBet.Tests
 {
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUpFixture]
+    public class AutoMapperSetup
     {
-        Mapper.Initialize(cfg =>
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
-            cfg.CreateMissingTypeMaps = true;
-            cfg.InitializeActualMemberBet();
-        });
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMissingTypeMaps = true;
+                cfg.InitializeActualMemberBet();
+            });
+        }
     }
 }

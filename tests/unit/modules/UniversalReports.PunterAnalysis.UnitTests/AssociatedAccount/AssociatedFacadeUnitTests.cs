@@ -88,7 +88,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             var repository = Substitute.For<IDynamicRepository>();
             repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
 
-            var emptyListOfUserDevice = new List<CustomerDevice> { };
+            var emptyListOfUserDevice = new List<CustomerDevice>();
             var fraudService = Substitute.For<FraudServiceWrapper>();
             fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(emptyListOfUserDevice);
 

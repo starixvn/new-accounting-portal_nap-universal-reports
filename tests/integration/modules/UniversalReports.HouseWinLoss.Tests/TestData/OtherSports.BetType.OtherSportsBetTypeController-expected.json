@@ -90,7 +90,7 @@
         {
           "HeaderText": "House",
           "ShowCollapseExpand": false,
-          "Width": 300,
+          "Width": 100,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -107,7 +107,7 @@
         {
           "HeaderText": "House Turnover",
           "ShowCollapseExpand": false,
-          "Width": 200,
+          "Width": 100,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,
@@ -124,7 +124,7 @@
         {
           "HeaderText": "Margin",
           "ShowCollapseExpand": false,
-          "Width": 200,
+          "Width": 100,
           "HeaderAlign": "center",
           "IsAbs": false,
           "AllowTruncate": false,

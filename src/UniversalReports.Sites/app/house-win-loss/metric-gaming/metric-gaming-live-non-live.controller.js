@@ -76,6 +76,7 @@ import angular from "angular";
                 betType: betType,
                 betTypeName: betTypeName,
                 site: site,
+                mainColumnText: site,
                 isHegde: isHegde
             });
             tab.goForward('site', data);

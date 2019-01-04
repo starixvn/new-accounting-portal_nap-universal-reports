@@ -5,7 +5,6 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using AutoFixture;
 using UniversalReports.Exchange.Report;
 
 namespace UniversalReports.Exchange.UnitTests.Report
@@ -13,8 +12,6 @@ namespace UniversalReports.Exchange.UnitTests.Report
     [TestFixture]
     public class ServiceTests
     {
-        private readonly Fixture fixture = new Fixture();
-
         [Test]
         public async Task Query_RepositoryReturnEmpty_ReturnRightSummaryEntity()
         {

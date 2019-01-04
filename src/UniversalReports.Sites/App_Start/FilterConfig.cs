@@ -9,6 +9,7 @@ namespace UniversalReports.Sites
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new CheckUMFilter());
+            filters.Add(new UserActivityDetailFilter());
 #if !DEBUG
             filters.Add(new AuthorizeAttribute());
 #endif

@@ -1,2 +1,132 @@
-.freegrid .grid-container .child-row div{box-sizing:content-box}.grid-boundary{float:left;width:100%}.errorMsg,.ng2-sport-bold{font-weight:700}.errorMsg{border:1px solid red;background:none repeat scroll 0 0 #ffd4d4;margin:-14px;height:38px;margin-bottom:-15px;margin-right:-15px}.errorMsg p{line-height:38px;margin-left:10px}.grid-boundary-popup .freegrid{display:none}.grid-boundary-popup{font-size:.85em!important}.banner-popup{height:30px;background:linear-gradient(#486cb8,#5a7dc1) repeat scroll 0 0 #5a7dc1!important;margin:-12px -12px 7px;border-radius:5px}.angucomplete-dropdown{overflow-y:auto!important;max-height:150px!important;border-color:#5dc9c9!important;max-width:200px!important;overflow-x:auto!important}.form-inline .input-group>input[type=text],.form-inline input[type=text],.form-inline select{width:130px;height:26px}.form-inline div{float:left}.form-inline .row{margin:3px 0;clear:both}.form-inline .col-section{padding-left:40px;width:150px;font-weight:700}.form-inline .col-label{width:80px;text-align:right;padding-right:5px;margin-top:4px}.form-inline .col-input{width:160px}.form-inline .col-input-full{width:800px}.form-inline .col-input-full ul{list-style-type:none;padding-left:0}.form-inline .col-input-full ul li{float:left;margin-right:25px}.form-inline .col-input-full ul li label{vertical-align:middle;font-weight:400}.form-inline .col-input-full ul li input{margin-right:5px;float:left}.form-inline .dropdowntree .btn{width:130px;border-radius:0}.form-inline .dropdowntree ul li{clear:both}.form-inline .dropdowntree ul li div,.form-inline .dropdowntree ul li input[type=text]{width:100%}.form-inline .dropdowntree ul li div .input-group-btn,.form-inline .dropdowntree ul li input[type=text] .input-group-btn{width:15px}.form-inline .report-type-radio-group span{width:50px}.well-sm{float:left;width:100%}@media screen and (min-width:360px) and (max-width:1025px){.form-inline .row{width:100%}.form-inline .col-section{width:100%;text-align:center}.form-inline .col-input,.form-inline .col-label{width:50%;margin:1px 0}.form-inline .col-input-full{width:100%}.form-inline .report-by .col-input-full,.form-inline .report-by .col-label{width:50%}.form-inline .report-by .col-input-full ul li{float:none}.form-inline .col-button .col-label,.form-inline .col-button .col-section{display:none}.form-inline .col-button button{width:100%}}
+.freegrid .grid-container .child-row div {
+  box-sizing: content-box; }
+
+.grid-boundary {
+  float: left;
+  width: 100%; }
+
+.ng2-sport-bold {
+  font-weight: bold; }
+
+.form-inline .row .col-section, .form-inline .row .col-label {
+  /*text-shadow: 0 0 0.023em black;*/
+  /*font-weight: bold;*/ }
+
+/*.ngdialog.ngdialog-theme-plain .ngdialog-content{
+    top: -122px;
+}*/
+.errorMsg {
+  border: 1px solid red;
+  background: none repeat scroll 0 0 #ffd4d4;
+  font-weight: bold;
+  margin: -14px;
+  height: 38px;
+  margin-bottom: -15px;
+  margin-right: -15px; }
+  .errorMsg p {
+    line-height: 38px;
+    margin-left: 10px; }
+
+.grid-boundary-popup .freegrid {
+  display: none; }
+
+.grid-boundary-popup {
+  font-size: 0.85em !important; }
+
+.banner-popup {
+  height: 30px;
+  background: linear-gradient(#486cb8, #5a7dc1) repeat scroll 0 0 #5a7dc1 !important;
+  margin-bottom: 7px;
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: -12px;
+  border-radius: 5px; }
+
+.angucomplete-dropdown {
+  overflow-y: auto !important;
+  max-height: 150px !important;
+  border-color: #5DC9C9 !important;
+  max-width: 200px !important;
+  overflow-x: auto !important; }
+
+.form-inline .input-group > input[type=text], .form-inline input[type=text], .form-inline select {
+  width: 130px;
+  height: 26px; }
+
+.form-inline div {
+  float: left; }
+
+.form-inline .row {
+  margin: 3px 0;
+  clear: both; }
+
+.form-inline .col-section {
+  padding-left: 40px;
+  width: 150px;
+  font-weight: bold; }
+
+.form-inline .col-label {
+  width: 80px;
+  text-align: right;
+  padding-right: 5px;
+  margin-top: 4px; }
+
+.form-inline .col-input {
+  width: 160px; }
+
+.form-inline .col-input-full {
+  width: 800px; }
+  .form-inline .col-input-full ul {
+    list-style-type: none;
+    padding-left: 0px; }
+    .form-inline .col-input-full ul li {
+      float: left;
+      margin-right: 25px; }
+      .form-inline .col-input-full ul li label {
+        vertical-align: middle;
+        font-weight: normal; }
+      .form-inline .col-input-full ul li input {
+        margin-right: 5px;
+        float: left; }
+
+.form-inline .dropdowntree .btn {
+  width: 130px;
+  border-radius: 0px; }
+
+.form-inline .dropdowntree ul li {
+  clear: both; }
+  .form-inline .dropdowntree ul li div, .form-inline .dropdowntree ul li input[type=text] {
+    width: 100%; }
+    .form-inline .dropdowntree ul li div .input-group-btn, .form-inline .dropdowntree ul li input[type=text] .input-group-btn {
+      width: 15px; }
+
+.form-inline .report-type-radio-group span {
+  width: 50px; }
+
+.well-sm {
+  float: left;
+  width: 100%; }
+
+@media screen and (min-width: 360px) and (max-width: 1025px) {
+  .form-inline .row {
+    width: 100%; }
+  .form-inline .col-section {
+    width: 100%;
+    text-align: center; }
+  .form-inline .col-label, .form-inline .col-input {
+    width: 50%;
+    margin: 1px 0; }
+  .form-inline .col-input-full {
+    width: 100%; }
+  .form-inline .report-by .col-label {
+    width: 50%; }
+  .form-inline .report-by .col-input-full {
+    width: 50%; }
+    .form-inline .report-by .col-input-full ul li {
+      float: none; }
+  .form-inline .col-button .col-label, .form-inline .col-button .col-section {
+    display: none; }
+  .form-inline .col-button button {
+    width: 100%; } }
+
 /*# sourceMappingURL=ng2-statistics-style.css.map*/

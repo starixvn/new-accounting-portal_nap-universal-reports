@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/site")]
     public class SoccerMinorSiteController : SiteWinLossController
     {
-        public SoccerMinorSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorVirtual decorator)
+        public SoccerMinorSiteController(WinLossService service, GridOptionsBuilder builder, GridOptionColumnDecoratorFull decorator)
         : base(service, builder, decorator)
         {
         }

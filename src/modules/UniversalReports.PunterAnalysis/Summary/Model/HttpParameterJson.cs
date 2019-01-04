@@ -1,7 +1,6 @@
 ﻿using System;
 using Linq.DynamicSum;
 using MediatR;
-using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.Summary.Model
 {
