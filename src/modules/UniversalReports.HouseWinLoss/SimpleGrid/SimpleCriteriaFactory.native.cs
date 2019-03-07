@@ -20,6 +20,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
 
         private static readonly Dictionary<string, Type> CriteriaTypes = new Dictionary<string, Type>
         {
+            { "bet-builder-bet-type", typeof(BetBuilderBetTypeCriteria)},
             { "bettrade-bet-type", typeof(BetTradeBetTypeCriteria)},
             { "bettrade-site", typeof(BetTradeSiteCriteria)},
             { "cash-out-bet-type", typeof(CashOutBetTypeCriteria)},

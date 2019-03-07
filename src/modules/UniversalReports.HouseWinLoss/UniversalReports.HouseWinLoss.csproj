@@ -186,6 +186,7 @@
     <Compile Include="Bullfighting\MatchDetail\BullfightingMatchDetailController.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
+    <Compile Include="SimpleGrid\SimpleCriteria\BetBuilderBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutSiteCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\BetTradeBetTypeCriteria.cs" />
