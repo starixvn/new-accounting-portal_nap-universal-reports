@@ -23,7 +23,7 @@ namespace UniversalReports.ActualMemberBet.Product
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<Criteria>(request);
-            var productActualMemberBet = await service.Query<ProductActualMemberBet>(criteria).ConfigureAwait(false);
+            var productActualMemberBet = await service.Query<ProductActualMemberBet>(criteria);
             var productActualMemberBetExcel = Mapper.Map<SummaryEntity<ProductActualMemberBetExcel>>(productActualMemberBet);
             var excelPackage = excelBuilder.Build(productActualMemberBetExcel);
             return excelPackage;

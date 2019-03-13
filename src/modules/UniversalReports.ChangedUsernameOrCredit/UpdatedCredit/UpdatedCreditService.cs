@@ -25,7 +25,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
         {
             var criteria = Mapper.Map<Criteria>(message);
 
-            var rawData = await repository.FetchAsync<UpdatedCreditEntity>(criteria).ConfigureAwait(false);
+            var rawData = await repository.FetchAsync<UpdatedCreditEntity>(criteria);
 
             return Mapper.Map<List<UpdatedCreditModel>>(rawData.ToList());
         }

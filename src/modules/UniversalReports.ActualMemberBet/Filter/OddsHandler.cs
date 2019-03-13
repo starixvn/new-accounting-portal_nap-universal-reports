@@ -18,7 +18,7 @@ namespace UniversalReports.ActualMemberBet.Filter
         public async Task<IEnumerable<Odds>> Handle(OddsHttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = new OddsCriteria();
-            return await repository.FetchAsync<Odds>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<Odds>(criteria);
         }
     }
 }

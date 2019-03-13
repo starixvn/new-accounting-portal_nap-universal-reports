@@ -9,7 +9,7 @@ namespace UniversalReports.Sites.Controllers
         [Route("sleep")]
         public async Task<IHttpActionResult> Index()
         {
-            await Task.Delay(5000).ConfigureAwait(false);
+            await Task.Delay(5000);
             return Json("OK");
         }
     }

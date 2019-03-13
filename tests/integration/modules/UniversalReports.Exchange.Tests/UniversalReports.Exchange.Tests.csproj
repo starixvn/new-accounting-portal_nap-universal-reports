@@ -163,6 +163,7 @@
     <Compile Include="DependencyInjection\SimpleInjector\ExchangeInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\ExchangeControllerTest.cs" />
     <Compile Include="TestDataLoader.cs" />

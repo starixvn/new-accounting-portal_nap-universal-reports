@@ -28,7 +28,7 @@ namespace UniversalReports.PunterAnalysis.Shared
             where TExcelModel : class, new()
         {
             var criteria = Mapper.Map<TCriteria>(message);
-            var model = await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
+            var model = await punterAnalysisService.Query<TModel>(criteria);
             var excelViewModel = Mapper.Map<SummaryEntity<TExcelModel>>(model);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(message);
             var excelSetting = excelSettingFactory.CreateSetting(excelSettingParams);

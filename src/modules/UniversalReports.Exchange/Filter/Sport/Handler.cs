@@ -18,7 +18,7 @@ namespace UniversalReports.Exchange.Filter.Sport
         public async Task<IEnumerable<SportModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new Criteria();
-            return await repository.FetchAsync<SportModel>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<SportModel>(criteria);
         }
     }
 }

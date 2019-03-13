@@ -149,6 +149,7 @@
     <Compile Include="Filter\CurrencyHandlerTests.cs" />
     <Compile Include="Filter\OddsHandlerTests.cs" />
     <Compile Include="Filter\SiteHandlerTests.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Product\ActutalMemberBetProductControllerTests.cs" />
     <Compile Include="Product\HandlerTests.cs" />
     <Compile Include="Product\ProductActualMemberBetTests.cs" />

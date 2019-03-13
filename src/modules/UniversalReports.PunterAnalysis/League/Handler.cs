@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.League
             var criteria = Mapper.Map<Criteria>(request);
 
             var leagueService = leagueServiceFactory.CreateLeagueService(request.PeriodType);
-            return await leagueService.Query(criteria).ConfigureAwait(false);
+            return await leagueService.Query(criteria);
         }
     }
 }

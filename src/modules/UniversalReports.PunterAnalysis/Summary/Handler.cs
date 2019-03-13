@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.Summary
 
         public async Task<SummaryEntity<SummaryModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            return await Handle<Criteria, SummaryModel>(request).ConfigureAwait(false);
+            return await Handle<Criteria, SummaryModel>(request);
         }
 
     }

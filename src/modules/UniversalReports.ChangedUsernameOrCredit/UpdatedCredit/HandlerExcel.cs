@@ -23,7 +23,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 
         public async Task<ExcelPackage> Handle(ExcelMessage request, CancellationToken cancellationToken)
         {
-            var model = await service.GetUpdatedCredit(request).ConfigureAwait(false);
+            var model = await service.GetUpdatedCredit(request);
 
             var excelViewModel = Mapper.Map<IEnumerable<UpdatedCreditModel>, List<UpdatedCreditExcelModel>>(
                 model,

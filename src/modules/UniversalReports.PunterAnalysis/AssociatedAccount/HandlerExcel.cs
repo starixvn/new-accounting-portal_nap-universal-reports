@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            var associatedSummaries = await associatedFacade.Query(request).ConfigureAwait(false);
+            var associatedSummaries = await associatedFacade.Query(request);
 
             var excelViewModel = Mapper.Map<SummaryEntity<AssociatedSummaryExcelModel>>(associatedSummaries);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(request);

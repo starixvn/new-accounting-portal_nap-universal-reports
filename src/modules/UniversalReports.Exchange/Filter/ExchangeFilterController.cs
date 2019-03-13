@@ -19,7 +19,7 @@ namespace UniversalReports.Exchange.Filter
         [Route("licensee")]
         public async Task<IHttpActionResult> Licensee()
         {
-            var viewModel = await mediator.Send(new HttpParameterLicensee()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new HttpParameterLicensee());
             return Json(viewModel);
         }
 
@@ -27,7 +27,7 @@ namespace UniversalReports.Exchange.Filter
         [Route("sport")]
         public async Task<IHttpActionResult> Sport()
         {
-            var viewModel = await mediator.Send(new HttpParameterSport()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new HttpParameterSport());
             return Json(viewModel);
         }
     }

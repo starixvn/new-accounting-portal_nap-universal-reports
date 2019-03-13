@@ -190,6 +190,7 @@
     <Compile Include="DependencyInjection\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="DependencyInjection\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDataLoader.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditControllerTests.cs" />

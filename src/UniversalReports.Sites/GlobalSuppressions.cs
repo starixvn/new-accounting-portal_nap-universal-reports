@@ -7,3 +7,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S2325:Make 'Application_PostAuthorizeRequest' a static method.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.Sites.WebApiApplication.Application_PostAuthorizeRequest")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S2325:Make 'Application_Start' a static method.", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.Sites.WebApiApplication.Application_Start")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 240 characters long line (which is greater than 200 authorized).", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S3216:\"ConfigureAwait(false)\" should be used", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S3216:\"ConfigureAwait(false)\" should be used", Justification = "<Pending>")]

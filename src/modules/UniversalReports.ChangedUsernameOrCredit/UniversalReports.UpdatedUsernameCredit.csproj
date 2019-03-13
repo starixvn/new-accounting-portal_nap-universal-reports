@@ -158,6 +158,7 @@
     <Compile Include="Common\ExcelBuilder.cs" />
     <Compile Include="Common\ExcelSetting.cs" />
     <Compile Include="Common\ExcelSettingFactory.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="UpdatedCredit\ExcelMessage.cs" />
     <Compile Include="UpdatedCredit\HandlerExcel.cs" />
     <Compile Include="UpdatedCredit\UpdatedCreditEntity.generated.cs" />

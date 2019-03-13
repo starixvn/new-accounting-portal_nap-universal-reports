@@ -33,7 +33,7 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)
         {
             var criteria = Mapper.Map<UniversalBetTypeCriteria>(queryModel);
-            var winlosses = await QueryLiveNonLiveBetType(criteria).ConfigureAwait(false);
+            var winlosses = await QueryLiveNonLiveBetType(criteria);
 
             var nonLiveGridOptions = builder.Build(winlosses[0], queryModel.NonLiveTitle);
             nonLiveGridOptions = decorator.Build(nonLiveGridOptions, "Bet Type");
@@ -58,7 +58,7 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
                  Task.Run(() => service.Query(liveCriteria))
             };
 
-            return await Task.WhenAll(tasks).ConfigureAwait(false);
+            return await Task.WhenAll(tasks);
         }
     }
 }

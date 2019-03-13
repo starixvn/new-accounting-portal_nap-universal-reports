@@ -20,7 +20,7 @@ namespace UniversalReports.PlayForFun.Summary
         public async Task<SummaryEntity<SummaryModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SummaryCriteria>(request);
-            var model = await playForFunService.Query<SummaryModel>(criteria).ConfigureAwait(false);
+            var model = await playForFunService.Query<SummaryModel>(criteria);
 
             var viewModel = Mapper.Map<SummaryEntity<SummaryModel>>(model);
 

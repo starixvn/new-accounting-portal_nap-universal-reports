@@ -113,6 +113,7 @@
     <Compile Include="Filter\Sport\Handler.cs" />
     <Compile Include="Filter\Sport\HttpParameterJson.cs" />
     <Compile Include="Filter\Sport\SportModel.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\Criteria.cs" />
     <Compile Include="Report\ExcelBuilder.cs" />

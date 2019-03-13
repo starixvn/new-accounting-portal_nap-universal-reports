@@ -31,12 +31,12 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<SummaryEntity<AssociatedSummaryModel>> Query(HttpParameterJson request)
         {
-            var site = await GetSiteName(request.CustId).ConfigureAwait(false);
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite).ConfigureAwait(false);
+            var site = await GetSiteName(request.CustId);
+            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite);
 
             var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
             var summaries = usernames.Any()
-                ? await GetMemberSummaries(request, usernames).ConfigureAwait(false)
+                ? await GetMemberSummaries(request, usernames)
                 : new List<AssociatedSummaryModel>();
 
             return summaries
@@ -47,7 +47,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
         {
             var criteria = new UserSiteQueryCriteria { CustId = custId };
 
-            return await repository.GetAsync<Site>(criteria).ConfigureAwait(false);
+            return await repository.GetAsync<Site>(criteria);
         }
 
         private async Task<List<AssociatedSummaryModel>> GetMemberSummaries(HttpParameterJson request, IEnumerable<string> usernames)
@@ -65,7 +65,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
                 SortBy = request.SortBy
             };
 
-            var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria).ConfigureAwait(false);
+            var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
             return summaries.ToList();
         }
     }

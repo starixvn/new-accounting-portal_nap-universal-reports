@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.Summary
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            return await Handle<Criteria, SummaryModel, SummaryExcelModel>(request).ConfigureAwait(false);
+            return await Handle<Criteria, SummaryModel, SummaryExcelModel>(request);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.Shared
             where TModel : class, new()
         {
             var criteria = Mapper.Map<TCriteria>(message);
-            return await punterAnalysisService.Query<TModel>(criteria).ConfigureAwait(false);
+            return await punterAnalysisService.Query<TModel>(criteria);
         }
     }
 }

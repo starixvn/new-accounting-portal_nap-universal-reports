@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Summary\Model\ExcelSetting.cs" />
     <Compile Include="Summary\ExcelBuilder.cs" />
     <Compile Include="Core\PlayForFunService.cs" />

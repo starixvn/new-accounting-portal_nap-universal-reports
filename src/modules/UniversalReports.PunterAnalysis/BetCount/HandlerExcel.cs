@@ -27,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<Criteria>(request);
-            var model = await betCountService.Query(criteria).ConfigureAwait(false);
+            var model = await betCountService.Query(criteria);
             var excelViewModel = Mapper.Map<SummaryEntity<BetCountExcelModel>>(model);
             var excelSettingParams = Mapper.Map<ExcelSettingParams>(request);
             var excelSetting = excelSettingFactory.CreateSetting(excelSettingParams);

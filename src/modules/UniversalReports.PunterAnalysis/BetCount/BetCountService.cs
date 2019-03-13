@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         public async Task<SummaryEntity<BetCountModel>> Query(Criteria criteria)
         {
-            return (await repository.FetchAsync<BetCountRawModel>(criteria).ConfigureAwait(false))
+            return (await repository.FetchAsync<BetCountRawModel>(criteria))
                            .Select(e => Map(e, criteria.PeriodType))
                            .CalculateSummaryEntity();
         }

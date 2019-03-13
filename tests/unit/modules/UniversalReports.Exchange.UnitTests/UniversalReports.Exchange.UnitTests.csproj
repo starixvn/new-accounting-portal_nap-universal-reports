@@ -140,6 +140,7 @@
     <Compile Include="Filter\ExchangeFilterControllerTests.cs" />
     <Compile Include="Filter\Licensee\HandlerTests.cs" />
     <Compile Include="Filter\Sport\HandlerTests.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\ExchangeControllerTests.cs" />
     <Compile Include="Report\ExchangeEntityTests.cs" />

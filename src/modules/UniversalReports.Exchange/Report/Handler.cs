@@ -17,7 +17,7 @@ namespace UniversalReports.Exchange.Report
         public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
 
-            return await service.Query(request).ConfigureAwait(false);
+            return await service.Query(request);
         }
     }
 }

@@ -127,6 +127,7 @@
     <Compile Include="Filter\SiteCriteria.cs" />
     <Compile Include="Filter\SiteHandler.cs" />
     <Compile Include="Filter\SiteHttpParameter.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Product\Criteria.cs" />
     <Compile Include="Product\ProductExcelBuilder.cs" />
     <Compile Include="Product\Handler.cs" />

@@ -23,11 +23,11 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
         {
             var viewModel = new ViewModelJson();
 
-            viewModel.MonthStatistics = await Query<MonthStatistic, MonthCriteria>(request).ConfigureAwait(false);
-            viewModel.ProductTurnoverStatistics = await Query<ProductTurnoverStatistic, ProductTurnoverCriteria>(request).ConfigureAwait(false);
-            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request).ConfigureAwait(false);
-            viewModel.BetTypeStatistics = await Query<BetTypeStatistic, BetTypeCriteria>(request).ConfigureAwait(false);
-            viewModel.EventStatistics = await Query<EventStatistic, EventCriteria>(request).ConfigureAwait(false);
+            viewModel.MonthStatistics = await Query<MonthStatistic, MonthCriteria>(request);
+            viewModel.ProductTurnoverStatistics = await Query<ProductTurnoverStatistic, ProductTurnoverCriteria>(request);
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request);
+            viewModel.BetTypeStatistics = await Query<BetTypeStatistic, BetTypeCriteria>(request);
+            viewModel.EventStatistics = await Query<EventStatistic, EventCriteria>(request);
             viewModel.SummaryStatistic = QuerySummaryStatistic(viewModel.MonthStatistics);
 
             return viewModel;
@@ -46,7 +46,7 @@ namespace UniversalReports.PunterAnalysis.Performance.Summary
         private async Task<List<TResult>> Query<TResult, TCriteria>(SummaryHttpParameterJson message) where TCriteria : ICriteria
         {
             var criteria = Mapper.Map<TCriteria>(message);
-            var entities = await repository.FetchAsync<TResult>(criteria).ConfigureAwait(false);
+            var entities = await repository.FetchAsync<TResult>(criteria);
             return entities.ToList();
         }
     }

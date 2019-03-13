@@ -19,7 +19,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
         public async Task<SummaryEntity<BetCountModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<Criteria>(request);
-            return await betCountService.Query(criteria).ConfigureAwait(false);
+            return await betCountService.Query(criteria);
         }
     }
 }

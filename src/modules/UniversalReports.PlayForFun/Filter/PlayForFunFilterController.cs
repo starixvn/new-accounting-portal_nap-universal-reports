@@ -18,7 +18,7 @@ namespace UniversalReports.PlayForFun.Filter
         [Route("product")]
         public async Task<IHttpActionResult> Product()
         {
-            var viewModel = await mediator.Send(new HttpParameterJson()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new HttpParameterJson());
             return Json(viewModel);
         }
     }

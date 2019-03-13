@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.SportType
 
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
-            return await Handle<Criteria, SportTypeModel, SportTypeExcelModel>(request).ConfigureAwait(false);
+            return await Handle<Criteria, SportTypeModel, SportTypeExcelModel>(request);
         }
     }
 }

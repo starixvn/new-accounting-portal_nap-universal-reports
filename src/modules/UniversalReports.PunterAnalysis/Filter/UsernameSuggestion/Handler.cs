@@ -24,7 +24,7 @@ namespace UniversalReports.PunterAnalysis.Filter.UsernameSuggestion
         {
             var criteria = Mapper.Map<QueryCriteria>(request);
             criteria.CustId = currentSession.UserId;
-            return await repository.FetchAsync<string>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<string>(criteria);
         }
     }
 }

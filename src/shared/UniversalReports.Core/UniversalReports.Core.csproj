@@ -96,6 +96,7 @@
     <Compile Include="BalanceUpServices\BalanceUpRange.cs" />
     <Compile Include="BalanceUpServices\BalanceUpService.cs" />
     <Compile Include="Configurations\ConfigurationService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

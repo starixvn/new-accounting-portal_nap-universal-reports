@@ -18,7 +18,7 @@ namespace UniversalReports.ActualMemberBet.Filter
         public async Task<IEnumerable<Site>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = new SiteCriteria();
-            return await repository.FetchAsync<Site>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<Site>(criteria);
         }
     }
 }

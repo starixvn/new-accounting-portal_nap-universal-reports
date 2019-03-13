@@ -20,7 +20,7 @@ namespace UniversalReports.ActualMemberBet.Product
         public async Task<SummaryEntity<ProductActualMemberBet>> Handle(HttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<Criteria>(request);
-            return await service.Query<ProductActualMemberBet>(criteria).ConfigureAwait(false);
+            return await service.Query<ProductActualMemberBet>(criteria);
         }
     }
 }

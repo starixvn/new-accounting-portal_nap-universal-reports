@@ -19,14 +19,14 @@ namespace UniversalReports.PlayForFun.Summary
         [Route("")]
         public async Task<IHttpActionResult> Index(HttpParameterJson parameter)
         {
-            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
+            var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
         }
 
         [Route("excel")]
         public async Task<IHttpActionResult> Excel(HttpParameterExcel parameter)
         {
-            var excelPackage = await mediator.Send(parameter).ConfigureAwait(false);
+            var excelPackage = await mediator.Send(parameter);
             return new EpplusExcelResult(excelPackage, "pl@y4o3un");
         }
     }

@@ -6,3 +6,4 @@
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 241 characters long line (which is greater than 200 authorized).", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.HouseWinLoss.Common.BasicWinLoss.BasicGridDataRowBuilderImp.BuildDataRow(UniversalReports.HouseWinLoss.Common.Models.WinLoss,Fanex.Excel.Enums.HAlignment)~Fanex.Excel.Models.GridDataRow")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 417 characters long line (which is greater than 200 authorized).", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S3216:\"ConfigureAwait(false)\" should be used", Justification = "<Pending>")]

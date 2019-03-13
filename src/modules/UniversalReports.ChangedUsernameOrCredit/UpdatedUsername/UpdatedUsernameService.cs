@@ -28,7 +28,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
         {
             var criteria = Mapper.Map<Criteria>(message);
 
-            var rawData = await repository.FetchAsync<UpdatedUsernameEntity>(criteria).ConfigureAwait(false);
+            var rawData = await repository.FetchAsync<UpdatedUsernameEntity>(criteria);
 
             var result = rawData.Select(GetUpdatedUsernameItem).ToList();
 

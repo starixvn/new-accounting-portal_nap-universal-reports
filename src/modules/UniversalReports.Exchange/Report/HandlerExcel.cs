@@ -22,7 +22,7 @@ namespace UniversalReports.Exchange.Report
         public async Task<ExcelPackage> Handle(HttpParameterExcel request, CancellationToken cancellationToken)
         {
             var jsonMessage = Mapper.Map<HttpParameterJson>(request);
-            var exchange = await service.Query(jsonMessage).ConfigureAwait(false);
+            var exchange = await service.Query(jsonMessage);
             var exchangeExcelModel = Mapper.Map<SummaryEntity<ExchangeExcelEntity>>(exchange);
             var excelPackage = excelBuilder.Build(request, exchangeExcelModel);
             return excelPackage;

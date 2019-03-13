@@ -18,7 +18,7 @@ namespace UniversalReports.ActualMemberBet.Filter
         public async Task<IEnumerable<Currency>> Handle(CurrencyHttpParameter request, CancellationToken cancellationToken)
         {
             var criteria = new CurrencyCriteria();
-            return await repository.FetchAsync<Currency>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<Currency>(criteria);
         }
     }
 }

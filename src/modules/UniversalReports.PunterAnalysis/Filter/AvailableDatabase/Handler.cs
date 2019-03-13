@@ -17,7 +17,7 @@ namespace UniversalReports.PunterAnalysis.Filter.AvailableDatabase
         public async Task<bool> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new QueryCriteria();
-            return await repository.GetAsync<bool>(criteria).ConfigureAwait(false);
+            return await repository.GetAsync<bool>(criteria);
         }
     }
 }
