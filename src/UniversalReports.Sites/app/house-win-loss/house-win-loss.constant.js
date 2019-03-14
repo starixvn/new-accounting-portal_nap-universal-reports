@@ -661,8 +661,8 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "bet-builder-bet-type", mainColumnText: "Bet Type" },
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "bet-builder-bet-type", mainColumnText: "Bet Type", isBetBuilder: true },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -670,17 +670,17 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: { sheetName: "House Win Loss by Products", sportType: 1, isHedge: 2, isLive: 2,  type: "sportsbook-site" },
-                getTitleFunction: "getSiteTitleLive"
-            }, 
+                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+                getTitleFunction: "getSiteTitle"
+            },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportsbookMatchDetailController",
                 service: "sportsbookMatchDetailService",
                 serviceBaseUrl: 'api/house-win-loss-by-products/sportsbook/match-detail',
-                mainParameters: { sheetName: "House Win Loss by Products", sportType: 1, isHedge: 2, isLive: 2 },
-                getTitleFunction: "getMatchDetailTitleLive"
-            }
+                mainParameters: { sheetName: "House Win Loss by Products" },
+                getTitleFunction: "getMatchDetailTitle"
+            }            
         }
     };
     angular

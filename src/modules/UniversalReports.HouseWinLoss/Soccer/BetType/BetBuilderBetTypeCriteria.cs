@@ -1,6 +1,6 @@
 using UniversalReports.HouseWinLoss.Common.Criteria;
 
-namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
+namespace UniversalReports.HouseWinLoss.Soccer.BetType
 {
     public class BetBuilderBetTypeCriteria : WinLossCriteria
     {

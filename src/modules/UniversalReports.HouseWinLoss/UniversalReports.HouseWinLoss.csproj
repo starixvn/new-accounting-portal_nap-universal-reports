@@ -186,7 +186,7 @@
     <Compile Include="Bullfighting\MatchDetail\BullfightingMatchDetailController.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\BetBuilderBetTypeCriteria.cs" />
+    <Compile Include="Soccer\BetType\BetBuilderBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutSiteCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\BetTradeBetTypeCriteria.cs" />
@@ -351,7 +351,7 @@
     <Compile Include="Soccer\BetType\BetTypeCriteria.cs" />
     <Compile Include="Soccer\BetType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\BetType\QueryModel.cs" />
-    <Compile Include="Soccer\BetType\SoccerBetTypeController.cs" />
+    <Compile Include="Soccer\BetType\SoccerBetTypeController.native.cs" />
     <Compile Include="Soccer\GroupBetType\GroupBetTypeCriteria.cs" />
     <Compile Include="Soccer\GroupBetType\ExcelQueryModel.cs" />
     <Compile Include="Soccer\GroupBetType\QueryModel.cs" />
