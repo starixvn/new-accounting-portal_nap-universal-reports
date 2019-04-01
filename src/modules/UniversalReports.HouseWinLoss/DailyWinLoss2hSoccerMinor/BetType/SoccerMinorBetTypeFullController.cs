@@ -33,7 +33,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            criteria.IsLive = 2;
+            const int allLiveAndNonLive = 2;
+            criteria.IsLive = allLiveAndNonLive;
             var sumGridOption = GetGridOptions(criteria, queryModel.BetTypeFullTitle);
 
             criteria.IsLive = 1;
@@ -51,7 +52,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         {
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, title);
-            return decorator.Build(gridOptions, "Bet Type", 210);
+            const int mainColumnWidth = 210;
+            return decorator.Build(gridOptions, "Bet Type", mainColumnWidth);
         }
     }
 }

@@ -4,6 +4,8 @@ namespace UniversalReports.HouseWinLoss.Common.Models
 {
     public class WinLoss
     {
+        private const int NumberDigitOfDecimalRouding = 4;
+
         public string Name { get; set; }
 
         public int Id { get; set; }
@@ -27,11 +29,11 @@ namespace UniversalReports.HouseWinLoss.Common.Models
         public decimal VirtualTurnover { get; set; }
 
         public decimal VirtualMargin => VirtualTurnover != 0
-            ? Math.Round(VirtualIncome / VirtualTurnover, 4, MidpointRounding.AwayFromZero)
+            ? Math.Round(VirtualIncome / VirtualTurnover, NumberDigitOfDecimalRouding, MidpointRounding.AwayFromZero)
             : 0;
 
         public decimal RealMargin => RealTurnover != 0
-            ? Math.Round(RealIncome / RealTurnover, 4, MidpointRounding.AwayFromZero)
+            ? Math.Round(RealIncome / RealTurnover, NumberDigitOfDecimalRouding, MidpointRounding.AwayFromZero)
             : 0;
 
         public bool IsEmpty

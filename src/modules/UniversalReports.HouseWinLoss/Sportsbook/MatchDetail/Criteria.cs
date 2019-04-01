@@ -15,7 +15,8 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 
         public override string GetSettingKey()
         {
-            return BetType == 38 ? $"HouseWinLoss-BetBuilder-MatchDetail-{Source}" : $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
+            const int betBuilderBetType = 38;
+            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-MatchDetail-{Source}" : $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
         }
     }
 }

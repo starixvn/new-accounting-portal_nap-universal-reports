@@ -7,6 +7,8 @@ namespace UniversalReports.NG2Statistics.Daily
     [RoutePrefix("api/ng2-statistics/daily")]
     public class DailyController : ApiController
     {
+        private const string MainColumnName = "Winlostdate";
+
         private readonly DailyService service;
         private readonly GridOptionsBuilder builder;
         private readonly BaseGridOptionHeaderColumn header;
@@ -23,7 +25,7 @@ namespace UniversalReports.NG2Statistics.Daily
         {
             var dailyModel = service.Query(queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);
+            gridOptions = header.Build(gridOptions, "Date", MainColumnName, queryModel);
 
             return Json(gridOptions);
         }
@@ -34,7 +36,7 @@ namespace UniversalReports.NG2Statistics.Daily
             var dailyRawModel = service.Query(queryModel);
             var dailyModel = service.SortData(dailyRawModel, queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);
+            gridOptions = header.Build(gridOptions, "Date", MainColumnName, queryModel);
 
             return Json(gridOptions);
         }
@@ -42,13 +44,13 @@ namespace UniversalReports.NG2Statistics.Daily
         [Route("excel")]
         public IHttpActionResult Excel(QueryModel queryModel)
         {
-            queryModel.SortColumnName = string.IsNullOrEmpty(queryModel.SortColumnName) ? "Winlostdate" : queryModel.SortColumnName;
+            queryModel.SortColumnName = string.IsNullOrEmpty(queryModel.SortColumnName) ? MainColumnName : queryModel.SortColumnName;
             queryModel.SortDirection = string.IsNullOrEmpty(queryModel.SortDirection) ? "asc" : queryModel.SortDirection;
 
             var dailyModel = service.Query(queryModel);
             dailyModel = service.SortData(dailyModel, queryModel);
             var gridOptions = builder.Build(dailyModel, queryModel.Title);
-            gridOptions = header.Build(gridOptions, "Date", "Winlostdate", queryModel);
+            gridOptions = header.Build(gridOptions, "Date", MainColumnName, queryModel);
 
             return new FanexExcelResult(gridOptions, "NG2 Statistics");
         }

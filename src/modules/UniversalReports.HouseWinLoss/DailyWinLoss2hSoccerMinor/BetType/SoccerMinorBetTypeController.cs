@@ -20,14 +20,16 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria, "Bet Type", 210);
+            const int mainColumnWidth = 210;
+            return Json(criteria, "Bet Type", mainColumnWidth);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, "Bet Type", queryModel.BetTypeFullTitle, 210);
+            const int mainColumnWidth = 210;
+            return Excel(criteria, "Bet Type", queryModel.BetTypeFullTitle, mainColumnWidth);
         }
     }
 }

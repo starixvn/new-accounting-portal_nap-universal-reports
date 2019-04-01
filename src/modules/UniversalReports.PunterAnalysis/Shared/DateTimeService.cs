@@ -12,6 +12,8 @@ namespace UniversalReports.PunterAnalysis.Shared
 
     public class DateTimeServiceImp : DateTimeService
     {
+        private const int DayOffsetFromStartOfWeek = 3;
+
         public DateTime GetFirstDateOfWeekIso8601(int year, int weekOfYear)
         {
             var january = new DateTime(year, 1, 1);
@@ -24,14 +26,14 @@ namespace UniversalReports.PunterAnalysis.Shared
             var weekNum = firstWeek <= 1 ? weekOfYear - 1 : weekOfYear;
 
             var result = firstThursday.AddDays(weekNum * 7);
-            return result.AddDays(-3);
+            return result.AddDays(-DayOffsetFromStartOfWeek);
         }
 
         public static int GetWeekOfYearIso8601(DateTime dateTime)
         {
             var day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(dateTime);
             var realDate = day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday
-                ? dateTime.AddDays(3)
+                ? dateTime.AddDays(DayOffsetFromStartOfWeek)
                 : dateTime;
 
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(realDate, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);

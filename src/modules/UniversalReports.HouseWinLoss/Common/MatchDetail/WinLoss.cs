@@ -4,6 +4,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
     public class WinLoss
     {
+        private const int NumberDigitOfRounding = 4;
+
         public int MatchId { get; set; }
 
         public string MatchCode { get; set; }
@@ -43,11 +45,11 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         public decimal VirtualTurnover { get; set; }
 
         public decimal RealMargin => RealTurnover != 0
-            ? Math.Round(RealIncome / RealTurnover, 4, MidpointRounding.AwayFromZero)
+            ? Math.Round(RealIncome / RealTurnover, NumberDigitOfRounding, MidpointRounding.AwayFromZero)
             : 0;
 
         public decimal VirtualMargin => VirtualTurnover != 0
-            ? Math.Round(VirtualIncome / VirtualTurnover, 4, MidpointRounding.AwayFromZero)
+            ? Math.Round(VirtualIncome / VirtualTurnover, NumberDigitOfRounding, MidpointRounding.AwayFromZero)
             : 0;
 
         public decimal ExtraPT { get; set; }

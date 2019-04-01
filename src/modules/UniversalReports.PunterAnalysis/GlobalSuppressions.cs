@@ -8,3 +8,6 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S103:Split this 419 characters long line (which is greater than 200 authorized).", Justification = "<Pending>")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Build", "S1450:Private fields only used as local variables in methods should become local variables.", Justification = "<Pending>")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S3216:\"ConfigureAwait(false)\" should be used", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "type", Target = "~T:UniversalReports.PunterAnalysis.League.LeagueExcelBuilderImp")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "type", Target = "~T:UniversalReports.PunterAnalysis.BetType.BetTypeExcelSettingFactory")]
+

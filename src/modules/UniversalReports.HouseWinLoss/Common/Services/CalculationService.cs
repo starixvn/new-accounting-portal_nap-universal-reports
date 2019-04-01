@@ -22,6 +22,10 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
     public class CalculationServiceImp : CalculationService
     {
+        private const string CreditName = @"Credit";
+
+        private const string DepositName = @"Deposit";
+
         private readonly RemotingRefService refService;
 
         public CalculationServiceImp(RemotingRefService refService)
@@ -112,7 +116,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         private WinLoss SumCreditGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var creditData = rawWinLosses.Where(r => r.RowName == "Credit");
+            var creditData = rawWinLosses.Where(r => r.RowName == CreditName);
             var sumData = CalculateSum(creditData);
 
             var winloss = FromRawWinLossByRowName(sumData);
@@ -123,7 +127,7 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var depositData = rawWinLosses.Where(r => r.RowName == "Deposit");
+            var depositData = rawWinLosses.Where(r => r.RowName == DepositName);
             var sumData = CalculateSum(depositData);
 
             var winloss = FromRawWinLossByRowName(sumData);

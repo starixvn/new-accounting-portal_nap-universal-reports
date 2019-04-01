@@ -99,9 +99,10 @@ namespace UniversalReports.PunterAnalysis.League
         private void CreateHeader(List<string> groupNames)
         {
             var columnIndex = WinLossColumnIndex;
-            headerTemplateSheet.Cells["A7:A8"].Copy(statisticSheet.Cells["A7:A8"]);
-            statisticSheet.Cells["A7:A8"].Value = "League";
-            statisticSheet.Cells["A7:A8"].Merge = true;
+            const string leagueNameCellAddress = "A7:A8";
+            headerTemplateSheet.Cells[leagueNameCellAddress].Copy(statisticSheet.Cells[leagueNameCellAddress]);
+            statisticSheet.Cells[leagueNameCellAddress].Value = "League";
+            statisticSheet.Cells[leagueNameCellAddress].Merge = true;
             groupNames.ForEach(groupName =>
             {
                 headerTemplateSheet.Cells["B7:E7"].Copy(
