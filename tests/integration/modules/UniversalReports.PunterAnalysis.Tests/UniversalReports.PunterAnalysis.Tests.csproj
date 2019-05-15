@@ -65,28 +65,28 @@
       <HintPath>..\..\..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=2.1.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Fanex.Data.2.1.0.1\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.3.1.0\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data.CrossCutting.WrappingException, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Fanex.Data.CrossCutting.WrappingException.1.0.0.3\lib\net461\Fanex.Data.CrossCutting.WrappingException.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data.OldConnectionStringProvider">
-      <HintPath>..\..\..\..\packages\Fanex.Data.OldConnectionStringProvider.1.0.1\lib\net461\Fanex.Data.OldConnectionStringProvider.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.1.0.2.1\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.3.0.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Fanex.Excel.2.2.2.5\lib\net40\Fanex.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Logging, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Fanex.Logging.1.0.4\lib\net40\Fanex.Logging.dll</HintPath>
+    <Reference Include="Fanex.Logging, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Logging.2.0.1\lib\net461\Fanex.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Logging.Extensions.1.0.6\lib\net461\Fanex.Logging.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
@@ -204,6 +204,7 @@
       <HintPath>..\..\..\..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
       <Private>True</Private>

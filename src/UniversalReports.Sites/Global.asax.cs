@@ -22,12 +22,12 @@ namespace UniversalReports.Sites
         {
             ChangeApplicationName();
             RemotingRef.Register();
+            FanexData.Register();
+            FanexLogging.Register();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            FanexData.Register();
-            FanexLogging.Register();
             Mapper.Initialize(cfg =>
             {
                 cfg.InitializeHouseWinLoss();
