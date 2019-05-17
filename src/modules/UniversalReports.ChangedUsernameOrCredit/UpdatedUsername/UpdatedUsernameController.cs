@@ -18,14 +18,14 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
         [Route("query")]
         public async Task<IHttpActionResult> Query(Message message)
         {
-            var viewModel = await mediator.Send(message).ConfigureAwait(false);
+            var viewModel = await mediator.Send(message);
             return Json(viewModel);
         }
 
         [Route("excel")]
         public async Task<IHttpActionResult> Excel(ExcelMessage message)
         {
-            var excelPackage = await mediator.Send(message).ConfigureAwait(false);
+            var excelPackage = await mediator.Send(message);
             return new EpplusExcelResult(excelPackage);
         }
     }

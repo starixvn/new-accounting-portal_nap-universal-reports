@@ -20,14 +20,16 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria, "Bet Type", 220);
+            const int mainColumnWidth = 220;
+            return Json(criteria, "Bet Type", mainColumnWidth);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, "Bet Type", queryModel.Title, 220);
+            const int mainColumnWidth = 220;
+            return Excel(criteria, "Bet Type", queryModel.Title, mainColumnWidth);
         }
     }
 }

@@ -13,6 +13,10 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
+        public override string GetSettingKey()
+        {
+            const int betBuilderBetType = 38;
+            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-MatchDetail-{Source}" : $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
+        }
     }
 }

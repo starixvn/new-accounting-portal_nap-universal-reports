@@ -61,7 +61,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 
             // Act
             var facade = new AssociatedFacadeImp(configurationService, fraudService, repository);
-            var viewModel = await facade.Query(new HttpParameterJson()).ConfigureAwait(false);
+            var viewModel = await facade.Query(new HttpParameterJson());
 
             // Assert
             var expectedEntities = new List<AssociatedSummaryModel>
@@ -96,7 +96,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 
             // Act
             var facade = new AssociatedFacadeImp(configurationService, fraudService, repository);
-            var viewModel = await facade.Query(new HttpParameterJson()).ConfigureAwait(false);
+            var viewModel = await facade.Query(new HttpParameterJson());
 
             // Assert
             var expectedEntities = new List<AssociatedSummaryModel>();

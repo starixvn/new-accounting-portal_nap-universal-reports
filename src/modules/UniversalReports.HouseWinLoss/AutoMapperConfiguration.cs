@@ -38,6 +38,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Racing.MatchDetail.QueryModel, Racing.MatchDetail.Criteria>();
             cfg.CreateMap<Soccer.BetType.ExcelQueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetType.QueryModel, Soccer.BetType.BetTypeCriteria>();
+            cfg.CreateMap<Soccer.BetType.ExcelQueryModel, Soccer.BetType.BetBuilderBetTypeCriteria>();
+            cfg.CreateMap<Soccer.BetType.QueryModel, Soccer.BetType.BetBuilderBetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.SumBetType.SumBetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.GroupBetType.GroupBetTypeCriteria>();

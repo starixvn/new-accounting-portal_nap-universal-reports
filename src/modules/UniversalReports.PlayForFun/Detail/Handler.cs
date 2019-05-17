@@ -20,7 +20,7 @@ namespace UniversalReports.PlayForFun.Detail
         public async Task<SummaryEntity<DetailModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<DetailCriteria>(request);
-            return await playForFunService.Query<DetailModel>(criteria).ConfigureAwait(false);
+            return await playForFunService.Query<DetailModel>(criteria);
         }
     }
 }

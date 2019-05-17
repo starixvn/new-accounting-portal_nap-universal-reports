@@ -15,7 +15,7 @@ namespace UniversalReports.PunterAnalysis.BetType
 
         public async Task<SummaryEntity<BetTypeModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            return await Handle<Criteria, BetTypeModel>(request).ConfigureAwait(false);
+            return await Handle<Criteria, BetTypeModel>(request);
         }
     }
 }

@@ -28,7 +28,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             var criteria = Mapper.Map<SumBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, string.Empty);
-            gridOptions = decorator.Build(gridOptions, "Bet Type", 210);
+            const int mainColumnWidth = 210;
+            gridOptions = decorator.Build(gridOptions, "Bet Type", mainColumnWidth);
 
             return Json(gridOptions);
         }
@@ -39,7 +40,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
             var criteria = Mapper.Map<SumBetTypeCriteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
-            gridOptions = decorator.Build(gridOptions, "Bet Type", 210);
+            const int mainColumnWidth = 210;
+            gridOptions = decorator.Build(gridOptions, "Bet Type", mainColumnWidth);
 
             return new FanexExcelResult(gridOptions, Constants.SheetName);
         }

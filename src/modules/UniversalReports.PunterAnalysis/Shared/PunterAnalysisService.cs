@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.Shared
 
         public async Task<SummaryEntity<T>> Query<T>(ICriteria criteria) where T : class, new()
         {
-            var entities = await repository.FetchAsync<T>(criteria).ConfigureAwait(false);
+            var entities = await repository.FetchAsync<T>(criteria);
             return entities.CalculateSummaryEntity();
         }
     }

@@ -16,10 +16,11 @@ namespace UniversalReports.PunterAnalysis.Summary
 
         public ExcelSetting CreateSetting(ExcelSettingParams excelSettingParams)
         {
+            const int startDataRowTemplateIndex = 8;
             return new ExcelSetting
             {
                 SheetName = "Punter Analysis",
-                StartRowIndex = 8,
+                StartRowIndex = startDataRowTemplateIndex,
                 TemplatePath = $"{configurationService.CurrentDirectory}\\{TemplatePath}",
                 Title = excelSettingParams.Title,
                 TitleCellRange = "A1:E2",

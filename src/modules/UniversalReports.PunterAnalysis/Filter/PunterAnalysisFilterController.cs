@@ -23,42 +23,42 @@ namespace UniversalReports.PunterAnalysis.Filter
         [Route("available-database")]
         public async Task<IHttpActionResult> AvailableDatabase(HttpParameterAvailableDatabase parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         [Route("available-date-range")]
         public async Task<IHttpActionResult> AvailableDateRange(HttpParameterAvailableDataRange parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         [Route("product-sport-bet-type")]
         public async Task<IHttpActionResult> ProductSportBetType(HttpParameterProductSportBetType parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         [Route("username-suggestion")]
         public async Task<IHttpActionResult> UsernameSuggestion(HttpParameterUsernameSuggestion parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         [Route("sportsbook-sport-bet-type")]
         public async Task<IHttpActionResult> SportsbookSportBetType(HttpParameterSportsbookSportBetType parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         [Route("sport-type-league")]
         public async Task<IHttpActionResult> SportTypeLeague(HttpParameterSportTypeLeague parameter)
         {
-            return await Handle(parameter).ConfigureAwait(false);
+            return await Handle(parameter);
         }
 
         private async Task<IHttpActionResult> Handle<TResponse>(IRequest<TResponse> parameter)
         {
-            var viewModel = await mediator.Send(parameter).ConfigureAwait(false);
+            var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
         }
     }

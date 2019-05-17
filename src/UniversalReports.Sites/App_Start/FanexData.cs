@@ -1,6 +1,5 @@
 ﻿using Fanex.Data;
 using Fanex.Data.CrossCutting.WrappingException;
-using Fanex.Data.OldConnectionStringProvider;
 using Fanex.NAP.Core.Configuration;
 
 namespace UniversalReports.Sites
@@ -14,9 +13,10 @@ namespace UniversalReports.Sites
                : "TEST";
             DbSettingProviderManager
              .StartNewSession()
-             .Use(new OldConnectionStringProvider())
+             .UseDefaultConnectionStringProvider()
              .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
-             .UseDefaultDbSettingProvider($"~/App_Data/{resourceFolder}", enableWatching: true).Run();
+             .UseDefaultDbSettingProvider($"~/App_Data/{resourceFolder}")
+             .Run();
         }
     }
 }

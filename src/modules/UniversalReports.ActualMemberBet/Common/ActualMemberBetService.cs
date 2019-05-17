@@ -20,7 +20,7 @@ namespace UniversalReports.ActualMemberBet.Common
 
         public async Task<SummaryEntity<T>> Query<T>(ICriteria criteria) where T : class, new()
         {
-            return (await repository.FetchAsync<T>(criteria).ConfigureAwait(false))
+            return (await repository.FetchAsync<T>(criteria))
                     .CalculateSummaryEntity();
         }
     }

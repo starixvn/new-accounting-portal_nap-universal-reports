@@ -18,7 +18,7 @@ namespace UniversalReports.Exchange.Filter.Licensee
         public async Task<IEnumerable<LicenseeModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
             var criteria = new Criteria();
-            return await repository.FetchAsync<LicenseeModel>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<LicenseeModel>(criteria);
         }
     }
 }

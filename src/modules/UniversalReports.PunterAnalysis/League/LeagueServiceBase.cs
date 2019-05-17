@@ -18,7 +18,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         public async Task<ReportModel> Query(ICriteria criteria)
         {
-            var entities = await QueryFromRepository(criteria).ConfigureAwait(false);
+            var entities = await QueryFromRepository(criteria);
             var monthGroups = GetMappingGroups(entities);
 
             var leagueModels = GetLeagueModels(entities, monthGroups);
@@ -33,7 +33,7 @@ namespace UniversalReports.PunterAnalysis.League
 
         private async Task<List<LeagueMappingModel>> QueryFromRepository(ICriteria criteria)
         {
-            var entities = await repository.FetchAsync<LeagueRawModel>(criteria).ConfigureAwait(false);
+            var entities = await repository.FetchAsync<LeagueRawModel>(criteria);
             return entities
                 .Select(Transform)
                 .ToList();

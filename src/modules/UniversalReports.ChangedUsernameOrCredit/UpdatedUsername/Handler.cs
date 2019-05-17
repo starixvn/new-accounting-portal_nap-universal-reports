@@ -16,7 +16,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 
         public async Task<IEnumerable<UpdatedUsernameModel>> Handle(Message request, CancellationToken cancellationToken)
         {
-            return await service.GetUpdatedUsername(request).ConfigureAwait(false);
+            return await service.GetUpdatedUsername(request);
         }
     }
 }

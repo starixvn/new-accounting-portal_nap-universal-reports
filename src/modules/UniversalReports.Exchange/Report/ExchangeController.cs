@@ -18,14 +18,14 @@ namespace UniversalReports.Exchange.Report
         [Route("report")]
         public async Task<IHttpActionResult> Exchange(HttpParameterJson httpParameter)
         {
-            var viewModel = await mediator.Send(httpParameter).ConfigureAwait(false);
+            var viewModel = await mediator.Send(httpParameter);
             return Json(viewModel);
         }
 
         [Route("excel")]
         public async Task<IHttpActionResult> Excel(HttpParameterExcel httpParameter)
         {
-            var excelPackage = await mediator.Send(httpParameter).ConfigureAwait(false);
+            var excelPackage = await mediator.Send(httpParameter);
             return new EpplusExcelResult(excelPackage);
         }
     }

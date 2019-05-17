@@ -17,7 +17,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<SummaryEntity<AssociatedSummaryModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            return await associatedFacade.Query(request).ConfigureAwait(false);
+            return await associatedFacade.Query(request);
         }
     }
 }

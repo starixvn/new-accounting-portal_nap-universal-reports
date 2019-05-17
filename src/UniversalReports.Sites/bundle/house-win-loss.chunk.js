@@ -700,6 +700,33 @@ webpackJsonp([3],{
 	                mainParameters: { sheetName: "House Win Loss by Products", productId: 33, isLive: 2, type: "poker-games-site" },
 	                getTitleFunction: "getSiteTitle"
 	            }
+	        },
+	        "Bet Builder": {
+	            mainView: "betType",
+	            betType: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "BetTypeController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
+	                mainParameters: { sheetName: "House Win Loss by Products", type: "bet-builder-bet-type", mainColumnText: "Bet Type", isBetBuilder: true },
+	                getTitleFunction: "getProductTitle"
+	            },
+	            site: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SiteController",
+	                service: "remoteDataService",
+	                serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
+	                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+	                getTitleFunction: "getSiteTitle"
+	            },
+	            matchDetail: {
+	                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+	                controller: "SportsbookMatchDetailController",
+	                service: "sportsbookMatchDetailService",
+	                serviceBaseUrl: 'api/house-win-loss-by-products/sportsbook/match-detail',
+	                mainParameters: { sheetName: "House Win Loss by Products" },
+	                getTitleFunction: "getMatchDetailTitle"
+	            }
 	        }
 	    };
 	    angular.module("app.houseWinlossApp").constant("templateSetting", templateSetting);

@@ -47,7 +47,7 @@ namespace UniversalReports.HouseWinLoss.Products
             var bodyRows = new List<GridDataRow>();
             bodyRows.AddRange(sportsbookRows);
             bodyRows.AddRange(sportsbookRMRows);
-            if (sportsbookRows.Any() && sportsbookRMRows.Any())
+            if (sportsbookRows.Any() || sportsbookRMRows.Any())
             {
                 bodyRows.Add(EmptyRow());
             }

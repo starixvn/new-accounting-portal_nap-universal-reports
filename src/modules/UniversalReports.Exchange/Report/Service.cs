@@ -22,7 +22,7 @@ namespace UniversalReports.Exchange.Report
         public async Task<SummaryEntity<ExchangeEntity>> Query(HttpParameterJson message)
         {
             var criteria = Mapper.Map<Criteria>(message);
-            return (await repository.FetchAsync<ExchangeEntity>(criteria).ConfigureAwait(false))
+            return (await repository.FetchAsync<ExchangeEntity>(criteria))
                     .CalculateSummaryEntity();
         }
     }

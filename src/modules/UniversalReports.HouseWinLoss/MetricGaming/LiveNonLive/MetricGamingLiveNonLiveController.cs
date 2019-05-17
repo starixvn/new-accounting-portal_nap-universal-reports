@@ -43,10 +43,11 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), "Bet Type");
-            yield return decorator.Build(majorMinorGridOptions, "Bet Type", 220);
+            const int mainColumnWidth = 220;
+            yield return decorator.Build(majorMinorGridOptions, "Bet Type", mainColumnWidth);
 
             var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
-            yield return decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", 220);
+            yield return decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", mainColumnWidth);
         }
 
         [Route("excel")]
@@ -56,10 +57,11 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.BetTypeTitle);
-            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Bet Type", 220);
+            const int mainColumnWidth = 220;
+            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Bet Type", mainColumnWidth);
 
             var liveNonLiveGridOptions = builder.Build(winlosses.Last(), queryModel.LiveNonLiveTitle);
-            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", 220);
+            liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", mainColumnWidth);
 
             return new FanexExcelResult(
                 new List<GridOptions> { majorMinorGridOptions, liveNonLiveGridOptions },

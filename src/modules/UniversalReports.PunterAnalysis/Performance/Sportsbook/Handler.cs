@@ -22,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
         public async Task<ViewModelJson> Handle(SportsbookHttpParameterJson request, CancellationToken cancellationToken)
         {
             var viewModel = new ViewModelJson();
-            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request).ConfigureAwait(false);
+            viewModel.SportStatistics = await Query<SportStatistic, SportCriteria>(request);
             viewModel.SummaryStatistic = QuerySummaryStatistics(viewModel.SportStatistics);
             return viewModel;
         }
@@ -40,7 +40,7 @@ namespace UniversalReports.PunterAnalysis.Performance.Sportsbook
         private async Task<List<TResult>> Query<TResult, TCriteria>(SportsbookHttpParameterJson message) where TCriteria : ICriteria
         {
             var criteria = Mapper.Map<TCriteria>(message);
-            var entities = await repository.FetchAsync<TResult>(criteria).ConfigureAwait(false);
+            var entities = await repository.FetchAsync<TResult>(criteria);
             return entities.ToList();
         }
     }

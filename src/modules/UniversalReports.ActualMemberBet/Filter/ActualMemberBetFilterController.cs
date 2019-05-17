@@ -17,21 +17,21 @@ namespace UniversalReports.ActualMemberBet.Filter
         [Route("currency")]
         public async Task<IHttpActionResult> Currency()
         {
-            var viewModel = await mediator.Send(new CurrencyHttpParameter()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new CurrencyHttpParameter());
             return Json(viewModel);
         }
 
         [Route("odds")]
         public async Task<IHttpActionResult> Odds()
         {
-            var viewModel = await mediator.Send(new OddsHttpParameter()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new OddsHttpParameter());
             return Json(viewModel);
         }
 
         [Route("site")]
         public async Task<IHttpActionResult> Site()
         {
-            var viewModel = await mediator.Send(new SiteHttpParameter()).ConfigureAwait(false);
+            var viewModel = await mediator.Send(new SiteHttpParameter());
             return Json(viewModel);
         }
     }

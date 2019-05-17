@@ -23,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.Filter.SportTypeLeague
                 SearchText = request.SearchText,
                 SearchExactly = request.SearchExactly
             };
-            return await repository.FetchAsync<SportTypeLeagueEntity>(criteria).ConfigureAwait(false);
+            return await repository.FetchAsync<SportTypeLeagueEntity>(criteria);
         }
     }
 }
