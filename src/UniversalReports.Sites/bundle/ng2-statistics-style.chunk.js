@@ -1,19 +1,2 @@
-webpackJsonp([6],{
-
-/***/ 0:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(228);
-
-
-/***/ },
-
-/***/ 228:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }
-
-});
+webpackJsonp([7],{0:function(n,o,c){n.exports=c(221)},221:function(n,o){}});
 //# sourceMappingURL=ng2-statistics-style.chunk.js.map

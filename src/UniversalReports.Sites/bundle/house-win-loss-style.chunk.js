@@ -1,27 +1,2 @@
-webpackJsonp([4],{
-
-/***/ 0:
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(211);
-	module.exports = __webpack_require__(212);
-
-
-/***/ },
-
-/***/ 211:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 212:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }
-
-});
+webpackJsonp([6],{0:function(n,o,c){c(220),n.exports=c(222)},220:function(n,o){},222:function(n,o){}});
 //# sourceMappingURL=house-win-loss-style.chunk.js.map
