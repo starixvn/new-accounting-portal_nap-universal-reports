@@ -414,7 +414,7 @@ import moment from "moment";
                 getTitleFunction: "getSiteTitle"
             }
         },
-        "Keno": {
+        "RNG Keno": {
             mainView: "betType",
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
