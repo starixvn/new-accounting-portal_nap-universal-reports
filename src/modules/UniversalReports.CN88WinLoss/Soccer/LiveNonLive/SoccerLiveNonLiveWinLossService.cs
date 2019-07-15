@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UniversalReports.CN88WinLoss.Common.BasicWinLoss;
+using UniversalReports.CN88WinLoss.Common.Criteria;
+using UniversalReports.CN88WinLoss.Common.Services;
+
+namespace UniversalReports.CN88WinLoss.Soccer.LiveNonLive
+{
+    public interface SoccerLiveNonLiveWinLossService
+    {
+        IEnumerable<BasicWinLossModel> Query(WinLossCriteria criteria);
+    }
+
+    public class SoccerLiveNonLiveWinLossServiceImp : SoccerLiveNonLiveWinLossService
+    {
+        private readonly RawWinLossService rawWinLossService;
+
+        private readonly CalculationService calculationService;
+
+        public SoccerLiveNonLiveWinLossServiceImp(
+            RawWinLossService rawWinLossService,
+            CalculationService calculationService)
+        {
+            this.rawWinLossService = rawWinLossService;
+            this.calculationService = calculationService;
+        }
+
+        public IEnumerable<BasicWinLossModel> Query(WinLossCriteria criteria)
+        {
+            var rawWinLosses = rawWinLossService.Query(criteria);
+
+            var majorMinorRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer-Major Bet Types", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Soccer-Minor Bet Types", StringComparison.CurrentCultureIgnoreCase));
+
+            var majorMinorSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(majorMinorRawWinLosses);
+            var majorMinorGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", majorMinorRawWinLosses);
+            var majorMinorAllRMData = calculationService.CalculateRM(rawWinLosses);
+
+            yield return new BasicWinLossModel
+            {
+                SiteWinLossSummaries = majorMinorSiteWinLossSummaries.ToList(),
+                RM = majorMinorAllRMData.ToList(),
+                GrandTotal = majorMinorGrandTotal
+            };
+
+            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer Live", StringComparison.CurrentCultureIgnoreCase)
+                                                                || r.GroupName.Equals("Soccer Non-Live", StringComparison.CurrentCultureIgnoreCase));
+
+            var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
+            var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
+            var liveNonLiveAllRMData = calculationService.CalculateRM(rawWinLosses);
+
+            yield return new BasicWinLossModel
+            {
+                SiteWinLossSummaries = liveNonLiveSiteWinLossSummaries.ToList(),
+                RM = liveNonLiveAllRMData.ToList(),
+                GrandTotal = liveNonLiveGrandTotal
+            };
+        }
+    }
+}

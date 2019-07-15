@@ -53,6 +53,30 @@
     <Setting Key="HouseWinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
+  <Function Name="CN88WinLossByProducts">
+    <Setting Key="CN88WinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
+    <Setting Key="CN88WinLoss-Universal-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-NumberGame-League-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_League_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Soccer-MajorMinor-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-OtherSports-SportType-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_LiveStatus_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
+    <Setting Key="CN88WinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSportsBetradar-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSportsBetradar-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_BetType_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="CN88WinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_Old_CN88" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
   <Function Name="NG2-Statistics">
     <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBWH.bodb_dwrs.bodbAdminNet">
