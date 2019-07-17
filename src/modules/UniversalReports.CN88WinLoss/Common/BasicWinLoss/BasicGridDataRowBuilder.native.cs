@@ -22,7 +22,7 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
                 new Columns { ColumnIndex = columnIndex++, Name = "Main", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = customAttributes, CellAlignment = mainTextAlignment },
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                 new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
+                 new Columns(columnIndex++, "HeadlineIncome", item.HeadlineIncome),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
@@ -30,7 +30,9 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
-                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
+                new Columns(columnIndex++, "RealMargin", item.ExcelRealMargin()),
+                new Columns(columnIndex++, "CN88RealIncome", 0.45m * item.RealIncome),
+                new Columns(columnIndex, "CompanyRealIncome", 0.55m * item.RealIncome)
             };
 
             return new GridDataRow { Columns = columns };

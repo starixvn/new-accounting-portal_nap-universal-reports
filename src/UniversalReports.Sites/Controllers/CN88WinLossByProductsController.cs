@@ -22,7 +22,7 @@ namespace UniversalReports.Sites.Controllers
             this.currentSession = currentSession;
         }
 
-        [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
+        [NapAuth(FunctionKey = FunctionKeys.CN88WinLossByProducts, Policy = Constant.Policy.Read)]
         [UserActivityFilter]
         public ActionResult Index()
         {

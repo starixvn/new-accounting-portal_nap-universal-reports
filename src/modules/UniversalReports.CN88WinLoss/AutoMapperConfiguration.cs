@@ -7,7 +7,9 @@ namespace UniversalReports.CN88WinLoss
         public static void InitializeCN88WinLoss(this IProfileExpression cfg)
         {
             cfg.CreateMap<Common.MatchDetail.RawWinLoss, Common.MatchDetail.WinLoss>();
-            cfg.CreateMap<Common.Models.WinLossRaw, Common.Models.WinLoss>();
+            cfg.CreateMap<Common.Models.WinLossRaw, Common.Models.WinLoss>()
+                .ForMember(d => d.Name, m => m.MapFrom(src => src.GroupName))
+                .ForMember(d => d.Id, m => m.MapFrom(src => src.GroupId));
             cfg.CreateMap<NumberGame.MatchDetail.ExcelQueryModel, NumberGame.MatchDetail.Criteria>();
             cfg.CreateMap<NumberGame.MatchDetail.QueryModel, NumberGame.MatchDetail.Criteria>();
             cfg.CreateMap<OtherSports.BetType.ExcelQueryModel, OtherSports.BetType.Criteria>();

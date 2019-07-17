@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UniversalReports.CN88WinLoss.Common.Models;
+﻿using UniversalReports.CN88WinLoss.Common.Models;
 
 namespace UniversalReports.CN88WinLoss.Products
 {
@@ -7,13 +6,10 @@ namespace UniversalReports.CN88WinLoss.Products
     {
         public ProductGroupWinLoss Sportsbook { get; set; }
 
-        public List<WinLoss> RM { get; set; } = new List<WinLoss>();
-
         public ProductGroupWinLoss NonSportsbook { get; set; }
 
-        public SiteWinLossSummary GrandTotal { get; set; }
+        public WinLoss GrandTotal { get; set; }
 
-        public bool IsEmpty => GrandTotal.Credit.IsEmpty
-                               && GrandTotal.Deposit.IsEmpty;
+        public bool IsEmpty => GrandTotal.IsEmpty;
     }
 }

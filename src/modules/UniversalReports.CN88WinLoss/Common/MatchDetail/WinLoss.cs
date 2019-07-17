@@ -52,6 +52,6 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetail
             ? Math.Round(VirtualIncome / VirtualTurnover, NumberDigitOfRounding, MidpointRounding.AwayFromZero)
             : 0;
 
-        public decimal ExtraPT { get; set; }
+        public decimal HeadlineIncome { get; set; }
     }
 }

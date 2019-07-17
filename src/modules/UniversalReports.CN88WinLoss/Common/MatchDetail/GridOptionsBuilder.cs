@@ -71,7 +71,7 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetail
                     ColumnIndex = columnIndex,
                     Name = "Home",
                     Value = leagueName,
-                    MergeColNumber = 14,
+                    MergeColNumber = 16,
                     Bold = true,
                     CellAlignment = HAlignment.Left
                 }
@@ -153,7 +153,7 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetail
             {
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                new Columns(columnIndex++, "SMAWinLoss", item.ExtraPT),
+                new Columns(columnIndex++, "SMAWinLoss", item.HeadlineIncome),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
@@ -161,7 +161,9 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetail
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
-                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
+                new Columns(columnIndex++, "RealMargin", item.ExcelRealMargin()),
+                new Columns(columnIndex++, "CN88RealIncome", 0.45m * item.RealIncome),
+                new Columns(columnIndex, "CompanyRealIncome", 0.55m * item.RealIncome)
             };
         }
     }

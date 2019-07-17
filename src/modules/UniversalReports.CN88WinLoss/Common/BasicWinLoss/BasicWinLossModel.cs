@@ -5,10 +5,8 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
 {
     public class BasicWinLossModel
     {
-        public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
+        public List<WinLoss> WinLosses { get; set; }
 
-        public List<WinLoss> RM { get; set; } = new List<WinLoss>();
-
-        public SiteWinLossSummary GrandTotal { get; set; }
+        public WinLoss GrandTotal { get; set; }
     }
 }

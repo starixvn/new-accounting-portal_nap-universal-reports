@@ -443,6 +443,7 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\cn88-win-loss\shared\bet-type.new-cricket.controller.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-winloss-2h-soccer-minor.constant.js" />
@@ -503,7 +504,6 @@
     <Content Include="app\cn88-win-loss\shared\fanex-grid-with-title.html" />
     <Content Include="app\cn88-win-loss\shared\match-detail.controller.js" />
     <Content Include="app\cn88-win-loss\shared\remote-data.service.js" />
-    <Content Include="app\cn88-win-loss\shared\site.controller.js" />
     <Content Include="app\cn88-win-loss\shared\sport-type.controller.js" />
     <Content Include="app\cn88-win-loss\shared\three-fanex-grid-with-title.html" />
     <Content Include="app\cn88-win-loss\shared\two-fanex-grid-with-title.html" />

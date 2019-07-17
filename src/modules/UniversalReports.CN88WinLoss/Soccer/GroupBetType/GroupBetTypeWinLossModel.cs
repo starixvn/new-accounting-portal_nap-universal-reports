@@ -5,6 +5,6 @@ namespace UniversalReports.CN88WinLoss.Soccer.GroupBetType
 {
     public class GroupBetTypeWinLossModel : BaseBetTypeWinLossModel
     {
-        public List<WinLossSummaryByBetTypeGroup> SiteWinLossSummaries { get; set; }
+        public List<WinLossSummaryByBetTypeGroup> WinLossSummaries { get; set; }
     }
 }

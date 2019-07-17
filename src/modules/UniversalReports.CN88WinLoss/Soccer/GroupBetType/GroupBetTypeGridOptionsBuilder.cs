@@ -27,7 +27,7 @@ namespace UniversalReports.CN88WinLoss.Soccer.GroupBetType
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpperInvariant(),
-                BodyRows = BuildGroupBetTypeBodyRows(winLoss.SiteWinLossSummaries),
+                BodyRows = BuildGroupBetTypeBodyRows(winLoss.WinLossSummaries),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowTree = true,
@@ -42,7 +42,7 @@ namespace UniversalReports.CN88WinLoss.Soccer.GroupBetType
             foreach (var winLossSummary in winLoss)
             {
                 var rows = winLossSummary
-                    .SiteWinLossSummaries
+                    .WinLossSummaries
                     .Select(item => BuildBetTypeDataRow(item, HAlignment.Left));
                 var totalRow = GridDataRowBuilder.BuildDataRow(winLossSummary.Total, HAlignment.Right);
                 totalRow.RowType = RowType.SubTotal;

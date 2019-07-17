@@ -249,6 +249,17 @@ import moment from "moment";
                 mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getMatchDetailTitle"
             }
+        },
+        "Lottery": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                getTitleFunction: "getProductTitle"
+            }
         }
     };
     angular

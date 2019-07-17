@@ -41,36 +41,26 @@ namespace UniversalReports.CN88WinLoss.OtherSports.NewCricket
 
         private List<GridDataRow> BuildBodyRows(WinLossModel winLoss)
         {
-            return winLoss.SiteWinLossNonChargedCom.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
+            return winLoss.WinLossNonChargedCom.Select(item => BuildDataRow(item, HAlignment.Left)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(WinLossModel model)
         {
-            var total = BuildGroupDataRow(model.SiteWinLossChargedCom.Total, HAlignment.Right, CssTotal);
-            var chargedCom = model.SiteWinLossChargedCom.Winloss.Select(item => BuildGroupDataRow(item, HAlignment.Left, CssChargeCom)).ToList();
-            var grandTotal = BuildGroupDataRow(model.GrandTotal, HAlignment.Right, CssTotal);
-            var allRMRows = model.RM.Select(r => gridDataRowBuilder.BuildDataRow(r, HAlignment.Right));
+            var total = BuildDataRow(model.WinLossChargedCom.Total, HAlignment.Right, CssTotal);
+            var chargedCom = model.WinLossChargedCom.Winloss.Select(item => BuildDataRow(item, HAlignment.Left, CssChargeCom)).ToList();
+            var grandTotal = BuildDataRow(model.GrandTotal, HAlignment.Right, CssTotal);
 
             var footer = new List<GridDataRow> { total };
             footer.AddRange(chargedCom);
             footer.Add(grandTotal);
-            footer.AddRange(allRMRows);
             return footer;
         }
 
-        private GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment, string cssStyle = "")
+        private GridDataRow BuildDataRow(WinLoss item, HAlignment alignment, string cssStyle = "")
         {
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
+            var row = gridDataRowBuilder.BuildDataRow(item, alignment);
             row.RowType = RowType.ParentLevelOne;
             row.CssClass = cssStyle;
-
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            creditRow.CssClass = cssStyle;
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
-            depositRow.CssClass = cssStyle;
-
-            row.SubRows.Add(creditRow);
-            row.SubRows.Add(depositRow);
 
             return row;
         }

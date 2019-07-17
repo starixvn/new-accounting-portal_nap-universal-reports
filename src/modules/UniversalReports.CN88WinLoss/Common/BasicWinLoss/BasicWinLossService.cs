@@ -27,14 +27,12 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var siteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
-            var allRMData = calculationService.CalculateRM(rawWinLosses);
+            var winlosses = calculationService.CalculateWinLossSummary(rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new BasicWinLossModel
             {
-                SiteWinLossSummaries = siteWinLossSummaries.ToList(),
-                RM = allRMData.ToList(),
+                WinLosses = winlosses.ToList(),
                 GrandTotal = grandTotal
             };
         }

@@ -13,8 +13,6 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
         WinLoss CalculateMainSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
         WinLoss CalculateOtherSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
-
-        WinLoss CalculateHedgeSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
     }
 
     public class BaseCalculationServiceImp : CalculationServiceImp, BaseCalculationService
@@ -28,8 +26,8 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
             var groups = rawWinLosses.Select(r => new { Name = r.GroupName, Id = r.GroupId }).Distinct();
             var winLosses = from @group in groups
                             let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupId == @group.Id && r.GroupName == @group.Name).ToArray()
-                            select CalculateSiteWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
-            var winLossesByBetTypeGroup = CalculateSiteWinLossSummaryByBetTypeGroup(winLosses);
+                            select CalculateWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
+            var winLossesByBetTypeGroup = CalculateWinLossSummaryByBetTypeGroup(winLosses);
 
             return winLossesByBetTypeGroup;
         }
@@ -57,12 +55,12 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
             return CalculateSumWinLoss(sumTitle, hedgeRawWinLosses);
         }
 
-        private List<WinLossSummaryByBetTypeGroup> CalculateSiteWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLosses)
+        private List<WinLossSummaryByBetTypeGroup> CalculateWinLossSummaryByBetTypeGroup(IEnumerable<WinLoss> winLosses)
         {
-            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Total.Id));
-            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Total.Id));
-            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Total.Id));
-            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Total.Id));
+            var winLossesGroup1 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup1), r.Id));
+            var winLossesGroup2 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup2), r.Id));
+            var winLossesGroup3 = winLosses.Where(r => Enum.IsDefined(typeof(GroupConstants.BetTypeGroup3), r.Id));
+            var winLossesGroup4 = winLosses.Where(r => !GroupConstants.BetTypeGroup123().Contains(r.Id));
 
             var winLossesByGroupList = new List<WinLossSummaryByBetTypeGroup>();
             winLossesByGroupList = CreateWinLossByGroupList(winLossesByGroupList, winLossesGroup1);
@@ -75,7 +73,7 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
 
         private List<WinLossSummaryByBetTypeGroup> CreateWinLossByGroupList(
             List<WinLossSummaryByBetTypeGroup> winLossesByGroupList,
-            IEnumerable<SiteWinLossSummary> winLossesGroup)
+            IEnumerable<WinLoss> winLossesGroup)
         {
             if (winLossesGroup.Any())
             {
@@ -85,12 +83,12 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
             return winLossesByGroupList;
         }
 
-        private WinLossSummaryByBetTypeGroup CreateWinLossSummaryByBetTypeGroup(IEnumerable<SiteWinLossSummary> winLossesGroup)
+        private WinLossSummaryByBetTypeGroup CreateWinLossSummaryByBetTypeGroup(IEnumerable<WinLoss> winLossesGroup)
         {
             return new WinLossSummaryByBetTypeGroup
             {
-                SiteWinLossSummaries = winLossesGroup.ToList(),
-                Total = CalculateSumWinLoss("TOTAL", winLossesGroup.Select(r => r.Total))
+                WinLossSummaries = winLossesGroup.ToList(),
+                Total = CalculateSumWinLoss("TOTAL", winLossesGroup)
             };
         }
 
@@ -114,7 +112,7 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
                 VirtualIncome = winLosses.Sum(r => r.VirtualIncome),
                 VirtualTurnover = winLosses.Sum(r => r.VirtualTurnover),
                 VarianceIncome = winLosses.Sum(r => r.VarianceIncome),
-                ExtraPT = winLosses.Sum(r => r.ExtraPT)
+                HeadlineIncome = winLosses.Sum(r => r.HeadlineIncome)
             };
         }
     }

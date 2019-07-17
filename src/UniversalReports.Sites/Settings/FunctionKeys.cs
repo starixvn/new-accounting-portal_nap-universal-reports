@@ -12,5 +12,6 @@
         public const string Exchange = "Exchange";
         public const string ActualMemberBet = "ActualMemberBet";
         public const string DailyWinLoss2hSoccerMinorBettype = "DailyWinLoss2hSoccerMinorBettype";
+        public const string CN88WinLossByProducts = "CN88WinLossbyProducts";
     }
 }

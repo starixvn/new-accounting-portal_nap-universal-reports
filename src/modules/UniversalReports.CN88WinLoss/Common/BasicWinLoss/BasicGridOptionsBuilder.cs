@@ -27,7 +27,7 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
                 ShowTitle = true,
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpperInvariant(),
-                BodyRows = BuildBodyRows(winLoss.SiteWinLossSummaries),
+                BodyRows = BuildBodyRows(winLoss.WinLosses),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
                 ShowTree = true,
@@ -36,50 +36,31 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
             };
         }
 
-        private List<GridDataRow> BuildBodyRows(IEnumerable<SiteWinLossSummary> winLoss)
+        private List<GridDataRow> BuildBodyRows(IEnumerable<WinLoss> winLoss)
         {
-            return winLoss.Select(item => BuildGroupDataRow(item, HAlignment.Left)).ToList();
+            return winLoss.Select(item => BuildDataRow(item, HAlignment.Left)).ToList();
         }
 
         private List<GridDataRow> BuildFooter(BasicWinLossModel model)
         {
-            var row = BuildTotalGroupDataRow(model.GrandTotal);
-            var allRMRows = model.RM.Select(r => gridDataRowBuilder.BuildDataRow(r, HAlignment.Right));
-
+            var row = BuildTotalDataRow(model.GrandTotal);
             var footer = new List<GridDataRow> { row };
-            footer.AddRange(allRMRows);
-
             return footer;
         }
 
-        protected virtual GridDataRow BuildGroupDataRow(SiteWinLossSummary item, HAlignment alignment)
+        protected virtual GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, alignment);
+            var row = gridDataRowBuilder.BuildDataRow(item, alignment);
             row.RowType = RowType.ParentLevelOne;
-
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
-
-            row.SubRows.Add(creditRow);
-            row.SubRows.Add(depositRow);
 
             return row;
         }
 
-        private GridDataRow BuildTotalGroupDataRow(SiteWinLossSummary item)
+        private GridDataRow BuildTotalDataRow(WinLoss item)
         {
-            var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
+            var row = gridDataRowBuilder.BuildDataRow(item, HAlignment.Right);
             row.RowType = RowType.ParentLevelOne;
             row.CssClass = "grand-total";
-
-            var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            creditRow.CssClass = "grand-total";
-
-            var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
-            depositRow.CssClass = "grand-total";
-
-            row.SubRows.Add(creditRow);
-            row.SubRows.Add(depositRow);
 
             return row;
         }

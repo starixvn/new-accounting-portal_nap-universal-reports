@@ -5,7 +5,7 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
 {
     public class WinLossSummaryByBetTypeGroup
     {
-        public List<SiteWinLossSummary> SiteWinLossSummaries { get; set; }
+        public List<WinLoss> WinLossSummaries { get; set; }
 
         public WinLoss Total { get; set; }
     }

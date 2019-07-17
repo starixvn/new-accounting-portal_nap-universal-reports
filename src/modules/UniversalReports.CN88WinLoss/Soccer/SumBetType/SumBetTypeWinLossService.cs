@@ -27,21 +27,17 @@ namespace UniversalReports.CN88WinLoss.Soccer.SumBetType
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var betTypeWinLosses = calculationService.CalculateSiteWinLossSummary(rawWinLosses);
+            var betTypeWinLosses = calculationService.CalculateWinLossSummary(rawWinLosses);
             var mainTotal = calculationService.CalculateMainSumWinLossSummary("Main Bet Types Total", rawWinLosses);
             var otherTotal = calculationService.CalculateOtherSumWinLossSummary("Other Bet Types Total", rawWinLosses);
-            var hedgeTotal = calculationService.CalculateHedgeSumWinLossSummary("Hedge Total", rawWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
-            var allRMData = calculationService.CalculateRM(rawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new SumBetTypeWinLossModel
             {
-                SiteWinLossSummaries = betTypeWinLosses.ToList(),
+                WinLossSummaries = betTypeWinLosses.ToList(),
                 MainTotal = mainTotal,
                 OtherTotal = otherTotal,
-                HedgeTotal = hedgeTotal,
-                GrandTotal = grandTotal,
-                RM = allRMData.ToList()
+                GrandTotal = grandTotal
             };
         }
     }

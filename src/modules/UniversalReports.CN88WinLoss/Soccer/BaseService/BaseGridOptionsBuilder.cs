@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Fanex.Excel.Enums;
+﻿using Fanex.Excel.Enums;
 using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Common.BasicWinLoss;
 using UniversalReports.CN88WinLoss.Common.Models;
@@ -15,16 +14,10 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
 
         protected BasicGridDataRowBuilder GridDataRowBuilder { get; }
 
-        protected GridDataRow BuildBetTypeDataRow(SiteWinLossSummary item, HAlignment alignment)
+        protected GridDataRow BuildBetTypeDataRow(WinLoss item, HAlignment alignment)
         {
-            var row = GridDataRowBuilder.BuildDataRow(item.Total, alignment);
+            var row = GridDataRowBuilder.BuildDataRow(item, alignment);
             row.RowType = RowType.ParentLevelOne;
-
-            row.SubRows = new List<GridDataRow>
-            {
-                GridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right),
-                GridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right)
-            };
 
             return row;
         }

@@ -31,11 +31,13 @@ namespace UniversalReports.CN88WinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = string.Empty, Width = 200, Name = "Away", CellAlignment = HAlignment.Left },
                 new HeaderColumns { HeaderText = "Member Win Loss", Width = 100, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Width = 100, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Extra PT", Width = 100, Name = "ExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Headline Income", Width = 100, Name = "HeadlineIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "Commission", Width = 100, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
                 new HeaderColumns { HeaderText = "House Real Income", Width = 120, Name = "RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
                 new HeaderColumns { HeaderText = "House Real Turnover", Width = 120, Name = "RealTurnover", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
-                new HeaderColumns { HeaderText = "Margin", Width = 100, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
+                new HeaderColumns { HeaderText = "Margin", Width = 100, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive },
+                new HeaderColumns { HeaderText = "CN88 Real Income", Width = 130, Name = "CN88RealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "Company Real Income", Width = 130, Name = "CompanyRealIncome", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive }
             };
         }
 
@@ -47,11 +49,13 @@ namespace UniversalReports.CN88WinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Event", Name = "Home", Width = 430, MergeColNumber = 3, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Member Win Loss", Name = "MemberWinLoss", Width = 100, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "SMA Win Loss", Name = "SMAWinLoss",  Width = 100, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Extra PT", Name = "ExtraPT",  Width = 120, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "Headline Income", Name = "HeadlineIncome",  Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "Commission", Name = "Commission",  Width = 100, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "House Real Income", Name = "RealIncome", Width = 120, MergeRowNumber = 2 },
                 new HeaderColumns { HeaderText = "House Real Turnover", Name = "RealTurnover",  Width = 120, MergeRowNumber = 2 },
-                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin",  Width = 100, MergeRowNumber = 2 }
+                new HeaderColumns { HeaderText = "Margin", Name = "RealMargin",  Width = 100, MergeRowNumber = 2 },
+                new HeaderColumns { HeaderText = "CN88 Real Income", Name = "CN88RealIncome", MergeRowNumber = 2, Width = 130 },
+                new HeaderColumns { HeaderText = "Company Real Income", Name = "CompanyRealIncome", MergeRowNumber = 2, Width = 130 }
             };
 
             var groupHeader = new GroupHeaderRows { Columns = columns };

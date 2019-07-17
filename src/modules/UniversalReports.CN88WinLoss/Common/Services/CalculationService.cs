@@ -9,23 +9,15 @@ namespace UniversalReports.CN88WinLoss.Common.Services
     {
         WinLoss FromRawWinLossByRowName(WinLossRaw rawWinLoss);
 
-        SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
-
-        SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
-
         WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
 
-        IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
+        IEnumerable<WinLoss> CalculateWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
 
-        IEnumerable<WinLoss> CalculateRM(IEnumerable<WinLossRaw> rawWinLosses);
+        WinLoss CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses);
     }
 
     public class CalculationServiceImp : CalculationService
     {
-        private const string CreditName = @"Credit";
-
-        private const string DepositName = @"Deposit";
-
         private readonly RemotingRefService refService;
 
         public CalculationServiceImp(RemotingRefService refService)
@@ -35,27 +27,13 @@ namespace UniversalReports.CN88WinLoss.Common.Services
 
         public WinLoss FromRawWinLossByRowName(WinLossRaw rawWinLoss)
         {
-            var winloss = FromRawWinLoss(rawWinLoss);
+            var winloss = Mapper.Map<WinLoss>(rawWinLoss);
             winloss.Name = GetMatchCode(rawWinLoss.RowName);
 
             return winloss;
         }
 
-        private static WinLoss FromRawWinLossByGroupName(WinLossRaw rawWinLoss)
-        {
-            var winloss = FromRawWinLoss(rawWinLoss);
-            winloss.Name = rawWinLoss.GroupName;
-            return winloss;
-        }
-
-        private static WinLoss FromRawWinLoss(WinLossRaw rawWinLoss)
-        {
-            var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
-            winLoss.Id = rawWinLoss.GroupId;
-            return winLoss;
-        }
-
-        public WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses)
+        private WinLossRaw CalculateSum(IEnumerable<WinLossRaw> winlosses)
         {
             if (!winlosses.Any())
             {
@@ -72,7 +50,7 @@ namespace UniversalReports.CN88WinLoss.Common.Services
                 RealIncome = winlosses.Sum(r => r.RealIncome),
                 VirtualIncome = winlosses.Sum(r => r.VirtualIncome),
                 VarianceIncome = winlosses.Sum(r => r.VarianceIncome),
-                ExtraPT = winlosses.Sum(r => r.ExtraPT),
+                HeadlineIncome = winlosses.Sum(r => r.HeadlineIncome),
                 RealTurnover = winlosses.Sum(r => r.RealTurnover),
                 SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
                 VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
@@ -82,86 +60,29 @@ namespace UniversalReports.CN88WinLoss.Common.Services
         public WinLoss CalculateSumWinLoss(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var totalRawWinLoss = CalculateSum(rawWinLosses);
-            var totalWinLoss = FromRawWinLossByGroupName(totalRawWinLoss);
+            var totalWinLoss = Mapper.Map<WinLoss>(totalRawWinLoss);
             totalWinLoss.Name = sumTitle;
 
             return totalWinLoss;
         }
 
-        public virtual SiteWinLossSummary CalculateSumWinLossSummary(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
+        public virtual IEnumerable<WinLoss> CalculateWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
-            var grandTotal = new SiteWinLossSummary
-            {
-                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
-                Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
-            };
-
-            return grandTotal;
+            return Mapper.Map<IEnumerable<WinLoss>>(rawWinLosses);
         }
 
-        public virtual SiteWinLossSummary CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
+        public virtual WinLoss CalculateSiteChargedCom(string sumTitle, IEnumerable<WinLossRaw> rawWinLosses)
         {
             var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM" && r.GroupId != 500);
-            var grandTotal = new SiteWinLossSummary
-            {
-                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
-                Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
-            };
+            return CalculateSumWinLoss(sumTitle, nonRMWinLosses);
 
-            return grandTotal;
         }
 
-        private WinLoss SumCreditGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
+        public virtual WinLoss CalculateWinLossSummary(int groupId, string groupName, IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var creditData = rawWinLosses.Where(r => r.RowName == CreditName);
-            var sumData = CalculateSum(creditData);
 
-            var winloss = FromRawWinLossByRowName(sumData);
-            winloss.Name = "Credit";
+            return rawWinLosses.Any() ? CalculateSumWinLoss(groupName, rawWinLosses) : CreateEmptyWinLoss(groupId, groupName);
 
-            return winloss;
-        }
-
-        private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
-        {
-            var depositData = rawWinLosses.Where(r => r.RowName == DepositName);
-            var sumData = CalculateSum(depositData);
-
-            var winloss = FromRawWinLossByRowName(sumData);
-            winloss.Name = "Deposit";
-
-            return winloss;
-        }
-
-        public virtual IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses)
-        {
-            var groups = rawWinLosses
-                            .Where(r => r.GroupName != "RM")
-                            .Select(r => new { Name = r.GroupName, Id = r.GroupId })
-                            .Distinct();
-            return from @group in groups
-                   let rawGroupWinLosses = rawWinLosses.Where(r => r.GroupId == @group.Id && r.GroupName == @group.Name).ToArray()
-                   select CalculateSiteWinLossSummary(@group.Id, @group.Name, rawGroupWinLosses);
-        }
-
-        public virtual SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<WinLossRaw> rawWinLosses)
-        {
-            var rawCreditWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Credit");
-            var rawDepositWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Deposit");
-
-            var creditWinLoss = rawCreditWinLoss == null ? CreateEmptyWinLoss(groupId, "Credit") : FromRawWinLossByRowName(rawCreditWinLoss);
-            var depositWinLoss = rawDepositWinLoss == null ? CreateEmptyWinLoss(groupId, "Deposit") : FromRawWinLossByRowName(rawDepositWinLoss);
-            var totalWinLoss = rawWinLosses.Any() ? CalculateSumWinLoss(groupName, rawWinLosses) : CreateEmptyWinLoss(groupId, groupName);
-
-            return new SiteWinLossSummary
-            {
-                Credit = creditWinLoss,
-                Deposit = depositWinLoss,
-                Total = totalWinLoss
-            };
         }
 
         public WinLoss CreateEmptyWinLoss(int id, string name)
@@ -171,12 +92,6 @@ namespace UniversalReports.CN88WinLoss.Common.Services
                 Id = id,
                 Name = name
             };
-        }
-
-        public IEnumerable<WinLoss> CalculateRM(IEnumerable<WinLossRaw> rawWinLosses)
-        {
-            return rawWinLosses.Where(r => r.GroupName == "RM")
-                .Select(FromRawWinLossByRowName);
         }
 
         private string GetMatchCode(string matchCode)

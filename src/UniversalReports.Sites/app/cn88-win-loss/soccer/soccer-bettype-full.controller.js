@@ -19,7 +19,6 @@ import angular from "angular";
         $scope.viewSetting = {};
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
-        $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.createDrilldownLink = createDrilldownLink;
         $scope.createDrilldownLinks = createDrilldownLinks;
@@ -84,16 +83,7 @@ import angular from "angular";
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
-            if (betTypeRow.SubRows) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
-            }
-            if (betTypeRow.SubRows) {
-                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
-                    var siteRow = betTypeRow.SubRows[i];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + siteName + '</a>';
-                }
-            }
+            betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
         }
         function renderFullGrid(gridElement, gridOptions){
             var titleInfo = {
@@ -123,21 +113,6 @@ import angular from "angular";
             gridElement.fanexGrid(gridOptions);
         }
 
-        function generateSite(betType, betTypeName, site, isLive) {
-            var data = {};
-            angular.extend(data, pane.data);
-            angular.extend(data, {
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site,
-                mainColumnText: site,
-                isLive: isLive
-            });
-
-            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
-
-            tab.goForward('site', data);
-        }
 
         function generateMatchDetail(betType, betTypeName, isLive) {
             var data = {};

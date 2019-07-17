@@ -61,11 +61,13 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetailByCode
                 new Columns(columnIndex++, "MatchCode", item.Name, alignment),
                 new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
-                new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
+                new Columns(columnIndex++, "HeadlineIncome", item.HeadlineIncome),
                 new Columns(columnIndex++, "Commission", item.Commission),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
-                new Columns(columnIndex, "RealMargin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin)
+                new Columns(columnIndex++, "RealMargin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin),
+                new Columns(columnIndex++, "CN88RealIncome", 0.45m * item.RealIncome),
+                new Columns(columnIndex, "CompanyRealIncome", 0.55m * item.RealIncome)
             };
 
             return new GridDataRow { Columns = columns };
@@ -77,7 +79,7 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetailByCode
             var colummns = new List<Columns>
                {
                     new Columns(columnIndex++, "MatchCode", string.Empty),
-                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 7, Bold = true, CellAlignment = HAlignment.Left }
+                    new Columns { ColumnIndex = columnIndex, Name = "MemberWinLoss", Value = leagueName, MergeColNumber = 9, Bold = true, CellAlignment = HAlignment.Left }
                };
 
             return new GridDataRow { Columns = colummns, RowType = RowType.ParentLevelOne, CssClass = "league-match-header" };

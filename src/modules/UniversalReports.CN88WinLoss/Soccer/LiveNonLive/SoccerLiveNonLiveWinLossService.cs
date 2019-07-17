@@ -33,28 +33,24 @@ namespace UniversalReports.CN88WinLoss.Soccer.LiveNonLive
             var majorMinorRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer-Major Bet Types", StringComparison.CurrentCultureIgnoreCase)
                                                                 || r.GroupName.Equals("Soccer-Minor Bet Types", StringComparison.CurrentCultureIgnoreCase));
 
-            var majorMinorSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(majorMinorRawWinLosses);
-            var majorMinorGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", majorMinorRawWinLosses);
-            var majorMinorAllRMData = calculationService.CalculateRM(rawWinLosses);
+            var majorMinorSiteWinLossSummaries = calculationService.CalculateWinLossSummary(majorMinorRawWinLosses);
+            var majorMinorGrandTotal = calculationService.CalculateSumWinLoss("Grand Total", majorMinorRawWinLosses);
 
             yield return new BasicWinLossModel
             {
-                SiteWinLossSummaries = majorMinorSiteWinLossSummaries.ToList(),
-                RM = majorMinorAllRMData.ToList(),
+                WinLosses = majorMinorSiteWinLossSummaries.ToList(),
                 GrandTotal = majorMinorGrandTotal
             };
 
             var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Soccer Live", StringComparison.CurrentCultureIgnoreCase)
                                                                 || r.GroupName.Equals("Soccer Non-Live", StringComparison.CurrentCultureIgnoreCase));
 
-            var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
-            var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
-            var liveNonLiveAllRMData = calculationService.CalculateRM(rawWinLosses);
+            var liveNonLiveSiteWinLossSummaries = calculationService.CalculateWinLossSummary(liveNonLiveRawWinLosses);
+            var liveNonLiveGrandTotal = calculationService.CalculateSumWinLoss("Grand Total", liveNonLiveRawWinLosses);
 
             yield return new BasicWinLossModel
             {
-                SiteWinLossSummaries = liveNonLiveSiteWinLossSummaries.ToList(),
-                RM = liveNonLiveAllRMData.ToList(),
+                WinLosses = liveNonLiveSiteWinLossSummaries.ToList(),
                 GrandTotal = liveNonLiveGrandTotal
             };
         }

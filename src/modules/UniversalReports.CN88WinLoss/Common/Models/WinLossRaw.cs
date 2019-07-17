@@ -20,7 +20,7 @@
 
         public decimal VarianceIncome { get; set; }
 
-        public decimal ExtraPT { get; set; }
+        public decimal HeadlineIncome { get; set; }
 
         public decimal RealTurnover { get; set; }
 

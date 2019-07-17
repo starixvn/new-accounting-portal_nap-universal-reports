@@ -5,9 +5,9 @@ namespace UniversalReports.CN88WinLoss.Products
 {
     public class ProductGroupWinLoss
     {
-        public List<SiteWinLossSummary> Products { get; set; }
+        public List<WinLoss> Products { get; set; }
 
-        public SiteWinLossSummary Total { get; set; }
+        public WinLoss Total { get; set; }
 
         public bool IsEmpty => Total.IsEmpty;
     }

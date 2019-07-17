@@ -5,8 +5,8 @@ namespace UniversalReports.CN88WinLoss.OtherSports.NewCricket
 {
     public class ChargeCommissionModel
     {
-        public List<SiteWinLossSummary> Winloss { get; set; }
+        public List<WinLoss> Winloss { get; set; }
 
-        public SiteWinLossSummary Total { get; set; }
+        public WinLoss Total { get; set; }
     }
 }

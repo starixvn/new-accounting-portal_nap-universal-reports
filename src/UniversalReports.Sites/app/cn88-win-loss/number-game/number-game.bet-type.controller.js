@@ -14,7 +14,6 @@ import angular from "angular";
         var gridElement = $element.find('.freegrid');
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
-        $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.createDrilldownLink = createDrilldownLink;
         $scope.createDrilldownLinks = createDrilldownLinks;
@@ -47,15 +46,7 @@ import angular from "angular";
         function createDrilldownLink(betTypeRow) {
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
-
-            if (betTypeRow.SubRows) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
-                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
-                    var siteRow = betTypeRow.SubRows[i];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\')">' + siteName + '</a>';
-                }
-            }
+            betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
         }
 
         function renderGrid(data) {
@@ -71,20 +62,6 @@ import angular from "angular";
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
-        }
-
-        function generateSite(betType, betTypeName, site) {
-            var data = {};
-            angular.extend(data, pane.data);
-            angular.extend(data, {
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site,
-                mainColumnText: site,
-                leagueId: $scope.leagueId
-            });
-
-            tab.goForward('site', data);
         }
 
         function generateMatchDetail(betType, betTypeName) {

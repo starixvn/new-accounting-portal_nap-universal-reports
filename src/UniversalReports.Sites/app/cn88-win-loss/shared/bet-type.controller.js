@@ -15,7 +15,6 @@ import angular from "angular";
         const betradarVirtualSportsMixParlayBettype = 2799;
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
-        $scope.generateSite = generateSite;
         $scope.generateMatchDetail = generateMatchDetail;
         $scope.createDrilldownLink = createDrilldownLink;
         $scope.createDrilldownLinks = createDrilldownLinks;
@@ -48,20 +47,11 @@ import angular from "angular";
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
-            var isFreePlay = betTypeName === 'Colossus Bets (Free Play)';
-
-            var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
+            var template = cn88WinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
             var hasDetailDrilldown = angular.isDefined(template) && parseInt(betTypeId) !== betradarVirtualSportsMixParlayBettype;
 
-            if (betTypeRow.SubRows && hasDetailDrilldown) {
+            if (hasDetailDrilldown) {
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
-            }
-            if (betTypeRow.SubRows) {
-                for (var i = 0; i < betTypeRow.SubRows.length; i++) {
-                    var siteRow = betTypeRow.SubRows[i];
-                    var siteName = siteRow.Columns[0].Value;
-                    siteRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSite(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',\'' + siteName.replace(/'/g, "\\'") + '\',' + isLive + ',' + isFreePlay + ')">' + siteName + '</a>';
-                }
             }
         }
 
@@ -78,23 +68,6 @@ import angular from "angular";
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.bottomBorderWidth = 3;
             gridElement.fanexGrid(data);
-        }
-
-        function generateSite(betType, betTypeName, site, isLive, isFreePlay) {
-            var data = {};
-            angular.extend(data, pane.data);
-            angular.extend(data, {
-                betType: betType,
-                betTypeName: betTypeName,
-                site: site,
-                mainColumnText: site,
-                isLive: isLive,
-                isFreePlay: isFreePlay
-            });
-
-            data.isHedge = getHedgeParameters(data.sportType, betTypeName);
-
-            tab.goForward('site', data);
         }
 
         function generateMatchDetail(betType, betTypeName, isLive) {

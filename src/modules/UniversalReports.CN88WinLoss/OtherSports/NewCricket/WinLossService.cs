@@ -33,25 +33,24 @@ namespace UniversalReports.CN88WinLoss.OtherSports.NewCricket
             var rawWinLossNonChargedCom = from r in rawWinLosses
                                           where r.GroupId != BetTypeChargedCom
                                           select r;
-            var winLossChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossChargedCom);
-            var siteWinLossNonChargedCom = calculationService.CalculateSiteWinLossSummary(rawWinLossNonChargedCom);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
+            var winLossChargedCom = calculationService.CalculateWinLossSummary(rawWinLossChargedCom);
+            var winLossNonChargedCom = calculationService.CalculateWinLossSummary(rawWinLossNonChargedCom);
+            var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
 
             return new WinLossModel
             {
                 GrandTotal = grandTotal,
-                RM = calculationService.CalculateRM(rawWinLosses).ToList(),
-                SiteWinLossChargedCom = CalculateSiteChargedCom(rawWinLosses, winLossChargedCom),
-                SiteWinLossNonChargedCom = siteWinLossNonChargedCom.OrderBy(s => s.Total.Name).ToList()
+                WinLossChargedCom = CalculateChargedCom(rawWinLosses, winLossChargedCom),
+                WinLossNonChargedCom = winLossNonChargedCom.OrderBy(s => s.Name).ToList()
             };
         }
 
-        private ChargeCommissionModel CalculateSiteChargedCom(IEnumerable<WinLossRaw> rawWinLosses, IEnumerable<SiteWinLossSummary> chargedCommision)
+        private ChargeCommissionModel CalculateChargedCom(IEnumerable<WinLossRaw> rawWinLosses, IEnumerable<WinLoss> chargedCommision)
         {
             return new ChargeCommissionModel
             {
                 Total = calculationService.CalculateSiteChargedCom("Total", rawWinLosses),
-                Winloss = chargedCommision.OrderBy(s => s.Total.Name).ToList()
+                Winloss = chargedCommision.OrderBy(s => s.Name).ToList()
             };
         }
     }
