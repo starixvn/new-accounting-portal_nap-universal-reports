@@ -23,13 +23,13 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Soccer.SumBetType
 
             // Act
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculatorService = new BaseCalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             var service = new SumBetTypeWinLossServiceImp(rawWinLossService, calculatorService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

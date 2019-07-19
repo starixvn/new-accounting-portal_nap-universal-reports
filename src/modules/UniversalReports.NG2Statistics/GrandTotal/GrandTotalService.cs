@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using AutoMapper;
-using Fanex.Data;
+using Fanex.Data.Repository;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 
@@ -16,35 +15,26 @@ namespace UniversalReports.NG2Statistics.GrandTotal
     {
         private readonly BalanceUpService balance;
 
-        public GrandTotalServiceImp(BalanceUpService balance)
+        private readonly IDynamicRepository repository;
+
+        public GrandTotalServiceImp(BalanceUpService balance, IDynamicRepository repository)
         {
             this.balance = balance;
+            this.repository = repository;
         }
 
         public GrandTotalModel Query(QueryModel queryModel)
         {
-            var daily = new GrandTotalModel
-            {
-                Rows = new List<GrandTotalModel>(),
-                Total = new GrandTotalModel()
-            };
-
             var criteria = Mapper.Map<GrandTotalCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
-            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            var rawData = repository.FetchMultiple<GrandTotalModel, GrandTotalModel>(criteria);
+
+            return new GrandTotalModel
             {
-                using (var multi = db.QueryMultiple(criteria.GetSpParams()))
-                {
-                    var rows = multi.Read<GrandTotalModel>();
-                    var total = multi.Read<GrandTotalModel>().FirstOrDefault();
-
-                    daily.Rows = rows.ToList();
-                    daily.Total = total;
-                }
-            }
-
-            return daily;
+                Rows = rawData.Item1.ToList(),
+                Total = rawData.Item2.FirstOrDefault()
+            };
         }
     }
 }

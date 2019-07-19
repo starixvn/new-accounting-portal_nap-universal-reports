@@ -2,7 +2,7 @@
 {
     public static class Constants
     {
-        public const string SheetName = "House Win Loss by Products";
+        public const string SheetName = "CN88 WinLoss";
 
         public const int LiveDefault = 2;
 
@@ -13,7 +13,5 @@
         public const string SiteDefault = "ALL";
 
         public const int SportTypeSoccer = 1;
-
-        public const string SoccerMinorBetTypesSheetName = "Soccer Minor Bet Types";
     }
 }

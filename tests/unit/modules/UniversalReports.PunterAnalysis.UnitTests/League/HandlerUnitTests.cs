@@ -32,10 +32,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
         private LeagueServiceFactory CreateLeagueServiceFactory(ReportModel reportModel)
         {
             var service = Substitute.For<LeagueService>();
-            service.Query(Arg.Any<ICriteria>()).Returns(reportModel);
+            service.Query(Arg.Compat.Any<ICriteria>()).Returns(reportModel);
 
             var factory = Substitute.For<LeagueServiceFactory>();
-            factory.CreateLeagueService(Arg.Any<int>()).Returns(service);
+            factory.CreateLeagueService(Arg.Compat.Any<int>()).Returns(service);
 
             return factory;
         }

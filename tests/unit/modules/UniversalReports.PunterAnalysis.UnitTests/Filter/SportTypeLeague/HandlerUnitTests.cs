@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.SportTypeLeague
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<SportTypeLeagueEntity>(Arg.Any<QueryCriteria>())
+            repository.FetchAsync<SportTypeLeagueEntity>(Arg.Compat.Any<QueryCriteria>())
                 .Returns(valueFromRepository);
 
             // Act

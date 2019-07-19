@@ -22,7 +22,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<UserNameReport.UserNameService, UserNameReport.UserNameServiceImp>();
             container.Register<UserNameReport.GridOptionsBuilder, UserNameReport.GridOptionsBuilderImp>();
             container.Register<UserNameReport.GridOptionHeaderColumn, UserNameReport.GridOptionHeaderColumnImp>();
-            container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>();
+            //container.Register<BettypeReport.Repository, BettypeReport.RepositoryImp>();
             container.Register<BettypeReport.BettypeService, BettypeReport.BettypeServiceImp>();
             container.Register<BettypeReport.GridOptionsBuilder, BettypeReport.GridOptionsBuilderImp>();
             container.Register<BettypeReport.SortingService, BettypeReport.SortingServiceImp>();

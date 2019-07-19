@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.ProductSportBetType
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ProductSportBetTypeEntity>(Arg.Any<QueryCriteria>())
+            repository.FetchAsync<ProductSportBetTypeEntity>(Arg.Compat.Any<QueryCriteria>())
                 .Returns(valueFromRepository);
 
             // Act

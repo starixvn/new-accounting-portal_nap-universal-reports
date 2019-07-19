@@ -22,7 +22,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             var odds = fixture.Create<IEnumerable<Odds>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<Odds>(Arg.Any<OddsCriteria>()).Returns(odds);
+            repository.FetchAsync<Odds>(Arg.Compat.Any<OddsCriteria>()).Returns(odds);
 
             var handler = new OddsHandler(repository);
 

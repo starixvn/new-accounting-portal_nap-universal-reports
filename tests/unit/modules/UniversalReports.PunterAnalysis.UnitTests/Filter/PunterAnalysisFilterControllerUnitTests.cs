@@ -26,7 +26,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.AvailableDatabase(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterAvailableDatabase.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterAvailableDatabase.HttpParameterJson>());
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.AvailableDateRange(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterAvailableDateRange.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterAvailableDateRange.HttpParameterJson>());
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.ProductSportBetType(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterProductSportBetType.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterProductSportBetType.HttpParameterJson>());
         }
 
         [Test]
@@ -71,7 +71,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.UsernameSuggestion(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterUsernameSuggestion.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterUsernameSuggestion.HttpParameterJson>());
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.SportsbookSportBetType(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterSportsbookSportBetType.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterSportsbookSportBetType.HttpParameterJson>());
         }
 
         [Test]
@@ -101,7 +101,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter
             await controller.SportTypeLeague(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterSportTypeLeague.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterSportTypeLeague.HttpParameterJson>());
         }
     }
 }

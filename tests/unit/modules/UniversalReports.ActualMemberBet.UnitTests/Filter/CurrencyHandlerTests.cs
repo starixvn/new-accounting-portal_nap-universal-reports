@@ -22,7 +22,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             var currencies = fixture.Create<IEnumerable<Currency>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<Currency>(Arg.Any<CurrencyCriteria>()).Returns(currencies);
+            repository.FetchAsync<Currency>(Arg.Compat.Any<CurrencyCriteria>()).Returns(currencies);
 
             var handler = new CurrencyHandler(repository);
 

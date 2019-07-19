@@ -17,11 +17,11 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(new List<SummaryModel>());
+            repository.FetchAsync<SummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(new List<SummaryModel>());
 
             // Act
             var playForFunService = new PlayForFunServiceImp(repository);
-            var modelBase = await playForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
+            var modelBase = await playForFunService.Query<SummaryModel>(Arg.Compat.Any<ICriteria>());
 
             // Assert
             var expected = CreateEmptyModelBaseWithTypeModel();
@@ -43,11 +43,11 @@ namespace UniversalReports.PlayForFun.UnitTests.Core
             // Arrange
             var nonEmptySummaryModelList = CreateNonEmptySummaryModelList();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<SummaryModel>(Arg.Any<ICriteria>()).Returns(nonEmptySummaryModelList);
+            repository.FetchAsync<SummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(nonEmptySummaryModelList);
 
             // Act
             var playForFunService = new PlayForFunServiceImp(repository);
-            var modelBase = await playForFunService.Query<SummaryModel>(Arg.Any<ICriteria>());
+            var modelBase = await playForFunService.Query<SummaryModel>(new SummaryCriteria());
 
             // Assert
             var expected = CreateNonEmptyModelBaseWithSummaryModel();

@@ -48,13 +48,13 @@ namespace UniversalReports.HouseWinLoss.Tests.Soccer.BetTypeFull
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<WinLossRaw>(Arg.Any<SumBetTypeCriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Compat.Any<SumBetTypeCriteria>())
                 .Returns(fakeFullData);
-            repository.Fetch<WinLossRaw>(Arg.Any<GroupBetTypeCriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Compat.Any<GroupBetTypeCriteria>())
                 .Returns(fakeNonLiveData);
-            repository.Fetch<WinLossRaw>(Arg.Any<BetTypeCriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Compat.Any<BetTypeCriteria>())
                 .Returns(fakeLiveData);
-            repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
+            repository.Get<BalanceUpRange>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);
 
             var simpleInjector = new SimpleInjectorConfig(repository);

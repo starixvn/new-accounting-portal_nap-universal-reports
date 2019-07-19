@@ -21,7 +21,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             await controller.Index(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterJson>());
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             await controller.Excel(httpParameterExcel);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterExcel>());
         }
     }
 }

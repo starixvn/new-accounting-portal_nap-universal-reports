@@ -22,7 +22,7 @@ namespace UniversalReports.Exchange.UnitTests.Filter.Licensee
             var licensee = fixture.Create<IEnumerable<LicenseeModel>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LicenseeModel>(Arg.Any<Criteria>()).Returns(licensee);
+            repository.FetchAsync<LicenseeModel>(Arg.Compat.Any<Criteria>()).Returns(licensee);
 
             var handler = new Handler(repository);
 

@@ -25,10 +25,10 @@ namespace UniversalReports.HouseWinLoss.UnitTests.OtherSports.LiveNonLive
             var refService = Substitute.For<RemotingRefService>();
             var calculatorService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             var service = new OtherSportsLiveNonLiveWinLossServiceImp(rawWinLossService, calculatorService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

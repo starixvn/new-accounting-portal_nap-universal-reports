@@ -20,9 +20,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<WinLossRaw>(Arg.Any<ICriteria>())
+            repository.Fetch<WinLossRaw>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeData);
-            repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
+            repository.Get<BalanceUpRange>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);
 
             var simpleInjector = new SimpleInjectorConfig(repository);
@@ -41,9 +41,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<RawWinLoss>(Arg.Any<ICriteria>())
+            repository.Fetch<RawWinLoss>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeData);
-            repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
+            repository.Get<BalanceUpRange>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);
 
             var simpleInjector = new SimpleInjectorConfig(repository);

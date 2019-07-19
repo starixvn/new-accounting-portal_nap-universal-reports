@@ -46,8 +46,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             };
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
-            repository.FetchAsync<AssociatedSummaryModel>(Arg.Any<ICriteria>()).Returns(memberNonEmptySummary);
+            repository.GetAsync<Site>(Arg.Compat.Any<UserSiteQueryCriteria>()).Returns(site);
+            repository.FetchAsync<AssociatedSummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(memberNonEmptySummary);
 
             var listOfUserDevice = new List<CustomerDevice> {
                  new CustomerDevice { Account = "member01" },
@@ -55,7 +55,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                  new CustomerDevice { Account = "agent01" },
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(listOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(listOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
 
@@ -86,11 +86,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             var site = new Site { Name = "site01", IsCreditSite = false };
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<Site>(Arg.Any<UserSiteQueryCriteria>()).Returns(site);
+            repository.GetAsync<Site>(Arg.Compat.Any<UserSiteQueryCriteria>()).Returns(site);
 
             var emptyListOfUserDevice = new List<CustomerDevice>();
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<bool>()).Returns(emptyListOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(emptyListOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
 

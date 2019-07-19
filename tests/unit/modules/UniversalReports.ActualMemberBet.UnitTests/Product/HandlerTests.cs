@@ -22,7 +22,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Product
             var fakeModel = fixture.Create<SummaryEntity<ProductActualMemberBet>>();
 
             var service = Substitute.For<ActualMemberBetService>();
-            service.Query<ProductActualMemberBet>(Arg.Any<Criteria>()).Returns(fakeModel);
+            service.Query<ProductActualMemberBet>(Arg.Compat.Any<Criteria>()).Returns(fakeModel);
 
             var handler = new Handler(service);
 

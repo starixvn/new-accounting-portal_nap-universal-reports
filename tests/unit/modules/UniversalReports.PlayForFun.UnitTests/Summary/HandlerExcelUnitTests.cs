@@ -31,10 +31,10 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Any<SummaryEntity<SummaryExcelModel>>(),
-                Arg.Any<ExcelSetting>(),
-                Arg.Any<SummaryEntity<DetailExcelModel>>(),
-                Arg.Any<ExcelSetting>());
+                Arg.Compat.Any<SummaryEntity<SummaryExcelModel>>(),
+                Arg.Compat.Any<ExcelSetting>(),
+                Arg.Compat.Any<SummaryEntity<DetailExcelModel>>(),
+                Arg.Compat.Any<ExcelSetting>());
         }
 
         [Test]
@@ -60,8 +60,8 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             };
 
             var punterAnalysisService = Substitute.For<PlayForFunService>();
-            punterAnalysisService.Query<SummaryModel>(Arg.Any<SummaryCriteria>()).Returns(new SummaryEntity<SummaryModel>());
-            punterAnalysisService.Query<DetailModel>(Arg.Any<DetailCriteria>()).Returns(new SummaryEntity<DetailModel>());
+            punterAnalysisService.Query<SummaryModel>(Arg.Compat.Any<SummaryCriteria>()).Returns(new SummaryEntity<SummaryModel>());
+            punterAnalysisService.Query<DetailModel>(Arg.Compat.Any<DetailCriteria>()).Returns(new SummaryEntity<DetailModel>());
 
             var configurationService = Substitute.For<ConfigurationService>();
             configurationService.CurrentDirectory.Returns(string.Empty);
@@ -69,18 +69,18 @@ namespace UniversalReports.PlayForFun.UnitTests.Summary
             var excelBuilder = Substitute.For<ExcelBuilder>();
 
             var handleExcel = Substitute.ForPartsOf<HandlerExcel>(punterAnalysisService, configurationService, excelBuilder);
-            handleExcel.CreateSummarySetting(Arg.Any<string>()).Returns(summaryExcelSetting);
-            handleExcel.CreateProductDetailSetting(Arg.Any<string>(), Arg.Any<string>()).Returns(productDetailExcelSetting);
+            handleExcel.CreateSummarySetting(Arg.Compat.Any<string>()).Returns(summaryExcelSetting);
+            handleExcel.CreateProductDetailSetting(Arg.Compat.Any<string>(), Arg.Compat.Any<string>()).Returns(productDetailExcelSetting);
 
             // Act
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-                Arg.Is(summaryExcelSetting),
-                Arg.Is<SummaryEntity<DetailExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-                Arg.Is(productDetailExcelSetting));
+               Arg.Compat.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+               Arg.Compat.Is(summaryExcelSetting),
+               Arg.Compat.Is<SummaryEntity<DetailExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+               Arg.Compat.Is(productDetailExcelSetting));
         }
     }
 }

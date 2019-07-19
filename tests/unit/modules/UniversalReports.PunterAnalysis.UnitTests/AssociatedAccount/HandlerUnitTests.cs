@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             // Arrange
             var anyReportModel = fixture.Create<SummaryEntity<AssociatedSummaryModel>>();
             var facade = Substitute.For<AssociatedFacade>();
-            facade.Query(Arg.Any<HttpParameterJson>()).Returns(anyReportModel);
+            facade.Query(Arg.Compat.Any<HttpParameterJson>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(facade);

@@ -22,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             // Arrange
             var anyReportModel = fixture.Create<SummaryEntity<SummaryModel>>();
             var service = Substitute.For<PunterAnalysisService>();
-            service.Query<SummaryModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
+            service.Query<SummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(service);

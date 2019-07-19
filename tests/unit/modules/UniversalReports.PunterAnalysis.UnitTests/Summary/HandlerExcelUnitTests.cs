@@ -22,10 +22,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             var handleExcel = new HandlerExcel(punterAnalysisService, excelSettingFactory, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<SummaryExcelModel>>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Compat.Any<SummaryEntity<SummaryExcelModel>>(), Arg.Compat.Any<ExcelSetting>());
         }
 
         [Test]
@@ -44,21 +44,21 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
             };
 
             var punterAnalysisService = Substitute.For<PunterAnalysisService>();
-            punterAnalysisService.Query<SummaryModel>(Arg.Any<ICriteria>()).Returns(new SummaryEntity<SummaryModel>());
+            punterAnalysisService.Query<SummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(new SummaryEntity<SummaryModel>());
 
             var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
-            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(excelSetting);
+            excelSettingFactory.CreateSetting(Arg.Compat.Any<ExcelSettingParams>()).Returns(excelSetting);
 
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(punterAnalysisService, excelSettingFactory, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-               Arg.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-               Arg.Is(excelSetting));
+              Arg.Compat.Is<SummaryEntity<SummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+              Arg.Compat.Is(excelSetting));
         }
     }
 }

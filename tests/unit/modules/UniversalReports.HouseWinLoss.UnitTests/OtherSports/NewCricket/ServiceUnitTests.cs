@@ -22,13 +22,13 @@ namespace UniversalReports.HouseWinLoss.UnitTests.OtherSports.NewCricket
 
             // Act
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             var service = new WinLossServiceImp(rawWinLossService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

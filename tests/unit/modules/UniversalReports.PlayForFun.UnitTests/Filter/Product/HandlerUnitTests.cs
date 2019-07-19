@@ -26,7 +26,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter.Product
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ProductEntity>(Arg.Any<Criteria>())
+            repository.FetchAsync<ProductEntity>(Arg.Compat.Any<Criteria>())
                 .Returns(valueFromRepository);
 
             // Act

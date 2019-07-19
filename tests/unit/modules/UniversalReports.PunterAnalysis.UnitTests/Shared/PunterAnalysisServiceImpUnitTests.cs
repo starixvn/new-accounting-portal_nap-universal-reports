@@ -18,11 +18,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Shared
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(new List<BetCountModel>());
+            repository.FetchAsync<BetCountModel>(Arg.Compat.Any<ICriteria>()).Returns(new List<BetCountModel>());
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<BetCountModel>(Arg.Any<ICriteria>());
+            var modelBase = await punterAnalysisService.Query<BetCountModel>(Arg.Compat.Any<ICriteria>());
 
             // Assert
             var expected = CreateEmptyModelBaseWithTypeModel();
@@ -44,11 +44,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Shared
             // Arrange
             var nonEmptyBetCountModelList = CreateNonEmptyBetCountModelList();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetCountModel>(Arg.Any<ICriteria>()).Returns(nonEmptyBetCountModelList);
+            repository.FetchAsync<BetCountModel>(Arg.Compat.Any<ICriteria>()).Returns(nonEmptyBetCountModelList);
 
             // Act
             var punterAnalysisService = new PunterAnalysisServiceImp(repository);
-            var modelBase = await punterAnalysisService.Query<BetCountModel>(Arg.Any<ICriteria>());
+            var modelBase = await punterAnalysisService.Query<BetCountModel>(new Criteria());
 
             // Assert
             var expected = CreateNonEmptyModelBaseWithBetCountModel();

@@ -1,5 +1,5 @@
 ﻿using Fanex.Data;
-using Fanex.Data.CrossCutting.WrappingException;
+using Fanex.Data.SqlServer;
 using Fanex.NAP.Core.Configuration;
 
 namespace UniversalReports.Sites
@@ -13,9 +13,7 @@ namespace UniversalReports.Sites
                : "TEST";
             DbSettingProviderManager
              .StartNewSession()
-             .UseDefaultConnectionStringProvider()
-             .Use((settingKey, commandTimeout) => new WrappingExceptionObjectDb(settingKey, commandTimeout))
-             .UseDefaultDbSettingProvider($"~/App_Data/{resourceFolder}")
+             .WithSqlServer($"~/App_Data/{resourceFolder}")
              .Run();
         }
     }

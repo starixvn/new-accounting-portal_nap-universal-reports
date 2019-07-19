@@ -21,7 +21,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
             var updatedUsernameModel = fixture.Create<List<UpdatedUsernameModel>>();
 
             var service = Substitute.For<UpdatedUsernameService>();
-            service.GetUpdatedUsername(Arg.Any<Message>()).Returns(updatedUsernameModel);
+            service.GetUpdatedUsername(Arg.Compat.Any<Message>()).Returns(updatedUsernameModel);
 
             var handler = new Handler(service);
 

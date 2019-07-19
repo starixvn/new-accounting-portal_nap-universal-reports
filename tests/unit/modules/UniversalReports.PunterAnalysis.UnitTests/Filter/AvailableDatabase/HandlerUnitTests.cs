@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDatabase
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<bool>(Arg.Any<QueryCriteria>()).Returns(valueFromRepository);
+            repository.GetAsync<bool>(Arg.Compat.Any<QueryCriteria>()).Returns(valueFromRepository);
 
             // Act
             var parameter = new HttpParameterJson();

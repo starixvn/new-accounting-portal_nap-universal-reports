@@ -20,7 +20,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Filter
             await controller.Product();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<FilterProduct.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<FilterProduct.HttpParameterJson>());
         }
     }
 }

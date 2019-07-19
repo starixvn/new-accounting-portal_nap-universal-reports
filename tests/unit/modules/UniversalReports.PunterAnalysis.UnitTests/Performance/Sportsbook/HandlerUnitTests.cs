@@ -31,8 +31,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
         private IDynamicRepository CreateRepositoryWithEmptyData()
         {
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetCountStatistic>(Arg.Any<ICriteria>()).Returns(new List<BetCountStatistic>());
-            repository.FetchAsync<SportStatistic>(Arg.Any<ICriteria>()).Returns(new List<SportStatistic>());
+            repository.FetchAsync<BetCountStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<BetCountStatistic>());
+            repository.FetchAsync<SportStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<SportStatistic>());
 
             return repository;
         }
@@ -66,8 +66,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Sportsbook
             var sportStatistics = CreateSportStatistics();
             var betCountStatistics = CreateBetCountStatistics();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<SportStatistic>(Arg.Any<ICriteria>()).Returns(sportStatistics);
-            repository.FetchAsync<BetCountStatistic>(Arg.Any<ICriteria>()).Returns(betCountStatistics);
+            repository.FetchAsync<SportStatistic>(Arg.Compat.Any<ICriteria>()).Returns(sportStatistics);
+            repository.FetchAsync<BetCountStatistic>(Arg.Compat.Any<ICriteria>()).Returns(betCountStatistics);
 
             return repository;
         }

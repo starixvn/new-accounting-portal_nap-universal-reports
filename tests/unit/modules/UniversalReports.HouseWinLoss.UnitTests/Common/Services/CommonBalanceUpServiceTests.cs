@@ -18,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var cacheService = Substitute.For<CacheService>();
+            var cacheService = Substitute.For<ICacheService>();
 
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository, cacheService);
 
@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
             balanceUpService.Query();
 
             // Assert
-            cacheService.Received().GetOrSet(BalanceUpRangeCacheKey, Arg.Any<Func<BalanceUpRange>>());
+            cacheService.Received().GetOrSet(BalanceUpRangeCacheKey, Arg.Compat.Any<Func<BalanceUpRange>>());
         }
 
         [Test]
@@ -34,14 +34,14 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
         {
             // Arrange
             var dynamicRepository = Substitute.For<IDynamicRepository>();
-            var cacheService = Substitute.For<CacheService>();
+            var cacheService = Substitute.For<ICacheService>();
             var balanceUpService = new BalanceUpServiceImp(dynamicRepository, cacheService);
 
             // Act
             balanceUpService.QueryFromSource();
 
             // Assert
-            dynamicRepository.Received().Get<BalanceUpRange>(Arg.Any<BalanceUpCriteria>());
+            dynamicRepository.Received().Get<BalanceUpRange>(Arg.Compat.Any<BalanceUpCriteria>());
         }
     }
 }

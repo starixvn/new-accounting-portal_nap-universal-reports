@@ -20,7 +20,7 @@ namespace UniversalReports.Exchange.UnitTests.Filter
             await controller.Licensee();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<filter.Licensee.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<filter.Licensee.HttpParameterJson>());
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace UniversalReports.Exchange.UnitTests.Filter
             await controller.Sport();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<filter.Sport.HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<filter.Sport.HttpParameterJson>());
         }
     }
 }

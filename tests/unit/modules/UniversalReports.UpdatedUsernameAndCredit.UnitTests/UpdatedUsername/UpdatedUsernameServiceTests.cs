@@ -21,7 +21,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
             var repository = Substitute.For<IDynamicRepository>();
 
             var logParseService = Substitute.For<LogParseService>();
-            logParseService.GetUsernameLog(Arg.Any<string>()).Returns(new UsernameLogModel { FromName = "From Username", ToName = "To Username" });
+            logParseService.GetUsernameLog(Arg.Compat.Any<string>()).Returns(new UsernameLogModel { FromName = "From Username", ToName = "To Username" });
 
             var service = new UpdatedUsernameServiceImp(repository, logParseService);
 
@@ -40,7 +40,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
             var expectedUpdatedUsernameList = TestDataLoader.Load<List<UpdatedUsernameModel>>("UpdatedUsername/ExpectedUsernameList.json");
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<UpdatedUsernameEntity>(Arg.Any<Criteria>()).Returns(fakeRawData);
+            repository.FetchAsync<UpdatedUsernameEntity>(Arg.Compat.Any<Criteria>()).Returns(fakeRawData);
 
             var logParseService = new LogParseServiceImp();
 

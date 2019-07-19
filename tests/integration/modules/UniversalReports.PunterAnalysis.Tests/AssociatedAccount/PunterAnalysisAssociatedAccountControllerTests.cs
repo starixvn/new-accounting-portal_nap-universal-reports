@@ -72,7 +72,7 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         {
             var summaryEntity = TestDataLoader.Load<SummaryEntity<AssociatedSummaryModel>>("AssociatedAccount-FileRepository.json");
             var facade = Substitute.For<AssociatedFacade>();
-            facade.Query(Arg.Any<HttpParameterJson>()).Returns(summaryEntity);
+            facade.Query(Arg.Compat.Any<HttpParameterJson>()).Returns(summaryEntity);
 
             container.Register(() => facade);
         }

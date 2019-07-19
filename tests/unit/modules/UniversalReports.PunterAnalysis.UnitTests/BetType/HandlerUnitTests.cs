@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetType
             // Arrange
             var anyReportModel = fixture.Create<Linq.DynamicSum.SummaryEntity<BetTypeModel>>();
             var service = Substitute.For<PunterAnalysisService>();
-            service.Query<BetTypeModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
+            service.Query<BetTypeModel>(Arg.Compat.Any<ICriteria>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(service);

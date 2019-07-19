@@ -14,7 +14,7 @@ import moment from "moment";
                 controller: "ProductController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/product",
-                mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions },
+                mainParameters: { sheetName: "CN88 WinLoss", permissions: productPermissions },
                 getTitleFunction: "getMainTitle"
             }
         },
@@ -25,7 +25,7 @@ import moment from "moment";
                 controller: "SoccerLiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/soccer/live-nonlive",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getSoccerLiveNonLiveTitle"
             },
             soccerMajorMinor: {
@@ -33,7 +33,7 @@ import moment from "moment";
                 controller: "SoccerMajorMinorController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/soccer/major-minor",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "soccer-major-minor", mainColumnText: "Major/Minor" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "soccer-major-minor", mainColumnText: "Major/Minor" },
                 getTitleFunction: "getSoccerMajorMinorTitle"
             },
             soccerBetTypeFull: {
@@ -41,7 +41,7 @@ import moment from "moment";
                 controller: "SoccerBetTypeFullController",
                 service: "soccerBetTypeFullService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/soccer/bettype",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "soccer-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "soccer-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
                 getTitleFunction: "getSoccerBetTypeTitle"
             },
             soccerBetType: {
@@ -70,7 +70,7 @@ import moment from "moment";
                         type: "soccer-bet-type",
                         mainColumnText: "Bet Type",
                         mainColumnWidth: 210,
-                        sheetName: "House Win Loss by Products"
+                        sheetName: "CN88 WinLoss"
                     };
                 },
                 getTitleFunction: "getSoccerBetTypeTitle"
@@ -84,7 +84,7 @@ import moment from "moment";
                         ? 'api/cn88-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/cn88-win-loss-by-products/sportsbook/match-detail';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getMatchDetailTitleLive"
             }
         },
@@ -95,7 +95,7 @@ import moment from "moment";
                 controller: "OtherSportsLiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/other-sports/live-non-live",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getProductTitleLiveNonLive"
             },
             sportType: {
@@ -103,7 +103,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/other-sports/sport-type",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "other-sports-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "other-sports-sport-type", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitleLive"
             },
             betType: {
@@ -119,7 +119,7 @@ import moment from "moment";
                     ? 'api/cn88-win-loss-by-products/other-sports/new-cricket/bet-type'
                     : 'api/cn88-win-loss-by-products/other-sports/bet-type';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "other-sports-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportsbookBetTypeTitle"
             },
             matchDetail: {
@@ -131,7 +131,7 @@ import moment from "moment";
                         ? 'api/cn88-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/cn88-win-loss-by-products/sportsbook/match-detail';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getMatchDetailTitle"
             }
         },
@@ -142,7 +142,7 @@ import moment from "moment";
                 controller: "ParlayBetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/parlay/bet-type",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "parlay-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "parlay-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             }
         },
@@ -153,7 +153,7 @@ import moment from "moment";
                 controller: "NGSportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 3, type: "universal-sport-type", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             league: {
@@ -161,7 +161,7 @@ import moment from "moment";
                 controller: "NGLeagueController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-league", mainColumnText: "League" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 3, type: "number-game-league", mainColumnText: "League" },
                 getTitleFunction: "getSportTypeTitle"
             },
             betType: {
@@ -169,7 +169,7 @@ import moment from "moment";
                 controller: "NGBetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getLeagueTitle"
             },
             matchDetail: {
@@ -177,7 +177,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/number-game/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getMatchDetailTitle"
             }
         },
@@ -188,7 +188,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "virtual-sports-sport-type", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -196,7 +196,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", type: "virtual-sports-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
@@ -208,7 +208,7 @@ import moment from "moment";
                            ? "api/cn88-win-loss-by-products/virtual-sports/racing-match-detail"
                            : "api/cn88-win-loss-by-products/virtual-sports/sportsbook-match-detail";
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getMatchDetailTitle"
             }
         },
@@ -219,7 +219,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 8, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 8, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             }
         },
@@ -230,7 +230,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-betradar-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 27, type: "virtual-sports-betradar-sport-type", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -238,7 +238,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-betradar-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 27, type: "virtual-sports-betradar-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
@@ -246,7 +246,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "CN88 WinLoss" },
                 getTitleFunction: "getMatchDetailTitle"
             }
         },
@@ -257,7 +257,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "CN88 WinLoss", productId: 28, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             }
         }

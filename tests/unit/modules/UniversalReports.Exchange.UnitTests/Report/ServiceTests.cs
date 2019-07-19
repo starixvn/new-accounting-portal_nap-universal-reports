@@ -17,14 +17,14 @@ namespace UniversalReports.Exchange.UnitTests.Report
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ExchangeEntity>(Arg.Any<Criteria>()).Returns(new List<ExchangeEntity>());
+            repository.FetchAsync<ExchangeEntity>(Arg.Compat.Any<Criteria>()).Returns(new List<ExchangeEntity>());
 
             var exchangeModel = CreateEmptyModelBaseWithTypeModel();
 
             var service = new ServiceImp(repository);
 
             // Act
-            var model = await service.Query(Arg.Any<HttpParameterJson>());
+            var model = await service.Query(new HttpParameterJson());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(exchangeModel));
@@ -46,12 +46,12 @@ namespace UniversalReports.Exchange.UnitTests.Report
             // Arrange
             var nonEmptySummaryModelList = CreateNonEmptySummaryModelList();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<ExchangeEntity>(Arg.Any<Criteria>()).Returns(nonEmptySummaryModelList);
+            repository.FetchAsync<ExchangeEntity>(Arg.Compat.Any<Criteria>()).Returns(nonEmptySummaryModelList);
 
             var service = new ServiceImp(repository);
 
             // Act
-            var modelBase = await service.Query(Arg.Any<HttpParameterJson>());
+            var modelBase = await service.Query(new HttpParameterJson());
 
             // Assert
             var expected = CreateNonEmptyModelBaseWithSummaryModel();

@@ -19,7 +19,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
             var fakeData = TestDataLoader.Load<WinLossRaw>("Common.Services.CalculationService.data-1-fakeData");
             var expected = TestDataLoader.Load<WinLoss>("Common.Services.CalculationService.data-1-expected");
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
 
             // Act
@@ -119,7 +119,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 
             // Act
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var service = new CalculationServiceImp(refService);
             var result = service.CalculateSiteWinLossSummary(fakeData).ToList();
 
@@ -136,7 +136,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 
             // Act
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var service = new CalculationServiceImp(refService);
             var result = service.CalculateRM(fakeData).ToList();
 
