@@ -66,8 +66,8 @@ namespace UniversalReports.CN88WinLoss.Common.MatchDetailByCode
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "RealMargin", item.RealTurnover == 0 ? "N/A" : (object)item.RealMargin),
-                new Columns(columnIndex++, "CN88RealIncome", 0.45m * item.RealIncome),
-                new Columns(columnIndex, "CompanyRealIncome", 0.55m * item.RealIncome)
+                new Columns(columnIndex++, "CN88RealIncome", 0.55m * item.RealIncome),
+                new Columns(columnIndex, "CompanyRealIncome", 0.45m * item.RealIncome)
             };
 
             return new GridDataRow { Columns = columns };

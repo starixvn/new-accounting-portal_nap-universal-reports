@@ -31,8 +31,8 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
                 new Columns(columnIndex++, "RealMargin", item.ExcelRealMargin()),
-                new Columns(columnIndex++, "CN88RealIncome", 0.45m * item.RealIncome),
-                new Columns(columnIndex, "CompanyRealIncome", 0.55m * item.RealIncome)
+                new Columns(columnIndex++, "CN88RealIncome", 0.55m * item.RealIncome),
+                new Columns(columnIndex, "CompanyRealIncome", 0.45m * item.RealIncome)
             };
 
             return new GridDataRow { Columns = columns };
