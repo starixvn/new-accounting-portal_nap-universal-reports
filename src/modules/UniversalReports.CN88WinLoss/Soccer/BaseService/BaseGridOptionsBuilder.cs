@@ -16,8 +16,10 @@ namespace UniversalReports.CN88WinLoss.Soccer.BaseService
 
         protected GridDataRow BuildBetTypeDataRow(WinLoss item, HAlignment alignment)
         {
+            const string RowCssClass = "parent-row";
             var row = GridDataRowBuilder.BuildDataRow(item, alignment);
             row.RowType = RowType.ParentLevelOne;
+            row.CssClass = RowCssClass;
 
             return row;
         }

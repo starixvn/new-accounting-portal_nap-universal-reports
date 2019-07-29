@@ -50,8 +50,10 @@ namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
 
         protected virtual GridDataRow BuildDataRow(WinLoss item, HAlignment alignment)
         {
+            const string RowCssClass = "parent-row";
             var row = gridDataRowBuilder.BuildDataRow(item, alignment);
             row.RowType = RowType.ParentLevelOne;
+            row.CssClass = RowCssClass;
 
             return row;
         }

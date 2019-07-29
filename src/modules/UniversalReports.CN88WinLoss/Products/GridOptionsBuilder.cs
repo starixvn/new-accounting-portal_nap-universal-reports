@@ -89,9 +89,11 @@ namespace UniversalReports.CN88WinLoss.Products
 
         private GridDataRow BuildWinLoss(WinLoss winloss)
         {
+            const string RowCssClass = "parent-row";
             var productDataRow = gridDataRowBuilder.BuildDataRow(winloss, HAlignment.Left);
             productDataRow.RowType = RowType.ParentLevelOne;
             productDataRow.CustomAttr = "product";
+            productDataRow.CssClass = RowCssClass;
 
             return productDataRow;
         }
