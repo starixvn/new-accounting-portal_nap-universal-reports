@@ -525,6 +525,8 @@
     <Content Include="app\cn88-win-loss\tab\tab.directive.html" />
     <Content Include="app\cn88-win-loss\tab\tab.directive.js" />
     <Content Include="app\cn88-win-loss\tab\tab.service.js" />
+    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.html" />
+    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.js" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />

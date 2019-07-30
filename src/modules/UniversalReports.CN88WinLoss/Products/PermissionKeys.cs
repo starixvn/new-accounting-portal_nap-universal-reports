@@ -2,14 +2,14 @@
 {
     public static class PermissionKeys
     {
-        public const string AllProducts = "HouseWinLossByProducts_AllProducts";
+        public const string AllProducts = "CN88WinLossByProducts_AllProducts";
 
-        public const string Sportsbook = "HouseWinLossByProducts_Sportsbook";
+        public const string Sportsbook = "CN88WinLossByProducts_Sportsbook";
 
-        public const string ThirdPartyProducts = "HouseWinLossByProducts_ThirdPartyProducts";
+        public const string ThirdPartyProducts = "CN88WinLossByProducts_ThirdPartyProducts";
 
-        public const string Soccer = "HouseWinLossByProducts_Soccer";
+        public const string Soccer = "CN88WinLossByProducts_Soccer";
 
-        public const string OtherSports = "HouseWinLossByProducts_OtherSports";
+        public const string OtherSports = "CN88WinLossByProducts_OtherSports";
     }
 }

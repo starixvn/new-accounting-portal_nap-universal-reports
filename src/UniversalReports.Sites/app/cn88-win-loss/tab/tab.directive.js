@@ -43,13 +43,13 @@ import angular from "angular";
         });
 
         function getMainPane(data) {
-            var hasMainPagePermission = productPermissions.indexOf("HouseWinLossByProducts_AllProducts") >= 0
-                            || productPermissions.indexOf("HouseWinLossByProducts_Sportsbook") >= 0
-                            || productPermissions.indexOf("HouseWinLossByProducts_ThirdPartyProducts") >= 0
-                            || productPermissions.indexOf("HouseWinLossByProducts_Soccer") >= 0
-                            || productPermissions.indexOf("HouseWinLossByProducts_OtherSports") >= 0;
-            var hasOnlySoccerLivePermission = productPermissions.indexOf("HouseWinLossByProducts_SoccerLive") >= 0;
-            var hasOnlySoccerNonLivePermission = productPermissions.indexOf("HouseWinLossByProducts_SoccerNonLive") >= 0;
+            var hasMainPagePermission = productPermissions.indexOf("CN88WinLossByProducts_AllProducts") >= 0
+                            || productPermissions.indexOf("CN88WinLossByProducts_Sportsbook") >= 0
+                            || productPermissions.indexOf("CN88WinLossByProducts_ThirdPartyProducts") >= 0
+                            || productPermissions.indexOf("CN88WinLossByProducts_Soccer") >= 0
+                            || productPermissions.indexOf("CN88WinLossByProducts_OtherSports") >= 0;
+            var hasOnlySoccerLivePermission = productPermissions.indexOf("CN88WinLossByProducts_SoccerLive") >= 0;
+            var hasOnlySoccerNonLivePermission = productPermissions.indexOf("CN88WinLossByProducts_SoccerNonLive") >= 0;
 
             if (hasMainPagePermission) {
                 data.productName = "Main";
