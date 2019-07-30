@@ -31,13 +31,13 @@ namespace UniversalReports.Sites.Controllers
             ViewBag.ProductPermissions = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,
-                FunctionKeys.HouseWinLossProductPermission)
+                FunctionKeys.CN88WinLossProductPermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
                 .Select(p => p.Function.Key);
             ViewBag.ModePermissions = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,
-                FunctionKeys.HouseWinLossModePermission)
+                FunctionKeys.CN88WinLossModePermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
                 .Select(p => p.Function.Key);
             return View();

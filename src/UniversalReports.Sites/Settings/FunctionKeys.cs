@@ -13,5 +13,7 @@
         public const string ActualMemberBet = "ActualMemberBet";
         public const string DailyWinLoss2hSoccerMinorBettype = "DailyWinLoss2hSoccerMinorBettype";
         public const string CN88WinLossByProducts = "CN88WinLossbyProducts";
+        public const string CN88WinLossProductPermission = "CN88WinLossByProducts_ProductPermission";
+        public const string CN88WinLossModePermission = "CN88WinLossByProducts_ModePermission";
     }
 }
