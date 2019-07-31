@@ -9,6 +9,6 @@ namespace UniversalReports.CN88WinLoss.Soccer.SumBetType
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Soccer-BetType-{Source}";
+        public override string GetSettingKey() => $"CN88WinLoss-Soccer-BetType-{Source}";
     }
 }

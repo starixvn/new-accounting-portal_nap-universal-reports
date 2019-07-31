@@ -253,7 +253,7 @@ import moment from "moment";
         "Lottery": {
             mainView: "betType",
             betType: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                templateUrl: "app/cn88-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/cn88-win-loss-by-products/simple-grid",
