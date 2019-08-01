@@ -48,7 +48,7 @@ import angular from "angular";
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
             var template = cn88WinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
-            var hasDetailDrilldown = angular.isDefined(template) && parseInt(betTypeId) !== betradarVirtualSportsMixParlayBettype;
+            var hasDetailDrilldown = angular.isDefined(template) && parseInt(betTypeId) !== betradarVirtualSportsMixParlayBettype && parseInt(betTypeId) !== 0;
 
             if (hasDetailDrilldown) {
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';

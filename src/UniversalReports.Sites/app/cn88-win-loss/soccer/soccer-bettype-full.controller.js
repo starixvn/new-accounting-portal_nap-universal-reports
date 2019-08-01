@@ -83,7 +83,9 @@ import angular from "angular";
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
-            betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
+            if(parseInt(betTypeId) !== 0) {
+                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + betTypeName + '</a>';
+            }
         }
         function renderFullGrid(gridElement, gridOptions){
             var titleInfo = {
