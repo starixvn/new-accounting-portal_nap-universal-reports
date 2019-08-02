@@ -32,11 +32,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
         private IDynamicRepository CreateRepositoryWithEmptyData()
         {
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<MonthStatistic>(Arg.Any<ICriteria>()).Returns(new List<MonthStatistic>());
-            repository.FetchAsync<ProductTurnoverStatistic>(Arg.Any<ICriteria>()).Returns(new List<ProductTurnoverStatistic>());
-            repository.FetchAsync<SportStatistic>(Arg.Any<ICriteria>()).Returns(new List<SportStatistic>());
-            repository.FetchAsync<BetTypeStatistic>(Arg.Any<ICriteria>()).Returns(new List<BetTypeStatistic>());
-            repository.FetchAsync<EventStatistic>(Arg.Any<ICriteria>()).Returns(new List<EventStatistic>());
+            repository.FetchAsync<MonthStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<MonthStatistic>());
+            repository.FetchAsync<ProductTurnoverStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<ProductTurnoverStatistic>());
+            repository.FetchAsync<SportStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<SportStatistic>());
+            repository.FetchAsync<BetTypeStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<BetTypeStatistic>());
+            repository.FetchAsync<EventStatistic>(Arg.Compat.Any<ICriteria>()).Returns(new List<EventStatistic>());
 
             return repository;
         }
@@ -77,11 +77,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Performance.Summary
             var eventStatistics = CreateEventStatistics();
             var betTypeStatistics = CreateBetTypeStatistics();
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<MonthStatistic>(Arg.Any<ICriteria>()).Returns(monthStatistics);
-            repository.FetchAsync<ProductTurnoverStatistic>(Arg.Any<ICriteria>()).Returns(productTurnoverStatistics);
-            repository.FetchAsync<SportStatistic>(Arg.Any<ICriteria>()).Returns(sportStatistics);
-            repository.FetchAsync<BetTypeStatistic>(Arg.Any<ICriteria>()).Returns(betTypeStatistics);
-            repository.FetchAsync<EventStatistic>(Arg.Any<ICriteria>()).Returns(eventStatistics);
+            repository.FetchAsync<MonthStatistic>(Arg.Compat.Any<ICriteria>()).Returns(monthStatistics);
+            repository.FetchAsync<ProductTurnoverStatistic>(Arg.Compat.Any<ICriteria>()).Returns(productTurnoverStatistics);
+            repository.FetchAsync<SportStatistic>(Arg.Compat.Any<ICriteria>()).Returns(sportStatistics);
+            repository.FetchAsync<BetTypeStatistic>(Arg.Compat.Any<ICriteria>()).Returns(betTypeStatistics);
+            repository.FetchAsync<EventStatistic>(Arg.Compat.Any<ICriteria>()).Returns(eventStatistics);
 
             return repository;
         }

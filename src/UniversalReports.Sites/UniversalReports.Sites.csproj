@@ -62,36 +62,36 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyNetQ, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EasyNetQ.2.3.3\lib\net451\EasyNetQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Epplus.Mapper.1.0.0.9\lib\net461\Epplus.Mapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Caching, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.2.1.0\lib\net461\Fanex.Caching.dll</HintPath>
+    <Reference Include="Fanex.Caching, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.2.1\lib\net461\Fanex.Caching.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.3.1.0\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.4.0.1\lib\net461\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Data.CrossCutting.WrappingException, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
@@ -102,8 +102,12 @@
       <HintPath>..\..\packages\Fanex.Data.DbSettingProviderExtension.1.0.0.1\lib\net40\Fanex.Data.DbSettingProviderExtension.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Data.Repository.3.0.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.Repository.4.0.1\lib\net461\Fanex.Data.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data.SqlServer, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.SqlServer.4.0.1\lib\net461\Fanex.Data.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
@@ -138,16 +142,16 @@
       <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.2.1.4\lib\net40\Fanex.NAP.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.RemotingRef.1.3.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
+    <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.4.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.1.0.145, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -162,8 +166,8 @@
       <HintPath>..\..\packages\MediatR.SimpleInjector.6.0.0.1\lib\net461\MediatR.SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+    <Reference Include="MessagePack, Version=1.7.3.7, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.1.7.3.7\lib\net45\MessagePack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.WebApi.TrimmingFormatter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -174,8 +178,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.Tasks.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=2.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.2.0.1\lib\net461\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -207,7 +211,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
@@ -231,7 +235,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi.Attributes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.WebApi.Attributes.1.0.0.4\lib\net461\Olympus.WebApi.Attributes.dll</HintPath>
+      <HintPath>..\..\packages\Olympus.WebApi.Attributes.1.0.0.5\lib\net461\Olympus.WebApi.Attributes.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -244,7 +248,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\RabbitMQ.Client.5.0.1\lib\net451\RabbitMQ.Client.dll</HintPath>
+      <HintPath>..\..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -255,24 +259,24 @@
       <HintPath>..\..\packages\SharpRaven.2.4.0\lib\net45\SharpRaven.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.4.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.4.4.2\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.6.0\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SimpleInjector.Extensions.ExecutionContextScoping.4.0.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=4.4.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.4.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.4.6.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.4.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.4.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.Web.Mvc.4.6.0\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.4.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.4.4.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.6.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.Integration.WebApi.4.6.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -327,8 +331,8 @@
       <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
@@ -409,6 +413,7 @@
     <Compile Include="App_Start\SimpleInjector\ActualMemberBetInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ExchangeInjector.cs" />
     <Compile Include="App_Start\RemotingRef.cs" />
+    <Compile Include="App_Start\SimpleInjector\CN88WinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PlayForFunInjector.cs" />
@@ -425,6 +430,7 @@
     <Compile Include="Controllers\DailyWinLoss2hSoccerMinorController.cs" />
     <Compile Include="Controllers\ExchangeController.cs" />
     <Compile Include="Controllers\FakeLoginController.cs" />
+    <Compile Include="Controllers\CN88WinLossByProductsController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
     <Compile Include="Controllers\PlayForFunController.cs" />
@@ -441,6 +447,7 @@
     <Compile Include="Settings\FunctionKeys.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\cn88-win-loss\shared\bet-type.new-cricket.controller.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-winloss-2h-soccer-minor.constant.js" />
@@ -478,6 +485,48 @@
     <Content Include="app\ng2-statistics\grandtotal\grandtotal.service.js" />
     <Content Include="app\ng2-statistics\ng2-statistics.controller.js" />
     <Content Include="app\ng2-statistics\ng2-statistics.html" />
+    <Content Include="app\cn88-win-loss\app.config.js" />
+    <Content Include="app\cn88-win-loss\app.js" />
+    <Content Include="app\cn88-win-loss\breadcrumb\breadcrumb.service.js" />
+    <Content Include="app\cn88-win-loss\breadcrumb\title.service.js" />
+    <Content Include="app\cn88-win-loss\filter\filter.directive.html" />
+    <Content Include="app\cn88-win-loss\filter\filter.directive.js" />
+    <Content Include="app\cn88-win-loss\grid\product-show-hide-column.service.js" />
+    <Content Include="app\cn88-win-loss\grid\show-hide-column.service.js" />
+    <Content Include="app\cn88-win-loss\cn88-win-loss.constant.js" />
+    <Content Include="app\cn88-win-loss\cn88-win-loss.controller.js" />
+    <Content Include="app\cn88-win-loss\cn88-win-loss.html" />
+    <Content Include="app\cn88-win-loss\cn88-win-loss.service.js" />
+    <Content Include="app\cn88-win-loss\ng2\ng2.live-non-live.controller.js" />
+    <Content Include="app\cn88-win-loss\number-game\number-game.bet-type.controller.js" />
+    <Content Include="app\cn88-win-loss\number-game\number-game.league.controller.js" />
+    <Content Include="app\cn88-win-loss\number-game\number-game.sport-type.controller.js" />
+    <Content Include="app\cn88-win-loss\other-sports\other-sports-live-non-live.controller.js" />
+    <Content Include="app\cn88-win-loss\parlay\parlay-bet-type.controller.js" />
+    <Content Include="app\cn88-win-loss\product\product.controller.js" />
+    <Content Include="app\cn88-win-loss\shared\bet-type.controller.js" />
+    <Content Include="app\cn88-win-loss\shared\fanex-grid-with-title.html" />
+    <Content Include="app\cn88-win-loss\shared\match-detail.controller.js" />
+    <Content Include="app\cn88-win-loss\shared\remote-data.service.js" />
+    <Content Include="app\cn88-win-loss\shared\sport-type.controller.js" />
+    <Content Include="app\cn88-win-loss\shared\three-fanex-grid-with-title.html" />
+    <Content Include="app\cn88-win-loss\shared\two-fanex-grid-with-title.html" />
+    <Content Include="app\cn88-win-loss\soccer\soccer-bet-type.service.js" />
+    <Content Include="app\cn88-win-loss\soccer\soccer-bettype-full.controller.js" />
+    <Content Include="app\cn88-win-loss\soccer\soccer-bettype-full.service.js" />
+    <Content Include="app\cn88-win-loss\soccer\soccer-live-nonlive.controller.js" />
+    <Content Include="app\cn88-win-loss\soccer\soccer-major-minor.controller.js" />
+    <Content Include="app\cn88-win-loss\soccer\soccer.constant.js" />
+    <Content Include="app\cn88-win-loss\sportsbook\sportsbook-match-detail.controller.js" />
+    <Content Include="app\cn88-win-loss\sportsbook\sportsbook-match-detail.service.js" />
+    <Content Include="app\cn88-win-loss\sportsbook\sportsbook-match-information.html" />
+    <Content Include="app\cn88-win-loss\tab\pane.directive.js" />
+    <Content Include="app\cn88-win-loss\tab\pane.service.js" />
+    <Content Include="app\cn88-win-loss\tab\tab.directive.html" />
+    <Content Include="app\cn88-win-loss\tab\tab.directive.js" />
+    <Content Include="app\cn88-win-loss\tab\tab.service.js" />
+    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.html" />
+    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.js" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
@@ -548,6 +597,8 @@
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
+    <Content Include="bundle\cn88-win-loss-style.chunk.js" />
+    <Content Include="bundle\cn88-win-loss.chunk.js" />
     <Content Include="bundle\daily-winloss-2h-soccer-minor-style.chunk.js" />
     <Content Include="bundle\daily-winloss-2h-soccer-minor.chunk.js" />
     <Content Include="bundle\f721466883998665b87923b92dea655b.svg" />
@@ -555,6 +606,7 @@
     <Content Include="bundle\house-win-loss-style.css" />
     <Content Include="bundle\house-win-loss.chunk.js" />
     <Content Include="bundle\lib.chunk.js" />
+    <Content Include="bundle\lib.css" />
     <Content Include="bundle\ng2-statistics-style.chunk.js" />
     <Content Include="bundle\ng2-statistics-style.css" />
     <Content Include="bundle\ng2-statistics.chunk.js" />
@@ -799,6 +851,9 @@
     </Content>
     <Content Include="bundle\daily-winloss-2h-soccer-minor-style.chunk.js.map" />
     <Content Include="bundle\daily-winloss-2h-soccer-minor.chunk.js.map" />
+    <Content Include="bundle\cn88-win-loss-style.chunk.js.map" />
+    <Content Include="bundle\cn88-win-loss.chunk.js.map" />
+    <Content Include="bundle\lib.css.map" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -941,6 +996,7 @@
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="Views\DailyWinLoss2hSoccerMinor\Index.cshtml" />
+    <Content Include="Views\CN88WinLossByProducts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -954,6 +1010,10 @@
     <ProjectReference Include="..\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameCredit.csproj">
       <Project>{847c5ba4-ff43-4683-940f-30cfefa00892}</Project>
       <Name>UniversalReports.UpdatedUsernameCredit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.CN88WinLoss\UniversalReports.CN88WinLoss.csproj">
+      <Project>{a79cc236-0cc6-4c85-b74a-9ca67a85ee06}</Project>
+      <Name>UniversalReports.CN88WinLoss</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
@@ -990,9 +1050,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.11.0.8083\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.11.0.8083\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.11.0.8083\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -24,8 +24,8 @@ namespace UniversalReports.PlayForFun.Tests.DependencyInjection
             var fakeSecondData = TestDataLoader.Load<List<TSecondModel>>(fakeSecondDatabaseFile);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<TFirstModel>(Arg.Any<ICriteria>()).Returns(fakeFirstData);
-            repository.FetchAsync<TSecondModel>(Arg.Any<ICriteria>()).Returns(fakeSecondData);
+            repository.FetchAsync<TFirstModel>(Arg.Compat.Any<ICriteria>()).Returns(fakeFirstData);
+            repository.FetchAsync<TSecondModel>(Arg.Compat.Any<ICriteria>()).Returns(fakeSecondData);
 
             RegisterDependency(repository);
 

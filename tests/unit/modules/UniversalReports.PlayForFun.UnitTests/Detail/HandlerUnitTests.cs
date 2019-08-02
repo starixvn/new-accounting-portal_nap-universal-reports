@@ -22,7 +22,7 @@ namespace UniversalReports.PlayForFun.UnitTests.Detail
             // Arrange
             var anyReportModel = fixture.Create<SummaryEntity<DetailModel>>();
             var service = Substitute.For<PlayForFunService>();
-            service.Query<DetailModel>(Arg.Any<ICriteria>()).Returns(anyReportModel);
+            service.Query<DetailModel>(Arg.Compat.Any<ICriteria>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(service);

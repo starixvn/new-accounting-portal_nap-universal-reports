@@ -21,13 +21,13 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             var expected = TestDataLoader.Load<ProductWinLoss>("Products.Service.data-1-expected");
 
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             var permissionFilterService = Substitute.For<PermissionFilterService>();
-            permissionFilterService.Filter(Arg.Any<IEnumerable<WinLossRaw>>(), Arg.Any<IEnumerable<string>>()).Returns(fakeData);
+            permissionFilterService.Filter(Arg.Compat.Any<IEnumerable<WinLossRaw>>(), Arg.Compat.Any<IEnumerable<string>>()).Returns(fakeData);
 
             // Act
             var service = new ServiceImp(rawWinLossService, permissionFilterService, calculationService);
@@ -45,7 +45,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             var expected = TestDataLoader.Load<ProductGroupWinLoss>("Products.Service.data-2-expected");
 
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
             var permissionFilterService = Substitute.For<PermissionFilterService>();

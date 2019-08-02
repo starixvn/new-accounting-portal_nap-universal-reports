@@ -22,7 +22,7 @@ namespace UniversalReports.Exchange.UnitTests.Filter.Sport
             var sport = fixture.Create<IEnumerable<SportModel>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<SportModel>(Arg.Any<Criteria>()).Returns(sport);
+            repository.FetchAsync<SportModel>(Arg.Compat.Any<Criteria>()).Returns(sport);
 
             var handler = new Handler(repository);
 

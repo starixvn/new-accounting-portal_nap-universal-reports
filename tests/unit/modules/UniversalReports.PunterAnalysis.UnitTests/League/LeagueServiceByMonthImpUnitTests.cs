@@ -19,11 +19,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var emptyReportModel = new ReportModel();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(new List<LeagueRawModel>());
+            repository.FetchAsync<LeagueRawModel>(Arg.Compat.Any<ICriteria>()).Returns(new List<LeagueRawModel>());
 
             // Act
             var service = new LeagueServiceByMonth(repository);
-            var reportModel = await service.Query(Arg.Any<ICriteria>());
+            var reportModel = await service.Query(Arg.Compat.Any<ICriteria>());
 
             // Assert
             Assert.That(reportModel, IsDeeplyEqual.To(emptyReportModel));
@@ -40,11 +40,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var leagueRawModelForOneYearOneMonth = TestDataLoader.Load<List<LeagueRawModel>>(InputFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForOneYearOneMonth);
+            repository.FetchAsync<LeagueRawModel>(Arg.Compat.Any<ICriteria>()).Returns(leagueRawModelForOneYearOneMonth);
 
             // Act
             var service = new LeagueServiceByMonth(repository);
-            var reportModel = await service.Query(Arg.Any<ICriteria>());
+            var reportModel = await service.Query(new Criteria());
 
             // Assert
             Assert.That(reportModel, IsDeeplyEqual.To(expectedReportModelWithOneYearOneMonthAndGrandTotal));
@@ -61,11 +61,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var leagueRawModelForOneYearTwoMonths = TestDataLoader.Load<List<LeagueRawModel>>(InputFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForOneYearTwoMonths);
+            repository.FetchAsync<LeagueRawModel>(Arg.Compat.Any<ICriteria>()).Returns(leagueRawModelForOneYearTwoMonths);
 
             // Act
             var service = new LeagueServiceByMonth(repository);
-            var reportModel = await service.Query(Arg.Any<ICriteria>());
+            var reportModel = await service.Query(new Criteria());
 
             // Assert
             Assert.That(reportModel, IsDeeplyEqual.To(expectedReportModelWithOneYearTwoMonthsAndGrandTotal));
@@ -82,11 +82,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var leagueRawModelForTwoYearsTwoMonths = TestDataLoader.Load<List<LeagueRawModel>>(InputFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LeagueRawModel>(Arg.Any<ICriteria>()).Returns(leagueRawModelForTwoYearsTwoMonths);
+            repository.FetchAsync<LeagueRawModel>(Arg.Compat.Any<ICriteria>()).Returns(leagueRawModelForTwoYearsTwoMonths);
 
             // Act
             var service = new LeagueServiceByMonth(repository);
-            var reportModel = await service.Query(Arg.Any<ICriteria>());
+            var reportModel = await service.Query(new Criteria());
 
             // Assert
             Assert.That(reportModel, IsDeeplyEqual.To(expectedReportModelWithTwoYearsTwoMonthsAndGrandTotal));

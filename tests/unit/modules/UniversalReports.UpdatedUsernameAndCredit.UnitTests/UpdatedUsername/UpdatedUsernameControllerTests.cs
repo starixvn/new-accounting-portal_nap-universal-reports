@@ -21,7 +21,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
             await controller.Query(message);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<Message>());
+            await mediator.Received().Send(Arg.Compat.Any<Message>());
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
             await controller.Excel(excelMessage);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<ExcelMessage>());
+            await mediator.Received().Send(Arg.Compat.Any<ExcelMessage>());
         }
     }
 }

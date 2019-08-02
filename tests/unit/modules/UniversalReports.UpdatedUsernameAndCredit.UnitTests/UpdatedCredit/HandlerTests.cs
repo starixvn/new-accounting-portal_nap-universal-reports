@@ -21,7 +21,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
             var updatedCreditModel = fixture.Create<IEnumerable<UpdatedCreditModel>>();
 
             var service = Substitute.For<UpdatedCreditService>();
-            service.GetUpdatedCredit(Arg.Any<Message>()).Returns(updatedCreditModel);
+            service.GetUpdatedCredit(Arg.Compat.Any<Message>()).Returns(updatedCreditModel);
 
             var handler = new Handler(service);
 

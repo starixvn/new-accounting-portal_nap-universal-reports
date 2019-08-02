@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using Fanex.Data;
+using Fanex.Data.Repository;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;
@@ -20,36 +19,29 @@ namespace UniversalReports.NG2Statistics.UserName
     {
         private readonly BalanceUpService balance;
 
-        public UserNameServiceImp(BalanceUpService balance)
+        private readonly IDynamicRepository repository;
+
+        public UserNameServiceImp(BalanceUpService balance, IDynamicRepository repository)
         {
             this.balance = balance;
+            this.repository = repository;
         }
 
         public UserNameModel Query(QueryModel queryModel)
         {
-            var daily = new UserNameModel
-            {
-                Rows = new List<UserNameModel>(),
-                Total = new UserNameModel()
-            };
 
             var criteria = Mapper.Map<UserNameCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
-            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            var rawData = repository.FetchMultiple<UserNameModel, UserNameModel>(criteria);
+            var total = rawData.Item2.FirstOrDefault();
+            total.Username = "Grand Total RM";
+
+            return new UserNameModel
             {
-                using (var multi = db.QueryMultiple(criteria.GetSpParams()))
-                {
-                    var rows = multi.Read<UserNameModel>();
-                    var total = multi.Read<UserNameModel>().FirstOrDefault();
-                    total.Username = "Grand Total RM";
-
-                    daily.Rows = rows.ToList();
-                    daily.Total = total;
-                }
-            }
-
-            return daily;
+                Rows = rawData.Item1.ToList(),
+                Total = total
+            };
         }
 
         public UserNameModel SortData(QueryModel queryModel)

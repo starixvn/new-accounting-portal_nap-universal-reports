@@ -20,7 +20,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             // Arrange
             var anyReportModel = fixture.Create<SummaryEntity<BetCountModel>>();
             var service = Substitute.For<BetCountService>();
-            service.Query(Arg.Any<Criteria>()).Returns(anyReportModel);
+            service.Query(Arg.Compat.Any<Criteria>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(service);

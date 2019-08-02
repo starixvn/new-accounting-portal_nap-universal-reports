@@ -31,7 +31,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.UsernameSuggestion
             currentSession.UserId.Returns(CurrentUserId);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<string>(Arg.Is<QueryCriteria>(x => x.CustId == CurrentUserId && x.RoleId == 1 && x.Username == "Any Username"))
+            repository.FetchAsync<string>(Arg.Compat.Is<QueryCriteria>(x => x.CustId == CurrentUserId && x.RoleId == 1 && x.Username == "Any Username"))
                 .Returns(valueFromRepository);
 
             // Act

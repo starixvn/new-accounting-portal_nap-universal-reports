@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using Fanex.Data;
+using Fanex.Data.Repository;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;
@@ -20,9 +20,12 @@ namespace UniversalReports.NG2Statistics.Daily
     {
         private readonly BalanceUpService balance;
 
-        public DailyServiceImp(BalanceUpService balance)
+        private readonly IDynamicRepository repository;
+
+        public DailyServiceImp(BalanceUpService balance, IDynamicRepository repository)
         {
             this.balance = balance;
+            this.repository = repository;
         }
 
         public DailyModel Query(QueryModel queryModel)
@@ -53,20 +56,15 @@ namespace UniversalReports.NG2Statistics.Daily
             var criteria = Mapper.Map<DailyCriteria>(queryModel);
             criteria.MoveBetsDay = balance.Query().MoveBetsDate;
 
-            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            var rawData = repository.FetchMultiple<DailyModel, DailyModel>(criteria);
+            var total = rawData.Item2.FirstOrDefault();
+            total.Name = "Grand Total RM";
+
+            return new DailyModel
             {
-                using (var multi = db.QueryMultiple(criteria.GetSpParams()))
-                {
-                    var rows = multi.Read<DailyModel>();
-                    var total = multi.Read<DailyModel>().FirstOrDefault();
-                    total.Name = "Grand Total RM";
-
-                    daily.Rows = rows.ToList();
-                    daily.Total = total;
-                }
-            }
-
-            return daily;
+                Rows = rawData.Item1.ToList(),
+                Total = total
+            };
         }
 
         public DailyModel SortData(DailyModel dataRaw, QueryModel queryModel)

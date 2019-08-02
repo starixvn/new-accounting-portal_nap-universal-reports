@@ -27,7 +27,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.AvailableDateRange
         {
             // Arrange
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<DateRange>(Arg.Any<QueryCriteria>()).Returns(valueFromRepository);
+            repository.GetAsync<DateRange>(Arg.Compat.Any<QueryCriteria>()).Returns(valueFromRepository);
 
             // Act
             var parameter = new HttpParameterJson();

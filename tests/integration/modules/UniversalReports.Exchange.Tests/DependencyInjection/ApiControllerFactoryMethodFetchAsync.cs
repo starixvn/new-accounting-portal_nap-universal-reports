@@ -23,7 +23,7 @@ namespace UniversalReports.Exchange.Tests.DependencyInjection
             var fakeData = TestDataLoader.Load<List<TModel>>(fakeDatabaseFile);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<TModel>(Arg.Any<ICriteria>()).Returns(fakeData);
+            repository.FetchAsync<TModel>(Arg.Compat.Any<ICriteria>()).Returns(fakeData);
 
             RegisterDependency(repository);
 

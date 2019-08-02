@@ -44,13 +44,13 @@ namespace UniversalReports.HouseWinLoss.Tests.DailyWinLoss2hSoccerMinor.BetType
                 MoveBetsDate = new DateTime(2016, 01, 01)
             };
             var repository = Substitute.For<IDynamicRepository>();
-            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 2))
+            repository.Fetch<WinLossRaw>(Arg.Compat.Is<Criteria>(x => x.IsLive == 2))
                 .Returns(fakeFullData);
-            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 1))
+            repository.Fetch<WinLossRaw>(Arg.Compat.Is<Criteria>(x => x.IsLive == 1))
                 .Returns(fakeNonLiveData);
-            repository.Fetch<WinLossRaw>(Arg.Is<Criteria>(x => x.IsLive == 0))
+            repository.Fetch<WinLossRaw>(Arg.Compat.Is<Criteria>(x => x.IsLive == 0))
                 .Returns(fakeLiveData);
-            repository.Get<BalanceUpRange>(Arg.Any<ICriteria>())
+            repository.Get<BalanceUpRange>(Arg.Compat.Any<ICriteria>())
                 .Returns(fakeBalanceUpRange);
 
             var simpleInjector = new SimpleInjectorConfig(repository);

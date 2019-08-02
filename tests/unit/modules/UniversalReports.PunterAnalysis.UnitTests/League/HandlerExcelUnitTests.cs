@@ -25,7 +25,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<ReportModel>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Compat.Any<ReportModel>(), Arg.Compat.Any<ExcelSetting>());
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
 
             var factory = CreateLeagueServiceFactory(emptyExcelViewModel);
             var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
-            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(settings);
+            excelSettingFactory.CreateSetting(Arg.Compat.Any<ExcelSettingParams>()).Returns(settings);
 
             var excelBuilder = Substitute.For<LeagueExcelBuilder>();
             var handleExcel = new HandlerExcel(factory, excelSettingFactory, excelBuilder);
@@ -55,16 +55,16 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Is(emptyExcelViewModel), Arg.Is(settings));
+            excelBuilder.Received().CreateExcelPackage(Arg.Compat.Is(emptyExcelViewModel), Arg.Compat.Is(settings));
         }
 
         private LeagueServiceFactory CreateLeagueServiceFactory(ReportModel reportModel)
         {
             var service = Substitute.For<LeagueService>();
-            service.Query(Arg.Any<ICriteria>()).Returns(reportModel);
+            service.Query(Arg.Compat.Any<ICriteria>()).Returns(reportModel);
 
             var factory = Substitute.For<LeagueServiceFactory>();
-            factory.CreateLeagueService(Arg.Any<int>()).Returns(service);
+            factory.CreateLeagueService(Arg.Compat.Any<int>()).Returns(service);
 
             return factory;
         }

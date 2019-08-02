@@ -22,7 +22,7 @@ namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedCredit
             var expectedUpdatedCreditModel = TestDataLoader.Load<IEnumerable<UpdatedCreditModel>>(expectedCreditListDataFileName);
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<UpdatedCreditEntity>(Arg.Any<Criteria>()).Returns(fakeUpdatedCreditRawData);
+            repository.FetchAsync<UpdatedCreditEntity>(Arg.Compat.Any<Criteria>()).Returns(fakeUpdatedCreditRawData);
 
             var service = new UpdatedCreditServiceImp(repository);
 

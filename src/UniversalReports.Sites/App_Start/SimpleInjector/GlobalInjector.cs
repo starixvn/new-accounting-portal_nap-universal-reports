@@ -1,4 +1,5 @@
 ﻿using Fanex.Caching;
+using Fanex.Caching.Memory;
 using Fanex.Data.Repository;
 using Fanex.NAP.Core.Context;
 using Fanex.NAP.Core.Service.Impl;
@@ -25,7 +26,8 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.Register<ICurrentSession, CurrentSession>();
 
-            container.Register<CacheService>(() => new CacheServiceImpl());
+            container.RegisterSingleton<ICache>(() => new MemoryCache(new MemoryCacheOptions()));
+            container.Register<ICacheService>(() => new CacheService());
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 

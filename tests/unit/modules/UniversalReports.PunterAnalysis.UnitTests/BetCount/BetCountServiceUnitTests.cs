@@ -22,7 +22,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var expectedData = CreateBetCountModel();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<BetCountRawModel>(Arg.Any<Criteria>()).Returns(fakeData);
+            repository.FetchAsync<BetCountRawModel>(Arg.Compat.Any<Criteria>()).Returns(fakeData);
 
             var dateTimeService = new DateTimeServiceImp();
 

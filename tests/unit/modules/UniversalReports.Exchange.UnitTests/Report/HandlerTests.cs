@@ -21,7 +21,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
             var exchangeModel = fixture.Create<SummaryEntity<ExchangeEntity>>();
 
             var service = Substitute.For<Service>();
-            service.Query(Arg.Any<HttpParameterJson>()).Returns(exchangeModel);
+            service.Query(Arg.Compat.Any<HttpParameterJson>()).Returns(exchangeModel);
 
             var handler = new Handler(service);
 

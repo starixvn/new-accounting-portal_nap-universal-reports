@@ -21,14 +21,14 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.BasicWinLoss
             var fakeData = TestDataLoader.Load<List<WinLossRaw>>("Common.BasicWinLoss.BasicWinLossService.data-1-fakeData");
 
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act
             var service = new BasicWinLossServiceImp(rawWinLossService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

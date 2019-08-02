@@ -21,7 +21,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             await controller.Index(httpParameterJson);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterJson>());
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterJson>());
         }
     }
 }

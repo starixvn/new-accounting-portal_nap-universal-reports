@@ -20,7 +20,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             await controller.Currency();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<CurrencyHttpParameter>());
+            await mediator.Received().Send(Arg.Compat.Any<CurrencyHttpParameter>());
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             await controller.Site();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<SiteHttpParameter>());
+            await mediator.Received().Send(Arg.Compat.Any<SiteHttpParameter>());
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Filter
             await controller.Odds();
 
             // Assert
-            await mediator.Received().Send(Arg.Any<OddsHttpParameter>());
+            await mediator.Received().Send(Arg.Compat.Any<OddsHttpParameter>());
         }
     }
 }

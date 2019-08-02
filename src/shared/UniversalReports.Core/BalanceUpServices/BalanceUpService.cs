@@ -14,9 +14,9 @@ namespace UniversalReports.Core.BalanceUpServices
 
         private readonly IDynamicRepository repository;
 
-        private readonly CacheService cacheService;
+        private readonly ICacheService cacheService;
 
-        public BalanceUpServiceImp(IDynamicRepository repository, CacheService cacheService)
+        public BalanceUpServiceImp(IDynamicRepository repository, ICacheService cacheService)
         {
             this.repository = repository;
             this.cacheService = cacheService;

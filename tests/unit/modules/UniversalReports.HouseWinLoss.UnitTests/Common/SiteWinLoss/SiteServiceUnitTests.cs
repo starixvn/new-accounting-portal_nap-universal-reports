@@ -21,15 +21,15 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.SiteWinLoss
             var expected = TestDataLoader.Load<SiteWinLossModel>("Common.SiteWinLoss.SiteService.data-1-expected");
 
             var refService = Substitute.For<RemotingRefService>();
-            refService.GetMatchCode(Arg.Any<string>()).Returns("Any Name");
+            refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
 
-            rawWinLossService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             // Act
             var service = new WinLossServiceImp(rawWinLossService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

@@ -21,10 +21,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             var handleExcel = new HandlerExcel(facade, excelSettingFactory, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
+            await handleExcel.Handle(Arg.Compat.Any<HttpParameterExcel>(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<AssociatedSummaryExcelModel>>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Compat.Any<SummaryEntity<AssociatedSummaryExcelModel>>(), Arg.Compat.Any<ExcelSetting>());
         }
 
         [Test]
@@ -43,10 +43,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             };
 
             var facade = Substitute.For<AssociatedFacade>();
-            facade.Query(Arg.Any<HttpParameterJson>()).Returns(new SummaryEntity<AssociatedSummaryModel>());
+            facade.Query(Arg.Compat.Any<HttpParameterJson>()).Returns(new SummaryEntity<AssociatedSummaryModel>());
 
             var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
-            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(excelSetting);
+            excelSettingFactory.CreateSetting(Arg.Compat.Any<ExcelSettingParams>()).Returns(excelSetting);
 
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(facade, excelSettingFactory, excelBuilder);
@@ -56,8 +56,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Is<SummaryEntity<AssociatedSummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-                Arg.Is(excelSetting));
+               Arg.Compat.Is<SummaryEntity<AssociatedSummaryExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+               Arg.Compat.Is(excelSetting));
         }
     }
 }

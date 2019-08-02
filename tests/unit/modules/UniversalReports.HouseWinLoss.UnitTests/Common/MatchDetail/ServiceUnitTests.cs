@@ -20,16 +20,16 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
             var expected = TestDataLoader.Load<WinLossModel>("Common.MatchDetail.Service-expected");
 
             var rawService = Substitute.For<RawWinLossService>();
-            rawService.Query(Arg.Any<WinLossCriteria>()).Returns(fakeData);
+            rawService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
             var refService = Substitute.For<commonServices.RemotingRefService>();
-            refService.GetLeagueName(Arg.Any<int>()).Returns(string.Empty);
-            refService.GetTeamName(Arg.Any<int>()).Returns(string.Empty);
+            refService.GetLeagueName(Arg.Compat.Any<int>()).Returns(string.Empty);
+            refService.GetTeamName(Arg.Compat.Any<int>()).Returns(string.Empty);
             var calculationService = new CalculationServiceImp(refService);
 
             // Act
             var service = new WinLossServiceImp(rawService, calculationService);
-            var result = service.Query(Arg.Any<WinLossCriteria>());
+            var result = service.Query(new TestCriteria());
 
             // Assert
             ComparisonAssert.AreEqual(expected, result);

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "CN88 Win Loss by Products";
+    ViewBag.AngularAppName = "cn88WinlossApp";
+    var contentVersion = HttpContext.Current.IsDebuggingEnabled ? "" : "min.";
+}
+
+<div class="page-header">
+    Main / <span class="active">@ViewBag.Title</span>
+</div>
+<div data-ng-view></div>
+<div data-nap-alert></div>
+<div data-nap-loading></div>
+@section Styles{
+    <link href="~/bundle/house-win-loss-style.css?v=1.0.5" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/bundle/cn88-win-loss.chunk.js?v=1.0.6"></script>
+}
+<script type="text/javascript">
+    var modePermissions = @Html.Raw(Json.Encode(ViewBag.ModePermissions));
+    var productPermissions =@Html.Raw(Json.Encode(ViewBag.ProductPermissions));
+</script>

@@ -21,7 +21,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Bettype
             await controller.Index(httpParameter);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameter>());
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameter>());
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace UniversalReports.ActualMemberBet.UnitTests.Bettype
             await controller.Excel(httpParameterExcel);
 
             // Assert
-            await mediator.Received().Send(Arg.Any<HttpParameterExcel>());
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterExcel>());
         }
     }
 }

@@ -19,10 +19,10 @@ namespace UniversalReports.Exchange.UnitTests.Report
             var handleExcel = new HandlerExcel(service, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().Build(Arg.Any<HttpParameterExcel>(), Arg.Any<SummaryEntity<ExchangeExcelEntity>>());
+            excelBuilder.Received().Build(Arg.Compat.Any<HttpParameterExcel>(), Arg.Compat.Any<SummaryEntity<ExchangeExcelEntity>>());
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
         {
             // Arrange
             var service = Substitute.For<Service>();
-            service.Query(Arg.Any<HttpParameterJson>()).Returns(new SummaryEntity<ExchangeEntity>());
+            service.Query(Arg.Compat.Any<HttpParameterJson>()).Returns(new SummaryEntity<ExchangeEntity>());
 
             var excelBuilder = Substitute.For<ExcelBuilder>();
             var handleExcel = new HandlerExcel(service, excelBuilder);
@@ -41,8 +41,8 @@ namespace UniversalReports.Exchange.UnitTests.Report
 
             // Assert
             excelBuilder.Received().Build(
-                Arg.Is(excelParams),
-                Arg.Is<SummaryEntity<ExchangeExcelEntity>>(x => x.Entities.Count == 0 && x.Total == null));
+                Arg.Compat.Is(excelParams),
+                Arg.Compat.Is<SummaryEntity<ExchangeExcelEntity>>(x => x.Entities.Count == 0 && x.Total == null));
         }
     }
 }

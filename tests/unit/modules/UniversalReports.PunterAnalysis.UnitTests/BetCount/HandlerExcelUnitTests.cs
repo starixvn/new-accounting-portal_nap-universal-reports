@@ -21,10 +21,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var handleExcel = new HandlerExcel(betCountService, excelSettingFactory, excelBuilder);
 
             // Act
-            await handleExcel.Handle(Arg.Any<HttpParameterExcel>(), new CancellationToken());
+            await handleExcel.Handle(new HttpParameterExcel(), new CancellationToken());
 
             // Assert
-            excelBuilder.Received().CreateExcelPackage(Arg.Any<SummaryEntity<BetCountExcelModel>>(), Arg.Any<ExcelSetting>());
+            excelBuilder.Received().CreateExcelPackage(Arg.Compat.Any<SummaryEntity<BetCountExcelModel>>(), Arg.Compat.Any<ExcelSetting>());
         }
 
         [Test]
@@ -43,10 +43,10 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             };
 
             var betCountService = Substitute.For<BetCountService>();
-            betCountService.Query(Arg.Any<Criteria>()).Returns(new SummaryEntity<BetCountModel>());
+            betCountService.Query(Arg.Compat.Any<Criteria>()).Returns(new SummaryEntity<BetCountModel>());
 
             var excelSettingFactory = Substitute.For<ExcelSettingFactory>();
-            excelSettingFactory.CreateSetting(Arg.Any<ExcelSettingParams>()).Returns(excelSetting);
+            excelSettingFactory.CreateSetting(Arg.Compat.Any<ExcelSettingParams>()).Returns(excelSetting);
 
             var excelBuilder = Substitute.For<PunterAnalysisExcelBuilder>();
             var handleExcel = new HandlerExcel(betCountService, excelSettingFactory, excelBuilder);
@@ -56,8 +56,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
 
             // Assert
             excelBuilder.Received().CreateExcelPackage(
-                Arg.Is<SummaryEntity<BetCountExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
-                Arg.Is(excelSetting));
+               Arg.Compat.Is<SummaryEntity<BetCountExcelModel>>(x => x.Entities.Count == 0 && x.Total == null),
+               Arg.Compat.Is(excelSetting));
         }
     }
 }

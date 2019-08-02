@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.SessionState;
 using AutoMapper;
 using UniversalReports.ActualMemberBet;
+using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
 using UniversalReports.NG2Statistics;
@@ -37,6 +38,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeUpdatedUsernameCredit();
                 cfg.InitializeExchange();
                 cfg.InitializeActualMemberBet();
+                cfg.InitializeCN88WinLoss();
             });
         }
 
