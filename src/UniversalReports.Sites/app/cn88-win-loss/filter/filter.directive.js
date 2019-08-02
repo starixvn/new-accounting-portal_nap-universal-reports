@@ -42,7 +42,7 @@ import moment from "moment";
         vm.viewHistoryMode = viewHistoryMode;
         vm.getDateRange = getDateRange;
         vm.updateDateRange = updateDateRange;
-        vm.dataMenuId = 487;
+        vm.dataMenuId = 651;
         vm.legentTitle = 'CN88 Win Loss Legend';
 
         $scope.$on('nap-filter-date', function (event, data) {
