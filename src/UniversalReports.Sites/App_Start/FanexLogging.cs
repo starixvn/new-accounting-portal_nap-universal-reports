@@ -5,7 +5,6 @@ using Fanex.Logging;
 using Fanex.Logging.Extensions;
 using Fanex.Logging.Extensions.Database;
 using Fanex.Logging.Extensions.Web;
-using Fanex.Logging.RabbitMQ;
 using Fanex.Logging.Sentry.RavenClient;
 using SharpRaven;
 
@@ -19,25 +18,14 @@ namespace UniversalReports.Sites
             var sentryToken = appSettings["SentryToken"];
             var frontEndSentryToken = appSettings["FrontEndSentryToken"];
             var logCategory = appSettings["SiteCategory"];
-            var rabbitMQ = appSettings["RabbitMQConnectionString"];
             var logEngines = new List<ILogEngine>();
-            if (!string.IsNullOrEmpty(sentryToken) && !string.IsNullOrEmpty(frontEndSentryToken))
+            var sentryEngineOptions = new SentryEngineOptions
             {
-                var sentryEngineOptions = new SentryEngineOptions
-                {
-                    Dsn = new Dsn(sentryToken),
-                    FrontEndDsn = new Dsn(frontEndSentryToken),
-                };
-                var sentryEngine = new SentryLogging(sentryEngineOptions);
-                logEngines.Add(sentryEngine);
-            }
-
-            if (!string.IsNullOrEmpty(rabbitMQ))
-            {
-                var rabbitMQEngine = new RabbitMQLogging(rabbitMQ);
-                logEngines.Add(rabbitMQEngine);
-            }
-
+                Dsn = new Dsn(sentryToken),
+                FrontEndDsn = new Dsn(frontEndSentryToken),
+            };
+            var sentryEngine = new SentryLogging(sentryEngineOptions);
+            logEngines.Add(sentryEngine);
 
             LogManager
            .SetDefaultLogCategory(logCategory)

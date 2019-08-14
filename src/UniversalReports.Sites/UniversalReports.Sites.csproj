@@ -123,7 +123,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Logging.Extensions.Database, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Logging.Extensions.Database.1.0.7-beta1\lib\net461\Fanex.Logging.Extensions.Database.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.Logging.Extensions.Database.1.0.7\lib\net461\Fanex.Logging.Extensions.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Logging.Extensions.Web, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
@@ -232,6 +232,10 @@
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Olympus.FPSAPI.Client.1.0.0.4\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Olympus.HttpLogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Olympus.HttpLogger.1.0.0.9\lib\net461\Olympus.HttpLogger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi.Attributes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -802,6 +806,7 @@
     </Content>
     <Content Include="App_Configuration\Web.AppSettings.PRO.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Configuration\Web.AppSettings.SIT.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
