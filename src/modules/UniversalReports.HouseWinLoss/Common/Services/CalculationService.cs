@@ -26,6 +26,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         private const string DepositName = @"Deposit";
 
+        private const string CN88Name = @"CN88";
+
         private readonly RemotingRefService refService;
 
         public CalculationServiceImp(RemotingRefService refService)
@@ -93,8 +95,9 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM");
             var grandTotal = new SiteWinLossSummary
             {
-                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
+                Credit = SumSubGrandTotalWinLoss(nonRMWinLosses, CreditName),
+                Deposit = SumSubGrandTotalWinLoss(nonRMWinLosses, DepositName),
+                CN88 = SumSubGrandTotalWinLoss(nonRMWinLosses, CN88Name),
                 Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
             };
 
@@ -106,32 +109,22 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             var nonRMWinLosses = rawWinLosses.Where(r => r.GroupName != "RM" && r.GroupId != 500);
             var grandTotal = new SiteWinLossSummary
             {
-                Credit = SumCreditGrandTotalWinLoss(nonRMWinLosses),
-                Deposit = SumDepositGrandTotalWinLoss(nonRMWinLosses),
+                Credit = SumSubGrandTotalWinLoss(nonRMWinLosses, CreditName),
+                Deposit = SumSubGrandTotalWinLoss(nonRMWinLosses, DepositName),
+                CN88 = SumSubGrandTotalWinLoss(nonRMWinLosses, CN88Name),
                 Total = CalculateSumWinLoss(sumTitle, nonRMWinLosses)
             };
 
             return grandTotal;
         }
 
-        private WinLoss SumCreditGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
+        private WinLoss SumSubGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses, string subName)
         {
-            var creditData = rawWinLosses.Where(r => r.RowName == CreditName);
-            var sumData = CalculateSum(creditData);
+            var subData = rawWinLosses.Where(r => r.RowName == subName);
+            var sumData = CalculateSum(subData);
 
             var winloss = FromRawWinLossByRowName(sumData);
-            winloss.Name = "Credit";
-
-            return winloss;
-        }
-
-        private WinLoss SumDepositGrandTotalWinLoss(IEnumerable<WinLossRaw> rawWinLosses)
-        {
-            var depositData = rawWinLosses.Where(r => r.RowName == DepositName);
-            var sumData = CalculateSum(depositData);
-
-            var winloss = FromRawWinLossByRowName(sumData);
-            winloss.Name = "Deposit";
+            winloss.Name = subName;
 
             return winloss;
         }
@@ -149,17 +142,20 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         public virtual SiteWinLossSummary CalculateSiteWinLossSummary(int groupId, string groupName, IEnumerable<WinLossRaw> rawWinLosses)
         {
-            var rawCreditWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Credit");
-            var rawDepositWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == "Deposit");
+            var rawCreditWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == CreditName);
+            var rawDepositWinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == DepositName);
+            var rawCN88WinLoss = rawWinLosses.FirstOrDefault(r => r.RowName == CN88Name);
 
-            var creditWinLoss = rawCreditWinLoss == null ? CreateEmptyWinLoss(groupId, "Credit") : FromRawWinLossByRowName(rawCreditWinLoss);
-            var depositWinLoss = rawDepositWinLoss == null ? CreateEmptyWinLoss(groupId, "Deposit") : FromRawWinLossByRowName(rawDepositWinLoss);
+            var creditWinLoss = rawCreditWinLoss == null ? CreateEmptyWinLoss(groupId, CreditName) : FromRawWinLossByRowName(rawCreditWinLoss);
+            var depositWinLoss = rawDepositWinLoss == null ? CreateEmptyWinLoss(groupId, DepositName) : FromRawWinLossByRowName(rawDepositWinLoss);
+            var cn88WinLoss = rawCN88WinLoss == null ? CreateEmptyWinLoss(groupId, CN88Name) : FromRawWinLossByRowName(rawCN88WinLoss);
             var totalWinLoss = rawWinLosses.Any() ? CalculateSumWinLoss(groupName, rawWinLosses) : CreateEmptyWinLoss(groupId, groupName);
 
             return new SiteWinLossSummary
             {
                 Credit = creditWinLoss,
                 Deposit = depositWinLoss,
+                CN88 = cn88WinLoss,
                 Total = totalWinLoss
             };
         }

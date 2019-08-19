@@ -59,9 +59,11 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 
             var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
+            var cn88Row = gridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
+            row.SubRows.Add(cn88Row);
 
             return row;
         }
@@ -78,8 +80,12 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
             depositRow.CssClass = "grand-total";
 
+            var cn88Row = gridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
+            cn88Row.CssClass = "grand-total";
+
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
+            row.SubRows.Add(cn88Row);
 
             return row;
         }

@@ -50,8 +50,12 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             var depositRow = GridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
             depositRow.CssClass = "grand-total";
 
+            var cn88Row = GridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
+            cn88Row.CssClass = "grand-total";
+
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
+            row.SubRows.Add(cn88Row);
 
             return row;
         }
