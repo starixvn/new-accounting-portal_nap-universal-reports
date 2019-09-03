@@ -11,8 +11,9 @@
     "ExtraPT": 0.0,
     "RealTurnover": 0.0,
     "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
     "RealMargin": 0.0,
-    "VirtualMargin": 0.0
+    "IsEmpty": true
   },
   "Credit": {
     "Name": "Credit",
@@ -26,8 +27,9 @@
     "ExtraPT": 0.0,
     "RealTurnover": 0.0,
     "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
     "RealMargin": 0.0,
-    "VirtualMargin": 0.0
+    "IsEmpty": true
   },
   "Deposit": {
     "Name": "Deposit",
@@ -41,7 +43,25 @@
     "ExtraPT": 0.0,
     "RealTurnover": 0.0,
     "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
     "RealMargin": 0.0,
-    "VirtualMargin": 0.0
-  }
+    "IsEmpty": true
+  },
+  "CN88": {
+    "Name": "CN88",
+    "Id": 1,
+    "MemberWinLoss": 0.0,
+    "SMAWinLoss": 0.0,
+    "Commission": 0.0,
+    "RealIncome": 0.0,
+    "VirtualIncome": 0.0,
+    "VarianceIncome": 0.0,
+    "ExtraPT": 0.0,
+    "RealTurnover": 0.0,
+    "VirtualTurnover": 0.0,
+    "VirtualMargin": 0.0,
+    "RealMargin": 0.0,
+    "IsEmpty": true
+  },
+  "IsEmpty": true
 }
