@@ -13,6 +13,8 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 
     public class BasicGridOptionsBuilderImp : BasicGridOptionsBuilder
     {
+        const string grandTotalClass = "grand-total";
+
         private readonly BasicGridDataRowBuilder gridDataRowBuilder;
 
         public BasicGridOptionsBuilderImp(BasicGridDataRowBuilder gridDataRowBuilder)
@@ -72,16 +74,16 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
         {
             var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
             row.RowType = RowType.ParentLevelOne;
-            row.CssClass = "grand-total";
+            row.CssClass = grandTotalClass;
 
             var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
-            creditRow.CssClass = "grand-total";
+            creditRow.CssClass = grandTotalClass;
 
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
-            depositRow.CssClass = "grand-total";
+            depositRow.CssClass = grandTotalClass;
 
             var cn88Row = gridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
-            cn88Row.CssClass = "grand-total";
+            cn88Row.CssClass = grandTotalClass;
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
