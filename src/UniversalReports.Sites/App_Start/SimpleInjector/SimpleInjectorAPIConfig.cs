@@ -28,7 +28,6 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterCN88WinLossServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
-
             Container.Verify();
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(Container);
         }
