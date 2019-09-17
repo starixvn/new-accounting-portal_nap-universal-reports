@@ -103,6 +103,10 @@ namespace UniversalReports.HouseWinLoss.Products
             depositRow.RowType = RowType.Normal;
             productDataRow.SubRows.Add(depositRow);
 
+            var cn88Row = gridDataRowBuilder.BuildDataRow(winloss.CN88, HAlignment.Right);
+            cn88Row.RowType = RowType.Normal;
+            productDataRow.SubRows.Add(cn88Row);
+
             return productDataRow;
         }
 
@@ -123,6 +127,11 @@ namespace UniversalReports.HouseWinLoss.Products
             depositRow.CssClass = RowCssClass;
             depositRow.RowType = RowType.SubTotal;
             productDataRow.SubRows.Add(depositRow);
+
+            var cn88Row = gridDataRowBuilder.BuildDataRow(productWinLoss.CN88, HAlignment.Right);
+            cn88Row.CssClass = RowCssClass;
+            cn88Row.RowType = RowType.SubTotal;
+            productDataRow.SubRows.Add(cn88Row);
 
             return productDataRow;
         }
@@ -146,13 +155,16 @@ namespace UniversalReports.HouseWinLoss.Products
             var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
             var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
+            var cn88Row = gridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
 
             FormatTotalRow(row);
             FormatTotalRow(creditRow);
             FormatTotalRow(depositRow);
+            FormatTotalRow(cn88Row);
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
+            row.SubRows.Add(cn88Row);
 
             return new List<GridDataRow> { row };
         }

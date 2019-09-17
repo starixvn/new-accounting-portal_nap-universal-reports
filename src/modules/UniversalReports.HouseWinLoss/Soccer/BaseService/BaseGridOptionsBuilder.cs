@@ -23,7 +23,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.BaseService
             row.SubRows = new List<GridDataRow>
             {
                 GridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right),
-                GridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right)
+                GridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right),
+                GridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right)
             };
 
             return row;

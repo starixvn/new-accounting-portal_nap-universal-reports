@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 using AutoMapper;
+using Fanex.NAP.Core;
 using UniversalReports.ActualMemberBet;
 using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
@@ -68,6 +69,14 @@ namespace UniversalReports.Sites
         protected void Application_Error(object sender, EventArgs e)
         {
             FanexLogging.HandleApplicationError(Server);
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            if (HttpContext.Current != null)
+            {
+                SessionAuthenticationHandler.SignOutIfSessionIsInconsistent(HttpContext.Current);
+            }
         }
     }
 }

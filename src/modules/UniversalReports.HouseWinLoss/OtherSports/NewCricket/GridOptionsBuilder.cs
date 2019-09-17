@@ -68,9 +68,12 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
             creditRow.CssClass = cssStyle;
             var depositRow = gridDataRowBuilder.BuildDataRow(item.Deposit, HAlignment.Right);
             depositRow.CssClass = cssStyle;
+            var cn88Row = gridDataRowBuilder.BuildDataRow(item.CN88, HAlignment.Right);
+            cn88Row.CssClass = cssStyle;
 
             row.SubRows.Add(creditRow);
             row.SubRows.Add(depositRow);
+            row.SubRows.Add(cn88Row);
 
             return row;
         }

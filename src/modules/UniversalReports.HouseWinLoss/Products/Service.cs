@@ -77,6 +77,7 @@ namespace UniversalReports.HouseWinLoss.Products
             var rawBARM = rawWinLoss.Where(r => r.Name.Contains("BARM"));
             siteWinLoss.Credit = CalculateGrandTotalProduct(rawEightRM, siteWinLoss.Credit);
             siteWinLoss.Deposit = CalculateGrandTotalProduct(rawBARM, siteWinLoss.Deposit);
+
             siteWinLoss.Total = CalculateGrandTotalProduct(rawWinLoss, siteWinLoss.Total);
 
             return siteWinLoss;

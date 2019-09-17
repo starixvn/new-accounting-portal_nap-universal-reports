@@ -8,6 +8,8 @@
 
         public WinLoss Deposit { get; set; }
 
-        public bool IsEmpty => Total.IsEmpty && Credit.IsEmpty && Deposit.IsEmpty;
+        public WinLoss CN88 { get; set; }
+
+        public bool IsEmpty => Total.IsEmpty && Credit.IsEmpty && Deposit.IsEmpty && CN88.IsEmpty;
     }
 }
