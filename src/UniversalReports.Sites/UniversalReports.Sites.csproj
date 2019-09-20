@@ -521,8 +521,8 @@
     <Content Include="app\cn88-win-loss\tab\tab.directive.html" />
     <Content Include="app\cn88-win-loss\tab\tab.directive.js" />
     <Content Include="app\cn88-win-loss\tab\tab.service.js" />
-    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.html" />
-    <Content Include="app\root\components\cn-88-month-picker\month-picker.directive.js" />
+    <Content Include="app\root\components\cn-88-date-range-picker\date-range-picker.directive.html" />
+    <Content Include="app\root\components\cn-88-date-range-picker\date-range-picker.directive.js" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
@@ -587,6 +587,7 @@
     <Content Include="bundle\app-style.css" />
     <Content Include="bundle\app.chunk.js" />
     <Content Include="bundle\cn88-win-loss-style.chunk.js" />
+    <Content Include="bundle\cn88-win-loss-style.css" />
     <Content Include="bundle\cn88-win-loss.chunk.js" />
     <Content Include="bundle\daily-winloss-2h-soccer-minor-style.chunk.js" />
     <Content Include="bundle\daily-winloss-2h-soccer-minor.chunk.js" />
@@ -844,6 +845,8 @@
     <Content Include="bundle\cn88-win-loss-style.chunk.js.map" />
     <Content Include="bundle\cn88-win-loss.chunk.js.map" />
     <Content Include="bundle\lib.css.map" />
+    <Content Include="content\cn88-win-loss.scss" />
+    <Content Include="bundle\cn88-win-loss-style.css.map" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

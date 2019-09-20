@@ -26,10 +26,12 @@
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.yesterdayClicked()">{{vm.yesterday | amDateFormat:'MMM DD, YYYY'}}</button>
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()" data-ng-show="vm.showBothMode">History Report</button>
             </div>
-            <div class="form-group"  data-ng-hide="vm.normalMode">
-                <nap-cn88-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-min-date="vm.minDate" data-max-date="vm.yesterday"></nap-cn88-month-picker>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
-                <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()" data-ng-show="vm.showBothMode">Back</button>
+            <div class="form-group" data-ng-hide="vm.normalMode">
+                <nap-cn88-date-range-picker data-start-date="vm.startDate" data-end-date="vm.endDate" min-date="vm.minDate" max-date="vm.yesterday"></nap-cn88-date-range-picker>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.generate()">Generate</button>
+                    <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewNormalMode()" data-ng-show="vm.showBothMode">Back</button>
+                </div>
             </div>
         </form>
     </div>
