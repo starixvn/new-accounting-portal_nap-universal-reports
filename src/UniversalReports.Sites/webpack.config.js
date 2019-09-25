@@ -28,7 +28,7 @@ module.exports = {
         "house-win-loss": glob.sync(["./app/house-win-loss/*.js",
             "./app/house-win-loss/**/*.js"],
             { ignore: ["./app/house-win-loss/daily-winloss-2h-soccer-minor/*.js"] }),
-        "house-win-loss-style": ["./content/house-win-loss.scss", "./content/scoreInformation.scss"],
+        "house-win-loss-style": ["./content/house-win-loss.scss"],
         "ng2-statistics": glob.sync(["./app/ng2-statistics/*.js", "./app/ng2-statistics/**/*.js"]),
         "ng2-statistics-style": ["./content/ng2-statistics.scss"],
         "daily-winloss-2h-soccer-minor": glob.sync(["./app/house-win-loss/*.js",
