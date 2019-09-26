@@ -116,7 +116,7 @@ import moment from "moment";
                 return true;
             }
             else {
-                var contentMsg = "Date range should not exceed 90 days";
+                var contentMsg = "Date range should not exceed 90 days!";
                 showErrorMsg(contentMsg);
                 return false;
             }
