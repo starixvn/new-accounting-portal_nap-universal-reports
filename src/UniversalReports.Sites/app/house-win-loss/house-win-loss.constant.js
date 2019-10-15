@@ -681,7 +681,26 @@ import moment from "moment";
                 mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getMatchDetailTitle"
             }            
-        }
+        },
+        "NPH Promotion": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-site" },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
     };
     angular
         .module("app.houseWinlossApp")
