@@ -21,7 +21,8 @@ import angular from "angular";
                 betType: data.betType,
                 sportType: data.sportType,
                 reportDate: data.eventDate,
-                matchCode: data.matchCode
+                matchCode: data.matchCode,
+                liveIndicator: data.isLive
             };
 
             var url = legacyService.resolveUrl('/ScoreInformation/GetScoreInformation');
