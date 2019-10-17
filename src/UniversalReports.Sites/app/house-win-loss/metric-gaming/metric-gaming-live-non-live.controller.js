@@ -64,7 +64,8 @@ import angular from "angular";
             angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
-                sportTypeName: "Metric Gaming - Superlive Live"
+                sportTypeName: "Metric Gaming - Superlive Live",
+                isLive: 2
             });
             tab.goForward('matchDetail', data);
         }
