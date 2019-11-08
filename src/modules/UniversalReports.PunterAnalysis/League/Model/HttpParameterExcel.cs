@@ -27,5 +27,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
         public string Title { get; set; }
 
         public string Filter { get; set; }
+
+        public string ListLeagueGroupId { get; set; }
     }
 }

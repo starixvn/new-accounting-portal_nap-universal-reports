@@ -22,5 +22,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
         public int BetTypeId { get; set; }
 
         public int LiveStatusId { get; set; }
+
+        public string ListLeagueGroupId { get; set; }
     }
 }

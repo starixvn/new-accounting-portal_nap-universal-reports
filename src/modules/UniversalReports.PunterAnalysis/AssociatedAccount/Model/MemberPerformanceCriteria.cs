@@ -21,6 +21,8 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
 
         public string ListCombinationId { get; set; }
 
+        public string ListLeagueGroupId { get; set; }
+
         public override string GetSettingKey() => "Punter-PerformanceOfMembers";
 
         public override bool IsValid() => true;

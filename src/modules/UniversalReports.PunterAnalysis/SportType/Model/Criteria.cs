@@ -21,6 +21,8 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
 
         public int SortBy { get; set; } = 1;
 
+        public string ListLeagueGroupId { get; set; }
+
         public override string GetSettingKey() => "Punter-SportType";
 
         public override bool IsValid() => true;

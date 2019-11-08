@@ -21,5 +21,7 @@ namespace UniversalReports.PunterAnalysis.SportType.Model
         public int OrderBy { get; set; } = 1;
 
         public int SortBy { get; set; } = 1;
+
+        public string ListLeagueGroupId { get; set; }
     }
 }
