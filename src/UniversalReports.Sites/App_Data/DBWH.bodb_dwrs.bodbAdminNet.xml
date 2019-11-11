@@ -142,7 +142,6 @@
       <Mapping DataField="Sport" ObjectProperty="Sport" />
       <Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
       <Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
-      <Mapping DataField="IsHidden" ObjectProperty="IsHidden" />
     </Setting>
   </Function>
   <Function Name="Actual-Member-Bet">

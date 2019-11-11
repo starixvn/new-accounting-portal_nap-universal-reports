@@ -77,7 +77,8 @@ export class BetTypeGridService {
             listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
             leagueId: filterModelWrapper.leagueId,
             custId: this.model.custId,
-            sportId: this.model.sportId
+            sportId: this.model.sportId,
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 }

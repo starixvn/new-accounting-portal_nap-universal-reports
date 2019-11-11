@@ -180,6 +180,10 @@
     <Compile Include="BetCount\BetCountService.cs" />
     <Compile Include="BetType\BetTypeExcelSettingFactory.cs" />
     <Compile Include="BetType\Model\BetTypeExcelModel.cs" />
+    <Compile Include="Filter\LeagueGroup\Handler.cs" />
+    <Compile Include="Filter\LeagueGroup\HttpParameterJson.cs" />
+    <Compile Include="Filter\LeagueGroup\LeagueGroupEntity.cs" />
+    <Compile Include="Filter\LeagueGroup\QueryCriteria.cs" />
     <Compile Include="Shared\BetCountAndLeagueCriteriaBase.cs" />
     <Compile Include="Shared\ExcelSetting.cs" />
     <Compile Include="Shared\ExcelSettingParams.cs" />

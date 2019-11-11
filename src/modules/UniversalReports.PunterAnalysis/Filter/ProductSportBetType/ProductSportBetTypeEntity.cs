@@ -13,5 +13,7 @@
         public int Value { get; set; }
 
         public byte RenderType { get; set; }
+
+        public string BetTypeGroup { get; set; }
     }
 }

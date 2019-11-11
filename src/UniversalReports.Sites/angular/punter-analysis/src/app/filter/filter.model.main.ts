@@ -54,6 +54,10 @@ export class UserLeagueFilterModelWrapper {
     get sortByTitle(): string {
         return this.model.sortByOptions.filter(option => option.value === this.model.sortBy)[0].text;
     }
+
+    get listLeagueGroupCombinationId(): string {
+        return this.model.selectedLeagueGroupTreeviewItems.map(leagueItem => leagueItem.item.value).join(',');
+    }
 }
 
 
@@ -116,6 +120,12 @@ export class FilterModelWrapper {
 
         if (this.filterModel.user && this.filterModel.user.selectedBetTypeTreeviewItems.length === 0) {
             return 'Please select at least one Product!';
+        }
+
+        if (this.filterModel.user
+            && this.filterModel.user.selectedLeagueGroupTreeviewItems.length === 0
+            && this.filterModel.showLeagueGroupFilter) {
+            return 'Please select at least one league group!';
         }
 
         if (this.filterModel.league) {

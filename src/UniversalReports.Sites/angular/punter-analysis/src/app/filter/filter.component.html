@@ -98,6 +98,15 @@
                 </ngx-dropdown-treeview>
             </div>
         </div>
+        <div class="col-x2" *ngIf="searchBy === SearchBy.User && showLeagueFilter">
+            <div class="col-label">
+                <label class="col-form-label">League Group</label>
+            </div>
+            <div class="col-value">
+                <ngx-dropdown-treeview [items]="leagueGroupTreeviewItems" [config]="leagueGroupTreeviewConfig" (selectedChange)="onLeagueGroupSelectedChange($event)">
+                </ngx-dropdown-treeview>
+            </div>
+        </div>
     </div>
     <div class="row" *ngIf="searchBy === SearchBy.League">
         <div class="col-x1">

@@ -89,7 +89,8 @@ export class SummaryGridService {
             depth: filterModel.user ? filterModel.user.depth.role : 0,
             userName: filterModel.user ? filterModel.user.userName : '',
             listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
-            leagueId: filterModelWrapper.leagueId
+            leagueId: filterModelWrapper.leagueId,
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 }
