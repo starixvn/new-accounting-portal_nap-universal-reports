@@ -22,7 +22,8 @@ describe('SummaryGridService', () => {
             depth: 2,
             userName: 'ABC',
             listCombinationId: '1,2',
-            leagueId: 0
+            leagueId: 0,
+            listLeagueGroupId: '1,2'
         },
         league: {
             topRow: 9999,
@@ -34,7 +35,8 @@ describe('SummaryGridService', () => {
             depth: 0,
             userName: '',
             listCombinationId: '1,2',
-            leagueId: 1
+            leagueId: 1,
+            listLeagueGroupId: '1,2'
         }
     };
 

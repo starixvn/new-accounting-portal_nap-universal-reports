@@ -1,3 +1,4 @@
+import { fakeData } from './../grid/bet-type-grid/bet-type-grid.model.spec';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import {
     TreeviewItem, TreeviewConfig, TreeviewEventParser,
@@ -91,7 +92,8 @@ export class FilterComponent implements OnInit {
 
     monthRangeFromDate: NgbDateStruct;
     monthRangeToDate: NgbDateStruct;
-    showLeagueFilter = true;
+    showLeagueFilter = false;
+    countingQueryLeagueGroup = 0;
 
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
@@ -145,7 +147,6 @@ export class FilterComponent implements OnInit {
             this.monthRangeFromDate = { year: fromDate.year, month: fromDate.month, day: 1 };
         });
         this.service.queryProductTreeviewItems().subscribe(treeItems => this.productTreeviewItems = treeItems);
-        this.service.queryLeagueGroupTreeviewItems().subscribe(treeItems => this.leagueGroupTreeviewItems = treeItems);
     }
 
     onSearchByChange() {
@@ -177,6 +178,13 @@ export class FilterComponent implements OnInit {
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
         this.selectedBetTypeTreeviewItems = downlineTreeviewItems;
         this.showLeagueFilter = this.isShowLeagueFilter();
+
+        if (this.showLeagueFilter && this.countingQueryLeagueGroup === 0) {
+            this.queryLeagueGroup();
+            this.countingQueryLeagueGroup++;
+        } else {
+            this.countingQueryLeagueGroup = 0;
+        }
     }
 
     onLeagueGroupSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
@@ -300,7 +308,7 @@ export class FilterComponent implements OnInit {
             searchText = words.join(',');
             return this.service.querySportTypeLeague(this.sportType, searchText, false)
                 .map(list => {
-                 return   list.map(item => item.LeagueName)
+                    return list.map(item => item.LeagueName)
                 });
         });
     }
@@ -436,5 +444,9 @@ export class FilterComponent implements OnInit {
         });
 
         return showFilter;
+    }
+
+    private queryLeagueGroup() {
+        this.service.queryLeagueGroupTreeviewItems().subscribe(treeItems => this.leagueGroupTreeviewItems = treeItems);
     }
 }

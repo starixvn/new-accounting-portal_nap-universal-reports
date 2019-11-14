@@ -19,7 +19,8 @@ describe('AssociatedAccountGridService', () => {
         periodType: 1,
         fromDate: '2016-01-01T00:00:00',
         toDate: '2016-02-02T00:00:00',
-        listCombinationId: '1,2'
+        listCombinationId: '1,2',
+        listLeagueGroupId: '1,2'
     };
     const expectedExcelModel = {
         custId: 1,

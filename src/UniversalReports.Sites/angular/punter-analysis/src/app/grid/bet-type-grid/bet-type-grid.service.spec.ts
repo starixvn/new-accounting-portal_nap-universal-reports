@@ -33,7 +33,8 @@ describe('BetTypeGridService', () => {
             listCombinationId: '1,2',
             leagueId: 0,
             custId: 1,
-            sportId: 1
+            sportId: 1,
+            listLeagueGroupId: '1,2'
         },
         league: {
             periodType: 1,
@@ -42,7 +43,8 @@ describe('BetTypeGridService', () => {
             listCombinationId: '1,2',
             leagueId: 1,
             custId: 1,
-            sportId: 1
+            sportId: 1,
+            listLeagueGroupId: '1,2'
         }
     };
 

@@ -42,6 +42,16 @@ const commonUserLeagueModel = {
             item: new TreeviewItem({ text: 'BetType 2', value: 2 }),
             parent: { item: new TreeviewItem({ text: 'SportType 2', value: 1 }), parent: null }
         }
+    ],
+    selectedLeagueGroupTreeviewItems: [
+        {
+            item: new TreeviewItem({ text: 'Dota 2', value: 1 }),
+            parent: { item: new TreeviewItem({ text: 'E-Sports', value: 1 }), parent: null }
+        },
+        {
+            item: new TreeviewItem({ text: 'King of Glory', value: 2 }),
+            parent: { item: new TreeviewItem({ text: 'E-Sports', value: 1 }), parent: null }
+        }
     ]
 };
 
@@ -64,16 +74,19 @@ const userModel: UserFilterModel = _.extend({}, commonUserLeagueModel, performan
 
 export let fakeUserFilterModel: FilterModel = _.extend({}, commonModel, {
     searchBy: SearchBy.User,
-    user: userModel
+    user: userModel,
+    showLeagueGroupFilter: false
 });
 
 
 export let fakeLeagueFilterModel: FilterModel = _.extend({}, commonModel, {
     searchBy: SearchBy.League,
-    league: leagueModel
+    league: leagueModel,
+    showLeagueGroupFilter: false
 });
 
 export let fakePerformanceFilterModel: FilterModel = _.extend({}, commonModel, {
     searchBy: SearchBy.League,
-    performance: performanceModel
+    performance: performanceModel,
+    showLeagueGroupFilter: false
 });
