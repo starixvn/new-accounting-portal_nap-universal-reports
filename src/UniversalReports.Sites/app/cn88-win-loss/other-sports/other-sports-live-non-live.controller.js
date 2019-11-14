@@ -96,7 +96,8 @@ import angular from "angular";
             angular.extend(data, pane.data);
             angular.extend(data, {
                 sportType: sportType,
-                sportTypeName: sportTypeName
+                sportTypeName: sportTypeName,
+                isLive: 2
             });
             tab.goForward('betType', data);
         }
