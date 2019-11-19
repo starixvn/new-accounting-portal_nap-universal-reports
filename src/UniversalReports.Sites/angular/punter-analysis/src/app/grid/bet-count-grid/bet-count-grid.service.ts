@@ -83,7 +83,8 @@ export class BetCountGridService {
             custId: this.model.custId,
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
-            liveStatusId: this.model.liveStatusId
+            liveStatusId: this.model.liveStatusId,
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 }

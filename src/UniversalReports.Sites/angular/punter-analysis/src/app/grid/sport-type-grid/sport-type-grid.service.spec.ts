@@ -26,7 +26,8 @@ describe('SportTypeGridService', () => {
             toDate: '2016-02-02T00:00:00',
             listCombinationId: '1,2',
             leagueId: 0,
-            custId: 1
+            custId: 1,
+            listLeagueGroupId: '1,2'
         },
         league: {
             periodType: 1,
@@ -34,7 +35,8 @@ describe('SportTypeGridService', () => {
             toDate: '2016-02-02T00:00:00',
             listCombinationId: '1,2',
             leagueId: 1,
-            custId: 1
+            custId: 1,
+            listLeagueGroupId: '1,2'
         }
     };
     const expectedExcelModel = {

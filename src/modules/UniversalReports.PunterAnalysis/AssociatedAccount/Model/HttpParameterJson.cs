@@ -23,5 +23,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
         public DateTime ToDate { get; set; }
 
         public string ListCombinationId { get; set; }
+
+        public string ListLeagueGroupId { get; set; }
     }
 }

@@ -112,6 +112,7 @@
       <Mapping DataField="ProductName" ObjectProperty="ProductName" />
       <Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
       <Mapping DataField="SportName" ObjectProperty="SportName" />
+      <Mapping DataField="BettypeGroup" ObjectProperty="BetTypeGroup" />
       <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
       <Mapping DataField="Value" ObjectProperty="Value" />
       <Mapping DataField="RenderType" ObjectProperty="RenderType" />
@@ -136,6 +137,12 @@
     <Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_PerformanceByMember" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-LeagueGroupQuery" SpName="Acc_Punter_LeagueGroup" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+      <Mapping DataField="SportType" ObjectProperty="SportType" />
+      <Mapping DataField="Sport" ObjectProperty="Sport" />
+      <Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
+      <Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
+    </Setting>
   </Function>
   <Function Name="Actual-Member-Bet">
     <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

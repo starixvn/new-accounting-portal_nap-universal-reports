@@ -49,7 +49,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: undefined,
             betTypeId: undefined,
-            liveStatusId: undefined
+            liveStatusId: undefined,
+            listLeagueGroupId: '1,2'
         },
         sportType: {
             periodType: 1,
@@ -60,7 +61,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: 1,
             betTypeId: undefined,
-            liveStatusId: undefined
+            liveStatusId: undefined,
+            listLeagueGroupId: '1,2'
         },
         betType: {
             periodType: 1,
@@ -71,7 +73,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: 1,
             betTypeId: 1,
-            liveStatusId: LiveStatus.NonLive
+            liveStatusId: LiveStatus.NonLive,
+            listLeagueGroupId: '1,2'
         }
     };
 
@@ -106,7 +109,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: undefined,
             betTypeId: undefined,
-            liveStatusId: undefined
+            liveStatusId: undefined,
+            listLeagueGroupId: '1,2'
         },
         sportType: {
             periodType: 1,
@@ -117,7 +121,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: 1,
             betTypeId: undefined,
-            liveStatusId: undefined
+            liveStatusId: undefined,
+            listLeagueGroupId: '1,2'
         },
         betType: {
             periodType: 1,
@@ -128,7 +133,8 @@ describe('BetCountGridService', () => {
             custId: 1,
             sportId: 1,
             betTypeId: 1,
-            liveStatusId: LiveStatus.NonLive
+            liveStatusId: LiveStatus.NonLive,
+            listLeagueGroupId: '1,2'
         }
     };
 

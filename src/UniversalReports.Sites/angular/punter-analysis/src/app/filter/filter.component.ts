@@ -1,3 +1,4 @@
+import { fakeData } from './../grid/bet-type-grid/bet-type-grid.model.spec';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import {
     TreeviewItem, TreeviewConfig, TreeviewEventParser,
@@ -64,6 +65,15 @@ export class FilterComponent implements OnInit {
         decoupleChildFromParent: false,
         maxHeight: 500
     };
+    leagueGroupTreeviewItems: TreeviewItem[] = [];
+    leagueGroupTreeviewConfig: TreeviewConfig = {
+        hasAllCheckBox: true,
+        hasCollapseExpand: true,
+        hasFilter: true,
+        hasDivider: false,
+        decoupleChildFromParent: false,
+        maxHeight: 500
+    };
 
     sportType: number;
     sportOptions: IOption[];
@@ -82,10 +92,13 @@ export class FilterComponent implements OnInit {
 
     monthRangeFromDate: NgbDateStruct;
     monthRangeToDate: NgbDateStruct;
+    showLeagueFilter = false;
+    countingQueryLeagueGroup = 0;
 
     private selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
     private periodTypeEventModel: PeriodTypeEventModel;
     private sportbooksSportTypeBetTypeData: SportsbookSportTypeBetType[];
+    private selectedLeagueGroupTreeviewItems: DownlineTreeviewItem[];
 
     constructor(
         private service: FilterService,
@@ -151,6 +164,8 @@ export class FilterComponent implements OnInit {
                         this.loadSports();
                     });
                 }
+
+                this.showLeagueFilter = false;
                 break;
         }
         this.depthOptions = this.getDepthOptions();
@@ -162,6 +177,18 @@ export class FilterComponent implements OnInit {
 
     onProductSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
         this.selectedBetTypeTreeviewItems = downlineTreeviewItems;
+        this.showLeagueFilter = this.isShowLeagueFilter();
+
+        if (this.showLeagueFilter && this.countingQueryLeagueGroup === 0) {
+            this.queryLeagueGroup();
+            this.countingQueryLeagueGroup++;
+        } else {
+            this.countingQueryLeagueGroup = 0;
+        }
+    }
+
+    onLeagueGroupSelectedChange(downlineTreeviewItems: DownlineTreeviewItem[]) {
+        this.selectedLeagueGroupTreeviewItems = downlineTreeviewItems;
     }
 
     onSportChange() {
@@ -281,7 +308,7 @@ export class FilterComponent implements OnInit {
             searchText = words.join(',');
             return this.service.querySportTypeLeague(this.sportType, searchText, false)
                 .map(list => {
-                 return   list.map(item => item.LeagueName)
+                    return list.map(item => item.LeagueName)
                 });
         });
     }
@@ -291,7 +318,8 @@ export class FilterComponent implements OnInit {
             searchBy: this.searchBy,
             searchByOptions: this.searchByOptions,
             fromDate: this.searchBy === SearchBy.Performance ? this.monthRangeFromDate : this.periodTypeEventModel.fromDate,
-            toDate: this.searchBy === SearchBy.Performance ? this.monthRangeToDate : this.periodTypeEventModel.toDate
+            toDate: this.searchBy === SearchBy.Performance ? this.monthRangeToDate : this.periodTypeEventModel.toDate,
+            showLeagueGroupFilter: this.showLeagueFilter
         };
         switch (this.searchBy) {
             case SearchBy.User:
@@ -317,6 +345,7 @@ export class FilterComponent implements OnInit {
             sortByOptions: this.sortByOptions,
             periodType: this.periodTypeEventModel.periodType,
             selectedBetTypeTreeviewItems: this.selectedBetTypeTreeviewItems,
+            selectedLeagueGroupTreeviewItems: this.showLeagueFilter ? this.selectedLeagueGroupTreeviewItems : [],
             depth: this.depth,
             userName: _.trim(this.userName),
             isUserNameRequired: this.isUserNameRequired
@@ -335,7 +364,8 @@ export class FilterComponent implements OnInit {
             leagueId: this.leagueId,
             leagueName: this.leagueName,
             sportType: this.sportType,
-            sportOptions: this.sportOptions
+            sportOptions: this.sportOptions,
+            selectedLeagueGroupTreeviewItems: this.showLeagueFilter ? this.selectedLeagueGroupTreeviewItems : [],
         };
     }
 
@@ -402,5 +432,21 @@ export class FilterComponent implements OnInit {
             text: 'Margin',
             value: OrderBy.Margin
         }];
+    }
+
+    private isShowLeagueFilter(): boolean {
+        let showFilter = false;
+        this.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
+            const sportTypeItem = betTypeItem.parent.parent;
+            if (sportTypeItem && sportTypeItem.item.text === 'E-Sports') {
+                showFilter = true;
+            }
+        });
+
+        return showFilter;
+    }
+
+    private queryLeagueGroup() {
+        this.service.queryLeagueGroupTreeviewItems().subscribe(treeItems => this.leagueGroupTreeviewItems = treeItems);
     }
 }

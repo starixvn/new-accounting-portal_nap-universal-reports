@@ -23,6 +23,8 @@ namespace UniversalReports.PunterAnalysis.Shared
 
         public int LiveStatusId { get; set; }
 
+        public string ListLeagueGroupId { get; set; }
+
         public override bool IsValid() => true;
     }
 }

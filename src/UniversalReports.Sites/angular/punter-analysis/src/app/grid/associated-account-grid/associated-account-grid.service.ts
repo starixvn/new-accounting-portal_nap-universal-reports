@@ -35,7 +35,8 @@ export class AssociatedAccountGridService {
             periodType: userLeagueModel.periodType,
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
-            listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId
+            listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 

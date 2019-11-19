@@ -12,4 +12,5 @@ export interface CommonUserLeagueFilterModel {
     sortByOptions: SelectItem[];
     periodType: PeriodType;
     selectedBetTypeTreeviewItems: DownlineTreeviewItem[];
+    selectedLeagueGroupTreeviewItems: DownlineTreeviewItem[];
 }

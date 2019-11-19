@@ -3,6 +3,7 @@ using System.Web.Http;
 using MediatR;
 using HttpParameterAvailableDatabase = UniversalReports.PunterAnalysis.Filter.AvailableDatabase.HttpParameterJson;
 using HttpParameterAvailableDataRange = UniversalReports.PunterAnalysis.Filter.AvailableDateRange.HttpParameterJson;
+using HttpParameterLeagueGroup = UniversalReports.PunterAnalysis.Filter.LeagueGroup.HttpParameterJson;
 using HttpParameterProductSportBetType = UniversalReports.PunterAnalysis.Filter.ProductSportBetType.HttpParameterJson;
 using HttpParameterSportsbookSportBetType = UniversalReports.PunterAnalysis.Filter.SportsbookSportBetType.HttpParameterJson;
 using HttpParameterSportTypeLeague = UniversalReports.PunterAnalysis.Filter.SportTypeLeague.HttpParameterJson;
@@ -52,6 +53,12 @@ namespace UniversalReports.PunterAnalysis.Filter
 
         [Route("sport-type-league")]
         public async Task<IHttpActionResult> SportTypeLeague(HttpParameterSportTypeLeague parameter)
+        {
+            return await Handle(parameter);
+        }
+
+        [Route("league-group")]
+        public async Task<IHttpActionResult> LeagueGroup(HttpParameterLeagueGroup parameter)
         {
             return await Handle(parameter);
         }

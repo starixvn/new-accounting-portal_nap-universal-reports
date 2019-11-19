@@ -15,4 +15,5 @@ export interface FilterModel {
     user?: UserFilterModel;
     league?: LeagueFilterModel;
     performance?: PerformanceFilterModel;
+    showLeagueGroupFilter: boolean;
 }

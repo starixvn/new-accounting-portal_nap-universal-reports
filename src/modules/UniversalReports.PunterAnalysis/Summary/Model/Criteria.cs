@@ -25,6 +25,8 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
 
         public int LeagueId { get; set; }
 
+        public string ListLeagueGroupId { get; set; }
+
         public override string GetSettingKey() => "Punter-Summary";
 
         public override bool IsValid() => true;

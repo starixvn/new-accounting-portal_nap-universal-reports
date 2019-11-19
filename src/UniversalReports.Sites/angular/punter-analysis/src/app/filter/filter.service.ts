@@ -17,6 +17,7 @@ interface ProductSportTypeBetType {
     BetTypeName: string;
     Value: number;
     RenderType: number;
+    BetTypeGroup: string;
 }
 
 interface SportTypeLeague {
@@ -27,7 +28,15 @@ interface SportTypeLeague {
 enum RenderType {
     Product_SportGroup_Sport_BetType = 1,
     Product_Sport_BetType = 2,
-    Product_BetType = 3
+    Product_BetType = 3,
+    Product_Sport_BetTypeGroup_BetType = 4
+}
+
+interface LeagueGroup {
+    SportType: number;
+    Sport: string;
+    LeagueGroupId: number;
+    LeagueGroupName: string;
 }
 
 @Injectable()
@@ -74,6 +83,13 @@ export class FilterService {
             sportId: sportId,
             searchText: searchText,
             searchExactly: searchExactly
+        });
+    }
+
+    queryLeagueGroupTreeviewItems(): Observable<TreeviewItem[]> {
+        const url = `${this.url}/league-group`;
+        return this.httpService.post<LeagueGroup[]>(url).map(list => {
+            return this.buildLeagueGroupTreeviewItems(list);
         });
     }
 
@@ -127,6 +143,9 @@ export class FilterService {
             case RenderType.Product_Sport_BetType:
                 renderTypeNodes = [item.SportName];
                 break;
+            case RenderType.Product_Sport_BetTypeGroup_BetType:
+                renderTypeNodes = [item.SportName, item.BetTypeGroup];
+                break;
         }
 
         const treeItems = renderTypeNodes.map(node => <TreeItem>{
@@ -140,5 +159,31 @@ export class FilterService {
             collapsed: true
         });
         return treeItems;
+    }
+
+    private buildLeagueGroupTreeviewItems(list: LeagueGroup[]): TreeviewItem[] {
+        const leagueGroupItems: TreeviewItem[] = [];
+        const sportNames = _.uniq(list.map(x => x.Sport));
+        sportNames.forEach(sportName => {
+            const sportItem = new TreeviewItem({
+                text: sportName,
+                value: sportName,
+                collapsed: true
+            });
+
+            leagueGroupItems.push(sportItem);
+            const listBySportName = list.filter(x => x.Sport === sportName);
+            listBySportName.forEach(item => {
+                const treeItem = new TreeviewItem({ text: item.LeagueGroupName, value: item.LeagueGroupId });
+
+                if (_.isNil(sportItem.children)) {
+                    sportItem.children = [treeItem];
+                } else {
+                    sportItem.children.push(treeItem);
+                }
+            });
+        });
+
+        return leagueGroupItems;
     }
 }

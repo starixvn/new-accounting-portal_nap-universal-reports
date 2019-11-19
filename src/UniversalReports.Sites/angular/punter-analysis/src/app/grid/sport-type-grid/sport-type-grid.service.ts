@@ -72,7 +72,8 @@ export class SportTypeGridService {
             toDate: filterModelWrapper.toDateQueryString,
             listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
             leagueId: filterModelWrapper.leagueId,
-            custId: this.model.custId
+            custId: this.model.custId,
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 }
