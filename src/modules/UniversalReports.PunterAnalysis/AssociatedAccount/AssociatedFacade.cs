@@ -62,7 +62,8 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
                 ListCombinationId = request.ListCombinationId,
                 OrderBy = request.OrderBy,
                 PeriodType = request.PeriodType,
-                SortBy = request.SortBy
+                SortBy = request.SortBy,
+                ListLeagueGroupId = request.ListLeagueGroupId
             };
 
             var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
