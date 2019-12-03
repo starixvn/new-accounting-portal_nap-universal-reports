@@ -6,7 +6,10 @@ export enum GridType {
     BetCount,
     SportType,
     BetType,
-    League
+    League,
+    Game,
+    BetTypeGroup,
+    GameBetType
 }
 
 export interface Grid {

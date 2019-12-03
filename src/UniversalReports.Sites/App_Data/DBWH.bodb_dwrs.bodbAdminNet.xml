@@ -143,6 +143,9 @@
       <Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
       <Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
     </Setting>
+    <Setting Key="Punter-Game" SpName="Acc_Punter_Top_DrillDownSportEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-BetTypeGroup" SpName="Acc_Punter_Top_DrillDownLeagueGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-GameBetType" SpName="Acc_Punter_Top_DrillDownBettypeGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="Actual-Member-Bet">
     <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

@@ -33,9 +33,18 @@ namespace UniversalReports.PunterAnalysis
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Summary.Model.Criteria>();
             cfg.CreateMap<Summary.Model.HttpParameterJson, Summary.Model.Criteria>();
-
             cfg.CreateMap<AssociatedAccount.Model.AssociatedSummaryModel, AssociatedAccount.Model.AssociatedSummaryExcelModel>();
             cfg.CreateMap<AssociatedAccount.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<Game.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<Game.Model.HttpParameterExcel, Game.Model.Criteria>();
+            cfg.CreateMap<Game.Model.HttpParameterJson, Game.Model.Criteria>();
+            cfg.CreateMap<GameBetType.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<GameBetType.Model.HttpParameterExcel, GameBetType.Model.Criteria>();
+            cfg.CreateMap<GameBetType.Model.HttpParameterJson, GameBetType.Model.Criteria>();
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterExcel, BetTypeGroup.Model.Criteria>();
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterJson, BetTypeGroup.Model.Criteria>();
+
         }
     }
 }

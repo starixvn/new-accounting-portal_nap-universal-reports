@@ -11,3 +11,4 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "type", Target = "~T:UniversalReports.PunterAnalysis.League.LeagueExcelBuilderImp")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "type", Target = "~T:UniversalReports.PunterAnalysis.BetType.BetTypeExcelSettingFactory")]
 
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S109:Magic numbers should not be used", Justification = "<Pending>", Scope = "member", Target = "~M:UniversalReports.PunterAnalysis.GameBetType.GameBetTypeExcelSettingFactory.CreateSetting(UniversalReports.PunterAnalysis.Shared.ExcelSettingParams)~UniversalReports.PunterAnalysis.Shared.ExcelSetting")]
