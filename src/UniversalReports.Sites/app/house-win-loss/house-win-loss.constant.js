@@ -682,7 +682,7 @@ import moment from "moment";
                 getTitleFunction: "getMatchDetailTitle"
             }            
         },
-        "NPH Promotion": {
+        "Saba Promotion": {
             mainView: "betType",
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
