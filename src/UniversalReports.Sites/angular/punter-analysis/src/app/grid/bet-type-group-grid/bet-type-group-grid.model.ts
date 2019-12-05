@@ -3,8 +3,6 @@ import { GameGridModel } from './../game-grid/game-grid.model';
 export interface BetTypeGroupGridModel extends GameGridModel {
     leagueGroupId: number;
     leagueGroupName: string;
-    sportId: number;
-    sportName: string;
 }
 
 export interface BetTypeGroupItem {

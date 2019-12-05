@@ -6,7 +6,7 @@ using UniversalReports.PunterAnalysis.GameBetType.Model;
 
 namespace UniversalReports.PunterAnalysis.GameBetType
 {
-    [RoutePrefix("api/punter-analysis/gmae-bet-type")]
+    [RoutePrefix("api/punter-analysis/game-bet-type")]
     public class PunterAnalysisGameBetTypeController : ApiController
     {
         private readonly IMediator mediator;

@@ -12,7 +12,7 @@ import { GameBetTypeGridModel, GameBetTypeData } from './game-bet-type-grid.mode
 
 @Injectable()
 export class GameBetTypeGridService {
-    private url = 'api/punter-analysis/bet-type';
+    private url = 'api/punter-analysis/game-bet-type';
     model: GameBetTypeGridModel;
 
     constructor(

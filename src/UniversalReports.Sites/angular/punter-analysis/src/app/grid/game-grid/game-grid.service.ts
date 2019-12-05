@@ -23,19 +23,19 @@ export class GameGridService {
     createBetTypeGroupGridModel(leagueGroupId: number, leagueGroupName: string): BetTypeGroupGridModel {
         return _.extend(this.model, {
             leagueGroupId: leagueGroupId,
-            leagueGroupName: leagueGroupName,
-            sportId: 0,
-            sportName: ''
+            leagueGroupName: leagueGroupName
         });
     }
 
-    createBetCountGridModel(sportId: number, sportName: string): BetCountGridModel {
+    createBetCountGridModel(leagueGroupId: number, leagueGroupName: string): BetCountGridModel {
         return {
-            fromGridType: GridType.SportType,
+            fromGridType: GridType.Game,
             custId: this.model.custId,
             custName: this.model.custName,
-            sportId: sportId,
-            sportName: sportName
+            sportId: this.model.sportId,
+            sportName: this.model.sportName,
+            leagueGroupId: leagueGroupId,
+            leagueGroupName: leagueGroupName
         };
     }
 

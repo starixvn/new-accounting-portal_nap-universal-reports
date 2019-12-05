@@ -45,7 +45,7 @@ export class GameGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.service.model.custName;
+        return this.service.model.sportName;
     }
 
     showBetTypeGroup(leagueGroupId: number, leagueGroupName: string) {
@@ -53,8 +53,8 @@ export class GameGridComponent implements Grid {
         this.gridService.generate(GridType.BetTypeGroup);
     }
 
-    showBetCount(sportId: number, sportName: string): void {
-        this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName);
+    showBetCount(leagueGroupId: number, leagueGroupName: string): void {
+        this.betCountGridService.model = this.service.createBetCountGridModel(leagueGroupId, leagueGroupName);
         this.gridService.generate(GridType.BetCount);
     }
 }

@@ -1,3 +1,4 @@
+import { GameGridModel } from './../game-grid/game-grid.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
@@ -22,6 +23,15 @@ export class SportTypeGridService {
 
     createBetTypeGridModel(sportId: number, sportName: string): BetTypeGridModel {
         return _.extend(this.model, {
+            sportId: sportId,
+            sportName: sportName
+        });
+    }
+
+    createGameGridModel(sportId: number, sportName: string): GameGridModel {
+        return _.extend(this.model, {
+            custId: this.model.custId,
+            custName: this.model.custName,
             sportId: sportId,
             sportName: sportName
         });

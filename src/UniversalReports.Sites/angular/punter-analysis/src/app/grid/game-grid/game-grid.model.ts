@@ -1,6 +1,8 @@
 export interface GameGridModel {
     custId: number;
     custName: string;
+    sportId: number;
+    sportName: string;
 }
 
 export interface GameItem {

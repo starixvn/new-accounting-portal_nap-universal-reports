@@ -2,9 +2,9 @@
 {
     public class BetTypeGroupModel
     {
-        public int LeagueGroupId { get; set; }
+        public int BettypeGroupId { get; set; }
 
-        public string LeagueGroupName { get; set; }
+        public string BettypeGroupName { get; set; }
 
         public decimal WinLoss { get; set; }
 
@@ -18,8 +18,8 @@
         {
             return new BetTypeGroupModel
             {
-                LeagueGroupId = 0,
-                LeagueGroupName = string.Empty,
+                BettypeGroupId = 0,
+                BettypeGroupName = string.Empty,
                 WinLoss = a.WinLoss + b.WinLoss,
                 BetCount = a.BetCount + b.BetCount,
                 Turnover = a.Turnover + b.Turnover

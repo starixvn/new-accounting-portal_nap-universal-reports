@@ -31,13 +31,13 @@
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                 <tbody>
                     <tr *ngFor="let item of data.Entities">
-                        <td><a href="javascript:;" (click)="showBetType(item.SportId, item.SportName)">{{
-                                item.SportName }}</a></td>
+                        <td><a href="javascript:;" (click)="showBetType(item.BettypeGroupId, item.BettypeGroupName)">{{
+                                item.BettypeGroupName }}</a></td>
                         <td class="number" [napDecimalFormat]="item.WinLoss"></td>
                         <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                         <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
                         <td class="text-right">
-                            <a href="javascript:;" (click)="showBetCount(item.SportId, item.SportName)"
+                            <a href="javascript:;" (click)="showBetCount(item.BettypeGroupId, item.BettypeGroupName)"
                                 [napIntegerFormat]="item.BetCount"></a>
                         </td>
                     </tr>

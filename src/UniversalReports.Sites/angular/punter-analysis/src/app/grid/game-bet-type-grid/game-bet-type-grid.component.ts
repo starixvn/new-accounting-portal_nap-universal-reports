@@ -5,21 +5,21 @@ import { Grid, GridType, LiveStatus } from '../grid.model';
 import { GridService } from '../grid.service';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { LeagueGridService } from '../league-grid/league-grid.service';
-import { BetTypeData, BetTypeItem } from './bet-type-grid.model';
-import { BetTypeGridService } from './bet-type-grid.service';
+import { GameBetTypeGridService } from './game-bet-type-grid.service';
+import { GameBetTypeData } from './game-bet-type-grid.model';
 
 @Component({
-    selector: 'nap-bet-type-grid',
-    templateUrl: './bet-type-grid.component.html',
+    selector: 'nap-game-bet-type-grid',
+    templateUrl: './game-bet-type-grid.component.html',
     styleUrls: ['../grid.component.scss']
 })
-export class BetTypeGridComponent implements Grid {
+export class GameBetTypeGridComponent implements Grid {
     LiveStatus = LiveStatus;
-    data: BetTypeData;
+    data: GameBetTypeData;
 
     constructor(
         private gridService: GridService,
-        private service: BetTypeGridService,
+        private service: GameBetTypeGridService,
         private betCountGridService: BetCountGridService,
         private leagueGridService: LeagueGridService
     ) { }
@@ -46,7 +46,7 @@ export class BetTypeGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.service.model.sportName;
+        return this.service.model.betTypeGroupName;
     }
 
     showBetCount(betTypeId: number, betTypeName: string, liveStatusId: LiveStatus) {

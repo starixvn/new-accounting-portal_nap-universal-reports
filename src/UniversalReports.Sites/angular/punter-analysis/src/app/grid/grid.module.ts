@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TreeviewModule } from 'ngx-treeview';
@@ -20,6 +20,12 @@ import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { LeagueGridService } from './league-grid/league-grid.service';
 import { BreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 import { CommonService } from './common.service';
+import { GameGridComponent } from './game-grid/game-grid.component';
+import { BetTypeGroupGridComponent } from './bet-type-group-grid/bet-type-group-grid.component';
+import { GameBetTypeGridService } from './game-bet-type-grid/game-bet-type-grid.service';
+import { BetTypeGroupGridService } from './bet-type-group-grid/bet-type-group-grid.service';
+import { GameGridService } from './game-grid/game-grid.service';
+import { GameBetTypeGridComponent } from './game-bet-type-grid/game-bet-type-grid.component';
 
 @NgModule({
     imports: [
@@ -37,7 +43,10 @@ import { CommonService } from './common.service';
         AssociatedAccountGridComponent,
         SportTypeGridComponent,
         BetTypeGridComponent,
-        LeagueGridComponent
+        LeagueGridComponent,
+        GameGridComponent,
+        BetTypeGroupGridComponent,
+        GameBetTypeGridComponent
     ],
     exports: [
         GridComponent
@@ -50,7 +59,10 @@ import { CommonService } from './common.service';
         SportTypeGridService,
         BetTypeGridService,
         LeagueGridService,
-        CommonService
+        CommonService,
+        GameGridService,
+        BetTypeGroupGridService,
+        GameBetTypeGridService
     ]
 })
 export class GridModule { }

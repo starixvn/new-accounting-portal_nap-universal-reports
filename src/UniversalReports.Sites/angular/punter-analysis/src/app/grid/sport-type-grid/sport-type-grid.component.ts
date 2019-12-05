@@ -1,4 +1,5 @@
-import { Component, EventEmitter } from '@angular/core';
+import { GameGridService } from './../game-grid/game-grid.service';
+import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { GridService } from '../grid.service';
@@ -20,7 +21,8 @@ export class SportTypeGridComponent implements Grid {
         private gridService: GridService,
         private service: SportTypeGridService,
         private betCountGridService: BetCountGridService,
-        private betTypeGridService: BetTypeGridService
+        private betTypeGridService: BetTypeGridService,
+        private gameGridService: GameGridService
     ) { }
 
     query(): Observable<any> {
@@ -49,8 +51,13 @@ export class SportTypeGridComponent implements Grid {
     }
 
     showBetType(sportId: number, sportName: string) {
-        this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
-        this.gridService.generate(GridType.BetType);
+        if (sportId !== 43) {
+            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
+            this.gridService.generate(GridType.BetType);
+        } else {
+            this.gameGridService.model = this.service.createGameGridModel(sportId, sportName);
+            this.gridService.generate(GridType.Game);
+        }
     }
 
     showBetCount(sportId: number, sportName: string): void {

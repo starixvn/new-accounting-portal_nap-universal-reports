@@ -9,6 +9,8 @@ export interface BetCountGridModel {
     betTypeId?: number;
     betTypeName?: string;
     liveStatusId?: LiveStatus;
+    leagueGroupId?: number;
+    leagueGroupName?: string;
 }
 
 export interface BetCountItem {

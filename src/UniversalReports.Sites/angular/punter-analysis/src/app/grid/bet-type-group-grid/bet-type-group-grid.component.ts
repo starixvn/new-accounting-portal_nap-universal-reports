@@ -45,7 +45,7 @@ export class BetTypeGroupGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.service.model.custName;
+        return this.service.model.leagueGroupName;
     }
 
     showBetType(betTypeGroupId: number, betTypeGroupName: string) {

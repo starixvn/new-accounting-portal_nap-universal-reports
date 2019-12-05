@@ -46,6 +46,8 @@ export class BetCountGridService {
                 return this.model.sportName;
             case GridType.BetType:
                 return `${this.model.betTypeName} - ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`;
+            case GridType.Game:
+                return this.model.leagueGroupName;
         }
     }
 
@@ -84,7 +86,9 @@ export class BetCountGridService {
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
             liveStatusId: this.model.liveStatusId,
-            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
+            listLeagueGroupId: this.model.fromGridType === GridType.Game ?
+                this.model.leagueGroupId.toString() :
+                filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
         };
     }
 }
