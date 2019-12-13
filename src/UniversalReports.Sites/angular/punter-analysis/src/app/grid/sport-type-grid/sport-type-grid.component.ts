@@ -51,12 +51,14 @@ export class SportTypeGridComponent implements Grid {
     }
 
     showBetType(sportId: number, sportName: string) {
-        if (sportId !== 43) {
-            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
-            this.gridService.generate(GridType.BetType);
-        } else {
+        const filterModel = this.gridService.filterModel.league;
+        console.log(filterModel);
+        if (sportId === 43 && this.gridService.filterModel.league === undefined ) {
             this.gameGridService.model = this.service.createGameGridModel(sportId, sportName);
             this.gridService.generate(GridType.Game);
+        } else {
+            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
+            this.gridService.generate(GridType.BetType);
         }
     }
 
