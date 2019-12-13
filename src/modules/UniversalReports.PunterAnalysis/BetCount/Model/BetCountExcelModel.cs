@@ -4,19 +4,19 @@ namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
     public class BetCountExcelModel
     {
-        [Cell("A7")]
+        [Cell("A10")]
         public string Date { get; set; }
 
-        [Cell("B7")]
+        [Cell("B10")]
         public int BetCount { get; set; }
 
-        [Cell("C7")]
+        [Cell("C10")]
         public int WinCount { get; set; }
 
-        [Cell("D7")]
+        [Cell("D10")]
         public int DrawCount { get; set; }
 
-        [Cell("E7")]
+        [Cell("E10")]
         public decimal WinLoss { get; set; }
     }
 }

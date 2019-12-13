@@ -22,11 +22,15 @@ export class GameBetTypeGridService {
 
     createBetCountGridService(betTypeId: number, betTypeName: string, liveStatusId: LiveStatus): BetCountGridModel {
         return {
-            fromGridType: GridType.BetType,
+            fromGridType: GridType.GameBetType,
             custId: this.model.custId,
             custName: this.model.custName,
             sportId: this.model.sportId,
             sportName: this.model.sportName,
+            leagueGroupId: this.model.leagueGroupId,
+            leagueGroupName: this.model.leagueGroupName,
+            betTypeGroupId: this.model.betTypeGroupId,
+            betTypeGroupName: this.model.betTypeGroupName,
             betTypeId: betTypeId,
             betTypeName: betTypeName,
             liveStatusId: liveStatusId
@@ -55,7 +59,9 @@ export class GameBetTypeGridService {
         const filterLines = [
             `User Name: ${this.model.custName}`,
             `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
-            `Sport Type: ${this.model.sportName}`
+            `Sport Type: E-Sports`,
+            `League Group: ${this.model.leagueGroupName}`,
+            `Bettype Group: ${this.model.betTypeGroupName}`
         ];
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);

@@ -6,20 +6,21 @@ import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
 import { GridService } from '../grid.service';
 import { GridType } from '../grid.model';
-import { SportTypeGridService } from './sport-type-grid.service';
-import { SportTypeGridModel } from './sport-type-grid.model';
-import { SportTypeGridComponent } from './sport-type-grid.component';
 import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 import { BetCountGridModel } from '../bet-count-grid/bet-count-grid.model';
-import { BetTypeGridService } from '../bet-type-grid/bet-type-grid.service';
 import { BetTypeGridModel } from '../bet-type-grid/bet-type-grid.model';
-import { fakeData } from './sport-type-grid.model.spec';
 import { AppModule } from '../../app.module';
 import { expect } from '../../../testing';
+import { BetTypeGroupGridComponent } from './bet-type-group-grid.component';
+import { BetTypeGroupGridService } from './bet-type-group-grid.service';
+import { BetTypeGroupGridModel } from './bet-type-group-grid.model';
+import { fakeData } from './bet-type-group-grid.model.spec';
+import { GameBetTypeGridService } from '../game-bet-type-grid/game-bet-type-grid.service';
+import { GameBetTypeGridModel } from '../game-bet-type-grid/game-bet-type-grid.model';
 
 class Page {
     constructor(
-        private fixture: ComponentFixture<SportTypeGridComponent>
+        private fixture: ComponentFixture<BetTypeGroupGridComponent>
     ) { }
 
     queryEntityRow(rowIndex: number): DebugElement {
@@ -34,9 +35,9 @@ class Page {
     }
 }
 
-describe('SportTypeGridComponent', () => {
-    let fixture: ComponentFixture<SportTypeGridComponent>;
-    let component: SportTypeGridComponent;
+describe('BetTypeGroupGridComponent', () => {
+    let fixture: ComponentFixture<BetTypeGroupGridComponent>;
+    let component: BetTypeGroupGridComponent;
     let page: Page;
 
     beforeEach(async(() => {
@@ -48,7 +49,7 @@ describe('SportTypeGridComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SportTypeGridComponent);
+        fixture = TestBed.createComponent(BetTypeGroupGridComponent);
         component = fixture.componentInstance;
         page = new Page(fixture);
     });
@@ -78,19 +79,23 @@ describe('SportTypeGridComponent', () => {
     describe('mock', () => {
         let gridService: GridService;
         let selectedGridType: GridType;
-        let service: SportTypeGridService;
+        let service: BetTypeGroupGridService;
 
         beforeEach(() => {
             gridService = fixture.debugElement.injector.get(GridService);
             gridService.generate = (gridType) => selectedGridType = gridType;
 
-            const fakeSportTypeGridModel: SportTypeGridModel = {
+            const fakeBetTypeGroupGridModel: BetTypeGroupGridModel = {
                 custId: 1,
-                custName: 'Customer 1'
+                custName: 'Customer 1',
+                sportId: 43,
+                sportName: 'E-Sports',
+                leagueGroupId: 1,
+                leagueGroupName: 'CS-Go'
             };
 
-            service = fixture.debugElement.injector.get(SportTypeGridService);
-            service.model = fakeSportTypeGridModel;
+            service = fixture.debugElement.injector.get(BetTypeGroupGridService);
+            service.model = fakeBetTypeGroupGridModel;
             spyOn(service, 'query').and.returnValue(Observable.of(fakeData));
 
             component.query().subscribe();
@@ -101,8 +106,8 @@ describe('SportTypeGridComponent', () => {
             expect(component.hasData).toBe(true);
         });
 
-        it('should have title "Customer 1"', () => {
-            expect(component.title).toBe('Customer 1');
+        it('should have title "CS-Go"', () => {
+            expect(component.title).toBe('CS-Go');
         });
 
         it('should invoke exportExcel in service when call exportExcel', () => {
@@ -116,18 +121,22 @@ describe('SportTypeGridComponent', () => {
             expect(tables.length).toBe(3);
         });
 
-        it('should invoke to generate BetType when click on the first cell', () => {
+        it('should invoke to generate GameBetType when click on the first cell', () => {
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
             const link = tds[0].query(By.css('a'));
             link.triggerEventHandler('click', {});
-            expect(selectedGridType).toBe(GridType.BetType);
-            const betTypeGridService = fixture.debugElement.injector.get(BetTypeGridService);
-            const expectedModel: BetTypeGridModel = {
+            expect(selectedGridType).toBe(GridType.GameBetType);
+            const betTypeGridService = fixture.debugElement.injector.get(GameBetTypeGridService);
+            const expectedModel: GameBetTypeGridModel = {
                 custId: 1,
                 custName: 'Customer 1',
-                sportId: 1,
-                sportName: 'Sport 1'
+                sportId: 43,
+                sportName: 'E-Sports',
+                leagueGroupId: 1,
+                leagueGroupName: 'CS-Go',
+                betTypeGroupId: 1,
+                betTypeGroupName: 'group 1'
             };
             expect(betTypeGridService.model).toEqual(expectedModel);
         });
@@ -140,18 +149,22 @@ describe('SportTypeGridComponent', () => {
             expect(selectedGridType).toBe(GridType.BetCount);
             const betCountGridService = fixture.debugElement.injector.get(BetCountGridService);
             const expectedModel: BetCountGridModel = {
-                fromGridType: GridType.SportType,
+                fromGridType: GridType.BetTypeGroup,
                 custId: 1,
                 custName: 'Customer 1',
-                sportId: 1,
-                sportName: 'Sport 1'
+                sportId: 43,
+                sportName: 'E-Sports',
+                leagueGroupId: 1,
+                leagueGroupName: 'CS-Go',
+                betTypeGroupId: 1,
+                betTypeGroupName: 'group 1'
             };
             expect(betCountGridService.model).toEqual(expectedModel);
         });
 
         it('all cells of first row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Sport 1', '13,024.23', '2,490.18', '523.02%', '10'];
+            const expectedCellValue = ['group 1', '13,024.23', '2,490.18', '523.02%', '10'];
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
 
@@ -164,7 +177,7 @@ describe('SportTypeGridComponent', () => {
 
         it('all cells of second row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Sport 2', '12,337.55', '2,712.90', '454.77%', '31'];
+            const expectedCellValue = ['group 2', '12,337.55', '2,712.90', '454.77%', '31'];
             const row = page.queryEntityRow(1);
             const tds = row.queryAll(By.css('td'));
 

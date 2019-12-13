@@ -53,14 +53,14 @@ export class GameGridService {
         const filterLines = [
             `User Name: ${this.model.custName}`,
             `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
-            `Sport Type: ${filterModelWrapper.selectedSportTypes}`
+            `Sport Type: E-Sports`
         ];
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
         }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `Top_Punter_Sporttype_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
+            const fileName = `Top_Punter_LeagueGroup_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
             Helper.downloadFile(response, fileName);
         });
     }

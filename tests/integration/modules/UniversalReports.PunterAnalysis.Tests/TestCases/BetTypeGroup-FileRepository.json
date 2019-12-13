@@ -1,0 +1,16 @@
+﻿[
+  {
+    "BettypeGroupId": 1,
+    "BettypeGroupName": "Bettype Group 1",
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  },
+  {
+    "BettypeGroupId": 2,
+    "BettypeGroupName": "Bettype Group 2",
+    "WinLoss": 0,
+    "Turnover": 0,
+    "BetCount": 0
+  }
+]

@@ -25,12 +25,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.BetCount
             var expectedExcelSetting = new ExcelSetting
             {
                 SheetName = "Punter Analysis",
-                StartRowIndex = 7,
+                StartRowIndex = 10,
                 TemplatePath = "D:\\ExcelTemplate\\PunterAnalysis\\BetCount.xlsx",
                 Title = "Any Title",
                 TitleCellRange = "A1:E2",
                 Filter = "Any Filter",
-                FilterCellRange = "A3:E4"
+                FilterCellRange = "A3:E7"
             };
 
             var setting = new BetCountExcelSettingFactory(configurationService);

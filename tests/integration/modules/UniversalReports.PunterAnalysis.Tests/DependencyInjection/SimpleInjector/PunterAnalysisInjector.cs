@@ -1,9 +1,11 @@
 ﻿using Olympus.FPSAPI.Client;
 using SimpleInjector;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetType;
+using UniversalReports.PunterAnalysis.BetTypeGroup;
+using UniversalReports.PunterAnalysis.Game;
+using UniversalReports.PunterAnalysis.GameBetType;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
@@ -15,7 +17,6 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
     {
         internal static Container RegisterPunterAnalysisServices(this Container container)
         {
-            container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<PunterAnalysisService, PunterAnalysisServiceImp>();
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();
@@ -35,9 +36,13 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.AssociatedAccount.HandlerExcel));
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
-
             container.Register<AssociatedFacade, AssociatedFacadeImp>();
-
+            container.RegisterConditional<ExcelSettingFactory, GameExcelSettingFactory>(
+               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Game.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, GameBetTypeExcelSettingFactory>(
+              c => c.Consumer.ImplementationType == typeof(PunterAnalysis.GameBetType.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, BetTypeGroupExcelSettingFactory>(
+              c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetTypeGroup.HandlerExcel));
             return container;
         }
     }

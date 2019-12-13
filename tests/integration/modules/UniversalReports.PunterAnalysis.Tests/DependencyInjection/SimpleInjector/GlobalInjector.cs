@@ -4,6 +4,7 @@ using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
 {
@@ -18,6 +19,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
             container.Register<ICacheService>(() => new CacheService());
             container.Register(() => currentSession);
             container.Register<BalanceUpService, BalanceUpServiceImp>();
+            container.Register<ConfigurationService, ConfigurationServiceImp>();
 
             return container;
         }

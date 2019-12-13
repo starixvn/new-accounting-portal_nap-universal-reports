@@ -25,6 +25,8 @@ namespace UniversalReports.PunterAnalysis.Shared
 
         public string ListLeagueGroupId { get; set; }
 
+        public int LeagueGroupId { get; set; }
+
         public override bool IsValid() => true;
     }
 }

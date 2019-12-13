@@ -5,7 +5,7 @@ namespace UniversalReports.PunterAnalysis.BetTypeGroup.Model
     public class BetTypeGroupExcelModel
     {
         [Cell("A8")]
-        public string SportName { get; set; }
+        public string BettypeGroupName { get; set; }
 
         [Cell("B8")]
         public decimal WinLoss { get; set; }

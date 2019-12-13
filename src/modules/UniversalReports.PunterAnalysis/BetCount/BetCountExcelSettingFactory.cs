@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
 
         public ExcelSetting CreateSetting(ExcelSettingParams excelSettingParams)
         {
-            const int startDataRowTemplateIndex = 7;
+            const int startDataRowTemplateIndex = 10;
             return new ExcelSetting
             {
                 SheetName = "Punter Analysis",
@@ -25,7 +25,7 @@ namespace UniversalReports.PunterAnalysis.BetCount
                 Title = excelSettingParams.Title,
                 TitleCellRange = "A1:E2",
                 Filter = excelSettingParams.Filter,
-                FilterCellRange = "A3:E4"
+                FilterCellRange = "A3:E7"
             };
         }
     }

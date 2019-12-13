@@ -5,7 +5,7 @@ namespace UniversalReports.PunterAnalysis.Game.Model
     public class GameExcelModel
     {
         [Cell("A8")]
-        public string SportName { get; set; }
+        public string LeagueGroupName { get; set; }
 
         [Cell("B8")]
         public decimal WinLoss { get; set; }

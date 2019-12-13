@@ -9,6 +9,6 @@ namespace UniversalReports.PunterAnalysis.BetTypeGroup
         {
         }
 
-        protected override string TemplatePath => @"ExcelTemplate\PunterAnalysis\Game.xlsx";
+        protected override string TemplatePath => @"ExcelTemplate\PunterAnalysis\BetTypeGroup.xlsx";
     }
 }

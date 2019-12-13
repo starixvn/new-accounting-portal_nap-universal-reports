@@ -847,6 +847,9 @@
     <Content Include="bundle\cn88-win-loss-style.chunk.js.map" />
     <Content Include="bundle\cn88-win-loss-style.css.map" />
     <Content Include="bundle\cn88-win-loss.chunk.js.map" />
+    <Content Include="ExcelTemplate\PunterAnalysis\BetTypeGroup.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\Game.xlsx" />
+    <Content Include="ExcelTemplate\PunterAnalysis\GameBettype.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

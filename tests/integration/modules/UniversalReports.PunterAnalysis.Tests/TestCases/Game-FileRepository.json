@@ -1,0 +1,16 @@
+﻿[
+  {
+    "LeagueGroupId": 1,
+    "LeagueGroupName": "League Group 1",
+    "WinLoss": 300,
+    "Turnover": 500,
+    "BetCount": 5
+  },
+  {
+    "LeagueGroupId": 2,
+    "LeagueGroupName": "League Group 2",
+    "WinLoss": 0,
+    "Turnover": 0,
+    "BetCount": 0
+  }
+]

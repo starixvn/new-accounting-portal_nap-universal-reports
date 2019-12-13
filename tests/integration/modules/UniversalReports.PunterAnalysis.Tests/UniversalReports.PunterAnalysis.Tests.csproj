@@ -215,9 +215,12 @@
   <ItemGroup>
     <Compile Include="AssociatedAccount\PunterAnalysisAssociatedAccountControllerTests.cs" />
     <Compile Include="AutoMapperSetup.cs" />
+    <Compile Include="GameBetType\PunterAnalysisGameBetTypeControllerTests.cs" />
     <Compile Include="DependencyInjection\ApiControllerFactoryMethodFetchAsync.cs" />
+    <Compile Include="BetTypeGroup\PunterAnalysisBetTypeGroupControllerTests.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="League\PunterAnalysisLeagueControllerTests.cs" />
+    <Compile Include="Game\PunterAnalysisGameControllerTests.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryControllerTests.cs" />
     <Compile Include="SportType\PunterAnalysisSportTypeControllerTests.cs" />
     <Compile Include="BetType\PunterAnalysisBetTypeControllerTests.cs" />
@@ -236,12 +239,21 @@
   <ItemGroup>
     <None Include="app.config" />
     <Content Include="ExcelTemplate\PunterAnalysis\AssociatedAccount.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="ExcelTemplate\PunterAnalysis\BetCount.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ExcelTemplate\PunterAnalysis\Bettype.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\BetTypeGroup.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\Game.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExcelTemplate\PunterAnalysis\GameBettype.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ExcelTemplate\PunterAnalysis\League.xlsx">
@@ -254,6 +266,39 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="TestCases\GameBetType-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetTypeGroup-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Game-Excel-ExpectedBody.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetTypeGroup-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Game-Excel-ExpectedFilter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetTypeGroup-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Game-Excel-ExpectedTitle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetTypeGroup-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Game-Excel-ExpectedTotal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\BetTypeGroup-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestCases\Game-FileRepository.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="UniversalReports.PunterAnalysis.Tests.ruleset" />
     <None Include="TestCases\AssociatedAccount-Excel-ExpectedBody.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

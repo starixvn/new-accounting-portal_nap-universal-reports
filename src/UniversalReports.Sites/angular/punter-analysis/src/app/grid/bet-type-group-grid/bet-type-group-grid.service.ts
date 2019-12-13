@@ -27,13 +27,17 @@ export class BetTypeGroupGridService {
         });
     }
 
-    createBetCountGridModel(sportId: number, sportName: string): BetCountGridModel {
+    createBetCountGridModel(betTypeGroupId: number, betTypeGroupName: string): BetCountGridModel {
         return {
-            fromGridType: GridType.SportType,
+            fromGridType: GridType.BetTypeGroup,
             custId: this.model.custId,
             custName: this.model.custName,
-            sportId: sportId,
-            sportName: sportName
+            sportId: this.model.sportId,
+            sportName: this.model.sportName,
+            leagueGroupId: this.model.leagueGroupId,
+            leagueGroupName: this.model.leagueGroupName,
+            betTypeGroupId: betTypeGroupId,
+            betTypeGroupName: betTypeGroupName
         };
     }
 
@@ -51,14 +55,15 @@ export class BetTypeGroupGridService {
         const filterLines = [
             `User Name: ${this.model.custName}`,
             `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
-            `Sport Type: ${filterModelWrapper.selectedSportTypes}`
+            `Sport Type: E-Sports`,
+            `League Group: ${this.model.leagueGroupName}`
         ];
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
         }
         queryModel.filter = filterLines.join('\n');
         this.httpService.download(url, queryModel).subscribe(response => {
-            const fileName = `Top_Punter_Sporttype_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
+            const fileName = `Top_Punter_BettypeGroup_${filterModelWrapper.searchByFileName}_${filterModelWrapper.dateFromToFileName}.xlsx`;
             Helper.downloadFile(response, fileName);
         });
     }

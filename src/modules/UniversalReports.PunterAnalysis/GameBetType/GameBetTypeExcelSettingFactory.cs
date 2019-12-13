@@ -19,12 +19,12 @@ namespace UniversalReports.PunterAnalysis.GameBetType
             return new ExcelSetting
             {
                 SheetName = "Punter Analysis",
-                StartRowIndex = 9,
+                StartRowIndex = 12,
                 TemplatePath = $"{configurationService.CurrentDirectory}\\{TemplatePath}",
                 Title = excelSettingParams.Title,
                 TitleCellRange = "A1:M2",
                 Filter = excelSettingParams.Filter,
-                FilterCellRange = "A3:M5"
+                FilterCellRange = "A3:M8"
             };
         }
     }
