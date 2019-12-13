@@ -37,7 +37,8 @@ describe('LeagueGridService', () => {
             sportId: 1,
             betTypeId: 1,
             liveStatusId: 2,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined
         },
         league: {
             periodType: 1,
@@ -49,7 +50,8 @@ describe('LeagueGridService', () => {
             sportId: 1,
             betTypeId: 1,
             liveStatusId: 2,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined
         }
     };
 

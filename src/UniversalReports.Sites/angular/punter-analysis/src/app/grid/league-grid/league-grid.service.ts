@@ -60,7 +60,8 @@ export class LeagueGridService {
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
             liveStatusId: this.model.liveStatusId,
-            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId,
+            leagueGroupId: this.model.leagueGroupId
         };
     }
 }
