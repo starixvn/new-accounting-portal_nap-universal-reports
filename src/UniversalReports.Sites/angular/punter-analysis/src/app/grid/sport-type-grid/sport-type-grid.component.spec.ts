@@ -121,7 +121,6 @@ describe('SportTypeGridComponent', () => {
             const tds = row.queryAll(By.css('td'));
             const link = tds[0].query(By.css('a'));
             link.triggerEventHandler('click', {});
-            expect(selectedGridType).toBe(GridType.BetType);
             const betTypeGridService = fixture.debugElement.injector.get(BetTypeGridService);
             const expectedModel: BetTypeGridModel = {
                 custId: 1,
@@ -129,6 +128,7 @@ describe('SportTypeGridComponent', () => {
                 sportId: 1,
                 sportName: 'Sport 1'
             };
+            expect(selectedGridType).toBe(GridType.BetType);
             expect(betTypeGridService.model).toEqual(expectedModel);
         });
 
