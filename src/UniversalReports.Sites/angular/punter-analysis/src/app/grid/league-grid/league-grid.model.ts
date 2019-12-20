@@ -7,6 +7,8 @@ export interface LeagueGridModel extends BetTypeGridModel {
     liveStatusId: LiveStatus;
     leagueGroupId?: number;
     leagueGroupName?: string;
+    betTypeGroupId?: number;
+    betTypeGroupName?: string;
 }
 
 export interface PeriodGroupItem {

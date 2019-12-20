@@ -61,7 +61,7 @@ export class GameBetTypeGridService {
             `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
             `Sport Type: E-Sports`,
             `League Group: ${this.model.leagueGroupName}`,
-            `Bettype Group: ${this.model.betTypeGroupName}`
+            `Bet Type Group: ${this.model.betTypeGroupName}`
         ];
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);

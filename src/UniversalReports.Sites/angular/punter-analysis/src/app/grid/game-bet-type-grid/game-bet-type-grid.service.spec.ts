@@ -40,7 +40,7 @@ describe('GameBetTypeGridService', () => {
     const expectedExcelModel = {
         user: _.extend({}, expectedQueryModel.user, {
             title: 'Punter Analysis from Jan 01, 2016 to Feb 02, 2016 (Daily)',
-            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: E-Sports\nLeague Group: CS-Go\nBettype Group: Handicap`
+            filter: `User Name: Customer 1\nOrder by: WinLoss, Ascending\nSport Type: E-Sports\nLeague Group: CS-Go\nBet Type Group: Handicap`
         })
     };
 

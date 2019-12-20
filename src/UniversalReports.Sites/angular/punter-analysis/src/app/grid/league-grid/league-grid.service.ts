@@ -31,12 +31,21 @@ export class LeagueGridService {
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         const queryModel = this.createQueryModel();
         queryModel.title = `Punter Analysis ${filterModelWrapper.dateFromToTitle}`;
-        const filterLines = [
-            `User Name: ${this.model.custName}`,
-            `Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`,
-            `Sport Type: ${this.model.sportName}`,
-            `Bet Type: ${this.model.betTypeName} - Status: ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`
-        ];
+        let filterLines: string[] = [];
+        filterLines.push(`User Name: ${this.model.custName}`);
+        filterLines.push(`Order by: ${filterModelWrapper.userLeagueWrapper.orderByTitle}, ${filterModelWrapper.userLeagueWrapper.sortByTitle}`);
+        filterLines.push(`Sport Type: ${this.model.sportName}`);
+
+        if (this.model.leagueGroupName && this.model.leagueGroupName !== '') {
+            filterLines.push(`League Group: ${this.model.leagueGroupName}`);
+        }
+
+        if (this.model.betTypeGroupName && this.model.betTypeGroupName !== '') {
+            filterLines.push(`Bet Type Group: ${this.model.betTypeGroupName}`);
+        }
+
+        filterLines.push(`Bet Type: ${this.model.betTypeName} - Status: ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`);
+
         if (filterModel.searchBy === SearchBy.League) {
             filterLines.push(`League: ${filterModelWrapper.leagueTitle}`);
         }

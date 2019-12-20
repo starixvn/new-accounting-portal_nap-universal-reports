@@ -83,7 +83,8 @@ export class BetCountGridService {
                 filterLines.push(`Sport Type: E-Sports`);
                 filterLines.push(`League Group: ${this.model.leagueGroupName}`);
                 const liveStatus = this.commonService.getLiveStatusTitle(this.model.liveStatusId);
-                filterLines.push(`Bet Type Group: ${this.model.betTypeGroupName} - Bet Type: ${this.model.betTypeName} - Status: ${liveStatus}`);
+                filterLines.push(`Bet Type Group: ${this.model.betTypeGroupName}`);
+                filterLines.push(`Bet Type: ${this.model.betTypeName} - Status: ${liveStatus}`);
                 break;
         }
         if (filterModel.searchBy === SearchBy.League) {
