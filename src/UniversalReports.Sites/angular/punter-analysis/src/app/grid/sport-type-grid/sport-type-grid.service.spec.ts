@@ -22,6 +22,8 @@ describe('SportTypeGridService', () => {
     const expectedQueryModel = {
         user: {
             periodType: 1,
+            orderBy: 1,
+            sortBy: 1,
             fromDate: '2016-01-01T00:00:00',
             toDate: '2016-02-02T00:00:00',
             listCombinationId: '1,2',
@@ -31,6 +33,8 @@ describe('SportTypeGridService', () => {
         },
         league: {
             periodType: 1,
+            orderBy: 1,
+            sortBy: 1,
             fromDate: '2016-01-01T00:00:00',
             toDate: '2016-02-02T00:00:00',
             listCombinationId: '1,2',

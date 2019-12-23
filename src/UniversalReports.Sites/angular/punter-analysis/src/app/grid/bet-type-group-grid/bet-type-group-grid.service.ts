@@ -73,6 +73,8 @@ export class BetTypeGroupGridService {
         const filterModelWrapper = new FilterModelWrapper(filterModel);
         return {
             periodType: filterModelWrapper.userLeagueModel.periodType,
+            orderBy: filterModelWrapper.userLeagueModel.orderBy,
+            sortBy: filterModelWrapper.userLeagueModel.sortBy,
             fromDate: filterModelWrapper.fromDateQueryString,
             toDate: filterModelWrapper.toDateQueryString,
             listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
