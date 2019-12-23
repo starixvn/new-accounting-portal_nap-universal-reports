@@ -167,7 +167,7 @@ export class FilterModelWrapper {
             this.filterModel.user.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
                 let sportType = betTypeItem.parent.item.text;
                 
-                if (betTypeItem.parent.parent.item && betTypeItem.parent.parent.item.text === 'E-Sports') {
+                if (betTypeItem.parent.parent && betTypeItem.parent.parent.item.text === 'E-Sports') {
                     sportType = 'E-Sports';
                 }
 
