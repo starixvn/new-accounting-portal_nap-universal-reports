@@ -45,13 +45,12 @@ export class BetCountGridService {
             case GridType.SportType:
                 return this.model.sportName;
             case GridType.BetType:
+            case GridType.GameBetType:
                 return `${this.model.betTypeName} - ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`;
             case GridType.Game:
                 return this.model.leagueGroupName;
             case GridType.BetTypeGroup:
                 return this.model.betTypeGroupName;
-            case GridType.GameBetType:
-                return `${this.model.betTypeGroupName} - ${this.model.betTypeName} - ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`;
         }
     }
 
