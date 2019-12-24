@@ -44,12 +44,15 @@ namespace UniversalReports.HouseWinLoss.Products
             var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
             var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", filteredRawWinLosses);
             grandTotal = CalculateGrandTotal(grandTotal, sportsbookRMWinLosses);
+            var grandTotalWithoutCN88 = CalculateGrandTotalWithoutCN88(grandTotal);
+
             var result = new ProductWinLoss
             {
                 Sportsbook = sportsbookProducts,
                 RM = sportsbookRMWinLosses,
                 NonSportsbook = nonSportsbookProducts,
-                GrandTotal = grandTotal
+                GrandTotal = grandTotal,
+                GrandTotalWithoutCN88 = grandTotalWithoutCN88
             };
 
             return result;
@@ -95,6 +98,23 @@ namespace UniversalReports.HouseWinLoss.Products
             }
 
             return winLoss;
+        }
+
+        private static WinLoss CalculateGrandTotalWithoutCN88(SiteWinLossSummary grandTotal)
+        {
+            return new WinLoss
+            {
+                Name = "Grand Total (without CN88)",
+                MemberWinLoss = grandTotal.Total.MemberWinLoss - grandTotal.CN88.MemberWinLoss,
+                SMAWinLoss = grandTotal.Total.SMAWinLoss - grandTotal.CN88.SMAWinLoss,
+                ExtraPT = grandTotal.Total.ExtraPT - grandTotal.CN88.ExtraPT,
+                Commission = grandTotal.Total.Commission - grandTotal.CN88.Commission,
+                RealIncome = grandTotal.Total.RealIncome - grandTotal.CN88.RealIncome,
+                VirtualIncome = grandTotal.Total.VirtualIncome - grandTotal.CN88.VirtualIncome,
+                VarianceIncome = grandTotal.Total.VarianceIncome - grandTotal.CN88.VarianceIncome,
+                RealTurnover = grandTotal.Total.RealTurnover - grandTotal.CN88.RealTurnover,
+                VirtualTurnover = grandTotal.Total.VirtualTurnover - grandTotal.CN88.VirtualTurnover
+            };
         }
     }
 }
