@@ -45,7 +45,12 @@ export class BetCountGridService {
             case GridType.SportType:
                 return this.model.sportName;
             case GridType.BetType:
+            case GridType.GameBetType:
                 return `${this.model.betTypeName} - ${this.commonService.getLiveStatusTitle(this.model.liveStatusId)}`;
+            case GridType.Game:
+                return this.model.leagueGroupName;
+            case GridType.BetTypeGroup:
+                return this.model.betTypeGroupName;
         }
     }
 
@@ -63,6 +68,22 @@ export class BetCountGridService {
                 filterLines.push(`Sport Type: ${this.model.sportName}`);
                 const liveStatusTitle = this.commonService.getLiveStatusTitle(this.model.liveStatusId);
                 filterLines.push(`Bet Type: ${this.model.betTypeName} - Status: ${liveStatusTitle}`);
+                break;
+            case GridType.Game:
+                filterLines.push(`Sport Type: E-Sports`);
+                filterLines.push(`League Group: ${this.model.leagueGroupName}`);
+                break;
+            case GridType.BetTypeGroup:
+                filterLines.push(`Sport Type: E-Sports`);
+                filterLines.push(`League Group: ${this.model.leagueGroupName}`);
+                filterLines.push(`Bet Type Group: ${this.model.betTypeGroupName}`);
+                break;
+            case GridType.GameBetType:
+                filterLines.push(`Sport Type: E-Sports`);
+                filterLines.push(`League Group: ${this.model.leagueGroupName}`);
+                const liveStatus = this.commonService.getLiveStatusTitle(this.model.liveStatusId);
+                filterLines.push(`Bet Type Group: ${this.model.betTypeGroupName}`);
+                filterLines.push(`Bet Type: ${this.model.betTypeName} - Status: ${liveStatus}`);
                 break;
         }
         if (filterModel.searchBy === SearchBy.League) {
@@ -84,7 +105,9 @@ export class BetCountGridService {
             sportId: this.model.sportId,
             betTypeId: this.model.betTypeId,
             liveStatusId: this.model.liveStatusId,
-            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId,
+            leagueGroupId: this.model.leagueGroupId,
+            betTypeGroupId: this.model.betTypeGroupId
         };
     }
 }

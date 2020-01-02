@@ -165,7 +165,12 @@ export class FilterModelWrapper {
         if (this.filterModel.user) {
             const sportTypes: string[] = [];
             this.filterModel.user.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
-                const sportType = betTypeItem.parent.item.text;
+                let sportType = betTypeItem.parent.item.text;
+                
+                if (betTypeItem.parent.parent && betTypeItem.parent.parent.item.text === 'E-Sports') {
+                    sportType = 'E-Sports';
+                }
+
                 if (sportTypes.indexOf(sportType) === -1) {
                     sportTypes.push(sportType);
                 }

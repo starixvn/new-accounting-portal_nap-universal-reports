@@ -3,10 +3,16 @@ using SimpleInjector;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetType;
+using UniversalReports.PunterAnalysis.BetTypeGroup;
+using UniversalReports.PunterAnalysis.Game;
+using UniversalReports.PunterAnalysis.GameBetType;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.Summary;
+
+
+
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -33,9 +39,13 @@ namespace UniversalReports.Sites.SimpleInjector
                 c => c.Consumer.ImplementationType == typeof(PunterAnalysis.AssociatedAccount.HandlerExcel));
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
-
             container.Register<AssociatedFacade, AssociatedFacadeImp>();
-
+            container.RegisterConditional<ExcelSettingFactory, GameExcelSettingFactory>(
+               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.Game.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, GameBetTypeExcelSettingFactory>(
+              c => c.Consumer.ImplementationType == typeof(PunterAnalysis.GameBetType.HandlerExcel));
+            container.RegisterConditional<ExcelSettingFactory, BetTypeGroupExcelSettingFactory>(
+              c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetTypeGroup.HandlerExcel));
             return container;
         }
     }

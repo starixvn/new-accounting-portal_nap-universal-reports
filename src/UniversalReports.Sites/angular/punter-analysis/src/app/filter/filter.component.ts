@@ -365,7 +365,7 @@ export class FilterComponent implements OnInit {
             leagueName: this.leagueName,
             sportType: this.sportType,
             sportOptions: this.sportOptions,
-            selectedLeagueGroupTreeviewItems: this.showLeagueFilter ? this.selectedLeagueGroupTreeviewItems : [],
+            selectedLeagueGroupTreeviewItems: this.showLeagueFilter ? this.selectedLeagueGroupTreeviewItems : []
         };
     }
 

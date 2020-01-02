@@ -12,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
     {
         private readonly SimpleCriteriaFactory modelFactory;
 
-        private readonly BasicWinLossService service;
+        private readonly BasicWinLossService basicWinLossService;
 
         private readonly BasicGridOptionsBuilder builder;
 
@@ -20,12 +20,12 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
 
         public SimpleGridController(
             SimpleCriteriaFactory modelFactory,
-           BasicWinLossService service,
-           BasicGridOptionsBuilder builder,
-           GridOptionColumnDecorator decorator)
+            BasicWinLossService basicWinLossService,
+            BasicGridOptionsBuilder builder,
+            GridOptionColumnDecorator decorator)
         {
             this.modelFactory = modelFactory;
-            this.service = service;
+            this.basicWinLossService = basicWinLossService;
             this.builder = builder;
             this.decorator = decorator;
         }
@@ -49,8 +49,8 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
         private GridOptions GetGridOptions(Dictionary<string, object> queryModel)
         {
             var criteria = modelFactory.CreateCriteria(queryModel);
+            var winlosses = basicWinLossService.Query(criteria);
             var decorationModel = modelFactory.CreateGridDecorationModel(queryModel);
-            var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, decorationModel.Title);
             return decorator.Build(gridOptions, decorationModel.MainColumnText, decorationModel.MainColumnWidth);
         }

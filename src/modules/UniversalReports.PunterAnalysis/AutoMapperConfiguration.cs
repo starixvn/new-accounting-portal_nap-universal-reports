@@ -11,6 +11,9 @@ namespace UniversalReports.PunterAnalysis
             cfg.CreateMap<SummaryEntity<BetType.Model.BetTypeModel>, SummaryEntity<BetType.Model.BetTypeExcelModel>>();
             cfg.CreateMap<SummaryEntity<SportType.Model.SportTypeModel>, SummaryEntity<SportType.Model.SportTypeExcelModel>>();
             cfg.CreateMap<SummaryEntity<Summary.Model.SummaryModel>, SummaryEntity<Summary.Model.SummaryExcelModel>>();
+            cfg.CreateMap<SummaryEntity<Game.Model.GameModel>, SummaryEntity<Game.Model.GameExcelModel>>();
+            cfg.CreateMap<SummaryEntity<GameBetType.Model.GameBetTypeModel>, SummaryEntity<GameBetType.Model.GameBetTypeExcelModel>>();
+            cfg.CreateMap<SummaryEntity<BetTypeGroup.Model.BetTypeGroupModel>, SummaryEntity<BetTypeGroup.Model.BetTypeGroupExcelModel>>();
             cfg.CreateMap<BetCount.Model.HttpParameterExcel, BetCount.Model.Criteria>();
             cfg.CreateMap<BetCount.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
             cfg.CreateMap<BetCount.Model.HttpParameterJson, BetCount.Model.Criteria>();
@@ -33,9 +36,20 @@ namespace UniversalReports.PunterAnalysis
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
             cfg.CreateMap<Summary.Model.HttpParameterExcel, Summary.Model.Criteria>();
             cfg.CreateMap<Summary.Model.HttpParameterJson, Summary.Model.Criteria>();
-
             cfg.CreateMap<AssociatedAccount.Model.AssociatedSummaryModel, AssociatedAccount.Model.AssociatedSummaryExcelModel>();
             cfg.CreateMap<AssociatedAccount.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<Game.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<Game.Model.HttpParameterExcel, Game.Model.Criteria>();
+            cfg.CreateMap<Game.Model.HttpParameterJson, Game.Model.Criteria>();
+
+            cfg.CreateMap<GameBetType.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<GameBetType.Model.HttpParameterExcel, GameBetType.Model.Criteria>();
+            cfg.CreateMap<GameBetType.Model.HttpParameterJson, GameBetType.Model.Criteria>();
+
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterExcel, Shared.ExcelSettingParams>();
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterExcel, BetTypeGroup.Model.Criteria>();
+            cfg.CreateMap<BetTypeGroup.Model.HttpParameterJson, BetTypeGroup.Model.Criteria>();
+
         }
     }
 }

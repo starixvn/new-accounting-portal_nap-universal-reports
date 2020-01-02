@@ -50,7 +50,9 @@ describe('BetCountGridService', () => {
             sportId: undefined,
             betTypeId: undefined,
             liveStatusId: undefined,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         },
         sportType: {
             periodType: 1,
@@ -62,7 +64,9 @@ describe('BetCountGridService', () => {
             sportId: 1,
             betTypeId: undefined,
             liveStatusId: undefined,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         },
         betType: {
             periodType: 1,
@@ -74,7 +78,9 @@ describe('BetCountGridService', () => {
             sportId: 1,
             betTypeId: 1,
             liveStatusId: LiveStatus.NonLive,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         }
     };
 
@@ -110,7 +116,9 @@ describe('BetCountGridService', () => {
             sportId: undefined,
             betTypeId: undefined,
             liveStatusId: undefined,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         },
         sportType: {
             periodType: 1,
@@ -122,7 +130,9 @@ describe('BetCountGridService', () => {
             sportId: 1,
             betTypeId: undefined,
             liveStatusId: undefined,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         },
         betType: {
             periodType: 1,
@@ -134,7 +144,9 @@ describe('BetCountGridService', () => {
             sportId: 1,
             betTypeId: 1,
             liveStatusId: LiveStatus.NonLive,
-            listLeagueGroupId: '1,2'
+            listLeagueGroupId: '1,2',
+            leagueGroupId: undefined,
+            betTypeGroupId: undefined
         }
     };
 

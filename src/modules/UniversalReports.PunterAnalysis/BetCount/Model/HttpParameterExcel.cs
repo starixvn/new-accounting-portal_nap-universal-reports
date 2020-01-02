@@ -29,5 +29,9 @@ namespace UniversalReports.PunterAnalysis.BetCount.Model
         public string Filter { get; set; }
 
         public string ListLeagueGroupId { get; set; }
+
+        public int LeagueGroupId { get; set; }
+
+        public int BettypeGroupId { get; set; }
     }
 }

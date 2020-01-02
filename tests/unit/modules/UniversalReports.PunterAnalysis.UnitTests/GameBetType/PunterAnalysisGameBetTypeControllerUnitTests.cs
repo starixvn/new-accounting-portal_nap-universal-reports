@@ -1,0 +1,42 @@
+﻿using System.Threading.Tasks;
+using MediatR;
+using NSubstitute;
+using NUnit.Framework;
+using UniversalReports.PunterAnalysis.GameBetType;
+using UniversalReports.PunterAnalysis.GameBetType.Model;
+
+namespace UniversalReports.PunterAnalysis.UnitTests.GameBetType
+{
+    public class PunterAnalysisBetTypeControllerUnitTests
+    {
+        [Test]
+        public async Task Index_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var httpParameterJson = new HttpParameterJson();
+
+            // Act
+            var controller = new PunterAnalysisGameBetTypeController(mediator);
+            await controller.Index(httpParameterJson);
+
+            // Assert
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterJson>());
+        }
+
+        [Test]
+        public async Task Excel_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+            var httpParameterExcel = new HttpParameterExcel();
+
+            // Act
+            var controller = new PunterAnalysisGameBetTypeController(mediator);
+            await controller.Excel(httpParameterExcel);
+
+            // Assert
+            await mediator.Received().Send(Arg.Compat.Any<HttpParameterExcel>());
+        }
+    }
+}

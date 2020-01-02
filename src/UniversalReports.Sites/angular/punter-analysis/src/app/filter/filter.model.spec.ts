@@ -36,11 +36,23 @@ const commonUserLeagueModel = {
     selectedBetTypeTreeviewItems: [
         {
             item: new TreeviewItem({ text: 'BetType 1', value: 1 }),
-            parent: { item: new TreeviewItem({ text: 'SportType 1', value: 1 }), parent: null }
+            parent: {
+                item: new TreeviewItem({ text: 'SportType 1', value: 1 }),
+                parent: {
+                    item: new TreeviewItem({ text: 'Parent SportType 1', value: 1 }),
+                    parent: null
+                }
+            }
         },
         {
             item: new TreeviewItem({ text: 'BetType 2', value: 2 }),
-            parent: { item: new TreeviewItem({ text: 'SportType 2', value: 1 }), parent: null }
+            parent: {
+                item: new TreeviewItem({ text: 'SportType 2', value: 1 }),
+                parent: {
+                    item: new TreeviewItem({ text: 'Parent SportType 2', value: 1 }),
+                    parent: null
+                }
+            }
         }
     ],
     selectedLeagueGroupTreeviewItems: [

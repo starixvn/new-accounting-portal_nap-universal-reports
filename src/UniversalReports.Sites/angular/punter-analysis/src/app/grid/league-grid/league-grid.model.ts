@@ -5,6 +5,10 @@ export interface LeagueGridModel extends BetTypeGridModel {
     betTypeId: number;
     betTypeName: string;
     liveStatusId: LiveStatus;
+    leagueGroupId?: number;
+    leagueGroupName?: string;
+    betTypeGroupId?: number;
+    betTypeGroupName?: string;
 }
 
 export interface PeriodGroupItem {

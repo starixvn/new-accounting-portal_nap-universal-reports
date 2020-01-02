@@ -25,12 +25,12 @@ namespace UniversalReports.PunterAnalysis.UnitTests.League
             var expectedExcelSetting = new ExcelSetting
             {
                 SheetName = "Punter Analysis",
-                StartRowIndex = 7,
+                StartRowIndex = 10,
                 TemplatePath = "D:\\ExcelTemplate\\PunterAnalysis\\League.xlsx",
                 Title = "Any Title",
                 TitleCellRange = "A1:E2",
                 Filter = "Any Filter",
-                FilterCellRange = "A3:E5"
+                FilterCellRange = "A3:E8"
             };
 
             var setting = new LeagueExcelSettingFactory(configurationService);

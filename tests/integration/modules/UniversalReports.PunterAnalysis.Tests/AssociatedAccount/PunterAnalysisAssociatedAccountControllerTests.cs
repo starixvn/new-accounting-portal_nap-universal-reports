@@ -6,7 +6,6 @@ using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using Olympus.WebApi.Epplus;
 using SimpleInjector;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.BetCount;
@@ -51,7 +50,6 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
         {
             RegisterFacade(container);
             container.Register<IDynamicRepository, DynamicRepository>();
-            container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<PunterAnalysisService, PunterAnalysisServiceImp>();
             container.Register<DateTimeService, DateTimeServiceImp>();
             container.Register<LeagueServiceFactory, LeagueServiceFactoryImp>();

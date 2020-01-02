@@ -21,6 +21,7 @@ export class CommonService {
             case GridType.SportType:
                 return 'Sporttype';
             case GridType.BetType:
+            case GridType.GameBetType:
                 return 'Bettype';
             case GridType.League:
                 return 'League';
@@ -28,6 +29,12 @@ export class CommonService {
                 return 'Betcount';
             case GridType.AssociatedAccount:
                 return 'AssociatedAccount';
+            case GridType.Game:
+                return 'LeagueGroup';
+            case GridType.BetTypeGroup:
+                return 'BettypeGroup';
+            default:
+                return '';
         }
     }
 }

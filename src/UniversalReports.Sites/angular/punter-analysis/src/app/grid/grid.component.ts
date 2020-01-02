@@ -14,6 +14,9 @@ import { BetTypeGridComponent } from './bet-type-grid/bet-type-grid.component';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { hasBreadcrumbFilter } from '../breadcrumb/breadcrumb.model';
 import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
+import { BetTypeGroupGridComponent } from './bet-type-group-grid/bet-type-group-grid.component';
+import { GameGridComponent } from './game-grid/game-grid.component';
+import { GameBetTypeGridComponent } from './game-bet-type-grid/game-bet-type-grid.component';
 
 @Component({
     selector: 'nap-grid',
@@ -25,7 +28,10 @@ import { BreadcrumbConfig } from '../breadcrumb/breadcrumb-config';
         AssociatedAccountGridComponent,
         SportTypeGridComponent,
         BetTypeGridComponent,
-        LeagueGridComponent
+        LeagueGridComponent,
+        GameGridComponent,
+        BetTypeGroupGridComponent,
+        GameBetTypeGridComponent
     ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
@@ -87,6 +93,12 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
                 return this.componentFactoryResolver.resolveComponentFactory(BetTypeGridComponent);
             case GridType.League:
                 return this.componentFactoryResolver.resolveComponentFactory(LeagueGridComponent);
+            case GridType.Game:
+                return this.componentFactoryResolver.resolveComponentFactory(GameGridComponent);
+            case GridType.BetTypeGroup:
+                return this.componentFactoryResolver.resolveComponentFactory(BetTypeGroupGridComponent);
+            case GridType.GameBetType:
+                return this.componentFactoryResolver.resolveComponentFactory(GameBetTypeGridComponent);
             default:
                 throw new Error('Not implemented yet');
         }

@@ -34,12 +34,12 @@ namespace UniversalReports.PunterAnalysis.Tests.League
             Assert.That(workSheet.Name, Is.EqualTo("Punter Analysis"));
 
             Assert.True(workSheet.Cells["A1:E2"].Merge);
-            Assert.True(workSheet.Cells["A3:E5"].Merge);
+            Assert.True(workSheet.Cells["A3:E8"].Merge);
 
             Assert.AreEqual(workSheet.Cells["A1:E2"].Value, expectedTitle);
-            Assert.AreEqual(workSheet.Cells["A3:E5"].Value, expectedFilter);
-            Assert.AreEqual(workSheet.Cells["A9:U10"].Value, expectedBody);
-            Assert.AreEqual(workSheet.Cells["A11:U11"].Value, expectedTotal);
+            Assert.AreEqual(workSheet.Cells["A3:E8"].Value, expectedFilter);
+            Assert.AreEqual(workSheet.Cells["A12:U13"].Value, expectedBody);
+            Assert.AreEqual(workSheet.Cells["A14:U14"].Value, expectedTotal);
 
             // Release
             container.Dispose();
