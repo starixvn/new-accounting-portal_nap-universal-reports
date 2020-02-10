@@ -362,5 +362,21 @@
     },
     "IsEmpty": false
   },
+  "GrandTotalWithoutCN88": {
+    "Name": "Grand Total (without CN88)",
+    "Id": 0,
+    "MemberWinLoss": 420.0,
+    "SMAWinLoss": 570.0,
+    "Commission": 52.0,
+    "RealIncome": 2600.0,
+    "VirtualIncome": 2520.0,
+    "VarianceIncome": -520.0,
+    "ExtraPT": 270.0,
+    "RealTurnover": 3780.0,
+    "VirtualTurnover": 4200.0,
+    "VirtualMargin": 0.6,
+    "RealMargin": 0.6878,
+    "IsEmpty": false
+  },
   "IsEmpty": false
 }

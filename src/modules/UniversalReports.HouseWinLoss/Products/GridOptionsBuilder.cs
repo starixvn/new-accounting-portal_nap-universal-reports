@@ -30,7 +30,7 @@ namespace UniversalReports.HouseWinLoss.Products
                 TitleType = TitleType.TwoLineBlue,
                 TitleInfoText = title.ToUpperInvariant(),
                 BodyRows = winLoss.IsEmpty ? new List<GridDataRow>() : BuildBodyRows(winLoss),
-                FooterRows = BuildFooter(winLoss.GrandTotal),
+                FooterRows = BuildFooter(winLoss.GrandTotal, winLoss.GrandTotalWithoutCN88),
                 ShowHighlightRow = false,
                 ShowDistinctRow = false,
                 ShowFooter = true,
@@ -150,7 +150,7 @@ namespace UniversalReports.HouseWinLoss.Products
             return rows;
         }
 
-        private List<GridDataRow> BuildFooter(SiteWinLossSummary item)
+        private List<GridDataRow> BuildFooter(SiteWinLossSummary item, WinLoss cn88Total)
         {
             var row = gridDataRowBuilder.BuildDataRow(item.Total, HAlignment.Right);
             var creditRow = gridDataRowBuilder.BuildDataRow(item.Credit, HAlignment.Right);
@@ -166,7 +166,10 @@ namespace UniversalReports.HouseWinLoss.Products
             row.SubRows.Add(depositRow);
             row.SubRows.Add(cn88Row);
 
-            return new List<GridDataRow> { row };
+            var cn88TotalRow = gridDataRowBuilder.BuildDataRow(cn88Total, HAlignment.Right);
+            FormatTotalRow(cn88TotalRow);
+
+            return new List<GridDataRow> { row, cn88TotalRow };
         }
 
         private static void FormatTotalRow(GridDataRow row)
