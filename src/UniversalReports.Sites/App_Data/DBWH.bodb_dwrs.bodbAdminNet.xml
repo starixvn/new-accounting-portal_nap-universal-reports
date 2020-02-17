@@ -106,7 +106,6 @@
     <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-UserSiteQuery" SpName="Acc_Punter_GetSiteName" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 
     <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
       <Mapping DataField="ProductName" ObjectProperty="ProductName" />

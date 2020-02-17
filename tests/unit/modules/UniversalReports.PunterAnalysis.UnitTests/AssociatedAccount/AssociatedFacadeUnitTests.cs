@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using Olympus.FPSAPI.Client.Model;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
@@ -19,7 +19,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
         public async Task Query_FPSRetunsNonEmptyUsernameList_ReturnsSumDataOfDataFromRepository()
         {
             // Arrange
-            var site = new Site { Name = "site01", IsCreditSite = false };
             var memberNonEmptySummary = new List<AssociatedSummaryModel>
             {
                 new AssociatedSummaryModel
@@ -46,7 +45,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             };
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<Site>(Arg.Compat.Any<UserSiteQueryCriteria>()).Returns(site);
             repository.FetchAsync<AssociatedSummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(memberNonEmptySummary);
 
             var listOfUserDevice = new List<CustomerDevice> {
@@ -55,7 +53,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                  new CustomerDevice { Account = "agent01" },
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(listOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(listOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
 
@@ -83,14 +81,11 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
         public async Task Query_FPSRetunsEmptyUsernameList_ReturnsEmptySummaryEntity()
         {
             // Arrange
-            var site = new Site { Name = "site01", IsCreditSite = false };
-
             var repository = Substitute.For<IDynamicRepository>();
-            repository.GetAsync<Site>(Arg.Compat.Any<UserSiteQueryCriteria>()).Returns(site);
 
             var emptyListOfUserDevice = new List<CustomerDevice>();
             var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(emptyListOfUserDevice);
+            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(emptyListOfUserDevice);
 
             var configurationService = Substitute.For<ConfigurationService>();
 

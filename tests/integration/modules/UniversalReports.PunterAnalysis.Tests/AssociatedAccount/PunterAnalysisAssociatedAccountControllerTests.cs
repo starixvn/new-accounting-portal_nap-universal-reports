@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using Olympus.WebApi.Epplus;
 using SimpleInjector;
+using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.BetCount;

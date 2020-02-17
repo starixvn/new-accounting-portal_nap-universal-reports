@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
 using Olympus.FPSAPI.Client;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
@@ -31,8 +31,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
         public async Task<SummaryEntity<AssociatedSummaryModel>> Query(HttpParameterJson request)
         {
-            var site = await GetSiteName(request.CustId);
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.Username, site.Name, site.IsCreditSite);
+            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.CustId);
 
             var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
             var summaries = usernames.Any()
@@ -41,13 +40,6 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
 
             return summaries
                 .CalculateSummaryEntity();
-        }
-
-        private async Task<Site> GetSiteName(int custId)
-        {
-            var criteria = new UserSiteQueryCriteria { CustId = custId };
-
-            return await repository.GetAsync<Site>(criteria);
         }
 
         private async Task<List<AssociatedSummaryModel>> GetMemberSummaries(HttpParameterJson request, IEnumerable<string> usernames)
