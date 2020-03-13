@@ -1,6 +1,6 @@
-﻿using System;
-using Fanex.Data;
+﻿using Fanex.Data;
 using Fanex.Data.Repository;
+using System;
 
 namespace UniversalReports.CN88WinLoss.Common.Criteria
 {
