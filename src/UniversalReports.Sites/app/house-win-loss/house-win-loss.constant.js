@@ -499,7 +499,15 @@ import moment from "moment";
             }
         },
         "Cash Out": {
-            mainView: "betType",
+            mainView: "liveNonLive",
+            liveNonLive: {
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "MetricGamingLiveNonLiveController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/live-non-live",
+                mainParameters: { sheetName: "House Win Loss by Products" },
+                getTitleFunction: "getProductTitleLiveNonLive"
+            },
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
@@ -507,6 +515,14 @@ import moment from "moment";
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
                 mainParameters: { sheetName: "House Win Loss by Products", productId: 25, isLive: 2, type: "cash-out-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportsbookMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl: "api/house-win-loss-by-products/metric-gaming-superlive/match-detail",
+                mainParameters: { sheetName: "House Win Loss by Products" },
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
