@@ -154,4 +154,12 @@
     <Setting Key="Actual-Member-Bet-Product" SpName="Acc_Rpt_ActualMemberBet" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Actual-Member-Bet-Currency" SpName="Acc_Rpt_ActualMemberBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
+  <Function Name="Abnormal Bet Report">
+    <Setting Key="Acc_Rpt_AbnormalBet_SportSel" SpName="Acc_Rpt_AbnormalBet_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_ReasonSel" SpName="Acc_Rpt_AbnormalBet_ReasonSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_AbnormalBet_LicenseeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_BetTypeSel" SpName="Acc_Rpt_AbnormalBet_BetTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>

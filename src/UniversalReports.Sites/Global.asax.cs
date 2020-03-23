@@ -1,12 +1,13 @@
-﻿using System;
+﻿using AutoMapper;
+using Fanex.NAP.Core;
+using System;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
-using AutoMapper;
-using Fanex.NAP.Core;
+using UniversalReports.AbnormalBet;
 using UniversalReports.ActualMemberBet;
 using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
@@ -15,6 +16,7 @@ using UniversalReports.NG2Statistics;
 using UniversalReports.PlayForFun;
 using UniversalReports.PunterAnalysis;
 using UniversalReports.UpdatedUsernameCredit;
+
 
 namespace UniversalReports.Sites
 {
@@ -40,6 +42,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeExchange();
                 cfg.InitializeActualMemberBet();
                 cfg.InitializeCN88WinLoss();
+                cfg.InitializeAbnormalBet();
             });
         }
 

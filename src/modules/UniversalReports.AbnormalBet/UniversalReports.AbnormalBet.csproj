@@ -31,8 +31,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data.Repository, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Data.Repository.4.2.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MediatR, Version=6.0.0.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MediatR.6.0.0\lib\net461\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +69,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\LicenseeByDateModel.cs" />
-    <Compile Include="Model\MatchByRefNoModel.cs" />
+    <Compile Include="AbnormalBetAttribute.cs" />
+    <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Criteria\BetTypeQueryCriteria.cs" />
+    <Compile Include="Criteria\SiteQueryCriteria.cs" />
+    <Compile Include="Criteria\LicenseeQueryCriteria.cs" />
+    <Compile Include="Criteria\MemberQueryCriteria.cs" />
+    <Compile Include="Criteria\ReasonQueryCriteria.cs" />
+    <Compile Include="Criteria\SportQueryCriteria.cs" />
+    <Compile Include="Filter\AbnormalBetFilterController.cs" />
+    <Compile Include="Filter\FilterHandler.cs" />
+    <Compile Include="Filter\FilterService.cs" />
+    <Compile Include="HttpParameter\BetTypeHttpParameter.cs" />
+    <Compile Include="HttpParameter\LicenseeHttpParameter.cs" />
+    <Compile Include="HttpParameter\MemberHttpParameter.cs" />
+    <Compile Include="HttpParameter\ReasonHttpParameter.cs" />
+    <Compile Include="HttpParameter\SiteHttpParameter.cs" />
+    <Compile Include="HttpParameter\SportHttpParameter.cs" />
+    <Compile Include="Model\BetTypeModel.cs" />
+    <Compile Include="Model\SiteModel.cs" />
+    <Compile Include="Model\LicenseeModel.cs" />
+    <Compile Include="Model\MemberModel.cs" />
+    <Compile Include="Model\ReasonModel.cs" />
+    <Compile Include="Model\SportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\ReportHandler.cs" />
+    <Compile Include="Report\ReportService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
+      <Project>{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}</Project>
+      <Name>UniversalReports.PunterAnalysis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

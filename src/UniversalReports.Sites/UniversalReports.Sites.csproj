@@ -421,6 +421,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\DailyWinLoss2hSoccerMinorController.cs" />
@@ -1001,6 +1002,10 @@
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\modules\UniversalReports.AbnormalBet\UniversalReports.AbnormalBet.csproj">
+      <Project>{c82a181f-f4b4-4fb2-9a6c-f83b27c204e5}</Project>
+      <Name>UniversalReports.AbnormalBet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.ActualMemberBet\UniversalReports.ActualMemberBet.csproj">
       <Project>{2d0401ab-8145-4c02-8c23-0b1ce8920c66}</Project>
       <Name>UniversalReports.ActualMemberBet</Name>
