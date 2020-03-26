@@ -301,6 +301,24 @@
     <None Include="TestData\MetricGaming.BetType.MetricGamingBetTypeController-queryModel.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\CashOut.LiveNonLive.CashOutLiveNonLiveController-expected.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.LiveNonLive.CashOutLiveNonLiveController-fakeData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.LiveNonLive.CashOutLiveNonLiveController-queryModel.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.MatchDetail.CashOutMatchDetailController-expected.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.MatchDetail.CashOutMatchDetailController-fakeData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\CashOut.MatchDetail.CashOutMatchDetailController-queryModel.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\MetricGaming.Site.MetricGamingSiteController-expected.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

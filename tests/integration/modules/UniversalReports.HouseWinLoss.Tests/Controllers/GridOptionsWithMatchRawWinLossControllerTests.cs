@@ -1,7 +1,7 @@
-﻿using System;
-using System.Web.Http.Results;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
 using NUnit.Framework;
+using System;
+using System.Web.Http.Results;
 using UniversalReports.MVC.Results;
 using dailyWinLoss2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 
@@ -18,7 +18,8 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             "Sportsbook.MatchDetail.SportsbookMatchDetailController",
             "Sportsbook.OutrightMatchDetail.SportsbookOutrightMatchDetailController",
             "VirtualSports.SportsbookDetail.VirtualSportsSportsbookDetailController",
-            "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController"
+            "VirtualSportsBetradar.MatchDetail.VirtualSportsBetradarMatchDetailController",
+            "CashOut.MatchDetail.CashOutMatchDetailController"
         };
 
         [TestCaseSource(nameof(ControllerList))]
@@ -78,6 +79,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
                 case "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController":
                     return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.OutrightMatchDetail.QueryModel>(controllerName, "queryModel");
 
+                case "CashOut.MatchDetail.CashOutMatchDetailController":
+                    return TestDataLoader.Load<CashOut.MatchDetail.QueryModel>(controllerName, "queryModel");
+
                 default:
                     throw new NotImplementedException();
             }
@@ -110,6 +114,9 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
 
                 case "DailyWinLoss2hSoccerMinor.OutrightMatchDetail.SoccerMinorOutrightMatchDetailController":
                     return TestDataLoader.Load<dailyWinLoss2hSoccerMinor.OutrightMatchDetail.ExcelQueryModel>(controllerName, "queryModel");
+
+                case "CashOut.MatchDetail.CashOutMatchDetailController":
+                    return TestDataLoader.Load<CashOut.MatchDetail.ExcelQueryModel>(controllerName, "queryModel");
 
                 default:
                     throw new NotImplementedException();

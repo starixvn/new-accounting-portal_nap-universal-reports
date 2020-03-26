@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.CashOut.MatchDetail
     [RoutePrefix("api/house-win-loss-by-products/cash-out/match-detail")]
     public class CashOutMatchDetailController : MatchDetailController
     {
-        public CashOutMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorFull decorator)
+        public CashOutMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorBasic decorator)
             : base(service, builder, decorator)
         {
         }

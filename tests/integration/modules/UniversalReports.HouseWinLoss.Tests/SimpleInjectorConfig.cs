@@ -84,6 +84,8 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
 
+            container.Register<CashOut.LiveNonLive.CashOutLiveNonLiveWinLossService, CashOut.LiveNonLive.CashOutLiveNonLiveWinLossServiceImp>();
+
             container.Verify();
         }
     }

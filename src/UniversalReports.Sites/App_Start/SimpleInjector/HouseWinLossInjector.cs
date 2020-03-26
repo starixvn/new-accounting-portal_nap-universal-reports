@@ -2,6 +2,7 @@
 
 using SimpleInjector;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
+using CashOut = UniversalReports.HouseWinLoss.CashOut;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
 using Decorator = UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
@@ -13,6 +14,7 @@ using Products = UniversalReports.HouseWinLoss.Products;
 using SimpleGrid = UniversalReports.HouseWinLoss.SimpleGrid;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
+
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -64,6 +66,8 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Decorator.MatchGridOptionColumnDecoratorFull, Decorator.MatchGridOptionColumnDecoratorFull>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorBasic, Decorator.MatchGridOptionColumnDecoratorBasic>();
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
+
+            container.Register<CashOut.LiveNonLive.CashOutLiveNonLiveWinLossService, CashOut.LiveNonLive.CashOutLiveNonLiveWinLossServiceImp>();
 
             return container;
         }
