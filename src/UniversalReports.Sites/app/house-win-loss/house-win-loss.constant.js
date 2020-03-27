@@ -510,7 +510,7 @@ import moment from "moment";
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "SportsbookMatchDetailController",
+                controller: "CashOutMatchDetailController",
                 service: "sportsbookMatchDetailService",
                 serviceBaseUrl: "api/house-win-loss-by-products/cash-out/match-detail",
                 mainParameters: { sheetName: "House Win Loss by Products" },
