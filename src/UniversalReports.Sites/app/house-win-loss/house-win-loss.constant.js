@@ -736,7 +736,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
                 mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-site" },
-                getTitleFunction: "getSiteTitleLive"
+                getTitleFunction: "getSiteTitle"
             }
         }
     };
