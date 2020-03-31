@@ -446,6 +446,8 @@
     <Content Include="app\cn88-win-loss\shared\bet-type.new-cricket.controller.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
+    <Content Include="app\house-win-loss\cashout\cash-out-live-non-live.controller.js" />
+    <Content Include="app\house-win-loss\cashout\cash-out-match-detail.controller.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-winloss-2h-soccer-minor.constant.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\filter.directive.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.service.js" />

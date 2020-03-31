@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Http.Results;
-using Fanex.Excel.Models;
+﻿using Fanex.Excel.Models;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Web.Http.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
@@ -12,6 +12,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Controllers
             "Soccer.LiveNonLive.SoccerLiveNonLiveController",
             "OtherSports.LiveNonLive.OtherSportsLiveNonLiveController",
             "MetricGaming.LiveNonLive.MetricGamingLiveNonLiveController",
+            "CashOut.LiveNonLive.CashOutLiveNonLiveController"
         };
 
         [TestCaseSource(nameof(TwoGridOptionsControllerList))]

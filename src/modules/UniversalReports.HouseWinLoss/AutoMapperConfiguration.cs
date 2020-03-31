@@ -75,6 +75,11 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.OutrightMatchDetail.ExcelQueryModel, DailyWinLoss2hSoccerMinor.OutrightMatchDetail.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.Site.QueryModel, DailyWinLoss2hSoccerMinor.Site.Criteria>();
             cfg.CreateMap<DailyWinLoss2hSoccerMinor.Site.ExcelQueryModel, DailyWinLoss2hSoccerMinor.Site.Criteria>();
+
+            cfg.CreateMap<CashOut.LiveNonLive.ExcelQueryModel, CashOut.LiveNonLive.Criteria>();
+            cfg.CreateMap<CashOut.LiveNonLive.QueryModel, CashOut.LiveNonLive.Criteria>();
+            cfg.CreateMap<CashOut.MatchDetail.ExcelQueryModel, CashOut.MatchDetail.Criteria>();
+            cfg.CreateMap<CashOut.MatchDetail.QueryModel, CashOut.MatchDetail.Criteria>();
         }
     }
 }

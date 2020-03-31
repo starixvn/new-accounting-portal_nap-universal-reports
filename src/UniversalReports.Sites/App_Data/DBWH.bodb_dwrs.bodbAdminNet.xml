@@ -10,8 +10,9 @@
     <Setting Key="HouseWinLoss-Universal-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Bettrade-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Bettrade_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-CashOut-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-BetType-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-CashOut-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet"/>
+    <Setting Key="HouseWinLoss-CashOut-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_CashOut_MatchDetail_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet"/>
     <Setting Key="HouseWinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-League-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_League_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -101,9 +102,9 @@
     </Setting>
   </Function>
   <Function Name="Punter-Analysis">
-    <Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 
@@ -142,9 +143,9 @@
       <Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
       <Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
     </Setting>
-    <Setting Key="Punter-Game" SpName="Acc_Punter_Top_DrillDownSportEsport_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-BetTypeGroup" SpName="Acc_Punter_Top_DrillDownLeagueGroupEsport_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-GameBetType" SpName="Acc_Punter_Top_DrillDownBettypeGroupEsport_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-Game" SpName="Acc_Punter_Top_DrillDownSportEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-BetTypeGroup" SpName="Acc_Punter_Top_DrillDownLeagueGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-GameBetType" SpName="Acc_Punter_Top_DrillDownBettypeGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="Actual-Member-Bet">
     <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

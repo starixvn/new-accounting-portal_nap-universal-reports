@@ -1,0 +1,37 @@
+﻿using NSubstitute;
+using NUnit.Framework;
+using System.Collections.Generic;
+using UniversalReports.HouseWinLoss.CashOut.LiveNonLive;
+using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
+using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.Common.Services;
+using UniversalReports.HouseWinLoss.UnitTests.TestUtility;
+
+namespace UniversalReports.HouseWinLoss.UnitTests.CashOut.LiveNonLive
+{
+    [TestFixture]
+    [Category("HouseWinLossUnitTests")]
+    public class ServiceUnitTests
+    {
+        [Test]
+        public void Query_ReturnRightResult()
+        {
+            // Arrange
+            var fakeData = TestDataLoader.Load<List<WinLossRaw>>("CashOut.LiveNonLive.Service.data-1-fakeData");
+            var expected = TestDataLoader.Load<IEnumerable<BasicWinLossModel>>("CashOut.LiveNonLive.Service.data-1-expected");
+
+            // Act
+            var refService = Substitute.For<RemotingRefService>();
+            var calculatorService = new CalculationServiceImp(refService);
+            var rawWinLossService = Substitute.For<RawWinLossService>();
+            rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
+
+            var service = new CashOutLiveNonLiveWinLossServiceImp(rawWinLossService, calculatorService);
+            var result = service.Query(new TestCriteria());
+
+            // Assert
+            ComparisonAssert.AreEqual(expected, result);
+        }
+    }
+}

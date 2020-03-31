@@ -22,7 +22,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
         {
             { "bettrade-bet-type", typeof(BetTradeBetTypeCriteria)},
             { "bettrade-site", typeof(BetTradeSiteCriteria)},
-            { "cash-out-bet-type", typeof(CashOutBetTypeCriteria)},
             { "cash-out-site", typeof(CashOutSiteCriteria)},
             { "casino-bet-type", typeof(CasinoBetTypeCriteria)},
             { "casino-product", typeof(CasinoProductCriteria)},

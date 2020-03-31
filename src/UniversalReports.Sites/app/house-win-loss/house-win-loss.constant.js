@@ -499,21 +499,29 @@ import moment from "moment";
             }
         },
         "Cash Out": {
-            mainView: "betType",
-            betType: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "BetTypeController",
+            mainView: "liveNonLive",
+            liveNonLive: {
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "CashOutLiveNonLiveController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 25, isLive: 2, type: "cash-out-bet-type", mainColumnText: "Bet Type" },
-                getTitleFunction: "getProductTitle"
+                serviceBaseUrl: "api/house-win-loss-by-products/cash-out/live-non-live",
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
+                getTitleFunction: "getProductTitleLiveNonLive"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "CashOutMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl: "api/house-win-loss-by-products/cash-out/match-detail",
+                mainParameters: { sheetName: "House Win Loss by Products" },
+                getTitleFunction: "getMatchDetailTitle"
             },
             site: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 25, isLive: 2, type: "cash-out-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "cash-out-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
