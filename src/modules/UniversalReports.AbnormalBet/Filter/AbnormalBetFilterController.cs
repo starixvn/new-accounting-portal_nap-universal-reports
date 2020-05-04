@@ -37,9 +37,9 @@ namespace UniversalReports.AbnormalBet.Filter
         }
 
         [Route("bet-type")]
-        public async Task<IHttpActionResult> BetType()
+        public async Task<IHttpActionResult> BetType(BetTypeHttpParameter httpParameter)
         {
-            var viewModel = await mediator.Send(new BetTypeHttpParameter());
+            var viewModel = await mediator.Send(httpParameter);
             return Json(viewModel);
         }
     }

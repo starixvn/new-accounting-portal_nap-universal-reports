@@ -4,7 +4,7 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.HttpParameter
 {
-    public class SiteHttpParameter : IRequest<IEnumerable<SiteModel>>
+    public class SiteHttpParameter : IRequest<IEnumerable<FilterItemModel>>
     {
     }
 }

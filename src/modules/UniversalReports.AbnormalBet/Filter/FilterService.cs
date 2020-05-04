@@ -8,13 +8,13 @@ namespace UniversalReports.AbnormalBet.Filter
 {
     public interface FilterService
     {
-        Task<IEnumerable<SportModel>> QuerySport();
+        Task<IEnumerable<FilterItemModel>> QuerySport();
 
-        Task<IEnumerable<ReasonModel>> QueryReason();
+        Task<IEnumerable<FilterItemModel>> QueryReason();
 
-        Task<IEnumerable<SiteModel>> QuerySite();
+        Task<IEnumerable<FilterItemModel>> QuerySite();
 
-        Task<IEnumerable<BetTypeModel>> QueryBetType(int sportId);
+        Task<IEnumerable<FilterItemModel>> QueryBetType(string sportId);
     }
 
     public class FilterServiceImp : FilterService
@@ -26,27 +26,27 @@ namespace UniversalReports.AbnormalBet.Filter
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<BetTypeModel>> QueryBetType(int sportId)
+        public async Task<IEnumerable<FilterItemModel>> QueryBetType(string sportId)
         {
-            return await repository.FetchAsync<BetTypeModel>(new BetTypeQueryCriteria
+            return await repository.FetchAsync<FilterItemModel>(new BetTypeQueryCriteria
             {
                 SportId = sportId
             });
         }
 
-        public async Task<IEnumerable<SiteModel>> QuerySite()
+        public async Task<IEnumerable<FilterItemModel>> QuerySite()
         {
-            return await repository.FetchAsync<SiteModel>(new SiteQueryCriteria());
+            return await repository.FetchAsync<FilterItemModel>(new SiteQueryCriteria());
         }
 
-        public async Task<IEnumerable<ReasonModel>> QueryReason()
+        public async Task<IEnumerable<FilterItemModel>> QueryReason()
         {
-            return await repository.FetchAsync<ReasonModel>(new ReasonQueryCriteria());
+            return await repository.FetchAsync<FilterItemModel>(new ReasonQueryCriteria());
         }
 
-        public async Task<IEnumerable<SportModel>> QuerySport()
+        public async Task<IEnumerable<FilterItemModel>> QuerySport()
         {
-            return await repository.FetchAsync<SportModel>(new SportQueryCriteria());
+            return await repository.FetchAsync<FilterItemModel>(new SportQueryCriteria());
         }
     }
 }

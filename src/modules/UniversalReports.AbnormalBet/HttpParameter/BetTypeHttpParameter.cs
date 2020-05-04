@@ -4,9 +4,9 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.HttpParameter
 {
-    public class BetTypeHttpParameter : IRequest<IEnumerable<BetTypeModel>>
+    public class BetTypeHttpParameter : IRequest<IEnumerable<FilterItemModel>>
     {
-        public int SportId { get; set; }
+        public string SportId { get; set; }
 
     }
 }

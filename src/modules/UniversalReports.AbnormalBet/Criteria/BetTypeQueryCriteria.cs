@@ -4,7 +4,7 @@ namespace UniversalReports.AbnormalBet.Criteria
 {
     public class BetTypeQueryCriteria : CriteriaBase
     {
-        public int SportId { get; set; }
+        public string SportId { get; set; }
 
         public override bool IsValid() => true;
 

@@ -1,0 +1,80 @@
+﻿using Epplus.Mapper.Extensions;
+using OfficeOpenXml;
+using System.Collections.Generic;
+using System.IO;
+using UniversalReports.AbnormalBet.Model;
+using UniversalReports.Core.Configurations;
+
+namespace UniversalReports.AbnormalBet.Report
+{
+    public interface ReportExcelBuilder
+    {
+        ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeModel);
+
+        ExcelPackage Build(string title, IEnumerable<MemberExcelModel> memberModel);
+    }
+    public class ReportExcelBuilderImp : ReportExcelBuilder
+    {
+        private readonly ConfigurationService configurationService;
+
+        private ExcelWorksheet sheet;
+
+
+        private const int StartRowIndex = 5;
+
+        private ExcelPackage ExcelPackage { get; set; }
+
+        public ReportExcelBuilderImp(ConfigurationService configurationService)
+        {
+            this.configurationService = configurationService;
+        }
+
+        public ExcelPackage Build(string title, IEnumerable<MemberExcelModel> memberExcelModel)
+        {
+            LoadMemberTemplate();
+            BuilTitle(title, "A1:M2");
+            sheet.ApplyVertical(memberExcelModel, StartRowIndex);
+            ClearTemplate();
+            return ExcelPackage;
+        }
+
+        public ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeExcelModel)
+        {
+            LoadLicenseeTemplate();
+            BuilTitle(title, "A1:O2");
+            sheet.ApplyVertical(licenseeExcelModel, StartRowIndex);
+            ClearTemplate();
+            return ExcelPackage;
+        }
+
+        private void LoadMemberTemplate()
+        {
+            var templateAbsolutelyPath = $"{configurationService.CurrentDirectory}\\ExcelTemplate\\AbNormalBet\\Member.xlsx";
+            using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
+            {
+                ExcelPackage = new ExcelPackage(stream);
+                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", " Abnormal Bet Void");
+            }
+        }
+
+        private void LoadLicenseeTemplate()
+        {
+            var templateAbsolutelyPath = $"{configurationService.CurrentDirectory}\\ExcelTemplate\\AbNormalBet\\Licensee.xlsx";
+            using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
+            {
+                ExcelPackage = new ExcelPackage(stream);
+                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", " Abnormal Bet Void");
+            }
+        }
+
+        private void BuilTitle(string title, string cellRange)
+        {
+            sheet.Cells[cellRange].Value = title;
+        }
+
+        private void ClearTemplate()
+        {
+            ExcelPackage.Workbook.Worksheets.Delete("AbnormalBetTemplate");
+        }
+    }
+}

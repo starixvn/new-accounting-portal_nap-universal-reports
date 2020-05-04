@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using UniversalReports.AbnormalBet.Criteria;
 using UniversalReports.AbnormalBet.HttpParameter;
+using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet
 {
@@ -11,6 +12,8 @@ namespace UniversalReports.AbnormalBet
 
             cfg.CreateMap<LicenseeHttpParameter, LicenseeQueryCriteria>();
             cfg.CreateMap<MemberHttpParameter, MemberQueryCriteria>();
+            cfg.CreateMap<LicenseeModel, LicenseeExcelModel>();
+            cfg.CreateMap<MemberModel, MemberExcelModel>();
         }
     }
 }

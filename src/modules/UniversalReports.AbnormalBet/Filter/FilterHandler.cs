@@ -7,10 +7,10 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.Filter
 {
-    public class FilterHandler : IRequestHandler<SiteHttpParameter, IEnumerable<SiteModel>>,
-         IRequestHandler<SportHttpParameter, IEnumerable<SportModel>>,
-         IRequestHandler<BetTypeHttpParameter, IEnumerable<BetTypeModel>>,
-         IRequestHandler<ReasonHttpParameter, IEnumerable<ReasonModel>>
+    public class FilterHandler : IRequestHandler<SiteHttpParameter, IEnumerable<FilterItemModel>>,
+         IRequestHandler<SportHttpParameter, IEnumerable<FilterItemModel>>,
+         IRequestHandler<BetTypeHttpParameter, IEnumerable<FilterItemModel>>,
+         IRequestHandler<ReasonHttpParameter, IEnumerable<FilterItemModel>>
     {
         private readonly FilterService filterService;
 
@@ -19,22 +19,22 @@ namespace UniversalReports.AbnormalBet.Filter
             this.filterService = filterService;
         }
 
-        public async Task<IEnumerable<ReasonModel>> Handle(ReasonHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(ReasonHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QueryReason();
         }
 
-        public async Task<IEnumerable<BetTypeModel>> Handle(BetTypeHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(BetTypeHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QueryBetType(request.SportId);
         }
 
-        public async Task<IEnumerable<SportModel>> Handle(SportHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(SportHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QuerySport();
         }
 
-        public async Task<IEnumerable<SiteModel>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QuerySite();
         }

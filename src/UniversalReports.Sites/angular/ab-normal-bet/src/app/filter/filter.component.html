@@ -1,1 +1,89 @@
-<p>filter works!</p>
+<div class="nap-filter">
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>From Date</label>
+        <div class="nap-control">
+          <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="endDate" (dateChange)="onDateChangeFrom()"></nap-date-picker>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>To Date</label>
+        <div class="nap-control">
+          <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate" (dateChange)="onDateChangeTo()"></nap-date-picker>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="nap-col" *ngIf="!isYerterdayDataWarehouseReady">
+      <div class="text-danger">Yesterday's data is not ready.</div>
+    </div> -->
+  </div>
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Reason</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #reasonDropdownTreeview [items]="reasons | filterItemTreeview:reasons"
+            [config]="reasonTreeviewConfig" (selectedChange)="selectedReasons = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Sport</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | filterItemTreeview:sports"
+            [config]="sportTreeviewConfig" (selectedChange)="onSportSelectedChange($event)">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Bet Type</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #betTypeDropdownTreeview [items]="betTypes | filterItemTreeview:betTypes"
+            [config]="betTypeTreeviewConfig" (selectedChange)="selectedBetTypes = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="showLicenseeControl" class="nap-col" >
+      <div class="nap-group">
+        <label>Licensee</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #siteDropdownTreeview [items]="sites | filterItemTreeview:sites"
+            [config]="siteTreeviewConfig" (selectedChange)="selectedSites = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Member</label>
+        <input type="text" class="form-control" [(ngModel)]="memberStr" (input)="onMemberChange($event.target.value)" />
+      </div>
+    </div>
+    <div class="nap-col nap-col-exclude-test">
+      <div class="form-check nap-form-checkbox">
+        <label class="form-check-label">
+          <input name="excludeTestCheckbox" type="checkbox" class="form-check-input" [(ngModel)]="isExcludeTest" />
+          Exclude test data
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col col-buttons">
+      <label>&nbsp;</label>
+      <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+        GENERATE
+      </button>
+    </div>
+  </div>
+</div>

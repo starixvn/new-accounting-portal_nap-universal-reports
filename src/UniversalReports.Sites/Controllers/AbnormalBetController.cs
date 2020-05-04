@@ -12,7 +12,7 @@ namespace UniversalReports.Sites.Controllers
         {
         }
 
-        [NapAuth(FunctionKey = FunctionKeys.AbnormalBet, Policy = Constant.Policy.Read)]
+        [NapAuth(FunctionKey = FunctionKeys.AbnormalBetReport, Policy = Constant.Policy.Read)]
         [UserActivityFilter]
         public ActionResult Index()
         {

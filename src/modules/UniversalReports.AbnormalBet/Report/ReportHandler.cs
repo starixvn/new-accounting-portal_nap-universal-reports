@@ -1,7 +1,9 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using UniversalReports.AbnormalBet.Criteria;
 using UniversalReports.AbnormalBet.HttpParameter;
 using UniversalReports.AbnormalBet.Model;
 
@@ -11,6 +13,7 @@ namespace UniversalReports.AbnormalBet.Report
          IRequestHandler<MemberHttpParameter, IEnumerable<MemberModel>>
     {
         private readonly ReportService service;
+
         public ReportHandler(ReportService service)
         {
             this.service = service;
@@ -18,12 +21,14 @@ namespace UniversalReports.AbnormalBet.Report
 
         public async Task<IEnumerable<MemberModel>> Handle(MemberHttpParameter request, CancellationToken cancellationToken)
         {
-            return await service.QueryMember(request);
+            var criteria = Mapper.Map<MemberQueryCriteria>(request);
+            return await service.QueryMember(criteria);
         }
 
         public async Task<IEnumerable<LicenseeModel>> Handle(LicenseeHttpParameter request, CancellationToken cancellationToken)
         {
-            return await service.QueryLicensee(request);
+            var criteria = Mapper.Map<LicenseeQueryCriteria>(request);
+            return await service.QueryLicensee(criteria);
         }
     }
 }

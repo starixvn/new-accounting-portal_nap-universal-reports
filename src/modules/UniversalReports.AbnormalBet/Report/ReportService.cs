@@ -1,18 +1,16 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.AbnormalBet.Criteria;
-using UniversalReports.AbnormalBet.HttpParameter;
 using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.Report
 {
     public interface ReportService
     {
-        Task<IEnumerable<MemberModel>> QueryMember(MemberHttpParameter memberParameter);
+        Task<IEnumerable<MemberModel>> QueryMember(MemberQueryCriteria criteria);
 
-        Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeHttpParameter memberParameter);
+        Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeQueryCriteria criteria);
     }
 
     public class ReportServiceImp : ReportService
@@ -24,15 +22,13 @@ namespace UniversalReports.AbnormalBet.Report
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeHttpParameter memberParameter)
+        public async Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeQueryCriteria criteria)
         {
-            var criteria = Mapper.Map<LicenseeQueryCriteria>(memberParameter);
             return await repository.FetchAsync<LicenseeModel>(criteria);
         }
 
-        public async Task<IEnumerable<MemberModel>> QueryMember(MemberHttpParameter memberParameter)
+        public async Task<IEnumerable<MemberModel>> QueryMember(MemberQueryCriteria criteria)
         {
-            var criteria = Mapper.Map<MemberQueryCriteria>(memberParameter);
             return await repository.FetchAsync<MemberModel>(criteria);
         }
     }

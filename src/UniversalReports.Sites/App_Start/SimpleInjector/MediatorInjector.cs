@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using MediatR.SimpleInjector;
+﻿using MediatR.SimpleInjector;
 using SimpleInjector;
+using System.Collections.Generic;
+using System.Reflection;
+using UniversalReports.AbnormalBet;
 using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.PlayForFun.Core;
@@ -25,6 +26,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(UpdatedUsernameAndCreditAttribute).GetTypeInfo().Assembly;
             yield return typeof(ExchangeAttribute).GetTypeInfo().Assembly;
             yield return typeof(ActualMemberBetAttribute).GetTypeInfo().Assembly;
+            yield return typeof(AbnormalBetAttribute).GetTypeInfo().Assembly;
         }
     }
 }

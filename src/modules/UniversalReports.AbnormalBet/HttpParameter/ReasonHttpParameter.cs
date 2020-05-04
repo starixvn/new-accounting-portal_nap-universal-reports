@@ -4,7 +4,7 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.HttpParameter
 {
-    public class ReasonHttpParameter : IRequest<IEnumerable<ReasonModel>>
+    public class ReasonHttpParameter : IRequest<IEnumerable<FilterItemModel>>
     {
     }
 }
