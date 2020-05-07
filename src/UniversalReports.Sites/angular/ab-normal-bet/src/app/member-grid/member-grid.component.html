@@ -1,15 +1,15 @@
 <ng-template #colgroup>
   <colgroup>
     <col style="width: 150px" />
-    <col style="width: 120px" />
-    <col style="width: 150px" />
+    <col style="width: 100px" />
+    <col style="width: 180px" />
     <col style="width: 180px" />
     <col style="width: 120px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
     <col style="width: 80px" />
+    <col style="width: 100px" />
     <col style="width: 120px" />
-    <col style="width: 150px" />
+    <col style="width: 80px" />
+    <col style="width: 100px" />
     <col style="width: 150px" />
     <col style="width: 150px" />
     <col style="width: 180px" />
@@ -43,7 +43,7 @@
   <td class="text-right" [napDecimalFormat]="item.Odds"></td>
   <td class="text-center">{{ item.Currency }}</td>
   <td class="text-right" [napDecimalFormat]="item.Stake"></td>
-  <td class="text-right">{{ item.HDP }}</td>
+  <td class="text-right" [napDecimalFormat]="item.HDP"></td>
   <td class="text-center">{{ item.Score }}</td>
   <td class="text-center">{{ item.TransTime }}</td>
   <td class="text-center">{{ item.IP }}</td>
@@ -58,12 +58,12 @@
 </ng-template>
 <div *ngIf="displayMember" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 1770px;">
+    <div style="width: 1710px;">
       <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate">
       </nap-breadcrumb>
       <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
-    <div style="width: 1770px;">
+    <div style="width: 1710px;">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>

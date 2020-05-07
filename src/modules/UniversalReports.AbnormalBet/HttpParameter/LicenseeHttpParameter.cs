@@ -11,13 +11,13 @@ namespace UniversalReports.AbnormalBet.HttpParameter
 
         public DateTime ToDate { get; set; }
 
-        public int Reason { get; set; }
+        public string Reason { get; set; }
 
-        public int Sport { get; set; }
+        public string Sport { get; set; }
 
-        public int BetType { get; set; }
+        public string BetType { get; set; }
 
-        public int Licensee { get; set; }
+        public string Licensee { get; set; }
 
         public bool IsTest { get; set; }
     }

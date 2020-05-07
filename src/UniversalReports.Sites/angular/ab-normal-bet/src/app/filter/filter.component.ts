@@ -100,7 +100,7 @@ export class FilterComponent implements OnInit {
     endDate = DateHelper.convertDateStructToMoment(this.endDate);
     tempStartDate = moment.utc(startDate);
     tempEndDate = moment.utc(endDate);
-    const maxEndDate = startDate.add(3, 'month');
+    const maxEndDate = startDate.add(1, 'year');
 
     if (maxEndDate.isBefore(endDate)) {
       tempEndDate = moment.utc(maxEndDate);
@@ -120,7 +120,7 @@ export class FilterComponent implements OnInit {
     endDate = DateHelper.convertDateStructToMoment(this.endDate);
     tempStartDate = moment.utc(startDate);
     tempEndDate = moment.utc(endDate);
-    const minStartDate = endDate.subtract(3, 'month');
+    const minStartDate = endDate.subtract(1, 'year');
 
     if (minStartDate.isAfter(startDate)) {
       tempStartDate = moment.utc(minStartDate);
@@ -163,9 +163,9 @@ export class FilterComponent implements OnInit {
   }
 
   private get isValid(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(6, 'month');
+    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(4, 'month');
     if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-      this.toastService.activate(`Date range should not exceed 6 months!`);
+      this.toastService.activate(`Date range should not exceed 4 months!`);
       return false;
     }
 
