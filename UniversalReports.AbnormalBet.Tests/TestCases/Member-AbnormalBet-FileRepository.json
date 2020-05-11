@@ -1,0 +1,32 @@
+﻿[
+  {
+    "RefNo": "108936594908",
+    "Sport": "Soccer",
+    "League": "Soccer League",
+    "Match": "Oriente EC U19 -vs- Virtus.Pro",
+    "Reason": "Arbitrage",
+    "Odds": 1.12,
+    "Currency": "SD$",
+    "Stake": 30000,
+    "HDP": 1.00,
+    "Score": "0-0",
+    "TransTime": "4/25/2020 6:50:17 PM",
+    "IP": "127.0.0.1",
+    "Location": "Viet nam"
+  },
+  {
+    "RefNo": "108936594909",
+    "Sport": "Soccer",
+    "League": "Soccer League",
+    "Match": "Oriente EC U19 -vs- Virtus.Pro",
+    "Reason": "Arbitrage",
+    "Odds": 2.12,
+    "Currency": "SD$",
+    "Stake": 30000,
+    "HDP": 1.00,
+    "Score": "0-0",
+    "TransTime": "4/25/2020 6:50:17 PM",
+    "IP": "127.0.0.1",
+    "Location": "Viet nam"
+  }
+]

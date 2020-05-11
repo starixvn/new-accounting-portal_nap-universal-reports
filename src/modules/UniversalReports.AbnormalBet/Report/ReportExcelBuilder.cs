@@ -53,7 +53,7 @@ namespace UniversalReports.AbnormalBet.Report
             using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage = new ExcelPackage(stream);
-                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", " Abnormal Bet Void");
+                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", "Abnormal Bet Void");
             }
         }
 
@@ -63,7 +63,7 @@ namespace UniversalReports.AbnormalBet.Report
             using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage = new ExcelPackage(stream);
-                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", " Abnormal Bet Void");
+                sheet = ExcelPackage.Workbook.Worksheets.Copy("AbnormalBetTemplate", "Abnormal Bet Void");
             }
         }
 
