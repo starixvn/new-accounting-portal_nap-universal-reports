@@ -3,8 +3,8 @@
     <col style="width: 120px" />
     <col style="width: 120px" />
     <col style="width: 80px" />
-    <col style="width: 150px" />
-    <col style="width: 150px" />
+    <col style="width: 180px" />
+    <col style="width: 180px" />
     <col style="width: 120px" />
     <col style="width: 100px" />
     <col style="width: 120px" />
@@ -64,12 +64,12 @@
 </ng-template>
 <div *ngIf="displayLicensee" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 1480px;">
+    <div style="width: 1540px;">
       <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate">
       </nap-breadcrumb>
       <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
-    <div style="width: 1480px;">
+    <div style="width: 1540px;">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
