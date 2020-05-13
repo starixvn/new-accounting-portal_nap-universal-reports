@@ -138,8 +138,8 @@
       <HintPath>..\..\packages\Fanex.Logging.Sentry.RavenClient.1.0.1\lib\net461\Fanex.Logging.Sentry.RavenClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.2.1.6\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
+    <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.2.1.8\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -406,6 +406,7 @@
     <Compile Include="App_Start\FanexLogging.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\SimpleInjector\AbnormalBetInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ActualMemberBetInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ExchangeInjector.cs" />
     <Compile Include="App_Start\RemotingRef.cs" />
@@ -421,6 +422,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\DailyWinLoss2hSoccerMinorController.cs" />
@@ -582,6 +584,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
     <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
@@ -679,6 +682,18 @@
     <Content Include="Scripts\ThirdParties\Numeral\languages.min.js" />
     <Content Include="Scripts\ThirdParties\Numeral\numeral.min.js" />
     <Content Include="webpack.config.js" />
+    <Content Include="wwwroot\ab-normal-bet\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\ab-normal-bet\assets\logo.png" />
+    <Content Include="wwwroot\ab-normal-bet\assets\spinner.gif" />
+    <Content Include="wwwroot\ab-normal-bet\favicon.ico" />
+    <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\ab-normal-bet\index.html" />
+    <Content Include="wwwroot\ab-normal-bet\logo.c6dee9a0f0d2da3e324d.png" />
+    <Content Include="wwwroot\ab-normal-bet\main.js" />
+    <Content Include="wwwroot\ab-normal-bet\polyfills.js" />
+    <Content Include="wwwroot\ab-normal-bet\runtime.js" />
+    <Content Include="wwwroot\ab-normal-bet\spinner.ea9634b3c5182edadb3c.gif" />
+    <Content Include="wwwroot\ab-normal-bet\styles.css" />
     <Content Include="wwwroot\actual-member-bet\3rdpartylicenses.txt" />
     <Content Include="wwwroot\actual-member-bet\assets\logo.png" />
     <Content Include="wwwroot\actual-member-bet\assets\spinner.gif" />
@@ -852,6 +867,8 @@
     <Content Include="ExcelTemplate\PunterAnalysis\BetTypeGroup.xlsx" />
     <Content Include="ExcelTemplate\PunterAnalysis\Game.xlsx" />
     <Content Include="ExcelTemplate\PunterAnalysis\GameBettype.xlsx" />
+    <Content Include="ExcelTemplate\AbNormalBet\Licensee.xlsx" />
+    <Content Include="ExcelTemplate\AbNormalBet\Member.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -995,12 +1012,21 @@
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="Views\DailyWinLoss2hSoccerMinor\Index.cshtml" />
     <Content Include="Views\CN88WinLossByProducts\Index.cshtml" />
+    <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\ab-normal-bet\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
     <Content Include="app\house-win-loss\house-win-loss.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\modules\UniversalReports.AbnormalBet\UniversalReports.AbnormalBet.csproj">
+      <Project>{c82a181f-f4b4-4fb2-9a6c-f83b27c204e5}</Project>
+      <Name>UniversalReports.AbnormalBet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.ActualMemberBet\UniversalReports.ActualMemberBet.csproj">
       <Project>{2d0401ab-8145-4c02-8c23-0b1ce8920c66}</Project>
       <Name>UniversalReports.ActualMemberBet</Name>

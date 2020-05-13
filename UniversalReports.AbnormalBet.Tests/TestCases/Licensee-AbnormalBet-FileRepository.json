@@ -1,0 +1,36 @@
+﻿[
+  {
+    "Date": "May 03, 2020",
+    "Licensee": "Soccer",
+    "Currency": "SD$	",
+    "League": "2017 FIFA CONFEDERATIONS CUP (IN RUSSIA)",
+    "Match": "Oriente EC U19 -vs- Virtus.Pro",
+    "Reason": "Arbitrage",
+    "Live": "Live",
+    "BetType": "FT.1X2",
+    "Choice": "1",
+    "BettingScore": "0-0",
+    "HDPOU": "1.00",
+    "HTScore": "0-0",
+    "FinalScore": "1-0",
+    "MemberTO": 30000,
+    "MemberTORM": 90516
+  },
+  {
+    "Date": "May 11, 2020",
+    "Licensee": "Soccer",
+    "Currency": "SD$	",
+    "League": "2017 FIFA CONFEDERATIONS CUP (IN RUSSIA)",
+    "Match": "Oriente EC U19 -vs- Virtus.Pro",
+    "Reason": "Arbitrage",
+    "Live": "Live",
+    "BetType": "FT.1X2",
+    "Choice": "2",
+    "BettingScore": "0-0",
+    "HDPOU": "1.00",
+    "HTScore": "0-0",
+    "FinalScore": "1-0",
+    "MemberTO": 30000,
+    "MemberTORM": 90516
+  }
+]

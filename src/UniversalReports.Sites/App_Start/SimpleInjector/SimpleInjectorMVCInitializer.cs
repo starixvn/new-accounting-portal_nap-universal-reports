@@ -1,7 +1,7 @@
-using System.Web.Mvc;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
+using System.Web.Mvc;
 using UniversalReports.Sites.Controllers;
 using UniversalReports.Sites.SimpleInjector;
 
@@ -27,7 +27,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterUpdatedUsernameAndCreditServices()
                 .RegisterExchangeServices()
                 .RegisterActualMemberBetServices()
-                .RegisterCN88WinLossServices();
+                .RegisterCN88WinLossServices()
+                .RegisterAbnormalBetServices();
 
             var homeControllerType = typeof(HomeController);
             Container.RegisterMvcControllers(homeControllerType.Assembly);
