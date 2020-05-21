@@ -8,6 +8,8 @@
 
         public string Currency { get; set; }
 
+        public string Sport { get; set; }
+
         public string League { get; set; }
 
         public string Match { get; set; }
@@ -15,6 +17,8 @@
         public string Reason { get; set; }
 
         public string Live { get; set; }
+
+        public int BetCount { get; set; }
 
         public string BetType { get; set; }
 
@@ -31,5 +35,9 @@
         public decimal MemberTO { get; set; }
 
         public decimal MemberTORM { get; set; }
+
+        public decimal AfterPT { get; set; }
+
+        public decimal AfterPTRM { get; set; }
     }
 }

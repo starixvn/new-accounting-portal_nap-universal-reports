@@ -27,10 +27,12 @@ export interface LicenseeModel {
   Date: string;
   Licensee: string;
   Currency: string;
+  Sport: string;
   League: string;
   Match: string;
   Reason: string;
   Live: string;
+  BetCount: number;
   BetType: string;
   Choice: string;
   BettingScore: string;
@@ -39,6 +41,8 @@ export interface LicenseeModel {
   FinalScore: string;
   MemberTO: number;
   MemberTORM: number;
+  AfterPT: number;
+  AfterPTRM: number;
 }
 
 export interface QueryModel {

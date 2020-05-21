@@ -90,8 +90,8 @@ namespace UniversalReports.AbnormalBet.Tests.Report
 
             // Assert
             Assert.That(voidBetWorkSheet.Name, Is.EqualTo("Abnormal Bet Void"));
-            Assert.That(voidBetWorkSheet.Cells["A1:O2"].Value, Is.EqualTo(expectedTitle));
-            Assert.That(voidBetWorkSheet.Cells["A5:O6"].Value, Is.EqualTo(expectedBody));
+            Assert.That(voidBetWorkSheet.Cells["A1:S2"].Value, Is.EqualTo(expectedTitle));
+            Assert.That(voidBetWorkSheet.Cells["A5:S6"].Value, Is.EqualTo(expectedBody));
 
             // Release
             container.Dispose();

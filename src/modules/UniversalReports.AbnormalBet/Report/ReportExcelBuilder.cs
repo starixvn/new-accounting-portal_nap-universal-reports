@@ -41,7 +41,7 @@ namespace UniversalReports.AbnormalBet.Report
         public ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeExcelModel)
         {
             LoadLicenseeTemplate();
-            BuilTitle(title, "A1:O2");
+            BuilTitle(title, "A1:S2");
             sheet.ApplyVertical(licenseeExcelModel, StartRowIndex);
             ClearTemplate();
             return ExcelPackage;
