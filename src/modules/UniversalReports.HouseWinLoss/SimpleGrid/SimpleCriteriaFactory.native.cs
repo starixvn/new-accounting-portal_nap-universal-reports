@@ -46,7 +46,9 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
             { "virtual-sports-betradar-sport-type", typeof(VirtualSportsBetradarSportTypeCriteria)},
             { "virtual-sports-bet-type", typeof(VirtualSportsBetTypeCriteria)},
             { "virtual-sports-site", typeof(VirtualSportsSiteCriteria)},
-            { "virtual-sports-sport-type", typeof(VirtualSportsSportTypeCriteria)}
+            { "virtual-sports-sport-type", typeof(VirtualSportsSportTypeCriteria)},
+            { "saba-club-bet-type", typeof(CasinoBetTypeCriteria)},
+            { "saba-club-site", typeof(CasinoSiteCriteria)}
         };
 
         public WinLossCriteria CreateCriteria(Dictionary<string, object> queryModel)
