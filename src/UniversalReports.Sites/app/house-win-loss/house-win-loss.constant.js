@@ -773,7 +773,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoProductId: 42, casinoType: 0, type: "saba-club-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", casinoProductId: 42, casinoType: 0, type: "casino-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -781,10 +781,29 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "saba-club-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
+        "RNG War": {
+            mainView: "betType",
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", casinoProductId: 50, casinoType: 0, type: "casino-bet-type", mainColumnText: "Bet Type" },
+                getTitleFunction: "getProductTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                getTitleFunction: "getSiteTitle"
+            }
+        }
     };
     angular
         .module("app.houseWinlossApp")
