@@ -20,5 +20,8 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
 
         [Cell("E8")]
         public int BetCount { get; set; }
+
+        [Cell("F8")]
+        public string VIP { get; set; }
     }
 }
