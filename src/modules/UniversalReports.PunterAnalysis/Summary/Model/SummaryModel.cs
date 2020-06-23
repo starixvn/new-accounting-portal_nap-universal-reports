@@ -14,6 +14,8 @@
 
         public int BetCount { get; set; }
 
+        public string VIP { get; set; }
+
         public static SummaryModel operator +(SummaryModel a, SummaryModel b)
         {
             return new SummaryModel
