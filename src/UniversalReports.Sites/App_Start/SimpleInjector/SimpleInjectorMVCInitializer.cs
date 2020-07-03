@@ -28,7 +28,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterExchangeServices()
                 .RegisterActualMemberBetServices()
                 .RegisterCN88WinLossServices()
-                .RegisterAbnormalBetServices();
+                .RegisterAbnormalBetServices()
+                .RegisterSBPerformanceServices();
 
             var homeControllerType = typeof(HomeController);
             Container.RegisterMvcControllers(homeControllerType.Assembly);

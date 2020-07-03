@@ -1,0 +1,62 @@
+<div class="nap-filter">
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>From</label>
+        <div class="nap-control">
+          <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="endDate"
+            (dateChange)="onDateChangeFrom()"></nap-date-picker>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>To</label>
+        <div class="nap-control">
+          <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate"
+            (dateChange)="onDateChangeTo()"></nap-date-picker>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label class="col-form-label">Time Range(GMT-4)</label>
+        <div class="nap-control">
+          <select class="form-control" #timeRangeSelect>
+            <option *ngFor="let item of timeRangeOptions" value={{item.Value}}>
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Margin(%) &le;</label>
+        <div class="nap-control">
+          <input type="number" [(ngModel)]="margin" class="width-150">
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Top rows</label>
+        <div class="nap-control">
+          <select class="form-control" #topRowSelect>
+            <option *ngFor="let item of topRowOptions" value={{item.Value}}>
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col col-buttons">
+      <label>&nbsp;</label>
+      <button type="button" class="btn btn-primary" (click)="onGenerateClick(timeRangeSelect.value, topRowSelect.value)">
+        GENERATE
+      </button>
+    </div>
+  </div>
+</div>

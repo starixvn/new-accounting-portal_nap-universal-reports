@@ -406,6 +406,7 @@
     <Compile Include="App_Start\FanexLogging.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\AbnormalBetInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ActualMemberBetInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ExchangeInjector.cs" />
@@ -436,6 +437,7 @@
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NG2StatisticsController.cs" />
+    <Compile Include="Controllers\SBPerformanceMonitorController.cs" />
     <Compile Include="Controllers\UpdatedUsernameAndGivenCreditController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -976,6 +978,19 @@
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\sb-performance\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\sb-performance\assets\logo.png" />
+    <Content Include="wwwroot\sb-performance\assets\spinner.gif" />
+    <Content Include="wwwroot\sb-performance\es2015-polyfills.js" />
+    <Content Include="wwwroot\sb-performance\favicon.ico" />
+    <Content Include="wwwroot\sb-performance\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\sb-performance\index.html" />
+    <Content Include="wwwroot\sb-performance\logo.c6dee9a0f0d2da3e324d.png" />
+    <Content Include="wwwroot\sb-performance\main.js" />
+    <Content Include="wwwroot\sb-performance\polyfills.js" />
+    <Content Include="wwwroot\sb-performance\runtime.js" />
+    <Content Include="wwwroot\sb-performance\spinner.ea9634b3c5182edadb3c.gif" />
+    <Content Include="wwwroot\sb-performance\styles.css" />
     <Content Include="wwwroot\updated-username-credit\3rdpartylicenses.txt" />
     <Content Include="wwwroot\updated-username-credit\assets\logo.png" />
     <Content Include="wwwroot\updated-username-credit\assets\spinner.gif" />
@@ -1017,6 +1032,11 @@
     <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\ab-normal-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\ab-normal-bet\index.cshtml" />
+    <Content Include="wwwroot\sb-performance\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\sb-performance\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\sb-performance\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\sb-performance\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\sb-performance\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1046,6 +1066,10 @@
     <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
       <Name>UniversalReports.PlayForFun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.SBPerformance\UniversalReports.SBPerformance.csproj">
+      <Project>{de5ddebe-e00b-4c89-a8d1-ae24b1b1ca5d}</Project>
+      <Name>UniversalReports.SBPerformance</Name>
     </ProjectReference>
     <ProjectReference Include="..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
