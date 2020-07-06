@@ -32,6 +32,8 @@ export class FilterComponent implements OnInit {
     new SelectItem('00 - 20', 20),
     new SelectItem('00 - 22', 22)
   ];
+  timeRangeSelected =  new SelectItem('Whole Day', -1);
+  timeRangeDisabled: true;
   margin = 3.00;
   topRowOptions: SelectItem[] = [
     new SelectItem('50', 50),
@@ -60,7 +62,7 @@ export class FilterComponent implements OnInit {
     endDate = DateHelper.convertDateStructToMoment(this.endDate);
     tempStartDate = moment.utc(startDate);
     tempEndDate = moment.utc(endDate);
-    const maxEndDate = startDate;
+    const maxEndDate = endDate;
 
     if (maxEndDate.isBefore(endDate)) {
       tempEndDate = moment.utc(maxEndDate);
@@ -80,7 +82,7 @@ export class FilterComponent implements OnInit {
     endDate = DateHelper.convertDateStructToMoment(this.endDate);
     tempStartDate = moment.utc(startDate);
     tempEndDate = moment.utc(endDate);
-    const minStartDate = endDate.subtract(1, 'year');
+    const minStartDate = endDate.subtract(2, 'day');
 
     if (minStartDate.isAfter(startDate)) {
       tempStartDate = moment.utc(minStartDate);

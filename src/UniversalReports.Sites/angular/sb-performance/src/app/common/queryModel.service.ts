@@ -11,7 +11,6 @@ export class QueryModelService {
     isShowLeague: boolean,
     isShowCust: boolean,
   ): QueryModel {
-    const margin = (isShowSite || isShowSport) ? filterModel.margin : 0;
     const queryModel: QueryModel = {
       fromDate: filterModel.fromDate,
       toDate: filterModel.toDate,
@@ -20,7 +19,7 @@ export class QueryModelService {
       isShowSport,
       isShowLeague,
       isShowCust,
-      margin,
+      margin: filterModel.margin,
       top: filterModel.topRows,
       isShowFullColumn: filterModel.isShowFullColumn
     };

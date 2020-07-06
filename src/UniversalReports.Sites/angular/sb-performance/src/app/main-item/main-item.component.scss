@@ -9,7 +9,7 @@
   text-align: center;
   border: 1px solid #dedfe0;
   margin: 10px 0;
-  width: 97%;
+  width: 730px;
   font-size: 13px;
   text-transform: uppercase;
 }
@@ -22,8 +22,13 @@
 }
 
 .nap-grid {
+    .body{
+      max-height: 400px !important;
+      min-height: 400px !important;
+    }
       .number-negative
       {
           color: red;
       }
+
 }
