@@ -166,7 +166,7 @@ export class FilterModelWrapper {
             const sportTypes: string[] = [];
             this.filterModel.user.selectedBetTypeTreeviewItems.forEach(betTypeItem => {
                 let sportType = betTypeItem.parent.item.text;
-                
+
                 if (betTypeItem.parent.parent && betTypeItem.parent.parent.item.text === 'E-Sports') {
                     sportType = 'E-Sports';
                 }
@@ -185,8 +185,8 @@ export class FilterModelWrapper {
         return this.filterModel.league.leagueName;
     }
 
-    get leagueId(): number {
-        return this.filterModel.league ? this.filterModel.league.leagueId : 0;
+    get leagueId(): string {
+        return this.filterModel.league ? this.filterModel.league.leagueId : '';
     }
 
     get searchByTitle(): string {

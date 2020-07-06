@@ -16,7 +16,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
 
         public string ListCombinationId { get; set; }
 
-        public int LeagueId { get; set; }
+        public string LeagueId { get; set; }
 
         public int SportId { get; set; }
 

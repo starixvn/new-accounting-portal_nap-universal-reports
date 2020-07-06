@@ -41,7 +41,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Filter.SportTypeLeague
         {
             return new SportTypeLeagueEntity
             {
-                LeagueId = 1,
+                LeagueId = "1",
                 LeagueName = "Any League Name"
             };
         }

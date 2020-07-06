@@ -10,7 +10,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
 
         public string Username { get; set; }
 
-        public int LeagueId { get; set; }
+        public string LeagueId { get; set; }
 
         public int OrderBy { get; set; }
 

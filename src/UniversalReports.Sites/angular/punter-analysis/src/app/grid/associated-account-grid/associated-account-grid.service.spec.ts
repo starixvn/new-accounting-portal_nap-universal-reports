@@ -13,7 +13,7 @@ describe('AssociatedAccountGridService', () => {
     const expectedQueryModel = {
         custId: 1,
         userName: 'Customer 1',
-        leagueId: 0,
+        leagueId: '',
         orderBy: 1,
         sortBy: 1,
         periodType: 1,
