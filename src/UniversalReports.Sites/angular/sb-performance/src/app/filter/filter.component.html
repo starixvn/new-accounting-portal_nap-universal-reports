@@ -22,8 +22,8 @@
       <div class="nap-group">
         <label class="col-form-label">Time Range(GMT-4)</label>
         <div class="nap-control">
-          <select class="form-control" #timeRangeSelect>
-            <option *ngFor="let item of timeRangeOptions" value={{item.Value}}>
+          <select class="form-control" [disabled]="isDisableTimeRangeOptions" [(ngModel)]="timeRangeSelected">
+            <option *ngFor="let item of timeRangeOptions" [ngValue]="item">
               {{item.Name}}
             </option>
           </select>
@@ -44,8 +44,8 @@
       <div class="nap-group">
         <label>Top rows</label>
         <div class="nap-control">
-          <select class="form-control" #topRowSelect>
-            <option *ngFor="let item of topRowOptions" value={{item.Value}}>
+          <select class="form-control" [(ngModel)]="topRowSelected">
+            <option *ngFor="let item of topRowOptions" [ngValue]="item">
               {{item.Name}}
             </option>
           </select>
@@ -54,7 +54,7 @@
     </div>
     <div class="nap-col col-buttons">
       <label>&nbsp;</label>
-      <button type="button" class="btn btn-primary" (click)="onGenerateClick(timeRangeSelect.value, topRowSelect.value)">
+      <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
         GENERATE
       </button>
     </div>

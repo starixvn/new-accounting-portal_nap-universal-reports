@@ -32,17 +32,23 @@ export class FilterComponent implements OnInit {
     new SelectItem('00 - 20', 20),
     new SelectItem('00 - 22', 22)
   ];
-  timeRangeSelected =  new SelectItem('Whole Day', -1);
+  timeRangeSelected: SelectItem = null;
   timeRangeDisabled: true;
   margin = 3.00;
   topRowOptions: SelectItem[] = [
+    new SelectItem('10', 10),
+    new SelectItem('20', 20),
     new SelectItem('50', 50),
     new SelectItem('100', 100),
     new SelectItem('200', 200),
+    new SelectItem('300', 300),
+    new SelectItem('400', 400),
     new SelectItem('500', 500)
   ];
+  topRowSelected: SelectItem = null;
 
   isShowFullColumn = false;
+  isDisableTimeRangeOptions = false;
 
   constructor(private readonly filterService: FilterService) { }
 
@@ -50,6 +56,9 @@ export class FilterComponent implements OnInit {
     this.filterService.showFullColumn().subscribe(data => {
       this.isShowFullColumn = data;
     });
+
+    this.timeRangeSelected = this.timeRangeOptions[0];
+    this.topRowSelected = this.topRowOptions[2];
   }
 
   onDateChangeFrom() {
@@ -70,6 +79,13 @@ export class FilterComponent implements OnInit {
 
     this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
     this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
+
+    if (tempStartDate.isBefore(tempEndDate)) {
+      this.timeRangeSelected = this.timeRangeOptions[0];
+      this.isDisableTimeRangeOptions = true;
+    } else {
+      this.isDisableTimeRangeOptions = false;
+    }
   }
 
   onDateChangeTo() {
@@ -90,23 +106,29 @@ export class FilterComponent implements OnInit {
 
     this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
     this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
+
+    if (tempStartDate.isBefore(tempEndDate)) {
+      this.timeRangeSelected = this.timeRangeOptions[0];
+      this.isDisableTimeRangeOptions = true;
+    } else {
+      this.isDisableTimeRangeOptions = false;
+    }
   }
 
-  onGenerateClick(timeRange: number, topRows: number) {
-    const model = this.createModel(timeRange, topRows);
+  onGenerateClick() {
+    const model = this.createModel();
     this.generated.emit(model);
   }
 
-  private createModel(timeRange: number, topRows: number): FilterModel {
+  private createModel(): FilterModel {
     const fromDate = DateHelper.convertDateStructToMoment(this.startDate);
     const toDate = DateHelper.convertDateStructToMoment(this.endDate);
-
     const model: FilterModel = {
       fromDate: DateHelper.formatMomentDate(fromDate, DateFormat.Date),
       toDate: DateHelper.formatMomentDate(toDate, DateFormat.Date),
-      timeRange: Number(timeRange),
-      margin: Number(this.margin),
-      topRows: Number(topRows),
+      timeRange: this.timeRangeSelected.Value,
+      margin: this.margin,
+      topRows: this.topRowSelected.Value,
       isShowFullColumn: this.isShowFullColumn
     };
 
