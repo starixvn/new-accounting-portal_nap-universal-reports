@@ -21,7 +21,7 @@ interface ProductSportTypeBetType {
 }
 
 interface SportTypeLeague {
-    LeagueId: number;
+    LeagueId: string;
     LeagueName: string;
 }
 

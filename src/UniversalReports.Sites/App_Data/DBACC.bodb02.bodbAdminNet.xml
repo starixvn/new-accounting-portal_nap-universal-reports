@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Product-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_Product" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Game_Site" DbName="DBACC.bodb02.bodbAdminNet" />

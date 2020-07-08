@@ -77,7 +77,7 @@ export class FilterComponent implements OnInit {
 
     sportType: number;
     sportOptions: IOption[];
-    leagueId: number;
+    leagueId: string;
     leagueName = '';
     leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
     betTypeTreeviewItems: TreeviewItem[] = [];
