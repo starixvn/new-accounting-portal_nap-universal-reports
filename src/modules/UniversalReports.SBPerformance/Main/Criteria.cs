@@ -20,7 +20,7 @@ namespace UniversalReports.SBPerformance.Main
 
         public bool IsShowCust { get; set; }
 
-        public decimal Margin { get; set; }
+        public decimal? Margin { get; set; }
 
         public int Top { get; set; }
 
