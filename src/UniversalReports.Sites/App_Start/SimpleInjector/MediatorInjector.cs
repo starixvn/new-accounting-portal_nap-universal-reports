@@ -7,6 +7,7 @@ using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
+using UniversalReports.SBPerformance;
 using UniversalReports.UpdatedUsernameCredit;
 
 namespace UniversalReports.Sites.SimpleInjector
@@ -27,6 +28,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(ExchangeAttribute).GetTypeInfo().Assembly;
             yield return typeof(ActualMemberBetAttribute).GetTypeInfo().Assembly;
             yield return typeof(AbnormalBetAttribute).GetTypeInfo().Assembly;
+            yield return typeof(SBPerformanceAttribute).GetTypeInfo().Assembly;
         }
     }
 }
