@@ -1,0 +1,31 @@
+﻿using MediatR;
+
+namespace UniversalReports.SMAWinLoss.Summary
+{
+    public class WinLossHttpParameter : IRequest<WinLossModel>
+    {
+        public int Year { get; set; }
+
+        public int CustLevel { get; set; }
+
+        public string Username { get; set; }
+
+        public bool IsDownline { get; set; }
+
+        public string Currencies { get; set; }
+
+        public bool IsAppliedVR { get; set; }
+
+        public string Sports { get; set; }
+
+        public string LeagueIDs { get; set; }
+
+        public string Divisions { get; set; }
+
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; set; }
+
+        public bool IsGenerated { get; set; }
+    }
+}

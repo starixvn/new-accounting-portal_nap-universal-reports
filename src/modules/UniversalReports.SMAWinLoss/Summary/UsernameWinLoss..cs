@@ -1,0 +1,17 @@
+﻿using System.Collections.Generic;
+
+namespace UniversalReports.SMAWinLoss.Summary
+{
+    public class UsernameWinLoss
+    {
+        public int CustId { get; set; }
+
+        public string Username { get; set; }
+
+        public string Currency { get; set; }
+
+        public string Name { get; set; }
+
+        public List<MonthModel> Months { get; set; }
+    }
+}

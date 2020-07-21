@@ -1,0 +1,102 @@
+import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
+import * as _ from 'lodash';
+import { SummaryGridService } from './summary-grid.service';
+import { FilterModel } from '../filter/filter.model';
+import { WinLossModel, UsernameModel } from '../common/model';
+import { QueryModelService } from '../common/queryModel.service';
+import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
+import { PaginationService } from 'nap-components/pagination';
+
+@Component({
+  selector: 'app-summary-grid',
+  templateUrl: './summary-grid.component.html',
+  styleUrls: ['./summary-grid.component.scss'],
+  providers: [
+    SummaryGridService,
+    QueryModelService]
+})
+export class SummaryGridComponent implements OnChanges {
+  @Input() filterModel: FilterModel;
+  summaryWinLosses: WinLossModel;
+  displaySummaryWinLosses: UsernameModel[];
+  year: number;
+  breadcrumbItems: string[];
+  paginationInstance: PaginationInstance;
+  private paginatePipe: PaginatePipe;
+
+  constructor(
+    private readonly service: SummaryGridService,
+    private paginationService: PaginationService,
+    private ngxPaginationService: NgxPaginationService) {
+    this.paginatePipe = new PaginatePipe(this.ngxPaginationService);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!this.filterModel) {
+      return;
+    }
+
+    this.year = this.filterModel.year;
+
+    this.service.query(this.filterModel).subscribe(data => {
+      this.summaryWinLosses = data;
+      const breadcrumb = this.Title;
+      this.breadcrumbItems = [breadcrumb];
+      this.paginationInstance = this.paginationService.createPaginationInstance(this.summaryWinLosses.TotalItems);
+      this.onPageChange();
+    });
+  }
+
+  get hasData(): boolean {
+    return !_.isNil(this.summaryWinLosses) && this.summaryWinLosses.UsernameWinLosses.length > 0;
+  }
+
+  get Title(): string {
+    return 'SMA Win Loss Summary Report For ' + this.year + this.getLevelName(this.filterModel.custLevel);
+  }
+
+  onPageChange() {
+    this.createPaging();
+  }
+
+  isValidNumber(value: number): boolean {
+    return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
+  }
+
+  private createPaging() {
+    if (this.filterModel.isPageChanged) {
+      this.filterModel.isGenerated = false;
+      this.filterModel.pageIndex = this.paginationInstance.currentPage - 1;
+      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+
+      this.service.query(this.filterModel).subscribe(data => {
+        this.summaryWinLosses = data;
+      });
+    }
+
+    const paginateData = this.paginatePipe.transform(this.summaryWinLosses.UsernameWinLosses, this.paginationInstance);
+    this.displaySummaryWinLosses = _.cloneDeep(paginateData);
+    this.filterModel.isPageChanged = true;
+  }
+
+  private getLevelName(level: number) {
+    let title = 'Super';
+    const masterLevel = 3;
+    const agentLevel = 2;
+    const notAvailableLevel = -1;
+    switch (level) {
+      case masterLevel:
+        title = 'Master Level';
+        break;
+      case agentLevel:
+        title = 'Agent Level';
+        break;
+      case notAvailableLevel:
+        title = 'N/A';
+        break;
+      default:
+        title = 'Super Level';
+        break;
+    }
+  }
+}

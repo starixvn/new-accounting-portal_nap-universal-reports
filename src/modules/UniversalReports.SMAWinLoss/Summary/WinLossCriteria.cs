@@ -1,0 +1,29 @@
+﻿using Fanex.Data.Repository;
+
+namespace UniversalReports.SMAWinLoss.Summary
+{
+    public class WinLossCriteria : CriteriaBase
+    {
+        public int Year { get; set; }
+
+        public int CustLevel { get; set; }
+
+        public string Username { get; set; }
+
+        public bool IsDownline { get; set; }
+
+        public string Currencies { get; set; }
+
+        public bool IsAppliedVR { get; set; }
+
+        public string Sports { get; set; }
+
+        public string LeagueIDs { get; set; }
+
+        public string Divisions { get; set; }
+
+        public override string GetSettingKey() => $"SMAWinLoss-Summary";
+
+        public override bool IsValid() => true;
+    }
+}

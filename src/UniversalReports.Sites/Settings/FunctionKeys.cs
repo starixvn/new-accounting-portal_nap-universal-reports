@@ -17,5 +17,6 @@
         public const string CN88WinLossModePermission = "CN88WinLossByProducts_ModePermission";
         public const string AbnormalBetReport = "AbnormalBetReport";
         public const string SBPerformanceMonitor = "SBPerformanceMonitor";
+        public const string SMAWinLossSummary = "SMAWinLossSummary";
     }
 }
