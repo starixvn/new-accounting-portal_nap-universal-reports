@@ -24,6 +24,7 @@ import { CurrencyTreeviewPipe } from './filter/currency-treeview.pipe';
 import { SummaryGridComponent } from './summary-grid/summary-grid.component';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
+import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BreadcrumbModule } from 'nap-components/breadcrumb';
     CurrencyTreeviewPipe,
     SummaryGridComponent,
     SiteTreeviewPipe,
-    SportTreeviewPipe
+    SportTreeviewPipe,
+    VirtualRateGridComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { BreadcrumbModule } from 'nap-components/breadcrumb';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [VirtualRateGridComponent]
 })
 export class AppModule { }
 

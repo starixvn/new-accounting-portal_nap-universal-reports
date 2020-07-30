@@ -60,6 +60,7 @@ export class FilterComponent implements OnInit {
   leagueName = '';
   leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
   isGenerated = false;
+  isEnableSearchExactly = true;
 
   constructor(private readonly filterService: FilterService) { }
 
@@ -75,8 +76,12 @@ export class FilterComponent implements OnInit {
 
   onGenerateClick() {
     this.isGenerated = true;
-    const model = this.createModel(this.isGenerated);
-    this.generated.emit(model);
+    this.OnGenerate(this.isGenerated);
+  }
+
+  onLevelSelected($event) {
+   this.levelSelected = $event;
+   this.isEnableSearchExactly = $event.Value === -1;
   }
 
   private getCurrency() {
@@ -98,14 +103,18 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  private createModel(isGenerated: boolean): FilterModel {
+  private OnGenerate(isGenerated: boolean) {
     let leagueIds = '';
     const sports = this.selectedSports.join(',');
     const searchText = this.leagueName.trim();
     this.filterService.getLeagueGroup(sports, searchText, true).subscribe(leagues => {
-      leagueIds = leagues[0];
+      leagueIds = leagues[0] === null ? '' : leagues[0];
+      const model = this.createModel(isGenerated, leagueIds);
+      this.generated.emit(model);
     });
+  }
 
+  private createModel(isGenerated: boolean, leagueIds: string): FilterModel {
     const model: FilterModel = {
       year: this.yearSelected.Value,
       custLevel: this.levelSelected.Value,

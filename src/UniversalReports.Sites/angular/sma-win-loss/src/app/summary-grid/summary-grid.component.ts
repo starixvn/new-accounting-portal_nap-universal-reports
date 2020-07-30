@@ -1,3 +1,5 @@
+import { VirtualRateModel } from './../common/model';
+import { VirtualRateGridComponent } from './../virtual-rate-grid/virtual-rate-grid.component';
 import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
 import * as _ from 'lodash';
 import { SummaryGridService } from './summary-grid.service';
@@ -6,6 +8,7 @@ import { WinLossModel, UsernameModel } from '../common/model';
 import { QueryModelService } from '../common/queryModel.service';
 import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
 import { PaginationService } from 'nap-components/pagination';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-summary-grid',
@@ -22,12 +25,15 @@ export class SummaryGridComponent implements OnChanges {
   year: number;
   breadcrumbItems: string[];
   paginationInstance: PaginationInstance;
+  virtualRateData: VirtualRateModel[];
+  virtualRateTitle: string;
   private paginatePipe: PaginatePipe;
 
   constructor(
     private readonly service: SummaryGridService,
-    private paginationService: PaginationService,
-    private ngxPaginationService: NgxPaginationService) {
+    private readonly paginationService: PaginationService,
+    private readonly ngxPaginationService: NgxPaginationService,
+    private readonly modalService: NgbModal) {
     this.paginatePipe = new PaginatePipe(this.ngxPaginationService);
   }
 
@@ -63,6 +69,14 @@ export class SummaryGridComponent implements OnChanges {
     return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
   }
 
+  showVirtualRate(custId: number, username: string) {
+    this.service.queryVirtualRate(custId).subscribe(data => {
+      this.virtualRateTitle = `Virtual Rate Detail (${username})`;
+      this.virtualRateData = data;
+      this.showModal();
+    });
+  }
+
   private createPaging() {
     if (this.filterModel.isPageChanged) {
       this.filterModel.isGenerated = false;
@@ -86,17 +100,26 @@ export class SummaryGridComponent implements OnChanges {
     const notAvailableLevel = -1;
     switch (level) {
       case masterLevel:
-        title = 'Master Level';
+        title = ' Master Level';
         break;
       case agentLevel:
-        title = 'Agent Level';
+        title = ' Agent Level';
         break;
       case notAvailableLevel:
-        title = 'N/A';
+        title = ' N/A';
         break;
       default:
-        title = 'Super Level';
+        title = ' Super Level';
         break;
     }
+
+    return title;
+  }
+
+  private showModal() {
+    const modalRef = this.modalService.open(VirtualRateGridComponent);
+    const instance = modalRef.componentInstance as VirtualRateGridComponent;
+    instance.title = this.virtualRateTitle;
+    instance.data = this.virtualRateData;
   }
 }

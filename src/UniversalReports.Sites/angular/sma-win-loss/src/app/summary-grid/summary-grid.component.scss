@@ -6,3 +6,19 @@
 .number-negative {
   color: red;
 }
+.modal-dialog {
+  .modal-content {
+    min-width: 650px !important;
+    max-width: 800px !important;
+  }
+  .modal-header {
+    padding: 8px 16px;
+  }
+  .modal-title {
+    font-weight: bold;
+  }
+  .modal-body {
+    max-height: 800px;
+    overflow-y: auto;
+  }
+  }

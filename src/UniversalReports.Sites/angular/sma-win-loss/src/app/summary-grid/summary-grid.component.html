@@ -50,7 +50,8 @@
     <div *ngSwitchCase="true" [napDecimalFormat]="cellItem.Value"></div>
     <div *ngSwitchCase="false">&nbsp;</div>
   </td>
-  <td class="text-center">View</td>
+  <td *ngIf="item.VirtualRate" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">View</a></td>
+  <td *ngIf="!item.VirtualRate" class="text-center">Disabled</td>
 </ng-template>
 
 <div *ngIf="displaySummaryWinLosses" [ngSwitch]="hasData">

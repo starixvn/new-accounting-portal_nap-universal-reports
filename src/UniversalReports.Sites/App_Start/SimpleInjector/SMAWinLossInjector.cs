@@ -1,6 +1,7 @@
 ﻿using SimpleInjector;
 using UniversalReports.SMAWinLoss.Filter;
 using UniversalReports.SMAWinLoss.Summary;
+using UniversalReports.SMAWinLoss.VirtualRate;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -10,6 +11,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             container.Register<FilterService, FilterServiceImp>();
             container.Register<WinLossService, WinLossServiceImp>();
+            container.Register<VirtualRateService, VirtualRateServiceImp>();
             return container;
         }
     }

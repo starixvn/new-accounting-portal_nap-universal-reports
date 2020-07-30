@@ -12,6 +12,8 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         public string Name { get; set; }
 
+        public bool VirtualRate { get; set; }
+
         public List<MonthModel> Months { get; set; }
     }
 }

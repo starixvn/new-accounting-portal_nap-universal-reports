@@ -1,0 +1,20 @@
+@import '~nap-theme/scss/grid.scss';
+@import '~nap-theme/scss/breadcrumb';
+:host /deep/ .breadcrumb-container {
+    width: 100%;
+}
+.number-negative {
+  color: red;
+}
+
+.modal-header {
+  padding: 8px 16px;
+}
+.modal-title {
+  font-weight: bold;
+}
+.modal-body {
+  max-height: 800px;
+  overflow-y: auto;
+}
+

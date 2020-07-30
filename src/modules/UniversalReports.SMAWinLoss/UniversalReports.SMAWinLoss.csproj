@@ -126,6 +126,12 @@
     <Compile Include="Summary\WinLossHttpParameter.cs" />
     <Compile Include="Summary\WinLossModel.cs" />
     <Compile Include="Summary\WinLossService.native.cs" />
+    <Compile Include="VirtualRate\Handler.cs" />
+    <Compile Include="VirtualRate\SMAWinLossVirtualRateController.cs" />
+    <Compile Include="VirtualRate\VirtualRateService.cs" />
+    <Compile Include="VirtualRate\VirtualRateHttpParameter.cs" />
+    <Compile Include="VirtualRate\VirtualRateCriteria.cs" />
+    <Compile Include="VirtualRate\VirtualRateModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

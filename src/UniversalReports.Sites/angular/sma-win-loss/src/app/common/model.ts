@@ -23,6 +23,7 @@ export interface UsernameModel {
   Username: string;
   Currency: string;
   Name: string;
+  VirtualRate: boolean;
   Months: MonthModel[];
 }
 
@@ -30,4 +31,11 @@ export interface WinLossModel {
   UsernameWinLosses: UsernameModel[];
   Total: UsernameModel;
   TotalItems: number;
+}
+
+export interface VirtualRateModel {
+  Sport: string;
+  Bettype: string;
+  IsLive: string;
+  VirtualMultiplier: number;
 }

@@ -49,7 +49,7 @@
       <div class="nap-group">
         <label>Level</label>
         <div class="nap-control">
-          <select class="form-control" [(ngModel)]="levelSelected">
+          <select class="form-control" [(ngModel)]="levelSelected" (ngModelChange)='onLevelSelected($event)'>
             <option *ngFor="let item of levelOptions" [ngValue]="item">
               {{item.Name}}
             </option>
@@ -81,7 +81,7 @@
       <div class="nap-group">
         <label class="col-form-label">Username</label>
         <div class="nap-control">
-          <input class="width-250" type="text" [(ngModel)]="username" placeholder="All">
+          <input [attr.disabled]="!isEnableSearchExactly ? '' : null" class="width-250" type="text" [(ngModel)]="username" placeholder="All">
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
       <div class="nap-group">
         <label for="chkDownlines" class="width-250">Search downlines</label>
         <div class="nap-control">
-          <input name="chkDownlines" type="checkbox" [(ngModel)]="isSearchDownlines" class="form-check-input">
+          <input [attr.disabled]="!isEnableSearchExactly ? '' : null" name="chkDownlines" type="checkbox" [(ngModel)]="isSearchDownlines" class="form-check-input">
         </div>
       </div>
     </div>

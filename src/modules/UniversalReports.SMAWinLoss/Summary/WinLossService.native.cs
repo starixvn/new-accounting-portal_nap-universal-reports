@@ -44,7 +44,7 @@ namespace UniversalReports.SMAWinLoss.Summary
             result.TotalItems = fullRawData.Count() * 5;
             var rawData = fullRawData.Skip(pageIndex * pageSize).Take(pageSize);
 
-            var usernameGroups = rawData.GroupBy(x => new { x.CustId, x.Username, x.Currency });
+            var usernameGroups = rawData.GroupBy(x => new { x.CustId, x.Username, x.Currency, x.VirtualRate });
 
             foreach (var group in usernameGroups)
             {
@@ -61,6 +61,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                     Username = group.Key.Username,
                     Currency = group.Key.Currency,
                     Name = "Real Turnover",
+                    VirtualRate = group.Key.VirtualRate,
                     Months = InitMonthlyValue(parameters.Year)
                 };
                 var usernameIncome = new UsernameWinLoss
@@ -69,6 +70,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                     Username = group.Key.Username,
                     Currency = group.Key.Currency,
                     Name = "Real Income",
+                    VirtualRate = group.Key.VirtualRate,
                     Months = InitMonthlyValue(parameters.Year)
                 };
                 var usernameMargin = new UsernameWinLoss
@@ -77,6 +79,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                     Username = group.Key.Username,
                     Currency = group.Key.Currency,
                     Name = "Real Margin (%)",
+                    VirtualRate = group.Key.VirtualRate,
                     Months = InitMonthlyValue(parameters.Year)
                 };
                 var usernameAvgPT = new UsernameWinLoss
@@ -85,6 +88,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                     Username = group.Key.Username,
                     Currency = group.Key.Currency,
                     Name = "Average PT (%)",
+                    VirtualRate = group.Key.VirtualRate,
                     Months = InitMonthlyValue(parameters.Year)
                 };
                 var usernameAvgBet = new UsernameWinLoss
@@ -93,6 +97,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                     Username = group.Key.Username,
                     Currency = group.Key.Currency,
                     Name = "Average Bet",
+                    VirtualRate = group.Key.VirtualRate,
                     Months = InitMonthlyValue(parameters.Year)
                 };
 
