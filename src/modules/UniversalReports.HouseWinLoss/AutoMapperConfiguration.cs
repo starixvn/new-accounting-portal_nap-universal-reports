@@ -80,6 +80,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<CashOut.LiveNonLive.QueryModel, CashOut.LiveNonLive.Criteria>();
             cfg.CreateMap<CashOut.MatchDetail.ExcelQueryModel, CashOut.MatchDetail.Criteria>();
             cfg.CreateMap<CashOut.MatchDetail.QueryModel, CashOut.MatchDetail.Criteria>();
+            cfg.CreateMap<BetBuilder.SportType.ExcelQueryModel, BetBuilder.SportType.Criteria>();
+            cfg.CreateMap<BetBuilder.SportType.QueryModel, BetBuilder.SportType.Criteria>();
         }
     }
 }
