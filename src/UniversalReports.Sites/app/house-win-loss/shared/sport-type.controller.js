@@ -26,7 +26,7 @@ import angular from "angular";
                 pane.compileAll();
             });
         }
-      
+
         function renderGrid(data) {
             var titleInfo = {
                 text: tab.generateBreadcrumbHtml(),
@@ -51,7 +51,6 @@ import angular from "angular";
             }
         }
 
-
         function generateBetType(sportType, sportTypeName, isLive) {
             var data = {};
             angular.extend(data, pane.data);
@@ -62,7 +61,6 @@ import angular from "angular";
             });
             tab.goForward('betType', data);
         }
-
 
         function exportExcel() {
             pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);

@@ -60,7 +60,7 @@ export class FilterComponent implements OnInit {
   leagueName = '';
   leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
   isGenerated = false;
-  isEnableSearchExactly = true;
+  isEnableSearchExactly = false;
 
   constructor(private readonly filterService: FilterService) { }
 
