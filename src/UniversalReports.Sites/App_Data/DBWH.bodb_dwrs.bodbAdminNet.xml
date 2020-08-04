@@ -53,6 +53,7 @@
     <Setting Key="HouseWinLoss-PokerGames-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-BetBuilder-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_SportType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="CN88WinLossByProducts">
     <Setting Key="CN88WinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
