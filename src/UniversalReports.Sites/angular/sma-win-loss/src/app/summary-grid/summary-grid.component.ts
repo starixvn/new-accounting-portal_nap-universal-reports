@@ -71,7 +71,7 @@ export class SummaryGridComponent implements OnChanges {
 
   showVirtualRate(custId: number, username: string) {
     this.service.queryVirtualRate(custId).subscribe(data => {
-      this.virtualRateTitle = `Virtual Rate Detail (${username})`;
+      this.virtualRateTitle = `Virtual Rate Details (${username})`;
       this.virtualRateData = data;
       this.showModal();
     });

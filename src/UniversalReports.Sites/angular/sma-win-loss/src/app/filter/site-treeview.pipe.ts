@@ -13,7 +13,7 @@ export class SiteTreeviewPipe implements PipeTransform {
     const treeItems: TreeviewItem[] = [];
 
     const creditSites = new TreeviewItem({ text: 'Credit Group', value: 0 });
-    const licenseeSites = new TreeviewItem({ text: 'Licensee Group', value: 1 });
+    const depoSitSites = new TreeviewItem({ text: 'Deposit Group', value: 1 });
 
     if (_.isNil(sites)) {
       return undefined;
@@ -28,7 +28,7 @@ export class SiteTreeviewPipe implements PipeTransform {
           groupTreeviewItem = creditSites;
           break;
         default:
-          groupTreeviewItem = licenseeSites;
+          groupTreeviewItem = depoSitSites;
           break;
       }
 
@@ -41,7 +41,7 @@ export class SiteTreeviewPipe implements PipeTransform {
 
     const siteTreeItems = [
       creditSites,
-      licenseeSites
+      depoSitSites
     ];
 
     return siteTreeItems.filter(item => !_.isNil(item.children) && item.children.length > 0);
