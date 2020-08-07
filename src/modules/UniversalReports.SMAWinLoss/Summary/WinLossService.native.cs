@@ -120,7 +120,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                 userNameWinLosses.AddRange(new List<UsernameWinLoss> { usernameTurnover, usernameIncome, usernameMargin, usernameAvgPT, usernameAvgBet });
             }
 
-            var total = SumTotal(parameters.Year, rawData);
+            var total = SumTotal(parameters.Year, fullRawData);
 
             result.UsernameWinLosses = userNameWinLosses;
             result.Total = total;
