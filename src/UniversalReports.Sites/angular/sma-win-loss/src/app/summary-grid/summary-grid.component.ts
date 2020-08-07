@@ -85,9 +85,14 @@ export class SummaryGridComponent implements OnChanges {
 
       this.service.query(this.filterModel).subscribe(data => {
         this.summaryWinLosses = data;
+        this.createPagingTransform();
       });
     }
 
+    this.createPagingTransform();
+  }
+
+  private createPagingTransform() {
     const paginateData = this.paginatePipe.transform(this.summaryWinLosses.UsernameWinLosses, this.paginationInstance);
     this.displaySummaryWinLosses = _.cloneDeep(paginateData);
     this.filterModel.isPageChanged = true;
