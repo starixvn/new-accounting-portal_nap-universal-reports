@@ -80,8 +80,12 @@ export class FilterComponent implements OnInit {
   }
 
   onLevelSelected($event) {
-   this.levelSelected = $event;
-   this.isEnableSearchExactly = $event.Value === -1;
+    this.levelSelected = $event;
+    this.isEnableSearchExactly = $event.Value === -1;
+
+    if ($event.Value !== -1) {
+      this.username = '';
+    }
   }
 
   private getCurrency() {
@@ -118,7 +122,7 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
       year: this.yearSelected.Value,
       custLevel: this.levelSelected.Value,
-      username: this.username,
+      username: this.isEnableSearchExactly ? this.username : '',
       isDownline: this.isSearchDownlines,
       currencies: this.selectedCurrencies.join(','),
       isAppliedVR: this.betTypeSelected.Value,

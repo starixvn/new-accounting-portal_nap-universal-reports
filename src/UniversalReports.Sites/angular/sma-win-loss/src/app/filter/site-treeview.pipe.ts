@@ -12,8 +12,8 @@ export class SiteTreeviewPipe implements PipeTransform {
     const creditGroup = 0;
     const treeItems: TreeviewItem[] = [];
 
-    const creditSites = new TreeviewItem({ text: 'Credit Group', value: 0 });
-    const depoSitSites = new TreeviewItem({ text: 'Deposit Group', value: 1 });
+    const creditSites = new TreeviewItem({ text: 'Credit', value: 0 });
+    const depoSitSites = new TreeviewItem({ text: 'Deposit', value: 1 });
 
     if (_.isNil(sites)) {
       return undefined;

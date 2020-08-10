@@ -3,19 +3,19 @@
     <col style="width: 120px" />
     <col style="width: 80px" />
     <col style="width: 120px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
     <col style="width: 100px" />
   </colgroup>
 </ng-template>
@@ -38,7 +38,7 @@
       <th>Nov, {{year}}</th>
       <th>Dec, {{year}}</th>
       <th>Total</th>
-      <th>VirtualRate</th>
+      <th>Virtual Rate</th>
     </tr>
   </thead>
 </ng-template>
@@ -56,10 +56,10 @@
 
 <div *ngIf="displaySummaryWinLosses" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 1740px;">
+    <div style="width: 2000px;">
       <nap-breadcrumb [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
-    <div style="width: 1740px;">
+    <div style="width: 2000px;">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>

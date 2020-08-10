@@ -99,22 +99,24 @@ export class SummaryGridComponent implements OnChanges {
   }
 
   private getLevelName(level: number) {
-    let title = 'Super';
+    const isSearchDownlines = this.filterModel.isDownline;
+    const username = this.filterModel.username;
+    let title = '- Super Level';
     const masterLevel = 3;
     const agentLevel = 2;
     const notAvailableLevel = -1;
     switch (level) {
       case masterLevel:
-        title = ' Master Level';
+        title = ' - Master Level';
         break;
       case agentLevel:
-        title = ' Agent Level';
+        title = ' - Agent Level';
         break;
       case notAvailableLevel:
-        title = ' N/A';
+        title = isSearchDownlines ? ` - ${username}'s downlines` : ` - ${username}`;
         break;
       default:
-        title = ' Super Level';
+        title = ' - Super Level';
         break;
     }
 
