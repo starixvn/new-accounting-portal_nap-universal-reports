@@ -184,9 +184,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="BetBuilder\BetType\BetBuilderBetTypeCriteria.cs" />
+    <Compile Include="BetBuilder\BetType\ExcelQueryModel.cs" />
+    <Compile Include="BetBuilder\BetType\QueryModel.cs" />
+    <Compile Include="BetBuilder\BetType\BetBuilderBetTypeController.native.cs" />
     <Compile Include="BetBuilder\SportType\Criteria.cs" />
     <Compile Include="BetBuilder\SportType\ExcelQueryModel.cs" />
-    <Compile Include="BetBuilder\SportType\BetBuilderSportTypeController.cs" />
+    <Compile Include="BetBuilder\SportType\BetBuilderSportTypeController..native.cs" />
     <Compile Include="BetBuilder\SportType\QueryModel.cs" />
     <Compile Include="Bullfighting\MatchDetail\Criteria.cs" />
     <Compile Include="Bullfighting\MatchDetail\ExcelQueryModel.cs" />
@@ -204,7 +208,6 @@
     <Compile Include="CashOut\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
-    <Compile Include="Soccer\BetType\BetBuilderBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutSiteCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\BetTradeBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\BetTradeSiteCriteria.cs" />

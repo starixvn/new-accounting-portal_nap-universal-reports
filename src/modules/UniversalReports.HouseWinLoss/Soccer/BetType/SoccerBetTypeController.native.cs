@@ -22,18 +22,14 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = queryModel.IsBetBuilder
-                ? Mapper.Map<BetBuilderBetTypeCriteria>(queryModel)
-                : (WinLossCriteria)Mapper.Map<BetTypeCriteria>(queryModel);
+            var criteria = (WinLossCriteria)Mapper.Map<BetTypeCriteria>(queryModel);
             return Json(criteria, "Bet Type", 210);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = queryModel.IsBetBuilder
-                ? Mapper.Map<BetBuilderBetTypeCriteria>(queryModel)
-                : (WinLossCriteria)Mapper.Map<BetTypeCriteria>(queryModel);
+            var criteria = (WinLossCriteria)Mapper.Map<BetTypeCriteria>(queryModel);
             return Excel(criteria, "Bet Type", queryModel.Title);
         }
     }

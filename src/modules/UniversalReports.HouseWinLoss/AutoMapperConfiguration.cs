@@ -38,8 +38,6 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Racing.MatchDetail.QueryModel, Racing.MatchDetail.Criteria>();
             cfg.CreateMap<Soccer.BetType.ExcelQueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetType.QueryModel, Soccer.BetType.BetTypeCriteria>();
-            cfg.CreateMap<Soccer.BetType.ExcelQueryModel, Soccer.BetType.BetBuilderBetTypeCriteria>();
-            cfg.CreateMap<Soccer.BetType.QueryModel, Soccer.BetType.BetBuilderBetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.SumBetType.SumBetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.BetType.BetTypeCriteria>();
             cfg.CreateMap<Soccer.BetTypeFull.ExcelQueryModel, Soccer.GroupBetType.GroupBetTypeCriteria>();
@@ -82,6 +80,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<CashOut.MatchDetail.QueryModel, CashOut.MatchDetail.Criteria>();
             cfg.CreateMap<BetBuilder.SportType.ExcelQueryModel, BetBuilder.SportType.Criteria>();
             cfg.CreateMap<BetBuilder.SportType.QueryModel, BetBuilder.SportType.Criteria>();
+            cfg.CreateMap<BetBuilder.BetType.ExcelQueryModel, BetBuilder.BetType.BetBuilderBetTypeCriteria>();
+            cfg.CreateMap<BetBuilder.BetType.QueryModel, BetBuilder.BetType.BetBuilderBetTypeCriteria>();
         }
     }
 }

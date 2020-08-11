@@ -27,7 +27,7 @@
     <Setting Key="HouseWinLoss-MetricGaming-BetType-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_BetType_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-MetricGaming-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_MetricGaming_Site" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-BetBuilder-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_BetType" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-BetBuilder-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_BetType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-BetBuilder-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-BetBuilder-MatchDetail-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_MatchDetail" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-OtherSports-SportType-LiveStatus-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_LiveStatus" DbName="DBACC.bodb02.bodbAdminNet" />
@@ -51,7 +51,7 @@
     <Setting Key="HouseWinLoss-PokerGames-Site-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_PokerGames_Site" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="HouseWinLoss-BetBuilder-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-BetBuilder-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_SportType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="CN88WinLossByProducts">
     <Setting Key="CN88WinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88" DbName="DBACC.bodb02.bodbAdminNet" />

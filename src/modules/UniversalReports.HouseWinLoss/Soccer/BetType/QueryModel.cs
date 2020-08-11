@@ -14,7 +14,5 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetType
         public bool IsMajor { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
-
-        public bool IsBetBuilder { get; set; }
     }
 }

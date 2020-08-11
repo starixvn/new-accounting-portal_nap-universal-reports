@@ -677,8 +677,8 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "BetTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "bet-builder-bet-type", mainColumnText: "Bet Type", isBetBuilder: true },
+                serviceBaseUrl: "api/house-win-loss-by-products/bet-builder/bettype",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "bet-builder-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
