@@ -16,6 +16,7 @@ using UniversalReports.NG2Statistics;
 using UniversalReports.PlayForFun;
 using UniversalReports.PunterAnalysis;
 using UniversalReports.SBPerformance;
+using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
 
 namespace UniversalReports.Sites
@@ -44,6 +45,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeCN88WinLoss();
                 cfg.InitializeAbnormalBet();
                 cfg.InitializeSBPerformance();
+                cfg.InitializeSMAWinLoss();
             });
         }
 
@@ -65,7 +67,8 @@ namespace UniversalReports.Sites
             if (request.Url.ToString().Contains("api/application/header")
                 || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion")
                 || request.Url.ToString().Contains("state-api/application/header")
-                || request.Url.ToString().Contains("api/sb-performance/check-full-view"))
+                || request.Url.ToString().Contains("api/sb-performance/check-full-view")
+                || request.Url.ToString().Contains("api/sma-win-loss/summary"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.ReadOnly);
             }

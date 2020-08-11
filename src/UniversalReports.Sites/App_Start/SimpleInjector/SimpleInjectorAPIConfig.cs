@@ -27,7 +27,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterActualMemberBetServices()
                 .RegisterCN88WinLossServices()
                 .RegisterAbnormalBetServices()
-                .RegisterSBPerformanceServices();
+                .RegisterSBPerformanceServices()
+                .RegisterSMAWinLossServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();

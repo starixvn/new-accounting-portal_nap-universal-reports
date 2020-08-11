@@ -1,0 +1,113 @@
+<ng-template #colgroup>
+  <colgroup>
+    <col style="width: 120px" />
+    <col style="width: 80px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 120px" />
+    <col style="width: 100px" />
+  </colgroup>
+</ng-template>
+<ng-template #thead>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Currency</th>
+      <th>Data</th>
+      <th>Jan, {{year}}</th>
+      <th>Feb, {{year}}</th>
+      <th>Mar, {{year}}</th>
+      <th>Apr, {{year}}</th>
+      <th>May, {{year}}</th>
+      <th>Jun, {{year}}</th>
+      <th>Jul, {{year}}</th>
+      <th>Aug, {{year}}</th>
+      <th>Sep, {{year}}</th>
+      <th>Oct, {{year}}</th>
+      <th>Nov, {{year}}</th>
+      <th>Dec, {{year}}</th>
+      <th>Total</th>
+      <th>Virtual Rate</th>
+    </tr>
+  </thead>
+</ng-template>
+<ng-template #rowItem let-item="item">
+  <td class="text-left">{{ item.Username }}</td>
+  <td class="text-center">{{ item.Currency }}</td>
+  <td class="text-left">{{ item.Name }}</td>
+  <td *ngFor="let cellItem of item.Months" class="text-right" [ngSwitch]="isValidNumber(cellItem.Value)">
+    <div *ngSwitchCase="true" [napDecimalFormat]="cellItem.Value"></div>
+    <div *ngSwitchCase="false">&nbsp;</div>
+  </td>
+  <td *ngIf="item.VirtualRate" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">View</a></td>
+  <td *ngIf="!item.VirtualRate" class="text-center">Disabled</td>
+</ng-template>
+
+<div *ngIf="displaySummaryWinLosses" [ngSwitch]="hasData">
+  <div class="nap-grid">
+    <div style="width: 2000px;">
+      <nap-breadcrumb [items]="breadcrumbItems"></nap-breadcrumb>
+    </div>
+    <div style="width: 2000px;">
+      <div class="header">
+        <table>
+          <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+          <ng-template [ngTemplateOutlet]="thead"></ng-template>
+        </table>
+      </div>
+      <div *ngSwitchCase="true" class="body">
+        <table class="table-striped">
+          <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+          <tbody>
+            <tr *ngFor="let item of displaySummaryWinLosses">
+              <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
+              </ng-template>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngSwitchCase="false" class="body stretch">
+        <table>
+          <tbody>
+            <tr>
+              <th class="no-data" colspan="19">
+                There is no data
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngSwitchCase="true" class="footer">
+        <table>
+          <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+          <tfoot>
+            <tr *ngFor="let item of summaryWinLosses.Total; first as isFirst" class="font-weight-bold">
+              <td *ngIf="isFirst" rowspan="3" colspan="2" class="text-center">{{item.Username}}</td>
+              <td class="text-left">{{ item.Name }}</td>
+              <td *ngFor="let cellItem of item.Months" class="text-right" [ngSwitch]="isValidNumber(cellItem.Value)">
+                <div *ngSwitchCase="true" [napDecimalFormat]="cellItem.Value"></div>
+                <div *ngSwitchCase="false">&nbsp;</div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="17">
+                <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

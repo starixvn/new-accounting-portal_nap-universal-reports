@@ -165,4 +165,12 @@
   <Function Name="SBPerformance">
     <Setting Key="SBPerformanceMonitor-Dashboard-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
+  <Function Name="SMA Win Loss">
+    <Setting Key="SMAWinLoss-CurrencySel" SpName="Acc_Rpt_SMAWinlossSummary_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-Summary" SpName="Acc_Rpt_SMAWinlossSummary" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-LeagueGroupSel" SpName="Acc_Rpt_SMAWinlossSummary_LeagueGroupBySportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-SiteSel" SpName="Acc_Rpt_SMAWinlossSummary_DivisionSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-SportSel" SpName="Acc_Rpt_SMAWinlossSummary_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-VirtualRate" SpName="Acc_Rpt_SMAWinlossSummary_CustVirtualMultiplierSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>

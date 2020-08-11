@@ -1,0 +1,104 @@
+<div class="nap-filter">
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Year</label>
+        <div class="nap-control">
+          <select class="form-control" [(ngModel)]="yearSelected">
+            <option *ngFor="let item of yearOptions" [ngValue]="item">
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label class="col-form-label">Sport</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | sportTreeview:sports"
+            [config]="sportTreeviewConfig" (selectedChange)="selectedSports = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Bet Type</label>
+        <div class="nap-control">
+          <select class="form-control" [(ngModel)]="betTypeSelected">
+            <option *ngFor="let item of betTypeOptions" [ngValue]="item">
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label class="col-form-label">League Group</label>
+        <div class="nap-control width-250">
+          <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueTypeaheadQuery" [placeholder]="'All'">
+          </nap-dropdown-typeahead>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Level</label>
+        <div class="nap-control">
+          <select class="form-control" [(ngModel)]="levelSelected" (ngModelChange)='onLevelSelected($event)'>
+            <option *ngFor="let item of levelOptions" [ngValue]="item">
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label class="col-form-label">Division</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #siteDropdownTreeview [items]="sites | siteTreeview:sites"
+            [config]="siteTreeviewConfig" (selectedChange)="selectedSites = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Currency</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #currencyDropdownTreeview [items]="currencies | currencyTreeview:currencies"
+            [config]="currencyTreeviewConfig" (selectedChange)="selectedCurrencies = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label class="col-form-label">Username</label>
+        <div class="nap-control">
+          <input [attr.disabled]="!isEnableSearchExactly ? '' : null" class="form-control width-250" type="text" [(ngModel)]="username" placeholder="All">
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label for="chkDownlines" class="width-250">Search downlines</label>
+        <div class="nap-control">
+          <input [attr.disabled]="!isEnableSearchExactly ? '' : null" name="chkDownlines" type="checkbox" [(ngModel)]="isSearchDownlines" class="form-check-input">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col col-buttons">
+      <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+        GENERATE
+      </button>
+    </div>
+  </div>
+</div>
