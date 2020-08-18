@@ -19,7 +19,7 @@ namespace UniversalReports.SMAWinLoss.Summary
 
     public class WinLossServiceImp : WinLossService
     {
-        private const string SMAWinLossSessionKey = "SMAWinLossRawDataKey";
+        private const string SMAWinLossCachedKey = "SMAWinLossCachedKey";
 
         private readonly IDynamicRepository repository;
 
@@ -36,15 +36,32 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         public async Task<WinLossModel> GetSMAWinLoss(WinLossHttpParameter parameters)
         {
-            var result = new WinLossModel();
-            var pageIndex = parameters.PageIndex;
-            var pageSize = parameters.PageSize / 5;
+            var cacheKey = $"{SMAWinLossCachedKey}_{currentSession.UserId}";
+            var winlosses = await cacheService.GetAsync<WinLossModel>(cacheKey);
 
+            if (parameters.IsGenerated || winlosses == null)
+            {
+                winlosses = await GetSMAWinLossFromDatabase(parameters);
+                await cacheService.SetAsync(cacheKey, winlosses);
+            }
+
+            var pageIndex = parameters.PageIndex;
+            var pageSize = parameters.PageSize;
+
+            return new WinLossModel
+            {
+                TotalItems = winlosses.UsernameWinLosses.Count,
+                UsernameWinLosses = winlosses.UsernameWinLosses.Skip(pageIndex * pageSize).Take(pageSize).ToList(),
+                Total = winlosses.Total
+            };
+        }
+
+        private async Task<WinLossModel> GetSMAWinLossFromDatabase(WinLossHttpParameter parameters)
+        {
+            var result = new WinLossModel();
             var userNameWinLosses = new List<UsernameWinLoss>();
             var criteria = Mapper.Map<WinLossCriteria>(parameters);
-            var fullRawData = await GetSummaryRawData(criteria, parameters.IsGenerated);
-            result.TotalItems = fullRawData.Count() * 5;
-            var rawData = fullRawData.Skip(pageIndex * pageSize).Take(pageSize);
+            var rawData = await repository.FetchAsync<WinLossEntity>(criteria);
 
             var usernameGroups = rawData.GroupBy(x => new { x.CustId, x.Username, x.Currency, x.VirtualRate });
 
@@ -122,26 +139,12 @@ namespace UniversalReports.SMAWinLoss.Summary
                 userNameWinLosses.AddRange(new List<UsernameWinLoss> { usernameTurnover, usernameIncome, usernameMargin, usernameAvgPT, usernameAvgBet });
             }
 
-            var total = SumTotal(parameters.Year, fullRawData);
+            var total = SumTotal(parameters.Year, rawData);
 
             result.UsernameWinLosses = userNameWinLosses;
             result.Total = total;
 
             return result;
-        }
-
-        private async Task<IEnumerable<WinLossEntity>> GetSummaryRawData(WinLossCriteria criteria, bool isGenerated)
-        {
-            var cacheKey = $"SMAWinLossSessionKey{currentSession.UserId}";
-            var rawData = await cacheService.GetAsync<IEnumerable<WinLossEntity>>(cacheKey);
-
-            if (isGenerated || rawData == null)
-            {
-                rawData = await repository.FetchAsync<WinLossEntity>(criteria);
-                await cacheService.SetAsync(cacheKey, rawData);
-            }
-
-            return rawData;
         }
 
         private List<UsernameWinLoss> SumTotal(int year, IEnumerable<WinLossEntity> rawData)
