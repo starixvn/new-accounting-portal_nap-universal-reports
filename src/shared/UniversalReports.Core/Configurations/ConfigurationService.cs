@@ -8,6 +8,8 @@ namespace UniversalReports.Core.Configurations
         string FraudSystemApi { get; }
 
         string CurrentDirectory { get; }
+
+        string SMAWLPath { get; }
     }
 
     public class ConfigurationServiceImp : ConfigurationService
@@ -15,5 +17,7 @@ namespace UniversalReports.Core.Configurations
         public string FraudSystemApi => ConfigurationManager.AppSettings["FraudSystemAPI"];
 
         public string CurrentDirectory => AppDomain.CurrentDomain.BaseDirectory;
+
+        public string SMAWLPath => ConfigurationManager.AppSettings["SMAWLPath"];
     }
 }
