@@ -73,15 +73,15 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         public async Task QueryLeagueGroup_WithSubtituteReposity_ReturnRightLeagueGroup()
         {
             // Arrange
-            var leagueGroups = fixture.Create<IEnumerable<string>>();
+            var leagueGroups = fixture.Create<IEnumerable<LeagueGroup>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<string>(Arg.Compat.Any<LeagueGroupCriteria>()).Returns(leagueGroups);
+            repository.FetchAsync<LeagueGroup>(Arg.Compat.Any<LeagueGroupCriteria>()).Returns(leagueGroups);
 
             var service = new FilterServiceImp(repository);
 
             // Act
-            var model = await service.GetLeagueGroupBySport(new LeagueGroupHttpParameter());
+            var model = await service.GetLeagueGroup();
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(leagueGroups));

@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System;
 
 namespace UniversalReports.SMAWinLoss.Filter
 {
     public class Handler : IRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>,
         IRequestHandler<SiteHttpParameter, IEnumerable<Site>>,
         IRequestHandler<SportHttpParameter, IEnumerable<Sport>>,
-        IRequestHandler<LeagueGroupHttpParameter, IEnumerable<string>>
+        IRequestHandler<LeagueGroupHttpParameter, IEnumerable<LeagueGroup>>
     {
         private readonly FilterService service;
 
@@ -18,9 +17,9 @@ namespace UniversalReports.SMAWinLoss.Filter
             this.service = service;
         }
 
-        public async Task<IEnumerable<string>> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<LeagueGroup>> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
         {
-            return await service.GetLeagueGroupBySport(request);
+            return await service.GetLeagueGroup();
         }
 
         public async Task<IEnumerable<Sport>> Handle(SportHttpParameter request, CancellationToken cancellationToken)

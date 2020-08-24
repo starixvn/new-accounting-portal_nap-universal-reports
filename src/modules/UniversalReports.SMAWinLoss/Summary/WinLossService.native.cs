@@ -2,15 +2,11 @@
 
 using AutoMapper;
 using Fanex.Data.Repository;
-using Fanex.NAP.Core.Web.Session;
 using Linq.DynamicSum;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.SMAWinLoss.Summary
 {
@@ -21,53 +17,16 @@ namespace UniversalReports.SMAWinLoss.Summary
 
     public class WinLossServiceImp : WinLossService
     {
-        private const string SMAWinLossCachedKey = "SMAWinLossCachedKey";
-
         private readonly IDynamicRepository repository;
 
-        private readonly ICurrentSession currentSession;
-
-        private readonly ConfigurationService config;
-
-        public WinLossServiceImp(IDynamicRepository repository, ICurrentSession currentSession, ConfigurationService config)
+        public WinLossServiceImp(IDynamicRepository repository)
         {
             this.repository = repository;
-            this.currentSession = currentSession;
-            this.config = config;
         }
 
         public async Task<WinLossModel> GetSMAWinLoss(WinLossHttpParameter parameters)
         {
-            var cacheKey = $"{SMAWinLossCachedKey}_{currentSession.UserId}";
-
-            var path = config.SMAWLPath;
-            Directory.CreateDirectory(path);
-            path = $@"{path}\{cacheKey}.JSON";
-            var isExisted = File.Exists(path);
-            WinLossModel winlosses = new WinLossModel();
-            if (isExisted)
-            {
-                var text = File.ReadAllText(path);
-                winlosses = JsonConvert.DeserializeObject<WinLossModel>(text);
-            }
-
-            if (parameters.IsGenerated || !isExisted)
-            {
-                winlosses = await GetSMAWinLossFromDatabase(parameters);
-
-                var js = JsonConvert.SerializeObject(winlosses, Formatting.Indented);
-                File.WriteAllText(path, js);
-            }
-
-            var pageIndex = parameters.PageIndex;
-            var pageSize = parameters.PageSize;
-
-            return new WinLossModel
-            {
-                TotalItems = winlosses.UsernameWinLosses.Count,
-                UsernameWinLosses = winlosses.UsernameWinLosses.Skip(pageIndex * pageSize).Take(pageSize).ToList(),
-                Total = winlosses.Total
-            };
+            return await GetSMAWinLossFromDatabase(parameters);
         }
 
         private async Task<WinLossModel> GetSMAWinLossFromDatabase(WinLossHttpParameter parameters)
@@ -75,13 +34,13 @@ namespace UniversalReports.SMAWinLoss.Summary
             var result = new WinLossModel();
             var userNameWinLosses = new List<UsernameWinLoss>();
             var criteria = Mapper.Map<WinLossCriteria>(parameters);
-            var rawData = await repository.FetchAsync<WinLossEntity>(criteria);
+            var rawData = await repository.FetchMultipleAsync<WinLossEntity, WinLossEntity, int>(criteria);
 
-            var usernameGroups = rawData.GroupBy(x => new { x.CustId, x.Username, x.Currency, x.VirtualRate });
+            var usernameGroups = rawData.Item1.GroupBy(x => new { x.CustId, x.Username, x.Currency, x.VirtualRate });
 
             foreach (var group in usernameGroups)
             {
-                var usernameGroupRawData = rawData.Where(
+                var usernameGroupRawData = rawData.Item1.Where(
                     x => x.CustId == group.Key.CustId
                     && x.Username == group.Key.Username
                     && x.Currency == group.Key.Currency);
@@ -153,10 +112,11 @@ namespace UniversalReports.SMAWinLoss.Summary
                 userNameWinLosses.AddRange(new List<UsernameWinLoss> { usernameTurnover, usernameIncome, usernameMargin, usernameAvgPT, usernameAvgBet });
             }
 
-            var total = SumTotal(parameters.Year, rawData);
+            var total = SumTotal(parameters.Year, rawData.Item2);
 
             result.UsernameWinLosses = userNameWinLosses;
             result.Total = total;
+            result.TotalItems = rawData.Item3.FirstOrDefault() * 5;
 
             return result;
         }

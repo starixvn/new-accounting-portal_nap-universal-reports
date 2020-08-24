@@ -14,7 +14,7 @@ namespace UniversalReports.SMAWinLoss.Filter
 
         Task<IEnumerable<Sport>> GetSports();
 
-        Task<IEnumerable<string>> GetLeagueGroupBySport(LeagueGroupHttpParameter parameter);
+        Task<IEnumerable<LeagueGroup>> GetLeagueGroup();
     }
 
     public class FilterServiceImp : FilterService
@@ -33,10 +33,10 @@ namespace UniversalReports.SMAWinLoss.Filter
             return await repository.FetchAsync<Currency>(criteria);
         }
 
-        public async Task<IEnumerable<string>> GetLeagueGroupBySport(LeagueGroupHttpParameter parameter)
+        public async Task<IEnumerable<LeagueGroup>> GetLeagueGroup()
         {
-            var criteria = Mapper.Map<LeagueGroupCriteria>(parameter);
-            return await repository.FetchAsync<string>(criteria);
+            var criteria = new LeagueGroupCriteria();
+            return await repository.FetchAsync<LeagueGroup>(criteria);
         }
 
         public async Task<IEnumerable<Site>> GetSites()

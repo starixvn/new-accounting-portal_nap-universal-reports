@@ -69,6 +69,11 @@ export class SummaryGridComponent implements OnChanges {
     return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
   }
 
+  parseIndexToNumber(value: number) : number {
+    // tslint:disable-next-line: radix
+    return parseInt(value.toString());
+  }
+
   showVirtualRate(custId: number, username: string) {
     this.service.queryVirtualRate(custId).subscribe(data => {
       this.virtualRateTitle = `Virtual Rate Details (${username})`;
@@ -79,9 +84,8 @@ export class SummaryGridComponent implements OnChanges {
 
   private createPaging() {
     if (this.filterModel.isPageChanged) {
-      this.filterModel.isGenerated = false;
-      this.filterModel.pageIndex = this.paginationInstance.currentPage - 1;
-      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+      this.filterModel.pageIndex = this.paginationInstance.currentPage;
+      this.filterModel.pageSize = this.paginationInstance.itemsPerPage / 5;
 
       this.service.query(this.filterModel).subscribe(data => {
         this.summaryWinLosses = data;
@@ -102,16 +106,8 @@ export class SummaryGridComponent implements OnChanges {
     const isSearchDownlines = this.filterModel.isDownline;
     const username = this.filterModel.username;
     let title = '- Super Level';
-    const masterLevel = 3;
-    const agentLevel = 2;
     const notAvailableLevel = -1;
     switch (level) {
-      case masterLevel:
-        title = ' - Master Level';
-        break;
-      case agentLevel:
-        title = ' - Agent Level';
-        break;
       case notAvailableLevel:
         title = isSearchDownlines ? ` - ${username}'s downlines` : ` - ${username}`;
         break;

@@ -6,11 +6,10 @@ export interface FilterModel {
   currencies: string;
   isAppliedVR: number;
   sports: string;
-  leagueIds: string;
+  leagueGroupIds: string;
   divisions: string;
   pageSize: number;
   pageIndex: number;
-  isGenerated: boolean;
   isPageChanged: boolean;
 }
 
@@ -49,5 +48,6 @@ export interface Sport {
 }
 
 export interface LeagueGroup {
+  GroupId: string;
   GroupName: string;
 }

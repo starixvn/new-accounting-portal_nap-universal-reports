@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { LeagueGroupTreeviewPipe } from './filter/league-group-treeview.pipe';
 import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
 import { SportTreeviewPipe } from './filter/sport-treeview.pipe';
 import { SiteTreeviewPipe } from './filter/site-treeview.pipe';
@@ -34,7 +36,8 @@ import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.
     SummaryGridComponent,
     SiteTreeviewPipe,
     SportTreeviewPipe,
-    VirtualRateGridComponent
+    VirtualRateGridComponent,
+    LeagueGroupTreeviewPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.
     AuthenticationModule,
     PaginationModule.forRoot(),
     BreadcrumbModule,
-    DropdownTypeaheadModule
+    DropdownTypeaheadModule,
+    CommonModule
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },

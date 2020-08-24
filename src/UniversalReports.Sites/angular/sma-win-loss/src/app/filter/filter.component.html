@@ -37,9 +37,10 @@
     <div class="nap-col">
       <div class="nap-group">
         <label class="col-form-label">League Group</label>
-        <div class="nap-control width-250">
-          <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueTypeaheadQuery" [placeholder]="'All'">
-          </nap-dropdown-typeahead>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #leagueGroupDropdownTreeview [items]="leagueGroups | leagueGroupTreeview:leagueGroups"
+            [config]="leagueGroupTreeviewConfig" (selectedChange)="selectedleagueGroups = $event">
+          </ngx-dropdown-treeview>
         </div>
       </div>
     </div>

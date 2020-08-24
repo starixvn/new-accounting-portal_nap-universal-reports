@@ -67,10 +67,12 @@
         </table>
       </div>
       <div *ngSwitchCase="true" class="body">
-        <table class="table-striped">
+        <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tbody>
-            <tr *ngFor="let item of displaySummaryWinLosses">
+            <tr *ngFor="let item of displaySummaryWinLosses;let i = index"
+              [ngClass]="{'even-row': (parseIndexToNumber(i / 5)) % 2 == 0,
+              'odd-row': (parseIndexToNumber(i / 5)) % 2 == 1 }">
               <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
               </ng-template>
             </tr>

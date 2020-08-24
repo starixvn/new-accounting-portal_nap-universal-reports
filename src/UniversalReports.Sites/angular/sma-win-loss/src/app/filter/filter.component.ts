@@ -1,10 +1,9 @@
 import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { SelectItem, FilterModel, Currency, Sport, Site } from './filter.model';
+import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup } from './filter.model';
 import { NapDateStruct, DateHelper } from 'nap-components/date';
 import { CONFIG } from '../common/config';
 import { FilterService } from './fiter.service';
-import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
 @Component({
   selector: 'app-filter',
@@ -15,6 +14,7 @@ import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 export class FilterComponent implements OnInit {
   @ViewChild('currencyDropdownTreeview') currencyDropdownTreeview: DropdownTreeviewComponent;
   @ViewChild('siteDropdownTreeview') siteDropdownTreeview: DropdownTreeviewComponent;
+  @ViewChild('leagueGroupDropdownTreeview') leagueGroupDropdownTreeview: DropdownTreeviewComponent;
   @Output() generated = new EventEmitter<FilterModel>();
   today: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
   yearOptions: SelectItem[] = [];
@@ -35,8 +35,6 @@ export class FilterComponent implements OnInit {
   currencies: Currency[] = [];
   levelOptions: SelectItem[] = [
     new SelectItem('Super', 4),
-    new SelectItem('Master', 3),
-    new SelectItem('Agent', 2),
     new SelectItem('N/A', -1)
   ];
   levelSelected: SelectItem = null;
@@ -58,9 +56,16 @@ export class FilterComponent implements OnInit {
   selectedSites: number[] = [];
   sites: Site[] = [];
   leagueName = '';
-  leagueTypeaheadQuery = this.buildLeagueTypeaheadQuery();
-  isGenerated = false;
   isEnableSearchExactly = false;
+
+  leagueGroupTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedleagueGroups: string[] = [];
+  leagueGroups: LeagueGroup[] = [];
 
   constructor(private readonly filterService: FilterService) { }
 
@@ -69,14 +74,14 @@ export class FilterComponent implements OnInit {
     this.getCurrency();
     this.getSite();
     this.getSport();
+    this.getLeagueGroup();
     this.yearSelected = this.yearOptions[0];
     this.betTypeSelected = this.betTypeOptions[0];
     this.levelSelected = this.levelOptions[0];
   }
 
   onGenerateClick() {
-    this.isGenerated = true;
-    this.OnGenerate(this.isGenerated);
+    this.OnGenerate();
   }
 
   onLevelSelected($event) {
@@ -100,6 +105,11 @@ export class FilterComponent implements OnInit {
     this.filterService.getSite().subscribe(sites => this.sites = sites);
   }
 
+  private getLeagueGroup() {
+    this.filterService.getLeagueGroup().subscribe(leagueGroups => this.leagueGroups = leagueGroups);
+  }
+
+
 
   private getYear() {
     for (let i = 2020; i <= this.today.year; i++) {
@@ -107,18 +117,12 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  private OnGenerate(isGenerated: boolean) {
-    let leagueIds = '';
-    const sports = this.selectedSports.join(',');
-    const searchText = this.leagueName.trim();
-    this.filterService.getLeagueGroup(sports, searchText, true).subscribe(leagues => {
-      leagueIds = leagues[0] === null ? '' : leagues[0];
-      const model = this.createModel(isGenerated, leagueIds);
+  private OnGenerate() {
+      const model = this.createModel();
       this.generated.emit(model);
-    });
   }
 
-  private createModel(isGenerated: boolean, leagueIds: string): FilterModel {
+  private createModel(): FilterModel {
     const model: FilterModel = {
       year: this.yearSelected.Value,
       custLevel: this.levelSelected.Value,
@@ -126,30 +130,14 @@ export class FilterComponent implements OnInit {
       isDownline: this.isSearchDownlines,
       currencies: this.selectedCurrencies.join(','),
       isAppliedVR: this.betTypeSelected.Value,
-      pageSize: 1000,
-      pageIndex: 0,
+      pageSize: 200,
+      pageIndex: 1,
       sports: this.selectedSports.join(','),
-      leagueIds,
+      leagueGroupIds: this.selectedleagueGroups.join(','),
       divisions: this.selectedSites.join(','),
-      isGenerated,
       isPageChanged: false
     };
 
     return model;
-  }
-
-  private buildLeagueTypeaheadQuery(): TypeaheadQuery {
-    return new TypeaheadQuery(term => {
-      let searchText = term.replace(/,/g, '');
-      let words = searchText.split(' ');
-      words = words.filter(word => word.trim() !== '');
-      searchText = words.join(',');
-      const suggestResult = this.filterService.getLeagueGroup(this.selectedSports.join(','), searchText, false)
-        .map(list => {
-          return list.map(item => item);
-        });
-
-      return suggestResult;
-    });
   }
 }

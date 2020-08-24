@@ -13,11 +13,10 @@ export class QueryModelService {
       currencies: filterModel.currencies,
       isAppliedVR: filterModel.isAppliedVR === 1,
       sports: filterModel.sports,
-      leagueIds: filterModel.leagueIds,
+      leagueGroupIds: filterModel.leagueGroupIds,
       divisions: filterModel.divisions,
       pageIndex: filterModel.pageIndex,
-      pageSize: filterModel.pageSize,
-      isGenerated: filterModel.isGenerated
+      pageSize: filterModel.pageSize
     };
 
     return queryModel;
