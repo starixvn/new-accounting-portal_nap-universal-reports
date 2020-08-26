@@ -53,11 +53,19 @@
   <td *ngIf="item.VirtualRate" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">View</a></td>
   <td *ngIf="!item.VirtualRate" class="text-center">Disabled</td>
 </ng-template>
-
+<ng-template #breadcrumbToolboxTemplate>
+  <div class="breadcrumb-toolbox">
+    <div class="toolbox-item">
+      <i class="nap-icon nap-icon-breadcrumb-excel" aria-hidden="true" title="Export excel" (click)="exportExcel()"></i>
+    </div>
+  </div>
+</ng-template>
 <div *ngIf="displaySummaryWinLosses" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 2000px;">
-      <nap-breadcrumb [items]="breadcrumbItems"></nap-breadcrumb>
+    <div style="width: 2000px;" [ngSwitch]="isSuperLevel">
+      <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate">
+      </nap-breadcrumb>
+      <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
     <div style="width: 2000px;">
       <div class="header">

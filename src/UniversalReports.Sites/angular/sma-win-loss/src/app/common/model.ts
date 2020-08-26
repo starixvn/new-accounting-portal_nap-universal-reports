@@ -38,3 +38,7 @@ export interface VirtualRateModel {
   IsLive: string;
   VirtualMultiplier: number;
 }
+
+export interface ExcelQueryModel extends QueryModel {
+  title: string;
+}

@@ -27,6 +27,7 @@ export class SummaryGridComponent implements OnChanges {
   paginationInstance: PaginationInstance;
   virtualRateData: VirtualRateModel[];
   virtualRateTitle: string;
+  isSuperLevel: boolean;
   private paginatePipe: PaginatePipe;
 
   constructor(
@@ -43,6 +44,7 @@ export class SummaryGridComponent implements OnChanges {
     }
 
     this.year = this.filterModel.year;
+    this.isSuperLevel = this.filterModel.custLevel === 4;
 
     this.service.query(this.filterModel).subscribe(data => {
       this.summaryWinLosses = data;
@@ -51,6 +53,10 @@ export class SummaryGridComponent implements OnChanges {
       this.paginationInstance = this.paginationService.createPaginationInstance(this.summaryWinLosses.TotalItems);
       this.onPageChange();
     });
+  }
+
+  exportExcel() {
+    this.service.exportExcel(this.Title, this.filterModel);
   }
 
   get hasData(): boolean {

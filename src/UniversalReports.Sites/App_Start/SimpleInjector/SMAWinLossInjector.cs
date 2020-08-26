@@ -12,6 +12,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<FilterService, FilterServiceImp>();
             container.Register<WinLossService, WinLossServiceImp>();
             container.Register<VirtualRateService, VirtualRateServiceImp>();
+            container.Register<ExcelBuilder, ExcelBuilderImp>();
             return container;
         }
     }
