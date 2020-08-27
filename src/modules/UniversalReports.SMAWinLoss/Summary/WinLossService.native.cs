@@ -17,6 +17,16 @@ namespace UniversalReports.SMAWinLoss.Summary
 
     public class WinLossServiceImp : WinLossService
     {
+        private const int TurnoverIndex = 0;
+
+        private const int IncomeIndex = 1;
+
+        private const int MarginIndex = 2;
+
+        private const int AveragePTIndex = 3;
+
+        private const int AverageBetIndex = 4;
+
         private readonly IDynamicRepository repository;
 
         public WinLossServiceImp(IDynamicRepository repository)
@@ -47,69 +57,25 @@ namespace UniversalReports.SMAWinLoss.Summary
 
                 var userNameTotal = usernameGroupRawData.DynamicSum();
 
-                var usernameTurnover = new UsernameWinLoss
-                {
-                    CustId = group.Key.CustId,
-                    Username = group.Key.Username,
-                    Currency = group.Key.Currency,
-                    Name = "Real Turnover",
-                    VirtualRate = group.Key.VirtualRate,
-                    Months = InitMonthlyValue(parameters.Year)
-                };
-                var usernameIncome = new UsernameWinLoss
-                {
-                    CustId = group.Key.CustId,
-                    Username = group.Key.Username,
-                    Currency = group.Key.Currency,
-                    Name = "Real Income",
-                    VirtualRate = group.Key.VirtualRate,
-                    Months = InitMonthlyValue(parameters.Year)
-                };
-                var usernameMargin = new UsernameWinLoss
-                {
-                    CustId = group.Key.CustId,
-                    Username = group.Key.Username,
-                    Currency = group.Key.Currency,
-                    Name = "Real Margin (%)",
-                    VirtualRate = group.Key.VirtualRate,
-                    Months = InitMonthlyValue(parameters.Year)
-                };
-                var usernameAvgPT = new UsernameWinLoss
-                {
-                    CustId = group.Key.CustId,
-                    Username = group.Key.Username,
-                    Currency = group.Key.Currency,
-                    Name = "Average PT (%)",
-                    VirtualRate = group.Key.VirtualRate,
-                    Months = InitMonthlyValue(parameters.Year)
-                };
-                var usernameAvgBet = new UsernameWinLoss
-                {
-                    CustId = group.Key.CustId,
-                    Username = group.Key.Username,
-                    Currency = group.Key.Currency,
-                    Name = "Average Bet",
-                    VirtualRate = group.Key.VirtualRate,
-                    Months = InitMonthlyValue(parameters.Year)
-                };
+                var usernameData = InitUserData(group.Key.CustId, group.Key.Username, group.Key.Currency, group.Key.VirtualRate, parameters.Year);
 
                 foreach (var monthlyRawDataByUsername in usernameGroupRawData)
                 {
                     var date = $"{monthlyRawDataByUsername.RptDate:MMM, yyyy}";
-                    usernameTurnover.Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealTurnover;
-                    usernameIncome.Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealIncome;
-                    usernameMargin.Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealMargin;
-                    usernameAvgPT.Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.AvgPT;
-                    usernameAvgBet.Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.AvgBet;
+                    usernameData[TurnoverIndex].Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealTurnover;
+                    usernameData[IncomeIndex].Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealIncome;
+                    usernameData[MarginIndex].Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.RealMargin;
+                    usernameData[AveragePTIndex].Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.AvgPT;
+                    usernameData[AverageBetIndex].Months.FirstOrDefault(x => x.Month == date).Value = monthlyRawDataByUsername.AvgBet;
                 }
 
-                usernameTurnover.Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealTurnover;
-                usernameIncome.Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealIncome;
-                usernameAvgPT.Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgPT;
-                usernameMargin.Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealMargin;
-                usernameAvgBet.Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgBet;
+                usernameData[TurnoverIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealTurnover;
+                usernameData[IncomeIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealIncome;
+                usernameData[MarginIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgPT;
+                usernameData[AveragePTIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealMargin;
+                usernameData[AverageBetIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgBet;
 
-                userNameWinLosses.AddRange(new List<UsernameWinLoss> { usernameTurnover, usernameIncome, usernameMargin, usernameAvgPT, usernameAvgBet });
+                userNameWinLosses.AddRange(usernameData);
             }
 
             var total = SumTotal(parameters.Year, rawData.Item2);
@@ -119,6 +85,69 @@ namespace UniversalReports.SMAWinLoss.Summary
             result.TotalItems = rawData.Item3.FirstOrDefault() * 5;
 
             return result;
+        }
+
+        private List<UsernameWinLoss> InitUserData(
+            int custId,
+            string username,
+            string currency,
+            bool virtualRate,
+            int year)
+        {
+            var usernameTurnover = new UsernameWinLoss
+            {
+                CustId = custId,
+                Username = username,
+                Currency = currency,
+                Name = "Real Turnover",
+                VirtualRate = virtualRate,
+                Months = InitMonthlyValue(year)
+            };
+            var usernameIncome = new UsernameWinLoss
+            {
+                CustId = custId,
+                Username = username,
+                Currency = currency,
+                Name = "Real Income",
+                VirtualRate = virtualRate,
+                Months = InitMonthlyValue(year)
+            };
+            var usernameMargin = new UsernameWinLoss
+            {
+                CustId = custId,
+                Username = username,
+                Currency = currency,
+                Name = "Real Margin (%)",
+                VirtualRate = virtualRate,
+                Months = InitMonthlyValue(year)
+            };
+            var usernameAvgPT = new UsernameWinLoss
+            {
+                CustId = custId,
+                Username = username,
+                Currency = currency,
+                Name = "Average PT (%)",
+                VirtualRate = virtualRate,
+                Months = InitMonthlyValue(year)
+            };
+            var usernameAvgBet = new UsernameWinLoss
+            {
+                CustId = custId,
+                Username = username,
+                Currency = currency,
+                Name = "Average Bet",
+                VirtualRate = virtualRate,
+                Months = InitMonthlyValue(year)
+            };
+
+            return new List<UsernameWinLoss>
+            {
+                usernameTurnover,
+                usernameIncome,
+                usernameMargin,
+                usernameAvgPT,
+                usernameAvgBet
+            };
         }
 
         private List<UsernameWinLoss> SumTotal(int year, IEnumerable<WinLossEntity> rawData)

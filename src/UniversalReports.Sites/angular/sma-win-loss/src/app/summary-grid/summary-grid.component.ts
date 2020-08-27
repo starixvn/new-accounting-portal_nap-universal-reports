@@ -75,7 +75,7 @@ export class SummaryGridComponent implements OnChanges {
     return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
   }
 
-  parseIndexToNumber(value: number) : number {
+  parseIndexToNumber(value: number): number {
     // tslint:disable-next-line: radix
     return parseInt(value.toString());
   }
@@ -90,11 +90,19 @@ export class SummaryGridComponent implements OnChanges {
 
   private createPaging() {
     if (this.filterModel.isPageChanged) {
-      this.filterModel.pageIndex = this.paginationInstance.currentPage;
-      this.filterModel.pageSize = this.paginationInstance.itemsPerPage / 5;
+      const itemsPerPage = this.paginationInstance.itemsPerPage / 5;
+      const isChangePageSize = itemsPerPage !== this.filterModel.pageSize;
+
+      this.filterModel.pageIndex = isChangePageSize ? 1 : this.paginationInstance.currentPage;
+      this.filterModel.pageSize = itemsPerPage;
 
       this.service.query(this.filterModel).subscribe(data => {
         this.summaryWinLosses = data;
+
+        if (isChangePageSize) {
+          this.paginationInstance.currentPage = 1;
+        }
+
         this.createPagingTransform();
       });
     }
