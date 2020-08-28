@@ -33,3 +33,16 @@
 .odd-row {
   background-color: #e4f2fd;
 }
+:host /deep/ .footer {
+  .paging nav {
+    > span {
+      font-weight: bold !important;
+    }
+    .d-inline-block {
+      margin: 0 5px;
+    }
+    .page-item.active .page-link {
+      font-weight: bold;
+    }
+  }
+}

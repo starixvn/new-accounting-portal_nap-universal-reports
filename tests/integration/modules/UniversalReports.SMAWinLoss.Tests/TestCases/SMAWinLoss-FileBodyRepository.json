@@ -1,0 +1,26 @@
+﻿[
+  {
+    "RptDate": "Jan, 2020",
+    "CustId": 1,
+    "Username": "Username 1",
+    "VirtualRate": true,
+    "Currency": "US$",
+    "BetCount": 2,
+    "RealTurnover": 20,
+    "RealIncome": 10,
+    "LevelTurnover": 10,
+    "MemberTurnover": 10
+  },
+  {
+    "RptDate": "May, 2020",
+    "CustId": 1,
+    "Username": "Username 1",
+    "VirtualRate": true,
+    "Currency": "US$",
+    "BetCount": 2,
+    "RealTurnover": 20,
+    "RealIncome": 10,
+    "LevelTurnover": 10,
+    "MemberTurnover": 10
+  }
+]

@@ -131,6 +131,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Summary\HandlerTests.cs" />
     <Compile Include="Summary\SMAWinLossControllerTests.cs" />
+    <Compile Include="Summary\WinLossServiceTests.cs" />
+    <Compile Include="TestDataLoader.cs" />
     <Compile Include="VirtualRate\VirtualRateServiceTests.cs" />
     <Compile Include="VirtualRate\HandlerTests.cs" />
     <Compile Include="VirtualRate\SMAWinLossVirtualRateControllerTests.cs" />
@@ -141,6 +143,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestCases\SMAWinLoss-Summary-expected.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.SMAWinLoss\UniversalReports.SMAWinLoss.csproj">
@@ -148,6 +153,7 @@
       <Name>UniversalReports.SMAWinLoss</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
