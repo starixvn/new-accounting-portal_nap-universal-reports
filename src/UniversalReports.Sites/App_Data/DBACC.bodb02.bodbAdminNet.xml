@@ -52,6 +52,8 @@
     <Setting Key="HouseWinLoss-Soccer-Minor-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Soccer-Minor-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="HouseWinLoss-BetBuilder-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_BetBuilder_SportType" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-NonSportsRNG-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NonSportsRNG_SportType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="HouseWinLoss-NonSportsRNG-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_NonSportsRNG_BetType_xtest" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="CN88WinLossByProducts">
     <Setting Key="CN88WinLoss-Products-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88" DbName="DBACC.bodb02.bodbAdminNet" />
