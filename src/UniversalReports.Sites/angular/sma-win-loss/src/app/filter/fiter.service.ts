@@ -30,4 +30,9 @@ export class FilterService {
     const url = `${this.url}/league-group`;
     return this.httpService.post<LeagueGroup[]>(url);
   }
+
+  checkDatabaseAvailable(): Observable<boolean> {
+    const url = `${this.url}/available-database`;
+    return this.httpService.post<boolean>(url);
+}
 }

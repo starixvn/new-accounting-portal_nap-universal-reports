@@ -4,6 +4,7 @@ import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup } from './f
 import { NapDateStruct, DateHelper } from 'nap-components/date';
 import { CONFIG } from '../common/config';
 import { FilterService } from './fiter.service';
+import { ToastService } from 'nap-components/toast';
 
 @Component({
   selector: 'app-filter',
@@ -67,7 +68,7 @@ export class FilterComponent implements OnInit {
   selectedleagueGroups: string[] = [];
   leagueGroups: LeagueGroup[] = [];
 
-  constructor(private readonly filterService: FilterService) { }
+  constructor(private readonly filterService: FilterService, private readonly toastService: ToastService) { }
 
   ngOnInit() {
     this.getYear();
@@ -112,14 +113,25 @@ export class FilterComponent implements OnInit {
 
 
   private getYear() {
-    for (let i = 2020; i <= this.today.year; i++) {
+    for (let i = 2019; i <= this.today.year; i++) {
       this.yearOptions.push(new SelectItem(i.toString(), i));
     }
   }
 
   private OnGenerate() {
-      const model = this.createModel();
-      this.generated.emit(model);
+    const model = this.createModel();
+
+    if(!this.isValid) {
+      return;
+    }
+
+    this.filterService.checkDatabaseAvailable().subscribe(isAvailable => {
+      if (isAvailable) {
+        this.generated.emit(model);
+      } else {
+        this.toastService.activate('Data is being processed.... Please try again after 10 minutes!');
+      }
+    });
   }
 
   private createModel(): FilterModel {
@@ -139,5 +151,29 @@ export class FilterComponent implements OnInit {
     };
 
     return model;
+  }
+
+  private get isValid(): boolean {
+    if (this.selectedSports.length === 0) {
+      this.toastService.activate(`Please select at least one sport!`);
+      return false;
+    }
+
+    if (this.selectedCurrencies.length === 0) {
+      this.toastService.activate(`Please select at least one currency!`);
+      return false;
+    }
+
+    if (this.selectedleagueGroups.length === 0) {
+      this.toastService.activate(`Please select at least one league group!`);
+      return false;
+    }
+
+    if (this.selectedSites.length === 0) {
+      this.toastService.activate(`Please select at least one division!`);
+      return false;
+    }
+
+    return true;
   }
 }

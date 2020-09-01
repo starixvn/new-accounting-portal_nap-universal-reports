@@ -8,7 +8,8 @@ namespace UniversalReports.SMAWinLoss.Filter
     public class Handler : IRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>,
         IRequestHandler<SiteHttpParameter, IEnumerable<Site>>,
         IRequestHandler<SportHttpParameter, IEnumerable<Sport>>,
-        IRequestHandler<LeagueGroupHttpParameter, IEnumerable<LeagueGroup>>
+        IRequestHandler<LeagueGroupHttpParameter, IEnumerable<LeagueGroup>>,
+        IRequestHandler<AvailableDatabaseHttpParameter, bool>
     {
         private readonly FilterService service;
 
@@ -35,6 +36,11 @@ namespace UniversalReports.SMAWinLoss.Filter
         public async Task<IEnumerable<Currency>> Handle(CurrencyHttpParameter request, CancellationToken cancellationToken)
         {
             return await service.GetCurrencies();
+        }
+
+        public async Task<bool> Handle(AvailableDatabaseHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await service.GetAvailableDatabase();
         }
     }
 }

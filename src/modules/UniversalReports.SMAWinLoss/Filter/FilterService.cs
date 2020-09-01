@@ -15,6 +15,8 @@ namespace UniversalReports.SMAWinLoss.Filter
         Task<IEnumerable<Sport>> GetSports();
 
         Task<IEnumerable<LeagueGroup>> GetLeagueGroup();
+
+        Task<bool> GetAvailableDatabase();
     }
 
     public class FilterServiceImp : FilterService
@@ -25,6 +27,12 @@ namespace UniversalReports.SMAWinLoss.Filter
         public FilterServiceImp(IDynamicRepository repository)
         {
             this.repository = repository;
+        }
+
+        public async Task<bool> GetAvailableDatabase()
+        {
+            var criteria = new AvailableDatabaseCriteria();
+            return await repository.GetAsync<bool>(criteria);
         }
 
         public async Task<IEnumerable<Currency>> GetCurrencies()

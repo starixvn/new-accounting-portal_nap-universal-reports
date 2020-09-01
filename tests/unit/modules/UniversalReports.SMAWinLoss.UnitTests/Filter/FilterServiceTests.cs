@@ -86,5 +86,23 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             // Assert
             Assert.That(model, IsDeeplyEqual.To(leagueGroups));
         }
+
+        [Test]
+        public async Task QueryAvailableDatabase_WithSubtituteReposity_ReturnRightSite()
+        {
+            // Arrange
+            var availableDatabase = fixture.Create<bool>();
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.GetAsync<bool>(Arg.Compat.Any<AvailableDatabaseCriteria>()).Returns(availableDatabase);
+
+            var service = new FilterServiceImp(repository);
+
+            // Act
+            var model = await service.GetAvailableDatabase();
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(availableDatabase));
+        }
     }
 }

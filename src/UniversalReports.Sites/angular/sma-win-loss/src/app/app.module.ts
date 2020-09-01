@@ -27,6 +27,7 @@ import { SummaryGridComponent } from './summary-grid/summary-grid.component';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.component';
+import { ToastModule } from 'nap-components/toast';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.
     PaginationModule.forRoot(),
     BreadcrumbModule,
     DropdownTypeaheadModule,
-    CommonModule
+    CommonModule,
+    ToastModule
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },
