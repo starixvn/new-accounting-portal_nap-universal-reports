@@ -94,6 +94,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss.UnitTests", "tests\unit\modules\UniversalReports.SMAWinLoss.UnitTests\UniversalReports.SMAWinLoss.UnitTests.csproj", "{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss.Tests", "tests\integration\modules\UniversalReports.SMAWinLoss.Tests\UniversalReports.SMAWinLoss.Tests.csproj", "{DB724C65-7DD1-4394-BA2B-2240F73E83A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -220,6 +222,10 @@ Global
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -263,9 +269,10 @@ Global
 		{1157658A-8D2F-4698-95E4-AC0F0D17C8F0} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 		{B949C4EB-81BF-4971-9CDA-350394BDE2C6} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
+		{DB724C65-7DD1-4394-BA2B-2240F73E83A7} = {F73C2584-286D-49E1-9DE1-768A517F5719}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

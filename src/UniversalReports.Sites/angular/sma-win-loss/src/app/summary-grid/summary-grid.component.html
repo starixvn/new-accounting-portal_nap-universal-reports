@@ -53,11 +53,19 @@
   <td *ngIf="item.VirtualRate" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">View</a></td>
   <td *ngIf="!item.VirtualRate" class="text-center">Disabled</td>
 </ng-template>
-
+<ng-template #breadcrumbToolboxTemplate>
+  <div class="breadcrumb-toolbox">
+    <div class="toolbox-item">
+      <i class="nap-icon nap-icon-breadcrumb-excel" aria-hidden="true" title="Export excel" (click)="exportExcel()"></i>
+    </div>
+  </div>
+</ng-template>
 <div *ngIf="displaySummaryWinLosses" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 2000px;">
-      <nap-breadcrumb [items]="breadcrumbItems"></nap-breadcrumb>
+    <div style="width: 2000px;" [ngSwitch]="isSuperLevel">
+      <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate">
+      </nap-breadcrumb>
+      <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
     <div style="width: 2000px;">
       <div class="header">
@@ -67,10 +75,12 @@
         </table>
       </div>
       <div *ngSwitchCase="true" class="body">
-        <table class="table-striped">
+        <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tbody>
-            <tr *ngFor="let item of displaySummaryWinLosses">
+            <tr *ngFor="let item of displaySummaryWinLosses;let i = index"
+              [ngClass]="{'even-row': (parseIndexToNumber(i / 5)) % 2 == 0,
+              'odd-row': (parseIndexToNumber(i / 5)) % 2 == 1 }">
               <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
               </ng-template>
             </tr>
@@ -81,7 +91,7 @@
         <table>
           <tbody>
             <tr>
-              <th class="no-data" colspan="19">
+              <th class="no-data" colspan="17">
                 There is no data
               </th>
             </tr>
@@ -101,7 +111,7 @@
               </td>
             </tr>
             <tr>
-              <td colspan="17">
+              <td class="paging" colspan="17">
                 <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
               </td>
             </tr>

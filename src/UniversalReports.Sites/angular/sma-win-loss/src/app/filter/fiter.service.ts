@@ -26,12 +26,13 @@ export class FilterService {
     return this.httpService.post<Sport[]>(url);
   }
 
-  getLeagueGroup(sports: string, searchText: string, searchExactly: boolean): Observable<string[]> {
+  getLeagueGroup(): Observable<LeagueGroup[]> {
     const url = `${this.url}/league-group`;
-    return this.httpService.post<string[]>(url, {
-      sports,
-      searchText,
-      searchExactly
-    });
+    return this.httpService.post<LeagueGroup[]>(url);
   }
+
+  checkDatabaseAvailable(): Observable<boolean> {
+    const url = `${this.url}/available-database`;
+    return this.httpService.post<boolean>(url);
+}
 }

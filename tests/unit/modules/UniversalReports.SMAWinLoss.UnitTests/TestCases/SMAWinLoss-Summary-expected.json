@@ -1,0 +1,495 @@
+﻿{
+  "UsernameWinLosses": [
+    {
+      "CustId": 1,
+      "Username": "Username 1",
+      "Currency": "US$",
+      "Name": "Real Turnover",
+      "VirtualRate": true,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 20.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 20.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 40.0
+        }
+      ]
+    },
+    {
+      "CustId": 1,
+      "Username": "Username 1",
+      "Currency": "US$",
+      "Name": "Real Income",
+      "VirtualRate": true,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 10.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 10.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 20.0
+        }
+      ]
+    },
+    {
+      "CustId": 1,
+      "Username": "Username 1",
+      "Currency": "US$",
+      "Name": "Real Margin (%)",
+      "VirtualRate": true,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 50.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 50.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 100.0
+        }
+      ]
+    },
+    {
+      "CustId": 1,
+      "Username": "Username 1",
+      "Currency": "US$",
+      "Name": "Average PT (%)",
+      "VirtualRate": true,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 100.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 100.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 50.0
+        }
+      ]
+    },
+    {
+      "CustId": 1,
+      "Username": "Username 1",
+      "Currency": "US$",
+      "Name": "Average Bet",
+      "VirtualRate": true,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 5.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 5.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 5.0
+        }
+      ]
+    }
+  ],
+  "Total": [
+    {
+      "CustId": 0,
+      "Username": "Total",
+      "Currency": null,
+      "Name": "Real Turnover",
+      "VirtualRate": false,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 20.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 20.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 40.0
+        }
+      ]
+    },
+    {
+      "CustId": 0,
+      "Username": "Total",
+      "Currency": null,
+      "Name": "Real Income",
+      "VirtualRate": false,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 10.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 10.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 20.0
+        }
+      ]
+    },
+    {
+      "CustId": 0,
+      "Username": "Total",
+      "Currency": null,
+      "Name": "Real Margin (%)",
+      "VirtualRate": false,
+      "Months": [
+        {
+          "Month": "Jan, 2020",
+          "Value": 50.0
+        },
+        {
+          "Month": "Feb, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Mar, 2020",
+          "Value": 50.0
+        },
+        {
+          "Month": "Apr, 2020",
+          "Value": null
+        },
+        {
+          "Month": "May, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jun, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Jul, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Aug, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Sep, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Oct, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Nov, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Dec, 2020",
+          "Value": null
+        },
+        {
+          "Month": "Total",
+          "Value": 50.0
+        }
+      ]
+    }
+  ],
+  "TotalItems": 5
+}

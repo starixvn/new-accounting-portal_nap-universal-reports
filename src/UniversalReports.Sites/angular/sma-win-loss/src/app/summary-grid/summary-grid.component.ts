@@ -27,6 +27,7 @@ export class SummaryGridComponent implements OnChanges {
   paginationInstance: PaginationInstance;
   virtualRateData: VirtualRateModel[];
   virtualRateTitle: string;
+  isSuperLevel: boolean;
   private paginatePipe: PaginatePipe;
 
   constructor(
@@ -43,6 +44,7 @@ export class SummaryGridComponent implements OnChanges {
     }
 
     this.year = this.filterModel.year;
+    this.isSuperLevel = this.filterModel.custLevel === 4;
 
     this.service.query(this.filterModel).subscribe(data => {
       this.summaryWinLosses = data;
@@ -51,6 +53,10 @@ export class SummaryGridComponent implements OnChanges {
       this.paginationInstance = this.paginationService.createPaginationInstance(this.summaryWinLosses.TotalItems);
       this.onPageChange();
     });
+  }
+
+  exportExcel() {
+    this.service.exportExcel(this.Title, this.filterModel);
   }
 
   get hasData(): boolean {
@@ -69,6 +75,11 @@ export class SummaryGridComponent implements OnChanges {
     return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
   }
 
+  parseIndexToNumber(value: number): number {
+    // tslint:disable-next-line: radix
+    return parseInt(value.toString());
+  }
+
   showVirtualRate(custId: number, username: string) {
     this.service.queryVirtualRate(custId).subscribe(data => {
       this.virtualRateTitle = `Virtual Rate Details (${username})`;
@@ -79,12 +90,19 @@ export class SummaryGridComponent implements OnChanges {
 
   private createPaging() {
     if (this.filterModel.isPageChanged) {
-      this.filterModel.isGenerated = false;
-      this.filterModel.pageIndex = this.paginationInstance.currentPage - 1;
-      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+      const itemsPerPage = this.paginationInstance.itemsPerPage / 5;
+      const isChangePageSize = itemsPerPage !== this.filterModel.pageSize;
+
+      this.filterModel.pageIndex = isChangePageSize ? 1 : this.paginationInstance.currentPage;
+      this.filterModel.pageSize = itemsPerPage;
 
       this.service.query(this.filterModel).subscribe(data => {
         this.summaryWinLosses = data;
+
+        if (isChangePageSize) {
+          this.paginationInstance.currentPage = 1;
+        }
+
         this.createPagingTransform();
       });
     }
@@ -102,16 +120,8 @@ export class SummaryGridComponent implements OnChanges {
     const isSearchDownlines = this.filterModel.isDownline;
     const username = this.filterModel.username;
     let title = '- Super Level';
-    const masterLevel = 3;
-    const agentLevel = 2;
     const notAvailableLevel = -1;
     switch (level) {
-      case masterLevel:
-        title = ' - Master Level';
-        break;
-      case agentLevel:
-        title = ' - Agent Level';
-        break;
       case notAvailableLevel:
         title = isSearchDownlines ? ` - ${username}'s downlines` : ` - ${username}`;
         break;

@@ -10,6 +10,7 @@ namespace UniversalReports.SMAWinLoss
         {
             cfg.CreateMap<WinLossHttpParameter, WinLossCriteria>();
             cfg.CreateMap<VirtualRateHttpParameter, VirtualRateCriteria>();
+            cfg.CreateMap<WinLossHttpParameterExcel, WinLossHttpParameter>();
         }
     }
 }

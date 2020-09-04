@@ -308,6 +308,27 @@
             }
         }
 
+		public string CouchbaseUrl
+		{
+			get
+            {
+				switch(Environment)
+                {
+					case SiteEnvironment.LOCAL:
+					case SiteEnvironment.DEV:
+                        return "http://10.18.200.103:8091/pools/default";
+                    case SiteEnvironment.PRO:
+					case SiteEnvironment.SIT:
+					case SiteEnvironment.UAT:
+                        return "http://10.40.40.22:8091/pools/default";
+                    case SiteEnvironment.MNL:
+                        return "http://10.2.98.3:8091/pools/default";
+					default:
+                        return string.Empty;
+                }
+            }
+        }
+
         #endregion End for Webconfig file
     }
 #>

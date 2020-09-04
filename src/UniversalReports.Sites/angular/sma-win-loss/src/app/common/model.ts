@@ -6,11 +6,10 @@ export interface QueryModel {
   currencies: string;
   isAppliedVR: boolean;
   sports: string;
-  leagueIds: string;
+  leagueGroupIds: string;
   divisions: string;
   pageSize: number;
   pageIndex: number;
-  isGenerated: boolean;
 }
 
 export interface MonthModel {
@@ -38,4 +37,8 @@ export interface VirtualRateModel {
   Bettype: string;
   IsLive: string;
   VirtualMultiplier: number;
+}
+
+export interface ExcelQueryModel extends QueryModel {
+  title: string;
 }

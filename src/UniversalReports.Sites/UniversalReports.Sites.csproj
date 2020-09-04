@@ -873,6 +873,9 @@
     <Content Include="ExcelTemplate\PunterAnalysis\GameBettype.xlsx" />
     <Content Include="ExcelTemplate\AbNormalBet\Licensee.xlsx" />
     <Content Include="ExcelTemplate\AbNormalBet\Member.xlsx" />
+    <Content Include="ExcelTemplate\SMAWinLoss\Summary.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

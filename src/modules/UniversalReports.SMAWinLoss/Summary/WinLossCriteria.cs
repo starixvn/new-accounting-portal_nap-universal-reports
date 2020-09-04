@@ -18,9 +18,13 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         public string Sports { get; set; }
 
-        public string LeagueIDs { get; set; }
+        public string LeagueGroupIDs { get; set; }
 
         public string Divisions { get; set; }
+
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; set; }
 
         public override string GetSettingKey() => $"SMAWinLoss-Summary";
 

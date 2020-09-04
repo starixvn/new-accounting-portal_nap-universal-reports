@@ -25,6 +25,7 @@
 		<section name="Fanex.Caching" type="Fanex.Caching.Configuration.CacheSettings, Fanex.Caching" />
 		<section name="Fanex.Logging" type="Fanex.Logging.Configuration.LoggingSettings, Fanex.Logging" />
         <section name="ONEbook.UM" type="ONEbook.UM.Configurations.UMClientConfiguration, ONEbook.UM" />
+		<section name="couchbase" type="Couchbase.Configuration.CouchbaseClientSection, Couchbase" />
 	</configSections>
 	<NapSettings
 		Environment="<#= site.NapEnvironment #>"
@@ -53,7 +54,11 @@
 			<add name="ExpirationScanFrequency" value="1" />
 		</connectionSettings>
 	</Fanex.Caching>
-
+	<couchbase>
+		<servers bucket="Nap-Report" bucketPassword="">
+		  <add uri="<#=site.CouchbaseUrl#>" /> 
+		</servers>
+	</couchbase>
 	<connectionStrings configSource="App_Configuration\Web.ConnectionString.<#=site.Environment#>.config"/>
 	<appSettings file="App_Configuration\Web.AppSettings.<#=site.Environment#>.config">
 		<add key="webpages:Version" value="2.0.0.0" />
