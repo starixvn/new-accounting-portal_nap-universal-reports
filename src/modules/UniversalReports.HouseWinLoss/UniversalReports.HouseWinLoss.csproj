@@ -227,6 +227,7 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.native.cs" />
+    <Compile Include="SimpleGrid\SimpleCriteria\NonSportsRNGBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\NumberGameLeagueCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\NumberGameBetTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\NumberGameSiteCriteria.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Parlay\BetType\ExcelQueryModel.cs" />
     <Compile Include="Parlay\BetType\ParlayBetTypeController.cs" />
     <Compile Include="Parlay\BetType\QueryModel.cs" />
+    <Compile Include="SimpleGrid\SimpleCriteria\NonSportsRNGSportTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleSiteGridController.cs" />
     <Compile Include="Configuration\Constants.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
