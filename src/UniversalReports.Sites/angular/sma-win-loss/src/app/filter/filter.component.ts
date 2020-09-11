@@ -113,7 +113,7 @@ export class FilterComponent implements OnInit {
 
 
   private getYear() {
-    for (let i = 2019; i <= this.today.year; i++) {
+    for (let i = this.today.year; i > 2018; i--) {
       this.yearOptions.push(new SelectItem(i.toString(), i));
     }
   }
@@ -121,7 +121,7 @@ export class FilterComponent implements OnInit {
   private OnGenerate() {
     const model = this.createModel();
 
-    if(!this.isValid) {
+    if (!this.isValid) {
       return;
     }
 
