@@ -88,5 +88,41 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
             // Assert
             Assert.That(model, IsDeeplyEqual.To(bettypes));
         }
+
+        [Test]
+        public async Task Handle_WithAnyMessage_ReturnRightCurrencies()
+        {
+            // Arrange
+            var currencies = fixture.Create<IEnumerable<FilterItemModel>>();
+
+            var service = Substitute.For<FilterService>();
+            service.QueryCurrency().Returns(currencies);
+
+            var handler = new FilterHandler(service);
+
+            // Act
+            var model = await handler.Handle(new CurrencyHttpParameter(), new CancellationToken());
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(currencies));
+        }
+
+        [Test]
+        public async Task Handle_WithAnyMessage_ReturnRightLeague()
+        {
+            // Arrange
+            var leagues = fixture.Create<IEnumerable<FilterItemModel>>();
+
+            var service = Substitute.For<FilterService>();
+            service.QueryLeague(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(leagues);
+
+            var handler = new FilterHandler(service);
+
+            // Act
+            var model = await handler.Handle(new LeagueHttpParameter(), new CancellationToken());
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(leagues));
+        }
     }
 }

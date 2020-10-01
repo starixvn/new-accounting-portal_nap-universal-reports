@@ -88,7 +88,9 @@
     <Compile Include="AbnormalBetAttribute.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Criteria\BetTypeQueryCriteria.cs" />
+    <Compile Include="Criteria\CurrencyQueryCriteria.cs" />
     <Compile Include="Criteria\GetIPInfoCriteria.cs" />
+    <Compile Include="Criteria\LeagueQueryCriteria.cs" />
     <Compile Include="Criteria\SiteQueryCriteria.cs" />
     <Compile Include="Criteria\LicenseeQueryCriteria.cs" />
     <Compile Include="Criteria\MemberQueryCriteria.cs" />
@@ -97,7 +99,9 @@
     <Compile Include="Filter\AbnormalBetFilterController.cs" />
     <Compile Include="Filter\FilterHandler.cs" />
     <Compile Include="Filter\FilterService.cs" />
+    <Compile Include="HttpParameter\LeagueHttpParameter.cs" />
     <Compile Include="HttpParameter\BetTypeHttpParameter.cs" />
+    <Compile Include="HttpParameter\CurrencyHttpParameter.cs" />
     <Compile Include="HttpParameter\LicenseeHttpParameter.cs" />
     <Compile Include="HttpParameter\LicenseeHttpParameterExcel.cs" />
     <Compile Include="HttpParameter\MemberHttpParameter.cs" />
@@ -109,11 +113,13 @@
     <Compile Include="Model\BetTypeModel.cs" />
     <Compile Include="Model\FilterItemModel.cs" />
     <Compile Include="Model\LicenseeExcelModel.cs" />
+    <Compile Include="Model\LicenseeModel.cs" />
     <Compile Include="Model\LocationModel.cs" />
     <Compile Include="Model\MemberExcelModel.cs" />
-    <Compile Include="Model\SiteModel.cs" />
-    <Compile Include="Model\LicenseeModel.cs" />
     <Compile Include="Model\MemberModel.cs" />
+    <Compile Include="Model\SiteModel.cs" />
+    <Compile Include="Model\LicenseeItemModel.cs" />
+    <Compile Include="Model\MemberItemModel.cs" />
     <Compile Include="Model\ReasonModel.cs" />
     <Compile Include="Model\SportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

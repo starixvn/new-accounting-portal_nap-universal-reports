@@ -10,9 +10,9 @@ namespace UniversalReports.AbnormalBet.Report
 {
     public interface ReportService
     {
-        Task<IEnumerable<MemberModel>> QueryMember(MemberQueryCriteria criteria);
+        Task<MemberModel> QueryMember(MemberQueryCriteria criteria);
 
-        Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeQueryCriteria criteria);
+        Task<LicenseeModel> QueryLicensee(LicenseeQueryCriteria criteria);
     }
 
     public class ReportServiceImp : ReportService
@@ -34,21 +34,31 @@ namespace UniversalReports.AbnormalBet.Report
             return await repository.GetAsync<LocationModel>(criteria);
         }
 
-        public async Task<IEnumerable<LicenseeModel>> QueryLicensee(LicenseeQueryCriteria criteria)
+        public async Task<LicenseeModel> QueryLicensee(LicenseeQueryCriteria criteria)
         {
-            return await repository.FetchAsync<LicenseeModel>(criteria);
+            var rawData = await repository.FetchMultipleAsync<LicenseeItemModel, int>(criteria);
+
+            return new LicenseeModel
+            {
+                Licensees = rawData.Item1,
+                TotalItems = rawData.Item2.FirstOrDefault()
+            };
         }
 
-        public async Task<IEnumerable<MemberModel>> QueryMember(MemberQueryCriteria criteria)
+        public async Task<MemberModel> QueryMember(MemberQueryCriteria criteria)
         {
-            var members = await repository.FetchAsync<MemberModel>(criteria);
+            var rawData = await repository.FetchMultipleAsync<MemberItemModel, int>(criteria);
 
-            foreach (var item in members)
+            foreach (var item in rawData.Item1)
             {
                 item.Location = await GetLocationFromIp(item.IP);
             }
 
-            return members;
+            return new MemberModel
+            {
+                Members = rawData.Item1,
+                TotalItems = rawData.Item2.FirstOrDefault()
+            };
         }
 
         private async Task<string> GetLocationFromIp(string ip)
@@ -71,7 +81,6 @@ namespace UniversalReports.AbnormalBet.Report
                 };
 
                 locations.Add(string.Join(", ", list.Where(s => s.Length > 2)));
-
             }
 
             return string.Join("; ", locations);

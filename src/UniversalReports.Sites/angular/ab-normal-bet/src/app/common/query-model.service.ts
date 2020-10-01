@@ -14,7 +14,11 @@ export class QueryModelService {
             sport: filterModel.sport.join(','),
             reason: filterModel.reason.join(','),
             isTest: filterModel.isTest,
-            member: filterModel.member
+            member: filterModel.member,
+            leagueId: filterModel.leagueId,
+            pageSize: filterModel.pageSize,
+            pageIndex: filterModel.pageIndex,
+            currencyId: filterModel.currencyId
         };
 
         return queryModel;

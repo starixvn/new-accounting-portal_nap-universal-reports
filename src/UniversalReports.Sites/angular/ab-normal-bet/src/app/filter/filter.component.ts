@@ -6,6 +6,8 @@ import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
 import * as moment from 'moment';
 import { ToastService } from 'nap-components/toast';
+import { PeriodTypeEventModel } from './period-type/period-type.model';
+import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
 @Component({
   selector: 'app-filter',
@@ -53,11 +55,19 @@ export class FilterComponent implements OnInit {
   isExcludeTest = true;
   memberStr = '';
   showLicenseeControl = this.memberStr === '';
-  minStartDate: NapDateStruct = { year: 2017, month: 1, day: 1 };
+  minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday.add(-2, 'year'));
   maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
+
   sportIds = '0';
+  periodTypeEventModel: PeriodTypeEventModel;
+  currencies: FilterItemModel[] = [];
+  selectedCurrency: FilterItemModel;
+  leagueId: string;
+  leagueName = '';
+  leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
+  leagueNamePlaceholder = 'League name';
 
   constructor(
     private readonly filterSerivce: FilterService,
@@ -68,16 +78,17 @@ export class FilterComponent implements OnInit {
       this.reasons = reasons;
     });
 
-    // this.filterSerivce.getBetType(this.sportIds).subscribe(betTypes => {
-    //   this.betTypes = betTypes;
-    // });
-
     this.filterSerivce.getSite().subscribe(sites => {
       this.sites = sites;
     });
 
     this.filterSerivce.getSport().subscribe(sports => {
       this.sports = sports;
+    });
+
+    this.filterSerivce.getCurrency().subscribe(currencies => {
+      this.currencies = currencies;
+      this.selectedCurrency = currencies[0];
     });
   }
 
@@ -86,48 +97,11 @@ export class FilterComponent implements OnInit {
       return;
     }
 
-    const model = this.createModel();
-    this.generated.emit(model);
+    this.checkLeagueAndGenerate();
   }
 
-  onDateChangeFrom() {
-    let startDate: moment.Moment;
-    let endDate: moment.Moment;
-    let tempStartDate: moment.Moment;
-    let tempEndDate: moment.Moment;
-
-    startDate = DateHelper.convertDateStructToMoment(this.startDate);
-    endDate = DateHelper.convertDateStructToMoment(this.endDate);
-    tempStartDate = moment.utc(startDate);
-    tempEndDate = moment.utc(endDate);
-    const maxEndDate = startDate.add(1, 'year');
-
-    if (maxEndDate.isBefore(endDate)) {
-      tempEndDate = moment.utc(maxEndDate);
-    }
-
-    this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
-    this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
-  }
-
-  onDateChangeTo() {
-    let startDate: moment.Moment;
-    let endDate: moment.Moment;
-    let tempStartDate: moment.Moment;
-    let tempEndDate: moment.Moment;
-
-    startDate = DateHelper.convertDateStructToMoment(this.startDate);
-    endDate = DateHelper.convertDateStructToMoment(this.endDate);
-    tempStartDate = moment.utc(startDate);
-    tempEndDate = moment.utc(endDate);
-    const minStartDate = endDate.subtract(1, 'year');
-
-    if (minStartDate.isAfter(startDate)) {
-      tempStartDate = moment.utc(minStartDate);
-    }
-
-    this.startDate = DateHelper.convertMomentToDateStruct(tempStartDate);
-    this.endDate = DateHelper.convertMomentToDateStruct(tempEndDate);
+  onPeriodTypeChange(model: PeriodTypeEventModel) {
+    this.periodTypeEventModel = model;
   }
 
   onMemberChange(memberValue: string) {
@@ -145,8 +119,8 @@ export class FilterComponent implements OnInit {
   }
 
   private createModel(): FilterModel {
-    const fromDate = DateHelper.convertDateStructToMoment(this.startDate);
-    const toDate = DateHelper.convertDateStructToMoment(this.endDate);
+    const fromDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.fromDate);
+    const toDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.toDate);
 
     const model: FilterModel = {
       fromDate: DateHelper.formatMomentDate(fromDate, DateFormat.Date),
@@ -156,16 +130,24 @@ export class FilterComponent implements OnInit {
       reason: this.reasons.length === this.selectedReasons.length ? [0] : this.selectedReasons,
       licensee: this.sites.length === this.selectedSites.length ? [-1] : this.selectedSites,
       isTest: this.isExcludeTest,
-      member: this.memberStr
+      member: this.memberStr,
+      leagueId: this.leagueId,
+      pageIndex: 0,
+      pageSize: 100,
+      isPageChanged: false,
+      currencyId: this.selectedCurrency.Id.toString()
     };
 
     return model;
   }
 
   private get isValid(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(4, 'month');
-    if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-      this.toastService.activate(`Date range should not exceed 4 months!`);
+    const fromDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.fromDate);
+    const toDate = DateHelper.convertDateStructToMoment(this.periodTypeEventModel.toDate);
+    const maxDate = fromDate.add(1, 'year');
+
+    if (!toDate.isBefore(maxDate)) {
+      this.toastService.activate(`Date range should not exceed 1 year!`);
       return false;
     }
 
@@ -189,6 +171,40 @@ export class FilterComponent implements OnInit {
       return false;
     }
 
+    const searchText = this.leagueName.trim();
+    if (searchText === '') {
+      this.toastService.activate('League name field is required!');
+      return false;
+    }
+
     return true;
+  }
+
+  private checkLeagueAndGenerate() {
+    const searchText = this.leagueName.trim();
+    this.filterSerivce.queryLeagueSuggestion(this.selectedSports.join(','), searchText, true).subscribe(leagues => {
+      if (leagues.length === 0) {
+        this.toastService.activate('League is not available.');
+        return;
+      } else {
+        this.leagueId = leagues[0].Id.toString();
+      }
+
+      const model = this.createModel();
+      this.generated.emit(model);
+    });
+  }
+
+  private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {
+    return new TypeaheadQuery(term => {
+      let searchText = term.replace(/,/g, '');
+      let words = searchText.split(' ');
+      words = words.filter(word => word.trim() !== '');
+      searchText = words.join(',');
+      return this.filterSerivce.queryLeagueSuggestion(this.selectedSports.join(','), searchText, false)
+        .map(list => {
+          return list.map(item => item.Name)
+        });
+    });
   }
 }

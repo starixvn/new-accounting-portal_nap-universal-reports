@@ -160,10 +160,12 @@
   <Function Name="Abnormal Bet Report">
     <Setting Key="Acc_Rpt_AbnormalBet_SportSel" SpName="Acc_Rpt_AbnormalBet_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_ReasonSel" SpName="Acc_Rpt_AbnormalBet_ReasonSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_AbnormalBet_LicenseeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_BetTypeSel" SpName="Acc_Rpt_AbnormalBet_BetTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_CurrencySel" SpName="Acc_Rpt_AbnormalBet_CurrencySel_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_LeagueSel" SpName="Acc_Rpt_AbnormalBet_LeagueSel_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="SBPerformance">
     <Setting Key="SBPerformanceMonitor-Dashboard-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

@@ -33,5 +33,16 @@ export interface FilterModel {
   licensee: number[];
   member: string;
   isTest: boolean;
+  leagueId: string;
+  pageIndex: number;
+  pageSize: number;
+  isPageChanged: boolean;
+  currencyId: string;
+}
+
+export enum PeriodType {
+  Daily = 1,
+  Monthly = 2,
+  Annually = 3
 }
 

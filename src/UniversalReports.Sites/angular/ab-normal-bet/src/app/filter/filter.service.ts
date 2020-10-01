@@ -31,4 +31,16 @@ export class FilterService {
     const url = this.url + 'site';
     return this.httpService.post<FilterItemModel[]>(url);
   }
+  getCurrency(): Observable<FilterItemModel[]> {
+    const url = this.url + 'currency';
+    return this.httpService.post<FilterItemModel[]>(url);
+  }
+  queryLeagueSuggestion(sportId: string, searchText: string, searchExactly: boolean): Observable<FilterItemModel[]> {
+    const url = `${this.url}/league`;
+    return this.httpService.post<FilterItemModel[]>(url, {
+      sportId: sportId,
+      searchText: searchText,
+      searchExactly: searchExactly
+    });
+}
 }

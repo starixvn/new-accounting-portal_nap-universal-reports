@@ -10,13 +10,25 @@ namespace UniversalReports.AbnormalBet.Filter
     public class FilterHandler : IRequestHandler<SiteHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<SportHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<BetTypeHttpParameter, IEnumerable<FilterItemModel>>,
-         IRequestHandler<ReasonHttpParameter, IEnumerable<FilterItemModel>>
+         IRequestHandler<ReasonHttpParameter, IEnumerable<FilterItemModel>>,
+         IRequestHandler<CurrencyHttpParameter, IEnumerable<FilterItemModel>>,
+         IRequestHandler<LeagueHttpParameter, IEnumerable<FilterItemModel>>
     {
         private readonly FilterService filterService;
 
         public FilterHandler(FilterService filterService)
         {
             this.filterService = filterService;
+        }
+
+        public async Task<IEnumerable<FilterItemModel>> Handle(CurrencyHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await filterService.QueryCurrency();
+        }
+
+        public async Task<IEnumerable<FilterItemModel>> Handle(LeagueHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await filterService.QueryLeague(request.SportId, request.SearchText, request.SearchExactly);
         }
 
         public async Task<IEnumerable<FilterItemModel>> Handle(ReasonHttpParameter request, CancellationToken cancellationToken)

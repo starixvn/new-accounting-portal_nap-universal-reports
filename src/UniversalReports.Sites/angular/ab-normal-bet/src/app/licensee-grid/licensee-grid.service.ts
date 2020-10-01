@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 import { QueryModel } from '../common/model';
 import * as moment from 'moment';
 import { QueryModelService } from './../common/query-model.service';
-import { GridFilterService } from './../common/grid-filter.service';
 import { ExcelQueryModel, LicenseeModel } from './../common/model';
-import { DateHelper } from 'nap-components/date';
+import { FilterModel } from '../filter/filter.model';
 
 @Injectable()
 export class LicenseeGridService {
@@ -15,19 +14,20 @@ export class LicenseeGridService {
 
   constructor(
     private httpService: HttpService,
-    private queryModelService: QueryModelService,
-    private gridFilterService: GridFilterService
+    private queryModelService: QueryModelService
   ) { }
 
-  query(): Observable<LicenseeModel[]> {
+  query(filterModel: FilterModel): Observable<LicenseeModel> {
     const url = this.url + 'licensee';
-    const queryModel = this.createQueryModel();
-    return this.httpService.post<LicenseeModel[]>(url, queryModel);
+    const queryModel = this.createQueryModel(filterModel);
+    return this.httpService.post<LicenseeModel>(url, queryModel);
   }
 
-  exportExcel() {
+  exportExcel(filterModel: FilterModel) {
     const url = this.url + 'licensee-excel';
-    const excelQueryModel = this.createExcelQueryModel();
+    const excelQueryModel = this.createExcelQueryModel(filterModel);
+    excelQueryModel.pageIndex = 0;
+    excelQueryModel.pageSize = 0;
     const fromDate = moment(excelQueryModel.fromDate).format('YYYY_MM_DD');
     const toDate = moment(excelQueryModel.toDate).format('YYYY_MM_DD');
     this.httpService.download(url, excelQueryModel).subscribe(response => {
@@ -36,18 +36,11 @@ export class LicenseeGridService {
     });
   }
 
-  get title(): string {
-    const filterModel = this.gridFilterService.filterModel;
-    return `Abnormal Bet From From ${filterModel.fromDate} To ${filterModel.toDate}`;
-  }
-
-  private createQueryModel(): QueryModel {
-    const filterModel = this.gridFilterService.filterModel;
+  private createQueryModel(filterModel: FilterModel): QueryModel {
     return this.queryModelService.createQueryModel(filterModel);
   }
 
-  private createExcelQueryModel(): ExcelQueryModel {
-    const filterModel = this.gridFilterService.filterModel;
+  private createExcelQueryModel(filterModel: FilterModel): ExcelQueryModel {
     const title = `Abnormal Bet From ${filterModel.fromDate} To ${filterModel.toDate}`;
     return this.queryModelService.createExcelQueryModel(title, filterModel);
   }
