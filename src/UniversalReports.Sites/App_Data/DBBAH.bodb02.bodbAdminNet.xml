@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Functions>
+  <Function Name="Voiding Settled Tickets">
+    <Setting Key="Acc_Rpt_VoidingSettledTicket" SpName="Acc_Rpt_VoidingSettledTicket" DbName="DBBAH.bodb02.bodbAdminNet" TimeOut="300" />
+  </Function>
+</Functions>

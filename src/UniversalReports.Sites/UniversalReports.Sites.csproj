@@ -588,6 +588,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\DBBAH.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
     <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
