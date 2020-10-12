@@ -4,7 +4,7 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.HttpParameter
 {
-    public class LeagueHttpParameter : IRequest<IEnumerable<FilterItemModel>>
+    public class LeagueHttpParameter : IRequest<IEnumerable<LeagueModel>>
     {
         public string SportId { get; set; }
 

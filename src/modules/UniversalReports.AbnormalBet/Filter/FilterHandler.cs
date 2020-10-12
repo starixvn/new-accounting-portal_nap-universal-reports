@@ -12,7 +12,7 @@ namespace UniversalReports.AbnormalBet.Filter
          IRequestHandler<BetTypeHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<ReasonHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<CurrencyHttpParameter, IEnumerable<FilterItemModel>>,
-         IRequestHandler<LeagueHttpParameter, IEnumerable<FilterItemModel>>
+         IRequestHandler<LeagueHttpParameter, IEnumerable<LeagueModel>>
     {
         private readonly FilterService filterService;
 
@@ -26,7 +26,7 @@ namespace UniversalReports.AbnormalBet.Filter
             return await filterService.QueryCurrency();
         }
 
-        public async Task<IEnumerable<FilterItemModel>> Handle(LeagueHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<LeagueModel>> Handle(LeagueHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QueryLeague(request.SportId, request.SearchText, request.SearchExactly);
         }

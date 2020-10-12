@@ -111,7 +111,7 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
         public async Task Handle_WithAnyMessage_ReturnRightLeague()
         {
             // Arrange
-            var leagues = fixture.Create<IEnumerable<FilterItemModel>>();
+            var leagues = fixture.Create<IEnumerable<LeagueModel>>();
 
             var service = Substitute.For<FilterService>();
             service.QueryLeague(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<bool>()).Returns(leagues);

@@ -187,7 +187,7 @@ export class FilterComponent implements OnInit {
         this.toastService.activate('League is not available.');
         return;
       } else {
-        this.leagueId = leagues[0].Id.toString();
+        this.leagueId = leagues[0].Id;
       }
 
       const model = this.createModel();
@@ -203,7 +203,7 @@ export class FilterComponent implements OnInit {
       searchText = words.join(',');
       return this.filterSerivce.queryLeagueSuggestion(this.selectedSports.join(','), searchText, false)
         .map(list => {
-          return list.map(item => item.Name)
+          return list.map(item => item.Name);
         });
     });
   }

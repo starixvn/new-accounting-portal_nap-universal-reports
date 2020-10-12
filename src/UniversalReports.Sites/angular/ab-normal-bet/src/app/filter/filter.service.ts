@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ReasonModel, BetTypeModel, SportModel, SiteModel, FilterItemModel } from './filter.model';
+import { FilterItemModel, LeagueModel } from './filter.model';
 import { Observable } from 'rxjs';
 import { HttpService } from 'nap-components/http';
 
@@ -35,9 +35,9 @@ export class FilterService {
     const url = this.url + 'currency';
     return this.httpService.post<FilterItemModel[]>(url);
   }
-  queryLeagueSuggestion(sportId: string, searchText: string, searchExactly: boolean): Observable<FilterItemModel[]> {
+  queryLeagueSuggestion(sportId: string, searchText: string, searchExactly: boolean): Observable<LeagueModel[]> {
     const url = `${this.url}/league`;
-    return this.httpService.post<FilterItemModel[]>(url, {
+    return this.httpService.post<LeagueModel[]>(url, {
       sportId: sportId,
       searchText: searchText,
       searchExactly: searchExactly
