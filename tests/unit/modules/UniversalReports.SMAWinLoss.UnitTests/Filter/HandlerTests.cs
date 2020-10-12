@@ -104,5 +104,23 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             // Assert
             Assert.That(model, IsDeeplyEqual.To(availableDatabase));
         }
+
+        [Test]
+        public async Task Handle_WithAnyMessage_ReturnRightAvalableDateData()
+        {
+            // Arrange
+            var availableDateData = fixture.Create<string>();
+
+            var service = Substitute.For<FilterService>();
+            service.GetAvailableDateData().Returns(availableDateData);
+
+            var handler = new Handler(service);
+
+            // Act
+            var model = await handler.Handle(new AvailableDateDataHttpParameter(), new CancellationToken());
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(availableDateData));
+        }
     }
 }

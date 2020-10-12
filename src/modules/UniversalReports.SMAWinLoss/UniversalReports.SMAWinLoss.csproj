@@ -116,6 +116,8 @@
   <ItemGroup>
     <Compile Include="Filter\AvailableDatabaseHttpParameter.cs" />
     <Compile Include="Filter\AvailableDatabaseCriteria.cs" />
+    <Compile Include="Filter\AvailableDateDataCriteria.cs" />
+    <Compile Include="Filter\AvailableDateDataHttpParameter.cs" />
     <Compile Include="Filter\LeagueGroup.cs" />
     <Compile Include="Filter\LeagueGroupHttpParameter.cs" />
     <Compile Include="Filter\LeagueGroupCriteria.cs" />

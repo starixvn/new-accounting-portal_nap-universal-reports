@@ -9,7 +9,8 @@ namespace UniversalReports.SMAWinLoss.Filter
         IRequestHandler<SiteHttpParameter, IEnumerable<Site>>,
         IRequestHandler<SportHttpParameter, IEnumerable<Sport>>,
         IRequestHandler<LeagueGroupHttpParameter, IEnumerable<LeagueGroup>>,
-        IRequestHandler<AvailableDatabaseHttpParameter, bool>
+        IRequestHandler<AvailableDatabaseHttpParameter, bool>,
+        IRequestHandler<AvailableDateDataHttpParameter, string>
     {
         private readonly FilterService service;
 
@@ -21,6 +22,11 @@ namespace UniversalReports.SMAWinLoss.Filter
         public async Task<IEnumerable<LeagueGroup>> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
         {
             return await service.GetLeagueGroup();
+        }
+
+        public async Task<string> Handle(AvailableDateDataHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await service.GetAvailableDateData();
         }
 
         public async Task<IEnumerable<Sport>> Handle(SportHttpParameter request, CancellationToken cancellationToken)

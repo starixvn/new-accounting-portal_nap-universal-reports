@@ -3,6 +3,7 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.SMAWinLoss.Filter;
@@ -88,7 +89,7 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         }
 
         [Test]
-        public async Task QueryAvailableDatabase_WithSubtituteReposity_ReturnRightSite()
+        public async Task QueryAvailableDatabase_WithSubtituteReposity_ReturnRightAvailableData()
         {
             // Arrange
             var availableDatabase = fixture.Create<bool>();
@@ -103,6 +104,25 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(availableDatabase));
+        }
+
+        [Test]
+        public async Task QueryAvailableDateData_WithSubtituteReposity_ReturnRightAvailableDate()
+        {
+            // Arrange
+            var availableDate = fixture.Create<DateTime>();
+            var expectedResult = $"{availableDate: MMM dd, yyyy}";
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.GetAsync<DateTime>(Arg.Compat.Any<AvailableDateDataCriteria>()).Returns(availableDate);
+
+            var service = new FilterServiceImp(repository);
+
+            // Act
+            var model = await service.GetAvailableDateData();
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(expectedResult));
         }
     }
 }
