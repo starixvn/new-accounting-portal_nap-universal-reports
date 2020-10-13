@@ -77,14 +77,14 @@ export class PeriodTypeComponent implements OnChanges {
     const maxDateValue =  DateHelper.convertDateStructToMoment(this.maxDateStruct);
     const monthlyDate = { year: this.monthlyDate.year, month: this.monthlyDate.month, day: 1 };
 
-    const startMonth = moment({years: this.monthlyDate.year, months: this.monthlyDate.month, date: 1});
-    let endMonth = moment(startMonth).endOf('month');
+    const startMonth = DateHelper.convertDateStructToMoment(monthlyDate);
+    const endMonth = moment(startMonth).endOf('month');
+    let endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
 
     if (maxDateValue.isBefore(endMonth)) {
-      endMonth = maxDateValue;
+      endMonthDateStruct = DateHelper.convertMomentToDateStruct(maxDateValue);
     }
 
-    const endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
     const endMonthDate = {year: endMonthDateStruct.year, month: endMonthDateStruct.month, day: endMonthDateStruct.day};
 
     this.emitChange({
