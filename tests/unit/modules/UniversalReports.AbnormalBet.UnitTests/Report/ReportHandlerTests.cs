@@ -2,7 +2,6 @@
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UniversalReports.AbnormalBet.Criteria;
@@ -22,7 +21,7 @@ namespace UniversalReports.AbnormalBet.UnitTests.Report
         public async Task Handle_WithAnyMessage_ReturnRightMember()
         {
             // Arrange
-            var members = fixture.Create<IEnumerable<MemberModel>>();
+            var members = fixture.Create<MemberModel>();
 
             var service = Substitute.For<ReportService>();
             service.QueryMember(Arg.Compat.Any<MemberQueryCriteria>()).Returns(members);
@@ -40,7 +39,7 @@ namespace UniversalReports.AbnormalBet.UnitTests.Report
         public async Task Handle_WithAnyMessage_ReturnRightLicensee()
         {
             // Arrange
-            var licensees = fixture.Create<IEnumerable<LicenseeModel>>();
+            var licensees = fixture.Create<LicenseeModel>();
 
             var service = Substitute.For<ReportService>();
             service.QueryLicensee(Arg.Compat.Any<LicenseeQueryCriteria>()).Returns(licensees);

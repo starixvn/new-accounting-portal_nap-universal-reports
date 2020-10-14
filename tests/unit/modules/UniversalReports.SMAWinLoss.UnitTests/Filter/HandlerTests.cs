@@ -63,7 +63,7 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var handler = new Handler(service);
 
             // Act
-            var model = await handler.Handle(new SportHttpParameter(), new CancellationToken());
+            var model = await handler.Handle(new CurrencyHttpParameter(), new CancellationToken());
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(currencies));

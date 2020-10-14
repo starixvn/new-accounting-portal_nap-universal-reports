@@ -3,7 +3,9 @@ using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.AbnormalBet.Criteria;
 using UniversalReports.AbnormalBet.IpLocation;
@@ -22,10 +24,15 @@ namespace UniversalReports.AbnormalBet.UnitTests.Report
         public async Task QueryLicensee_WithSubstituteRepository_ReturnRightLicensee()
         {
             // Arrange
-            var licensees = fixture.Create<IEnumerable<LicenseeModel>>();
+            var licensees = fixture.Create<ValueTuple<IEnumerable<LicenseeItemModel>, IEnumerable<int>>>();
+            var expectedModel = new LicenseeModel
+            {
+                Licensees = licensees.Item1,
+                TotalItems = licensees.Item2.FirstOrDefault()
+            };
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<LicenseeModel>(Arg.Compat.Any<LicenseeQueryCriteria>()).Returns(licensees);
+            repository.FetchMultipleAsync<LicenseeItemModel, int>(Arg.Compat.Any<LicenseeQueryCriteria>()).Returns(licensees);
 
             var locationService = Substitute.For<LocationService>();
             locationService.QueryIP(Arg.Compat.Any<string>()).Returns(new LocationModel
@@ -41,17 +48,22 @@ namespace UniversalReports.AbnormalBet.UnitTests.Report
             var model = await service.QueryLicensee(new LicenseeQueryCriteria());
 
             // Assert
-            Assert.That(model, IsDeeplyEqual.To(licensees));
+            Assert.That(model, IsDeeplyEqual.To(expectedModel));
         }
 
         [Test]
         public async Task QueryMember_WithSubstituteRepository_ReturnRightMember()
         {
             // Arrange
-            var members = fixture.Create<IEnumerable<MemberModel>>();
+            var members = fixture.Create<ValueTuple<IEnumerable<MemberItemModel>, IEnumerable<int>>>();
+            var expectedModel = new MemberModel
+            {
+                Members = members.Item1,
+                TotalItems = members.Item2.FirstOrDefault()
+            };
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<MemberModel>(Arg.Compat.Any<MemberQueryCriteria>()).Returns(members);
+            repository.FetchMultipleAsync<MemberItemModel, int>(Arg.Compat.Any<MemberQueryCriteria>()).Returns(members);
 
             var locationService = Substitute.For<LocationService>();
             locationService.QueryIP(Arg.Compat.Any<string>()).Returns(new LocationModel
@@ -63,12 +75,11 @@ namespace UniversalReports.AbnormalBet.UnitTests.Report
 
             var service = new ReportServiceImp(repository, locationService);
 
-
             // Act
             var model = await service.QueryMember(new MemberQueryCriteria());
 
             // Assert
-            Assert.That(model, IsDeeplyEqual.To(members));
+            Assert.That(model, IsDeeplyEqual.To(expectedModel));
         }
     }
 }

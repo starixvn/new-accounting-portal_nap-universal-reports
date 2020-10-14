@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
 using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.HttpParameter
 {
-    public class MemberHttpParameter : IRequest<IEnumerable<MemberModel>>
+    public class MemberHttpParameter : IRequest<MemberModel>
     {
         public DateTime FromDate { get; set; }
 
@@ -22,5 +21,13 @@ namespace UniversalReports.AbnormalBet.HttpParameter
         public string Member { get; set; }
 
         public bool IsTest { get; set; }
+
+        public string LeagueId { get; set; }
+
+        public string CurrencyId { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
     }
 }

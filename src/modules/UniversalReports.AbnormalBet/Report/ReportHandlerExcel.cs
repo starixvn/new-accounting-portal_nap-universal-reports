@@ -13,7 +13,6 @@ namespace UniversalReports.AbnormalBet.Report
     public class ReportHandlerExcel : IRequestHandler<LicenseeHttpParameterExcel, ExcelPackage>,
         IRequestHandler<MemberHttpParameterExcel, ExcelPackage>
     {
-
         private readonly ReportService service;
 
         private ReportExcelBuilder excelBuilder;
@@ -28,7 +27,7 @@ namespace UniversalReports.AbnormalBet.Report
         {
             var criteria = Mapper.Map<MemberQueryCriteria>(request);
             var memberModel = await service.QueryMember(criteria);
-            var memberExcelModel = Mapper.Map<IEnumerable<MemberExcelModel>>(memberModel);
+            var memberExcelModel = Mapper.Map<IEnumerable<MemberExcelModel>>(memberModel.Members);
             var excelPackage = excelBuilder.Build(request.Title, memberExcelModel);
             return excelPackage;
         }
@@ -37,7 +36,7 @@ namespace UniversalReports.AbnormalBet.Report
         {
             var criteria = Mapper.Map<LicenseeQueryCriteria>(request);
             var licenseeModel = await service.QueryLicensee(criteria);
-            var licenseeExcelModel = Mapper.Map<IEnumerable<LicenseeExcelModel>>(licenseeModel);
+            var licenseeExcelModel = Mapper.Map<IEnumerable<LicenseeExcelModel>>(licenseeModel.Licensees);
             var excelPackage = excelBuilder.Build(request.Title, licenseeExcelModel);
             return excelPackage;
         }

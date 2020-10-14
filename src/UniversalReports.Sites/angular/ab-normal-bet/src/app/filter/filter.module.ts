@@ -13,6 +13,8 @@ import { FilterService } from './filter.service';
 import { FormsModule } from '@angular/forms';
 import { FilterItemTreeviewPipe } from './filter-item-treeview.pipe';
 import { CommonModule } from '@angular/common';
+import { PeriodTypeComponent } from './period-type/period-type.component';
+import { PeriodTypeModule } from './period-type/period-type.module';
 
 @NgModule({
   imports: [
@@ -24,7 +26,8 @@ import { CommonModule } from '@angular/common';
     LegendModule.forRoot(),
     TreeviewModule.forRoot(),
     DropdownTypeaheadModule,
-    DropdownSelectModule
+    DropdownSelectModule,
+    PeriodTypeModule
   ],
   declarations: [
     FilterComponent,

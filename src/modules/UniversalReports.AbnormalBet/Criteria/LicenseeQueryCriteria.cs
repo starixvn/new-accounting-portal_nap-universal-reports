@@ -19,6 +19,14 @@ namespace UniversalReports.AbnormalBet.Criteria
 
         public bool IsTest { get; set; }
 
+        public string LeagueId { get; set; }
+
+        public string CurrencyId { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
+
         public override bool IsValid() => true;
 
         public override string GetSettingKey() => $"Acc_Rpt_AbnormalBet_Licensee";

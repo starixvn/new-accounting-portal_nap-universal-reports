@@ -42,5 +42,19 @@ namespace UniversalReports.AbnormalBet.Filter
             var viewModel = await mediator.Send(httpParameter);
             return Json(viewModel);
         }
+
+        [Route("currency")]
+        public async Task<IHttpActionResult> Currency()
+        {
+            var viewModel = await mediator.Send(new CurrencyHttpParameter());
+            return Json(viewModel);
+        }
+
+        [Route("league")]
+        public async Task<IHttpActionResult> League(LeagueHttpParameter httpParameter)
+        {
+            var viewModel = await mediator.Send(httpParameter);
+            return Json(viewModel);
+        }
     }
 }

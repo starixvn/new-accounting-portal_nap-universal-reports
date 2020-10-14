@@ -7,7 +7,7 @@ export interface Grid {
     exportExcel(title: string): void;
 }
 
-export interface MemberModel {
+export interface MemberItemModel {
   RefNo: string;
   Sport: string;
   League: string;
@@ -23,7 +23,7 @@ export interface MemberModel {
   Location: string;
 }
 
-export interface LicenseeModel {
+export interface LicenseeItemModel {
   Date: string;
   Licensee: string;
   Currency: string;
@@ -54,6 +54,10 @@ export interface QueryModel {
     licensee: string;
     isTest: boolean;
     member: string;
+    leagueId: string;
+    pageSize: number;
+    pageIndex: number;
+    currencyId: string;
 }
 
 export interface ExcelQueryModel extends QueryModel {
@@ -68,5 +72,15 @@ interface BalanceUpRange {
 export interface BalanceUpModel {
     today: string;
     balanceUpRange: BalanceUpRange;
+}
+
+export interface MemberModel {
+  Members: MemberItemModel[];
+  TotalItems: number;
+}
+
+export interface LicenseeModel {
+  Licensees: LicenseeItemModel[];
+  TotalItems: number;
 }
 

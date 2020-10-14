@@ -27,7 +27,7 @@ namespace UniversalReports.AbnormalBet.Tests.Report
 
             var container = new Container();
             var factory = new ApiControllerFactoryMethodFetchAsync(container);
-            var controller = factory.CreateController<AbnormalBetReportController, MemberModel, LocationModel>(
+            var controller = factory.CreateController<AbnormalBetReportController, MemberItemModel, LocationModel>(
                 FakeRepositoryDataFileName,
                 FakeRepositoryLocationDataFileName);
 
@@ -68,7 +68,7 @@ namespace UniversalReports.AbnormalBet.Tests.Report
 
             var container = new Container();
             var factory = new ApiControllerFactoryMethodFetchAsync(container);
-            var controller = factory.CreateController<AbnormalBetReportController, LicenseeModel, LocationModel>(
+            var controller = factory.CreateController<AbnormalBetReportController, LicenseeItemModel, LocationModel>(
                 FakeLicenseeRepositoryDataFileName,
                 FakeRepositoryLocationDataFileName);
 

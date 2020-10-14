@@ -46,7 +46,6 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
 
             var service = new FilterServiceImp(repository);
 
-
             // Act
             var model = await service.QueryReason();
 
@@ -88,6 +87,42 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
 
             // Assert
             Assert.That(model, IsDeeplyEqual.To(bettypes));
+        }
+
+        [Test]
+        public async Task QueryCurrency_WithSubtituteReposity_ReturnRightCurencies()
+        {
+            // Arrange
+            var currencies = fixture.Create<IEnumerable<FilterItemModel>>();
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<FilterItemModel>(Arg.Compat.Any<CurrencyQueryCriteria>()).Returns(currencies);
+
+            var service = new FilterServiceImp(repository);
+
+            // Act
+            var model = await service.QueryCurrency();
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(currencies));
+        }
+
+        [Test]
+        public async Task QueryLeague_WithSubtituteReposity_ReturnRightLeague()
+        {
+            // Arrange
+            var league = fixture.Create<IEnumerable<FilterItemModel>>();
+
+            var repository = Substitute.For<IDynamicRepository>();
+            repository.FetchAsync<FilterItemModel>(Arg.Compat.Any<LeagueQueryCriteria>()).Returns(league);
+
+            var service = new FilterServiceImp(repository);
+
+            // Act
+            var model = await service.QueryLeague(string.Empty, string.Empty, false);
+
+            // Assert
+            Assert.That(model, IsDeeplyEqual.To(league));
         }
     }
 }

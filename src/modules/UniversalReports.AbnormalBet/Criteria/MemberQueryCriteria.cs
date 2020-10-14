@@ -11,6 +11,8 @@ namespace UniversalReports.AbnormalBet.Criteria
 
         public string Reason { get; set; }
 
+        public string CurrencyId { get; set; }
+
         public string Sport { get; set; }
 
         public string BetType { get; set; }
@@ -20,6 +22,12 @@ namespace UniversalReports.AbnormalBet.Criteria
         public string Member { get; set; }
 
         public bool IsTest { get; set; }
+
+        public string LeagueId { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
 
         public override bool IsValid() => true;
 

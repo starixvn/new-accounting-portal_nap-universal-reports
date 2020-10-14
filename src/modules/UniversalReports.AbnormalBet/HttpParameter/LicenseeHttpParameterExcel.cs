@@ -21,5 +21,11 @@ namespace UniversalReports.AbnormalBet.HttpParameter
         public bool IsTest { get; set; }
 
         public string Title { get; set; }
+
+        public string LeagueId { get; set; }
+
+        public int PageSize { get; set; }
+
+        public int PageIndex { get; set; }
     }
 }
