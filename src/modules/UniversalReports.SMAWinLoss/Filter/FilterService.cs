@@ -1,8 +1,7 @@
 ﻿using Fanex.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
-using AutoMapper;
 
 namespace UniversalReports.SMAWinLoss.Filter
 {
@@ -17,6 +16,8 @@ namespace UniversalReports.SMAWinLoss.Filter
         Task<IEnumerable<LeagueGroup>> GetLeagueGroup();
 
         Task<bool> GetAvailableDatabase();
+
+        Task<string> GetAvailableDateData();
     }
 
     public class FilterServiceImp : FilterService
@@ -33,6 +34,13 @@ namespace UniversalReports.SMAWinLoss.Filter
         {
             var criteria = new AvailableDatabaseCriteria();
             return await repository.GetAsync<bool>(criteria);
+        }
+
+        public async Task<string> GetAvailableDateData()
+        {
+            var criteria = new AvailableDateDataCriteria();
+            var date = await repository.GetAsync<DateTime>(criteria);
+            return $"{date: MMM dd, yyyy}";
         }
 
         public async Task<IEnumerable<Currency>> GetCurrencies()

@@ -67,6 +67,7 @@ export class FilterComponent implements OnInit {
   });
   selectedleagueGroups: string[] = [];
   leagueGroups: LeagueGroup[] = [];
+  availableDateData = '';
 
   constructor(private readonly filterService: FilterService, private readonly toastService: ToastService) { }
 
@@ -79,6 +80,7 @@ export class FilterComponent implements OnInit {
     this.yearSelected = this.yearOptions[0];
     this.betTypeSelected = this.betTypeOptions[0];
     this.levelSelected = this.levelOptions[0];
+    this.getAvailableDateData();
   }
 
   onGenerateClick() {
@@ -110,7 +112,9 @@ export class FilterComponent implements OnInit {
     this.filterService.getLeagueGroup().subscribe(leagueGroups => this.leagueGroups = leagueGroups);
   }
 
-
+  private getAvailableDateData() {
+    this.filterService.getAvailableDateData().subscribe(date => this.availableDateData = `* Data is ready up to ${date}`);
+  }
 
   private getYear() {
     for (let i = this.today.year; i > 2018; i--) {

@@ -71,8 +71,8 @@ namespace UniversalReports.SMAWinLoss.Summary
 
                 usernameData[TurnoverIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealTurnover;
                 usernameData[IncomeIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealIncome;
-                usernameData[MarginIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgPT;
-                usernameData[AveragePTIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealMargin;
+                usernameData[MarginIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.RealMargin;
+                usernameData[AveragePTIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgPT;
                 usernameData[AverageBetIndex].Months.FirstOrDefault(x => x.Month == "Total").Value = userNameTotal.AvgBet;
 
                 userNameWinLosses.AddRange(usernameData);

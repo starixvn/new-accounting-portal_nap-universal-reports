@@ -48,5 +48,12 @@ namespace UniversalReports.SMAWinLoss.Filter
             var viewModel = await mediator.Send(new AvailableDatabaseHttpParameter());
             return Json(viewModel);
         }
+
+        [Route("available-date-data")]
+        public async Task<IHttpActionResult> AvailableDateData()
+        {
+            var viewModel = await mediator.Send(new AvailableDateDataHttpParameter());
+            return Json(viewModel);
+        }
     }
 }

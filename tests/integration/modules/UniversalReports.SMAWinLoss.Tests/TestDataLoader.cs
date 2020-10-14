@@ -15,13 +15,5 @@ namespace UniversalReports.SMAWinLoss.Tests
 
             return JsonConvert.DeserializeObject<T>(text);
         }
-
-        internal static void Write(string name, object value)
-        {
-            var testDirectory = TestContext.CurrentContext.TestDirectory;
-            var dataFilePath = $"{testDirectory}\\TestCases\\{name}";
-            string json = JsonConvert.SerializeObject(value);
-            File.WriteAllText(dataFilePath, json);
-        }
     }
 }

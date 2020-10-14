@@ -111,10 +111,10 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
         public async Task QueryLeague_WithSubtituteReposity_ReturnRightLeague()
         {
             // Arrange
-            var league = fixture.Create<IEnumerable<FilterItemModel>>();
+            var league = fixture.Create<IEnumerable<LeagueModel>>();
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<FilterItemModel>(Arg.Compat.Any<LeagueQueryCriteria>()).Returns(league);
+            repository.FetchAsync<LeagueModel>(Arg.Compat.Any<LeagueQueryCriteria>()).Returns(league);
 
             var service = new FilterServiceImp(repository);
 

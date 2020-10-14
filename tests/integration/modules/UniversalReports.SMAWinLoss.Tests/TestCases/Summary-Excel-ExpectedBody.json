@@ -1,7 +1,7 @@
 ﻿[
   [ "Username 1", "US$", "Real Turnover", 20.0, null, null, null, 20.0, null, null, null, null, null, null, null, 40.0, "View" ],
   [ "Username 1", "US$", "Real Income", 10.0, null, null, null, 10.0, null, null, null, null, null, null, null, 20.0, "View" ],
-  [ "Username 1", "US$", "Real Margin (%)", 50.0, null, null, null, 50.0, null, null, null, null, null, null, null, 100.0, "View" ],
-  [ "Username 1", "US$", "Average PT (%)", 100.0, null, null, null, 100.0, null, null, null, null, null, null, null, 50.0, "View" ],
+  [ "Username 1", "US$", "Real Margin (%)", 50.0, null, null, null, 50.0, null, null, null, null, null, null, null, 50.0, "View" ],
+  [ "Username 1", "US$", "Average PT (%)", 100.0, null, null, null, 100.0, null, null, null, null, null, null, null, 100.0, "View" ],
   [ "Username 1", "US$", "Average Bet", 5.0, null, null, null, 5.0, null, null, null, null, null, null, null, 5.0, "View" ]
 ]

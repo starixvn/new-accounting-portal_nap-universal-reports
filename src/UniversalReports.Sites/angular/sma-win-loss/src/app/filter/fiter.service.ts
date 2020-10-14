@@ -34,5 +34,10 @@ export class FilterService {
   checkDatabaseAvailable(): Observable<boolean> {
     const url = `${this.url}/available-database`;
     return this.httpService.post<boolean>(url);
-}
+  }
+
+  getAvailableDateData(): Observable<string> {
+    const url = `${this.url}/available-date-data`;
+    return this.httpService.post<string>(url);
+  }
 }

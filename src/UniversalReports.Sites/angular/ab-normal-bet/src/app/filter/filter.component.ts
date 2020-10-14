@@ -171,28 +171,31 @@ export class FilterComponent implements OnInit {
       return false;
     }
 
-    const searchText = this.leagueName.trim();
-    if (searchText === '') {
-      this.toastService.activate('League name field is required!');
-      return false;
-    }
-
     return true;
   }
 
   private checkLeagueAndGenerate() {
     const searchText = this.leagueName.trim();
-    this.filterSerivce.queryLeagueSuggestion(this.selectedSports.join(','), searchText, true).subscribe(leagues => {
-      if (leagues.length === 0) {
-        this.toastService.activate('League is not available.');
-        return;
-      } else {
-        this.leagueId = leagues[0].Id;
-      }
+    if (searchText === '') {
+      this.leagueId = '0';
+      this.createModelAndGenerate();
+    } else {
+      this.filterSerivce.queryLeagueSuggestion(this.selectedSports.join(','), searchText, true).subscribe(leagues => {
+        if (leagues.length === 0) {
+          this.toastService.activate('League is not available.');
+          return;
+        } else {
+          this.leagueId = leagues[0].Id;
+        }
 
-      const model = this.createModel();
-      this.generated.emit(model);
-    });
+       this.createModelAndGenerate();
+      });
+    }
+  }
+
+  private createModelAndGenerate() {
+    const model = this.createModel();
+    this.generated.emit(model);
   }
 
   private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {

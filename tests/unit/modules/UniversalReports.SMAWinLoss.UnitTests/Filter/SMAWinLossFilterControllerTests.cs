@@ -64,5 +64,31 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             // Assert
             await mediator.Received().Send(Arg.Compat.Any<LeagueGroupHttpParameter>());
         }
+
+        public async Task AvailableDatabase_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+
+            // Act
+            var controller = new SMAWinLossFilterController(mediator);
+            await controller.AvailableDatabase();
+
+            // Assert
+            await mediator.Received().Send(Arg.Compat.Any<AvailableDatabaseHttpParameter>());
+        }
+
+        public async Task AvailableDateData_Always_CallMediatorSend()
+        {
+            // Arrange
+            var mediator = Substitute.For<IMediator>();
+
+            // Act
+            var controller = new SMAWinLossFilterController(mediator);
+            await controller.AvailableDateData();
+
+            // Assert
+            await mediator.Received().Send(Arg.Compat.Any<AvailableDateDataHttpParameter>());
+        }
     }
 }
