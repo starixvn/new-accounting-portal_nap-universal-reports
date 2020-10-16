@@ -7,17 +7,17 @@ namespace UniversalReports.VoidingSettledTickets.Criteria
     {
         public DateTime WinlostDate { get; set; }
 
-        public int MatchId { get; set; }
+        public int? MatchId { get; set; }
 
-        public DateTime VoidedDate { get; set; }
+        public DateTime? VoidTime { get; set; }
 
-        public string VoidedTime { get; set; }
+        public int ProductGroupId { get; set; }
 
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
 
-        public override string GetSettingKey() => "Product";
+        public override string GetSettingKey() => "Acc_Rpt_VoidingSettledTicket_Product";
 
         public override bool IsValid() => !string.IsNullOrWhiteSpace(WinlostDate.ToString());
     }

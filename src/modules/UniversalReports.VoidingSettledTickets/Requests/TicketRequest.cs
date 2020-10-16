@@ -1,19 +1,18 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
 using UniversalReports.VoidingSettledTickets.Models;
 
 namespace UniversalReports.VoidingSettledTickets.Requests
 {
-    public class TicketRequest : IRequest<List<TicketModel>>
+    public class TicketRequest : IRequest<VoidTicketModel>
     {
         public DateTime WinlostDate { get; set; }
 
-        public int MatchId { get; set; }
+        public int? MatchId { get; set; }
 
-        public DateTime VoidedDate { get; set; }
+        public DateTime? VoidTime { get; set; }
 
-        public string VoidedTime { get; set; }
+        public int ProductGroupId { get; set; }
 
         public int PageIndex { get; set; }
 

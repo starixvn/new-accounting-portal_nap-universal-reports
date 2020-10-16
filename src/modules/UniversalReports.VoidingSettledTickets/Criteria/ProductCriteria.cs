@@ -7,9 +7,9 @@ namespace UniversalReports.VoidingSettledTickets.Criteria
     {
         public DateTime WinlostDate { get; set; }
 
-        public int MatchId { get; set; }
+        public int? MatchId { get; set; }
 
-        public DateTime VoidTime { get; set; }
+        public DateTime? VoidTime { get; set; }
 
         public override string GetSettingKey() => "Acc_Rpt_VoidingSettledTicket";
 

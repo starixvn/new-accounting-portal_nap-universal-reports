@@ -18,5 +18,6 @@
         public const string AbnormalBetReport = "AbnormalBetReport";
         public const string SBPerformanceMonitor = "SBPerformanceMonitor";
         public const string SMAWinLossSummary = "SMAWinLossSummary";
+        public const string VoidingSettledTickets = "VoidingSettledTickets";
     }
 }

@@ -30,6 +30,7 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterCN88WinLossServices()
                 .RegisterAbnormalBetServices()
                 .RegisterSBPerformanceServices()
+                .RegisterVoidingSettledTicketsServices()
                 .RegisterSMAWinLossServices();
 
             var homeControllerType = typeof(HomeController);

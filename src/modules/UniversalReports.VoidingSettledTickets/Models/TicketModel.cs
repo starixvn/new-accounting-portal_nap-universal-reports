@@ -4,16 +4,25 @@ namespace UniversalReports.VoidingSettledTickets.Models
 {
     public class TicketModel
     {
-        public int TransId { get; set; }
+        public Int64 TransId { get; set; }
 
         public string Username { get; set; }
 
         public int MatchId { get; set; }
 
-        public DateTime VoidedTime { get; set; }
+        public string VoidedTime { get; set; }
 
-        public decimal BeforeExtraPT { get; set; }
+        public decimal HouseIncomeBeforeExtraPT { get; set; }
 
-        public decimal AfterExtraPT { get; set; }
+        public decimal HouseIncomeAfterExtraPT { get; set; }
+
+        public static TicketModel operator +(TicketModel a, TicketModel b)
+        {
+            return new TicketModel
+            {
+                HouseIncomeBeforeExtraPT = a.HouseIncomeBeforeExtraPT + b.HouseIncomeBeforeExtraPT,
+                HouseIncomeAfterExtraPT = a.HouseIncomeAfterExtraPT + b.HouseIncomeAfterExtraPT,
+            };
+        }
     }
 }
