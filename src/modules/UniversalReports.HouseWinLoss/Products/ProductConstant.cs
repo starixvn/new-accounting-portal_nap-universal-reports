@@ -12,14 +12,16 @@
         {
             "Soccer",
             "Other Sports",
-            "Parlay"
+            "Parlay",
+            "SB Adjustment"
         };
 
         public static string[] SoccerPermissionProducts => new[]
        {
             "Soccer",
             "Parlay",
-            "RM"
+            "RM",
+            "SB Adjustment"
         };
 
         public static string[] OtherSportsPermissionProducts => new[]
