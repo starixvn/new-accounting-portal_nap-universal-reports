@@ -1,10 +1,12 @@
-﻿using Linq.DynamicSum;
+﻿using AutoMapper;
+using Linq.DynamicSum;
 using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.VoidingSettledTickets.Criteria;
 using UniversalReports.VoidingSettledTickets.Models;
 using UniversalReports.VoidingSettledTickets.Requests;
 using UniversalReports.VoidingSettledTickets.Services;
@@ -27,10 +29,16 @@ namespace UniversalReports.VoidingSettledTickets.Handlers
         }
 
         public async Task<SummaryEntity<ProductModel>> Handle(ProductRequest request, CancellationToken cancellationToken)
-          => await service.GetProducts(request);
+        {
+            var criteria = Mapper.Map<ProductCriteria>(request);
+            return await service.GetProducts<ProductModel>(criteria);
+        }
 
         public async Task<VoidTicketModel> Handle(TicketRequest request, CancellationToken cancellationToken)
-            => await service.GetTickets(request);
+        {
+            var criteria = Mapper.Map<TicketCriteria>(request);
+            return await service.GetTickets(criteria);
+        }
 
         protected override DateTime Handle(MoveBetsDateRequest request)
           => balanceUpService.Query().MoveBetsDate;

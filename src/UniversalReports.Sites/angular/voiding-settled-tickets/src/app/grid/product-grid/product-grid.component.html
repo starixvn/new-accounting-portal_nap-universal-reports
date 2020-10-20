@@ -57,7 +57,7 @@
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tfoot>
                       <tr class="font-weight-bold">
-                          <td class="text-right">{{ productData.Total.ProductGroup }}</td>
+                          <td class="text-right">Total</td>
                           <td [ngClass]="{'red': productData.Total.HouseIncomeBeforeExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="productData.Total.HouseIncomeBeforeExtraPT"></td>
                           <td [ngClass]="{'red': productData.Total.HouseIncomeAfterExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="productData.Total.HouseIncomeAfterExtraPT"></td>
                       </tr>

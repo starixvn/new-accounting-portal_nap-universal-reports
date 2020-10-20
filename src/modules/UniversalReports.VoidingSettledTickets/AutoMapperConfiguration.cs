@@ -9,6 +9,7 @@ namespace UniversalReports.VoidingSettledTickets
         public static void InitializeVoidingSettledTickets(this IProfileExpression cfg)
         {
             cfg.CreateMap<ProductRequest, ProductCriteria>();
+            cfg.CreateMap<ProductExcelRequest, ProductCriteria>();
         }
     }
 }

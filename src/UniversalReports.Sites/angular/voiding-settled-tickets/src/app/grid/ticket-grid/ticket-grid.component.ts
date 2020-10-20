@@ -35,6 +35,7 @@ export class TicketGridComponent implements Grid {
   }
 
   exportExcel() {
+    this.ticketService.exportExcel();
   }
 
   get hasExcel(): boolean {

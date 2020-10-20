@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridComponent } from './grid.component';
 import { GridService } from './grid.service';
@@ -10,10 +10,6 @@ import { NumberFormatModule } from 'nap-components/number-format';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { PaginationService, PaginationConfig, PaginationModule } from 'nap-components/pagination';
 import { CustomPaginationConfig } from '../common/config';
-import { DateModule } from 'nap-components/date';
-import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { NapDateStruct, DateHelper, DateFormat, DateParserFormatter } from 'nap-components/date';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [

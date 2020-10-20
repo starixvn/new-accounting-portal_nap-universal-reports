@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FilterModel } from './filter/filter.model';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',

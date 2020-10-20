@@ -1,21 +1,16 @@
-﻿using AutoMapper;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.VoidingSettledTickets.Criteria;
 using UniversalReports.VoidingSettledTickets.Models;
-using UniversalReports.VoidingSettledTickets.Requests;
 
 namespace UniversalReports.VoidingSettledTickets.Services
 {
     public interface VoidingSettledService
     {
-        Task<SummaryEntity<ProductModel>> GetProducts(ProductRequest request);
+        Task<SummaryEntity<T>> GetProducts<T>(ICriteria criteria) where T : class, new();
 
-        Task<VoidTicketModel> GetTickets(TicketRequest request);
+        Task<VoidTicketModel> GetTickets(ICriteria criteria);
     }
 
     public class VoidingSettledServiceImp : VoidingSettledService
@@ -27,16 +22,14 @@ namespace UniversalReports.VoidingSettledTickets.Services
             this.repository = repository;
         }
 
-        public async Task<SummaryEntity<ProductModel>> GetProducts(ProductRequest request)
+        public async Task<SummaryEntity<T>> GetProducts<T>(ICriteria criteria) where T : class, new()
         {
-            var criteria = Mapper.Map<ProductCriteria>(request);
-            return (await repository.FetchAsync<ProductModel>(criteria)).CalculateSummaryEntity();
+            return (await repository.FetchAsync<T>(criteria))
+                    .CalculateSummaryEntity();
         }
 
-        public async Task<VoidTicketModel> GetTickets(TicketRequest request)
+        public async Task<VoidTicketModel> GetTickets(ICriteria criteria)
         {
-            var criteria = Mapper.Map<TicketCriteria>(request);
-
             var data = await repository.FetchMultipleAsync<TicketModel, int>(criteria);
             var tickets = data.Item1.CalculateSummaryEntity();
 

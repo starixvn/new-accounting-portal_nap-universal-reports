@@ -8,10 +8,8 @@ import {
     ComponentFactoryResolver,
     ComponentRef,
     ComponentFactory,
-    SimpleChanges,
     OnDestroy,
     OnChanges,
-    AfterViewInit
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FilterModel } from '../filter/filter.model';

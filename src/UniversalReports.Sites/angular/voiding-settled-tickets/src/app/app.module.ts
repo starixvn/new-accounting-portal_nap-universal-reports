@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 import { CONFIG, DateConfig } from './common/config';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from './grid/grid.module';
+import { ToastService, ToastModule } from 'nap-components/toast';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,12 @@ import { GridModule } from './grid/grid.module';
     NavbarModule,
     SpinnerModule,
     GridModule,
+    ToastModule
   ],
   providers: [
      { provide: NavbarService, useClass: CustomNavbarService },
      AppService,
+     ToastService,
      {
        provide: APP_INITIALIZER,
        useFactory: initConfiguration,

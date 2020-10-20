@@ -4,6 +4,7 @@ import { CONFIG } from '../common/config';
 import { FilterModel } from './filter.model';
 import { FilterService } from './filter.service';
 import { NapDateStruct, DateHelper, DateFormat } from 'nap-components/date';
+import { ToastService } from 'nap-components/toast';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -23,7 +24,8 @@ export class FilterComponent implements OnInit {
   voidedDateTemp: string;
   matchId: number;
   constructor(
-    private readonly filterSerivce: FilterService
+    private readonly filterSerivce: FilterService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,12 @@ export class FilterComponent implements OnInit {
   }
 
   onGenerate() {
+    const isTime = moment(this.voidedTime, CONFIG.timeFormatString).isValid();
+    if (this.isIncludeVoidedTime && this.voidedTime !== '' && !isTime) {
+      this.toastService.activate('Invalid time value.');
+      return;
+    }
+
     const winlost = DateHelper.convertDateStructToMoment(this.winlostDate);
     const voidedDate = DateHelper.convertDateStructToMoment(this.voidedDate);
     const voidedTime = this.isIncludeVoidedTime
@@ -45,7 +53,8 @@ export class FilterComponent implements OnInit {
     const filterModel: FilterModel = {
         winlostDate: DateHelper.formatMomentDate(winlost, DateFormat.Date),
         voidTime: voidedTime,
-        matchId: this.matchId
+        matchId: this.matchId,
+        productName: ''
     };
     this.generated.emit(filterModel);
   }

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.VoidingSettledTickets.Requests;
@@ -23,5 +24,19 @@ namespace UniversalReports.VoidingSettledTickets.Controllers
 
         [Route("tickets-by-product")]
         public async Task<IHttpActionResult> TicketsByProduct(TicketRequest request) => Ok(await mediator.Send(request).ConfigureAwait(false));
+
+        [Route("products-excel")]
+        public async Task<IHttpActionResult> ProductsExcel(ProductExcelRequest request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("tickets-by-product-excel")]
+        public async Task<IHttpActionResult> TicketsByProductExcel(TicketExcelRequest request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
     }
 }

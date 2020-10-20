@@ -883,6 +883,8 @@
     <Content Include="ExcelTemplate\SMAWinLoss\Summary.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
+    <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

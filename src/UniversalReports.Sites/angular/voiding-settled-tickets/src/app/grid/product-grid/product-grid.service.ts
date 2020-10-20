@@ -8,7 +8,6 @@ import { Helper } from 'nap-components/helper';
 
 @Injectable()
 export class ProductGridService {
-    private url = 'api/voiding-settled-tickets/products';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
@@ -16,16 +15,14 @@ export class ProductGridService {
 
     query(): Observable<ProductData> {
         const queryModel = this.gridService.filterModel;
-        return this.httpService.post<ProductData>(this.url, queryModel);
+        return this.httpService.post<ProductData>('api/voiding-settled-tickets/products', queryModel);
     }
 
     exportExcel() {
-        const url = `${this.url}/excel`;
-        const excelQueryModel = this.gridService.filterModel;
-        const fromDate = "";//moment(excelQueryModel.fromDate).format('YYYY_MM_DD');
-        const toDate = "";
-        this.httpService.download(url, this.gridService.filterModel).subscribe(response => {
-            const fileName = `Actual_Member_Bet_Report_From_${fromDate}_To_${toDate}.xlsx`;
+        const queryModel = this.gridService.filterModel;
+        const winlostDate = moment(queryModel.winlostDate).format('YYYY_MM_DD');
+        this.httpService.download('api/voiding-settled-tickets/products-excel', queryModel).subscribe(response => {
+            const fileName = `Voiding_Settled_Tickets_Report_For_${winlostDate}.xlsx`;
             Helper.downloadFile(response, fileName);
         });
     }
