@@ -18,6 +18,7 @@ using UniversalReports.PunterAnalysis;
 using UniversalReports.SBPerformance;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
+using UniversalReports.VoidingSettledTickets;
 
 namespace UniversalReports.Sites
 {
@@ -46,6 +47,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeAbnormalBet();
                 cfg.InitializeSBPerformance();
                 cfg.InitializeSMAWinLoss();
+                cfg.InitializeVoidingSettledTickets();
             });
         }
 

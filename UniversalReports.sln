@@ -52,6 +52,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\Nap-Universal-ReportsCSharp.ruleset = SonarQube\Nap-Universal-ReportsCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+		SonarQube\nap-universal-reports\CSharp\SonarLint.xml = SonarQube\nap-universal-reports\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.Tests", "tests\integration\shared\UniversalReports.Core.Tests\UniversalReports.Core.Tests.csproj", "{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}"
@@ -95,6 +96,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss.UnitTests", "tests\unit\modules\UniversalReports.SMAWinLoss.UnitTests\UniversalReports.SMAWinLoss.UnitTests.csproj", "{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss.Tests", "tests\integration\modules\UniversalReports.SMAWinLoss.Tests\UniversalReports.SMAWinLoss.Tests.csproj", "{DB724C65-7DD1-4394-BA2B-2240F73E83A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.VoidingSettledTickets", "src\modules\UniversalReports.VoidingSettledTickets\UniversalReports.VoidingSettledTickets.csproj", "{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -226,6 +229,10 @@ Global
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -270,6 +277,7 @@ Global
 		{B949C4EB-81BF-4971-9CDA-350394BDE2C6} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7} = {F73C2584-286D-49E1-9DE1-768A517F5719}
+		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35

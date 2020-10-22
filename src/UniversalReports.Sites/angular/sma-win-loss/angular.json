@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "sma-win-loss"
+  "defaultProject": "sma-win-loss",
+  "cli": {
+    "analytics": "350e190c-536c-485d-a6f0-b2d96b9ba10a"
+  }
 }

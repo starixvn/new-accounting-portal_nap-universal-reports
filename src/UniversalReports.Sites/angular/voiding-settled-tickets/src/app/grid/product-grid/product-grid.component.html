@@ -1,0 +1,69 @@
+<ng-template #colgroup>
+  <colgroup>
+      <col style="width: 242px" />
+      <col style="width: 200px" />
+      <col style="width: 200px" />
+  </colgroup>
+</ng-template>
+<ng-template #thead>
+  <thead>
+      <tr>
+          <th>Product Group</th>
+          <th>House Income Before ExtraPT</th>
+          <th>House Income After ExtraPT</th>
+      </tr>
+  </thead>
+</ng-template>
+<ng-template #rowItem let-item="item">
+  <td>
+      <a href="javascript:;" (click)="viewProduct(item.ProductGroupId, item.ProductGroup)">{{ item.ProductGroup }}</a>
+  </td>
+  <td [ngClass]="{'red': item.HouseIncomeBeforeExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="item.HouseIncomeBeforeExtraPT"></td>
+  <td [ngClass]="{'red': item.HouseIncomeAfterExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="item.HouseIncomeAfterExtraPT"></td>
+</ng-template>
+<div *ngIf="productData" [ngSwitch]="productData.Entities.length > 0">
+  <div class="nap-grid">
+      <div style="width: 660px;">
+          <div class="header">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                  <ng-template [ngTemplateOutlet]="thead"></ng-template>
+              </table>
+          </div>
+          <div *ngSwitchCase="true" class="body">
+            <table class="table-striped">
+              <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+              <tbody>
+                  <tr *ngFor="let item of productData.Entities">
+                      <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
+                      </ng-template>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngSwitchCase="false" class="body stretch">
+              <table>
+                  <tbody>
+                      <tr>
+                          <th class="no-data" colspan="3">
+                              There is no data
+                          </th>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <div *ngSwitchCase="true" class="footer">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                  <tfoot>
+                      <tr class="font-weight-bold">
+                          <td class="text-right">Total</td>
+                          <td [ngClass]="{'red': productData.Total.HouseIncomeBeforeExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="productData.Total.HouseIncomeBeforeExtraPT"></td>
+                          <td [ngClass]="{'red': productData.Total.HouseIncomeAfterExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="productData.Total.HouseIncomeAfterExtraPT"></td>
+                      </tr>
+                  </tfoot>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>

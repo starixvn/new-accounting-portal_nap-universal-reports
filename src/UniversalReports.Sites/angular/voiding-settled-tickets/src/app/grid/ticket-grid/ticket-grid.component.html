@@ -1,0 +1,81 @@
+<ng-template #colgroup>
+  <colgroup>
+      <col style="width: 140px" />
+      <col style="width: 150px" />
+      <col style="width: 140px" />
+      <col style="width: 180px" />
+      <col style="width: 200px" />
+      <col style="width: 200px" />
+  </colgroup>
+</ng-template>
+<ng-template #thead>
+  <thead>
+      <tr>
+          <th>TransID</th>
+          <th>Username</th>
+          <th>MatchID</th>
+          <th>Voided Time</th>
+          <th>House Income Before ExtraPT</th>
+          <th>House Income After ExtraPT</th>
+      </tr>
+  </thead>
+</ng-template>
+<ng-template #rowItem let-item="item">
+  <td class="text-right">{{item.TransId}}</td>
+  <td>{{item.Username}}</td>
+  <td class="text-right">{{item.MatchId}}</td>
+  <td class="text-center">{{item.VoidedTime | date : 'medium'}}</td>
+  <td [ngClass]="{'red': item.HouseIncomeBeforeExtraPT > 0, 'text-right' : 1}"  [napDecimalFormat]="item.HouseIncomeBeforeExtraPT"></td>
+  <td [ngClass]="{'red': item.HouseIncomeAfterExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="item.HouseIncomeAfterExtraPT"></td>
+</ng-template>
+<div *ngIf="voidTicketModel" [ngSwitch]="voidTicketModel.Tickets.length > 0">
+  <div class="nap-grid">
+      <div style="width: 1028px;">
+          <div class="header">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                  <ng-template [ngTemplateOutlet]="thead"></ng-template>
+              </table>
+          </div>
+          <div *ngSwitchCase="true" class="body">
+            <table class="table-striped">
+              <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+              <tbody>
+                  <tr *ngFor="let item of voidTicketModel.Tickets">
+                      <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
+                      </ng-template>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngSwitchCase="false" class="body stretch">
+              <table>
+                  <tbody>
+                      <tr>
+                          <th class="no-data" colspan="6">
+                              There is no data
+                          </th>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <div *ngSwitchCase="true" class="footer">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                  <tfoot>
+                      <tr class="font-weight-bold">
+                          <td class="text-right" colspan="4">Total</td>
+                          <td [ngClass]="{'red': voidTicketModel.Total.HouseIncomeBeforeExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="voidTicketModel.Total.HouseIncomeBeforeExtraPT"></td>
+                          <td [ngClass]="{'red': voidTicketModel.Total.HouseIncomeAfterExtraPT > 0, 'text-right' : 1}" [napDecimalFormat]="voidTicketModel.Total.HouseIncomeAfterExtraPT"></td>
+                      </tr>
+                      <tr>
+                        <td class="paging" colspan="6">
+                          <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange()"></nap-pagination>
+                        </td>
+                      </tr>
+                  </tfoot>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>

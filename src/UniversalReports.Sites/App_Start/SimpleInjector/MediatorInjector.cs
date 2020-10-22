@@ -10,6 +10,7 @@ using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.SBPerformance;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
+using UniversalReports.VoidingSettledTickets;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -31,6 +32,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(AbnormalBetAttribute).GetTypeInfo().Assembly;
             yield return typeof(SBPerformanceAttribute).GetTypeInfo().Assembly;
             yield return typeof(SMAWinLossAttribute).GetTypeInfo().Assembly;
+            yield return typeof(VoidingSettledTicketsAttribute).GetTypeInfo().Assembly;
         }
     }
 }
