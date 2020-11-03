@@ -58,7 +58,11 @@ import numeral from "numeral";
                 var customAttr = productRow.CustomAttr;
                 if (customAttr === 'product') {
                     var productName = productRow.Columns[0].Value;
-                    productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
+                    if(productName != 'SB Adjustment') {
+                        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
+                    } else {
+                        productRow.Columns[0].Value = productName;
+                    }
                 }
             }
         }
