@@ -34,8 +34,12 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.CustId);
 
             var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
-            var summaries = usernames.Any()
-                ? await GetMemberSummaries(request, usernames)
+            var usernames1 = new List<string>
+            {
+                "BHB9955555"
+            };
+            var summaries = usernames1.Any()
+                ? await GetMemberSummaries(request, usernames1)
                 : new List<AssociatedSummaryModel>();
 
             return summaries
