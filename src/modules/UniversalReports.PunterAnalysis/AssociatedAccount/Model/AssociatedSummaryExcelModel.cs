@@ -73,6 +73,9 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
             }
         }
 
+        [Cell("G8")]
+        public string Category { get; set; }
+
         private bool IsMember()
         {
             return RoleName == string.Empty || RoleName == MemberRole;

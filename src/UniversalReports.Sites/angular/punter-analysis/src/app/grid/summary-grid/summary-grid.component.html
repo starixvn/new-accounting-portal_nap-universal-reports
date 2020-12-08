@@ -7,6 +7,7 @@
         <col style="width: 90px" />
         <col style="width: 100px" />
         <col style="width: 100px" />
+        <col style="width: 100px" />
     </colgroup>
 </ng-template>
 <ng-template #thead>
@@ -19,11 +20,12 @@
             <th>Bet Count</th>
             <th>Associated Accounts</th>
             <th>VIP</th>
+            <th>Category</th>
         </tr>
     </thead>
 </ng-template>
 <div *ngIf="data" class="nap-grid" [ngSwitch]="hasData">
-    <div style="width: 868px">
+    <div style="width: 968px">
         <div class="header">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -46,6 +48,7 @@
                         </td>
                         <td class="text-center"><a href="javascript:;" (click)="showAssociatedAccount(item.CustId, item.Username)">view</a></td>
                         <td class="text-center">{{item.VIP}}</td>
+                        <td class="text-center">{{item.Category}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -54,7 +57,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <th class="no-data" colspan="7">
+                        <th class="no-data" colspan="8">
                             There is no data
                         </th>
                     </tr>
@@ -73,9 +76,10 @@
                         <td class="text-right" [napIntegerFormat]="data.Total.BetCount"></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td colspan="7">
+                        <td colspan="8">
                             <nap-pagination [config]="config"></nap-pagination>
                         </td>
                     </tr>

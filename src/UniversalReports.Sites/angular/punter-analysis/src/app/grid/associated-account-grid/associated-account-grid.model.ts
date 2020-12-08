@@ -9,6 +9,7 @@ export interface AssociatedAccountItem {
     WinLoss: number;
     Turnover: number;
     BetCount: number;
+    Category: string;
 }
 
 export interface AssociatedAccountData {

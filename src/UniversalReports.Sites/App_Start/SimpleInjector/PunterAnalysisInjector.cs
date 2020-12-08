@@ -11,9 +11,6 @@ using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.Summary;
 
-
-
-
 namespace UniversalReports.Sites.SimpleInjector
 {
     internal static class PunterAnalysisInjector
@@ -46,6 +43,7 @@ namespace UniversalReports.Sites.SimpleInjector
               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.GameBetType.HandlerExcel));
             container.RegisterConditional<ExcelSettingFactory, BetTypeGroupExcelSettingFactory>(
               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetTypeGroup.HandlerExcel));
+            container.Register<SummaryService, SummaryServiceImp>();
             return container;
         }
     }

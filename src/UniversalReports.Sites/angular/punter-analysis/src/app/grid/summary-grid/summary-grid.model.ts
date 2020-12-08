@@ -5,6 +5,7 @@ export interface SummaryItem {
     Turnover: number;
     Margin: number;
     BetCount: number;
+    Category: string;
 }
 
 export interface SummaryData {

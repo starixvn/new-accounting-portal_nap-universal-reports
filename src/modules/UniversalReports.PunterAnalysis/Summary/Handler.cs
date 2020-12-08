@@ -1,23 +1,26 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
-using UniversalReports.PunterAnalysis.Shared;
+using System.Threading;
+using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
-    public class Handler : HandlerBase, IRequestHandler<HttpParameterJson, SummaryEntity<SummaryModel>>
+    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<SummaryModel>>
     {
-        public Handler(PunterAnalysisService punterAnalysisService)
-            : base(punterAnalysisService)
+        private readonly SummaryService summaryService;
+
+        public Handler(SummaryService summaryService)
         {
+            this.summaryService = summaryService;
         }
 
         public async Task<SummaryEntity<SummaryModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
-            return await Handle<Criteria, SummaryModel>(request);
+            var criteria = Mapper.Map<Criteria>(request);
+            var summaries = await summaryService.GetSummaries(criteria);
+            return summaries;
         }
-
     }
 }

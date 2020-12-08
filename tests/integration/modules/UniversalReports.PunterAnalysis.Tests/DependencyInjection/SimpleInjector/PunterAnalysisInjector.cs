@@ -43,6 +43,7 @@ namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInject
               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.GameBetType.HandlerExcel));
             container.RegisterConditional<ExcelSettingFactory, BetTypeGroupExcelSettingFactory>(
               c => c.Consumer.ImplementationType == typeof(PunterAnalysis.BetTypeGroup.HandlerExcel));
+            container.Register<SummaryService, SummaryServiceImp>();
             return container;
         }
     }

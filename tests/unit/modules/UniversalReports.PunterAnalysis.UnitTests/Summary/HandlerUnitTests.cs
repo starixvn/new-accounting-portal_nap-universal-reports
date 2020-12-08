@@ -1,12 +1,10 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using AutoFixture;
-using Fanex.Data.Repository;
+﻿using AutoFixture;
 using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.PunterAnalysis.Shared;
+using System.Threading;
+using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
@@ -21,8 +19,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.Summary
         {
             // Arrange
             var anyReportModel = fixture.Create<SummaryEntity<SummaryModel>>();
-            var service = Substitute.For<PunterAnalysisService>();
-            service.Query<SummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(anyReportModel);
+            var service = Substitute.For<SummaryService>();
+            service.GetSummaries(Arg.Compat.Any<Criteria>()).Returns(anyReportModel);
 
             // Act
             var handler = new Handler(service);

@@ -115,7 +115,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.11\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.12\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -237,6 +237,7 @@
     <Compile Include="Shared\PunterAnalysisServiceImpUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Summary\SummaryExcelSettingFactoryUnitTests.cs" />
+    <Compile Include="Summary\SummaryServiceUnitTests.cs" />
     <Compile Include="TestDataLoader.cs" />
   </ItemGroup>
   <ItemGroup>

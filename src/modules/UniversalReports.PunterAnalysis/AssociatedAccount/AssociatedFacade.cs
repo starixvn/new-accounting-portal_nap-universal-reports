@@ -34,12 +34,8 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.CustId);
 
             var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
-            var usernames1 = new List<string>
-            {
-                "BHB9955555"
-            };
-            var summaries = usernames1.Any()
-                ? await GetMemberSummaries(request, usernames1)
+            var summaries = usernames.Any()
+                ? await GetMemberSummaries(request, usernames)
                 : new List<AssociatedSummaryModel>();
 
             return summaries
@@ -63,6 +59,12 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             };
 
             var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
+
+            foreach (var item in summaries)
+            {
+                item.Category = await fraudServiceWrapper.GetCategory(configurationService.FraudSystemCategoryApi, item.CustId.ToString());
+            }
+
             return summaries.ToList();
         }
     }

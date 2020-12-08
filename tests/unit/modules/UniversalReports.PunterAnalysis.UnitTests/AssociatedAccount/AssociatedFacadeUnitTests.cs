@@ -54,6 +54,7 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             };
             var fraudService = Substitute.For<FraudServiceWrapper>();
             fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(listOfUserDevice);
+            fraudService.GetCategory(Arg.Compat.Any<string>(), Arg.Compat.Any<string>()).Returns("category 1");
 
             var configurationService = Substitute.For<ConfigurationService>();
 
@@ -64,9 +65,9 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             // Assert
             var expectedEntities = new List<AssociatedSummaryModel>
             {
-                new AssociatedSummaryModel { Username = "member01", BetCount = 1, RoleName = "Member", Turnover = 100, WinLoss = 100 },
-                new AssociatedSummaryModel { Username = "member02", BetCount = 0, RoleName = "Member", Turnover = 0, WinLoss = 0 },
-                new AssociatedSummaryModel { Username = "agent01", BetCount = 0, RoleName = "Agent", Turnover = 0, WinLoss = 0 }
+                new AssociatedSummaryModel { Username = "member01", BetCount = 1, RoleName = "Member", Turnover = 100, WinLoss = 100, Category = "category 1" },
+                new AssociatedSummaryModel { Username = "member02", BetCount = 0, RoleName = "Member", Turnover = 0, WinLoss = 0, Category = "category 1" },
+                new AssociatedSummaryModel { Username = "agent01", BetCount = 0, RoleName = "Agent", Turnover = 0, WinLoss = 0, Category = "category 1" }
             };
 
             var expected = new SummaryEntity<AssociatedSummaryModel>
