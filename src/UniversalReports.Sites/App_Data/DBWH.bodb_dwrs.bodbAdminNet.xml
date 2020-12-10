@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old_xtest" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
+    <Setting Key="HouseWinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
     <Setting Key="HouseWinLoss-Casino-Product-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Product_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_BetType_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="HouseWinLoss-Casino-Site-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Game_Site_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
