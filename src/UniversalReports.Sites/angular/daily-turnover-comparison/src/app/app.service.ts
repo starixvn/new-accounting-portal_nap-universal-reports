@@ -8,7 +8,8 @@ export class AppService {
 
   exportExcel(topLicensees: number) {
     const url = 'api/daily-turnover-comparison/top-licensees';
-    this.httpService.download(url, topLicensees).subscribe(response => {
+    var data = { topLicensees: topLicensees };
+    this.httpService.download(url, data).subscribe(response => {
       const fileName = `Daily_Turnover_Comparision_Report.xlsx`;
       Helper.downloadFile(response, fileName);
     });

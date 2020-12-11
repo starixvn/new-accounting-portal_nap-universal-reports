@@ -29,7 +29,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterAbnormalBetServices()
                 .RegisterSBPerformanceServices()
                 .RegisterSMAWinLossServices()
-                .RegisterVoidingSettledTicketsServices();
+                .RegisterVoidingSettledTicketsServices()
+                .RegisterDailyTurnoverServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();

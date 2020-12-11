@@ -180,4 +180,7 @@
     <Setting Key="SMAWinLoss-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SMAWinLoss-ReportLatestDate" SpName="Acc_Rpt_SMAWinlossSummary_ReportLatestDate" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
+  <Function Name="Fraud and Risk">
+    <Setting Key="Acc_Rpt_SBTurnoverComparision_Daily" SpName="Acc_Rpt_SBTurnoverComparision_Daily" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>
