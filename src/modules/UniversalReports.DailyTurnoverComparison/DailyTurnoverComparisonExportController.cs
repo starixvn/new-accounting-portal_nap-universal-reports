@@ -1,5 +1,4 @@
-﻿using OfficeOpenXml;
-using Olympus.WebApi.Epplus;
+﻿using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.DailyTurnoverComparison.Service;
@@ -10,17 +9,21 @@ namespace UniversalReports.DailyTurnoverComparison
     public class DailyTurnoverComparisonExportController : ApiController
     {
         private readonly DataService dataService;
+        private readonly ExcelService excelService;
 
-        public DailyTurnoverComparisonExportController(DataService dataService)
+        public DailyTurnoverComparisonExportController(
+            DataService dataService,
+            ExcelService excelService)
         {
             this.dataService = dataService;
+            this.excelService = excelService;
         }
 
         [Route("top-licensees")]
-        public async Task<IHttpActionResult> Excel(HttpRequestParameter parammeter)
+        public IHttpActionResult Excel(HttpRequestParameter parammeter)
         {
-            dataService.Query(parammeter);
-            var excelPackage = new ExcelPackage();
+            var dataTables = dataService.Query(parammeter);
+            var excelPackage = excelService.Export(dataTables);
             return new EpplusExcelResult(excelPackage);
         }
     }

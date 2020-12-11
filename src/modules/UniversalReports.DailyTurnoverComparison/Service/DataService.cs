@@ -1,5 +1,4 @@
-﻿using Fanex.Data.Repository;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,36 +15,28 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 
     public class DataServiceImp : DataService
     {
-        private readonly IDynamicRepository repository;
+        private readonly DBService dBService;
+        private readonly DateTimeService dateTimeService;
+        private const int NumberOfLicenseePerSheet = 10;
 
-        public DataServiceImp(IDynamicRepository repository)
+        public DataServiceImp(DBService dBService, DateTimeService dateTimeService)
         {
-            this.repository = repository;
+            this.dBService = dBService;
+            this.dateTimeService = dateTimeService;
         }
+
+        private static Dictionary<int, string> HourFormat => new Dictionary<int, string>
+        {
+            { 6, "00:00-05:59" },
+            { 12, "06:00-11:59" },
+            { 18, "12:00-17:59" },
+            { 24, "18:00-23:59" },
+        };
 
         public List<DataTable> Query(HttpRequestParameter httpParam)
         {
-            var tables = new List<DataTable>();
-            try
-            {
-                var fileName = $@"D:\Fanex.Excel\DailyTurnoverComparison.JSON";
-                if (File.Exists(fileName))
-                {
-                    var text = File.ReadAllText(fileName);
-                    var source = JsonConvert.DeserializeObject<List<TurnoverModel>>(text);
-                    tables = SeparateDataBySheet(source);
-                }
-                else
-                {
-                    var criteria = new Criteria { ToDate = new DateTime(2020, 11, 10), Top = httpParam.TopLicensees };
-                    var result = repository.Fetch<TurnoverModel>(criteria).ToList();
-                    var json = JsonConvert.SerializeObject(result, Formatting.Indented);
-                    File.WriteAllText(fileName, json);
-                }
-            }
-            catch (Exception ex)
-            {
-            }
+            var source = dBService.Query(dateTimeService.ToDate, httpParam.TopLicensees);
+            var tables = SeparateDataBySheet(source);
 
             return tables;
         }
@@ -54,7 +45,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
         {
             var result = new List<DataTable>();
             var siteNames = source.Select(s => s.SiteName).Distinct().ToList();
-            var rowPerBatch = 10;
+            var rowPerBatch = NumberOfLicenseePerSheet;
             var totalBatch = siteNames.Count / rowPerBatch + ((siteNames.Count % rowPerBatch) > 0 ? 1 : 0);
             for (var batchIndex = 0; batchIndex < totalBatch; batchIndex++)
             {
@@ -69,6 +60,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 
         private DataTable PivotDataBySite(List<string> sites, List<TurnoverModel> dataBySite)
         {
+            var hourFormat = HourFormat;
             var columns = new List<string> { "MemberTurnover", "TODiff", "ActiveMembers", "ActiveMemberDiff" };
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("RptDate", typeof(DateTime));
@@ -81,13 +73,22 @@ namespace UniversalReports.DailyTurnoverComparison.Service
                 }
             });
 
-            dataBySite.GroupBy(g => new { RptDate = g.RptDate, WeekDays = g.WeekDays })
+            dataBySite.GroupBy(g => new { RptDate = g.RptDate, WeekDays = g.WeekDays, Hour = g.Hour })
                 .ToList()
                 .ForEach(dataByDate =>
                 {
                     var newRowByDate = dataTable.NewRow();
-                    newRowByDate["RptDate"] = dataByDate.Key.RptDate;
-                    newRowByDate["WeekDays"] = dataByDate.Key.WeekDays;
+                    if (hourFormat.ContainsKey(dataByDate.Key.Hour))
+                    {
+                        newRowByDate["RptDate"] = hourFormat[dataByDate.Key.Hour];
+                        newRowByDate["WeekDays"] = hourFormat[dataByDate.Key.Hour];
+                    }
+                    else
+                    {
+                        newRowByDate["RptDate"] = dataByDate.Key.RptDate;
+                        newRowByDate["WeekDays"] = dataByDate.Key.WeekDays;
+                    }
+
                     sites.ForEach(site =>
                     {
                         AssignValueToColumnBySite(newRowByDate, site, columns, dataByDate);
