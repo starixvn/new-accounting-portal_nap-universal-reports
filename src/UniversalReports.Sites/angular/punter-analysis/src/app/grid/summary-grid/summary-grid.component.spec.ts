@@ -158,7 +158,7 @@ describe('SummaryGridComponent', () => {
         it('should invoke to generate AssociatedAccount when click on the last cell', () => {
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
-            const link = tds[tds.length - 2].query(By.css('a'));
+            const link = tds[tds.length - 3].query(By.css('a'));
             link.triggerEventHandler('click', {});
             expect(selectedGridType).toBe(GridType.AssociatedAccount);
             const asssociatedAccountGridService = fixture.debugElement.injector.get(AssociatedAccountGridService);
@@ -172,7 +172,7 @@ describe('SummaryGridComponent', () => {
 
         it('all cells of first row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['HecbetRMB011154', '13,024.23', '2,490.18', '523.02%', '10', 'view', ''];
+            const expectedCellValue = ['HecbetRMB011154', '13,024.23', '2,490.18', '523.02%', '10', 'view', '', 'category'];
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
 
@@ -185,7 +185,7 @@ describe('SummaryGridComponent', () => {
 
         it('all cells of second row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['PYB0201002', '12,337.55', '2,712.90', '454.77%', '31', 'view', ''];
+            const expectedCellValue = ['PYB0201002', '12,337.55', '2,712.90', '454.77%', '31', 'view', '', 'category'];
             const row = page.queryEntityRow(1);
             const tds = row.queryAll(By.css('td'));
 
@@ -198,7 +198,7 @@ describe('SummaryGridComponent', () => {
 
         it('all cells of total row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Total', '25,361.78', '5,203.08', '487.44%', '41', '', ''];
+            const expectedCellValue = ['Total', '25,361.78', '5,203.08', '487.44%', '41', '', '', ''];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 

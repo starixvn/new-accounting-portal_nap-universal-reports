@@ -6,6 +6,7 @@
         <col style="width: 150px" />
         <col style="width: 90px" />
         <col style="width: 90px" />
+        <col style="width: 150px" />
     </colgroup>
 </ng-template>
 <ng-template #thead>
@@ -17,11 +18,12 @@
             <th>Turnover</th>
             <th>Margin</th>
             <th>Bet Count</th>
+            <th>Category</th>
         </tr>
     </thead>
 </ng-template>
 <div *ngIf="data" class="nap-grid" [ngSwitch]="hasData">
-    <div style="width: 758px">
+    <div style="width: 908px">
         <div class="header">
             <table>
                 <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -34,16 +36,22 @@
                 <tbody>
                     <tr *ngFor="let item of data.Entities | paginate: config">
                         <ng-template [ngIf]="item.RoleName == '' || item.RoleName == 'Member'">
-                            <td class="word-break-all">{{ item.Username }}</td>
+                            <td class="word-break-all"><a href="javascript:;" (click)="showSportType(item.CustId, item.Username)">{{
+                              item.Username }}</a></td>
                             <td class="text-center">{{ item.RoleName }}</td>
                             <td class="number" [napDecimalFormat]="item.WinLoss"></td>
                             <td class="text-right" [napDecimalFormat]="item.Turnover"></td>
                             <td class="number" [napPercentFormat]="item.WinLoss/item.Turnover"></td>
-                            <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
+                            <td class="text-right">
+                              <a href="javascript:;" (click)="showBetCount(item.CustId, item.Username)"
+                                  [napIntegerFormat]="item.BetCount"></a>
+                          </td>
+                          <td class="text-center">{{ item.Category }}</td>
                         </ng-template>
                         <ng-template [ngIf]="item.RoleName != '' && item.RoleName != 'Member'">
                             <td class="word-break-all">{{ item.Username }}</td>
                             <td class="text-center">{{ item.RoleName }}</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -57,7 +65,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <th class="no-data" colspan="6">
+                        <th class="no-data" colspan="7">
                             There is no data
                         </th>
                     </tr>
@@ -75,9 +83,10 @@
                         <td class="text-right" [napDecimalFormat]="data.Total.Turnover"></td>
                         <td class="number" [napPercentFormat]="data.Total.WinLoss/data.Total.Turnover"></td>
                         <td class="text-right" [napIntegerFormat]="data.Total.BetCount"></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td colspan="6">
+                        <td colspan="7">
                             <nap-pagination [config]="config"></nap-pagination>
                         </td>
                     </tr>

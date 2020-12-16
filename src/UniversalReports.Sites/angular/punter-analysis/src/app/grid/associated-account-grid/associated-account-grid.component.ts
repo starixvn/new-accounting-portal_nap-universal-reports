@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { PaginationInstance } from 'nap-components/pagination';
-import { Grid } from '../grid.model';
+import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { AssociatedAccountData } from './associated-account-grid.model';
 import { AssociatedAccountGridService } from './associated-account-grid.service';
+import { SportTypeGridService } from '../sport-type-grid/sport-type-grid.service';
+import { BetCountGridService } from '../bet-count-grid/bet-count-grid.service';
 
 @Component({
     selector: 'nap-associated-account-grid',
@@ -18,7 +20,9 @@ export class AssociatedAccountGridComponent implements Grid {
 
     constructor(
         private gridService: GridService,
-        private service: AssociatedAccountGridService
+        private service: AssociatedAccountGridService,
+        private sportTypeGridService: SportTypeGridService,
+        private betCountGridService: BetCountGridService
     ) { }
 
     query(): Observable<any> {
@@ -51,4 +55,14 @@ export class AssociatedAccountGridComponent implements Grid {
     get title(): string {
         return `Associated accounts of Punter ${this.service.model.custName}`;
     }
+
+    showSportType(custId: number, custName: string) {
+      this.sportTypeGridService.model = this.service.createSportTypeGridModel(custId, custName);
+      this.gridService.generate(GridType.SportType);
+  }
+
+  showBetCount(custId: number, custName: string): void {
+    this.betCountGridService.model = this.service.createBetCountGridModel(custId, custName);
+    this.gridService.generate(GridType.BetCount);
+}
 }

@@ -64,7 +64,8 @@ describe('AssociatedAccountGridComponent', () => {
                 RoleName: '',
                 WinLoss: 0,
                 Turnover: 0,
-                BetCount: 0
+                BetCount: 0,
+                Category: ''
             }
         };
         fixture.detectChanges();
@@ -99,21 +100,24 @@ describe('AssociatedAccountGridComponent', () => {
                         RoleName: 'Member',
                         WinLoss: 300,
                         Turnover: 500,
-                        BetCount: 5
+                        BetCount: 5,
+                        Category: 'category'
                     },
                     {
                         Username: 'member02',
                         RoleName: 'Member',
                         WinLoss: 0,
                         Turnover: 0,
-                        BetCount: 0
+                        BetCount: 0,
+                        Category: 'category'
                     },
                     {
                         Username: 'agent01',
                         RoleName: 'Agent',
                         WinLoss: 0,
                         Turnover: 0,
-                        BetCount: 0
+                        BetCount: 0,
+                        Category: 'category'
                     }
                 ],
                 Total: {
@@ -121,7 +125,8 @@ describe('AssociatedAccountGridComponent', () => {
                     RoleName: '',
                     WinLoss: 300,
                     Turnover: 500,
-                    BetCount: 5
+                    BetCount: 5,
+                    Category: ''
                 }
             };
 
@@ -164,7 +169,7 @@ describe('AssociatedAccountGridComponent', () => {
 
         it('all cells of first row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['member01', 'Member', '300.00', '500.00', '60.00%', '5'];
+            const expectedCellValue = ['member01', 'Member', '300.00', '500.00', '60.00%', '5', 'category'];
             const row = page.queryEntityRow(0);
             const tds = row.queryAll(By.css('td'));
 
@@ -177,7 +182,7 @@ describe('AssociatedAccountGridComponent', () => {
 
         it('all cells of second row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['member02', 'Member', '0.00', '0.00', 'N/A', '0'];
+            const expectedCellValue = ['member02', 'Member', '0.00', '0.00', 'N/A', '0', 'category'];
             const row = page.queryEntityRow(1);
             const tds = row.queryAll(By.css('td'));
 
@@ -189,7 +194,7 @@ describe('AssociatedAccountGridComponent', () => {
         });
         it('all cells of third row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['agent01', 'Agent', '', '', '', ''];
+            const expectedCellValue = ['agent01', 'Agent', '', '', '', '', ''];
             const row = page.queryEntityRow(2);
             const tds = row.queryAll(By.css('td'));
 
@@ -201,7 +206,7 @@ describe('AssociatedAccountGridComponent', () => {
         });
         it('all cells of total row should match', () => {
             const cellValues = [];
-            const expectedCellValue = ['Total', '', '300.00', '500.00', '60.00%', '5'];
+            const expectedCellValue = ['Total', '', '300.00', '500.00', '60.00%', '5', ''];
             const row = page.queryTotalRow();
             const tds = row.queryAll(By.css('td'));
 

@@ -23,5 +23,8 @@ namespace UniversalReports.PunterAnalysis.Summary.Model
 
         [Cell("F8")]
         public string VIP { get; set; }
+
+        [Cell("G8")]
+        public string Category { get; set; }
     }
 }

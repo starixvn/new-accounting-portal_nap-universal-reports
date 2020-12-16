@@ -128,7 +128,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.11\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.12\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -327,6 +327,7 @@
     <Compile Include="Summary\Model\HttpParameterJson.cs" />
     <Compile Include="Summary\PunterAnalysisSummaryController.cs" />
     <Compile Include="Summary\SummaryExcelSettingFactory.cs" />
+    <Compile Include="Summary\SummaryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

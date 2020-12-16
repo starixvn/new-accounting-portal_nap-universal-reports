@@ -16,6 +16,8 @@
 
         public string VIP { get; set; }
 
+        public string Category { get; set; }
+
         public static SummaryModel operator +(SummaryModel a, SummaryModel b)
         {
             return new SummaryModel

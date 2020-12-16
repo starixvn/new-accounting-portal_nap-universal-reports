@@ -11,6 +11,7 @@ using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.Shared;
+using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
@@ -58,6 +59,7 @@ namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
             container.Register<ExcelSettingFactory, AssociatedAccountExcelSettingFactory>();
             container.Register<LeagueExcelBuilder, LeagueExcelBuilderImp>();
             container.Register<BetCountService, BetCountServiceImp>();
+            container.Register<SummaryService, SummaryServiceImp>();
 
             container.RegiserGlobalServices()
                     .RegisterMediator();

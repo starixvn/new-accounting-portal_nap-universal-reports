@@ -2,6 +2,8 @@
 {
     public class AssociatedSummaryModel
     {
+        public int CustId { get; set; }
+
         public string Username { get; set; }
 
         public string RoleName { get; set; }
@@ -13,6 +15,8 @@
         public decimal Margin => Turnover == 0 ? 0 : WinLoss / Turnover;
 
         public int BetCount { get; set; }
+
+        public string Category { get; set; }
 
         public static AssociatedSummaryModel operator +(AssociatedSummaryModel a, AssociatedSummaryModel b)
         {

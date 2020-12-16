@@ -59,6 +59,12 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             };
 
             var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
+
+            foreach (var item in summaries)
+            {
+                item.Category = await fraudServiceWrapper.GetCategory(configurationService.FraudSystemCategoryApi, item.CustId.ToString());
+            }
+
             return summaries.ToList();
         }
     }
