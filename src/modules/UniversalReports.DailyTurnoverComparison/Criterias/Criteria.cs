@@ -13,7 +13,7 @@ namespace UniversalReports.DailyTurnoverComparison.Criterias
 
         public int Top { get; set; }
 
-        public override string GetSettingKey() => "Acc_Rpt_SBTurnoverComparision_Daily";
+        public override string GetSettingKey() => "Acc_Rpt_SBTurnoverComparison_Daily";
 
         public override bool IsValid() => true;
     }

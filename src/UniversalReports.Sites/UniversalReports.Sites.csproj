@@ -888,10 +888,10 @@
     </Content>
     <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
     <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
-    <Content Include="ExcelTemplate\TurnoverComparision\TurnoverComparision.xlsx">
+    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ExcelTemplate\TurnoverComparision\TurnoverComparision-NoData.xlsx">
+    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />

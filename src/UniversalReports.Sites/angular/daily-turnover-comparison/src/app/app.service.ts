@@ -10,7 +10,7 @@ export class AppService {
     const url = 'api/daily-turnover-comparison/top-licensees';
     var data = { topLicensees: topLicensees };
     this.httpService.download(url, data).subscribe(response => {
-      const fileName = `Daily_Turnover_Comparision_Report.xlsx`;
+      const fileName = `Daily_Turnover_Comparison_Report.xlsx`;
       Helper.downloadFile(response, fileName);
     });
   }

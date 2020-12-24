@@ -33,7 +33,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 
         private ExcelPackage ExportHasData(List<DataTable> dataTables)
         {
-            var excelPackage = new ExcelPackage(new FileInfo($"{configurationService.CurrentDirectory}/ExcelTemplate/TurnoverComparision/TurnoverComparision.xlsx"));
+            var excelPackage = new ExcelPackage(new FileInfo($"{configurationService.CurrentDirectory}/ExcelTemplate/TurnoverComparison/TurnoverComparison.xlsx"));
             var template = excelPackage.Workbook.Worksheets["Template"];
             excelPackage.Workbook.Worksheets.Delete(template);
             var sheetNumber = 1;
@@ -51,9 +51,9 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 
         private ExcelPackage ExportNoData()
         {
-            var excelPackage = new ExcelPackage(new FileInfo($"{configurationService.CurrentDirectory}/ExcelTemplate/TurnoverComparision/TurnoverComparision-NoData.xlsx"));
+            var excelPackage = new ExcelPackage(new FileInfo($"{configurationService.CurrentDirectory}/ExcelTemplate/TurnoverComparison/TurnoverComparison-NoData.xlsx"));
             var template = excelPackage.Workbook.Worksheets["No-Data"];
-            template.Cells["A1"].Value = $"Daily Turnover Comparision Report From {dateTimeService.FromDate:yyyy-MM-dd} To {dateTimeService.ToDate:yyyy-MM-dd}";
+            template.Cells["A1"].Value = $"Daily Turnover Comparison Report From {dateTimeService.FromDate:yyyy-MM-dd} To {dateTimeService.ToDate:yyyy-MM-dd}";
 
             return excelPackage;
         }
@@ -65,7 +65,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
             template.Cells[3, 1, 5, 2].Copy(sheet.Cells[3, 1, 5, 2]);
             template.Cells[1, 1].Copy(sheet.Cells[1, 1]);
             sheet.Cells[1, 1, 1, dataTable.Columns.Count].Merge = true;
-            sheet.Cells["A1"].Value = $"Daily Turnover Comparision Report From {dateTimeService.FromDate:yyyy-MM-dd} To {dateTimeService.ToDate:yyyy-MM-dd}";
+            sheet.Cells["A1"].Value = $"Daily Turnover Comparison Report From {dateTimeService.FromDate:yyyy-MM-dd} To {dateTimeService.ToDate:yyyy-MM-dd}";
             sheet.Row(1).Height = 30;
             for (var licenseeIndex = 0; licenseeIndex < numberLicensee; licenseeIndex++)
             {
