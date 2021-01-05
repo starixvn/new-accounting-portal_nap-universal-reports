@@ -15,6 +15,7 @@ import angular from "angular";
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateLeague = generateLeague;
+        $scope.generateBetType = generateBetType;
         $scope.viewSetting = {};
 
         function generate(viewSetting) {
@@ -47,10 +48,15 @@ import angular from "angular";
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
                 var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
+                var sportIdValue = parseInt(sportTypeId);
+                if(sportIdValue !== 168) {
+                    sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateLeague(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
+                } else {
+                    sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\')">' + sportTypeName + '</a>';
+                }
             }
         }
-       
+
         function generateLeague(sportType, sportTypeName) {
             var data = {};
             angular.extend(data, pane.data);
@@ -63,6 +69,17 @@ import angular from "angular";
 
         function exportExcel() {
             pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
+        }
+
+        function generateBetType(sportType, sportTypeName) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                leagueId: -1,
+                leagueName: sportTypeName,
+                sportType: sportType
+            });
+            tab.goForward('betType', data);
         }
     }
 })(angular);
