@@ -19,5 +19,6 @@
         public const string SBPerformanceMonitor = "SBPerformanceMonitor";
         public const string SMAWinLossSummary = "SMAWinLossSummary";
         public const string VoidingSettledTickets = "VoidingSettledTickets";
+        public const string DailyTurnoverComparison = "DailyTurnoverComparison";
     }
 }

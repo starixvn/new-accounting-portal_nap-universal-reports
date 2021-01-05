@@ -31,7 +31,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterAbnormalBetServices()
                 .RegisterSBPerformanceServices()
                 .RegisterVoidingSettledTicketsServices()
-                .RegisterSMAWinLossServices();
+                .RegisterSMAWinLossServices()
+                .RegisterDailyTurnoverServices();
 
             var homeControllerType = typeof(HomeController);
             Container.RegisterMvcControllers(homeControllerType.Assembly);

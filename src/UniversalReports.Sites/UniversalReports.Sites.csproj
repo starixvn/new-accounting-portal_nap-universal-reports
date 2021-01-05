@@ -182,18 +182,6 @@
       <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.2.0.1\lib\net461\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -223,8 +211,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.FPSAPI.Client.1.0.0.12\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Olympus.FPSAPI.Client.1.0.0.13\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
     </Reference>
     <Reference Include="Olympus.HttpLogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Olympus.HttpLogger.1.0.0.13\lib\net461\Olympus.HttpLogger.dll</HintPath>
@@ -406,6 +394,7 @@
     <Compile Include="App_Start\FanexLogging.cs" />
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\AbnormalBetInjector.cs" />
@@ -425,6 +414,7 @@
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\VoidingSettledTicketsInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DailyTurnoverComparisonController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -713,6 +703,19 @@
     <Content Include="wwwroot\actual-member-bet\main.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\polyfills.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\styles.bundle.css" />
+    <Content Include="wwwroot\daily-turnover-comparison\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\daily-turnover-comparison\assets\logo.png" />
+    <Content Include="wwwroot\daily-turnover-comparison\assets\spinner.gif" />
+    <Content Include="wwwroot\daily-turnover-comparison\es2015-polyfills.js" />
+    <Content Include="wwwroot\daily-turnover-comparison\favicon.ico" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\daily-turnover-comparison\index.html" />
+    <Content Include="wwwroot\daily-turnover-comparison\logo.c6dee9a0f0d2da3e324d.png" />
+    <Content Include="wwwroot\daily-turnover-comparison\main.js" />
+    <Content Include="wwwroot\daily-turnover-comparison\polyfills.js" />
+    <Content Include="wwwroot\daily-turnover-comparison\runtime.js" />
+    <Content Include="wwwroot\daily-turnover-comparison\spinner.ea9634b3c5182edadb3c.gif" />
+    <Content Include="wwwroot\daily-turnover-comparison\styles.css" />
     <Content Include="wwwroot\exchange\3rdpartylicenses.txt" />
     <Content Include="wwwroot\exchange\assets\logo.png" />
     <Content Include="wwwroot\exchange\assets\spinner.gif" />
@@ -885,6 +888,12 @@
     </Content>
     <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
     <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
+    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -1087,6 +1096,11 @@
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\voiding-settled-tickets\index.cshtml" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1108,6 +1122,10 @@
     <ProjectReference Include="..\modules\UniversalReports.CN88WinLoss\UniversalReports.CN88WinLoss.csproj">
       <Project>{a79cc236-0cc6-4c85-b74a-9ca67a85ee06}</Project>
       <Name>UniversalReports.CN88WinLoss</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.DailyTurnoverComparison\UniversalReports.DailyTurnoverComparison.csproj">
+      <Project>{cf13bc47-9a90-43c3-9701-9d8c03d0050d}</Project>
+      <Name>UniversalReports.DailyTurnoverComparison</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
@@ -1156,9 +1174,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.15.0.8572\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
