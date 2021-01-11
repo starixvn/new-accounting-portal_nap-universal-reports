@@ -49,7 +49,12 @@ import angular from "angular";
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
             if (betTypeRow.SubRows) {
-                betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
+                var bettypeIdValue = parseInt(betTypeId);
+
+                if(bettypeIdValue < 3601 || bettypeIdValue > 3610) {
+                    betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + betTypeId + ',\'' + betTypeName.replace(/'/g, "\\'") + '\')">' + betTypeName + '</a>';
+                }
+
                 for (var i = 0; i < betTypeRow.SubRows.length; i++) {
                     var siteRow = betTypeRow.SubRows[i];
                     var siteName = siteRow.Columns[0].Value;
