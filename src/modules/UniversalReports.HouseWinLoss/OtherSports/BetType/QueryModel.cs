@@ -14,5 +14,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.BetType
         public int SportType { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
+
+        public bool IsNoDraw { get; set; } = false;
+
+        public bool IsSabaSport { get; set; } = false;
     }
 }

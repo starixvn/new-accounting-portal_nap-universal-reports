@@ -44,6 +44,7 @@ import moment from "moment";
         vm.updateDateRange = updateDateRange;
         vm.dataMenuId = 487;
         vm.legentTitle = 'House Win Loss Legend';
+        vm.turnover = 0;
 
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
@@ -51,6 +52,7 @@ import moment from "moment";
 
         function generate() {
             vm.dateRange = getDateRange();
+            console.log(vm.dateRange);
             $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
         }
 
@@ -83,13 +85,15 @@ import moment from "moment";
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.date,
-                    endDate: vm.date
+                    endDate: vm.date,
+                    isNoDraw: vm.turnover
                 };
             } else {
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.startDate,
-                    endDate: vm.endDate
+                    endDate: vm.endDate,
+                    isNoDraw: vm.turnover
                 };
             }
         }

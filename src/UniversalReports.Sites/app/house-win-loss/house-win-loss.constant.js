@@ -74,6 +74,65 @@ import moment from "moment";
                     };
                 },
                 getTitleFunction: "getSoccerBetTypeTitle"
+            }
+        },
+        "SABA Soccer": {
+            mainView: "soccerLiveNonLive",
+            soccerLiveNonLive: {
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
+                controller: "SoccerLiveNonLiveController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/live-nonlive",
+                mainParameters: { sheetName: "House Win Loss by Products", isSabaSport: 1 },
+                getTitleFunction: "getSoccerLiveNonLiveTitle"
+            },
+            soccerMajorMinor: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SoccerMajorMinorController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/major-minor",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "soccer-major-minor", mainColumnText: "Major/Minor", isSabaSport: 1 },
+                getTitleFunction: "getSoccerMajorMinorTitle"
+            },
+            soccerBetTypeFull: {
+                templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
+                controller: "SoccerBetTypeFullController",
+                service: "soccerBetTypeFullService",
+                serviceBaseUrl: "api/house-win-loss-by-products/soccer/bettype",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "soccer-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270, isSabaSport: 1 },
+                getTitleFunction: "getSoccerBetTypeTitle"
+            },
+            soccerBetType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: function (data) {
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
+                    var isSumBetType = isMajor && data.isLive === 2;
+                    var isGroupBetType = isMajor && data.isLive === 0;
+
+                    if (isSumBetType) {
+                        return "api/house-win-loss-by-products/soccer/sum-bettype";
+                    }
+                    else if (isGroupBetType) {
+                        return "api/house-win-loss-by-products/soccer/group-bettype";
+                    }
+                    else {
+                        return "api/house-win-loss-by-products/soccer/bettype";
+                    }
+                },
+                mainParameters: function (data) {
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
+                    return {
+                        isMajor: isMajor,
+                        type: "soccer-bet-type",
+                        mainColumnText: "Bet Type",
+                        mainColumnWidth: 210,
+                        sheetName: "House Win Loss by Products",
+                        isSabaSport: 1
+                    };
+                },
+                getTitleFunction: "getSoccerBetTypeTitle"
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -84,7 +143,7 @@ import moment from "moment";
                         ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isSabaSport: 1 },
                 getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
@@ -92,7 +151,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site", isSabaSport: 1},
                 getTitleFunction: "getSiteTitleLive"
             }
         },
@@ -162,7 +221,10 @@ import moment from "moment";
                     ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
                     : 'api/house-win-loss-by-products/other-sports/bet-type';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: function(data) {
+                    var isSabaSport = data.sportTypeName === "SABA Basketball";
+                    return { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type", isSabaSport: isSabaSport }
+                },
                 getTitleFunction: "getSportsbookBetTypeTitle"
             },
             matchDetail: {
@@ -174,7 +236,10 @@ import moment from "moment";
                         ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: function(data) {
+                    var isSabaSport = data.sportTypeName === "SABA Basketball";
+                    return { sheetName: "House Win Loss by Products", isSabaSport: isSabaSport }
+                },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -182,7 +247,10 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+                mainParameters: function(data) {
+                    var isSabaSport = data.sportTypeName === "SABA Basketball";
+                    return { sheetName: "House Win Loss by Products", type: "sportsbook-site" , isSabaSport: isSabaSport }
+                },
                 getTitleFunction: "getSiteTitle"
             }
         },

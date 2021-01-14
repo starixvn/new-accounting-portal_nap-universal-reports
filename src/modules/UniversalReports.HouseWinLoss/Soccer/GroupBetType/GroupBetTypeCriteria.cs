@@ -10,5 +10,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
         public int IsLive { get; set; } = Constants.LiveDefault;
 
         public override string GetSettingKey() => $"HouseWinLoss-Soccer-BetType-{Source}";
+
+        public bool IsNoDraw { get; set; } = false;
+
+        public bool IsSabaSport { get; set; } = false;
     }
 }

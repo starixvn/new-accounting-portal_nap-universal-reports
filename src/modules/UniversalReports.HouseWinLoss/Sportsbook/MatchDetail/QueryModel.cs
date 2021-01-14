@@ -18,5 +18,9 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
         public int IsLive { get; set; } = Constants.LiveDefault;
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
+
+        public bool IsNoDraw { get; set; } = false;
+
+        public bool IsSabaSport { get; set; } = false;
     }
 }

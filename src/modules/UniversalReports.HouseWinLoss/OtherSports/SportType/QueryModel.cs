@@ -12,5 +12,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public bool IsNoDraw { get; set; } = false;
     }
 }
