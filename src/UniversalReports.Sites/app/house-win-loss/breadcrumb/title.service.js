@@ -67,7 +67,8 @@ import angular from "angular";
         }
 
         function getSoccerBetTypeTitle(data) {
-            var majorMinor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
+            var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
+            var majorMinor = betTypeNameMajorMinor === "Soccer-Major Bet Types" || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
             if (data.isLive === soccerConstants.LiveNonLive) {
                 return data.productName + majorMinor + ' BET TYPES';
             }

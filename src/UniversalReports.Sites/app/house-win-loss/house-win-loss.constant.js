@@ -74,6 +74,26 @@ import moment from "moment";
                     };
                 },
                 getTitleFunction: "getSoccerBetTypeTitle"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportsbookMatchDetailController",
+                service: "sportsbookMatchDetailService",
+                serviceBaseUrl: function (data) {
+                    return data.betType === 10
+                        ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
+                        : 'api/house-win-loss-by-products/sportsbook/match-detail';
+                },
+                mainParameters: { sheetName: "House Win Loss by Products" },
+                getTitleFunction: "getMatchDetailTitleLive"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+                getTitleFunction: "getSiteTitleLive"
             }
         },
         "SABA Soccer": {
@@ -151,7 +171,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site", isSabaSport: 1},
+                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site", isSabaSport: 1 },
                 getTitleFunction: "getSiteTitleLive"
             }
         },
@@ -221,10 +241,7 @@ import moment from "moment";
                     ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
                     : 'api/house-win-loss-by-products/other-sports/bet-type';
                 },
-                mainParameters: function(data) {
-                    var isSabaSport = data.sportTypeName === "SABA Basketball";
-                    return { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type", isSabaSport: isSabaSport }
-                },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportsbookBetTypeTitle"
             },
             matchDetail: {
@@ -236,10 +253,7 @@ import moment from "moment";
                         ? 'api/house-win-loss-by-products/sportsbook/outright-match-detail'
                         : 'api/house-win-loss-by-products/sportsbook/match-detail';
                 },
-                mainParameters: function(data) {
-                    var isSabaSport = data.sportTypeName === "SABA Basketball";
-                    return { sheetName: "House Win Loss by Products", isSabaSport: isSabaSport }
-                },
+                mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -247,10 +261,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: function(data) {
-                    var isSabaSport = data.sportTypeName === "SABA Basketball";
-                    return { sheetName: "House Win Loss by Products", type: "sportsbook-site" , isSabaSport: isSabaSport }
-                },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },

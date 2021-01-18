@@ -15,11 +15,11 @@ import angular from "angular";
 
         return service;
 
-        function getData(viewSetting, data) {           
+        function getData(viewSetting, data) {
             var isMajor = buildMajorFlag(data);
             var isLive = data.isLive;
 
-            var httpData = {                              
+            var httpData = {
             };
 
             angular.extend(httpData, data);
@@ -27,7 +27,7 @@ import angular from "angular";
             httpData.isMajor =isMajor;
             httpData.normalMode= data.normalMode;
 
-            var url = buildUrl(isLive, isMajor);            
+            var url = buildUrl(isLive, isMajor);
             return $http.post(url, httpData)
                 .then(httpResponseService.getDataComplete)
                 .catch(httpResponseService.getDataFailed);
@@ -38,7 +38,7 @@ import angular from "angular";
             var isLive = data.isLive;
 
             var httpData = {
-                title: title,               
+                title: title,
                 isMajor: isMajor,
                 normalMode: data.normalMode
             };
@@ -55,9 +55,10 @@ import angular from "angular";
 
         function buildMajorFlag(data)
         {
-            return data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? true : false;
+            var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
+            return betTypeNameMajorMinor === "Soccer-Major Bet Types" || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types" ? true : false;
         }
-       
+
         function buildUrl(isLive, isMajor)
         {
             var url = "api/house-win-loss-by-products/soccer/bettype";

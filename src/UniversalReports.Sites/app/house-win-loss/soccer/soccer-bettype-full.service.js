@@ -16,7 +16,8 @@
         return service;
 
         function getData(viewSetting, data, isLive) {
-            var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
+            var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
+            var isMajor = betTypeNameMajorMinor === "Soccer-Major Bet Types" || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
             var isSumBetType = isMajor && isLive === 2;
             var isGroupBetType = isMajor && isLive === 0;
             var url = "api/house-win-loss-by-products/soccer/bettype";
@@ -39,7 +40,8 @@
         }
 
         function exportExcel(viewSetting, data, fileName) {
-            var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
+            var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
+            var isMajor = betTypeNameMajorMinor === "Soccer-Major Bet Types" || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
             var httpData = { isMajor: isMajor };
             angular.extend(httpData, data);
 
