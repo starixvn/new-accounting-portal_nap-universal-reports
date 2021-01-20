@@ -25,5 +25,7 @@
         public decimal RealTurnover { get; set; }
 
         public decimal VirtualTurnover { get; set; }
+
+        public int IsSabaSport { get; set; }
     }
 }

@@ -156,8 +156,8 @@
           "Name": "MemberWinLoss",
           "Value": -832.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -242,8 +242,8 @@
           "Name": "MemberWinLoss",
           "Value": 24.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -330,8 +330,8 @@
           "Name": "MemberWinLoss",
           "Value": -808.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []

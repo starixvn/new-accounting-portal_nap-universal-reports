@@ -28,6 +28,8 @@ namespace UniversalReports.HouseWinLoss.Common.Models
 
         public decimal VirtualTurnover { get; set; }
 
+        public int IsSabaSport { get; set; }
+
         public decimal VirtualMargin => VirtualTurnover != 0
             ? Math.Round(VirtualIncome / VirtualTurnover, NumberDigitOfDecimalRouding, MidpointRounding.AwayFromZero)
             : 0;

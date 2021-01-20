@@ -47,17 +47,19 @@ import angular from "angular";
                 var sportTypeRow = data.bodyRows[i];
                 var sportTypeId = sportTypeRow.Columns[0].CustomAttr;
                 var sportTypeName = sportTypeRow.Columns[0].Value;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ')">' + sportTypeName + '</a>';
+                var isSabaSport = sportTypeRow.Columns[1].CustomAttr;
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportTypeId + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ',' + isSabaSport +')">' + sportTypeName + '</a>';
             }
         }
 
-        function generateBetType(sportType, sportTypeName, isLive) {
+        function generateBetType(sportType, sportTypeName, isLive, isSabaSport) {
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
                 sportType: sportType,
                 sportTypeName: sportTypeName,
-                isLive: isLive
+                isLive: isLive,
+                isSabaSport: isSabaSport == 1
             });
             tab.goForward('betType', data);
         }
