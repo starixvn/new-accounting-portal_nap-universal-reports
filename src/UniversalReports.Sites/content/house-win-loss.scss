@@ -1,4 +1,19 @@
 ﻿@import 'scoreInformation';
+
 .freegrid .grid-container .child-row div {
-     box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.radio-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.radio-group label.bold {
+    font-weight: bold !important;
+}
+
+.radio-group label {
+    margin-left: 10px;
+    font-weight: normal;
 }

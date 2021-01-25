@@ -14,5 +14,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
         public int SportType { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public bool IsNoDraw { get; set; } = false;
+
+        public bool IsSabaSport { get; set; } = false;
     }
 }

@@ -12,5 +12,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
         public bool NormalMode { get; set; } = true;
 
         public int IsLive { get; set; } = Constants.LiveDefault;
+
+        public bool IsNoDraw { get; set; } = false;
+
+        public bool IsSabaSport { get; set; } = false;
     }
 }

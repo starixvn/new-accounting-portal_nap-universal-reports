@@ -77,7 +77,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
                 ExtraPT = winlosses.Sum(r => r.ExtraPT),
                 RealTurnover = winlosses.Sum(r => r.RealTurnover),
                 SMAWinLoss = winlosses.Sum(r => r.SMAWinLoss),
-                VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover)
+                VirtualTurnover = winlosses.Sum(r => r.VirtualTurnover),
+                IsSabaSport = winlosses.First().IsSabaSport
             };
         }
 

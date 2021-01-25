@@ -5,5 +5,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
     public class Criteria : WinLossCriteria
     {
         public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-LiveStatus-{Source}";
+
+        public bool IsNoDraw { get; set; } = false;
     }
 }

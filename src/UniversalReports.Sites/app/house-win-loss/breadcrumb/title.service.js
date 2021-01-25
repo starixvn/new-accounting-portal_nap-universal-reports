@@ -50,9 +50,10 @@ import angular from "angular";
         }
 
         function getSoccerLiveNonLiveTitle(data, isLast) {
+            var sabaSoccerTitle = data.productName === "SABA Soccer" ? "SABA " : "";
             return isLast
-                ? ' SOCCER LIVE/NON-LIVE'
-                : "SOCCER";
+                ? sabaSoccerTitle + ' SOCCER LIVE/NON-LIVE'
+                : sabaSoccerTitle + "SOCCER";
         }
 
         function getSoccerMajorMinorTitle(data) {
@@ -66,7 +67,8 @@ import angular from "angular";
         }
 
         function getSoccerBetTypeTitle(data) {
-            var majorMinor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
+            var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
+            var majorMinor = betTypeNameMajorMinor === "Soccer-Major Bet Types" || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types" ? "-MAJOR" : "-MINOR";
             if (data.isLive === soccerConstants.LiveNonLive) {
                 return data.productName + majorMinor + ' BET TYPES';
             }
@@ -135,7 +137,7 @@ import angular from "angular";
         function getLiveText(isLive) {
             var isLiveValue = parseInt(isLive);
             var isLiveText = isLiveValue === 2 ? '' : (isLiveValue === 1 ? ' "Live"' : ' "Non-Live"');
-            
+
             return isLiveText;
         }
 

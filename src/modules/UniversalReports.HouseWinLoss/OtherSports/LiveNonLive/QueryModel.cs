@@ -9,5 +9,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public bool IsNoDraw { get; set; } = false;
     }
 }

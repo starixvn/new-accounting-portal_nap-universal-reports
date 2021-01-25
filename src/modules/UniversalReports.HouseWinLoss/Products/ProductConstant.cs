@@ -13,7 +13,8 @@
             "Soccer",
             "Other Sports",
             "Parlay",
-            "SB Adjustment"
+            "SB Adjustment",
+            "SABA Soccer"
         };
 
         public static string[] SoccerPermissionProducts => new[]

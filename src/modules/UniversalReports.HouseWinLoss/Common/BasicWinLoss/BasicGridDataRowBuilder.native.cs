@@ -17,10 +17,11 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
         {
             var columnIndex = 0;
             var customAttributes = $"{item.Id}";
+            var sabaSportCustomAttributes = $"{item.IsSabaSport}";
             var columns = new List<Columns>
             {
                 new Columns { ColumnIndex = columnIndex++, Name = "Main", Value = string.IsNullOrEmpty(item.Name) ? string.Empty : item.Name, DisplayValue = item.Name, CustomAttributes = customAttributes, CellAlignment = mainTextAlignment },
-                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns { ColumnIndex= columnIndex++, Name = "MemberWinLoss", Value = item.MemberWinLoss, CustomAttributes = sabaSportCustomAttributes },
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                  new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
