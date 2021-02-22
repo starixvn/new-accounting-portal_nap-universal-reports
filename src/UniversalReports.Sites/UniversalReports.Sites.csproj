@@ -427,6 +427,7 @@
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
@@ -447,6 +448,7 @@
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\VoidingSettledTicketsInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
     <Compile Include="Controllers\DailyTurnoverComparisonController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
@@ -1034,6 +1036,19 @@
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\assets\logo.png" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\assets\spinner.gif" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\es2015-polyfills.js" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\favicon.ico" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.912ec66d7572ff821749.svg" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\index.html" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\logo.c6dee9a0f0d2da3e324d.png" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\main.js" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\polyfills.js" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\runtime.js" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\spinner.ea9634b3c5182edadb3c.gif" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\styles.css" />
     <Content Include="wwwroot\sb-performance\3rdpartylicenses.txt" />
     <Content Include="wwwroot\sb-performance\assets\logo.png" />
     <Content Include="wwwroot\sb-performance\assets\spinner.gif" />
@@ -1134,6 +1149,11 @@
     <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\sb-customer-performance-by-danger\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1167,6 +1187,10 @@
     <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
       <Name>UniversalReports.PlayForFun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.SBCustomerPerformanceByDanger\UniversalReports.SBCustomerPerformanceByDanger.csproj">
+      <Project>{e79a0b96-75e6-4a0b-89ce-72965897df56}</Project>
+      <Name>UniversalReports.SBCustomerPerformanceByDanger</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.SBPerformance\UniversalReports.SBPerformance.csproj">
       <Project>{de5ddebe-e00b-4c89-a8d1-ae24b1b1ca5d}</Project>

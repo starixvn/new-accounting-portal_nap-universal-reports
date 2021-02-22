@@ -7,6 +7,7 @@ using UniversalReports.ActualMemberBet;
 using UniversalReports.Exchange;
 using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
+using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
@@ -33,6 +34,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(SBPerformanceAttribute).GetTypeInfo().Assembly;
             yield return typeof(SMAWinLossAttribute).GetTypeInfo().Assembly;
             yield return typeof(VoidingSettledTicketsAttribute).GetTypeInfo().Assembly;
+            yield return typeof(SBCustomerPerformanceByDangerAttribute).GetTypeInfo().Assembly;
         }
     }
 }

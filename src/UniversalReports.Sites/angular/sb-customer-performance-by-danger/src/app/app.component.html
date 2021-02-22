@@ -1,0 +1,13 @@
+<nap-navbar></nap-navbar>
+<div napRecheckin class="container-fluid" style="min-width: 1215px;">
+    <div class="nap-header">
+        <div class="title">
+            Main /
+            <span class="active">SB Customer Performance By Danger</span>
+        </div>
+    </div>
+    <app-filter (generated)="generate($event)"></app-filter>
+    <app-grid [filterModel]="filterModel"></app-grid>
+    <nap-toast></nap-toast>
+</div>
+<nap-spinner></nap-spinner>
