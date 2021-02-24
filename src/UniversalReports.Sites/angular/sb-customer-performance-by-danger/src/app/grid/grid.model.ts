@@ -18,17 +18,17 @@ export interface CustomerPerformanceByDangerModel {
 
 export interface SummaryEntity {
   Entities: CustomerPerformanceByDangerModel[];
-  Total:CustomerPerformanceByDangerModel;
+  Total: CustomerPerformanceByDangerModel;
 }
 
 export interface ExcelQueryModel {
   winlostDate: string;
   divisions: string;
-  dangerLevels: number;
+  dangerLevels: string;
   sportBettypes: string;
   leagueName: string;
   leagueGroupIds: string;
   liveStatus: string;
   topUsers: number;
-  title:string;
+  title: string;
 }

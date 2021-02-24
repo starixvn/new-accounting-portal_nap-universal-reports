@@ -1,7 +1,7 @@
 export interface FilterModel {
   winlostDate: string;
   divisions: string;
-  dangerLevels: number;
+  dangerLevels: string;
   sportBettypes: string;
   leagueName: string;
   leagueGroupIds: string;

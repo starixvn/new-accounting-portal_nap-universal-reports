@@ -5,6 +5,7 @@ import { Helper } from 'nap-components/helper';
 import { Observable } from 'rxjs/Observable';
 import { FilterModel } from '../filter/filter.model';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 @Injectable()
 export class GridService {

@@ -125,7 +125,7 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
       winlostDate: DateHelper.formatMomentDate(winlostDate, DateFormat.Date),
       divisions: this.selectedSites.join(','),
-      dangerLevels: this.dangerLevel,
+      dangerLevels: this.dangerLevel.toString(),
       sportBettypes: this.selectedSports.join(','),
       leagueName: this.leagueName.length === 0 ? 'All Leagues' : this.leagueName,
       leagueGroupIds: this.selectedleagueGroups.join(','),
