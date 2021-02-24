@@ -43,7 +43,7 @@ export class GridComponent implements OnChanges {
   }
 
   exportExcel() {
-    //this.service.exportExcel(this.Title, this.filterModel);
+    this.service.exportExcel(this.filterModel);
   }
 
   get hasData(): boolean {

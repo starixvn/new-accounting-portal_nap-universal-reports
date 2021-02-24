@@ -2,6 +2,7 @@
 {
     public class CustomerPerformanceByDangerModel
     {
+
         public string UserName { get; set; }
 
         public string AgentName { get; set; }

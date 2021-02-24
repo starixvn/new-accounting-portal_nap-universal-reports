@@ -20,3 +20,15 @@ export interface SummaryEntity {
   Entities: CustomerPerformanceByDangerModel[];
   Total:CustomerPerformanceByDangerModel;
 }
+
+export interface ExcelQueryModel {
+  winlostDate: string;
+  divisions: string;
+  dangerLevels: number;
+  sportBettypes: string;
+  leagueName: string;
+  leagueGroupIds: string;
+  liveStatus: string;
+  topUsers: number;
+  title:string;
+}

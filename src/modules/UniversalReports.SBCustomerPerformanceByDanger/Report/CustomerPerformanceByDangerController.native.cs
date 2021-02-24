@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -20,6 +21,14 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         {
             var viewModel = await mediator.Send(parameter);
             return Json(viewModel);
+        }
+
+        [Route("excel")]
+        [HttpPost]
+        public async Task<IHttpActionResult> LicenseeExcel(CustomerPerformanceByDangerQueryExcelHttpParameter httpParameter)
+        {
+            var excelPackage = await mediator.Send(httpParameter);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

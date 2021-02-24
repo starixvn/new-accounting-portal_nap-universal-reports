@@ -929,6 +929,9 @@
     <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExcelTemplate\SBCustomerPerformanceByDangers\SBCustomerPerformanceByDangers.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
