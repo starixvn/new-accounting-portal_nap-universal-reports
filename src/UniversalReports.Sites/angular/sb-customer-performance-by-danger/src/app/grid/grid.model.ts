@@ -12,7 +12,7 @@ export interface CustomerPerformanceByDangerModel {
   HouseTO: number;
   HouseIncome: number;
   AVGStake: number;
-  NoAssociatedAccount: number;
+  NumberOfAssociatedAccount: number;
   Margin: number;
 }
 

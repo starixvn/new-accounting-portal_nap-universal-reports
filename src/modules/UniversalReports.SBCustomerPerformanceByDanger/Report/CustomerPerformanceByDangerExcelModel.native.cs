@@ -47,7 +47,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         public decimal HouseIncome { get; set; }
 
         [Cell("O4")]
-        public int NoAssociatedAccount { get; set; }
+        public int NumberOfAssociatedAccount { get; set; }
 
     }
 }

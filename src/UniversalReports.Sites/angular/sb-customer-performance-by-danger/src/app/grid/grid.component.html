@@ -60,7 +60,7 @@
   <td class="text-right" [napDecimalFormat]="item.AVGStake"></td>
   <td class="text-right" [napDecimalFormat]="item.HouseTO"></td>
   <td class="text-right" [napDecimalFormat]="item.HouseIncome"></td>
-  <td class="text-right" [napIntegerFormat]="item.NoAssociatedAccount"></td>
+  <td class="text-right" [napIntegerFormat]="item.NumberOfAssociatedAccount"></td>
 </ng-template>
 <div *ngIf="dataModel" [ngSwitch]="dataModel.Entities.length > 0">
   <div class="nap-grid">
@@ -110,7 +110,7 @@
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.AVGStake"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.HouseTO"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.HouseIncome"></td>
-                          <td class="text-right" [napIntegerFormat]="dataModel.Total.NoAssociatedAccount"></td>
+                          <td class="text-right" [napIntegerFormat]="dataModel.Total.NumberOfAssociatedAccount"></td>
                       </tr>
                       <tr>
                           <td colspan="15">

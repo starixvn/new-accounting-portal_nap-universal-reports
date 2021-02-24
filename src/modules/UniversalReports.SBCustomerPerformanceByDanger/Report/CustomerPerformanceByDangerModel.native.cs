@@ -29,7 +29,7 @@
 
         public decimal AVGStake => BetCount == 0 ? 0: MemberTO / BetCount;
 
-        public int NoAssociatedAccount { get; set; }
+        public int NumberOfAssociatedAccount { get; set; }
 
         public decimal Margin => MemberTO == 0 ? 0 : MemberWL / MemberTO;
 
@@ -49,7 +49,7 @@
                 MemberWL = a.MemberWL + b.MemberWL,
                 HouseTO = a.HouseTO + b.HouseTO,
                 HouseIncome = a.HouseIncome + b.HouseIncome,
-                NoAssociatedAccount = a.NoAssociatedAccount + b.NoAssociatedAccount
+                NumberOfAssociatedAccount = a.NumberOfAssociatedAccount + b.NumberOfAssociatedAccount
             };
         }
     }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import * as moment from 'moment';
+import * as _ from 'lodash';
 import { DateFormat, DateHelper, NapDateStruct } from 'nap-components/date';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
@@ -54,7 +55,7 @@ export class FilterComponent implements OnInit {
   });
   selectedleagueGroups: string[] = [];
   leagueGroups: LeagueGroup[] = [];
-  dangerLevel: number = 50;
+  dangerLevel: string = '50';
   topRows: number = 1000;
   statusOptions: SelectItem[] = [];
   status: string = 'All';
@@ -86,8 +87,6 @@ export class FilterComponent implements OnInit {
   private getSport() {
     this.filterService.getSport().subscribe(sports => {
       this.sports = sports;
-
-      console.log(sports);
     });
   }
 
@@ -122,10 +121,11 @@ export class FilterComponent implements OnInit {
 
   private createModel(): FilterModel {
     const winlostDate = DateHelper.convertDateStructToMoment(this.winlostDate);
+
     const model: FilterModel = {
       winlostDate: DateHelper.formatMomentDate(winlostDate, DateFormat.Date),
       divisions: this.selectedSites.join(','),
-      dangerLevels: this.dangerLevel.toString(),
+      dangerLevels: this.dangerLevel === '' ? 'All' : this.dangerLevel.toString(),
       sportBettypes: this.selectedSports.join(','),
       leagueName: this.leagueName.length === 0 ? 'All Leagues' : this.leagueName,
       leagueGroupIds: this.selectedleagueGroups.join(','),
@@ -137,6 +137,12 @@ export class FilterComponent implements OnInit {
   }
 
   private get isValid(): boolean {
+    const dangerLevelValue = _.parseInt(this.dangerLevel);
+    if (this.dangerLevel !== '' && isNaN(dangerLevelValue)) {
+      this.toastService.activate(`Danger Level must be blank or number`);
+      return false;
+    }
+
     if (this.topRows >= 10000) {
       this.toastService.activate(`Top rows value must less than 10.000`);
       return false;
