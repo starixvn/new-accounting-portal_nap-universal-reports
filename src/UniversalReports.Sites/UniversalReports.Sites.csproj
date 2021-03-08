@@ -31,6 +31,7 @@
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -856,6 +857,11 @@
       <DependentUpon>Web.AppSettings.config</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Configuration\Web.AppSettings.PROAWS.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="App_Configuration\Web.AppSettings.SIT.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
@@ -882,6 +888,10 @@
     </Content>
     <Content Include="App_Configuration\Web.ConnectionString.PRO.config">
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.PROAWS.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Configuration\Web.ConnectionString.SIT.config">
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
@@ -927,6 +937,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Configuration\Web.PROAWS.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Configuration\Web.AppSettings.PROAWS.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ExcelTemplate\SBCustomerPerformanceByDangers\SBCustomerPerformanceByDangers.xlsx">
