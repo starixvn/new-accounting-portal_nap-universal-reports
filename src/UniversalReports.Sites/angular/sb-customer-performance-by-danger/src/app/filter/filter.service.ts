@@ -1,3 +1,4 @@
+import { TreeviewItem } from 'ngx-treeview';
 import { LeagueGroup, Site, Sport } from './filter.model';
 import { Injectable } from "@angular/core";
 import { HttpService } from "nap-components/http";
@@ -46,5 +47,19 @@ export class FilterService {
       text: 'Non-Live',
       value: 'Non-Live'
     }];
+  }
+
+  getDangerLevel(): TreeviewItem[] {
+    const treeItems: TreeviewItem[] = [];
+    var nonItem = new TreeviewItem({ text: 'None', value: '0' });
+
+    treeItems.push(nonItem);
+
+    for (let i = 1; i < 51; i++) {
+      var item = new TreeviewItem({ text: i.toString(), value: i.toString() });
+      treeItems.push(item)
+    }
+
+    return treeItems;
   }
 }

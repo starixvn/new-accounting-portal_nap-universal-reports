@@ -5,7 +5,7 @@ import { DateFormat, DateHelper, NapDateStruct } from 'nap-components/date';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 import { ToastService } from 'nap-components/toast';
-import { DropdownTreeviewComponent, TreeviewConfig } from 'ngx-treeview';
+import { DropdownTreeviewComponent, TreeviewConfig, TreeviewItem } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
 import { FilterModel, LeagueGroup, Site, Sport } from './filter.model';
 import { FilterService } from './filter.service';
@@ -20,6 +20,7 @@ export class FilterComponent implements OnInit {
   @ViewChild('siteDropdownTreeview') siteDropdownTreeview: DropdownTreeviewComponent;
   @ViewChild('leagueGroupDropdownTreeview') leagueGroupDropdownTreeview: DropdownTreeviewComponent;
   @ViewChild('sportDropdownTreeview') sportDropdownTreeview: DropdownTreeviewComponent;
+  @ViewChild('dangerLevelDropdownTreeview') dangerLevelDropdownTreeview: DropdownTreeviewComponent;
   @Output() generated = new EventEmitter<FilterModel>();
   today: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
   minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.moveBet.add(1, 'day'));
@@ -40,12 +41,12 @@ export class FilterComponent implements OnInit {
     hasCollapseExpand: false,
     maxHeight: 500
   });
-  selectedSites: number[] = [];
+  selectedSites: string[] = [];
   sites: Site[] = [];
   leagueName = '';
   leagueId: string;
   leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
-  leagueNamePlaceholder = 'League name';
+  leagueNamePlaceholder = 'All Leagues';
 
   leagueGroupTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
@@ -55,10 +56,17 @@ export class FilterComponent implements OnInit {
   });
   selectedleagueGroups: string[] = [];
   leagueGroups: LeagueGroup[] = [];
-  dangerLevel: string = '50';
   topRows: number = 1000;
   statusOptions: SelectItem[] = [];
   status: string = 'All';
+  dangerLevelTreeviewItems: TreeviewItem[];
+  selectedDangerLevel: string[];
+  dangerLevelTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
 
   constructor(private readonly filterService: FilterService, private readonly toastService: ToastService) { }
 
@@ -67,6 +75,7 @@ export class FilterComponent implements OnInit {
     this.getSport();
     this.getLeagueGroup();
     this.getStatusOptions();
+    this.getDangerLevel();
   }
 
   onGenerateClick() {
@@ -88,6 +97,10 @@ export class FilterComponent implements OnInit {
     this.filterService.getSport().subscribe(sports => {
       this.sports = sports;
     });
+  }
+
+  private getDangerLevel() {
+    this.dangerLevelTreeviewItems = this.filterService.getDangerLevel();
   }
 
   onDateChange() {
@@ -125,7 +138,7 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
       winlostDate: DateHelper.formatMomentDate(winlostDate, DateFormat.Date),
       divisions: this.selectedSites.join(','),
-      dangerLevels: this.dangerLevel === '' ? 'All' : this.dangerLevel.toString(),
+      dangerLevels: this.selectedDangerLevel.join(','),
       sportBettypes: this.selectedSports.join(','),
       leagueName: this.leagueName.length === 0 ? 'All Leagues' : this.leagueName,
       leagueGroupIds: this.selectedleagueGroups.join(','),
@@ -137,9 +150,8 @@ export class FilterComponent implements OnInit {
   }
 
   private get isValid(): boolean {
-    const dangerLevelValue = _.parseInt(this.dangerLevel);
-    if (this.dangerLevel !== '' && isNaN(dangerLevelValue)) {
-      this.toastService.activate(`Danger Level must be blank or number`);
+    if (this.selectedDangerLevel.length === 0) {
+      this.toastService.activate(`Please select at least one danger level!`);
       return false;
     }
 

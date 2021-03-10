@@ -34,7 +34,7 @@
           <th>AVG Stake</th>
           <th>House Turnover</th>
           <th>House Income</th>
-          <th>No.Associated Account</th>
+          <th>No.Associated Accounts</th>
       </tr>
   </thead>
 </ng-template>
@@ -55,11 +55,11 @@
   <td>{{ item.DangerLevel }}</td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napDecimalFormat]="item.MemberTO"></td>
-  <td class="text-right" [napDecimalFormat]="item.MemberWL"></td>
-  <td class="text-right" [napPercentFormat]="item.Margin"></td>
+  <td class="text-right red-positive" [napDecimalFormat]="item.MemberWL"></td>
+  <td class="text-right red-positive" [napPercentFormat]="item.Margin"></td>
   <td class="text-right" [napDecimalFormat]="item.AVGStake"></td>
   <td class="text-right" [napDecimalFormat]="item.HouseTO"></td>
-  <td class="text-right" [napDecimalFormat]="item.HouseIncome"></td>
+  <td class="text-right red-negative" [napDecimalFormat]="item.HouseIncome"></td>
   <td class="text-right" [napIntegerFormat]="item.NumberOfAssociatedAccount"></td>
 </ng-template>
 <div *ngIf="dataModel" [ngSwitch]="dataModel.Entities.length > 0">
@@ -105,11 +105,11 @@
                           <td colspan="7" class="text-right">Total</td>
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.BetCount"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.MemberTO"></td>
-                          <td class="text-right" [napDecimalFormat]="dataModel.Total.MemberWL"></td>
-                          <td class="text-right" [napPercentFormat]="dataModel.Total.Margin"></td>
+                          <td class="text-right red-positive" [napDecimalFormat]="dataModel.Total.MemberWL"></td>
+                          <td class="text-right red-positive" [napPercentFormat]="dataModel.Total.Margin"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.AVGStake"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.HouseTO"></td>
-                          <td class="text-right" [napDecimalFormat]="dataModel.Total.HouseIncome"></td>
+                          <td class="text-right red-negative" [napDecimalFormat]="dataModel.Total.HouseIncome"></td>
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.NumberOfAssociatedAccount"></td>
                       </tr>
                       <tr>

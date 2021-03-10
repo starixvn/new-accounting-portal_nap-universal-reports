@@ -18,7 +18,7 @@ export class SiteTreeviewPipe implements PipeTransform {
     }
 
     sites.forEach(site => {
-      const item = new TreeviewItem({ text: site.SiteName, value: site.SiteId });
+      const item = new TreeviewItem({ text: site.SiteName, value: site.SiteName });
       let groupTreeviewItem: TreeviewItem;
 
       switch (site.SiteGroup) {

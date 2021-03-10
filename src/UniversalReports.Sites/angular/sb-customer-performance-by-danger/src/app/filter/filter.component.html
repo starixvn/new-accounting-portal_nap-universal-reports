@@ -23,7 +23,8 @@
       <div class="nap-group">
         <label class="col-form-label">Danger Level</label>
         <div class="nap-control">
-          <input type="text" [(ngModel)]="dangerLevel">
+          <ngx-dropdown-treeview #dangerLevelDropdownTreeview [items]="dangerLevelTreeviewItems" [config]="dangerLevelTreeviewConfig" (selectedChange)="selectedDangerLevel = $event">
+          </ngx-dropdown-treeview>
         </div>
       </div>
     </div>
