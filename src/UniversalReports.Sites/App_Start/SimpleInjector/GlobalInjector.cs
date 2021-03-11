@@ -7,6 +7,11 @@ using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Context;
 using Fanex.NAP.Core.Web.Session;
 using Fanex.RemotingRef;
+using ONEbook.UM.Configurations;
+using ONEbook.UM.Helpers;
+using ONEbook.UM.NETFramework;
+using ONEbook.UM.Services;
+using ONEbook.UM.Transport;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Configurations;
@@ -27,13 +32,20 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<ICurrentSession, CurrentSession>();
 
             container.RegisterSingleton<ICache>(() => new MemoryCache(new MemoryCacheOptions()));
-            container.Register<ICacheService>(() => new CacheService());
             container.Register<BalanceUpService, BalanceUpServiceImp>();
             container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<IDynamicRepository, DynamicRepository>();
             container.Register<ConfigurationService, ConfigurationServiceImp>();
             container.Register<IRemotingRefService, RemotingRefService>();
+            container.RegisterInstance(new UMClientConfiguration().Initialize());
+            container.RegisterInstance<ICacheService>(new CacheService());
+            container.RegisterSingleton<IUMCacheService, UMCacheService>();
+            container.RegisterSingleton<IPHelper, IPHelperImpl>();
+            container.RegisterSingleton<IUMRestClient, UMRestClient>();
+            container.RegisterSingleton<IHttpContextHelper, HttpContextHelper>();
+            container.RegisterSingleton<IMaintenanceService, MaintenanceService>();
+
 
             return container;
         }
