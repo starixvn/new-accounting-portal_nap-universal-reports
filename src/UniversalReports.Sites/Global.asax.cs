@@ -16,6 +16,7 @@ using UniversalReports.NG2Statistics;
 using UniversalReports.PlayForFun;
 using UniversalReports.PunterAnalysis;
 using UniversalReports.SBPerformance;
+using UniversalReports.Sites.App_Start;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
 using UniversalReports.VoidingSettledTickets;
@@ -30,6 +31,7 @@ namespace UniversalReports.Sites
             RemotingRef.Register();
             FanexData.Register();
             FanexLogging.Register();
+            OnebookUMInitializer.InitializeUMClientManager();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
