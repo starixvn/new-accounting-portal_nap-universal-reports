@@ -44,7 +44,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
             using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
             {
                 ExcelPackage = new ExcelPackage(stream);
-                sheet = ExcelPackage.Workbook.Worksheets.Copy("BodyTemplate", "SB Customer Performance By Dangers");
+                sheet = ExcelPackage.Workbook.Worksheets.Copy("BodyTemplate", "Customer Performance");
                 totalSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
             }
         }
