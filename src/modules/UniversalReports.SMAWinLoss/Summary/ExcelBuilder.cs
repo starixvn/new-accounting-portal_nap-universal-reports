@@ -7,7 +7,7 @@ namespace UniversalReports.SMAWinLoss.Summary
 {
     public interface ExcelBuilder
     {
-        ExcelPackage Build(string title, WinLossModel winlosses);
+        ExcelPackage Build(int year, string title, WinLossModel winlosses);
     }
 
     public class ExcelBuilderImp : ExcelBuilder
@@ -39,10 +39,11 @@ namespace UniversalReports.SMAWinLoss.Summary
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(string title, WinLossModel winlosses)
+        public ExcelPackage Build(int year, string title, WinLossModel winlosses)
         {
             LoadTemplate();
             BuilTitle(title);
+            BuildHeader(year);
             BuildBody(winlosses);
             BuildTotal(winlosses);
             ClearTemplate();
@@ -65,6 +66,22 @@ namespace UniversalReports.SMAWinLoss.Summary
         private void BuilTitle(string title)
         {
             summarySheet.Cells["A1:Q1"].Value = title;
+        }
+
+        private void BuildHeader(int year)
+        {
+            summarySheet.Cells["D3:D3"].Value = $"Jan, {year}";
+            summarySheet.Cells["E3:E3"].Value = $"Feb, {year}";
+            summarySheet.Cells["F3:F3"].Value = $"Mar, {year}";
+            summarySheet.Cells["G3:G3"].Value = $"Apr, {year}";
+            summarySheet.Cells["H3:H3"].Value = $"May, {year}";
+            summarySheet.Cells["I3:I3"].Value = $"Jun, {year}";
+            summarySheet.Cells["J3:J3"].Value = $"Jul, {year}";
+            summarySheet.Cells["K3:K3"].Value = $"Aug, {year}";
+            summarySheet.Cells["L3:L3"].Value = $"Sep, {year}";
+            summarySheet.Cells["M3:M3"].Value = $"Oct, {year}";
+            summarySheet.Cells["N3:N3"].Value = $"Nov, {year}";
+            summarySheet.Cells["O3:O3"].Value = $"Dec, {year}";
         }
 
         private void BuildBody(WinLossModel winlosses)
