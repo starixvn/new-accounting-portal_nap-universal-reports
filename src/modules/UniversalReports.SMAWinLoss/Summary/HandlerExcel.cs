@@ -22,7 +22,7 @@ namespace UniversalReports.SMAWinLoss.Summary
         {
             var jsonMessage = Mapper.Map<WinLossHttpParameter>(request);
             var winlosses = await service.GetSMAWinLoss(jsonMessage);
-            var excelPackage = excelBuilder.Build(request.Title, winlosses);
+            var excelPackage = excelBuilder.Build(request.Year, request.Title, winlosses);
             return excelPackage;
         }
     }
