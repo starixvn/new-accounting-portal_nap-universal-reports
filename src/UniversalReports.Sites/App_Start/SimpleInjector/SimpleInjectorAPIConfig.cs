@@ -30,7 +30,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterSBPerformanceServices()
                 .RegisterSMAWinLossServices()
                 .RegisterVoidingSettledTicketsServices()
-                .RegisterDailyTurnoverServices();
+                .RegisterDailyTurnoverServices()
+                .RegisterSBCustomerPerformanceByDangerServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();

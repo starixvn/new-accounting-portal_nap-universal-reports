@@ -15,6 +15,7 @@ using UniversalReports.HouseWinLoss;
 using UniversalReports.NG2Statistics;
 using UniversalReports.PlayForFun;
 using UniversalReports.PunterAnalysis;
+using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
 using UniversalReports.Sites.App_Start;
 using UniversalReports.SMAWinLoss;
@@ -50,6 +51,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeSBPerformance();
                 cfg.InitializeSMAWinLoss();
                 cfg.InitializeVoidingSettledTickets();
+                cfg.InitializeSBCustomerPerformanceByDanger();
             });
         }
 

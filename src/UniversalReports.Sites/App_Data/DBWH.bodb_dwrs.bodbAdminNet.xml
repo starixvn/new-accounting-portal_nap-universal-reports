@@ -184,4 +184,7 @@
     <Setting Key="Acc_Rpt_SBTurnoverComparison_Daily" SpName="Acc_Rpt_SBTurnoverComparison_Daily" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
   </Function>
+  <Function Name="SBCustomerPerformanceByDangers">
+    <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>
