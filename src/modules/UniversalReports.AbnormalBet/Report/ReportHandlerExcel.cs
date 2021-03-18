@@ -15,7 +15,7 @@ namespace UniversalReports.AbnormalBet.Report
     {
         private readonly ReportService service;
 
-        private ReportExcelBuilder excelBuilder;
+        private readonly ReportExcelBuilder excelBuilder;
 
         public ReportHandlerExcel(ReportService service, ReportExcelBuilder excelBuilder)
         {
