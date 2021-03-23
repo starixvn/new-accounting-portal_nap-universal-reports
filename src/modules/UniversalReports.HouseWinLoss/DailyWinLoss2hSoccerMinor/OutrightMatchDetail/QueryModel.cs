@@ -12,5 +12,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
         public bool NormalMode { get; set; } = true;
 
         public int SportType { get; set; } = Constants.SportTypeSoccer;
+
+        public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
     }
 }

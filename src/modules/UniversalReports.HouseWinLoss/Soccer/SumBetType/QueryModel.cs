@@ -17,6 +17,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 
         public bool IsNoDraw { get; set; } = false;
 
-        public bool IsSabaSport { get; set; } = false;
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }
 }
