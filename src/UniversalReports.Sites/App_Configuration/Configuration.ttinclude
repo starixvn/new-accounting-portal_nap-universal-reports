@@ -20,6 +20,10 @@
         new SiteInfo
         {
             Environment = SiteEnvironment.PRO
+        },
+        new SiteInfo
+        {
+            Environment = SiteEnvironment.PROAWS
         }
     };
 #>
@@ -31,7 +35,8 @@
         UAT,
 		SIT,
         MNL,
-        PRO
+        PRO,
+        PROAWS,
     }
     class SiteInfo
     {
@@ -46,6 +51,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                              return "On";
                     default:
                         return "Off";
@@ -60,6 +66,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                         return "false";
                     default:
                         return "true";
@@ -74,6 +81,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                     case SiteEnvironment.MNL:
                         return "LIVE";
                     default:
@@ -89,6 +97,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                     case SiteEnvironment.MNL:
                     case SiteEnvironment.UAT:
 					case SiteEnvironment.SIT:
@@ -106,6 +115,7 @@
                 switch(Environment)
                 {					
 					case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
 						return "true";
 					default:
                         return "false";
@@ -127,6 +137,7 @@
                     case SiteEnvironment.UAT:
 						return "http://10.40.40.248:1710/v1/api";
 					case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
 						return "http://10.99.99.51:1710/api";
 					case SiteEnvironment.MNL:
                         return "http://10.2.98.3:1710/api";
@@ -149,6 +160,7 @@
 						return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
                     case SiteEnvironment.UAT:
 					case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
 					case SiteEnvironment.MNL:
                         return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
 					default:
@@ -170,8 +182,10 @@
                         return "nap-report.playthefun.com";
                     case SiteEnvironment.UAT:
 						return "qa-accrpt.starific.net";
-					case SiteEnvironment.PRO:
+					case SiteEnvironment.PRO:                    
                         return "nap.oneops.net";
+                    case SiteEnvironment.PROAWS:
+                        return "reports.sportsfun.app";
 					case SiteEnvironment.MNL:
                         return "nap-report.ibcbk.com";
 					default:
@@ -191,6 +205,7 @@
                     case SiteEnvironment.SIT:
                     case SiteEnvironment.UAT:
 					case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
 					case SiteEnvironment.MNL:
 						return "/AccReport";
 					default:
@@ -209,6 +224,7 @@
 					case SiteEnvironment.LOCAL:					
                         return "http://ha.nexdev.net:8889/api";
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                         return "http://10.99.99.51:8889/api";
                     case SiteEnvironment.UAT:
                         return "http://10.40.40.248:8889/api";
@@ -229,6 +245,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                     case SiteEnvironment.MNL:
                         return "true";
                     default:
@@ -244,6 +261,7 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
                         return "stateConnectionString=\"tcpip=10.99.99.51:42424\"";
                     case SiteEnvironment.MNL:
                         return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
@@ -268,8 +286,10 @@
                         return @"FormatName:DIRECT=tcp:10.18.200.103\private$\entlib";
 					case SiteEnvironment.UAT:
                         return @"FormatName:DIRECT=tcp:10.40.40.73\private$\entlib";
-                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.PRO:                    
                         return @"FormatName:DIRECT=tcp:10.40.40.22\private$\entlib";
+                    case SiteEnvironment.PROAWS:
+                        return @"FormatName:DIRECT=tcp:10.2.27.19\private$\entlib";
 					case SiteEnvironment.SIT:
                         return @"FormatName:DIRECT=tcp:172.16.4.106\private$\entlib";
                     case SiteEnvironment.MNL:
@@ -294,6 +314,7 @@
                         return "NAP-Report-UAT";
 
                     case SiteEnvironment.PRO:
+                    case SiteEnvironment.PROAWS:
 						return "NAP-Report";
 
 					case SiteEnvironment.SIT:
@@ -317,10 +338,12 @@
 					case SiteEnvironment.LOCAL:
 					case SiteEnvironment.DEV:
                         return "http://10.18.200.103:8091/pools/default";
-                    case SiteEnvironment.PRO:
+                    case SiteEnvironment.PRO:                    
 					case SiteEnvironment.SIT:
 					case SiteEnvironment.UAT:
                         return "http://10.40.40.22:8091/pools/default";
+                    case SiteEnvironment.PROAWS:
+                        return "http://10.99.99.51:8091/pools/default";
                     case SiteEnvironment.MNL:
                         return "http://10.2.98.3:8091/pools/default";
 					default:
