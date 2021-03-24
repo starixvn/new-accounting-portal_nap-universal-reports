@@ -1,4 +1,5 @@
 using UniversalReports.HouseWinLoss.Common.Criteria;
+using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
 {
@@ -8,6 +9,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
 
         public bool IsNoDraw { get; set; } = false;
 
-        public bool IsSabaSport { get; set; } = false;
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }
 }

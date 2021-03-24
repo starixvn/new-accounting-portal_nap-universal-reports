@@ -15,5 +15,9 @@
         public const int SportTypeSoccer = 1;
 
         public const string SoccerMinorBetTypesSheetName = "Soccer Minor Bet Types";
+
+        public const int IsSabaSportDefault = 0;
+
+        public const int IsAllSportDefault = 2;
     }
 }

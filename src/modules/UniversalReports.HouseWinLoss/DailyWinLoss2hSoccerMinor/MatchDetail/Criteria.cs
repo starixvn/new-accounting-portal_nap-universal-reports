@@ -13,6 +13,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.MatchDetail
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
 
+        public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
+
         public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
     }
 }

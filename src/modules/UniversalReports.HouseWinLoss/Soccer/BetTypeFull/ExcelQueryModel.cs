@@ -1,4 +1,5 @@
 ﻿using System;
+using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 {
@@ -20,6 +21,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 
         public bool IsNoDraw { get; set; } = false;
 
-        public bool IsSabaSport { get; set; } = false;
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }
 }

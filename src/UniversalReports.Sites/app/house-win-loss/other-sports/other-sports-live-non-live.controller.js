@@ -99,7 +99,7 @@ import angular from "angular";
                 sportType: sportType,
                 sportTypeName: sportTypeName,
                 isLive: 2,
-                isSabaSport: isSabaSport == 1
+                isSabaSport: isSabaSport
             });
             tab.goForward('betType', data);
         }

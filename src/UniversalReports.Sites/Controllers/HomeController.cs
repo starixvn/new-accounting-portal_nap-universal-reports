@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 
 namespace UniversalReports.Sites.Controllers
 {
@@ -6,6 +7,8 @@ namespace UniversalReports.Sites.Controllers
     {
         public ActionResult Index()
         {
+
+            Response.Cookies.Add(new HttpCookie("bullshit", "shit"));
             return RedirectToAction("Index", "HouseWinLossByProducts");
         }
     }

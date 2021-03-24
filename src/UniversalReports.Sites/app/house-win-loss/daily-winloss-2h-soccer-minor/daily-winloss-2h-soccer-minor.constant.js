@@ -31,7 +31,7 @@ import moment from "moment";
                         ? 'api/house-win-loss-by-products/soccer-minor/outright-match-detail'
                         : 'api/house-win-loss-by-products/soccer-minor/match-detail';
                 },
-                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1 },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, isSabaSport: 2 },
                 getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
@@ -39,7 +39,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/site",
-                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site" },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site", isSabaSport: 2 },
                 getTitleFunction: "getSiteTitleLive"
             }
         }

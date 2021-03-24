@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 
         public bool IsNoDraw { get; set; } = false;
 
-        public bool IsSabaSport { get; set; } = false;
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
         public override string GetSettingKey() => $"HouseWinLoss-OtherSports-BetType-{Source}";
     }
