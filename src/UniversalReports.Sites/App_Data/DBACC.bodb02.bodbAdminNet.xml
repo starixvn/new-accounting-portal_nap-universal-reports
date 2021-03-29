@@ -96,4 +96,8 @@
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_SportSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_SportSel" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel" SpName="Acc_Rpt_SBCustPerfByDangerLevel" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
+  <Function Name="CashOutPerformance">
+    <Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_COPerformance_LicenseesSel" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_SportSel" SpName="Acc_Rpt_COPerformance_SportSel" DbName="DBACC.bodb02.bodbAdminNet" />
+  </Function>
 </Functions>
