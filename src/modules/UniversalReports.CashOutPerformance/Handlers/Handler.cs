@@ -11,8 +11,8 @@ using Linq.DynamicSum;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
-    public class Handler : IRequestHandler<SportRequest, IEnumerable<SportModel>>,
-        IRequestHandler<LicenseeRequest, IEnumerable<LicenseeModel>>,
+    public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterItemModel>>,
+        IRequestHandler<LicenseeRequest, IEnumerable<FilterItemModel>>,
         IRequestHandler<TicketRequest, SummaryEntity<TicketModel>>
     {
         private readonly CashOutPerformanceService service;
@@ -21,13 +21,13 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             this.service = service;
         }
-        public async Task<IEnumerable<SportModel>> Handle(SportRequest request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SportCriteria>(request);
             return await service.GetSports(criteria);
         }
 
-        public async Task<IEnumerable<LicenseeModel>> Handle(LicenseeRequest request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterItemModel>> Handle(LicenseeRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<LicenseeCriteria>(request);
             return await service.GetLicensees(criteria);

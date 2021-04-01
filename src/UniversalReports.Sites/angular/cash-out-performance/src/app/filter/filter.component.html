@@ -1,4 +1,32 @@
 <div class="nap-filter">
-    <nap-period-type [minDate]="minStartDate" [maxDate]="maxEndDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+    <div class="row">
+        <nap-period-type [minDate]="minStartDate" [maxDate]="maxEndDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+        <div class="nap-col" >
+            <div class="nap-group">
+            <label>Licensee</label>
+            <div class="nap-control">
+                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | filterItemTreeview:licensees"
+                [config]="licenseeTreeviewConfig" (selectedChange)="selectedLicensees = $event">
+                </ngx-dropdown-treeview>
+            </div>
+            </div>
+        </div>
+        <div class="nap-col">
+            <div class="nap-group">
+            <label>Sport</label>
+            <div class="nap-control">
+                <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | filterItemTreeview:sports"
+                [config]="sportTreeviewConfig" (selectedChange)="selectedSports = $event">
+                </ngx-dropdown-treeview>
+            </div>
+            </div>
+        </div>
+        <div class="nap-col col-buttons">
+            <label>&nbsp;</label>
+            <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+              GENERATE
+            </button>
+          </div>
+    </div>
 </div>
   

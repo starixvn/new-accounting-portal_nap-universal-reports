@@ -1,51 +1,189 @@
-<div class="row">
-    <div class="nap-col">
-      <div class="nap-group">
-        <label>Period type</label>
-        <div class="nap-control">
-          <select class="form-control" [(ngModel)]="periodType" (ngModelChange)="onTypeChange()">
-            <option *ngFor="let option of periodTypeOptions" [ngValue]="option.value">{{option.text}}</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div [ngSwitch]="periodType">
-      <div *ngSwitchCase="PeriodType.Daily">
-        <div class="nap-col">
-          <div class="nap-group">
-            <label>From</label>
-            <div class="nap-control">
-              <nap-date-picker [(date)]="dailyFromDate" [minDate]="minDate" [maxDate]="dailyToDate"
-                (dateChange)="onDailyDateChange()"></nap-date-picker>
-            </div>
-          </div>
-        </div>
-        <div class="nap-col">
-          <div class="nap-group">
-            <label>To</label>
-            <div class="nap-control">
-              <nap-date-picker [(date)]="dailyToDate" [minDate]="dailyFromDate" [maxDate]="maxDate"
-                (dateChange)="onDailyDateChange()"></nap-date-picker>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div *ngSwitchCase="PeriodType.Monthly">
-        <div class="nap-col">
-          <div class="nap-control">
-            <nap-month-picker [(date)]="monthlyDate" [minDate]="minDate" [maxDate]="maxDate"
-              (dateChange)="onMonthlyDateChange()"></nap-month-picker>
-          </div>
-        </div>
-      </div>
-      <div *ngSwitchCase="PeriodType.Annually">
-        <div class="nap-col">
-          <div class="nap-control anually">
-            <nap-year-picker [(date)]="annuallyDate" [minDate]="minDate" [maxDate]="maxDate"
-              (dateChange)="onAnnuallyDateChange()"></nap-year-picker>
-          </div>
-        </div>
+<div class="period-type-block">
+  <div class="nap-col">
+    <div class="nap-group">
+      <label>Period type</label>
+      <div class="nap-control">
+        <select class="form-control" [(ngModel)]="periodType" (ngModelChange)="onTypeChange()">
+          <option *ngFor="let option of periodTypeOptions" [ngValue]="option.value">{{option.text}}</option>
+        </select>
       </div>
     </div>
   </div>
-  
+  <div [ngSwitch]="periodType">
+    <div *ngSwitchCase="PeriodType.Yesterday">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="yesterdayDate" [minDate]="yesterdayDate" [maxDate]="yesterdayDate"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="yesterdayDate" [minDate]="yesterdayDate" [maxDate]="yesterdayDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.CurrentWeek">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.LastWeek">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.CurrentMonth">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.LastMonth">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.SinceLastMonth">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.SpecificDate">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.Last3Months">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>From</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificFromDate" [minDate]="minDate" [maxDate]="specificToDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>To</label>
+          <div class="nap-control">
+            <nap-date-picker [(date)]="specificToDate" [minDate]="specificFromDate" [maxDate]="maxDate"
+              (dateChange)="onSpecificDateChange()"></nap-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div *ngSwitchCase="PeriodType.Monthly">
+      <div class="nap-col">
+        <div class="nap-control">
+          <nap-month-picker [(date)]="monthlyDate" [minDate]="minDate" [maxDate]="maxDate"
+            (dateChange)="onMonthlyDateChange()"></nap-month-picker>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="PeriodType.Annually">
+      <div class="nap-col">
+        <div class="nap-control anually">
+          <nap-year-picker [(date)]="annuallyDate" [minDate]="minDate" [maxDate]="maxDate"
+            (dateChange)="onAnnuallyDateChange()"></nap-year-picker>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

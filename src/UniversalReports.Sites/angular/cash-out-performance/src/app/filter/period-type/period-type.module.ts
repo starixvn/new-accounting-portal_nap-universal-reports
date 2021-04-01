@@ -4,8 +4,6 @@ import { PeriodTypeComponent } from './period-type.component';
 import { FormsModule } from '@angular/forms';
 import { DateModule } from 'nap-components/date';
 
-
-
 @NgModule({
   declarations: [
     PeriodTypeComponent

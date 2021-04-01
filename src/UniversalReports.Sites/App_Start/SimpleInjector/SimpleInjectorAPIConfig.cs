@@ -31,7 +31,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterSMAWinLossServices()
                 .RegisterVoidingSettledTicketsServices()
                 .RegisterDailyTurnoverServices()
-                .RegisterSBCustomerPerformanceByDangerServices();
+                .RegisterSBCustomerPerformanceByDangerServices()
+                .RegisterCashOutPerformanceServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();

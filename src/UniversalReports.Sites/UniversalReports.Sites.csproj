@@ -428,6 +428,7 @@
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />

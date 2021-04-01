@@ -18,16 +18,17 @@ export class PeriodTypeComponent implements OnChanges {
   @Input() minDate: NapDateStruct;
   @Input() maxDate: NapDateStruct;
   @Output() periodTypeChange = new EventEmitter<PeriodTypeEventModel>();
-  periodType = PeriodType.Daily;
+  periodType = PeriodType.Yesterday;
   PeriodType = PeriodType;
   periodTypeOptions = this.getPeriodTypeOptions();
 
-  dailyFromDate: NapDateStruct;
-  dailyToDate: NapDateStruct;
-  monthlyDate: NapDateStruct;
-  monthlyEndDate: NapDateStruct;
-  annuallyDate: NapDateStruct;
-  annuallyEndDate: NapDateStruct;
+  yesterdayDate: NapDateStruct;
+  specificFromDate: NapDateStruct;
+  specificToDate: NapDateStruct;
+  // monthlyDate: NapDateStruct;
+  // monthlyEndDate: NapDateStruct;
+  // annuallyDate: NapDateStruct;
+  // annuallyEndDate: NapDateStruct;
 
   private emittedModel: PeriodTypeEventModel;
   private todayNgbDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment().startOf('day'));
@@ -48,72 +49,83 @@ export class PeriodTypeComponent implements OnChanges {
       }
     }
 
-    this.onDailyDateChange();
+    this.onSpecificDateChange();
   }
 
   onTypeChange() {
     switch (this.periodType) {
-      case PeriodType.Daily:
-        this.onDailyDateChange();
+      case PeriodType.Yesterday:
+        this.onYesterdayDateChange();
         break;
-      case PeriodType.Monthly:
-        this.onMonthlyDateChange();
+      case PeriodType.SpecificDate:
+        this.onSpecificDateChange();
         break;
-      case PeriodType.Annually:
-        this.onAnnuallyDateChange();
-        break;
+      // case PeriodType.Monthly:
+      //   this.onMonthlyDateChange();
+      //   break;
+      // case PeriodType.Annually:
+      //   this.onAnnuallyDateChange();
+      //   break;
     }
   }
 
-  onDailyDateChange() {
+  onYesterdayDateChange() {
     this.emitChange({
       periodType: this.periodType,
-      fromDate: this.dailyFromDate,
-      toDate: this.dailyToDate
+      fromDate: this.yesterdayDate,
+      toDate: this.yesterdayDate
     });
   }
 
-  onMonthlyDateChange() {
-    const maxDateValue =  DateHelper.convertDateStructToMoment(this.maxDateStruct);
-    const monthlyDate = { year: this.monthlyDate.year, month: this.monthlyDate.month, day: 1 };
-
-    const startMonth = DateHelper.convertDateStructToMoment(monthlyDate);
-    const endMonth = moment(startMonth).endOf('month');
-    let endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
-
-    if (maxDateValue.isBefore(endMonth)) {
-      endMonthDateStruct = DateHelper.convertMomentToDateStruct(maxDateValue);
-    }
-
-    const endMonthDate = {year: endMonthDateStruct.year, month: endMonthDateStruct.month, day: endMonthDateStruct.day};
-
+  onSpecificDateChange() {
     this.emitChange({
       periodType: this.periodType,
-      fromDate: monthlyDate,
-      toDate: endMonthDate
+      fromDate: this.specificFromDate,
+      toDate: this.specificToDate
     });
   }
 
-  onAnnuallyDateChange() {
-    const maxDateValue =  DateHelper.convertDateStructToMoment(this.maxDateStruct);
-    const annuallyDate = { year: this.annuallyDate.year, month: 1, day: 1 };
+  // onMonthlyDateChange() {
+  //   const maxDateValue =  DateHelper.convertDateStructToMoment(this.maxDateStruct);
+  //   const monthlyDate = { year: this.monthlyDate.year, month: this.monthlyDate.month, day: 1 };
 
-    const startYear = moment({years: this.annuallyDate.year, months: 1, date: 1});
-    let endYear = moment(startYear).endOf('year');
+  //   const startMonth = DateHelper.convertDateStructToMoment(monthlyDate);
+  //   const endMonth = moment(startMonth).endOf('month');
+  //   let endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
 
-    if (maxDateValue.isBefore(endYear)) {
-      endYear = maxDateValue;
-    }
+  //   if (maxDateValue.isBefore(endMonth)) {
+  //     endMonthDateStruct = DateHelper.convertMomentToDateStruct(maxDateValue);
+  //   }
 
-    const endYearDateStruct = DateHelper.convertMomentToDateStruct(endYear);
-    const endYearDate = {year: endYearDateStruct.year, month: endYearDateStruct.month, day: endYearDateStruct.day};
+  //   const endMonthDate = {year: endMonthDateStruct.year, month: endMonthDateStruct.month, day: endMonthDateStruct.day};
 
-    this.emitChange({
-      periodType: this.periodType,
-      fromDate: annuallyDate,
-      toDate: endYearDate
-    });
-  }
+  //   this.emitChange({
+  //     periodType: this.periodType,
+  //     fromDate: monthlyDate,
+  //     toDate: endMonthDate
+  //   });
+  // }
+
+  // onAnnuallyDateChange() {
+  //   const maxDateValue =  DateHelper.convertDateStructToMoment(this.maxDateStruct);
+  //   const annuallyDate = { year: this.annuallyDate.year, month: 1, day: 1 };
+
+  //   const startYear = moment({years: this.annuallyDate.year, months: 1, date: 1});
+  //   let endYear = moment(startYear).endOf('year');
+
+  //   if (maxDateValue.isBefore(endYear)) {
+  //     endYear = maxDateValue;
+  //   }
+
+  //   const endYearDateStruct = DateHelper.convertMomentToDateStruct(endYear);
+  //   const endYearDate = {year: endYearDateStruct.year, month: endYearDateStruct.month, day: endYearDateStruct.day};
+
+  //   this.emitChange({
+  //     periodType: this.periodType,
+  //     fromDate: annuallyDate,
+  //     toDate: endYearDate
+  //   });
+  // }
 
   private emitChange(model: PeriodTypeEventModel) {
     let shouldEmit = true;
@@ -143,29 +155,51 @@ export class PeriodTypeComponent implements OnChanges {
       endYear = maxDateValue;
     }
 
-    const endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
-    const endYearDateStruct = DateHelper.convertMomentToDateStruct(endYear);
+    // const endMonthDateStruct = DateHelper.convertMomentToDateStruct(endMonth);
+    // const endYearDateStruct = DateHelper.convertMomentToDateStruct(endYear);
 
-    this.dailyFromDate = _.clone(date);
-    this.dailyToDate = _.clone(date);
-    this.monthlyDate = _.clone(date);
-    this.monthlyEndDate = _.clone(endMonthDateStruct);
-    this.annuallyDate = _.clone(date);
-    this.annuallyEndDate = _.clone(endYearDateStruct);
+    this.yesterdayDate = _.clone(date);
+    this.specificFromDate = _.clone(date);
+    this.specificToDate = _.clone(date);
+    // this.monthlyDate = _.clone(date);
+    // this.monthlyEndDate = _.clone(endMonthDateStruct);
+    // this.annuallyDate = _.clone(date);
+    // this.annuallyEndDate = _.clone(endYearDateStruct);
   }
 
   private getPeriodTypeOptions(): SelectItem[] {
     return [
       {
-        text: 'Daily',
-        value: PeriodType.Daily
+        text: 'Yesterday',
+        value: PeriodType.Yesterday
       },
       {
-        text: 'Monthly',
-        value: PeriodType.Monthly
-      }, {
-        text: 'Annually',
-        value: PeriodType.Annually
+        text: 'Current Week',
+        value: PeriodType.CurrentWeek
+      },
+      {
+        text: 'Last Week',
+        value: PeriodType.LastWeek
+      },
+      {
+        text: 'Current Month',
+        value: PeriodType.CurrentMonth
+      },
+      {
+        text: 'Last Month',
+        value: PeriodType.LastMonth
+      },
+      {
+        text: 'Since Last Month',
+        value: PeriodType.SinceLastMonth
+      },
+      {
+        text: 'Specific Date',
+        value: PeriodType.SpecificDate
+      },
+      {
+        text: 'Last 3 Months',
+        value: PeriodType.Last3Months
       }];
   }
 }

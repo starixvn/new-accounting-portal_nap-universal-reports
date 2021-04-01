@@ -1,7 +1,12 @@
 export enum PeriodType {
-    Daily = 1,
-    Monthly = 2,
-    Annually = 3
+    Yesterday = 1,
+    CurrentWeek = 2,
+    LastWeek = 3,
+    CurrentMonth = 4,
+    LastMonth = 5,
+    SinceLastMonth = 6,
+    SpecificDate = 7,
+    Last3Months = 8
 }
 
 export interface FilterItemModel {
