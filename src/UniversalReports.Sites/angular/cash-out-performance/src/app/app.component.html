@@ -6,5 +6,7 @@
         </div>
     </div>
     <app-filter (generated)="generate($event)" (reset)="reset()"></app-filter>
+    <app-grid [filterModel]="filterModel"></app-grid>
+    <nap-toast></nap-toast>
 </div>
 <nap-spinner></nap-spinner>

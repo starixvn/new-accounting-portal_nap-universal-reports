@@ -1,6 +1,30 @@
 <div class="nap-filter">
     <div class="row">
-        <nap-period-type [minDate]="minStartDate" [maxDate]="maxEndDate" (periodTypeChange)="onPeriodTypeChange($event)"></nap-period-type>
+        <div class="nap-col">
+            <div class="nap-group">
+              <label>Period Type</label>
+              <div class="nap-control">
+                <nap-dropdown-select [items]="timePeriodSelectItems" [(value)]="timePeriod" (valueChange)="onTimePeriodChange()">
+                </nap-dropdown-select>
+              </div>
+            </div>
+        </div>
+        <div class="nap-col">
+          <div class="nap-group">
+            <label>From Date</label>
+            <div class="nap-control">
+              <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="maxEndDate" (dateChange)="onDateChange()"></nap-date-picker>
+            </div>
+        </div>
+        </div>
+          <div class="nap-col">
+            <div class="nap-group">
+              <label>To Date</label>
+              <div class="nap-control">
+                <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate" (dateChange)="onDateChange()"></nap-date-picker>
+              </div>
+            </div>
+          </div>
         <div class="nap-col" >
             <div class="nap-group">
             <label>Licensee</label>

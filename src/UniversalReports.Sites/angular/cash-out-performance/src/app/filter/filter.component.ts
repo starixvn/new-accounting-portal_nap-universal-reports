@@ -1,20 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { DateHelper, NapDateStruct } from 'nap-components/date';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import * as _ from 'lodash';
+import * as moment from 'moment';
+import { DateFormat, DateHelper } from 'nap-components/date';
+import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterItemModel } from './filter.model';
+import { FilterItemModel, FilterModel, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
-import { PeriodTypeEventModel } from './period-type/period-type.model';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
-  minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday.add(-2, 'year'));
-  maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
-  periodTypeEventModel: PeriodTypeEventModel;
+  @Output() generated = new EventEmitter<FilterModel>();
+  timePeriodSelectItems = this.filterService.getTimeSelectItems();
+  timePeriod: TimePeriod = TimePeriod.Yesterday;
+  minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
 
   licensees: FilterItemModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
@@ -35,24 +42,120 @@ export class FilterComponent implements OnInit {
   selectedSports: number[] = [];
   
   constructor(
-    private readonly filterSerivce: FilterService
+    private readonly filterService: FilterService,
+    private readonly toastService: ToastService
   ) { }
 
   ngOnInit(): void {
-    this.filterSerivce.getLicensees().subscribe(licensees => {
+    this.filterService.getLicensees().subscribe(licensees => {
       this.licensees = licensees;
     });
 
-    this.filterSerivce.getSports().subscribe(sports => {
+    this.filterService.getSports().subscribe(sports => {
       this.sports = sports;
     });
   }
 
-  onPeriodTypeChange(model: PeriodTypeEventModel) {
-    this.periodTypeEventModel = model;
+  onTimePeriodChange() {
+    let endDate: moment.Moment;
+    let startDate: moment.Moment;
+    switch (this.timePeriod) {
+      case TimePeriod.Yesterday:
+        endDate = moment.utc(CONFIG.date.yesterday);
+        startDate = moment.utc(CONFIG.date.yesterday);
+        break;
+      case TimePeriod.CurrentWeek:
+        startDate = moment.utc(CONFIG.date.today).startOf('week');
+        endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
+        break;
+      case TimePeriod.LastWeek:
+        startDate = moment.utc(CONFIG.date.today).startOf('week').subtract(1, 'week');
+        endDate = moment.utc(startDate).endOf('week');
+        break;
+      case TimePeriod.CurrentMonth:
+        startDate = moment.utc(CONFIG.date.today).startOf('month');
+        endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
+        break;
+      case TimePeriod.LastMonth:
+        startDate = moment.utc(CONFIG.date.today).subtract(1, 'month').startOf('month');
+        endDate = moment.utc(startDate).endOf('month');
+        break;
+      case TimePeriod.SinceLastMonth:
+        startDate = moment.utc(CONFIG.date.today).subtract(1, 'month').startOf('month');
+        endDate = moment.utc(CONFIG.date.today);
+
+        if (moment(startDate).isBefore(endDate)) {
+          endDate = moment.utc(CONFIG.date.yesterday);
+        }
+        break;
+      case TimePeriod.SpecificDate:
+        break;
+      case TimePeriod.LastThreeMonths:
+        startDate = moment.utc(CONFIG.date.today).subtract(3, 'month').startOf('month');
+        endDate = moment.utc(CONFIG.date.today).subtract(1, 'month').endOf('month');
+        break;
+    }
+
+    if (!_.isNil(startDate) && !_.isNil(endDate)) {
+      this.startDate = DateHelper.convertMomentToDateStruct(startDate);
+      this.endDate = DateHelper.convertMomentToDateStruct(endDate);
+    }
+  }
+
+  onDateChange() {
+    this.timePeriod = TimePeriod.SpecificDate;
   }
 
   onGenerateClick() {
-    
+    this.OnGenerate();
+  }
+
+  private OnGenerate() {
+    const model = this.createModel();
+
+    if (!this.isValid) {
+      return;
+    }
+
+    this.generated.emit(model);
+  }
+
+  private createModel(): FilterModel {
+    const startDate = DateHelper.convertDateStructToMoment(this.startDate);
+    const endDate = DateHelper.convertDateStructToMoment(this.endDate);
+
+    const model: FilterModel = {
+      startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
+      endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
+      sports: this.selectedSports.join(','),
+      sites: this.selectedLicensees.join(','),
+      pageIndex: 0,
+      pageSize: 100,
+      isPageChanged: false,
+    };
+
+    return model;
+  }
+
+  private get isValid(): boolean {
+    if (this.selectedLicensees.length === 0) {
+      this.toastService.activate(`Please select at least one licensee!`);
+      return false;
+    }
+
+    if (this.selectedSports.length === 0) {
+      this.toastService.activate(`Please select at least one sport!`);
+      return false;
+    }
+
+    return true;
   }
 }

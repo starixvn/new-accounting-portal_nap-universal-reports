@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PeriodTypeModule } from './period-type/period-type.module';
 import { FilterComponent } from './filter.component';
 import { FilterItemTreeviewPipe } from './filter-item-treeview.pipe';
 import { LegendModule, LegendService } from 'nap-components/legend';
 import { TreeviewModule } from 'ngx-treeview';
+import { DropdownSelectModule } from 'nap-components/dropdown-select';
+import { DateModule } from 'nap-components/date';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { TreeviewModule } from 'ngx-treeview';
     CommonModule,
     FormsModule,
     LegendModule,
-    PeriodTypeModule,
     TreeviewModule.forRoot(),
     LegendModule.forRoot(),
+    DropdownSelectModule,
+    DateModule
   ],
   exports: [
     FilterComponent

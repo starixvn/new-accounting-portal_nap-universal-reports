@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PeriodTypeComponent } from './period-type.component';
+import { GridComponent } from './grid.component';
 
-describe('PeriodTypeComponent', () => {
-  let component: PeriodTypeComponent;
-  let fixture: ComponentFixture<PeriodTypeComponent>;
+describe('GridComponent', () => {
+  let component: GridComponent;
+  let fixture: ComponentFixture<GridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PeriodTypeComponent ]
+      declarations: [ GridComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PeriodTypeComponent);
+    fixture = TestBed.createComponent(GridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
