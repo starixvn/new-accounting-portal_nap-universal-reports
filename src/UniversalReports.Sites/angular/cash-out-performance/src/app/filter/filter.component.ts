@@ -18,7 +18,7 @@ export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
   timePeriod: TimePeriod = TimePeriod.Yesterday;
-  minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+  minStartDate: NgbDateStruct = { year: 2019, month: 1, day: 1 };
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
@@ -119,10 +119,10 @@ export class FilterComponent implements OnInit {
   }
 
   private OnGenerate() {
-    const model = this.createModel();
+    let model = this.createModel();
 
     if (!this.isValid) {
-      return;
+      model = null;
     }
 
     this.generated.emit(model);
@@ -138,7 +138,7 @@ export class FilterComponent implements OnInit {
       sports: this.selectedSports.join(','),
       sites: this.selectedLicensees.join(','),
       pageIndex: 0,
-      pageSize: 100,
+      pageSize: 0,
       isPageChanged: false,
     };
 
@@ -154,6 +154,12 @@ export class FilterComponent implements OnInit {
     if (this.selectedSports.length === 0) {
       this.toastService.activate(`Please select at least one sport!`);
       return false;
+    }
+
+    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
+    if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
+        this.toastService.activate(`Date range should not exceed 3 month!`);
+        return false;
     }
 
     return true;

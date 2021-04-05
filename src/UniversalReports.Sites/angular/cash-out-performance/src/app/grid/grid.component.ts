@@ -18,6 +18,7 @@ export class GridComponent implements OnChanges {
   paginationInstance: PaginationInstance;
   displayData: TicketModel[];
   breadcrumbItems: string[];
+  originalPageSize = 100;
 
   private paginatePipe: PaginatePipe;
 
@@ -30,6 +31,7 @@ export class GridComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.filterModel) {
+      this.dataModel = null;
       return;
     }
 
@@ -51,23 +53,13 @@ export class GridComponent implements OnChanges {
   }
 
   private createPaging() {
-    if (this.filterModel.isPageChanged) {
-      this.filterModel.pageIndex = this.paginationInstance.currentPage;
-      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
-
-      this.service.getTickets(this.filterModel).subscribe(data => {
-        this.dataModel = data;
-        this.createPagingTransform();
-      });
+    if (this.paginationInstance.itemsPerPage !== this.originalPageSize)
+    {
+      this.paginationInstance.currentPage = 1;
     }
-
-    this.createPagingTransform();
-  }
-
-  private createPagingTransform() {
     const paginateData = this.paginatePipe.transform(this.dataModel.Entities, this.paginationInstance);
-    this.dataModel.Entities = _.cloneDeep(paginateData);
-    this.filterModel.isPageChanged = true;
+    this.displayData = _.cloneDeep(paginateData);
+    this.originalPageSize = this.paginationInstance.itemsPerPage;
   }
 
   get hasData(): boolean {
