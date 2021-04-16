@@ -158,7 +158,7 @@ export class FilterComponent implements OnInit {
 
     const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
     if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-        this.toastService.activate(`Date range should not exceed 3 month!`);
+        this.toastService.activate(`Date range should not exceed 3 months!`);
         return false;
     }
 
