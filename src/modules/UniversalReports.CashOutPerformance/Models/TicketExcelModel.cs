@@ -31,7 +31,7 @@ namespace UniversalReports.CashOutPerformance.Models
         public string Username { get; set; }
 
         [Cell("C4")]
-        public int OrigID { get; set; }
+        public long OrigID { get; set; }
 
         [Cell("D4")]
         public long BuyBackID { get; set; }
