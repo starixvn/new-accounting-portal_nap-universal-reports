@@ -428,6 +428,7 @@
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
@@ -449,6 +450,7 @@
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\VoidingSettledTicketsInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
     <Compile Include="Controllers\DailyTurnoverComparisonController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
@@ -739,6 +741,18 @@
     <Content Include="wwwroot\actual-member-bet\main.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\polyfills.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\styles.bundle.css" />
+    <Content Include="wwwroot\cash-out-performance\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\cash-out-performance\assets\logo.png" />
+    <Content Include="wwwroot\cash-out-performance\assets\spinner.gif" />
+    <Content Include="wwwroot\cash-out-performance\favicon.ico" />
+    <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
+    <Content Include="wwwroot\cash-out-performance\index.html" />
+    <Content Include="wwwroot\cash-out-performance\logo.6e8f5e4696c2161db75f.png" />
+    <Content Include="wwwroot\cash-out-performance\main.js" />
+    <Content Include="wwwroot\cash-out-performance\polyfills.js" />
+    <Content Include="wwwroot\cash-out-performance\runtime.js" />
+    <Content Include="wwwroot\cash-out-performance\spinner.39d0d6bd1fbec2b1c53f.gif" />
+    <Content Include="wwwroot\cash-out-performance\styles.css" />
     <Content Include="wwwroot\daily-turnover-comparison\3rdpartylicenses.txt" />
     <Content Include="wwwroot\daily-turnover-comparison\assets\logo.png" />
     <Content Include="wwwroot\daily-turnover-comparison\assets\spinner.gif" />
@@ -781,7 +795,9 @@
     <Content Include="wwwroot\punter-analysis\scripts.bundle.js" />
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
-    <Content Include="App_Data\DBACC.bodb02.bodbAdminNet.xml" />
+    <Content Include="App_Data\DBACC.bodb02.bodbAdminNet.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\DBAGE.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBWH.bodb_dwrs.bodbAdminNet.xml">
       <SubType>Designer</SubType>
@@ -949,6 +965,7 @@
     <Content Include="ExcelTemplate\SBCustomerPerformanceByDangers\SBCustomerPerformanceByDangers.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ExcelTemplate\CashOutPerformance\CashOutPerformance.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />
@@ -1174,6 +1191,11 @@
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\index.cshtml" />
+    <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
+    <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
+    <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.8b43027f47b20503057d.eot" />
+    <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.f691f37e57f04c152e23.woff" />
+    <Content Include="wwwroot\cash-out-performance\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1187,6 +1209,10 @@
     <ProjectReference Include="..\modules\UniversalReports.ActualMemberBet\UniversalReports.ActualMemberBet.csproj">
       <Project>{2d0401ab-8145-4c02-8c23-0b1ce8920c66}</Project>
       <Name>UniversalReports.ActualMemberBet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.CashOutPerformance\UniversalReports.CashOutPerformance.csproj">
+      <Project>{aaa004c8-9c5c-41ed-8847-f2242f45d3e4}</Project>
+      <Name>UniversalReports.CashOutPerformance</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameCredit.csproj">
       <Project>{847c5ba4-ff43-4683-940f-30cfefa00892}</Project>

@@ -187,4 +187,7 @@
   <Function Name="SBCustomerPerformanceByDangers">
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
+  <Function Name="CashOutPerformance">
+    <Setting Key="Acc_Rpt_COPerformance" SpName="Acc_Rpt_COPerformance" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+  </Function>
 </Functions>

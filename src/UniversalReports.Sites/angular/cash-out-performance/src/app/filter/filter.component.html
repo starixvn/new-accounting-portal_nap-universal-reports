@@ -1,0 +1,56 @@
+<div class="nap-filter">
+    <div class="row">
+        <div class="nap-col">
+            <div class="nap-group">
+              <label>Period Type</label>
+              <div class="nap-control">
+                <nap-dropdown-select [items]="timePeriodSelectItems" [(value)]="timePeriod" (valueChange)="onTimePeriodChange()">
+                </nap-dropdown-select>
+              </div>
+            </div>
+        </div>
+        <div class="nap-col">
+          <div class="nap-group">
+            <label>From Date</label>
+            <div class="nap-control">
+              <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="endDate" (dateChange)="onDateChange()"></nap-date-picker>
+            </div>
+        </div>
+        </div>
+          <div class="nap-col">
+            <div class="nap-group">
+              <label>To Date</label>
+              <div class="nap-control">
+                <nap-date-picker [(date)]="endDate" [minDate]="startDate" [maxDate]="maxEndDate" (dateChange)="onDateChange()"></nap-date-picker>
+              </div>
+            </div>
+          </div>
+        <div class="nap-col" >
+            <div class="nap-group">
+            <label>Licensee</label>
+            <div class="nap-control">
+                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | filterItemTreeview:licensees"
+                [config]="licenseeTreeviewConfig" (selectedChange)="selectedLicensees = $event">
+                </ngx-dropdown-treeview>
+            </div>
+            </div>
+        </div>
+        <div class="nap-col">
+            <div class="nap-group">
+            <label>Sport</label>
+            <div class="nap-control">
+                <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | filterItemTreeview:sports"
+                [config]="sportTreeviewConfig" (selectedChange)="selectedSports = $event">
+                </ngx-dropdown-treeview>
+            </div>
+            </div>
+        </div>
+        <div class="nap-col col-buttons">
+            <label>&nbsp;</label>
+            <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+              GENERATE
+            </button>
+          </div>
+    </div>
+</div>
+  
