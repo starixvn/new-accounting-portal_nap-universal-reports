@@ -53,7 +53,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         {
             var endRowIndex = StartRowIndex + model.Entities.Count;
             sheet.ApplyModel(totalSheet, model.Total, StartRowIndex + model.Entities.Count);
-            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 7);
+            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 9);
             sheet.Cells[cellAddressOfTotalText.Address].Value = "Total";
             sheet.Cells[cellAddressOfTotalText.Address].Merge = true;
         }

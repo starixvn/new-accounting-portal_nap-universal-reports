@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { HttpService } from "nap-components/http";
 import { Observable } from 'rxjs/Observable';
 import { SelectItem } from 'nap-components/dropdown-select';
+import { DangerTypesConstant } from '../constant/danger-type';
 
 @Injectable()
 export class FilterService {
@@ -51,14 +52,21 @@ export class FilterService {
 
   getDangerLevel(): TreeviewItem[] {
     const treeItems: TreeviewItem[] = [];
-    var nonItem = new TreeviewItem({ text: 'None', value: '0' });
 
-    treeItems.push(nonItem);
+    DangerTypesConstant.forEach(dangerType => {
+      const dangerItem = new TreeviewItem({
+        text: dangerType.text,
+        value: dangerType.value,
+        collapsed: true
+      });
+      treeItems.push(dangerItem);
 
-    for (let i = 1; i < 51; i++) {
-      var item = new TreeviewItem({ text: i.toString(), value: i.toString() });
-      treeItems.push(item)
-    }
+      dangerItem.children = [new TreeviewItem({ text: 'None', value: `${dangerType.value}_0` })];
+      for (let i = 1; i < 51; i++) {
+        var item = new TreeviewItem({ text: i.toString(), value: `${dangerType.value}_${i.toString()}` });
+        dangerItem.children.push(item);
+      }
+    });
 
     return treeItems;
   }

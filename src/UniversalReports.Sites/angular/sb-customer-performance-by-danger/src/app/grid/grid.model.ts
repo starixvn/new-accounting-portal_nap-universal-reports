@@ -5,7 +5,9 @@ export interface CustomerPerformanceByDangerModel {
   SuperName: string;
   Division: string;
   Currency: string;
-  DangerLevel: string;
+  DangerLevelOriginal: string;
+  DangerLevelABI: string;
+  DangerLevelOtherSport: string;
   BetCount: number;
   MemberTO: number;
   MemberWL: number;
