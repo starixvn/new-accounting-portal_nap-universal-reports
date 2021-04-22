@@ -1,9 +1,10 @@
 ﻿using Fanex.Data.Repository;
-using Linq.DynamicSum;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Services
 {
@@ -11,7 +12,7 @@ namespace UniversalReports.CashOutPerformance.Services
     {
         Task<IEnumerable<FilterItemModel>> GetSports(SportCriteria criteria);
         Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria);
-        Task<SummaryEntity<TicketModel>> GetTickets(TicketCriteria criteria);
+        Task<TicketViewModel> GetTickets(TicketCriteria criteria);
     }
 
     public class CashOutPerformanceServiceImp : CashOutPerformanceService
@@ -33,9 +34,15 @@ namespace UniversalReports.CashOutPerformance.Services
             return await repository.FetchAsync<FilterItemModel>(criteria);
         }
 
-        public async Task<SummaryEntity<TicketModel>> GetTickets(TicketCriteria criteria)
+        public async Task<TicketViewModel> GetTickets(TicketCriteria criteria)
         {
-            return (await repository.FetchAsync<TicketModel>(criteria)).CalculateSummaryEntity();
+            var data = await repository.FetchMultipleAsync<TicketModel, TicketModel, int>(criteria);
+            return new TicketViewModel
+            {
+                TicketList = data.Item1,
+                TotalTicket = data.Item2.FirstOrDefault(),
+                Total = data.Item3.FirstOrDefault()
+            };
         }
     }
 }

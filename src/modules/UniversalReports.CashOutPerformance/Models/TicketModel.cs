@@ -45,18 +45,5 @@ namespace UniversalReports.CashOutPerformance.Models
         public decimal COIncome_RM { get; set; }
 
         public decimal TotalIncome_RM { get; set; }
-
-        public static TicketModel operator +(TicketModel a, TicketModel b)
-        {
-            return new TicketModel
-            {
-                COTurnover_RM = a.COTurnover_RM + b.COTurnover_RM,
-                BBAmount_RM = a.BBAmount_RM + b.BBAmount_RM,
-                MemberWL_RM = a.MemberWL_RM + b.MemberWL_RM,
-                Comm_RM = a.Comm_RM + b.Comm_RM,
-                COIncome_RM = a.COIncome_RM + b.COIncome_RM,
-                TotalIncome_RM = a.TotalIncome_RM + b.TotalIncome_RM,
-            };
-        }
     }
 }

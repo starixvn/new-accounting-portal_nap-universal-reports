@@ -7,13 +7,13 @@ using System.Threading;
 using UniversalReports.CashOutPerformance.Services;
 using UniversalReports.CashOutPerformance.Criteria;
 using AutoMapper;
-using Linq.DynamicSum;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
     public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterItemModel>>,
         IRequestHandler<LicenseeRequest, IEnumerable<FilterItemModel>>,
-        IRequestHandler<TicketRequest, SummaryEntity<TicketModel>>
+        IRequestHandler<TicketRequest, TicketViewModel>
     {
         private readonly CashOutPerformanceService service;
 
@@ -33,7 +33,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             return await service.GetLicensees(criteria);
         }
 
-        public async Task<SummaryEntity<TicketModel>> Handle(TicketRequest request, CancellationToken cancellationToken)
+        public async Task<TicketViewModel> Handle(TicketRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<TicketCriteria>(request);
             return await service.GetTickets(criteria);

@@ -1,11 +1,13 @@
 ﻿using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Services;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.UnitTests.Services
 {
@@ -58,20 +60,20 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Services
         public async Task GetTickets_ValidTicketCriteria_ReturnRightTickets()
         {
             // Arrange
-            var expectedTicket = new List<TicketModel>
-            {
-                new TicketModel { }
-            };
+            var expectedTicket = ValueTuple.Create<IEnumerable<TicketModel>, IEnumerable<TicketModel>, IEnumerable<int>>(
+                new List<TicketModel>(),
+                new List<TicketModel>(),
+                new List<int>());
 
             var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<TicketModel>(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
+            repository.FetchMultipleAsync<TicketModel, TicketModel, int>(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
             var service = new CashOutPerformanceServiceImp(repository);
 
             // Act
             var actualTicket = await service.GetTickets(new TicketCriteria());
 
             // Assert
-            Assert.AreEqual(expectedTicket, actualTicket.Entities);
+            Assert.AreEqual(expectedTicket.Item1, actualTicket.TicketList);
         }
     }
 }

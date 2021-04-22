@@ -137,8 +137,8 @@ export class FilterComponent implements OnInit {
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
       sports: this.selectedSports.join(','),
       sites: this.selectedLicensees.join(','),
-      pageIndex: 0,
-      pageSize: 0,
+      pageIndex: 1,
+      pageSize: 100,
       isPageChanged: false,
     };
 

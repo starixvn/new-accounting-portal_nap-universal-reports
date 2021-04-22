@@ -8,6 +8,7 @@ using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
@@ -27,7 +28,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<TicketCriteria>(request);
             var reportData = await service.GetTickets(criteria);
-            var excelModel = Mapper.Map<SummaryEntity<TicketExcelModel>>(reportData);
+            var excelModel = Mapper.Map<TicketViewExcelModel>(reportData);
             var excelPackage = ticketsExcelBuilder.Build(request.Title, excelModel);
             return excelPackage;
         }

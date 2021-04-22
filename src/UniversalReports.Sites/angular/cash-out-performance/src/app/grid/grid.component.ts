@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
 import { PaginationService } from 'nap-components/pagination';
-import { SummaryEntity, TicketModel } from '../common/model';
+import { TicketViewModel, TicketModel } from '../common/model';
 import { GridService } from './grid.service';
 import { FilterModel } from '../filter/filter.model';
 import * as _ from 'lodash';
@@ -14,9 +14,8 @@ import * as _ from 'lodash';
 export class GridComponent implements OnChanges {
   @Input() filterModel: FilterModel;
   
-  dataModel: SummaryEntity;
+  dataViewModel: TicketViewModel;
   paginationInstance: PaginationInstance;
-  displayData: TicketModel[];
   breadcrumbItems: string[];
   originalPageSize = 100;
 
@@ -31,15 +30,15 @@ export class GridComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!this.filterModel) {
-      this.dataModel = null;
+      this.dataViewModel = null;
       return;
     }
 
     this.service.getTickets(this.filterModel).subscribe(data => {
-      this.dataModel = data;
+      this.dataViewModel = data;
       const breadcrumb = this.Title;
       this.breadcrumbItems = [breadcrumb];
-      this.paginationInstance = this.paginationService.createPaginationInstance(this.dataModel.Entities.length);
+      this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total);
       this.onPageChange();
     });
   }
@@ -53,17 +52,29 @@ export class GridComponent implements OnChanges {
   }
 
   private createPaging() {
-    if (this.paginationInstance.itemsPerPage !== this.originalPageSize)
-    {
-      this.paginationInstance.currentPage = 1;
+    if (this.filterModel.isPageChanged) {
+      this.paginationInstance.currentPage = this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
+      this.filterModel.pageIndex = this.paginationInstance.currentPage;
+      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+
+      this.service.getTickets(this.filterModel).subscribe(data => {
+        this.dataViewModel = data;
+        this.createPagingTransform();
+      });
     }
-    const paginateData = this.paginatePipe.transform(this.dataModel.Entities, this.paginationInstance);
-    this.displayData = _.cloneDeep(paginateData);
+
+    this.createPagingTransform();
+  }
+
+  private createPagingTransform() {
+    const paginateData = this.paginatePipe.transform(this.dataViewModel.TicketList, this.paginationInstance);
+    this.dataViewModel.TicketList = _.cloneDeep(paginateData);
+    this.filterModel.isPageChanged = true;
     this.originalPageSize = this.paginationInstance.itemsPerPage;
   }
 
   get hasData(): boolean {
-    return !_.isNil(this.dataModel) && this.dataModel.Entities.length > 0;
+    return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
   }
 
   get Title(): string {
