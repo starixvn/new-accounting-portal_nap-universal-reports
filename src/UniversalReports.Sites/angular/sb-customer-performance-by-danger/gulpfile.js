@@ -89,7 +89,7 @@ function changeBundle(fileName) {
     return newBundleName;
 }
 
-gulp.task('default', () => {
+gulp.task('default', async () => {
     if (argv.path) {
 		const transformFolder = argv.path;
         rimraf.sync(transformFolder);

@@ -23,30 +23,36 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         public string Currency { get; set; }
 
         [Cell("G4")]
-        public string DangerLevel { get; set; }
+        public string DangerLevelOriginal { get; set; }
 
         [Cell("H4")]
-        public int BetCount { get; set; }
+        public string DangerLevelABI { get; set; }
 
         [Cell("I4")]
-        public decimal MemberTO { get; set; }
+        public string DangerLevelOtherSport { get; set; }
 
         [Cell("J4")]
-        public decimal MemberWL { get; set; }
+        public int BetCount { get; set; }
 
         [Cell("K4")]
-        public decimal Margin { get; set; }
+        public decimal MemberTO { get; set; }
 
         [Cell("L4")]
-        public decimal AVGStake { get; set; }
+        public decimal MemberWL { get; set; }
 
         [Cell("M4")]
-        public decimal HouseTO { get; set; }
+        public decimal Margin { get; set; }
 
         [Cell("N4")]
-        public decimal HouseIncome { get; set; }
+        public decimal AVGStake { get; set; }
 
         [Cell("O4")]
+        public decimal HouseTO { get; set; }
+
+        [Cell("P4")]
+        public decimal HouseIncome { get; set; }
+
+        [Cell("Q4")]
         public int NumberOfAssociatedAccount { get; set; }
 
     }
