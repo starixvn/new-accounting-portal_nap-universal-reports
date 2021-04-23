@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using Linq.DynamicSum;
 using UniversalReports.CashOutPerformance.Criteria;
-using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance
 {
@@ -14,7 +13,7 @@ namespace UniversalReports.CashOutPerformance
             cfg.CreateMap<LicenseeRequest, LicenseeCriteria>();
             cfg.CreateMap<TicketRequest, TicketCriteria>();
             cfg.CreateMap<TicketExcelRequest, TicketCriteria>();
-            cfg.CreateMap<SummaryEntity<TicketModel>, SummaryEntity<TicketExcelModel>>();
+            cfg.CreateMap<TicketViewModel, TicketViewExcelModel>();
         }
     }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
-import { ExcelQueryModel, SummaryEntity } from '../common/model';
+import { ExcelQueryModel, TicketViewModel } from '../common/model';
 import { FilterModel } from '../filter/filter.model';
 import { Helper } from 'nap-components/helper';
 import * as _ from 'lodash';
@@ -15,9 +15,9 @@ export class GridService {
 
   constructor(private httpService: HttpService) { }
 
-  getTickets(fiterModel: FilterModel): Observable<SummaryEntity> {
+  getTickets(fiterModel: FilterModel): Observable<TicketViewModel> {
     const url = this.url + 'tickets';
-    return this.httpService.post<SummaryEntity>(url, fiterModel);
+    return this.httpService.post<TicketViewModel>(url, fiterModel);
   }
 
   exportExcel(filterModel: FilterModel) {
@@ -35,6 +35,8 @@ export class GridService {
   private createExcelQueryModel(filterModel: FilterModel): ExcelQueryModel {
     const title = `Cash Out Performance Report From ${filterModel.startDate} To ${filterModel.endDate}`;
     const excelQueryModel: ExcelQueryModel = _.extend({}, { title: title }, filterModel);
+    excelQueryModel.pageIndex = 0;
+    excelQueryModel.pageSize = 0;
     return excelQueryModel;
   }
 }

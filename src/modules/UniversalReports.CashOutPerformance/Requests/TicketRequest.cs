@@ -1,11 +1,10 @@
-﻿using Linq.DynamicSum;
-using MediatR;
+﻿using MediatR;
 using System;
-using UniversalReports.CashOutPerformance.Models;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Requests
 {
-    public class TicketRequest : IRequest<SummaryEntity<TicketModel>>
+    public class TicketRequest : IRequest<TicketViewModel>
     {
         public DateTime StartDate { get; set; }
 

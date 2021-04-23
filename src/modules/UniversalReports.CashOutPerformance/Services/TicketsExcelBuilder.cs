@@ -1,15 +1,14 @@
 ﻿using Epplus.Mapper.Extensions;
-using Linq.DynamicSum;
 using OfficeOpenXml;
 using System.IO;
-using UniversalReports.CashOutPerformance.Models;
+using UniversalReports.CashOutPerformance.ViewModels;
 using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.CashOutPerformance.Services
 {
     public interface TicketsExcelBuilder
     {
-        ExcelPackage Build(string title, SummaryEntity<TicketExcelModel> model);
+        ExcelPackage Build(string title, TicketViewExcelModel model);
     }
 
     public class TicketsExcelBuilderImp : TicketsExcelBuilder
@@ -29,11 +28,11 @@ namespace UniversalReports.CashOutPerformance.Services
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(string title, SummaryEntity<TicketExcelModel> model)
+        public ExcelPackage Build(string title, TicketViewExcelModel model)
         {
             LoadTemplate();
             BuilTitle(title, "A1:U1");
-            sheet.ApplyVertical(model.Entities, StartRowIndex);
+            sheet.ApplyVertical(model.TicketList, StartRowIndex);
             BuildTotalRow(model);
             ClearTemplate();
             return ExcelPackage;
@@ -50,10 +49,10 @@ namespace UniversalReports.CashOutPerformance.Services
             }
         }
 
-        private void BuildTotalRow(SummaryEntity<TicketExcelModel> model)
+        private void BuildTotalRow(TicketViewExcelModel model)
         {
-            var endRowIndex = StartRowIndex + model.Entities.Count;
-            sheet.ApplyModel(totalSheet, model.Total, StartRowIndex + model.Entities.Count);
+            var endRowIndex = StartRowIndex + model.Total;
+            sheet.ApplyModel(totalSheet, model.TotalTicket, StartRowIndex + model.Total);
             var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 15);
             sheet.Cells[cellAddressOfTotalText.Address].Value = "Grand Total";
             sheet.Cells[cellAddressOfTotalText.Address].Merge = true;

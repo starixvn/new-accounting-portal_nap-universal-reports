@@ -1,5 +1,4 @@
-﻿using Linq.DynamicSum;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,6 +8,7 @@ using UniversalReports.CashOutPerformance.Handlers;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
+using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
 {
@@ -61,20 +61,22 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
         public async Task Handler_WithTicketRequest_ReturnRightTickets()
         {
             // Arrange
-            var expectedTicket = new List<TicketModel>
+            var expectedTicket = new TicketViewModel
             {
-                new TicketModel { }
+                TicketList = new List<TicketModel>(),
+                TotalTicket = new TicketModel(),
+                Total = 0
             };
 
             var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();
-            cashOutPerformanceService.GetTickets(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket.CalculateSummaryEntity());
+            cashOutPerformanceService.GetTickets(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
             var handler = new Handler(cashOutPerformanceService);
 
             // Act
             var actualTickets = await handler.Handle(new TicketRequest(), new CancellationToken());
 
             // Assert
-            Assert.AreEqual(actualTickets.Entities, expectedTicket);
+            Assert.AreEqual(actualTickets, expectedTicket);
         }
     }
 }

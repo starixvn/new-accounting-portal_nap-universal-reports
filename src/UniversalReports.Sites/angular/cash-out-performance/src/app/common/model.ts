@@ -22,9 +22,10 @@ export interface TicketModel {
     TotalIncome_RM: number;
   }
 
-  export interface SummaryEntity {
-    Entities: TicketModel[];
-    Total: TicketModel;
+  export interface TicketViewModel {
+    TicketList: TicketModel[];
+    TotalTicket: TicketModel;
+    Total: number
   }
 
   export interface ExcelQueryModel {

@@ -124,6 +124,8 @@
     <Compile Include="Requests\TicketRequest.cs" />
     <Compile Include="Services\CashOutPerformanceService.cs" />
     <Compile Include="Services\TicketsExcelBuilder.cs" />
+    <Compile Include="ViewModels\TicketViewExcelModel.cs" />
+    <Compile Include="ViewModels\TicketViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
