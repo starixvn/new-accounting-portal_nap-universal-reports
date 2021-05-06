@@ -1,10 +1,8 @@
 ﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
-using Olympus.FPSAPI.Client;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
@@ -18,36 +16,24 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
     {
         private readonly IDynamicRepository repository;
 
-        private readonly FraudServiceWrapper fraudServiceWrapper;
-
-        private readonly ConfigurationService configurationService;
-
-        public AssociatedFacadeImp(ConfigurationService configurationService, FraudServiceWrapper fraudServiceWrapper, IDynamicRepository repository)
+        public AssociatedFacadeImp(IDynamicRepository repository)
         {
-            this.configurationService = configurationService;
-            this.fraudServiceWrapper = fraudServiceWrapper;
             this.repository = repository;
         }
 
         public async Task<SummaryEntity<AssociatedSummaryModel>> Query(HttpParameterJson request)
         {
-            var associatedCustomers = await fraudServiceWrapper.GetAssociatedCustomers(configurationService.FraudSystemApi, request.CustId);
-
-            var usernames = associatedCustomers.Select(c => c.Account.ToLowerInvariant()).Distinct();
-            var summaries = usernames.Any()
-                ? await GetMemberSummaries(request, usernames)
-                : new List<AssociatedSummaryModel>();
+            var summaries = await GetMemberSummaries(request);
 
             return summaries
                 .CalculateSummaryEntity();
         }
 
-        private async Task<List<AssociatedSummaryModel>> GetMemberSummaries(HttpParameterJson request, IEnumerable<string> usernames)
+        private async Task<List<AssociatedSummaryModel>> GetMemberSummaries(HttpParameterJson request)
         {
-            var usernameInString = string.Join(",", usernames);
             var criteria = new MemberPerformanceCriteria
             {
-                Username = usernameInString,
+                CustIds = request.CustId.ToString(),
                 FromDate = request.FromDate,
                 ToDate = request.ToDate,
                 LeagueId = request.LeagueId,
@@ -59,12 +45,6 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             };
 
             var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
-
-            foreach (var item in summaries)
-            {
-                item.Category = await fraudServiceWrapper.GetCategory(configurationService.FraudSystemCategoryApi, item.CustId.ToString());
-            }
-
             return summaries.ToList();
         }
     }

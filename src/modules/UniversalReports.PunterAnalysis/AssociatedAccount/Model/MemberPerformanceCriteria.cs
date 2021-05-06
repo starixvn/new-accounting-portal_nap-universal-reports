@@ -5,7 +5,7 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount.Model
 {
     public class MemberPerformanceCriteria : CriteriaBase
     {
-        public string Username { get; set; }
+        public string CustIds { get; set; }
 
         public string LeagueId { get; set; }
 

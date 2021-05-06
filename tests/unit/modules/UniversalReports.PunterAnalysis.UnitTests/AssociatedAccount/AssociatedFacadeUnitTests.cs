@@ -3,11 +3,8 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using Olympus.FPSAPI.Client;
-using Olympus.FPSAPI.Client.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
@@ -27,7 +24,8 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                     RoleName = "Member",
                     BetCount = 1,
                     Turnover = 100,
-                    WinLoss = 100
+                    WinLoss = 100,
+                    Category = "category 1"
                 },
                 new AssociatedSummaryModel
                 {
@@ -35,31 +33,22 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
                     RoleName = "Member",
                     BetCount = 0,
                     Turnover = 0,
-                    WinLoss = 0
+                    WinLoss = 0,
+                    Category = "category 1"
                 },
                 new AssociatedSummaryModel
                 {
                     Username = "agent01",
-                    RoleName = "Agent"
+                    RoleName = "Agent",
+                    Category = "category 1"
                 }
             };
 
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<AssociatedSummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(memberNonEmptySummary);
 
-            var listOfUserDevice = new List<CustomerDevice> {
-                 new CustomerDevice { Account = "member01" },
-                 new CustomerDevice { Account = "member02" },
-                 new CustomerDevice { Account = "agent01" },
-            };
-            var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(listOfUserDevice);
-            fraudService.GetCategory(Arg.Compat.Any<string>(), Arg.Compat.Any<string>()).Returns("category 1");
-
-            var configurationService = Substitute.For<ConfigurationService>();
-
             // Act
-            var facade = new AssociatedFacadeImp(configurationService, fraudService, repository);
+            var facade = new AssociatedFacadeImp(repository);
             var viewModel = await facade.Query(new HttpParameterJson());
 
             // Assert
@@ -74,33 +63,6 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             {
                 Entities = expectedEntities,
                 Total = new AssociatedSummaryModel { Username = string.Empty, BetCount = 1, RoleName = string.Empty, Turnover = 100, WinLoss = 100 }
-            };
-            Assert.That(viewModel, IsDeeplyEqual.To(expected));
-        }
-
-        [Test]
-        public async Task Query_FPSRetunsEmptyUsernameList_ReturnsEmptySummaryEntity()
-        {
-            // Arrange
-            var repository = Substitute.For<IDynamicRepository>();
-
-            var emptyListOfUserDevice = new List<CustomerDevice>();
-            var fraudService = Substitute.For<FraudServiceWrapper>();
-            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(emptyListOfUserDevice);
-
-            var configurationService = Substitute.For<ConfigurationService>();
-
-            // Act
-            var facade = new AssociatedFacadeImp(configurationService, fraudService, repository);
-            var viewModel = await facade.Query(new HttpParameterJson());
-
-            // Assert
-            var expectedEntities = new List<AssociatedSummaryModel>();
-
-            var expected = new SummaryEntity<AssociatedSummaryModel>
-            {
-                Entities = expectedEntities,
-                Total = new AssociatedSummaryModel()
             };
             Assert.That(viewModel, IsDeeplyEqual.To(expected));
         }

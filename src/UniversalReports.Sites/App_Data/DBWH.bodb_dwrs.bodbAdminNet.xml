@@ -139,7 +139,7 @@
     <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_PerformanceByMember" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_Top_DrillDownAssocAcc" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Punter-LeagueGroupQuery" SpName="Acc_Punter_LeagueGroup" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
       <Mapping DataField="SportType" ObjectProperty="SportType" />
       <Mapping DataField="Sport" ObjectProperty="Sport" />
