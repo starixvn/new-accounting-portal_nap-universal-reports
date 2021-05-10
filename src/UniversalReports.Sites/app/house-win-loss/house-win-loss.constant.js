@@ -963,15 +963,15 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "universal-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "non-sports-rng-sport-type", productId: 66, mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
-                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-                controller: "NG2LiveNonLiveController",
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "non-sports-rng-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             site: {
@@ -979,8 +979,8 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "universal-site" },
-                getTitleFunction: "getSiteTitleLive"
+                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                getTitleFunction: "getSiteTitle"
             }
         }
     };
