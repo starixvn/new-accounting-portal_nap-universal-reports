@@ -956,6 +956,33 @@ import moment from "moment";
                 getTitleFunction: "getSiteTitle"
             }
         },
+        "Vgaming": {
+            mainView: "sportType",
+            sportType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "non-sports-rng-sport-type", productId: 66, mainColumnText: "Sport Type" },
+                getTitleFunction: "getProductTitle"
+            },
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "non-sports-rng-bet-type", mainColumnText: "Bet Type" },
+                getTitleFunction: "getSportTypeTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                getTitleFunction: "getSiteTitle"
+            }
+        }
     };
     angular
         .module("app.houseWinlossApp")
