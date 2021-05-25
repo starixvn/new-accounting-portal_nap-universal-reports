@@ -31,7 +31,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
             var rawWinLosses = rawWinLossService.Query(criteria);
 
             var majorMinorRawWinLosses = rawWinLosses.Where(r => r.GroupName.Contains("Soccer-Major Bet Types")
-                                                                || r.GroupName.Contains("Soccer-Minor Bet Types"));
+                                                                || r.GroupName.Contains("Soccer-Minor Bet Types")
+                                                                || r.GroupName.Contains("Soccer PinGoal-Major Bet Types")
+                                                                || r.GroupName.Contains("Soccer PinGoal-Minor Bet Types"));
 
             var majorMinorSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(majorMinorRawWinLosses);
             var majorMinorGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", majorMinorRawWinLosses);
@@ -45,7 +47,9 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
             };
 
             var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Contains("Soccer Live")
-                                                                || r.GroupName.Contains("Soccer Non-Live"));
+                                                                || r.GroupName.Contains("Soccer Non-Live")
+                                                                || r.GroupName.Contains("Soccer PinGoal Live")
+                                                                || r.GroupName.Contains("Soccer PinGoal Non-Live"));
 
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);

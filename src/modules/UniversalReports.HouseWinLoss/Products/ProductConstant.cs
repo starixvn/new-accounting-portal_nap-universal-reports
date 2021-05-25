@@ -14,7 +14,8 @@
             "Other Sports",
             "Parlay",
             "SB Adjustment",
-            "SABA Soccer"
+            "SABA Soccer",
+            "SABA Soccer PinGoal"
         };
 
         public static string[] SoccerPermissionProducts => new[]
