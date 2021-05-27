@@ -59,6 +59,7 @@ import angular from "angular";
             if (hasOnlySoccerLivePermission) {
                 data.productName = "Soccer";
                 data.isLive = 1;
+                data.isSabaSport = 2;
                 data.soccerLiveNonLive = "Soccer Live";
                 return new Pane('soccerMajorMinor', data);
             }
@@ -66,6 +67,7 @@ import angular from "angular";
             if (hasOnlySoccerNonLivePermission) {
                 data.productName = "Soccer";
                 data.isLive = 0;
+                data.isSabaSport = 2;
                 data.soccerLiveNonLive = "Soccer Non-Live";
                 return new Pane('soccerMajorMinor', data);
             }
