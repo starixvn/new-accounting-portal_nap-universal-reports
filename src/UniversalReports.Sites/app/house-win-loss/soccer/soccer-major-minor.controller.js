@@ -55,10 +55,26 @@ import angular from "angular";
 
         function generateSoccerLiveNonLiveBetTypePane(betTypeNameMajorMinor) {
             var data = {};
+            var isSabaSport = 0;
+            var isMajor = false;
+
+            if(betTypeNameMajorMinor.includes('SABA Soccer')) {
+                isSabaSport = 1;
+            }
+            if(betTypeNameMajorMinor.includes('SABA Soccer PinGoal')) {
+                isSabaSport = 3;
+            }
+
+            if(betTypeNameMajorMinor.includes('Major')) {
+                isMajor = true;
+            }
+
             angular.extend(data, pane.data);
             angular.extend(data, {
                 betTypeNameMajorMinor: betTypeNameMajorMinor,
-                sportTypeName: betTypeNameMajorMinor
+                sportTypeName: betTypeNameMajorMinor,
+                isSabaSport: isSabaSport,
+                isMajor: isMajor
             });
             tab.goForward('soccerBetType', data);
         }

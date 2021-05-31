@@ -64,7 +64,7 @@ import moment from "moment";
                     }
                 },
                 mainParameters: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
+                    var isMajor = data.betTypeNameMajorMinor.includes('Major');
                     return {
                         isMajor: isMajor,
                         type: "soccer-bet-type",

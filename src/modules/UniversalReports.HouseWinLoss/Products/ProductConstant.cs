@@ -23,7 +23,9 @@
             "Soccer",
             "Parlay",
             "RM",
-            "SB Adjustment"
+            "SB Adjustment",
+            "SABA Soccer",
+            "SABA Soccer PinGoal"
         };
 
         public static string[] OtherSportsPermissionProducts => new[]
