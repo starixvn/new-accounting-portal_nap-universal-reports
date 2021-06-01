@@ -16,7 +16,7 @@ import angular from "angular";
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generateSoccerLiveNonLiveBetTypePane = generateSoccerLiveNonLiveBetTypePane;
         $scope.viewSetting = {};
-        pane.data.isLive = pane.data.soccerLiveNonLive === "Soccer Non-Live"
+        pane.data.isLive = pane.data.soccerLiveNonLive.includes('Non-Live')
             ? soccerConstants.NonLive 
             : soccerConstants.Live;
 
