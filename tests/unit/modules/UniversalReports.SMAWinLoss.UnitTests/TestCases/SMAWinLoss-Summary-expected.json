@@ -5,7 +5,7 @@
       "Username": "Username 1",
       "Currency": "US$",
       "Name": "Real Turnover",
-      "VirtualRate": true,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -66,7 +66,7 @@
       "Username": "Username 1",
       "Currency": "US$",
       "Name": "Real Income",
-      "VirtualRate": true,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -127,7 +127,7 @@
       "Username": "Username 1",
       "Currency": "US$",
       "Name": "Real Margin (%)",
-      "VirtualRate": true,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -188,7 +188,7 @@
       "Username": "Username 1",
       "Currency": "US$",
       "Name": "Average PT (%)",
-      "VirtualRate": true,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -249,7 +249,7 @@
       "Username": "Username 1",
       "Currency": "US$",
       "Name": "Average Bet",
-      "VirtualRate": true,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -312,7 +312,7 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Turnover",
-      "VirtualRate": false,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -373,7 +373,7 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Income",
-      "VirtualRate": false,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",
@@ -434,7 +434,7 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Margin (%)",
-      "VirtualRate": false,
+      "VirtualRate": "",
       "Months": [
         {
           "Month": "Jan, 2020",

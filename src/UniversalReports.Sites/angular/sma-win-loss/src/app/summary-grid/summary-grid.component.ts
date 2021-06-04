@@ -75,6 +75,17 @@ export class SummaryGridComponent implements OnChanges {
     return !_.isNaN(value) && _.isFinite(value) && _.isNumber(value);
   }
 
+  isShowVirtualRate(virtualRate: string): boolean {
+    let isShow = false;
+    if (virtualRate === 'Disablead' || virtualRate === 'N/A') {
+      isShow = false;
+    } else {
+      isShow = true;
+    }
+
+    return isShow;
+  }
+
   parseIndexToNumber(value: number): number {
     // tslint:disable-next-line: radix
     return parseInt(value.toString());

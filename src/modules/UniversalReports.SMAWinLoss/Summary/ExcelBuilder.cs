@@ -133,7 +133,7 @@ namespace UniversalReports.SMAWinLoss.Summary
                 monthlyColIndex++;
             }
 
-            summarySheet.Cells[$"Q{rowIndex}:Q{rowIndex}"].Value = username.VirtualRate ? "View" : "Disabled";
+            summarySheet.Cells[$"Q{rowIndex}:Q{rowIndex}"].Value = username.VirtualRate;
         }
 
         private void BuildTotalRow(UsernameWinLoss username, int rowIndex)
