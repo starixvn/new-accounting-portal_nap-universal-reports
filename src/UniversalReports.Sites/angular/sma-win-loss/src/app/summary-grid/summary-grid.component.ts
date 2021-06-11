@@ -77,7 +77,7 @@ export class SummaryGridComponent implements OnChanges {
 
   isShowVirtualRate(virtualRate: string): boolean {
     let isShow = false;
-    if (virtualRate === 'Disablead' || virtualRate === 'N/A') {
+    if (virtualRate === 'Disabled' || virtualRate === 'N/A') {
       isShow = false;
     } else {
       isShow = true;
