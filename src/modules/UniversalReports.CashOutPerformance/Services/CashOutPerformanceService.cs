@@ -11,8 +11,12 @@ namespace UniversalReports.CashOutPerformance.Services
     public interface CashOutPerformanceService
     {
         Task<IEnumerable<FilterItemModel>> GetSports(SportCriteria criteria);
+
         Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria);
+
         Task<TicketViewModel> GetTickets(TicketCriteria criteria);
+
+        Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
     }
 
     public class CashOutPerformanceServiceImp : CashOutPerformanceService
@@ -43,6 +47,11 @@ namespace UniversalReports.CashOutPerformance.Services
                 TotalTicket = data.Item2.FirstOrDefault(),
                 Total = data.Item3.FirstOrDefault()
             };
+        }
+
+        public async Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria)
+        {
+            return await repository.FetchAsync<LeagueModel>(criteria);
         }
     }
 }

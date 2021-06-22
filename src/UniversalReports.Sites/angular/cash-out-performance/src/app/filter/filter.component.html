@@ -35,6 +35,8 @@
             </div>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="nap-col">
             <div class="nap-group">
             <label>Sport</label>
@@ -44,6 +46,15 @@
                 </ngx-dropdown-treeview>
             </div>
             </div>
+        </div>
+        <div class="nap-col">
+          <div class="nap-group">
+            <label>League</label>
+            <div class="nap-control">
+              <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueNameTypeaheadQuery" [placeholder]="leagueNamePlaceholder">
+              </nap-dropdown-typeahead>
+            </div>
+          </div>
         </div>
         <div class="nap-col col-buttons">
             <label>&nbsp;</label>

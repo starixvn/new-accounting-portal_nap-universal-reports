@@ -14,11 +14,17 @@ export interface FilterItemModel {
     Name: string;
 }
 
+export interface LeagueModel {
+    Id: string;
+    Name: string;
+  }
+
 export interface FilterModel {
     startDate: string;
     endDate: string;
     sports: string;
     sites: string;
+    leagueId: string;
     pageIndex: number;
     pageSize: number;
     isPageChanged: boolean;

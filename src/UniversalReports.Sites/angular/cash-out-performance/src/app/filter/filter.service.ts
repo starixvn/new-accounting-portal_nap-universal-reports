@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
-import { FilterItemModel, TimePeriod } from './filter.model';
+import { FilterItemModel, LeagueModel, TimePeriod } from './filter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,4 +34,13 @@ export class FilterService {
         { text: 'Last 3 Months', value: TimePeriod.LastThreeMonths }
     ];
    }
+
+   queryLeagueSuggestion(sportId: string, searchText: string, searchExactly: boolean): Observable<LeagueModel[]> {
+    const url = `${this.url}/leagues`;
+    return this.httpService.post<LeagueModel[]>(url, {
+      sportId,
+      searchText,
+      searchExactly
+    });
+  }
 }

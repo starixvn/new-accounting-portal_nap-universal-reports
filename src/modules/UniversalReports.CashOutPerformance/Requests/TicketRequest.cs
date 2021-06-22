@@ -14,6 +14,8 @@ namespace UniversalReports.CashOutPerformance.Requests
 
         public string Sites { get; set; }
 
+        public string LeagueId { get; set; }
+
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
