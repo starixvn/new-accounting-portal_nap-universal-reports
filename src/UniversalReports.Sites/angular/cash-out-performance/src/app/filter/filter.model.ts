@@ -24,7 +24,7 @@ export interface FilterModel {
     endDate: string;
     sports: string;
     sites: string;
-    leagueId: string;
+    leagues: string;
     pageIndex: number;
     pageSize: number;
     isPageChanged: boolean;

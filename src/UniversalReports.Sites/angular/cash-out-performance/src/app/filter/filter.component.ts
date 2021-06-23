@@ -42,7 +42,7 @@ export class FilterComponent implements OnInit {
   });
   selectedSports: number[] = [];
 
-  leagueId = '';
+  leagues = '';
   leagueName = '';
   leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
   leagueNamePlaceholder = 'League name';
@@ -142,7 +142,7 @@ export class FilterComponent implements OnInit {
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
       sports: this.selectedSports.join(','),
       sites: this.selectedLicensees.join(','),
-      leagueId: this.leagueId,
+      leagues: this.leagues,
       pageIndex: 1,
       pageSize: 100,
       isPageChanged: false,
@@ -178,7 +178,7 @@ export class FilterComponent implements OnInit {
   private async checkLeague(): Promise<boolean> {
     const searchText = this.leagueName.trim();
     if (searchText === '') {
-      this.leagueId = '0';
+      this.leagues = '';
       return true;
     } else {
       const leagues =
@@ -187,7 +187,7 @@ export class FilterComponent implements OnInit {
       {
         return false;
       } else {
-        this.leagueId = leagues[0].Id;
+        this.leagues = leagues.map(l => l.Id).join(',');
         return true;
       }
     }
