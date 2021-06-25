@@ -166,10 +166,11 @@ export class FilterComponent implements OnInit {
         return false;
     }
 
-    const test = await this.checkLeague();
-    if (!test)
+    const isValidLeague = await this.checkLeague();
+    if (!isValidLeague)
     {
       this.toastService.activate('League is not available.');
+      return false;
     }
 
     return true;
