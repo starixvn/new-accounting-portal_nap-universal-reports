@@ -16,7 +16,7 @@ import moment from "moment";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
-                controller: "SoccerBetTypeFullController",
+                controller: "Daily2hSoccerBetTypeFullController",
                 service: "soccerMinorBetTypeService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/bet-type",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },

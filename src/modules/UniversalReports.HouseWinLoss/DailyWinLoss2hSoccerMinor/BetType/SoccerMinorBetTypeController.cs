@@ -1,19 +1,32 @@
-﻿using System.Web.Http;
-using AutoMapper;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
+using System;
+using System.Linq;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
-using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Models;
+using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 {
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/bet-type")]
-    public class SoccerMinorBetTypeController : BasicWinLossController
+    public class SoccerMinorBetTypeController : ApiController
     {
+        private readonly BasicWinLossService service;
+
+        private readonly BasicGridOptionsBuilder builder;
+
+        private readonly BettypeGridOptionColumnDecorator decorator;
+
         public SoccerMinorBetTypeController(
             BasicWinLossService service,
             BasicGridOptionsBuilder builder,
-            GridOptionColumnDecoratorFull decorator)
-            : base(service, builder, decorator)
+            BettypeGridOptionColumnDecorator decorator)
         {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
         }
 
         [Route("")]
@@ -21,7 +34,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
             const int mainColumnWidth = 210;
-            return Json(criteria, "Bet Type", mainColumnWidth);
+            var gridOptions = GetGridOptions(criteria, "Bet Type", queryModel.SortColumnName, queryModel.SortDirection, string.Empty, mainColumnWidth);
+            return Json(gridOptions);
         }
 
         [Route("excel")]
@@ -29,7 +43,36 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
             const int mainColumnWidth = 210;
-            return Excel(criteria, "Bet Type", queryModel.BetTypeFullTitle, mainColumnWidth);
+            var gridOptions = GetGridOptions(criteria, "Bet Type", queryModel.SortColumnName, queryModel.SortDirection, queryModel.BetTypeFullTitle, mainColumnWidth);
+            return new FanexExcelResult(gridOptions, Constants.SheetName);
+        }
+
+        private GridOptions GetGridOptions(Criteria criteria, string mainColumnText, string sortColumnName, string sortDirection, string title = "", int mainColumnWidth = 180)
+        {
+            var winlosses = service.Query(criteria);
+
+            if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(sortDirection))
+            {
+                SortData(winlosses, sortDirection, sortColumnName);
+            }
+
+            var gridOptions = builder.Build(winlosses, title);
+            return decorator.Build(gridOptions, mainColumnText, sortColumnName, sortDirection, mainColumnWidth);
+        }
+
+        private static void SortData(BasicWinLossModel winlosses, string sortDirection, string sortColumnName)
+        {
+            var propInfo = typeof(WinLoss).GetProperty(sortColumnName);
+            var isAsc = string.Equals(sortDirection, SortingInformation.Ascending, StringComparison.OrdinalIgnoreCase);
+            winlosses.SiteWinLossSummaries = isAsc ?
+            winlosses
+                .SiteWinLossSummaries
+                .OrderBy(s => propInfo.GetValue(s.Total, null))
+                .ToList() :
+            winlosses
+                 .SiteWinLossSummaries
+                .OrderByDescending(s => propInfo.GetValue(s.Total, null))
+                .ToList();
         }
     }
 }

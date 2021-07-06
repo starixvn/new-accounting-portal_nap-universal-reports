@@ -14,6 +14,7 @@ using Products = UniversalReports.HouseWinLoss.Products;
 using SimpleGrid = UniversalReports.HouseWinLoss.SimpleGrid;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccer = UniversalReports.HouseWinLoss.Soccer;
+using Daily2hSoccerBettype = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType;
 
 
 namespace UniversalReports.Sites.SimpleInjector
@@ -68,6 +69,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
 
             container.Register<CashOut.LiveNonLive.CashOutLiveNonLiveWinLossService, CashOut.LiveNonLive.CashOutLiveNonLiveWinLossServiceImp>();
+            container.Register<Daily2hSoccerBettype.BettypeGridOptionColumnDecorator, Daily2hSoccerBettype.BettypeGridOptionColumnDecoratorFull>();
 
             return container;
         }
