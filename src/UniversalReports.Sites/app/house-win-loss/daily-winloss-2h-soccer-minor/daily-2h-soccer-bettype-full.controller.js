@@ -206,25 +206,25 @@ import angular from "angular";
             if(isLive === 2) {
                 pane.service.getData($scope.viewSetting, data, 2).then(function (data) {
                     $scope.betTypeFullGridOptions = data;
-                    renderGridAfterSort();
+                    renderGridAfterSort(isLive);
                 });
             }
 
             if(isLive === 1) {
                 pane.service.getData($scope.viewSetting, data, 1).then(function (data) {
                     $scope.betTypeLiveGridOptions = data;
-                    renderGridAfterSort();
+                    renderGridAfterSort(isLive);
                 });
             }
 
             if(isLive === 0) {
                 pane.service.getData($scope.viewSetting, data, 0).then(function (data) {
                     $scope.betTypeNonLiveGridOptions = data;
-                    renderGridAfterSort();
+                    renderGridAfterSort(isLive);
                 });
             }
 
-            function renderGridAfterSort() {
+            function renderGridAfterSort(isLive) {
                 var isDataReady = angular.isDefined($scope.betTypeFullGridOptions)
                    && angular.isDefined($scope.betTypeLiveGridOptions)
                    && angular.isDefined($scope.betTypeNonLiveGridOptions);
@@ -237,9 +237,17 @@ import angular from "angular";
 
                 var canViewMatchDetail = pane.data.endDate.diff(pane.data.startDate, 'days') <= 3;
                 if (canViewMatchDetail) {
-                    createDrilldownLinks($scope.betTypeFullGridOptions.bodyRows, 2);
-                    createDrilldownLinks($scope.betTypeLiveGridOptions.bodyRows, 1);
-                    createDrilldownLinks($scope.betTypeNonLiveGridOptions.bodyRows, 0);
+                    
+                    if(isLive === 2) {
+                        createDrilldownLinks($scope.betTypeFullGridOptions.bodyRows, 2);
+                    }
+                   
+                    if(isLive === 1) {
+                        createDrilldownLinks($scope.betTypeLiveGridOptions.bodyRows, 1);
+                    }
+                    if(isLive === 0) {
+                        createDrilldownLinks($scope.betTypeNonLiveGridOptions.bodyRows, 0);
+                    }
                 }
 
                 renderFullGrid(betTypeFullGridElement, $scope.betTypeFullGridOptions);

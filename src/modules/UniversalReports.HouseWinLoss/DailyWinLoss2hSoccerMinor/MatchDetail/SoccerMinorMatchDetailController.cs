@@ -1,31 +1,64 @@
-﻿using System.Web.Http;
-using AutoMapper;
-using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
+using System.Web.Http;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.Configuration;
+using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.MatchDetail
 {
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/match-detail")]
-    public class SoccerMinorMatchDetailController : MatchDetailController
+    public class SoccerMinorMatchDetailController : ApiController
     {
-        public SoccerMinorMatchDetailController(WinLossService service, GridOptionsBuilder builder, MatchGridOptionColumnDecoratorFull decorator)
-            : base(service, builder, decorator)
+        private readonly WinLossService service;
+
+        private readonly GridOptionsBuilder builder;
+
+        private readonly SoccerMinorMatchGridOptionColumnDecorator decorator;
+
+        private readonly MatchSortingService sortingService;
+
+        public SoccerMinorMatchDetailController(
+            WinLossService service,
+            GridOptionsBuilder builder,
+            SoccerMinorMatchGridOptionColumnDecorator decorator,
+            MatchSortingService sortingService)
         {
+            this.service = service;
+            this.builder = builder;
+            this.decorator = decorator;
+            this.sortingService = sortingService;
         }
 
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria);
+            var gridOptions = GetGridOptions(criteria, string.Empty, queryModel.SortColumnName, queryModel.SortDirection);
+            return Json(gridOptions);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, queryModel.Title, Constants.SoccerMinorBetTypesSheetName);
+            var gridOptions = GetGridOptions(criteria, queryModel.Title, queryModel.SortColumnName, queryModel.SortDirection);
+            return new FanexExcelResult(gridOptions, Constants.SoccerMinorBetTypesSheetName);
+        }
+
+        private GridOptions GetGridOptions(WinLossCriteria criteria, string title, string sortColumnName, string sortDirection)
+        {
+            var winlosses = service.Query(criteria);
+
+            if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(sortDirection))
+
+            {
+                winlosses = sortingService.SortData(winlosses, sortDirection, sortColumnName);
+            }
+
+            var gridOptions = builder.Build(winlosses, title);
+            return decorator.Build(gridOptions, sortColumnName, sortDirection);
         }
     }
 }

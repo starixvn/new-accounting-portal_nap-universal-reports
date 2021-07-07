@@ -486,6 +486,7 @@
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\filter.directive.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-2h-soccer-bettype-full.controller.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.service.js" />
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-2h-soccer-match-detail.controller.js" />
     <Content Include="app\house-win-loss\filter\filter.directive.html" />
     <Content Include="app\house-win-loss\filter\filter.directive.js" />
     <Content Include="app\house-win-loss\grid\product-show-hide-column.service.js" />

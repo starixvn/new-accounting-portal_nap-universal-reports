@@ -210,6 +210,11 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecorator.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecoratorFull.native.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecoratorFull.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\MatchSortingService.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\OutrightMatchDetail\SoccerMinorMatchGridOptionColumnDecoratorOutright.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecorator.cs" />
+    <Compile Include="DailyWinLoss2hSoccerMinor\Sort.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SortingInformation.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\CashOutSiteCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\BetTradeBetTypeCriteria.cs" />

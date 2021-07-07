@@ -24,7 +24,7 @@ import moment from "moment";
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "SportsbookMatchDetailController",
+                controller: "Daily2hSoccerMatchDetailController",
                 service: "sportsbookMatchDetailService",
                 serviceBaseUrl: function (data) {
                     return data.betType === 10
