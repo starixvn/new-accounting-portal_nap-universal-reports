@@ -51,11 +51,17 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.MatchDetail
         {
             var winlosses = service.Query(criteria);
 
-            if (!string.IsNullOrEmpty(sortColumnName) && !string.IsNullOrEmpty(sortDirection))
-
+            if (string.IsNullOrEmpty(sortColumnName))
             {
-                winlosses = sortingService.SortData(winlosses, sortDirection, sortColumnName);
+                sortColumnName = "RealIncome";
             }
+
+            if (string.IsNullOrEmpty(sortDirection))
+            {
+                sortDirection = "desc";
+            }
+
+            winlosses = sortingService.SortData(winlosses, sortDirection, sortColumnName);
 
             var gridOptions = builder.Build(winlosses, title);
             return decorator.Build(gridOptions, sortColumnName, sortDirection);
