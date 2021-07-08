@@ -67,7 +67,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.Double,
                     Sort = true,
-                    SortDirection = sortColumnName == "" ? sortDirection : string.Empty
+                    SortDirection = sortColumnName == "VirtualTurnover" ? sortDirection : string.Empty
                 },
                 new HeaderColumns {
                     HeaderText = "Real",
