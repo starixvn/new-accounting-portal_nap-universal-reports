@@ -103,7 +103,7 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
                 },
                 new HeaderColumns {
                     HeaderText = "Virtual Winloss",
-                    Width = 100,
+                    Width = 120,
                     Name = "VirtualIncome",
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.DoubleRedPositive,

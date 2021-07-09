@@ -44,7 +44,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
                 },
                 new HeaderColumns {
                     HeaderText = "Virtual Winloss",
-                    Width = 100,
+                    Width = 120,
                     Name = "VirtualIncome",
                     CellAlignment = HAlignment.Right,
                     CustomCellType = ExcelCellType.DoubleRedPositive,
