@@ -43,20 +43,64 @@
     <div class="nap-col">
       <div class="nap-group">
         <label>Top rows</label>
-        <div class="nap-control">
+        <div class="nap-control width-50">
           <select class="form-control" [(ngModel)]="topRowSelected">
             <option *ngFor="let item of topRowOptions" [ngValue]="item">
               {{item.Name}}
             </option>
           </select>
         </div>
+        <div class="nap-control width-160 ml-3">
+          <select class="form-control" [(ngModel)]="topBySelected">
+            <option *ngFor="let item of topByOptions" [ngValue]="item">
+              {{item.Name}}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
-    <div class="nap-col col-buttons">
-      <label>&nbsp;</label>
-      <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
-        GENERATE
-      </button>
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Turnover</label>
+        <div class="nap-control">
+          <div class="form-check nap-form-checkbox" *ngFor="let option of turnoverOptions">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="searchBy" [(ngModel)]="turnover" [value]="option.value" /> {{option.name}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nap-col">
+      <div class="form-check nap-form-checkbox">
+        <label class="form-check-label">
+          <input name="excludeTestCheckbox" type="checkbox" class="form-check-input" [(ngModel)]="isExcludeParlay" />
+          Exclude Parlay
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>&nbsp;</label>
+        <div class="nap-control">
+          <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+            GENERATE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>&nbsp;</label>
+        <div class="nap-control width-545">
+          <p class="mb-0"><span>Note:</span><strong> * Margin (%) <=</strong> is only applied for Margin (%) By Sites and Margin (%) By Sports</p>
+          <p><span></span><strong> * Top rows</strong> is only applied for Top Winning Members and Top Losing Leagues</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

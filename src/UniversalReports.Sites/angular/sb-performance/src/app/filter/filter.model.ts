@@ -5,13 +5,16 @@ export interface FilterModel {
   margin: number;
   topRows: number;
   isShowFullColumn: boolean;
+  topBy: string;
+  excludeDrawTickets: boolean;
+  excludeParlay: boolean;
 }
 
 export class SelectItem {
   name: string;
-  value: number;
+  value: string;
 
-  constructor(name: string, value: number) {
+  constructor(name: string, value: string) {
     this.name = name;
     this.value = value;
   }

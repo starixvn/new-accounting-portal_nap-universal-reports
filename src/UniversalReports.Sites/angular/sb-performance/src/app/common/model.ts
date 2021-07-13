@@ -9,6 +9,9 @@ export interface QueryModel {
   margin: number;
   top: number;
   isShowFullColumn: boolean;
+  topBy: string;
+  excludeDrawTickets: boolean;
+  excludeParlay: boolean;
 }
 
 export interface ItemModel {

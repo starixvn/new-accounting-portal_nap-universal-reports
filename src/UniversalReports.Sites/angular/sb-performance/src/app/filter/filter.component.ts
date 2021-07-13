@@ -19,36 +19,49 @@ export class FilterComponent implements OnInit {
   startDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
   endDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
   timeRangeOptions: SelectItem[] = [
-    new SelectItem('Whole Day', -1),
-    new SelectItem('00 - 02', 2),
-    new SelectItem('00 - 04', 4),
-    new SelectItem('00 - 06', 6),
-    new SelectItem('00 - 08', 8),
-    new SelectItem('00 - 10', 10),
-    new SelectItem('00 - 12', 12),
-    new SelectItem('00 - 14', 14),
-    new SelectItem('00 - 16', 16),
-    new SelectItem('00 - 18', 18),
-    new SelectItem('00 - 20', 20),
-    new SelectItem('00 - 22', 22)
+    new SelectItem('Whole Day', '-1'),
+    new SelectItem('00 - 02', '2'),
+    new SelectItem('00 - 04', '4'),
+    new SelectItem('00 - 06', '6'),
+    new SelectItem('00 - 08', '8'),
+    new SelectItem('00 - 10', '10'),
+    new SelectItem('00 - 12', '12'),
+    new SelectItem('00 - 14', '14'),
+    new SelectItem('00 - 16', '16'),
+    new SelectItem('00 - 18', '18'),
+    new SelectItem('00 - 20', '20'),
+    new SelectItem('00 - 22', '22')
   ];
   timeRangeSelected: SelectItem = null;
   timeRangeDisabled: true;
   margin = 3.00;
   topRowOptions: SelectItem[] = [
-    new SelectItem('10', 10),
-    new SelectItem('20', 20),
-    new SelectItem('50', 50),
-    new SelectItem('100', 100),
-    new SelectItem('200', 200),
-    new SelectItem('300', 300),
-    new SelectItem('400', 400),
-    new SelectItem('500', 500)
+    new SelectItem('10', '10'),
+    new SelectItem('20', '20'),
+    new SelectItem('50', '50'),
+    new SelectItem('100', '100'),
+    new SelectItem('200', '200'),
+    new SelectItem('300', '300'),
+    new SelectItem('400', '400'),
+    new SelectItem('500', '500')
   ];
   topRowSelected: SelectItem = null;
+  topByOptions: SelectItem[] = [
+    new SelectItem('Margin', 'Margin'),
+    new SelectItem('Turnover/ Real Turnover', 'RealTurnover'),
+    new SelectItem('Win Loss/ Real Income', 'RealIncome')
+  ];
+  topBySelected: SelectItem = null;
+  turnoverOptions: SelectItem[] = [
+    new SelectItem('Normal', '0'),
+    new SelectItem('No Draw', '1'),
+  ];
+  turnover = '0';
 
   isShowFullColumn = false;
   isDisableTimeRangeOptions = false;
+
+  isExcludeParlay = true;
 
   constructor(private readonly filterService: FilterService) { }
 
@@ -59,6 +72,7 @@ export class FilterComponent implements OnInit {
 
     this.timeRangeSelected = this.timeRangeOptions[0];
     this.topRowSelected = this.topRowOptions[2];
+    this.topBySelected = this.topByOptions[0];
   }
 
   onDateChangeFrom() {
@@ -126,10 +140,13 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
       fromDate: DateHelper.formatMomentDate(fromDate, DateFormat.Date),
       toDate: DateHelper.formatMomentDate(toDate, DateFormat.Date),
-      timeRange: this.timeRangeSelected.Value,
+      timeRange: Number(this.timeRangeSelected.value),
       margin: this.margin,
-      topRows: this.topRowSelected.Value,
-      isShowFullColumn: this.isShowFullColumn
+      topRows: Number(this.topRowSelected.value),
+      isShowFullColumn: this.isShowFullColumn,
+      topBy: this.topBySelected.value,
+      excludeDrawTickets: this.turnover === '0',
+      excludeParlay: this.isExcludeParlay
     };
 
     return model;
