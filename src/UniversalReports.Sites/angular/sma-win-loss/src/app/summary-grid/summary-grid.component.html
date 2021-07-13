@@ -50,8 +50,8 @@
     <div *ngSwitchCase="true" [napDecimalFormat]="cellItem.Value"></div>
     <div *ngSwitchCase="false">&nbsp;</div>
   </td>
-  <td *ngIf="item.VirtualRate" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">View</a></td>
-  <td *ngIf="!item.VirtualRate" class="text-center">Disabled</td>
+  <td *ngIf="isShowVirtualRate(item.VirtualRate)" class="text-center"><a href="javascript:;" (click)="showVirtualRate(item.CustId, item.Username)">{{item.VirtualRate}}</a></td>
+  <td *ngIf="!isShowVirtualRate(item.VirtualRate)" class="text-center">{{item.VirtualRate}}</td>
 </ng-template>
 <ng-template #breadcrumbToolboxTemplate>
   <div class="breadcrumb-toolbox">

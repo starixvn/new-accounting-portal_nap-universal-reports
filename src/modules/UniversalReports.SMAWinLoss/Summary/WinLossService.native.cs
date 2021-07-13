@@ -91,7 +91,7 @@ namespace UniversalReports.SMAWinLoss.Summary
             int custId,
             string username,
             string currency,
-            bool virtualRate,
+            string virtualRate,
             int year)
         {
             var usernameTurnover = new UsernameWinLoss

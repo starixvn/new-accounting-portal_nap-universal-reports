@@ -24,7 +24,7 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         public decimal AvgPT => MemberTurnover == 0 ? 0 : LevelTurnover * 100 / MemberTurnover;
 
-        public bool VirtualRate { get; set; }
+        public string VirtualRate { get; set; }
 
         public int BetCount { get; set; }
 

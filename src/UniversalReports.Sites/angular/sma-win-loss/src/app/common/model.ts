@@ -22,7 +22,7 @@ export interface UsernameModel {
   Username: string;
   Currency: string;
   Name: string;
-  VirtualRate: boolean;
+  VirtualRate: string;
   Months: MonthModel[];
 }
 
