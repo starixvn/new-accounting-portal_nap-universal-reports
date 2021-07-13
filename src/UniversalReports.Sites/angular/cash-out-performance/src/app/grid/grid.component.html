@@ -4,7 +4,7 @@
       <col style="width: 150px" />
       <col style="width: 120px" />
       <col style="width: 130px" />
-      <col style="width: 120px" />
+      <col style="width: 150px" />
       <col style="width: 300px" />
       <col style="width: 320px" />
       <col style="width: 130px" />
@@ -29,8 +29,8 @@
         <th scope="col">Date</th>
         <th scope="col">Username</th>
         <th scope="col">Original Ticket ID</th>
-        <th scope="col">Buy Back Ticket ID</th>
         <th scope="col">Cash Out Ticket ID</th>
+        <th scope="col">Cash Out Bet Ticket ID</th>
         <th scope="col">League</th>
         <th scope="col">Match</th>
         <th scope="col">Bet Time</th>
@@ -82,11 +82,11 @@
   </ng-template>
   <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
     <div class="nap-grid">
-        <div style="width: 2940px;">
+        <div style="width: 2970px;">
             <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
             <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
         </div>
-        <div style="width: 2940px">
+        <div style="width: 2970px">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>

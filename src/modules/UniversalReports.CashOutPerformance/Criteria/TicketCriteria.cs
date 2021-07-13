@@ -13,6 +13,8 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public string Sites { get; set; }
 
+        public string Leagues { get; set; }
+
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }

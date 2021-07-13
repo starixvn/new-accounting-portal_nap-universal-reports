@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
 import { PaginationService } from 'nap-components/pagination';
-import { TicketViewModel, TicketModel } from '../common/model';
+import { TicketViewModel } from '../common/model';
 import { GridService } from './grid.service';
 import { FilterModel } from '../filter/filter.model';
 import * as _ from 'lodash';
@@ -13,7 +13,7 @@ import * as _ from 'lodash';
 })
 export class GridComponent implements OnChanges {
   @Input() filterModel: FilterModel;
-  
+
   dataViewModel: TicketViewModel;
   paginationInstance: PaginationInstance;
   breadcrumbItems: string[];
@@ -43,17 +43,18 @@ export class GridComponent implements OnChanges {
     });
   }
 
-  exportExcel() {
+  exportExcel(): void {
     this.service.exportExcel(this.filterModel);
   }
 
-  onPageChange() {
+  onPageChange(): void {
     this.createPaging();
   }
 
-  private createPaging() {
+  private createPaging(): void {
     if (this.filterModel.isPageChanged) {
-      this.paginationInstance.currentPage = this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
+      this.paginationInstance.currentPage =
+        this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
       this.filterModel.pageIndex = this.paginationInstance.currentPage;
       this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
 
@@ -66,7 +67,7 @@ export class GridComponent implements OnChanges {
     this.createPagingTransform();
   }
 
-  private createPagingTransform() {
+  private createPagingTransform(): void {
     const paginateData = this.paginatePipe.transform(this.dataViewModel.TicketList, this.paginationInstance);
     this.dataViewModel.TicketList = _.cloneDeep(paginateData);
     this.filterModel.isPageChanged = true;

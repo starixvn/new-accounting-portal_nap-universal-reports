@@ -6,8 +6,9 @@ import { DateFormat, DateHelper } from 'nap-components/date';
 import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterItemModel, FilterModel, TimePeriod } from './filter.model';
+import { FilterItemModel, FilterModel, LeagueModel, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
+import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
 @Component({
   selector: 'app-filter',
@@ -40,7 +41,11 @@ export class FilterComponent implements OnInit {
     maxHeight: 500
   });
   selectedSports: number[] = [];
-  
+
+  leagues = '';
+  leagueName = '';
+  leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
+  leagueNamePlaceholder = 'League name';
   constructor(
     private readonly filterService: FilterService,
     private readonly toastService: ToastService
@@ -56,7 +61,7 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  onTimePeriodChange() {
+  onTimePeriodChange(): void {
     let endDate: moment.Moment;
     let startDate: moment.Moment;
     switch (this.timePeriod) {
@@ -110,19 +115,19 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  onDateChange() {
+  onDateChange(): void {
     this.timePeriod = TimePeriod.SpecificDate;
   }
 
-  onGenerateClick() {
-    this.OnGenerate();
+  async onGenerateClick(): Promise<void> {
+    await this.OnGenerate();
   }
 
-  private OnGenerate() {
-    let model = this.createModel();
+  private async OnGenerate(): Promise<void> {
+    let model = null;
 
-    if (!this.isValid) {
-      model = null;
+    if (await this.isValid()) {
+      model = this.createModel();
     }
 
     this.generated.emit(model);
@@ -132,20 +137,19 @@ export class FilterComponent implements OnInit {
     const startDate = DateHelper.convertDateStructToMoment(this.startDate);
     const endDate = DateHelper.convertDateStructToMoment(this.endDate);
 
-    const model: FilterModel = {
+    return {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
       sports: this.selectedSports.join(','),
       sites: this.selectedLicensees.join(','),
+      leagues: this.leagues,
       pageIndex: 1,
       pageSize: 100,
       isPageChanged: false,
     };
-
-    return model;
   }
 
-  private get isValid(): boolean {
+  private async isValid(): Promise<boolean> {
     if (this.selectedLicensees.length === 0) {
       this.toastService.activate(`Please select at least one licensee!`);
       return false;
@@ -162,6 +166,44 @@ export class FilterComponent implements OnInit {
         return false;
     }
 
+    const isValidLeague = await this.checkLeague();
+    if (!isValidLeague)
+    {
+      this.toastService.activate('League is not available.');
+      return false;
+    }
+
     return true;
+  }
+
+  private async checkLeague(): Promise<boolean> {
+    const searchText = this.leagueName.trim();
+    if (searchText === '') {
+      this.leagues = '';
+      return true;
+    } else {
+      const leagues =
+        await this.filterService.queryLeagueSuggestion(this.selectedSports.join(','), searchText, true).toPromise<LeagueModel[]>();
+      if (leagues.length === 0)
+      {
+        return false;
+      } else {
+        this.leagues = leagues.map(l => l.Id).join(',');
+        return true;
+      }
+    }
+  }
+
+  private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {
+    return new TypeaheadQuery(term => {
+      let searchText = term.replace(/,/g, '');
+      let words = searchText.split(' ');
+      words = words.filter(word => word.trim() !== '');
+      searchText = words.join(',');
+      return this.filterService.queryLeagueSuggestion(this.selectedSports.join(','), searchText, false)
+        .map(list => {
+          return list.map(item => item.Name);
+        });
+    });
   }
 }

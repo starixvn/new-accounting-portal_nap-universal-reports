@@ -30,6 +30,13 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
+        [Route("leagues")]
+        public async Task<IHttpActionResult> Leagues(LeagueRequest request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
         [Route("tickets")]
         [HttpPost]
         public async Task<IHttpActionResult> Tickets(TicketRequest request)

@@ -7,6 +7,7 @@ import { LegendModule, LegendService } from 'nap-components/legend';
 import { TreeviewModule } from 'ngx-treeview';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
 import { DateModule } from 'nap-components/date';
+import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DateModule } from 'nap-components/date';
     TreeviewModule.forRoot(),
     LegendModule.forRoot(),
     DropdownSelectModule,
+    DropdownTypeaheadModule,
     DateModule
   ],
   exports: [

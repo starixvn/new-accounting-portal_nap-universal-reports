@@ -28,7 +28,7 @@
     }
 }
 
-:host ::v-deep .show {
+:host /deep/ .show {
     .dropdown-menu {
         display: block;
         .form-check-input {

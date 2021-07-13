@@ -13,7 +13,8 @@ namespace UniversalReports.CashOutPerformance.Handlers
 {
     public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterItemModel>>,
         IRequestHandler<LicenseeRequest, IEnumerable<FilterItemModel>>,
-        IRequestHandler<TicketRequest, TicketViewModel>
+        IRequestHandler<TicketRequest, TicketViewModel>,
+        IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>
     {
         private readonly CashOutPerformanceService service;
 
@@ -21,6 +22,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             this.service = service;
         }
+
         public async Task<IEnumerable<FilterItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SportCriteria>(request);
@@ -37,6 +39,12 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<TicketCriteria>(request);
             return await service.GetTickets(criteria);
+        }
+
+        public async Task<IEnumerable<LeagueModel>> Handle(LeagueRequest request, CancellationToken cancellationToken)
+        {
+            var criteria = Mapper.Map<LeagueCriteria>(request);
+            return await service.GetLeagues(criteria);
         }
     }
 }

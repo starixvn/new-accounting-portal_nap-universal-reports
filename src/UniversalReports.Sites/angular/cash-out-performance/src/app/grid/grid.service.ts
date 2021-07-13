@@ -20,7 +20,7 @@ export class GridService {
     return this.httpService.post<TicketViewModel>(url, fiterModel);
   }
 
-  exportExcel(filterModel: FilterModel) {
+  exportExcel(filterModel: FilterModel): void {
     const url = this.url + 'excel';
     const excelQueryModel = this.createExcelQueryModel(filterModel);
 
@@ -34,7 +34,7 @@ export class GridService {
 
   private createExcelQueryModel(filterModel: FilterModel): ExcelQueryModel {
     const title = `Cash Out Performance Report From ${filterModel.startDate} To ${filterModel.endDate}`;
-    const excelQueryModel: ExcelQueryModel = _.extend({}, { title: title }, filterModel);
+    const excelQueryModel: ExcelQueryModel = _.extend({}, { title }, filterModel);
     excelQueryModel.pageIndex = 0;
     excelQueryModel.pageSize = 0;
     return excelQueryModel;
