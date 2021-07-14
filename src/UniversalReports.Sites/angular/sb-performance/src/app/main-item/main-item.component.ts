@@ -11,6 +11,7 @@ export class MainItemComponent {
   @Input() title: string;
   @Input() firstColumnHeader: string;
   @Input() isShowFullColumn: boolean;
+  @Input() isChangedColumnName = false;
   @Input() items: MainItemModel;
   sortColumnName = '';
   sortDirection = '';

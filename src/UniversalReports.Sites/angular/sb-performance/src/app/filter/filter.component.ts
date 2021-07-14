@@ -145,7 +145,7 @@ export class FilterComponent implements OnInit {
       topRows: Number(this.topRowSelected.value),
       isShowFullColumn: this.isShowFullColumn,
       topBy: this.topBySelected.value,
-      excludeDrawTickets: this.turnover === '0',
+      excludeDrawTickets: this.turnover === '1',
       excludeParlay: this.isExcludeParlay
     };
 
