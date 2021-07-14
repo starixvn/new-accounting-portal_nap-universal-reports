@@ -155,8 +155,8 @@ import angular from "angular";
             return isLiveText;
         }
 
-        function getSoccerMinorBetTypeTitle() {
-            return 'SOCCER MINOR BET TYPES';
+        function getSoccerMinorBetTypeTitle(data) {
+            return data.sportTypeName;
         }
     }
 })(angular);

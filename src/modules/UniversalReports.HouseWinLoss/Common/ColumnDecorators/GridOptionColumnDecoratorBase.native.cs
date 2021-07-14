@@ -83,5 +83,78 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
                 new HeaderColumns { HeaderText = "Real", Width = 100, Name = "RealMargin", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.PercentageRedPositive }
             };
         }
+
+        protected List<HeaderColumns> CreateCoreHeaderColumnsWithSort(string sortColumnName, string sortDirection)
+        {
+            return new List<HeaderColumns>
+            {
+                new HeaderColumns { HeaderText = "Member Win Loss", Width = 100, Name = "MemberWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.DoubleRedPositive },
+                new HeaderColumns { HeaderText = "SMA Win Loss", Width = 100, Name = "SMAWinLoss", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Extra PT", Width = 100, Name = "ExtraPT", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns { HeaderText = "Commission", Width = 100, Name = "Commission", CellAlignment = HAlignment.Right, CustomCellType = ExcelCellType.Double },
+                new HeaderColumns {
+                    HeaderText = "Variance",
+                    Width = 100,
+                    Name = "VarianceIncome",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.DoubleRedPositive,
+                    Sort = true,
+                    SortDirection = sortColumnName == "VarianceIncome" ? sortDirection : string.Empty
+                },
+                new HeaderColumns {
+                    HeaderText = "Virtual Winloss",
+                    Width = 120,
+                    Name = "VirtualIncome",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.DoubleRedPositive,
+                    Sort = true,
+                    SortDirection = sortColumnName == "VirtualIncome" ? sortDirection : string.Empty
+                },
+                new HeaderColumns {
+                    HeaderText = "Real Income",
+                    Width = 100,
+                    Name = "RealIncome",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.DoubleRedPositive,
+                    Sort = true,
+                    SortDirection = sortColumnName == "RealIncome" ? sortDirection : string.Empty },
+                new HeaderColumns {
+                    HeaderText = "Virtual",
+                    Width = 100,
+                    Name = "VirtualTurnover",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.Double,
+                    Sort = true,
+                    SortDirection = sortColumnName == "VirtualTurnover" ? sortDirection : string.Empty
+                },
+                new HeaderColumns {
+                    HeaderText = "Real",
+                    Width = 100,
+                    Name = "RealTurnover",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.Double ,
+                    Sort = true,
+                    SortDirection = sortColumnName == "RealTurnover" ? sortDirection : string.Empty
+                },
+                new HeaderColumns {
+                    HeaderText = "Virtual",
+                    Width = 100,
+                    Name = "VirtualMargin",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.PercentageRedPositive,
+                    Sort = true,
+                    SortDirection = sortColumnName == "VirtualMargin" ? sortDirection : string.Empty
+                },
+                new HeaderColumns {
+                    HeaderText = "Real",
+                    Width = 100,
+                    Name = "RealMargin",
+                    CellAlignment = HAlignment.Right,
+                    CustomCellType = ExcelCellType.PercentageRedPositive,
+                    Sort = true,
+                    SortDirection = sortColumnName == "RealMargin" ? sortDirection : string.Empty
+                }
+            };
+        }
     }
 }

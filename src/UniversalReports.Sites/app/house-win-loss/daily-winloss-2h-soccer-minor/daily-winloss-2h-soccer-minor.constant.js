@@ -16,7 +16,7 @@ import moment from "moment";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/three-fanex-grid-with-title.html",
-                controller: "SoccerBetTypeFullController",
+                controller: "Daily2hSoccerBetTypeFullController",
                 service: "soccerMinorBetTypeService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/bet-type",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-bet-type", mainColumnText: "Bet Type", mainColumnWidth: 270 },
@@ -24,14 +24,14 @@ import moment from "moment";
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "SportsbookMatchDetailController",
+                controller: "Daily2hSoccerMatchDetailController",
                 service: "sportsbookMatchDetailService",
                 serviceBaseUrl: function (data) {
                     return data.betType === 10
                         ? 'api/house-win-loss-by-products/soccer-minor/outright-match-detail'
                         : 'api/house-win-loss-by-products/soccer-minor/match-detail';
                 },
-                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, isSabaSport: 2 },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1 },
                 getTitleFunction: "getMatchDetailTitleLive"
             },
             site: {
@@ -39,7 +39,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/site",
-                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site", isSabaSport: 2 },
+                mainParameters: { sheetName: "Soccer Minor Bet Types", sportType: 1, type: "soccer-minor-site" },
                 getTitleFunction: "getSiteTitleLive"
             }
         }

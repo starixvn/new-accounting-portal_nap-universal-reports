@@ -14,5 +14,9 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
         public int SportType { get; set; } = Constants.SportTypeSoccer;
 
         public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
+
+        public string SortColumnName { get; set; }
+
+        public string SortDirection { get; set; }
     }
 }
