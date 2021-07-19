@@ -25,5 +25,11 @@ namespace UniversalReports.SBPerformance.Main
         public int Top { get; set; }
 
         public bool IsShowFullColumn { get; set; }
+
+        public string TopBy { get; set; }
+
+        public bool ExcludeDrawTickets { get; set; }
+
+        public bool ExcludeParlay { get; set; }
     }
 }

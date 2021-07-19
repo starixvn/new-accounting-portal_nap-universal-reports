@@ -24,6 +24,12 @@ namespace UniversalReports.SBPerformance.Main
 
         public int Top { get; set; }
 
+        public string TopBy { get; set; }
+
+        public bool ExcludeDrawTickets { get; set; }
+
+        public bool ExcludeParlay { get; set; }
+
         [SpParam(Ignored = true)]
         public string Source { get; set; }
 

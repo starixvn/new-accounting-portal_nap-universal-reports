@@ -21,12 +21,12 @@
         'fa-sort-asc': (sortColumnName == 'BetCount' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'BetCount' && sortDirection == 'asc')}"></i>
       </th>
-      <th scope="col" (click)="sort('RealIncome')">Real Income
+      <th scope="col" (click)="sort('RealIncome')">{{isChangedColumnName ? 'Win Loss' : 'Real Income'}}
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'RealIncome',
         'fa-sort-asc': (sortColumnName == 'RealIncome' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'RealIncome' && sortDirection == 'asc')}"></i>
       </th>
-      <th scope="col" (click)="sort('RealTurnover')">Real Turnover
+      <th scope="col" (click)="sort('RealTurnover')">{{isChangedColumnName ? 'Turnover' : 'Real Turnover'}}
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'RealTurnover',
         'fa-sort-asc': (sortColumnName == 'RealTurnover' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'RealTurnover' && sortDirection == 'asc')}"></i>

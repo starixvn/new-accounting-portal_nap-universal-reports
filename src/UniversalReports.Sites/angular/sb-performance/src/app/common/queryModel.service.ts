@@ -21,7 +21,10 @@ export class QueryModelService {
       isShowCust,
       margin: filterModel.margin,
       top: filterModel.topRows,
-      isShowFullColumn: filterModel.isShowFullColumn
+      isShowFullColumn: filterModel.isShowFullColumn,
+      topBy: filterModel.topBy,
+      excludeDrawTickets: filterModel.excludeDrawTickets,
+      excludeParlay: filterModel.excludeParlay
     };
 
     return queryModel;
