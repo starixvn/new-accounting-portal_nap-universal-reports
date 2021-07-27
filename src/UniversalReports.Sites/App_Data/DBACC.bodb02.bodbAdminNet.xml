@@ -88,6 +88,7 @@
   </Function>
   <Function Name="SBPerformance">
     <Setting Key="SBPerformanceMonitor-Dashboard-BetTrans" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="SBPerformanceMonitor-Site-BetTrans" SpName="Acc_Rpt_SBPerformanceMonitor_Site" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
   <Function Name="SBCustomerPerformanceByDangers">
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel" SpName="Acc_Rpt_SBCustPerfByDangerLevel" DbName="DBACC.bodb02.bodbAdminNet" />

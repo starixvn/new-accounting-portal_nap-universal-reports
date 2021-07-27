@@ -1,6 +1,7 @@
 ﻿using SimpleInjector;
 using UniversalReports.SBPerformance.Common;
 using UniversalReports.SBPerformance.Main;
+using UniversalReports.SBPerformance.MarginBySite;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -10,6 +11,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             container.Register<DataSourceChooser, DataSourceChooserImp>();
             container.Register<MainService, MainServiceImp>();
+            container.Register<SiteService, SiteServiceImp>();
             return container;
         }
     }

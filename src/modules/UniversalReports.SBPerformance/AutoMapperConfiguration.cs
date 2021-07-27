@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using UniversalReports.SBPerformance.Main;
+using UniversalReports.SBPerformance.MarginBySite;
 
 namespace UniversalReports.SBPerformance
 {
@@ -8,6 +9,7 @@ namespace UniversalReports.SBPerformance
         public static void InitializeSBPerformance(this IProfileExpression cfg)
         {
             cfg.CreateMap<HttpParameter, Criteria>();
+            cfg.CreateMap<SiteHttpParameter, SiteCriteria>();
         }
     }
 }

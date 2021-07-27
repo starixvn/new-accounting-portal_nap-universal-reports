@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { MainItemModel } from '../common/model';
 
@@ -13,10 +13,12 @@ export class MainItemComponent {
   @Input() isShowFullColumn: boolean;
   @Input() isChangedColumnName = false;
   @Input() items: MainItemModel;
+  @Output() drilDownClick = new EventEmitter<number>();
   sortColumnName = '';
   sortDirection = '';
 
-  constructor() { }
+  constructor(
+  ) { }
 
   get hasData(): boolean {
     return this.items !== null && this.items.Entities.length > 0;
@@ -29,6 +31,10 @@ export class MainItemComponent {
 
     this.sortColumnName = sortColumnName;
     this.sortDirection = this.sortDirection !== 'asc' ? 'asc' : 'desc';
-    this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection);
+    this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
+  }
+
+  showGrid(id: number) {
+    this.drilDownClick.emit(id);
   }
 }

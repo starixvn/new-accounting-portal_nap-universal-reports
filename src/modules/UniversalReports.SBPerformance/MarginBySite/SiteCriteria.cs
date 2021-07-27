@@ -1,0 +1,42 @@
+﻿using Fanex.Data;
+using Fanex.Data.Repository;
+using System;
+
+namespace UniversalReports.SBPerformance.MarginBySite
+{
+    public class SiteCriteria : CriteriaBase
+    {
+        public DateTime FromDate { get; set; }
+
+        public DateTime ToDate { get; set; }
+
+        public int TimeRange { get; set; }
+
+        public decimal? Margin { get; set; }
+
+        public string TopBy { get; set; }
+
+        public bool ExcludeDrawTickets { get; set; }
+
+        public bool ExcludeParlay { get; set; }
+
+        public int SiteID { get; set; }
+
+        public int? SportID { get; set; }
+
+        public int? LeagueID { get; set; }
+
+        public byte? LiveIndicator { get; set; }
+
+        public string ShowBy { get; set; }
+
+        public int? MatchID { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string Source { get; set; }
+
+        public override string GetSettingKey() => $"SBPerformanceMonitor-Site-{Source}";
+
+        public override bool IsValid() => true;
+    }
+}

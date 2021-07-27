@@ -104,6 +104,13 @@
     <Compile Include="Main\Entity.cs" />
     <Compile Include="Main\MainHandler.cs" />
     <Compile Include="Main\SBPerformanceMainController.cs" />
+    <Compile Include="MarginBySite\SBPerformanceSiteController.cs" />
+    <Compile Include="MarginBySite\SiteCriteria.cs" />
+    <Compile Include="MarginBySite\SiteEntity.cs" />
+    <Compile Include="MarginBySite\SiteHandler.cs" />
+    <Compile Include="MarginBySite\SiteHttpParameter.cs" />
+    <Compile Include="MarginBySite\SiteItemModel.cs" />
+    <Compile Include="MarginBySite\SiteService.cs" />
     <Compile Include="SBPerformanceAttribute.cs" />
     <Compile Include="Common\DataSourceChooser.cs" />
     <Compile Include="Main\Criteria.cs" />
@@ -129,6 +136,7 @@
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

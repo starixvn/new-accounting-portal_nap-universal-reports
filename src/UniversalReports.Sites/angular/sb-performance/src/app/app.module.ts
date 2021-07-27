@@ -16,6 +16,7 @@ import { HttpModule } from 'nap-components/http/http.module';
 import { MainItemComponent } from './main-item/main-item.component';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { FormsModule } from '@angular/forms';
+import { GridModule } from './grid/grid.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     NavbarModule.forRoot(),
     SpinnerModule.forRoot(),
     NumberFormatModule,
-    AuthenticationModule
+    AuthenticationModule,
+    GridModule
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },

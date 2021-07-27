@@ -1,15 +1,21 @@
-<div class="main-container">
+<div class="main-container" *ngIf="!isHaveDrillDown">
   <div>
     <div class="block-item">
-      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sites" firstColumnHeader="Site" [items]="siteData"></app-main-item>
+      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sites"
+        (drilDownClick)="showGrid({'siteID' : $event })" firstColumnHeader="Site" [items]="siteData"></app-main-item>
       <br>
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top winning members" isChangedColumnName="true"
-        firstColumnHeader="Username" [items]="usernameData"></app-main-item>
+      (drilDownClick)="showGrid({'siteID' : $event })" firstColumnHeader="Username" [items]="usernameData"></app-main-item>
     </div>
     <div class="block-item">
-      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sports" firstColumnHeader="Sport" [items]="sportData"></app-main-item>
+      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sports"
+      (drilDownClick)="showGrid({'siteID' : $event })" firstColumnHeader="Sport" [items]="sportData"></app-main-item>
       <br>
-      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top losing leagues" firstColumnHeader="League" [items]="leagueData"></app-main-item>
+      <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top losing leagues"
+      (drilDownClick)="showGrid({'siteID' : $event })" firstColumnHeader="League" [items]="leagueData"></app-main-item>
     </div>
   </div>
+</div>
+<div class="drill-down" *ngIf="isHaveDrillDown">
+  <app-grid [filterModel]="filterModel" ></app-grid>
 </div>

@@ -1,3 +1,5 @@
+import { ReportType } from '../main/main.model';
+
 export interface QueryModel {
   fromDate: string;
   toDate: string;
@@ -26,4 +28,5 @@ export interface ItemModel {
 export interface MainItemModel {
   Entities: ItemModel[];
   Total: ItemModel;
+  ReportType: ReportType;
 }

@@ -41,7 +41,7 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left">{{item.Name}}</td>
+  <td class="text-left"><a href="javascript:;" (click)="showGrid(item.Id)">{{item.Name}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
