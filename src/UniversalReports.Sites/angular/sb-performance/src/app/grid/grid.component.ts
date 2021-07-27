@@ -4,7 +4,7 @@ import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, In
 import { FilterModel } from '../filter/filter.model';
 import { Grid, GridType } from './grid.model';
 import { GridService } from './grid.service';
-import { MarginBySiteGridComponent } from './margin-by-site-grid/margin-by-site-grid.component';
+import { SiteGridComponent } from './site-grid/site-grid.component';
 import * as _ from 'lodash';
 
 @Component({
@@ -12,7 +12,7 @@ import * as _ from 'lodash';
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   entryComponents: [
-    MarginBySiteGridComponent
+    SiteGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
@@ -58,7 +58,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
   private getComponentFactory(): ComponentFactory<Grid> {
     switch (this.gridType) {
         case GridType.MarginBySite:
-            return this.componentFactoryResolver.resolveComponentFactory(MarginBySiteGridComponent);
+            return this.componentFactoryResolver.resolveComponentFactory(SiteGridComponent);
         default:
             throw new Error('Not implemented yet');
     }
@@ -82,7 +82,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private updateBreadcrumb() {
-    this.breadcrumbItems = [];
+    this.breadcrumbItems = [this.service.mainTitle];
     this.components.forEach(component => {
       const componentTitle = component.instance.title;
       this.breadcrumbItems.push(componentTitle);

@@ -1,4 +1,4 @@
-﻿namespace UniversalReports.SBPerformance.MarginBySite
+﻿namespace UniversalReports.SBPerformance.Site
 {
     public class SiteEntity
     {

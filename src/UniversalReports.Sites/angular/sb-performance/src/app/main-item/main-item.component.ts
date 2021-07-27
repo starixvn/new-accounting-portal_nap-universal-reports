@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { MainItemModel } from '../common/model';
+import { DrillDownModel } from './main-item.model';
 
 @Component({
   selector: 'app-main-item',
@@ -13,7 +14,7 @@ export class MainItemComponent {
   @Input() isShowFullColumn: boolean;
   @Input() isChangedColumnName = false;
   @Input() items: MainItemModel;
-  @Output() drilDownClick = new EventEmitter<number>();
+  @Output() drilDownClick = new EventEmitter<DrillDownModel>();
   sortColumnName = '';
   sortDirection = '';
 
@@ -34,7 +35,11 @@ export class MainItemComponent {
     this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
   }
 
-  showGrid(id: number) {
-    this.drilDownClick.emit(id);
+  showGrid(id: string, name: string) {
+    const model: DrillDownModel = {
+      id,
+      name,
+    };
+    this.drilDownClick.emit(model);
   }
 }

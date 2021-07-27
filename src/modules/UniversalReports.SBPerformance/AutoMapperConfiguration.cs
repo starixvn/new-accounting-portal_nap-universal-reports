@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using UniversalReports.SBPerformance.Main;
-using UniversalReports.SBPerformance.MarginBySite;
+using UniversalReports.SBPerformance.Site;
 
 namespace UniversalReports.SBPerformance
 {

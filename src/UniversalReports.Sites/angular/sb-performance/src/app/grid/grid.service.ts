@@ -10,7 +10,9 @@ export class GridService {
   filterModel: FilterModel;
   activeGrid: Grid;
   breadCrumb: string;
-  showGridCompletedSubject: Subject<number>;
   queryModel: any;
+  mainTitle: string;
+  title: string;
+  isShowFullColumn: boolean;
   generate: (gridType: GridType, queryModel: any) => void;
 }

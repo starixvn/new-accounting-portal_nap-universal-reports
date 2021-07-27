@@ -1,14 +1,10 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace UniversalReports.SBPerformance.MarginBySite
+namespace UniversalReports.SBPerformance.Site
 {
-    [RoutePrefix("api/sb-performance/main/site")]
+    [RoutePrefix("api/sb-performance/main")]
     public class SBPerformanceSiteController : ApiController
     {
         private readonly IMediator mediator;
@@ -18,7 +14,7 @@ namespace UniversalReports.SBPerformance.MarginBySite
             this.mediator = mediator;
         }
 
-        [Route("")]
+        [Route("margin-by-site/site")]
         public async Task<IHttpActionResult> Site(SiteHttpParameter httpParameters)
         {
             var viewModel = await mediator.Send(httpParameters);

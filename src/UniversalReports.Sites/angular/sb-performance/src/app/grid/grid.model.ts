@@ -7,4 +7,5 @@ export enum GridType {
 export interface Grid {
     title: string;
     query(): Observable<any>;
+    sort(sortColumnName: string): void;
 }

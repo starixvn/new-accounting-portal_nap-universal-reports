@@ -47,7 +47,7 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left">{{item.Name}}</td>
+  <td class="text-left"><a href="javascript:;" (click)="showSport()">{{item.Sport}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
@@ -57,7 +57,18 @@
   <td class="text-right" [napPercentFormat]="item.RealMargin"></td>
 </ng-template>
 
-<div *ngIf="siteData" [ngSwitch]="hasData">
+<ng-template #rowTotalItem let-item="item">
+  <td class="text-right">Total</td>
+  <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
+  <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
+  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
+  <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
+  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealTurnover"></td>
+  <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
+  <td class="text-right" [napPercentFormat]="item.RealMargin"></td>
+</ng-template>
+
+<div *ngIf="data" [ngSwitch]="hasData">
   <div class="nap-grid">
     <div style="width: 880px;">
       <div class="header">
@@ -70,7 +81,7 @@
         <table class="table-striped">
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tbody>
-            <tr *ngFor="let item of siteData.Entities">
+            <tr *ngFor="let item of data.Entities">
               <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
               </ng-template>
             </tr>
@@ -93,7 +104,7 @@
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tfoot>
             <tr class="total">
-              <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: items.Total }">
+              <ng-template [ngTemplateOutlet]="rowTotalItem" [ngTemplateOutletContext]="{ item: data.Total }">
               </ng-template>
             </tr>
           </tfoot>

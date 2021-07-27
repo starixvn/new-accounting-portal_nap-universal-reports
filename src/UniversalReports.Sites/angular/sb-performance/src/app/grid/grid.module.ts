@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { GridComponent } from './grid.component';
-import { MarginBySiteGridComponent } from './margin-by-site-grid/margin-by-site-grid.component';
+import { SiteGridComponent } from './site-grid/site-grid.component';
 import { GridService } from './grid.service';
-import { MarginBySiteGridService } from './margin-by-site-grid/margin-by-site-grid.service';
+import { SiteGridService } from './site-grid/site-grid.service';
 import { NumberFormatModule } from 'nap-components/number-format';
+import { LeagueGridComponent } from './league-grid/league-grid.component';
 
 @NgModule({
   declarations: [
     GridComponent,
-    MarginBySiteGridComponent
+    SiteGridComponent,
+    LeagueGridComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,7 @@ import { NumberFormatModule } from 'nap-components/number-format';
   ],
   providers: [
     GridService,
-    MarginBySiteGridService
+    SiteGridService
   ]
 })
 export class GridModule { }

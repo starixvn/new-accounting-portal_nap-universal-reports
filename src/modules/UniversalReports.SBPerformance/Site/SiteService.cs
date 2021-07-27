@@ -4,7 +4,7 @@ using Linq.DynamicSum;
 using System.Threading.Tasks;
 using UniversalReports.SBPerformance.Common;
 
-namespace UniversalReports.SBPerformance.MarginBySite
+namespace UniversalReports.SBPerformance.Site
 {
     public interface SiteService
     {

@@ -1,7 +1,7 @@
 ﻿using SimpleInjector;
 using UniversalReports.SBPerformance.Common;
 using UniversalReports.SBPerformance.Main;
-using UniversalReports.SBPerformance.MarginBySite;
+using UniversalReports.SBPerformance.Site;
 
 namespace UniversalReports.Sites.SimpleInjector
 {

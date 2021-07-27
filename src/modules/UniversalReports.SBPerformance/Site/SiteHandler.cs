@@ -3,7 +3,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace UniversalReports.SBPerformance.MarginBySite
+namespace UniversalReports.SBPerformance.Site
 {
     public class SiteHandler : IRequestHandler<SiteHttpParameter, SummaryEntity<SiteItemModel>>
     {

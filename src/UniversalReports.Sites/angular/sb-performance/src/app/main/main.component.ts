@@ -57,8 +57,11 @@ export class MainComponent implements OnChanges {
     });
   }
 
-  showGrid(model: object) {
+  showGrid(model: object, mainTitle: string, title: string) {
     this.isHaveDrillDown = true;
     this.gridService.queryModel = model;
+    this.gridService.mainTitle = mainTitle;
+    this.gridService.title = title;
+    this.gridService.isShowFullColumn = this.isShowFullColumn;
   }
 }
