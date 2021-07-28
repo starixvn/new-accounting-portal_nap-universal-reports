@@ -1,10 +1,8 @@
-export interface SiteDataItemModel {
+import { ItemModel } from '../../../app/common/model';
+
+export interface SiteDataItemModel extends ItemModel {
   Sport: string;
   ActiveMembers: string;
-  BetCount: number;
-  RealIncome: number;
-  RealTurnover: number;
-  RealMargin: number;
 }
 
 export interface SiteDataModel {

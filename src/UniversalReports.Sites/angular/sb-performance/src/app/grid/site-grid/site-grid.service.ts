@@ -8,7 +8,7 @@ import { GridService } from '../grid.service';
   providedIn: 'root'
 })
 export class SiteGridService {
-  private url = 'api/sb-performance/main/margin-by-site/site';
+  private url = 'api/sb-performance/main/site';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
@@ -20,7 +20,7 @@ export class SiteGridService {
     }
 
     getTitle(): string {
-      return this.gridService.title;
+      return this.gridService.sportTitle;
     }
 
     isShowFullColumn(): boolean {

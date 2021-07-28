@@ -8,19 +8,20 @@ import { LeagueDataModel } from './league-grid.model';
   providedIn: 'root'
 })
 export class LeagueGridService {
-  private urlFromMarginBySite = 'api/sb-performance/main/margin-by-site/league';
+  public leagueName: string;
+  private url = 'api/sb-performance/main/league';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
     ) { }
 
-    queryFromMarginBySite(): Observable<LeagueDataModel> {
+    query(): Observable<LeagueDataModel> {
         const queryModel = this.gridService.queryModel;
-        return this.httpService.post<LeagueDataModel>(this.urlFromMarginBySite, queryModel);
+        return this.httpService.post<LeagueDataModel>(this.url, queryModel);
     }
 
     getTitle(): string {
-      return this.gridService.title;
+      return this.gridService.leagueTitle;
     }
 
     isShowFullColumn(): boolean {

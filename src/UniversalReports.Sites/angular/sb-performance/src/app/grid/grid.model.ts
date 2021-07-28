@@ -1,7 +1,9 @@
 import { Observable } from 'rxjs/Observable';
 
 export enum GridType {
-    MarginBySite
+    Sport,
+    League,
+    Event
 }
 
 export interface Grid {

@@ -101,6 +101,13 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Common\SBPerformancePermissionController.cs" />
+    <Compile Include="League\LeagueCriteria.cs" />
+    <Compile Include="League\LeagueEntity.cs" />
+    <Compile Include="League\LeagueHandler.cs" />
+    <Compile Include="League\LeagueHttpParameter.cs" />
+    <Compile Include="League\LeagueItemModel.cs" />
+    <Compile Include="League\LeagueService.cs" />
+    <Compile Include="League\SBPerformanceLeagueController.cs" />
     <Compile Include="Main\Entity.cs" />
     <Compile Include="Main\MainHandler.cs" />
     <Compile Include="Main\SBPerformanceMainController.cs" />
@@ -118,6 +125,13 @@
     <Compile Include="Main\ItemModel.cs" />
     <Compile Include="Main\MainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sport\SBPerformanceSportController.cs" />
+    <Compile Include="Sport\SportCriteria.cs" />
+    <Compile Include="Sport\SportEntity.cs" />
+    <Compile Include="Sport\SportHandler.cs" />
+    <Compile Include="Sport\SportHttpParameter.cs" />
+    <Compile Include="Sport\SportItemModel.cs" />
+    <Compile Include="Sport\SportService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\SonarQube\nap-universal-reportscsharp.ruleset">

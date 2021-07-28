@@ -14,7 +14,7 @@ namespace UniversalReports.SBPerformance.Site
             this.mediator = mediator;
         }
 
-        [Route("margin-by-site/site")]
+        [Route("site")]
         public async Task<IHttpActionResult> Site(SiteHttpParameter httpParameters)
         {
             var viewModel = await mediator.Send(httpParameters);

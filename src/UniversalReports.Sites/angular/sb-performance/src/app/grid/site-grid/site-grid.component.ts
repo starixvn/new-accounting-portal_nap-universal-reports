@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Grid } from '../grid.model';
+import { Grid, GridType } from '../grid.model';
 import { SiteDataModel } from './site-grid.model';
 import { SiteGridService } from './site-grid.service';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
+import { GridService } from '../grid.service';
 
 @Component({
   selector: 'app-site-grid',
@@ -16,7 +17,8 @@ export class SiteGridComponent implements Grid {
   sortDirection = '';
 
   constructor(
-    private siteGridService: SiteGridService
+    private siteGridService: SiteGridService,
+    private readonly gridService: GridService
   ) { }
 
   query() {
@@ -50,7 +52,8 @@ export class SiteGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showSport() {
-
+    showSport(id: string, sport: string) {
+      this.gridService.leagueTitle = sport;
+      this.gridService.generate(GridType.League, { SportId: id });
     }
 }

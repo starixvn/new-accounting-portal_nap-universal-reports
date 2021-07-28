@@ -47,7 +47,7 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left"><a href="javascript:;" (click)="showSport()">{{item.Sport}}</a></td>
+  <td class="text-left"><a href="javascript:;" (click)="showSport(item.Id, item.Sport)">{{item.Sport}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import { FilterModel } from '../filter/filter.model';
 import { Grid, GridType } from './grid.model';
 
@@ -9,10 +8,12 @@ import { Grid, GridType } from './grid.model';
 export class GridService {
   filterModel: FilterModel;
   activeGrid: Grid;
-  breadCrumb: string;
   queryModel: any;
   mainTitle: string;
-  title: string;
+  leagueTitle: string;
+  sportTitle: string;
+  eventTitle: string;
   isShowFullColumn: boolean;
+  gridType: GridType;
   generate: (gridType: GridType, queryModel: any) => void;
 }

@@ -1,10 +1,8 @@
-export interface LeagueDataItemModel {
+import { ItemModel } from '../../../app/common/model';
+
+export interface LeagueDataItemModel extends ItemModel {
     League: string;
     ActiveMembers: string;
-    BetCount: number;
-    RealIncome: number;
-    RealTurnover: number;
-    RealMargin: number;
   }
 
 export interface LeagueDataModel {

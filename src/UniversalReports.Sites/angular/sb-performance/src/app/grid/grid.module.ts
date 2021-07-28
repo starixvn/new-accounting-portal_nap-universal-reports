@@ -7,12 +7,16 @@ import { GridService } from './grid.service';
 import { SiteGridService } from './site-grid/site-grid.service';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
+import { SportGridComponent } from './sport-grid/sport-grid.component';
+import { EventGridComponent } from './event-grid/event-grid.component';
 
 @NgModule({
   declarations: [
     GridComponent,
     SiteGridComponent,
-    LeagueGridComponent
+    LeagueGridComponent,
+    SportGridComponent,
+    EventGridComponent
   ],
   imports: [
     CommonModule,

@@ -3,7 +3,6 @@ import { MainItemModel } from './../common/model';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FilterModel } from '../filter/filter.model';
 import { QueryModelService } from '../common/queryModel.service';
-import { ReportType } from './main.model';
 import { GridService } from '../grid/grid.service';
 
 @Component({
@@ -34,34 +33,32 @@ export class MainComponent implements OnChanges {
     }
 
     this.isShowFullColumn = this.filterModel.isShowFullColumn;
+    this.gridService.queryModel = null;
 
     this.mainService.query(this.filterModel, true, false, false, false).subscribe(data => {
       this.isHaveDrillDown = false;
       this.siteData = data;
-      this.siteData.ReportType = ReportType.MarginBySite;
     });
 
     this.mainService.query(this.filterModel, false, true, false, false).subscribe(data => {
       this.sportData = data;
-      this.sportData.ReportType = ReportType.MarginBySports;
     });
 
     this.mainService.query(this.filterModel, false, false, true, false).subscribe(data => {
       this.leagueData = data;
-      this.leagueData.ReportType = ReportType.TopLosingLeagues;
     });
 
     this.mainService.query(this.filterModel, false, false, false, true).subscribe(data => {
       this.usernameData = data;
-      this.usernameData.ReportType = ReportType.TopWinningMembers;
     });
   }
 
-  showGrid(model: object, mainTitle: string, title: string) {
+  showGrid(model: object, mainTitle: string, title: string, reportType: number) {
     this.isHaveDrillDown = true;
+    this.gridService.gridType = reportType;
     this.gridService.queryModel = model;
     this.gridService.mainTitle = mainTitle;
-    this.gridService.title = title;
+    this.gridService.sportTitle = title;
     this.gridService.isShowFullColumn = this.isShowFullColumn;
   }
 }

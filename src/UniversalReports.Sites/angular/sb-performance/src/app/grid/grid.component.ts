@@ -4,22 +4,26 @@ import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, In
 import { FilterModel } from '../filter/filter.model';
 import { Grid, GridType } from './grid.model';
 import { GridService } from './grid.service';
-import { SiteGridComponent } from './site-grid/site-grid.component';
 import * as _ from 'lodash';
+import { LeagueGridComponent } from './league-grid/league-grid.component';
+import { SportGridComponent } from './sport-grid/sport-grid.component';
+import { EventGridComponent } from './event-grid/event-grid.component';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   entryComponents: [
-    SiteGridComponent
+    SportGridComponent,
+    LeagueGridComponent,
+    EventGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
   @Input() filterModel: FilterModel;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  gridType = GridType.MarginBySite;
+  gridType = GridType.Sport;
   breadcrumbItems: string[];
   private components: ComponentRef<Grid>[] = [];
 
@@ -44,21 +48,25 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
       component.destroy();
     }
 
-    this.gridType = GridType.MarginBySite;
+    this.gridType = this.service.gridType;
     this.service.queryModel = _.assign(this.filterModel, this.service.queryModel);
     this.createGridComponent();
   }
 
   private generate(gridType: GridType, model: any) {
-    this.service.queryModel = model;
+    this.service.queryModel = _.assign(this.filterModel, model);
     this.gridType = gridType;
     this.createGridComponent();
   }
 
   private getComponentFactory(): ComponentFactory<Grid> {
     switch (this.gridType) {
-        case GridType.MarginBySite:
-            return this.componentFactoryResolver.resolveComponentFactory(SiteGridComponent);
+        case GridType.Sport:
+            return this.componentFactoryResolver.resolveComponentFactory(SportGridComponent);
+        case GridType.League:
+            return this.componentFactoryResolver.resolveComponentFactory(LeagueGridComponent);
+        case GridType.Event:
+            return this.componentFactoryResolver.resolveComponentFactory(EventGridComponent);
         default:
             throw new Error('Not implemented yet');
     }
@@ -82,13 +90,11 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private updateBreadcrumb() {
-    this.breadcrumbItems = [this.service.mainTitle];
-    this.components.forEach(component => {
+    this.breadcrumbItems = [];
+    this.components.forEach((component, index) => {
       const componentTitle = component.instance.title;
       this.breadcrumbItems.push(componentTitle);
     });
-
-    this.service.breadCrumb = this.breadcrumbItems.join(' > ');
   }
 
   private showOnlyLastGrid() {
