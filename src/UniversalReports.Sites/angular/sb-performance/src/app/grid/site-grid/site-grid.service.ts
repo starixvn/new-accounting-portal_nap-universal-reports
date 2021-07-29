@@ -8,7 +8,6 @@ import { GridService } from '../grid.service';
   providedIn: 'root'
 })
 export class SiteGridService {
-  private url = 'api/sb-performance/main/site';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
@@ -16,7 +15,7 @@ export class SiteGridService {
 
     query(): Observable<SiteDataModel> {
         const queryModel = this.gridService.queryModel;
-        return this.httpService.post<SiteDataModel>(this.url, queryModel);
+        return this.httpService.post<SiteDataModel>(this.gridService.api, queryModel);
     }
 
 }

@@ -76,6 +76,15 @@ export class MainComponent implements Grid {
           break;
       case ReportTypeConstant.MARGIN_BY_SPORT:
           this.gridService.api = ApiConstant.MARGIN_BY_SPORT;
+          gridType = GridType.Site;
+          this.gridService.siteTitle = data.name;
+          model = {
+            SportId: data.id,
+            SiteId: null,
+            LeagueId: null,
+            LiveIndicator: null,
+            MatchId: null
+          };
           break;
       case ReportTypeConstant.TOP_WINNING_MEMBERS:
           this.gridService.api = ApiConstant.TOP_WINNING_MEMBERS;

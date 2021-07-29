@@ -12,10 +12,10 @@
 <ng-template #thead>
   <thead>
     <tr>
-      <th scope="col" (click)="sort('Sport')">Sport
+      <th scope="col" (click)="sort('Site')">Site
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'Sport',
-        'fa-sort-asc': (sortColumnName == 'Sport' && sortDirection == 'desc'),
-        'fa-sort-desc': (sortColumnName == 'Sport' && sortDirection == 'asc')}"></i>
+        'fa-sort-asc': (sortColumnName == 'Site' && sortDirection == 'desc'),
+        'fa-sort-desc': (sortColumnName == 'Site' && sortDirection == 'asc')}"></i>
       </th>
       <th scope="col" (click)="sort('BetCount')">Bet Count
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'BetCount',
@@ -47,7 +47,7 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left"><a href="javascript:;" (click)="showSport(item.Id, item.Sport)">{{item.Sport}}</a></td>
+  <td class="text-left"><a href="javascript:;" (click)="showLeague(item.Id, item.Site)">{{item.Site}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>

@@ -111,6 +111,13 @@
     <Compile Include="MarginBySite\MarginBySiteItemModel.cs" />
     <Compile Include="MarginBySite\MarginBySiteService.cs" />
     <Compile Include="MarginBySite\SBPerformanceMarginBySiteController.cs" />
+    <Compile Include="MarginBySport\MarginBySportCriteria.cs" />
+    <Compile Include="MarginBySport\MarginBySportEntity.cs" />
+    <Compile Include="MarginBySport\MarginBySportHandler.cs" />
+    <Compile Include="MarginBySport\MarginBySportHttpParameter.cs" />
+    <Compile Include="MarginBySport\MarginBySportItemModel.cs" />
+    <Compile Include="MarginBySport\MarginBySportService.cs" />
+    <Compile Include="MarginBySport\SBPerformanceMarginBySportController.cs" />
     <Compile Include="SBPerformanceAttribute.cs" />
     <Compile Include="Common\DataSourceChooser.cs" />
     <Compile Include="Main\Criteria.cs" />

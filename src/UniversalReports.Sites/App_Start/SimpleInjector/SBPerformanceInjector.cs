@@ -2,6 +2,7 @@
 using UniversalReports.SBPerformance.Common;
 using UniversalReports.SBPerformance.Main;
 using UniversalReports.SBPerformance.MarginBySite;
+using UniversalReports.SBPerformance.MarginBySport;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -12,6 +13,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<DataSourceChooser, DataSourceChooserImp>();
             container.Register<MainService, MainServiceImp>();
             container.Register<MarginBySiteService, MarginBySiteServiceImp>();
+            container.Register<MarginBySportService, MarginBySportServiceImp>();
             return container;
         }
     }
