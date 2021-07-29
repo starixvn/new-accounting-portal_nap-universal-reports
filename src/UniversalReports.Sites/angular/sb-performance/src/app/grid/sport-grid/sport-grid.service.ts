@@ -8,8 +8,6 @@ import { SportDataModel } from './sport-grid.model';
   providedIn: 'root'
 })
 export class SportGridService {
-
-  private url = 'api/sb-performance/main/sport';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
@@ -17,14 +15,6 @@ export class SportGridService {
 
     query(): Observable<SportDataModel> {
         const queryModel = this.gridService.queryModel;
-        return this.httpService.post<SportDataModel>(this.url, queryModel);
-    }
-
-    getTitle(): string {
-      return this.gridService.sportTitle;
-    }
-
-    isShowFullColumn(): boolean {
-      return this.gridService.isShowFullColumn;
+        return this.httpService.post<SportDataModel>(this.gridService.api, queryModel);
     }
 }

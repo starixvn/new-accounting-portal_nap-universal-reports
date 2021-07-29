@@ -1,9 +1,12 @@
 import { MainService } from './main.service';
 import { MainItemModel } from './../common/model';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FilterModel } from '../filter/filter.model';
+import { Component } from '@angular/core';
 import { QueryModelService } from '../common/queryModel.service';
 import { GridService } from '../grid/grid.service';
+import { ApiConstant, ReportTypeConstant } from '../grid/grid.constant';
+import { Grid, GridType } from '../grid/grid.model';
+import { Observable } from 'rxjs-compat/Observable';
+import { DrillDownModel } from '../main-item/main-item.model';
 
 @Component({
   selector: 'app-main',
@@ -13,52 +16,75 @@ import { GridService } from '../grid/grid.service';
     MainService,
     QueryModelService]
 })
-export class MainComponent implements OnChanges {
-  @Input() filterModel: FilterModel;
+export class MainComponent implements Grid {
   siteData: MainItemModel;
   sportData: MainItemModel;
   usernameData: MainItemModel;
   leagueData: MainItemModel;
   isShowFullColumn = false;
-  isHaveDrillDown = false;
 
   constructor(
     private readonly mainService: MainService,
     private readonly gridService: GridService
   ) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!this.filterModel) {
-      return;
-    }
+  query() {
+      return new Observable(observer => {
 
-    this.isShowFullColumn = this.filterModel.isShowFullColumn;
-    this.gridService.queryModel = null;
+        this.mainService.query(this.gridService.filterModel, true, false, false, false).subscribe(data => {
+          this.siteData = data;
+        });
 
-    this.mainService.query(this.filterModel, true, false, false, false).subscribe(data => {
-      this.isHaveDrillDown = false;
-      this.siteData = data;
-    });
+        this.mainService.query(this.gridService.filterModel, false, true, false, false).subscribe(data => {
+          this.sportData = data;
+        });
 
-    this.mainService.query(this.filterModel, false, true, false, false).subscribe(data => {
-      this.sportData = data;
-    });
+        this.mainService.query(this.gridService.filterModel, false, false, true, false).subscribe(data => {
+          this.leagueData = data;
+        });
 
-    this.mainService.query(this.filterModel, false, false, true, false).subscribe(data => {
-      this.leagueData = data;
-    });
+        this.mainService.query(this.gridService.filterModel, false, false, false, true).subscribe(data => {
+          this.usernameData = data;
+        });
 
-    this.mainService.query(this.filterModel, false, false, false, true).subscribe(data => {
-      this.usernameData = data;
+        this.isShowFullColumn = this.gridService.filterModel.isShowFullColumn;
+
+        observer.complete();
     });
   }
 
-  showGrid(model: object, mainTitle: string, title: string, reportType: number) {
-    this.isHaveDrillDown = true;
-    this.gridService.gridType = reportType;
-    this.gridService.queryModel = model;
+  sort(sortColumnName: string) {}
+
+  get title(): string {
+    return 'Main';
+  }
+
+  showGrid(data: DrillDownModel, mainTitle: string, reportType: number) {
+    let gridType = GridType.Sport;
+    let model: any;
+    switch ( reportType ) {
+      case ReportTypeConstant.MARGIN_BY_SITE:
+          this.gridService.api = ApiConstant.MARGIN_BY_SITE;
+          this.gridService.sportTitle = data.name;
+          model = {
+            SiteId: data.id,
+            SportId: null,
+            LeagueId: null,
+            LiveIndicator: null,
+            MatchId: null
+          };
+          break;
+      case ReportTypeConstant.MARGIN_BY_SPORT:
+          this.gridService.api = ApiConstant.MARGIN_BY_SPORT;
+          break;
+      case ReportTypeConstant.TOP_WINNING_MEMBERS:
+          this.gridService.api = ApiConstant.TOP_WINNING_MEMBERS;
+          break;
+      default:
+        this.gridService.api = ApiConstant.TOP_LOSING_LEAGUES;
+        break;
+   }
     this.gridService.mainTitle = mainTitle;
-    this.gridService.sportTitle = title;
-    this.gridService.isShowFullColumn = this.isShowFullColumn;
+    this.gridService.generate(gridType, model);
   }
 }

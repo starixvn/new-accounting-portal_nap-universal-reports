@@ -9,7 +9,6 @@ import { EventDataModel } from './event-grid.model';
 })
 export class EventGridService {
 
-  private url = 'api/sb-performance/main/event';
     constructor(
         private httpService: HttpService,
         private gridService: GridService
@@ -17,14 +16,7 @@ export class EventGridService {
 
     query(): Observable<EventDataModel> {
         const queryModel = this.gridService.queryModel;
-        return this.httpService.post<EventDataModel>(this.url, queryModel);
+        return this.httpService.post<EventDataModel>(this.gridService.api, queryModel);
     }
 
-    getTitle(): string {
-      return this.gridService.sportTitle;
-    }
-
-    isShowFullColumn(): boolean {
-      return this.gridService.isShowFullColumn;
-    }
 }

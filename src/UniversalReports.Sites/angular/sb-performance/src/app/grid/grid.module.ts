@@ -9,14 +9,22 @@ import { NumberFormatModule } from 'nap-components/number-format';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { SportGridComponent } from './sport-grid/sport-grid.component';
 import { EventGridComponent } from './event-grid/event-grid.component';
+import { MatchGridComponent } from './match-grid/match-grid.component';
+import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
+import { MainComponent } from '../main/main.component';
+import { MainItemComponent } from '../main-item/main-item.component';
 
 @NgModule({
   declarations: [
     GridComponent,
+    MainComponent,
+    MainItemComponent,
     SiteGridComponent,
     LeagueGridComponent,
     SportGridComponent,
-    EventGridComponent
+    EventGridComponent,
+    MatchGridComponent,
+    BettypeGridComponent
   ],
   imports: [
     CommonModule,

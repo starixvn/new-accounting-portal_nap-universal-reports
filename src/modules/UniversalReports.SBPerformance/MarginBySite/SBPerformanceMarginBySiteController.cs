@@ -2,20 +2,20 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace UniversalReports.SBPerformance.League
+namespace UniversalReports.SBPerformance.MarginBySite
 {
     [RoutePrefix("api/sb-performance/main")]
-    public class SBPerformanceLeagueController : ApiController
+    public class SBPerformanceMarginBySiteController : ApiController
     {
         private readonly IMediator mediator;
 
-        public SBPerformanceLeagueController(IMediator mediator)
+        public SBPerformanceMarginBySiteController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
-        [Route("league")]
-        public async Task<IHttpActionResult> Site(LeagueHttpParameter httpParameters)
+        [Route("margin-by-site")]
+        public async Task<IHttpActionResult> Site(MarginBySiteHttpParameter httpParameters)
         {
             var viewModel = await mediator.Send(httpParameters);
             return Json(viewModel);

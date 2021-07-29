@@ -36,11 +36,11 @@ export class LeagueGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.leagueGridService.getTitle();
+      return this.gridService.leagueTitle;
     }
 
     get isShowFullColumn(): boolean {
-      return this.leagueGridService.isShowFullColumn();
+      return this.gridService.filterModel.isShowFullColumn;
     }
 
     sort(sortColumnName: string) {
@@ -55,7 +55,7 @@ export class LeagueGridComponent implements Grid {
 
     showEvent(id: string, event: string) {
       this.gridService.eventTitle = event;
-      this.gridService.generate(GridType.Event, { LeagueId: id });
+      this.gridService.generate(GridType.Event, { LeagueId: Number(id), LiveIndicator: null, MatchId: null });
     }
 
 }

@@ -8,22 +8,28 @@ import * as _ from 'lodash';
 import { LeagueGridComponent } from './league-grid/league-grid.component';
 import { SportGridComponent } from './sport-grid/sport-grid.component';
 import { EventGridComponent } from './event-grid/event-grid.component';
+import { MatchGridComponent } from './match-grid/match-grid.component';
+import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   entryComponents: [
+    MainComponent,
     SportGridComponent,
     LeagueGridComponent,
-    EventGridComponent
+    EventGridComponent,
+    MatchGridComponent,
+    BettypeGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
   @Input() filterModel: FilterModel;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  gridType = GridType.Sport;
+  gridType = GridType.Main;
   breadcrumbItems: string[];
   private components: ComponentRef<Grid>[] = [];
 
@@ -47,8 +53,8 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
       const component = this.components.pop();
       component.destroy();
     }
-
-    this.gridType = this.service.gridType;
+    this.gridType = GridType.Main;
+    this.service.filterModel = this.filterModel;
     this.service.queryModel = _.assign(this.filterModel, this.service.queryModel);
     this.createGridComponent();
   }
@@ -61,12 +67,18 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
 
   private getComponentFactory(): ComponentFactory<Grid> {
     switch (this.gridType) {
+        case GridType.Main:
+            return this.componentFactoryResolver.resolveComponentFactory(MainComponent);
         case GridType.Sport:
             return this.componentFactoryResolver.resolveComponentFactory(SportGridComponent);
         case GridType.League:
             return this.componentFactoryResolver.resolveComponentFactory(LeagueGridComponent);
         case GridType.Event:
             return this.componentFactoryResolver.resolveComponentFactory(EventGridComponent);
+        case GridType.Match:
+            return this.componentFactoryResolver.resolveComponentFactory(MatchGridComponent);
+        case GridType.BetType:
+            return this.componentFactoryResolver.resolveComponentFactory(BettypeGridComponent);
         default:
             throw new Error('Not implemented yet');
     }
@@ -92,7 +104,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
   private updateBreadcrumb() {
     this.breadcrumbItems = [];
     this.components.forEach((component, index) => {
-      const componentTitle = component.instance.title;
+      const componentTitle = index === 0 ? this.service.mainTitle : component.instance.title;
       this.breadcrumbItems.push(componentTitle);
     });
   }

@@ -13,7 +13,9 @@ export class GridService {
   leagueTitle: string;
   sportTitle: string;
   eventTitle: string;
-  isShowFullColumn: boolean;
+  matchTitle: string;
+  betTypeTitle: string;
   gridType: GridType;
+  api: string;
   generate: (gridType: GridType, queryModel: any) => void;
 }

@@ -4,37 +4,37 @@ using Linq.DynamicSum;
 using System.Threading.Tasks;
 using UniversalReports.SBPerformance.Common;
 
-namespace UniversalReports.SBPerformance.Sport
+namespace UniversalReports.SBPerformance.MarginBySite
 {
-    public interface SportService
+    public interface MarginBySiteService
     {
-        Task<SummaryEntity<SportItemModel>> Query(SportHttpParameter parammeter);
+        Task<SummaryEntity<MarginBySiteItemModel>> Query(MarginBySiteHttpParameter parammeter);
     }
 
-    public class SportServiceImp : SportService
+    public class MarginBySiteServiceImp : MarginBySiteService
     {
         private readonly IDynamicRepository repository;
         private readonly DataSourceChooser dataSourceChooser;
 
-        public SportServiceImp(IDynamicRepository repository, DataSourceChooser dataSourceChooser)
+        public MarginBySiteServiceImp(IDynamicRepository repository, DataSourceChooser dataSourceChooser)
         {
             this.repository = repository;
             this.dataSourceChooser = dataSourceChooser;
         }
 
-        public async Task<SummaryEntity<SportItemModel>> Query(SportHttpParameter parammeter)
+        public async Task<SummaryEntity<MarginBySiteItemModel>> Query(MarginBySiteHttpParameter parammeter)
         {
-            var criteria = Mapper.Map<SportCriteria>(parammeter);
+            var criteria = Mapper.Map<MarginBySiteCriteria>(parammeter);
             criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
-            var summaryEntities = (await repository.FetchAsync<SportEntity>(criteria)).CalculateSummaryEntity();
+            var summaryEntities = (await repository.FetchAsync<MarginBySiteEntity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);
             return result;
         }
 
-        private SummaryEntity<SportItemModel> BindingItems(bool isShowFullColumn, SummaryEntity<SportEntity> entities)
+        private SummaryEntity<MarginBySiteItemModel> BindingItems(bool isShowFullColumn, SummaryEntity<MarginBySiteEntity> entities)
         {
-            var result = new SummaryEntity<SportItemModel>();
+            var result = new SummaryEntity<MarginBySiteItemModel>();
             foreach (var entity in entities.Entities)
             {
                 var item = BindingItem(isShowFullColumn, entity);
@@ -47,15 +47,21 @@ namespace UniversalReports.SBPerformance.Sport
             return result;
         }
 
-        private SportItemModel BindingItem(bool isShowFullColumn, SportEntity entity)
+        private MarginBySiteItemModel BindingItem(bool isShowFullColumn, MarginBySiteEntity entity)
         {
             var income = isShowFullColumn ? entity.RealIncome : 0;
             var turnover = isShowFullColumn ? entity.RealTurnover : 0;
 
-            return new SportItemModel
+            return new MarginBySiteItemModel
             {
                 Id = entity.Id,
                 Sport = entity.Sport,
+                League = entity.League,
+                Event = entity.Event,
+                Match = entity.Match,
+                BetType = entity.BetType,
+                NoBetTypes = entity.NoBetTypes,
+                NoMatches = entity.NoMatches,
                 ActiveMembers = entity.ActiveMembers,
                 BetCount = entity.BetCount,
                 RealIncome = income,

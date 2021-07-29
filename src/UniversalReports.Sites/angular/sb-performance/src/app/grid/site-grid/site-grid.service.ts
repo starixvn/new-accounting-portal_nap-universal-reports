@@ -19,12 +19,4 @@ export class SiteGridService {
         return this.httpService.post<SiteDataModel>(this.url, queryModel);
     }
 
-    getTitle(): string {
-      return this.gridService.sportTitle;
-    }
-
-    isShowFullColumn(): boolean {
-      return this.gridService.isShowFullColumn;
-    }
-
 }

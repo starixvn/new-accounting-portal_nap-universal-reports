@@ -35,11 +35,11 @@ export class SiteGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.siteGridService.getTitle();
+        return this.gridService.sportTitle;
     }
 
     get isShowFullColumn(): boolean {
-      return this.siteGridService.isShowFullColumn();
+      return this.gridService.filterModel.isShowFullColumn;
     }
 
     sort(sortColumnName: string) {

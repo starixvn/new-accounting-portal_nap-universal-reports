@@ -2,7 +2,6 @@ import { AuthenticationModule } from 'nap-components/authentication';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
 import { FilterComponent } from './filter/filter.component';
 import { DateModule } from 'nap-components/date';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +12,6 @@ import { AppService } from './app.service';
 import * as moment from 'moment';
 import { CustomNavbarService } from './custom-navbar-service';
 import { HttpModule } from 'nap-components/http/http.module';
-import { MainItemComponent } from './main-item/main-item.component';
 import { NumberFormatModule } from 'nap-components/number-format';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from './grid/grid.module';
@@ -21,9 +19,7 @@ import { GridModule } from './grid/grid.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    FilterComponent,
-    MainItemComponent
+    FilterComponent
   ],
   imports: [
     BrowserModule,

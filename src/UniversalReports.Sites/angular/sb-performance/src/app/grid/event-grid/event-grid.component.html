@@ -60,8 +60,8 @@
 
 <ng-template #rowItem let-item="item">
   <td class="text-left">{{item.Event}}</td>
-  <td class="text-right"><a href="javascript:;" (click)="showMatches(item.Event, item.NoMatches)">{{item.NoMatches}}</a></td>
-  <td class="text-right"><a href="javascript:;" (click)="showBetTypes(item.Event, item.NoBetTypes)">{{item.NoBetTypes}}</a></td>
+  <td class="text-right"><a href="javascript:;" (click)="showMatches(item.Id, item.Event)">{{item.NoMatches}}</a></td>
+  <td class="text-right"><a href="javascript:;" (click)="showBetTypes(item.Id, item.Event)">{{item.NoBetTypes}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>

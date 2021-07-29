@@ -1,10 +1,10 @@
-﻿using Fanex.Data;
-using Fanex.Data.Repository;
+﻿using Linq.DynamicSum;
+using MediatR;
 using System;
 
-namespace UniversalReports.SBPerformance.Sport
+namespace UniversalReports.SBPerformance.MarginBySite
 {
-    public class SportCriteria : CriteriaBase
+    public class MarginBySiteHttpParameter : IRequest<SummaryEntity<MarginBySiteItemModel>>
     {
         public DateTime FromDate { get; set; }
 
@@ -32,11 +32,6 @@ namespace UniversalReports.SBPerformance.Sport
 
         public int? MatchID { get; set; }
 
-        [SpParam(Ignored = true)]
-        public string Source { get; set; }
-
-        public override string GetSettingKey() => $"SBPerformanceMonitor-Site-{Source}";
-
-        public override bool IsValid() => true;
+        public bool IsShowFullColumn { get; set; }
     }
 }

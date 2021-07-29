@@ -36,11 +36,11 @@ export class EventGridComponent implements Grid {
     }
 
     get title(): string {
-        return this.eventGridService.getTitle();
+      return this.gridService.eventTitle;
     }
 
     get isShowFullColumn(): boolean {
-      return this.eventGridService.isShowFullColumn();
+      return this.gridService.filterModel.isShowFullColumn;
     }
 
     sort(sortColumnName: string) {
@@ -53,14 +53,13 @@ export class EventGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showMatches(event: string, matchId: string) {
-      // this.gridService.leagueTitle = event;
-      // this.gridService.generate(GridType.Event, { SportId: id });
+    showMatches(id: string, event: string) {
+      this.gridService.matchTitle = event;
+      this.gridService.generate(GridType.Match, { LiveIndicator: Number(id), ShowBy: 'Match', MatchId: null });
     }
 
-    showBetTypes(event: string, betTypeId: string) {
-      // this.gridService.leagueTitle = event;
-      // this.gridService.generate(GridType.Event, { SportId: id });
+    showBetTypes(id: string, event: string) {
+      this.gridService.betTypeTitle = event;
+      this.gridService.generate(GridType.BetType, { LiveIndicator: Number(id), ShowBy: 'BetType', MatchId: null });
     }
-
 }
