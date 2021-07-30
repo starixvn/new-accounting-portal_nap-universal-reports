@@ -13,6 +13,7 @@ import { MatchGridComponent } from './match-grid/match-grid.component';
 import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { MainComponent } from '../main/main.component';
 import { MainItemComponent } from '../main-item/main-item.component';
+import { UsernameGridComponent } from './username-grid/username-grid.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MainItemComponent } from '../main-item/main-item.component';
     SportGridComponent,
     EventGridComponent,
     MatchGridComponent,
-    BettypeGridComponent
+    BettypeGridComponent,
+    UsernameGridComponent
   ],
   imports: [
     CommonModule,

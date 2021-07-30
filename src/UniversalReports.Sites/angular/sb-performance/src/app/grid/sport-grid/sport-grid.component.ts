@@ -54,6 +54,6 @@ export class SportGridComponent implements Grid {
 
     showLeague(id: string, sport: string) {
       this.gridService.leagueTitle = sport;
-      this.gridService.generate(GridType.League, { SportId: Number(id), LeagueId: null, LiveIndicator: null, MatchId: null });
+      this.gridService.generate(GridType.League, { SportId: Number(id), LeagueId: null, LiveIndicator: null, MatchId: null, ShowBy: null });
     }
 }

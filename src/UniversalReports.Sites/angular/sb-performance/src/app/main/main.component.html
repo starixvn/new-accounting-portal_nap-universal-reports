@@ -2,17 +2,17 @@
   <div>
     <div class="block-item">
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sites"
-        (drilDownClick)="showGrid($event, 'Margin by Sites', 0)" firstColumnHeader="Site" [items]="siteData"></app-main-item>
+        (drilDownClick)="showGrid($event, 0)" firstColumnHeader="Site" [items]="siteData"></app-main-item>
       <br>
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top winning members" isChangedColumnName="true"
-      (drilDownClick)="showGrid($event, 'Top Winning Members', 2)" firstColumnHeader="Username" [items]="usernameData"></app-main-item>
+      (drilDownClick)="showGrid($event, 2)" firstColumnHeader="Username" [items]="usernameData"></app-main-item>
     </div>
     <div class="block-item">
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sports"
-      (drilDownClick)="showGrid($event, 'Margin by Sports', 1)" firstColumnHeader="Sport" [items]="sportData"></app-main-item>
+      (drilDownClick)="showGrid($event, 1)" firstColumnHeader="Sport" [items]="sportData"></app-main-item>
       <br>
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top losing leagues"
-      (drilDownClick)="showGrid($event, 'Top Losing Leagues', 3)" firstColumnHeader="League" [items]="leagueData"></app-main-item>
+      (drilDownClick)="showGrid($event, 3)" firstColumnHeader="League" [items]="leagueData"></app-main-item>
     </div>
   </div>
 </div>

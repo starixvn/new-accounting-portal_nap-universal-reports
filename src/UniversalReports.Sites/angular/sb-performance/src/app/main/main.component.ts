@@ -59,9 +59,10 @@ export class MainComponent implements Grid {
     return 'Main';
   }
 
-  showGrid(data: DrillDownModel, mainTitle: string, reportType: number) {
+  showGrid(data: DrillDownModel, reportType: number) {
     let gridType = GridType.Sport;
     let model: any;
+    let mainTitle = ReportTypeConstant.MARGIN_BY_SITE_TEXT;
     switch ( reportType ) {
       case ReportTypeConstant.MARGIN_BY_SITE:
           this.gridService.api = ApiConstant.MARGIN_BY_SITE;
@@ -78,6 +79,7 @@ export class MainComponent implements Grid {
           this.gridService.api = ApiConstant.MARGIN_BY_SPORT;
           gridType = GridType.Site;
           this.gridService.siteTitle = data.name;
+          mainTitle = ReportTypeConstant.MARGIN_BY_SPORT_TEXT;
           model = {
             SportId: data.id,
             SiteId: null,
@@ -90,9 +92,19 @@ export class MainComponent implements Grid {
           this.gridService.api = ApiConstant.TOP_WINNING_MEMBERS;
           break;
       default:
-        this.gridService.api = ApiConstant.TOP_LOSING_LEAGUES;
-        break;
-   }
+          this.gridService.api = ApiConstant.TOP_LOSING_LEAGUES;
+          gridType = GridType.Site;
+          this.gridService.siteTitle = data.name;
+          mainTitle = ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
+          model = {
+            LeagueId: data.id,
+            SiteId: null,
+            LiveIndicator: null,
+            MatchId: null,
+            BetType: null
+          };
+          break;
+    }
     this.gridService.mainTitle = mainTitle;
     this.gridService.generate(gridType, model);
   }

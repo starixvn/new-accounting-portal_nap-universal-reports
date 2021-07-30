@@ -47,7 +47,9 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left">{{item.BetType}}</td>
+  <td *ngIf="!isShowBettypeDrillDown" class="text-left">{{item.BetType}}</td>
+  <td *ngIf="isShowBettypeDrillDown" class="text-left"><a href="javascript:;"
+    (click)="showUsername(item.Id, item.BetType)">{{item.BetType}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>

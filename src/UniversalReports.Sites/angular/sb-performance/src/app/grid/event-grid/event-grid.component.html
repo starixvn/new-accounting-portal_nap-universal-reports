@@ -1,8 +1,8 @@
 <ng-template #colgroup>
   <colgroup>
     <col style="width: 250px" />
-    <col style="width: 100px" />
-    <col style="width: 100px" />
+    <col *ngIf="isShowNoMatchesAndNoBetTypeColumn" style="width: 100px" />
+    <col *ngIf="isShowNoMatchesAndNoBetTypeColumn" style="width: 100px" />
     <col style="width: 100px" />
     <col style="width: 150px" />
     <col style="width: 120px" />
@@ -19,12 +19,12 @@
         'fa-sort-asc': (sortColumnName == 'Event' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'Event' && sortDirection == 'asc')}"></i>
       </th>
-      <th scope="col" (click)="sort('NoMatches')">No. Matches
+      <th *ngIf="isShowNoMatchesAndNoBetTypeColumn" scope="col" (click)="sort('NoMatches')">No. Matches
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'NoMatches',
         'fa-sort-asc': (sortColumnName == 'NoMatches' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'NoMatches' && sortDirection == 'asc')}"></i>
       </th>
-      <th scope="col" (click)="sort('NoBetTypes')">No. BetTypes
+      <th *ngIf="isShowNoMatchesAndNoBetTypeColumn" scope="col" (click)="sort('NoBetTypes')">No. BetTypes
         <i class="fa" [ngClass]="{'fa-sort': sortColumnName != 'NoBetTypes',
         'fa-sort-asc': (sortColumnName == 'NoBetTypes' && sortDirection == 'desc'),
         'fa-sort-desc': (sortColumnName == 'NoBetTypes' && sortDirection == 'asc')}"></i>
@@ -59,9 +59,13 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left">{{item.Event}}</td>
-  <td class="text-right"><a href="javascript:;" (click)="showMatches(item.Id, item.Event)">{{item.NoMatches}}</a></td>
-  <td class="text-right"><a href="javascript:;" (click)="showBetTypes(item.Id, item.Event)">{{item.NoBetTypes}}</a></td>
+  <td *ngIf="isShowNoMatchesAndNoBetTypeColumn" class="text-left">{{item.Event}}</td>
+  <td *ngIf="!isShowNoMatchesAndNoBetTypeColumn" class="text-left"><a href="javascript:;"
+    (click)="showMatches(item.Id, item.Event)">{{item.Event}}</a></td>
+  <td *ngIf="isShowNoMatchesAndNoBetTypeColumn" class="text-right"><a href="javascript:;"
+    (click)="showMatches(item.Id, item.Event)">{{item.NoMatches}}</a></td>
+  <td *ngIf="isShowNoMatchesAndNoBetTypeColumn" class="text-right"><a href="javascript:;"
+    (click)="showBetTypes(item.Id, item.Event)">{{item.NoBetTypes}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
@@ -73,8 +77,8 @@
 
 <ng-template #rowTotalItem let-item="item">
   <td class="text-right">Total</td>
-  <td class="text-right" [napIntegerFormat]="item.NoMatches"></td>
-  <td class="text-right" [napIntegerFormat]="item.NoBetTypes"></td>
+  <td *ngIf="isShowNoMatchesAndNoBetTypeColumn" class="text-right" [napIntegerFormat]="item.NoMatches"></td>
+  <td *ngIf="isShowNoMatchesAndNoBetTypeColumn" class="text-right" [napIntegerFormat]="item.NoBetTypes"></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
@@ -86,7 +90,7 @@
 
 <div *ngIf="data" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 1080px;">
+    <div [style.width]="isShowNoMatchesAndNoBetTypeColumn ? '1080px' : '880px'">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -108,7 +112,7 @@
         <table>
           <tbody>
             <tr>
-              <th class="no-data" colspan="8">
+              <th class="no-data" [attr.colspan]="isShowNoMatchesAndNoBetTypeColumn ? 8 : 6">
                 The data is not available.
               </th>
             </tr>

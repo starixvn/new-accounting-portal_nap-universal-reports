@@ -5,6 +5,7 @@ import { SiteGridService } from './site-grid.service';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { GridService } from '../grid.service';
+import { ReportTypeConstant } from '../grid.constant';
 
 @Component({
   selector: 'app-site-grid',
@@ -42,6 +43,10 @@ export class SiteGridComponent implements Grid {
       return this.gridService.filterModel.isShowFullColumn;
     }
 
+    get isShowNoMatchesColumn(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
+    }
+
     sort(sortColumnName: string) {
       if (this.sortColumnName !== sortColumnName) {
         this.sortDirection = '';
@@ -52,8 +57,20 @@ export class SiteGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showLeague(id: string, site: string) {
-      this.gridService.leagueTitle = site;
-      this.gridService.generate(GridType.League, { SiteId: id, LeagueId: null, LiveIndicator: null, MatchId: null});
+    showLeagueOrEvent(id: string, site: string) {
+      if (this.isShowNoMatchesColumn) {
+        this.gridService.eventTitle = site;
+        this.gridService.generate(GridType.Event, { SiteId: Number(id), LiveIndicator: null,
+          MatchId: null, BetType: null, ShowBy: 'Event'});
+      } else {
+        this.gridService.leagueTitle = site;
+        this.gridService.generate(GridType.League, { SiteId: Number(id), LeagueId: null, LiveIndicator: null, MatchId: null, ShowBy: null});
+      }
+    }
+
+    showMatches(id: string, site: string) {
+      this.gridService.matchTitle = site;
+      this.gridService.generate(GridType.Match, {  SiteId: Number(id), LiveIndicator: null,
+        BetType: null, ShowBy: 'Match', MatchId: null });
     }
 }

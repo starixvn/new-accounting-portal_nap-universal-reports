@@ -16,7 +16,7 @@ export class GridService {
   matchTitle: string;
   betTypeTitle: string;
   siteTitle: string;
-  gridType: GridType;
+  usernameTitle: string;
   api: string;
   generate: (gridType: GridType, queryModel: any) => void;
 }

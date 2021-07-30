@@ -2,6 +2,7 @@
 using UniversalReports.SBPerformance.Main;
 using UniversalReports.SBPerformance.MarginBySite;
 using UniversalReports.SBPerformance.MarginBySport;
+using UniversalReports.SBPerformance.TopLosingLeague;
 
 namespace UniversalReports.SBPerformance
 {
@@ -12,6 +13,7 @@ namespace UniversalReports.SBPerformance
             cfg.CreateMap<HttpParameter, Criteria>();
             cfg.CreateMap<MarginBySiteHttpParameter, MarginBySiteCriteria>();
             cfg.CreateMap<MarginBySportHttpParameter, MarginBySportCriteria>();
+            cfg.CreateMap<TopLosingLeagueHttpParameter, TopLosingLeagueCriteria>();
         }
     }
 }

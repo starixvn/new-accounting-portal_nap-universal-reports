@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs-compat/Observable';
+import { ReportTypeConstant } from '../grid.constant';
 import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { EventDataModel } from './event-grid.model';
@@ -41,6 +42,10 @@ export class EventGridComponent implements Grid {
 
     get isShowFullColumn(): boolean {
       return this.gridService.filterModel.isShowFullColumn;
+    }
+
+    get isShowNoMatchesAndNoBetTypeColumn(): boolean {
+      return this.gridService.mainTitle !== ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
     }
 
     sort(sortColumnName: string) {

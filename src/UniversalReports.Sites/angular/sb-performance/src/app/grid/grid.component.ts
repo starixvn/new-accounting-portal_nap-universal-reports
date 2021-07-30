@@ -12,6 +12,7 @@ import { MatchGridComponent } from './match-grid/match-grid.component';
 import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { MainComponent } from '../main/main.component';
 import { SiteGridComponent } from './site-grid/site-grid.component';
+import { UsernameGridComponent } from './username-grid/username-grid.component';
 
 @Component({
   selector: 'app-grid',
@@ -24,7 +25,8 @@ import { SiteGridComponent } from './site-grid/site-grid.component';
     EventGridComponent,
     MatchGridComponent,
     BettypeGridComponent,
-    SiteGridComponent
+    SiteGridComponent,
+    UsernameGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
@@ -83,6 +85,8 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
             return this.componentFactoryResolver.resolveComponentFactory(BettypeGridComponent);
         case GridType.Site:
             return this.componentFactoryResolver.resolveComponentFactory(SiteGridComponent);
+        case GridType.Username:
+            return this.componentFactoryResolver.resolveComponentFactory(UsernameGridComponent);
         default:
             throw new Error('Not implemented yet');
     }

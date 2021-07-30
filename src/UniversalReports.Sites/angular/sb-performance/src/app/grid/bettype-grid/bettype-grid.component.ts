@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs-compat/Observable';
+import { ReportTypeConstant } from '../grid.constant';
 import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { BetTypeDataModel } from './bettype-grid.model';
@@ -42,6 +43,10 @@ export class BettypeGridComponent implements Grid {
       return this.gridService.filterModel.isShowFullColumn;
     }
 
+    get isShowBettypeDrillDown(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
+    }
+
     sort(sortColumnName: string) {
       if (this.sortColumnName !== sortColumnName) {
         this.sortDirection = '';
@@ -52,8 +57,8 @@ export class BettypeGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showLeague(id: string, sport: string) {
-      // this.gridService.leagueTitle = sport;
-      // this.gridService.generate(GridType.BetType, { SportId: id, LeagueId: null });
+    showUsername(id: string, bettype: string) {
+      this.gridService.usernameTitle = bettype;
+      this.gridService.generate(GridType.Username, { BetType: Number(id) });
     }
 }
