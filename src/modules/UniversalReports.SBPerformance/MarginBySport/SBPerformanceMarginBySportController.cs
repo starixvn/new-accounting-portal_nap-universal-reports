@@ -15,7 +15,7 @@ namespace UniversalReports.SBPerformance.MarginBySport
         }
 
         [Route("margin-by-sport")]
-        public async Task<IHttpActionResult> Site(MarginBySportHttpParameter httpParameters)
+        public async Task<IHttpActionResult> Sport(MarginBySportHttpParameter httpParameters)
         {
             var viewModel = await mediator.Send(httpParameters);
             return Json(viewModel);

@@ -47,6 +47,10 @@ export class BettypeGridComponent implements Grid {
       return this.gridService.mainTitle === ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
     }
 
+    get isHideActiveMember(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
+    }
+
     sort(sortColumnName: string) {
       if (this.sortColumnName !== sortColumnName) {
         this.sortDirection = '';

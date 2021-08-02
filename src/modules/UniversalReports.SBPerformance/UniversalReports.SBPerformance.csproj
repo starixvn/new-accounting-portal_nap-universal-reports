@@ -132,6 +132,13 @@
     <Compile Include="TopLosingLeague\TopLosingLeagueHttpParameter.cs" />
     <Compile Include="TopLosingLeague\TopLosingLeagueItemModel.cs" />
     <Compile Include="TopLosingLeague\TopLosingLeagueService.cs" />
+    <Compile Include="TopWinningMember\SBPerformanceTopWinningMemberController.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberCriteria.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberEntity.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberHandler.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberHttpParameter.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberItemModel.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\SonarQube\nap-universal-reportscsharp.ruleset">

@@ -15,3 +15,13 @@ export class ReportTypeConstant {
     static readonly TOP_LOSING_LEAGUES = 3;
     static readonly TOP_LOSING_LEAGUES_TEXT = 'Top Losing Leagues';
   }
+
+export class SpecialSportConstant {
+    static readonly PARLAY = 'Parlay';
+  }
+
+export class GridConstant {
+  static readonly CLICK_FROM_SITE = 1;
+  static readonly CLICK_FROM_MATCHES = 2;
+}
+

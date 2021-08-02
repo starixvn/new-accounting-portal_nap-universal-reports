@@ -15,7 +15,7 @@ namespace UniversalReports.SBPerformance.TopLosingLeague
         }
 
         [Route("top-losing-league")]
-        public async Task<IHttpActionResult> Site(TopLosingLeagueHttpParameter httpParameters)
+        public async Task<IHttpActionResult> League(TopLosingLeagueHttpParameter httpParameters)
         {
             var viewModel = await mediator.Send(httpParameters);
             return Json(viewModel);

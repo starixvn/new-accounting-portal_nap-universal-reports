@@ -18,5 +18,6 @@ export class GridService {
   siteTitle: string;
   usernameTitle: string;
   api: string;
+  clickedFromColumn: number;
   generate: (gridType: GridType, queryModel: any) => void;
 }

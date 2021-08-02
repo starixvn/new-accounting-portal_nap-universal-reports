@@ -9,7 +9,7 @@
     </div>
     <div class="block-item">
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Margin(%) by sports"
-      (drilDownClick)="showGrid($event, 1)" firstColumnHeader="Sport" [items]="sportData"></app-main-item>
+      (drilDownClick)="showGrid($event, 1)" firstColumnHeader="Sport" [items]="sportData" isCheckedParlay="true"></app-main-item>
       <br>
       <app-main-item [isShowFullColumn]="isShowFullColumn" title="Top losing leagues"
       (drilDownClick)="showGrid($event, 3)" firstColumnHeader="League" [items]="leagueData"></app-main-item>

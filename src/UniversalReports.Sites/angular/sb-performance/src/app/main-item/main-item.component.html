@@ -41,7 +41,18 @@
 </ng-template>
 
 <ng-template #rowItem let-item="item">
-  <td class="text-left"><a href="javascript:;" (click)="showGrid(item.Id, item.Name)">{{item.Name}}</a></td>
+  <td *ngIf="!isParlay(item.Name)" class="text-left"><a href="javascript:;" (click)="showGrid(item.Id, item.Name)">{{item.Name}}</a></td>
+  <td *ngIf="isParlay(item.Name)" class="text-left">{{item.Name}}</td>
+  <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
+  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
+  <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
+  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealTurnover"></td>
+  <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
+  <td class="text-right" [napPercentFormat]="item.RealMargin"></td>
+</ng-template>
+
+<ng-template #rowTotalItem let-item="item">
+  <td class="text-right">Total</td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
@@ -89,7 +100,7 @@
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tfoot>
             <tr class="total">
-              <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: items.Total }">
+              <ng-template [ngTemplateOutlet]="rowTotalItem" [ngTemplateOutletContext]="{ item: items.Total }">
               </ng-template>
             </tr>
           </tfoot>

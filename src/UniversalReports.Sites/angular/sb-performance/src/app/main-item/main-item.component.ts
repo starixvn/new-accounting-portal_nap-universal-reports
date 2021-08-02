@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { MainItemModel } from '../common/model';
+import { SpecialSportConstant } from '../grid/grid.constant';
 import { DrillDownModel } from './main-item.model';
 
 @Component({
@@ -13,6 +14,7 @@ export class MainItemComponent {
   @Input() firstColumnHeader: string;
   @Input() isShowFullColumn: boolean;
   @Input() isChangedColumnName = false;
+  @Input() isCheckedParlay = false;
   @Input() items: MainItemModel;
   @Output() drilDownClick = new EventEmitter<DrillDownModel>();
   sortColumnName = '';
@@ -33,6 +35,10 @@ export class MainItemComponent {
     this.sortColumnName = sortColumnName;
     this.sortDirection = this.sortDirection !== 'asc' ? 'asc' : 'desc';
     this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
+  }
+
+  isParlay(sport: string): boolean {
+    return this.isCheckedParlay ? sport.trim().toLowerCase() === SpecialSportConstant.PARLAY.toLowerCase() : false;
   }
 
   showGrid(id: string, name: string) {

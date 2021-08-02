@@ -59,12 +59,12 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     }
     this.gridType = GridType.Main;
     this.service.filterModel = this.filterModel;
-    this.service.queryModel = _.assign(this.filterModel, this.service.queryModel);
+    this.service.queryModel = this.filterModel;
     this.createGridComponent();
   }
 
   private generate(gridType: GridType, model: any) {
-    this.service.queryModel = _.assign(this.filterModel, model);
+    this.service.queryModel = _.assign(this.service.filterModel, model);
     this.gridType = gridType;
     this.createGridComponent();
   }

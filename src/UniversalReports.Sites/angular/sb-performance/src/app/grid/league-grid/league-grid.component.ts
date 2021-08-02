@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { LeagueDataModel } from './league-grid.model';
 import { LeagueGridService } from './league-grid.service';
 import { GridService } from '../grid.service';
+import { ReportTypeConstant } from '../grid.constant';
 
 @Component({
   selector: 'app-league-grid',
@@ -41,6 +42,10 @@ export class LeagueGridComponent implements Grid {
 
     get isShowFullColumn(): boolean {
       return this.gridService.filterModel.isShowFullColumn;
+    }
+
+    get isHideActiveMember(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
     }
 
     sort(sortColumnName: string) {

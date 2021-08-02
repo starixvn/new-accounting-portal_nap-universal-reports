@@ -172,6 +172,7 @@
     <Setting Key="SBPerformanceMonitor-Site-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SBPerformanceMonitor-Sport-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Sport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SBPerformanceMonitor-League-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_League" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SBPerformanceMonitor-Member-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="SMA Win Loss">
     <Setting Key="SMAWinLoss-CurrencySel" SpName="Acc_Rpt_SMAWinlossSummary_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />

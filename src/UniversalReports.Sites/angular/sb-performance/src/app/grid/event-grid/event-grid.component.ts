@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs-compat/Observable';
-import { ReportTypeConstant } from '../grid.constant';
+import { GridConstant, ReportTypeConstant } from '../grid.constant';
 import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { EventDataModel } from './event-grid.model';
@@ -48,6 +48,10 @@ export class EventGridComponent implements Grid {
       return this.gridService.mainTitle !== ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT;
     }
 
+    get isHideActiveMember(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
+    }
+
     sort(sortColumnName: string) {
       if (this.sortColumnName !== sortColumnName) {
         this.sortDirection = '';
@@ -58,13 +62,24 @@ export class EventGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showMatches(id: string, event: string) {
-      this.gridService.matchTitle = event;
-      this.gridService.generate(GridType.Match, { LiveIndicator: Number(id), ShowBy: 'Match', MatchId: null });
+    showMatchesOrBetTypes(id: string, event: string) {
+      if (!this.isShowNoMatchesAndNoBetTypeColumn &&
+          this.gridService.clickedFromColumn === GridConstant.CLICK_FROM_SITE) {
+        this.gridService.matchTitle = event;
+        this.gridService.generate(GridType.Match, { LiveIndicator: Number(id), ShowBy: 'Event', MatchId: null, BetType: null });
+      } else {
+        this.gridService.betTypeTitle = event;
+        this.gridService.generate(GridType.BetType, { LiveIndicator: Number(id), ShowBy: 'Match', BetType: null });
+      }
     }
 
     showBetTypes(id: string, event: string) {
       this.gridService.betTypeTitle = event;
       this.gridService.generate(GridType.BetType, { LiveIndicator: Number(id), ShowBy: 'BetType', MatchId: null });
+    }
+
+    showMatches(id: string, event: string) {
+      this.gridService.matchTitle = event;
+      this.gridService.generate(GridType.Match, { LiveIndicator: Number(id), ShowBy: 'Match', MatchId: null });
     }
 }

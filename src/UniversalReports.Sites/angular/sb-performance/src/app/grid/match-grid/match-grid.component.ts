@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs-compat/Observable';
+import { GridConstant, ReportTypeConstant } from '../grid.constant';
 import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { MatchDataModel } from './match-grid.model';
@@ -42,6 +43,10 @@ export class MatchGridComponent implements Grid {
       return this.gridService.filterModel.isShowFullColumn;
     }
 
+    get isHideActiveMember(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
+    }
+
     sort(sortColumnName: string) {
       if (this.sortColumnName !== sortColumnName) {
         this.sortDirection = '';
@@ -52,8 +57,15 @@ export class MatchGridComponent implements Grid {
       this.data.Entities = _.orderBy(this.data.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
     }
 
-    showBetType(id: string, match: string) {
-      this.gridService.betTypeTitle = match;
-      this.gridService.generate(GridType.BetType, { ShowBy: 'Match', MatchId: Number(id) });
+    showBetTypeOrEvent(id: string, match: string) {
+      if (this.gridService.mainTitle === ReportTypeConstant.TOP_LOSING_LEAGUES_TEXT
+          && this.gridService.clickedFromColumn === GridConstant.CLICK_FROM_MATCHES) {
+        this.gridService.eventTitle = match;
+        this.gridService.generate(GridType.Event, { ShowBy: 'Match', MatchId: Number(id), LiveIndicator: null, BetType: null });
+      } else {
+        this.gridService.betTypeTitle = match;
+        this.gridService.generate(GridType.BetType, { ShowBy: 'Match', MatchId: Number(id), BetType: null });
+      }
+
     }
 }

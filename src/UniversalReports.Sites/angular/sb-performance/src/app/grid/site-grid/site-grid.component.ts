@@ -5,7 +5,7 @@ import { SiteGridService } from './site-grid.service';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import { GridService } from '../grid.service';
-import { ReportTypeConstant } from '../grid.constant';
+import { GridConstant, ReportTypeConstant } from '../grid.constant';
 
 @Component({
   selector: 'app-site-grid',
@@ -62,6 +62,7 @@ export class SiteGridComponent implements Grid {
         this.gridService.eventTitle = site;
         this.gridService.generate(GridType.Event, { SiteId: Number(id), LiveIndicator: null,
           MatchId: null, BetType: null, ShowBy: 'Event'});
+        this.gridService.clickedFromColumn = GridConstant.CLICK_FROM_SITE;
       } else {
         this.gridService.leagueTitle = site;
         this.gridService.generate(GridType.League, { SiteId: Number(id), LeagueId: null, LiveIndicator: null, MatchId: null, ShowBy: null});
@@ -72,5 +73,6 @@ export class SiteGridComponent implements Grid {
       this.gridService.matchTitle = site;
       this.gridService.generate(GridType.Match, {  SiteId: Number(id), LiveIndicator: null,
         BetType: null, ShowBy: 'Match', MatchId: null });
+      this.gridService.clickedFromColumn = GridConstant.CLICK_FROM_MATCHES;
     }
 }

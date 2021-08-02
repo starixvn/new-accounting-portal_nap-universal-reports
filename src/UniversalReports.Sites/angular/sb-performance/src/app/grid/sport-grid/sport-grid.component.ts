@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
+import { ReportTypeConstant, SpecialSportConstant } from '../grid.constant';
 import { Grid, GridType } from '../grid.model';
 import { GridService } from '../grid.service';
 import { SportDataModel } from './sport-grid.model';
@@ -40,6 +41,14 @@ export class SportGridComponent implements Grid {
 
     get isShowFullColumn(): boolean {
       return this.gridService.filterModel.isShowFullColumn;
+    }
+
+    get isHideActiveMember(): boolean {
+      return this.gridService.mainTitle === ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
+    }
+
+    isParlay(sport: string): boolean {
+      return sport.trim().toLowerCase() === SpecialSportConstant.PARLAY.toLowerCase();
     }
 
     sort(sortColumnName: string) {

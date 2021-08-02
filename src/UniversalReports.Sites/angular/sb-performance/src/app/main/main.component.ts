@@ -90,6 +90,16 @@ export class MainComponent implements Grid {
           break;
       case ReportTypeConstant.TOP_WINNING_MEMBERS:
           this.gridService.api = ApiConstant.TOP_WINNING_MEMBERS;
+          gridType = GridType.Sport;
+          this.gridService.sportTitle = data.name;
+          mainTitle = ReportTypeConstant.TOP_WINNING_MEMBERS_TEXT;
+          model = {
+            CustId: data.id,
+            SportId: null,
+            LeagueId: null,
+            LiveIndicator: null,
+            MatchId: null
+          };
           break;
       default:
           this.gridService.api = ApiConstant.TOP_LOSING_LEAGUES;
