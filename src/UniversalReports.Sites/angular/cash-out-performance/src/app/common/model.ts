@@ -1,6 +1,7 @@
 export interface TicketModel {
     WLDate: Date;
     Username: string;
+    Currency: string;
     OrigID: number;
     BuyBackID: number;
     CashOutID: number;

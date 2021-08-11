@@ -43,9 +43,9 @@ namespace UniversalReports.CashOutPerformance.Services
             var data = await repository.FetchMultipleAsync<TicketModel, TicketModel, int>(criteria);
             return new TicketViewModel
             {
-                TicketList = data.Item1,
-                TotalTicket = data.Item2.FirstOrDefault(),
-                Total = data.Item3.FirstOrDefault()
+                TicketList = data.firstResultSet,
+                TotalTicket = data.secondResultSet.FirstOrDefault(),
+                Total = data.thirdResultSet.FirstOrDefault()
             };
         }
 

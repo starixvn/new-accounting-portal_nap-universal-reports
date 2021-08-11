@@ -42,6 +42,24 @@ export class FilterComponent implements OnInit {
   });
   selectedSports: number[] = [];
 
+  leagueGroups: FilterItemModel[] = [];
+  leagueGroupTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedLeagueGroups: number[] = [];
+
+  betTypes: FilterItemModel[] = [];
+  betTypeTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedbetTypes: number[] = [];
+
   leagues = '';
   leagueName = '';
   leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
@@ -141,6 +159,8 @@ export class FilterComponent implements OnInit {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
       sports: this.selectedSports.join(','),
+      leagueGroups: this.selectedLeagueGroups.join(','),
+      betTypes: this.selectedbetTypes.join(','),
       sites: this.selectedLicensees.join(','),
       leagues: this.leagues,
       pageIndex: 1,
@@ -157,6 +177,16 @@ export class FilterComponent implements OnInit {
 
     if (this.selectedSports.length === 0) {
       this.toastService.activate(`Please select at least one sport!`);
+      return false;
+    }
+
+    if (this.selectedLeagueGroups.length === 0) {
+      this.toastService.activate(`Please select at least one League Group!`);
+      return false;
+    }
+
+    if (this.selectedbetTypes.length === 0) {
+      this.toastService.activate(`Please select at least one bettype!`);
       return false;
     }
 

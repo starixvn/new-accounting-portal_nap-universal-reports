@@ -49,6 +49,16 @@
         </div>
         <div class="nap-col">
           <div class="nap-group">
+          <label>League Group</label>
+          <div class="nap-control">
+              <ngx-dropdown-treeview #leagueGroupDropdownTreeview [items]="leagueGroups | filterItemTreeview:leagueGroups"
+              [config]="leagueGroupTreeviewConfig" (selectedChange)="selectedLeagueGroups = $event">
+              </ngx-dropdown-treeview>
+          </div>
+          </div>
+      </div>
+        <div class="nap-col">
+          <div class="nap-group">
             <label>League</label>
             <div class="nap-control">
               <nap-dropdown-typeahead [(text)]="leagueName" [query]="leagueNameTypeaheadQuery" [placeholder]="leagueNamePlaceholder">
@@ -56,6 +66,16 @@
             </div>
           </div>
         </div>
+        <div class="nap-col">
+          <div class="nap-group">
+          <label>Bet Type</label>
+          <div class="nap-control">
+              <ngx-dropdown-treeview #betTypeDropdownTreeview [items]="betTypes | filterItemTreeview:betTypes"
+              [config]="betTypeTreeviewConfig" (selectedChange)="selectedbetTypes = $event">
+              </ngx-dropdown-treeview>
+          </div>
+          </div>
+      </div>
         <div class="nap-col col-buttons">
             <label>&nbsp;</label>
             <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
