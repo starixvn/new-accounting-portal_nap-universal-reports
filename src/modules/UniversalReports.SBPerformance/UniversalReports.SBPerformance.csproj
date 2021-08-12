@@ -104,6 +104,20 @@
     <Compile Include="Main\Entity.cs" />
     <Compile Include="Main\MainHandler.cs" />
     <Compile Include="Main\SBPerformanceMainController.cs" />
+    <Compile Include="MarginBySite\MarginBySiteCriteria.cs" />
+    <Compile Include="MarginBySite\MarginBySiteEntity.cs" />
+    <Compile Include="MarginBySite\MarginBySiteHandler.cs" />
+    <Compile Include="MarginBySite\MarginBySiteHttpParameter.cs" />
+    <Compile Include="MarginBySite\MarginBySiteItemModel.cs" />
+    <Compile Include="MarginBySite\MarginBySiteService.cs" />
+    <Compile Include="MarginBySite\SBPerformanceMarginBySiteController.cs" />
+    <Compile Include="MarginBySport\MarginBySportCriteria.cs" />
+    <Compile Include="MarginBySport\MarginBySportEntity.cs" />
+    <Compile Include="MarginBySport\MarginBySportHandler.cs" />
+    <Compile Include="MarginBySport\MarginBySportHttpParameter.cs" />
+    <Compile Include="MarginBySport\MarginBySportItemModel.cs" />
+    <Compile Include="MarginBySport\MarginBySportService.cs" />
+    <Compile Include="MarginBySport\SBPerformanceMarginBySportController.cs" />
     <Compile Include="SBPerformanceAttribute.cs" />
     <Compile Include="Common\DataSourceChooser.cs" />
     <Compile Include="Main\Criteria.cs" />
@@ -111,6 +125,20 @@
     <Compile Include="Main\ItemModel.cs" />
     <Compile Include="Main\MainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopLosingLeague\SBPerformanceTopLosingLeagueController.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueCriteria.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueEntity.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueHandler.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueHttpParameter.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueItemModel.cs" />
+    <Compile Include="TopLosingLeague\TopLosingLeagueService.cs" />
+    <Compile Include="TopWinningMember\SBPerformanceTopWinningMemberController.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberCriteria.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberEntity.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberHandler.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberHttpParameter.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberItemModel.cs" />
+    <Compile Include="TopWinningMember\TopWinningMemberService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\SonarQube\nap-universal-reportscsharp.ruleset">
@@ -129,6 +157,7 @@
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

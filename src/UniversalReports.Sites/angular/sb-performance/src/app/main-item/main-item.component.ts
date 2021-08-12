@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as _ from 'lodash';
 import { MainItemModel } from '../common/model';
+import { SpecialSportConstant } from '../grid/grid.constant';
+import { DrillDownModel } from './main-item.model';
 
 @Component({
   selector: 'app-main-item',
@@ -12,11 +14,14 @@ export class MainItemComponent {
   @Input() firstColumnHeader: string;
   @Input() isShowFullColumn: boolean;
   @Input() isChangedColumnName = false;
+  @Input() isCheckedParlay = false;
   @Input() items: MainItemModel;
+  @Output() drilDownClick = new EventEmitter<DrillDownModel>();
   sortColumnName = '';
   sortDirection = '';
 
-  constructor() { }
+  constructor(
+  ) { }
 
   get hasData(): boolean {
     return this.items !== null && this.items.Entities.length > 0;
@@ -29,6 +34,21 @@ export class MainItemComponent {
 
     this.sortColumnName = sortColumnName;
     this.sortDirection = this.sortDirection !== 'asc' ? 'asc' : 'desc';
-    this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection);
+    this.items.Entities = _.orderBy(this.items.Entities, this.sortColumnName, this.sortDirection !== 'asc' ? 'asc' : 'desc');
+  }
+
+  isParlay(sport: string): boolean {
+    if (_.isNil(sport)) {
+      return false;
+    }
+    return this.isCheckedParlay ? sport.trim().toLowerCase() === SpecialSportConstant.PARLAY.toLowerCase() : false;
+  }
+
+  showGrid(id: string, name: string) {
+    const model: DrillDownModel = {
+      id,
+      name,
+    };
+    this.drilDownClick.emit(model);
   }
 }

@@ -1,6 +1,10 @@
 ﻿using SimpleInjector;
 using UniversalReports.SBPerformance.Common;
 using UniversalReports.SBPerformance.Main;
+using UniversalReports.SBPerformance.MarginBySite;
+using UniversalReports.SBPerformance.MarginBySport;
+using UniversalReports.SBPerformance.TopLosingLeague;
+using UniversalReports.SBPerformance.TopWinningMember;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -10,6 +14,10 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             container.Register<DataSourceChooser, DataSourceChooserImp>();
             container.Register<MainService, MainServiceImp>();
+            container.Register<MarginBySiteService, MarginBySiteServiceImp>();
+            container.Register<MarginBySportService, MarginBySportServiceImp>();
+            container.Register<TopLosingLeagueService, TopLosingLeagueServiceImp>();
+            container.Register<TopWinningMemberService, TopWinningMemberServiceImp>();
             return container;
         }
     }

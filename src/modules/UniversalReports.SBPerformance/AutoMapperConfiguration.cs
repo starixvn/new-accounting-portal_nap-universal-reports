@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
 using UniversalReports.SBPerformance.Main;
+using UniversalReports.SBPerformance.MarginBySite;
+using UniversalReports.SBPerformance.MarginBySport;
+using UniversalReports.SBPerformance.TopLosingLeague;
+using UniversalReports.SBPerformance.TopWinningMember;
 
 namespace UniversalReports.SBPerformance
 {
@@ -8,6 +12,10 @@ namespace UniversalReports.SBPerformance
         public static void InitializeSBPerformance(this IProfileExpression cfg)
         {
             cfg.CreateMap<HttpParameter, Criteria>();
+            cfg.CreateMap<MarginBySiteHttpParameter, MarginBySiteCriteria>();
+            cfg.CreateMap<MarginBySportHttpParameter, MarginBySportCriteria>();
+            cfg.CreateMap<TopLosingLeagueHttpParameter, TopLosingLeagueCriteria>();
+            cfg.CreateMap<TopWinningMemberHttpParameter, TopWinningMemberCriteria>();
         }
     }
 }
