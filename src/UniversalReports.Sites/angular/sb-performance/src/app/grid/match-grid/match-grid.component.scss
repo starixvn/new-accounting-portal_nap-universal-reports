@@ -11,9 +11,17 @@
     .body{
       max-height: 500px !important;
     }
-      .number-negative
-      {
-          color: red;
-      }
+    .number-negative-black.number-negative {
+      color: black;
+    }
+
+    .number-negative-black.number-positive {
+      color: red;
+    }
+
+    .number-negative
+    {
+        color: red;
+    }
 
 }

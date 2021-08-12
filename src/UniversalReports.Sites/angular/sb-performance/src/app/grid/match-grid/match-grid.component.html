@@ -50,22 +50,22 @@
   <td class="text-left"><a href="javascript:;" (click)="showBetTypeOrEvent(item.Id, item.Match)">{{item.Match}}</a></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td *ngIf="!isHideActiveMember" class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
-  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
+  <td *ngIf="isShowFullColumn" class="text-right" [ngClass]="{'number-negative-black': isHideActiveMember}" [napDecimalFormat]="item.RealIncome"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealTurnover"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
-  <td class="text-right" [napPercentFormat]="item.RealMargin"></td>
+  <td class="text-right" [ngClass]="{'number-negative-black': isHideActiveMember}" [napPercentFormat]="item.RealMargin"></td>
 </ng-template>
 
 <ng-template #rowTotalItem let-item="item">
   <td class="text-right">Total</td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td *ngIf="!isHideActiveMember" class="text-right" [napIntegerFormat]="item.ActiveMembers"></td>
-  <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealIncome"></td>
+  <td *ngIf="isShowFullColumn" class="text-right" [ngClass]="{'number-negative-black': isHideActiveMember}" [napDecimalFormat]="item.RealIncome"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
   <td *ngIf="isShowFullColumn" class="text-right" [napDecimalFormat]="item.RealTurnover"></td>
   <td *ngIf="!isShowFullColumn" class="text-right">N/A</td>
-  <td class="text-right" [napPercentFormat]="item.RealMargin"></td>
+  <td class="text-right" [ngClass]="{'number-negative-black': isHideActiveMember}" [napPercentFormat]="item.RealMargin"></td>
 </ng-template>
 
 <div *ngIf="data" [ngSwitch]="hasData">

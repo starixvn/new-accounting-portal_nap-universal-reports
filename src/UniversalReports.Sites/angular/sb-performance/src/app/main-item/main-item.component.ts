@@ -38,6 +38,9 @@ export class MainItemComponent {
   }
 
   isParlay(sport: string): boolean {
+    if (_.isNil(sport)) {
+      return false;
+    }
     return this.isCheckedParlay ? sport.trim().toLowerCase() === SpecialSportConstant.PARLAY.toLowerCase() : false;
   }
 

@@ -48,6 +48,9 @@ export class SportGridComponent implements Grid {
     }
 
     isParlay(sport: string): boolean {
+      if (_.isNil(sport)) {
+        return false;
+      }
       return sport.trim().toLowerCase() === SpecialSportConstant.PARLAY.toLowerCase();
     }
 
