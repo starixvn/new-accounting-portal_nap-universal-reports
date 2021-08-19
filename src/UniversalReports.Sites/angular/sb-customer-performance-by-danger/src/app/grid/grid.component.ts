@@ -51,7 +51,7 @@ export class GridComponent implements OnChanges {
   }
 
   get Title(): string {
-    return `SB Customer Performance By Dangers Report On ${this.filterModel.winlostDate}`;
+    return `SB Customer Performance By Dangers Report From ${this.filterModel.fromDate} To ${this.filterModel.toDate}`;
   }
 
   onPageChange() {

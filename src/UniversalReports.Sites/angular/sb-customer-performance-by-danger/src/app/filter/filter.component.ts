@@ -25,7 +25,8 @@ export class FilterComponent implements OnInit {
   today: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
   minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.moveBet.add(1, 'day'));
   maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
-  winlostDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  fromDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  toDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
   username = '';
   sportTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
@@ -103,12 +104,20 @@ export class FilterComponent implements OnInit {
     this.dangerLevelTreeviewItems = this.filterService.getDangerLevel();
   }
 
-  onDateChange() {
+  onFromDateChange() {
     let winlostDate: moment.Moment;
-    winlostDate = DateHelper.convertDateStructToMoment(this.winlostDate);
+    winlostDate = DateHelper.convertDateStructToMoment(this.fromDate);
     winlostDate = moment.utc(winlostDate);
-    this.winlostDate = DateHelper.convertMomentToDateStruct(winlostDate);
+    this.fromDate = DateHelper.convertMomentToDateStruct(winlostDate);
   }
+
+  onToDateChange() {
+    let winlostDate: moment.Moment;
+    winlostDate = DateHelper.convertDateStructToMoment(this.toDate);
+    winlostDate = moment.utc(winlostDate);
+    this.toDate = DateHelper.convertMomentToDateStruct(winlostDate);
+  }
+
   private getSite() {
     this.filterService.getSite().subscribe(sites => this.sites = sites);
   }
@@ -133,10 +142,12 @@ export class FilterComponent implements OnInit {
   }
 
   private createModel(): FilterModel {
-    const winlostDate = DateHelper.convertDateStructToMoment(this.winlostDate);
+    const fromDate = DateHelper.convertDateStructToMoment(this.fromDate);
+    const toDate = DateHelper.convertDateStructToMoment(this.toDate);
 
     const model: FilterModel = {
-      winlostDate: DateHelper.formatMomentDate(winlostDate, DateFormat.Date),
+      fromDate: DateHelper.formatMomentDate(fromDate, DateFormat.Date),
+      toDate: DateHelper.formatMomentDate(toDate, DateFormat.Date),
       divisions: this.selectedSites.join(','),
       dangerLevels: this.selectedDangerLevel.join(','),
       sportBettypes: this.selectedSports.join(','),
@@ -150,6 +161,15 @@ export class FilterComponent implements OnInit {
   }
 
   private get isValid(): boolean {
+    const fromDate = DateHelper.convertDateStructToMoment(this.fromDate);
+    const toDate = DateHelper.convertDateStructToMoment(this.toDate);
+    const maxDate = fromDate.add(3, 'days');
+
+    if (!toDate.isBefore(maxDate)) {
+      this.toastService.activate(`Date range should not exceed 3 days!`);
+      return false;
+    }
+
     if (this.selectedDangerLevel.length === 0) {
       this.toastService.activate(`Please select at least one danger level!`);
       return false;
