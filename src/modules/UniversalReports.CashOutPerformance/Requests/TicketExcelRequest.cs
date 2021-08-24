@@ -16,6 +16,10 @@ namespace UniversalReports.CashOutPerformance.Requests
 
         public string Leagues { get; set; }
 
+        public string LeagueGroupIDs { get; set; }
+
+        public string BetType { get; set; }
+
         public string Title { get; set; }
 
         public int PageIndex { get; } = 0;

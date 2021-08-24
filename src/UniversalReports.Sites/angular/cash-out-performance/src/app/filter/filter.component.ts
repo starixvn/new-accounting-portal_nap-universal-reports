@@ -77,6 +77,14 @@ export class FilterComponent implements OnInit {
     this.filterService.getSports().subscribe(sports => {
       this.sports = sports;
     });
+
+    this.filterService.getLeagueGroups().subscribe(leagueGroups => {
+      this.leagueGroups = leagueGroups;
+    });
+
+    this.filterService.getBetTypes().subscribe(betTypes => {
+      this.betTypes = betTypes;
+    });
   }
 
   onTimePeriodChange(): void {
@@ -159,8 +167,8 @@ export class FilterComponent implements OnInit {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
       sports: this.selectedSports.join(','),
-      leagueGroups: this.selectedLeagueGroups.join(','),
-      betTypes: this.selectedbetTypes.join(','),
+      leagueGroupIDs: this.selectedLeagueGroups.join(','),
+      betType: this.selectedbetTypes.join(','),
       sites: this.selectedLicensees.join(','),
       leagues: this.leagues,
       pageIndex: 1,

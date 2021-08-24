@@ -23,10 +23,10 @@ export interface FilterModel {
     startDate: string;
     endDate: string;
     sports: string;
-    leagueGroups: string;
+    leagueGroupIDs: string;
     sites: string;
     leagues: string;
-    betTypes: string;
+    betType: string;
     pageIndex: number;
     pageSize: number;
     isPageChanged: boolean;

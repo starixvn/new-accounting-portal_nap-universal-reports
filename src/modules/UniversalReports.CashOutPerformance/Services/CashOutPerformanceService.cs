@@ -17,6 +17,10 @@ namespace UniversalReports.CashOutPerformance.Services
         Task<TicketViewModel> GetTickets(TicketCriteria criteria);
 
         Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
+
+        Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria);
+
+        Task<IEnumerable<FilterItemModel>> GetBetTypes(BetTypeCriteria criteria);
     }
 
     public class CashOutPerformanceServiceImp : CashOutPerformanceService
@@ -52,6 +56,16 @@ namespace UniversalReports.CashOutPerformance.Services
         public async Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria)
         {
             return await repository.FetchAsync<LeagueModel>(criteria);
+        }
+
+        public async Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria)
+        {
+            return await repository.FetchAsync<FilterItemModel>(criteria);
+        }
+
+        public async Task<IEnumerable<FilterItemModel>> GetBetTypes(BetTypeCriteria criteria)
+        {
+            return await repository.FetchAsync<FilterItemModel>(criteria);
         }
     }
 }

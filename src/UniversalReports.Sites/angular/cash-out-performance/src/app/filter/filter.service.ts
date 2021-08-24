@@ -43,4 +43,14 @@ export class FilterService {
       searchExactly
     });
   }
+
+  getLeagueGroups(): Observable<FilterItemModel[]> {
+    const url = this.url + 'leagueGroups';
+    return this.httpService.post<FilterItemModel[]>(url);
+  }
+
+  getBetTypes(): Observable<FilterItemModel[]> {
+    const url = this.url + 'bettypes';
+    return this.httpService.post<FilterItemModel[]>(url);
+  }
 }

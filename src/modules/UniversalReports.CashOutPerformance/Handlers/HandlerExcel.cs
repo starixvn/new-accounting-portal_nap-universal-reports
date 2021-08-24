@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
 using System.Threading;
 using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Criteria;
-using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
 using UniversalReports.CashOutPerformance.ViewModels;

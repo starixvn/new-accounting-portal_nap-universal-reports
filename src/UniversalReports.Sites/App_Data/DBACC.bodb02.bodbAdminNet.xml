@@ -103,5 +103,7 @@
   <Function Name="CashOutPerformance">
     <Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_COPerformance_LicenseesSel" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_SportSel" SpName="Acc_Rpt_COPerformance_SportSel" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_BettypeSel" SpName="Acc_Rpt_COPerformance_BettypeSel" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_LeagueGroupSel" SpName="Acc_Rpt_COPerformance_LeagueGroupSel" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
 </Functions>
