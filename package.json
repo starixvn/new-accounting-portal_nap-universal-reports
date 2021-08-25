@@ -10,6 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "add-commitlint": "npm i && npx husky install"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.nexdev.net:new-accounting-portal/nap-risk-control.git"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
