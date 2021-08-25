@@ -34,14 +34,12 @@ Fanex.Oneyed.WebService/*.xml
 .sass-cache
 .vs/
 _Chutzpah*
-/Sources/Sites/node_modules
 *.orig
 /Sources/Sites/stylesheets/Site.css.map
 /Sources/Sites/stylesheets/Site.css
 OpenCover/*
 Sources/Sites/compilerconfig.json*
 Sources/Sites/app/*concat.js
-**/node_modules/
 *.BASE
 *.LOCAL
 *.REMOTE
@@ -52,3 +50,4 @@ Sources/Sites/app/*concat.js
 Backup??
 Backup??*/
 Backup?
+**/node_modules/
