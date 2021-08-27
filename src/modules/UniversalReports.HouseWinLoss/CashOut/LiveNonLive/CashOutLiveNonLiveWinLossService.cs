@@ -30,19 +30,19 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
         {
             var rawWinLosses = rawWinLossService.Query(criteria);
 
-            var betTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Equals("Cash Out Live", StringComparison.CurrentCultureIgnoreCase)
-                                                                && !r.GroupName.Equals("Cash Out Non-Live", StringComparison.CurrentCultureIgnoreCase));
-            var betTypeSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(betTypeRawWinLosses);
-            var betTypeGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", betTypeRawWinLosses);
+            var sportTypeRawWinLosses = rawWinLosses.Where(r => !r.GroupName.Contains("Live")
+                                                                && !r.GroupName.Contains("Non-Live"));
+            var sportTypeSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(sportTypeRawWinLosses);
+            var sportTypeGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", sportTypeRawWinLosses);
 
             yield return new BasicWinLossModel
             {
-                SiteWinLossSummaries = betTypeSiteWinLossSummaries.ToList(),
-                GrandTotal = betTypeGrandTotal
+                SiteWinLossSummaries = sportTypeSiteWinLossSummaries.ToList(),
+                GrandTotal = sportTypeGrandTotal
             };
 
-            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Equals("Cash Out Live", StringComparison.CurrentCultureIgnoreCase)
-                                                                || r.GroupName.Equals("Cash Out Non-Live", StringComparison.CurrentCultureIgnoreCase));
+            var liveNonLiveRawWinLosses = rawWinLosses.Where(r => r.GroupName.Contains("Live")
+                                                                || r.GroupName.Contains("Non-Live"));
             var liveNonLiveSiteWinLossSummaries = calculationService.CalculateSiteWinLossSummary(liveNonLiveRawWinLosses);
             var liveNonLiveGrandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", liveNonLiveRawWinLosses);
 

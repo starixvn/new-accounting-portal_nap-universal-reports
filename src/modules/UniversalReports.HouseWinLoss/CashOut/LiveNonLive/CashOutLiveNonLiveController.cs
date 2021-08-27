@@ -42,9 +42,9 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
             var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
-            var majorMinorGridOptions = builder.Build(winlosses.First(), "Bet Type");
+            var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Type");
             const int mainColumnWidth = 220;
-            yield return decorator.Build(majorMinorGridOptions, "Bet Type", mainColumnWidth);
+            yield return decorator.Build(majorMinorGridOptions, "Sport Type", mainColumnWidth);
 
             var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
             yield return decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", mainColumnWidth);
@@ -58,7 +58,7 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.BetTypeTitle);
             const int mainColumnWidth = 220;
-            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Bet Type", mainColumnWidth);
+            majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Sport Type", mainColumnWidth);
 
             var liveNonLiveGridOptions = builder.Build(winlosses.Last(), queryModel.LiveNonLiveTitle);
             liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", mainColumnWidth);
