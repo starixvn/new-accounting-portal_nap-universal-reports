@@ -44,13 +44,6 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("bettypes")]
-        public async Task<IHttpActionResult> BetTypes()
-        {
-            var viewModel = await mediator.Send(new BetTypeRequest());
-            return Json(viewModel);
-        }
-
         [Route("tickets")]
         [HttpPost]
         public async Task<IHttpActionResult> Tickets(TicketRequest request)

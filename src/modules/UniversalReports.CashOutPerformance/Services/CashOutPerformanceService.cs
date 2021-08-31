@@ -10,7 +10,7 @@ namespace UniversalReports.CashOutPerformance.Services
 {
     public interface CashOutPerformanceService
     {
-        Task<IEnumerable<FilterItemModel>> GetSports(SportCriteria criteria);
+        Task<IEnumerable<FilterGroupItemModel>> GetSportBettypes(SportCriteria criteria);
 
         Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria);
 
@@ -19,8 +19,6 @@ namespace UniversalReports.CashOutPerformance.Services
         Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
 
         Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria);
-
-        Task<IEnumerable<FilterItemModel>> GetBetTypes(BetTypeCriteria criteria);
     }
 
     public class CashOutPerformanceServiceImp : CashOutPerformanceService
@@ -37,9 +35,22 @@ namespace UniversalReports.CashOutPerformance.Services
             return await repository.FetchAsync<FilterItemModel>(criteria);
         }
 
-        public async Task<IEnumerable<FilterItemModel>> GetSports(SportCriteria criteria)
+        public async Task<IEnumerable<FilterGroupItemModel>> GetSportBettypes(SportCriteria criteria)
         {
-            return await repository.FetchAsync<FilterItemModel>(criteria);
+            var sportBettype = await repository.FetchAsync<SportBetTypeModel>(criteria);
+            var groups = sportBettype.GroupBy(x => new { x.SportType, x.SportName });
+            var result = new List<FilterGroupItemModel>();
+            foreach (var group in groups)
+            {
+                var model = new FilterGroupItemModel
+                {
+                    GroupId = group.Key.SportType,
+                    GroupName = group.Key.SportName,
+                    ChildItems = group.Select(x => new FilterItemModel { Id = x.Bettype, Name = x.BettypeName }).ToList()
+                };
+                result.Add(model);
+            }
+            return result;
         }
 
         public async Task<TicketViewModel> GetTickets(TicketCriteria criteria)
@@ -59,11 +70,6 @@ namespace UniversalReports.CashOutPerformance.Services
         }
 
         public async Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria)
-        {
-            return await repository.FetchAsync<FilterItemModel>(criteria);
-        }
-
-        public async Task<IEnumerable<FilterItemModel>> GetBetTypes(BetTypeCriteria criteria)
         {
             return await repository.FetchAsync<FilterItemModel>(criteria);
         }

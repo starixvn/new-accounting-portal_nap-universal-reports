@@ -16,7 +16,6 @@ namespace UniversalReports.CashOutPerformance
             cfg.CreateMap<TicketExcelRequest, TicketCriteria>();
             cfg.CreateMap<TicketViewModel, TicketViewExcelModel>();
             cfg.CreateMap<LeagueGroupRequest, LeagueGroupCriteria>();
-            cfg.CreateMap<BetTypeRequest, BetTypeCriteria>();
         }
     }
 }

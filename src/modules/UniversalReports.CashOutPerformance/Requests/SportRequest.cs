@@ -4,7 +4,7 @@ using UniversalReports.CashOutPerformance.Models;
 
 namespace UniversalReports.CashOutPerformance.Requests
 {
-    public class SportRequest : IRequest<IEnumerable<FilterItemModel>>
+    public class SportRequest : IRequest<IEnumerable<FilterGroupItemModel>>
     {
     }
 }

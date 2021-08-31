@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
-import { FilterItemModel, LeagueModel, TimePeriod } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, LeagueModel, TimePeriod } from './filter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,9 @@ export class FilterService {
 
   constructor(private readonly httpService: HttpService) { }
 
-  getSports(): Observable<FilterItemModel[]> {
+  getSports(): Observable<FilterGroupItemModel[]> {
     const url = this.url + 'sports';
-    return this.httpService.post<FilterItemModel[]>(url);
+    return this.httpService.post<FilterGroupItemModel[]>(url);
   }
 
   getLicensees(): Observable<FilterItemModel[]> {
@@ -46,11 +46,6 @@ export class FilterService {
 
   getLeagueGroups(): Observable<FilterItemModel[]> {
     const url = this.url + 'leagueGroups';
-    return this.httpService.post<FilterItemModel[]>(url);
-  }
-
-  getBetTypes(): Observable<FilterItemModel[]> {
-    const url = this.url + 'bettypes';
     return this.httpService.post<FilterItemModel[]>(url);
   }
 }

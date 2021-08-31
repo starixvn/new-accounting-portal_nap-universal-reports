@@ -9,15 +9,13 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public DateTime EndDate { get; set; }
 
-        public string Sports { get; set; }
+        public string SportBettype { get; set; }
 
         public string Sites { get; set; }
 
         public string Leagues { get; set; }
 
         public string LeagueGroupIDs { get; set; }
-
-        public string BetType { get; set; }
 
         public int PageIndex { get; set; }
 

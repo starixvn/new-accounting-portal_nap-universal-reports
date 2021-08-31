@@ -32,7 +32,7 @@ export interface TicketModel {
   export interface ExcelQueryModel {
     startDate: string;
     endDate: string;
-    sports: string;
+    sportBettype: string;
     sites: string;
     pageIndex: number;
     pageSize: number;
