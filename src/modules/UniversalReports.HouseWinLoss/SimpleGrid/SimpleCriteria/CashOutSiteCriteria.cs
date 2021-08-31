@@ -8,6 +8,8 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public int IsLive { get; set; }
 
+        public int SportType { get; set; }
+
         public override string GetSettingKey() => $"HouseWinLoss-CashOut-Site-{Source}";
     }
 }
