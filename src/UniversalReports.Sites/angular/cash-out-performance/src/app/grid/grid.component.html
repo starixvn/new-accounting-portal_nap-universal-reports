@@ -88,11 +88,11 @@
   </ng-template>
   <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
     <div class="nap-grid">
-        <div style="width: 3090px;">
+        <div style="width: 3210px;">
             <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
             <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
         </div>
-        <div style="width: 3090px">
+        <div style="width: 3210px">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -114,7 +114,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th scope="col" class="no-data" colspan="22">
+                            <th scope="col" class="no-data" colspan="23">
                                 There is no data
                             </th>
                         </tr>
@@ -126,7 +126,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tfoot>
                         <tr class="font-weight-bold">
-                            <td colspan="16" class="text-right">Grand Total</td>
+                            <td colspan="17" class="text-right">Grand Total</td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.BBAmount_RM"></td>
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.MemberWL_RM"></td>
@@ -135,7 +135,7 @@
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.TotalIncome_RM"></td>
                         </tr>
                         <tr>
-                            <td colspan="22">
+                            <td colspan="23">
                                 <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                             </td>
                         </tr>
