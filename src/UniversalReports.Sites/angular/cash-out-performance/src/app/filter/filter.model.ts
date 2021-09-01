@@ -18,11 +18,17 @@ export interface LeagueModel {
     Id: string;
     Name: string;
   }
+export interface FilterGroupItemModel {
+  GroupId: number;
+  GroupName: string;
+  ChildItems: FilterItemModel[];
+}
 
 export interface FilterModel {
     startDate: string;
     endDate: string;
-    sports: string;
+    sportBettype: string;
+    leagueGroupIDs: string;
     sites: string;
     leagues: string;
     pageIndex: number;

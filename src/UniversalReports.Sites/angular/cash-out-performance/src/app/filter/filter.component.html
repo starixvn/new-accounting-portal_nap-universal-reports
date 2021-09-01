@@ -41,12 +41,22 @@
             <div class="nap-group">
             <label>Sport</label>
             <div class="nap-control">
-                <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | filterItemTreeview:sports"
+                <ngx-dropdown-treeview #sportDropdownTreeview [items]="sports | filterGroupItemTreeview:sports"
                 [config]="sportTreeviewConfig" (selectedChange)="selectedSports = $event">
                 </ngx-dropdown-treeview>
             </div>
             </div>
         </div>
+        <div class="nap-col">
+          <div class="nap-group">
+          <label>League Group</label>
+          <div class="nap-control">
+              <ngx-dropdown-treeview #leagueGroupDropdownTreeview [items]="leagueGroups | filterItemTreeview:leagueGroups"
+              [config]="leagueGroupTreeviewConfig" (selectedChange)="selectedLeagueGroups = $event">
+              </ngx-dropdown-treeview>
+          </div>
+          </div>
+      </div>
         <div class="nap-col">
           <div class="nap-group">
             <label>League</label>

@@ -53,7 +53,7 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             var endRowIndex = StartRowIndex + model.Total;
             sheet.ApplyModel(totalSheet, model.TotalTicket, StartRowIndex + model.Total);
-            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 15);
+            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 16);
             sheet.Cells[cellAddressOfTotalText.Address].Value = "Grand Total";
             sheet.Cells[cellAddressOfTotalText.Address].Merge = true;
         }

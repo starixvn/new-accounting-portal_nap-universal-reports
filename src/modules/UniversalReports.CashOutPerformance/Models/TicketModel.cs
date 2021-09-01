@@ -8,6 +8,8 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public string Username { get; set; }
 
+        public string Currency { get; set; }
+
         public long OrigID { get; set; }
 
         public long BuyBackID { get; set; }

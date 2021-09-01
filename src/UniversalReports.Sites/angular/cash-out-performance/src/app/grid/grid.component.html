@@ -3,6 +3,7 @@
       <col style="width: 70px" />
       <col style="width: 150px" />
       <col style="width: 120px" />
+      <col style="width: 120px" />
       <col style="width: 130px" />
       <col style="width: 150px" />
       <col style="width: 300px" />
@@ -28,6 +29,7 @@
       <tr>
         <th scope="col">Date</th>
         <th scope="col">Username</th>
+        <th scope="col">Currency</th>
         <th scope="col">Original Ticket ID</th>
         <th scope="col">Cash Out Ticket ID</th>
         <th scope="col">Cash Out Bet Ticket ID</th>
@@ -60,6 +62,7 @@
   <ng-template #rowItem let-item="item">
     <td class="text-center">{{ item.WLDate | date: 'yyyy-MM-dd' }}</td>
     <td>{{ item.Username }}</td>
+    <td class="text-center">{{ item.Currency }}</td>
     <td class="text-center">{{ item.OrigID }}</td>
     <td class="text-center">{{ item.BuyBackID }}</td>
     <td class="text-center">{{ item.CashOutID }}</td>
@@ -82,11 +85,11 @@
   </ng-template>
   <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
     <div class="nap-grid">
-        <div style="width: 2970px;">
+        <div style="width: 3090px;">
             <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
             <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
         </div>
-        <div style="width: 2970px">
+        <div style="width: 3090px">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -108,7 +111,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th scope="col" class="no-data" colspan="21">
+                            <th scope="col" class="no-data" colspan="22">
                                 There is no data
                             </th>
                         </tr>
@@ -120,7 +123,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tfoot>
                         <tr class="font-weight-bold">
-                            <td colspan="15" class="text-right">Grand Total</td>
+                            <td colspan="16" class="text-right">Grand Total</td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.BBAmount_RM"></td>
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.MemberWL_RM"></td>
@@ -129,7 +132,7 @@
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.TotalIncome_RM"></td>
                         </tr>
                         <tr>
-                            <td colspan="21">
+                            <td colspan="22">
                                 <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                             </td>
                         </tr>

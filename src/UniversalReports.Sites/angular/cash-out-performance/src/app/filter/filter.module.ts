@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './filter.component';
-import { FilterItemTreeviewPipe } from './filter-item-treeview.pipe';
+import { FilterGroupItemTreeviewPipe, FilterItemTreeviewPipe } from './filter-item-treeview.pipe';
 import { LegendModule, LegendService } from 'nap-components/legend';
 import { TreeviewModule } from 'ngx-treeview';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
@@ -12,7 +12,8 @@ import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
 @NgModule({
   declarations: [
     FilterComponent,
-    FilterItemTreeviewPipe
+    FilterItemTreeviewPipe,
+    FilterGroupItemTreeviewPipe
   ],
   imports: [
     CommonModule,

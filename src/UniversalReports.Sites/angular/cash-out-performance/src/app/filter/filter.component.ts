@@ -6,7 +6,7 @@ import { DateFormat, DateHelper } from 'nap-components/date';
 import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterItemModel, FilterModel, LeagueModel, TimePeriod } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
@@ -33,14 +33,23 @@ export class FilterComponent implements OnInit {
   });
   selectedLicensees: number[] = [];
 
-  sports: FilterItemModel[] = [];
+  sports: FilterGroupItemModel[] = [];
   sportTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: true,
+    maxHeight: 500
+  });
+  selectedSports: string[] = [];
+
+  leagueGroups: FilterItemModel[] = [];
+  leagueGroupTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
     hasAllCheckBox: true,
     hasCollapseExpand: false,
     maxHeight: 500
   });
-  selectedSports: number[] = [];
+  selectedLeagueGroups: number[] = [];
 
   leagues = '';
   leagueName = '';
@@ -58,6 +67,10 @@ export class FilterComponent implements OnInit {
 
     this.filterService.getSports().subscribe(sports => {
       this.sports = sports;
+    });
+
+    this.filterService.getLeagueGroups().subscribe(leagueGroups => {
+      this.leagueGroups = leagueGroups;
     });
   }
 
@@ -140,7 +153,8 @@ export class FilterComponent implements OnInit {
     return {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
       endDate: DateHelper.formatMomentDate(endDate, DateFormat.Date),
-      sports: this.selectedSports.join(','),
+      sportBettype: this.selectedSports.join(','),
+      leagueGroupIDs: this.selectedLeagueGroups.join(','),
       sites: this.selectedLicensees.join(','),
       leagues: this.leagues,
       pageIndex: 1,
@@ -157,6 +171,11 @@ export class FilterComponent implements OnInit {
 
     if (this.selectedSports.length === 0) {
       this.toastService.activate(`Please select at least one sport!`);
+      return false;
+    }
+
+    if (this.selectedLeagueGroups.length === 0) {
+      this.toastService.activate(`Please select at least one League Group!`);
       return false;
     }
 
@@ -182,8 +201,9 @@ export class FilterComponent implements OnInit {
       this.leagues = '';
       return true;
     } else {
+      const sportIds = _.map(this.selectedSports, x => x.split('_')[0]);
       const leagues =
-        await this.filterService.queryLeagueSuggestion(this.selectedSports.join(','), searchText, true).toPromise<LeagueModel[]>();
+        await this.filterService.queryLeagueSuggestion(_.uniq(sportIds).join(','), searchText, true).toPromise<LeagueModel[]>();
       if (leagues.length === 0)
       {
         return false;
@@ -200,7 +220,8 @@ export class FilterComponent implements OnInit {
       let words = searchText.split(' ');
       words = words.filter(word => word.trim() !== '');
       searchText = words.join(',');
-      return this.filterService.queryLeagueSuggestion(this.selectedSports.join(','), searchText, false)
+      const sportIds = _.map(this.selectedSports, x => x.split('_')[0]);
+      return this.filterService.queryLeagueSuggestion(_.uniq(sportIds).join(','), searchText, false)
         .map(list => {
           return list.map(item => item.Name);
         });

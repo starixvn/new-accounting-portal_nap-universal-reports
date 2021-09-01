@@ -10,7 +10,8 @@ namespace UniversalReports.CashOutPerformance.Models
         private string cashOutTime;
 
         [Cell("A4")]
-        public string WLDate {
+        public string WLDate
+        {
             get
             {
                 if (!string.IsNullOrWhiteSpace(dateTime))
@@ -31,21 +32,24 @@ namespace UniversalReports.CashOutPerformance.Models
         public string Username { get; set; }
 
         [Cell("C4")]
-        public long OrigID { get; set; }
+        public string Currency { get; set; }
 
         [Cell("D4")]
-        public long BuyBackID { get; set; }
+        public long OrigID { get; set; }
 
         [Cell("E4")]
-        public long CashOutID { get; set; }
+        public long BuyBackID { get; set; }
 
         [Cell("F4")]
-        public string LeagueName { get; set; }
+        public long CashOutID { get; set; }
 
         [Cell("G4")]
-        public string MatchName { get; set; }
+        public string LeagueName { get; set; }
 
         [Cell("H4")]
+        public string MatchName { get; set; }
+
+        [Cell("I4")]
         public string BetTime
         {
             get
@@ -64,7 +68,7 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("I4")]
+        [Cell("J4")]
         public string CashOutTime
         {
             get
@@ -83,40 +87,40 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("J4")]
+        [Cell("K4")]
         public string BetOdd { get; set; }
 
-        [Cell("K4")]
+        [Cell("L4")]
         public string BetTypeName { get; set; }
 
-        [Cell("L4")]
+        [Cell("M4")]
         public string BetChoice { get; set; }
 
-        [Cell("M4")]
+        [Cell("N4")]
         public decimal COTurnover { get; set; }
 
-        [Cell("N4")]
+        [Cell("O4")]
         public decimal BBAmount { get; set; }
 
-        [Cell("O4")]
+        [Cell("P4")]
         public decimal MemberWL { get; set; }
 
-        [Cell("P4")]
+        [Cell("Q4")]
         public decimal COTurnover_RM { get; set; }
 
-        [Cell("Q4")]
+        [Cell("R4")]
         public decimal BBAmount_RM { get; set; }
 
-        [Cell("R4")]
+        [Cell("S4")]
         public decimal MemberWL_RM { get; set; }
 
-        [Cell("S4")]
+        [Cell("T4")]
         public decimal Comm_RM { get; set; }
 
-        [Cell("T4")]
+        [Cell("U4")]
         public decimal COIncome_RM { get; set; }
 
-        [Cell("U4")]
+        [Cell("V4")]
         public decimal TotalIncome_RM { get; set; }
     }
 }

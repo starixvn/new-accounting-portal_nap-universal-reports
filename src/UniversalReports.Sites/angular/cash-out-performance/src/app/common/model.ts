@@ -1,6 +1,7 @@
 export interface TicketModel {
     WLDate: Date;
     Username: string;
+    Currency: string;
     OrigID: number;
     BuyBackID: number;
     CashOutID: number;
@@ -31,7 +32,7 @@ export interface TicketModel {
   export interface ExcelQueryModel {
     startDate: string;
     endDate: string;
-    sports: string;
+    sportBettype: string;
     sites: string;
     pageIndex: number;
     pageSize: number;

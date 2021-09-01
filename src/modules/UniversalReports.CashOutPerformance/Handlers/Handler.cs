@@ -11,10 +11,11 @@ using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
-    public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterItemModel>>,
+    public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterGroupItemModel>>,
         IRequestHandler<LicenseeRequest, IEnumerable<FilterItemModel>>,
         IRequestHandler<TicketRequest, TicketViewModel>,
-        IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>
+        IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>,
+        IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>
     {
         private readonly CashOutPerformanceService service;
 
@@ -23,10 +24,10 @@ namespace UniversalReports.CashOutPerformance.Handlers
             this.service = service;
         }
 
-        public async Task<IEnumerable<FilterItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FilterGroupItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SportCriteria>(request);
-            return await service.GetSports(criteria);
+            return await service.GetSportBettypes(criteria);
         }
 
         public async Task<IEnumerable<FilterItemModel>> Handle(LicenseeRequest request, CancellationToken cancellationToken)
@@ -45,6 +46,12 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<LeagueCriteria>(request);
             return await service.GetLeagues(criteria);
+        }
+
+        public async Task<IEnumerable<FilterItemModel>> Handle(LeagueGroupRequest request, CancellationToken cancellationToken)
+        {
+            var criteria = Mapper.Map<LeagueGroupCriteria>(request);
+            return await service.GetLeagueGroups(criteria);
         }
     }
 }
