@@ -1,5 +1,6 @@
 export interface FilterModel {
-  winlostDate: string;
+  fromDate: string;
+  toDate: string;
   divisions: string;
   dangerLevels: string;
   sportBettypes: string;

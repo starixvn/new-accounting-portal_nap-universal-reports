@@ -24,7 +24,8 @@ export interface SummaryEntity {
 }
 
 export interface ExcelQueryModel {
-  winlostDate: string;
+  fromDate: string;
+  toDate: string;
   divisions: string;
   dangerLevels: string;
   sportBettypes: string;

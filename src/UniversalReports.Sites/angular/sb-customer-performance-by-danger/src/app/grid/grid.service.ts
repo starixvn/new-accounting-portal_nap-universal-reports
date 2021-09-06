@@ -22,16 +22,17 @@ export class GridService {
     const url = 'api/sb-customer-performance-by-danger/report/excel';
     const excelQueryModel = this.createExcelQueryModel(filterModel);
 
-    const winlostDate = moment(excelQueryModel.winlostDate).format('YYYY_MM_DD');
+    const fromDate = moment(excelQueryModel.fromDate).format('YYYY_MM_DD');
+    const toDate = moment(excelQueryModel.toDate).format('YYYY_MM_DD');
     this.httpService.download(url, excelQueryModel).subscribe(response => {
-      const fileName = `SB_Customer_Performance_By_Dangers_Report_On_${winlostDate}.xlsx`;
+      const fileName = `SB_Customer_Performance_By_Dangers_Report_From_${fromDate}_To_${toDate}.xlsx`;
       Helper.downloadFile(response, fileName);
     });
   }
 
 
   private createExcelQueryModel(filterModel: FilterModel): ExcelQueryModel {
-    const title = `SB Customer Performance By Dangers On ${filterModel.winlostDate}`;
+    const title = `SB Customer Performance By Dangers From ${filterModel.fromDate} To ${filterModel.toDate}`;
     const excelQueryModel: ExcelQueryModel = _.extend({}, { title: title }, filterModel);
     return excelQueryModel;
   }

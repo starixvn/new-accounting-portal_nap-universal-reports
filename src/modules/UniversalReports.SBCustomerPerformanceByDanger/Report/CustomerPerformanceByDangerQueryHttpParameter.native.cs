@@ -6,7 +6,9 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
 {
     public class CustomerPerformanceByDangerQueryHttpParameter : IRequest<SummaryEntity<CustomerPerformanceByDangerModel>>
     {
-        public DateTime WinlostDate { get; set; }
+        public DateTime FromDate { get; set; }
+
+        public DateTime ToDate { get; set; }
 
         public string Divisions { get; set; }
 
