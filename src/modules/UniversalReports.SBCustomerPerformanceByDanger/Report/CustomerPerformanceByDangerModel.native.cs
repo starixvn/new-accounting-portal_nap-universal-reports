@@ -15,11 +15,7 @@
 
         public string Currency { get; set; }
 
-        public string DangerLevelOriginal { get; set; }
-
-        public string DangerLevelABI { get; set; }
-
-        public string DangerLevelOtherSport { get; set; }
+        public string DangerLevel { get; set; }
 
         public int BetCount { get; set; }
 
@@ -47,9 +43,7 @@
                 SuperName = string.Empty,
                 Division = string.Empty,
                 Currency = string.Empty,
-                DangerLevelOriginal = string.Empty,
-                DangerLevelABI = string.Empty,
-                DangerLevelOtherSport = string.Empty,
+                DangerLevel = string.Empty,
                 BetCount = a.BetCount + b.BetCount,
                 MemberTO = a.MemberTO + b.MemberTO,
                 MemberWL = a.MemberWL + b.MemberWL,

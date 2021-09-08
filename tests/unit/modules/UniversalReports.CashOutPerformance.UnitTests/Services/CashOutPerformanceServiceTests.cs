@@ -36,25 +36,25 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Services
             Assert.AreEqual(expectedLicensees, actualLicensees);
         }
 
-        [Test]
-        public async Task GetSports_ValidSportCriteria_ReturnRightSports()
-        {
-            // Arrange
-            var expectedSports = new List<FilterItemModel>
-            {
-                new FilterItemModel { Id = 1, Name = "SOCCER" }
-            };
+        //[Test]
+        //public async Task GetSports_ValidSportCriteria_ReturnRightSports()
+        //{
+        //    // Arrange
+        //    var expectedSports = new List<FilterItemModel>
+        //    {
+        //        new FilterItemModel { Id = 1, Name = "SOCCER" }
+        //    };
 
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchAsync<FilterItemModel>(Arg.Compat.Any<SportCriteria>()).Returns(expectedSports);
-            var service = new CashOutPerformanceServiceImp(repository);
+        //    var repository = Substitute.For<IDynamicRepository>();
+        //    repository.FetchAsync<FilterItemModel>(Arg.Compat.Any<SportCriteria>()).Returns(expectedSports);
+        //    var service = new CashOutPerformanceServiceImp(repository);
 
-            // Act
-            var actualSports = await service.GetSports(new SportCriteria());
+        //    // Act
+        //    var actualSports = await service.GetSports(new SportCriteria());
 
-            // Assert
-            Assert.AreEqual(expectedSports, actualSports);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedSports, actualSports);
+        //}
 
         [Test]
         public async Task GetTickets_ValidTicketCriteria_ReturnRightTickets()
