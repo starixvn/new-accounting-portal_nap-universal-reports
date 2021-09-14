@@ -6,7 +6,7 @@
       <col style="width: 120px" />
       <col style="width: 100px" />
       <col style="width: 80px" />
-      <col style="width: 200px" />
+      <col style="width: 280px" />
       <col style="width: 80px" />
       <col style="width: 120px" />
       <col style="width: 100px" />
@@ -64,11 +64,11 @@
 </ng-template>
 <div *ngIf="dataModel" [ngSwitch]="dataModel.Entities.length > 0">
   <div class="nap-grid">
-      <div style="width: 1810px;">
+      <div style="width: 1890px;">
           <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
           <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
       </div>
-      <div style="width: 1810px">
+      <div style="width: 1890px">
           <div class="header">
               <table>
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
