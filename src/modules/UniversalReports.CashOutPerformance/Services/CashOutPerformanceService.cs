@@ -55,12 +55,12 @@ namespace UniversalReports.CashOutPerformance.Services
 
         public async Task<TicketViewModel> GetTickets(TicketCriteria criteria)
         {
-            var data = await repository.FetchMultipleAsync<TicketModel, TicketModel, int>(criteria);
+            var (firstResultSet, secondResultSet, thirdResultSet) = await repository.FetchMultipleAsync<TicketModel, TicketModel, int>(criteria);
             return new TicketViewModel
             {
-                TicketList = data.firstResultSet,
-                TotalTicket = data.secondResultSet.FirstOrDefault(),
-                Total = data.thirdResultSet.FirstOrDefault()
+                TicketList = firstResultSet,
+                TotalTicket = secondResultSet.FirstOrDefault(),
+                Total = thirdResultSet.FirstOrDefault()
             };
         }
 

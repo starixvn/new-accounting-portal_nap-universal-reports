@@ -16,6 +16,10 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public long CashOutID { get; set; }
 
+        public int SportType { get; set; }
+
+        public string SportName { get; set; }
+
         public string LeagueName { get; set; }
 
         public string MatchName { get; set; }

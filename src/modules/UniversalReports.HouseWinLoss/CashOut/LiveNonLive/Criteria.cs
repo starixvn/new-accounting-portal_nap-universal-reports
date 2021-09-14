@@ -7,6 +7,6 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
     {
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-CashOut-BetType-LiveStatus-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-CashOut-SportType-LiveStatus-{Source}";
     }
 }

@@ -42,14 +42,17 @@ namespace UniversalReports.CashOutPerformance.Models
 
         [Cell("F4")]
         public long CashOutID { get; set; }
-
+        
         [Cell("G4")]
-        public string LeagueName { get; set; }
+        public string SportName { get; set; }
 
         [Cell("H4")]
-        public string MatchName { get; set; }
+        public string LeagueName { get; set; }
 
         [Cell("I4")]
+        public string MatchName { get; set; }
+
+        [Cell("J4")]
         public string BetTime
         {
             get
@@ -68,7 +71,7 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("J4")]
+        [Cell("K4")]
         public string CashOutTime
         {
             get
@@ -87,40 +90,40 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("K4")]
+        [Cell("L4")]
         public string BetOdd { get; set; }
 
-        [Cell("L4")]
+        [Cell("M4")]
         public string BetTypeName { get; set; }
 
-        [Cell("M4")]
+        [Cell("N4")]
         public string BetChoice { get; set; }
 
-        [Cell("N4")]
+        [Cell("O4")]
         public decimal COTurnover { get; set; }
 
-        [Cell("O4")]
+        [Cell("P4")]
         public decimal BBAmount { get; set; }
 
-        [Cell("P4")]
+        [Cell("Q4")]
         public decimal MemberWL { get; set; }
 
-        [Cell("Q4")]
+        [Cell("R4")]
         public decimal COTurnover_RM { get; set; }
 
-        [Cell("R4")]
+        [Cell("S4")]
         public decimal BBAmount_RM { get; set; }
 
-        [Cell("S4")]
+        [Cell("T4")]
         public decimal MemberWL_RM { get; set; }
 
-        [Cell("T4")]
+        [Cell("U4")]
         public decimal Comm_RM { get; set; }
 
-        [Cell("U4")]
+        [Cell("V4")]
         public decimal COIncome_RM { get; set; }
 
-        [Cell("V4")]
+        [Cell("W4")]
         public decimal TotalIncome_RM { get; set; }
     }
 }

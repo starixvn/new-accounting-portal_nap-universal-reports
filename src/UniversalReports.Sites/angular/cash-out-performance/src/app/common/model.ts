@@ -5,6 +5,7 @@ export interface TicketModel {
     OrigID: number;
     BuyBackID: number;
     CashOutID: number;
+    SportName: string;
     LeagueName: string;
     MatchName: string;
     BetTime: Date;

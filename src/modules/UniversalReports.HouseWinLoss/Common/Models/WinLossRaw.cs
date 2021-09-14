@@ -27,5 +27,7 @@
         public decimal VirtualTurnover { get; set; }
 
         public int IsSabaSport { get; set; }
+
+        public int SportType { get; set; }
     }
 }

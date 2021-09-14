@@ -12,5 +12,7 @@ namespace UniversalReports.HouseWinLoss.CashOut.MatchDetail
         public bool NormalMode { get; set; } = true;
 
         public int IsLive { get; set; } = Constants.LiveDefault;
+
+        public int SportType { get; set; }
     }
 }
