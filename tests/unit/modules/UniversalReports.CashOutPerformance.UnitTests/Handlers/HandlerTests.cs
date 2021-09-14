@@ -37,25 +37,25 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
             Assert.AreEqual(expectedLicensees, actualLicensees);
         }
 
-        [Test]
-        public async Task Handler_WithSportRequest_ReturnRightSports()
-        {
-            // Arrange
-            var expectedSports = new List<FilterItemModel>
-            {
-                new FilterItemModel { Id = 1, Name = "SOCCER" }
-            };
+        //[Test]
+        //public async Task Handler_WithSportRequest_ReturnRightSports()
+        //{
+        //    // Arrange
+        //    var expectedSports = new List<FilterItemModel>
+        //    {
+        //        new FilterItemModel { Id = 1, Name = "SOCCER" }
+        //    };
 
-            var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();
-            cashOutPerformanceService.GetSports(Arg.Compat.Any<SportCriteria>()).Returns(expectedSports);
-            var handler = new Handler(cashOutPerformanceService);
+        //    var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();
+        //    cashOutPerformanceService.GetSports(Arg.Compat.Any<SportCriteria>()).Returns(expectedSports);
+        //    var handler = new Handler(cashOutPerformanceService);
 
-            // Act
-            var actualSports = await handler.Handle(new SportRequest(), new CancellationToken());
+        //    // Act
+        //    var actualSports = await handler.Handle(new SportRequest(), new CancellationToken());
 
-            // Assert
-            Assert.AreEqual(expectedSports, actualSports);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedSports, actualSports);
+        //}
 
         [Test]
         public async Task Handler_WithTicketRequest_ReturnRightTickets()

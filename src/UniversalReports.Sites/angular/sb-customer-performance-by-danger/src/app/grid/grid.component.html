@@ -5,11 +5,9 @@
       <col style="width: 120px" />
       <col style="width: 120px" />
       <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 120px" />
+      <col style="width: 80px" />
+      <col style="width: 280px" />
+      <col style="width: 80px" />
       <col style="width: 120px" />
       <col style="width: 100px" />
       <col style="width: 120px" />
@@ -28,9 +26,7 @@
           <th>Super</th>
           <th>Division</th>
           <th>Currency</th>
-          <th>Original Level</th>
-          <th>ABI Level</th>
-          <th>O.Sports Level</th>
+          <th>Danger Level</th>
           <th>Bet Count</th>
           <th>Member Turnover</th>
           <th>Member Win Loss</th>
@@ -56,9 +52,7 @@
   <td>{{ item.SuperName }}</td>
   <td>{{ item.Division }}</td>
   <td>{{ item.Currency }}</td>
-  <td class="text-center">{{ item.DangerLevelOriginal }}</td>
-  <td class="text-center">{{ item.DangerLevelABI }}</td>
-  <td class="text-center">{{ item.DangerLevelOtherSport }}</td>
+  <td class="text-center">{{ item.DangerLevel }}</td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napDecimalFormat]="item.MemberTO"></td>
   <td class="text-right red-positive" [napDecimalFormat]="item.MemberWL"></td>
@@ -70,11 +64,11 @@
 </ng-template>
 <div *ngIf="dataModel" [ngSwitch]="dataModel.Entities.length > 0">
   <div class="nap-grid">
-      <div style="width: 1970px;">
+      <div style="width: 1890px;">
           <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
           <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
       </div>
-      <div style="width: 1970px">
+      <div style="width: 1890px">
           <div class="header">
               <table>
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -96,7 +90,7 @@
               <table>
                   <tbody>
                       <tr>
-                          <th class="no-data" colspan="17">
+                          <th class="no-data" colspan="15">
                               There is no data
                           </th>
                       </tr>
@@ -108,7 +102,7 @@
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tfoot>
                       <tr class="font-weight-bold">
-                          <td colspan="9" class="text-right">Total</td>
+                          <td colspan="7" class="text-right">Total</td>
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.BetCount"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.MemberTO"></td>
                           <td class="text-right red-positive" [napDecimalFormat]="dataModel.Total.MemberWL"></td>
@@ -119,7 +113,7 @@
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.NumberOfAssociatedAccount"></td>
                       </tr>
                       <tr>
-                          <td colspan="17">
+                          <td colspan="15">
                               <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                           </td>
                       </tr>

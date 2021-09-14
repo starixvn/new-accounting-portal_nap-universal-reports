@@ -22,6 +22,7 @@ export class FilterComponent implements OnInit {
   @ViewChild('sportDropdownTreeview') sportDropdownTreeview: DropdownTreeviewComponent;
   @ViewChild('dangerLevelDropdownTreeview') dangerLevelDropdownTreeview: DropdownTreeviewComponent;
   @Output() generated = new EventEmitter<FilterModel>();
+  @Output() reset = new EventEmitter();
   today: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
   minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.moveBet.add(1, 'day'));
   maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
@@ -131,8 +132,9 @@ export class FilterComponent implements OnInit {
   }
 
   private OnGenerate() {
+    this.reset.emit();
+
     const model = this.createModel();
-    console.log(model);
 
     if (!this.isValid) {
       return;
