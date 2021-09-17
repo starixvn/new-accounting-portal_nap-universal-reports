@@ -50,18 +50,18 @@ export class SportTypeGridComponent implements Grid {
         return this.service.model.custName;
     }
 
-    showBetType(sportId: number, sportName: string) {
+    showBetType(sportId: number, sportName: string, leagueGroupId: number) {
         if (sportId === 43 && this.gridService.filterModel.league === undefined ) {
             this.gameGridService.model = this.service.createGameGridModel(sportId, sportName);
             this.gridService.generate(GridType.Game);
         } else {
-            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName);
+            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName, leagueGroupId);
             this.gridService.generate(GridType.BetType);
         }
     }
 
-    showBetCount(sportId: number, sportName: string): void {
-        this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName);
+    showBetCount(sportId: number, sportName: string, leagueGroupId: number): void {
+        this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName, leagueGroupId);
         this.gridService.generate(GridType.BetCount);
     }
 }

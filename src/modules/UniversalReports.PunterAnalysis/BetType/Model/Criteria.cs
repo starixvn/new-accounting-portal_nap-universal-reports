@@ -25,6 +25,8 @@ namespace UniversalReports.PunterAnalysis.BetType.Model
 
         public string ListLeagueGroupId { get; set; }
 
+        public int LeagueGroupId { get; set; }
+
         public override string GetSettingKey() => "Punter-BetType";
 
         public override bool IsValid() => true;

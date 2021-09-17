@@ -29,7 +29,8 @@ export class BetTypeGridService {
             sportName: this.model.sportName,
             betTypeId: betTypeId,
             betTypeName: betTypeName,
-            liveStatusId: liveStatusId
+            liveStatusId: liveStatusId,
+            leagueGroupId: this.model.leagueGroupId
         };
     }
 
@@ -80,7 +81,8 @@ export class BetTypeGridService {
             leagueId: filterModelWrapper.leagueId,
             custId: this.model.custId,
             sportId: this.model.sportId,
-            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId,
+            leagueGroupId: this.model.leagueGroupId
         };
     }
 }

@@ -3,6 +3,7 @@ import { SportTypeGridModel } from '../sport-type-grid/sport-type-grid.model';
 export interface BetTypeGridModel extends SportTypeGridModel {
     sportId: number;
     sportName: string;
+    leagueGroupId: number;
 }
 
 export interface BetTypeItem {
