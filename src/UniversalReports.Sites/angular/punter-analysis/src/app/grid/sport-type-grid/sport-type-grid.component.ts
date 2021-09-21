@@ -10,58 +10,64 @@ import { SportTypeData, SportTypeItem } from './sport-type-grid.model';
 import { SportTypeGridService } from './sport-type-grid.service';
 
 @Component({
-    selector: 'nap-sport-type-grid',
-    templateUrl: './sport-type-grid.component.html',
-    styleUrls: ['../grid.component.scss']
+  selector: 'nap-sport-type-grid',
+  templateUrl: './sport-type-grid.component.html',
+  styleUrls: ['../grid.component.scss']
 })
 export class SportTypeGridComponent implements Grid {
-    data: SportTypeData;
+  data: SportTypeData;
 
-    constructor(
-        private gridService: GridService,
-        private service: SportTypeGridService,
-        private betCountGridService: BetCountGridService,
-        private betTypeGridService: BetTypeGridService,
-        private gameGridService: GameGridService
-    ) { }
+  constructor(
+    private gridService: GridService,
+    private service: SportTypeGridService,
+    private betCountGridService: BetCountGridService,
+    private betTypeGridService: BetTypeGridService,
+    private gameGridService: GameGridService
+  ) { }
 
-    query(): Observable<any> {
-        return Observable.create(observer => {
-            this.service.query().subscribe(data => {
-                this.data = data;
-                observer.complete();
-            });
-        });
+  query(): Observable<any> {
+    return Observable.create(observer => {
+      this.service.query().subscribe(data => {
+        this.data = data;
+        observer.complete();
+      });
+    });
+  }
+
+  exportExcel() {
+    this.service.exportExcel();
+  }
+
+  get hasExcel(): boolean {
+    return this.hasData;
+  }
+
+  get hasData(): boolean {
+    return !_.isNil(this.data) && this.data.Entities.length > 0;
+  }
+
+  get title(): string {
+    return this.service.model.custName;
+  }
+
+  showBetType(sportId: number, sportName: string, leagueGroupId: number) {
+    if (sportId === 43 && this.gridService.filterModel.league === undefined) {
+      this.gameGridService.model = this.service.createGameGridModel(sportId, sportName);
+      this.gridService.generate(GridType.Game);
+    } else {
+      this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName, leagueGroupId);
+      this.gridService.generate(GridType.BetType);
+    }
+  }
+
+  showBetCount(sportId: number, sportName: string, leagueGroupId: number): void {
+    let leagueGroupIdValue = leagueGroupId;
+
+    if (sportId === 43 && this.gridService.filterModel.league === undefined) {
+      leagueGroupIdValue = 0;
     }
 
-    exportExcel() {
-        this.service.exportExcel();
-    }
-
-    get hasExcel(): boolean {
-        return this.hasData;
-    }
-
-    get hasData(): boolean {
-        return !_.isNil(this.data) && this.data.Entities.length > 0;
-    }
-
-    get title(): string {
-        return this.service.model.custName;
-    }
-
-    showBetType(sportId: number, sportName: string, leagueGroupId: number) {
-        if (sportId === 43 && this.gridService.filterModel.league === undefined ) {
-            this.gameGridService.model = this.service.createGameGridModel(sportId, sportName);
-            this.gridService.generate(GridType.Game);
-        } else {
-            this.betTypeGridService.model = this.service.createBetTypeGridModel(sportId, sportName, leagueGroupId);
-            this.gridService.generate(GridType.BetType);
-        }
-    }
-
-    showBetCount(sportId: number, sportName: string, leagueGroupId: number): void {
-        this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName, leagueGroupId);
-        this.gridService.generate(GridType.BetCount);
-    }
+    this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName, leagueGroupIdValue);
+    this.gridService.generate(GridType.BetCount);
+  }
 }
