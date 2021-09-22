@@ -21,10 +21,11 @@ export class SportTypeGridService {
         private gridService: GridService
     ) { }
 
-    createBetTypeGridModel(sportId: number, sportName: string): BetTypeGridModel {
+    createBetTypeGridModel(sportId: number, sportName: string, leagueGroupId: number): BetTypeGridModel {
         return _.extend(this.model, {
             sportId: sportId,
-            sportName: sportName
+            sportName: sportName,
+            leagueGroupId: leagueGroupId
         });
     }
 
@@ -37,13 +38,14 @@ export class SportTypeGridService {
         });
     }
 
-    createBetCountGridModel(sportId: number, sportName: string): BetCountGridModel {
+    createBetCountGridModel(sportId: number, sportName: string, leagueGroupId: number): BetCountGridModel {
         return {
             fromGridType: GridType.SportType,
             custId: this.model.custId,
             custName: this.model.custName,
             sportId: sportId,
-            sportName: sportName
+            sportName: sportName,
+            leagueGroupId: leagueGroupId
         };
     }
 

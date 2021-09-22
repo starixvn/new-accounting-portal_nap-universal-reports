@@ -10,6 +10,7 @@ export interface SportTypeItem {
     Turnover: number;
     Margin: number;
     BetCount: number;
+    LeagueGroupId: number;
 }
 
 export interface SportTypeData {
