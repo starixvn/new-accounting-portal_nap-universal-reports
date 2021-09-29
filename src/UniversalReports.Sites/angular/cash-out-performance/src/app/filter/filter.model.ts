@@ -9,6 +9,12 @@ export enum TimePeriod {
     SpecificDate,
     LastThreeMonths
 }
+
+export enum TicketStatus {
+  NonLive,
+  Live,
+  All
+}
 export interface FilterItemModel {
     Id: number;
     Name: string;
@@ -34,4 +40,8 @@ export interface FilterModel {
     pageIndex: number;
     pageSize: number;
     isPageChanged: boolean;
+    globalShowTime: string;
+    liveIndicator: number;
+    sportType: number;
+    betType: number;
   }

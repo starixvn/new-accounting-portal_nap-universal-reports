@@ -6,7 +6,7 @@ import { DateFormat, DateHelper } from 'nap-components/date';
 import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TimePeriod } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TicketStatus, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
@@ -23,6 +23,10 @@ export class FilterComponent implements OnInit {
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
+  ticketStatusSelectItems = this.filterService.getStatusSelectItems();
+  ticketStatus: TicketStatus = TicketStatus.All;
+  todayDateString = CONFIG.date.today.format('MMM DD, YYYY').toUpperCase();
+  yesterdayDateString = CONFIG.date.yesterday.format('MMM DD, YYYY').toUpperCase();
 
   licensees: FilterItemModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
@@ -50,6 +54,15 @@ export class FilterComponent implements OnInit {
     maxHeight: 500
   });
   selectedLeagueGroups: number[] = [];
+
+  globalShowTimes: FilterItemModel[] = this.filterService.getGlobalShowTimeFilterItems();
+  globalShowTimeTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedGlobalShowTime: number[] = [];
 
   leagues = '';
   leagueName = '';
@@ -160,6 +173,10 @@ export class FilterComponent implements OnInit {
       pageIndex: 1,
       pageSize: 100,
       isPageChanged: false,
+      globalShowTime: this.selectedGlobalShowTime.length === 24 ? '0' : this.selectedGlobalShowTime.join(','),
+      liveIndicator: this.ticketStatus,
+      sportType: 0,
+      betType: 0
     };
   }
 

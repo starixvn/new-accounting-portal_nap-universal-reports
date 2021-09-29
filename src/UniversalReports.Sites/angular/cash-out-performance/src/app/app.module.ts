@@ -8,15 +8,11 @@ import { SpinnerModule } from 'nap-components/spinner';
 import { ToastModule } from 'nap-components/toast';
 import { AuthenticationModule } from 'nap-components/authentication';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
-import { PaginationModule, PaginationService, PaginationConfig, } from 'nap-components/pagination';
 import { AppService } from './app.service';
 import { CustomNavbarService } from './custom-navbar-service';
 import { CONFIG, DateConfig } from './common/date-config';
 import * as moment from 'moment';
-import { GridComponent } from './grid/grid.component';
-import { NumberFormatModule } from 'nap-components/number-format';
-import { BreadcrumbModule } from 'nap-components/breadcrumb';
-import { CustomPaginationConfig } from './common/config';
+import { GridModule } from './grid/grid.module';
 
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
@@ -27,8 +23,7 @@ declare module "@angular/core" {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GridComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -37,15 +32,10 @@ declare module "@angular/core" {
     ToastModule,
     NavbarModule,
     AuthenticationModule,
-    PaginationModule,
     FilterModule,
-    NumberFormatModule,
-    BreadcrumbModule
+    GridModule
   ],
   providers: [
-    PaginationService,
-    PaginationConfig,
-    { provide: PaginationConfig, useClass: CustomPaginationConfig },
     { provide: NavbarService, useClass: CustomNavbarService },
     AppService,
     {

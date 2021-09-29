@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { PaginationConfig } from "nap-components/pagination";
+import { Injectable } from '@angular/core';
+import { PaginationConfig } from 'nap-components/pagination';
 
 @Injectable()
 export class CustomPaginationConfig extends PaginationConfig {

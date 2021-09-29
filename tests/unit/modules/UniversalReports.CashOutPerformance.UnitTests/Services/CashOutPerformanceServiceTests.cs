@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Services;
-using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.UnitTests.Services
 {
@@ -70,7 +69,7 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Services
             var service = new CashOutPerformanceServiceImp(repository);
 
             // Act
-            var actualTicket = await service.GetTickets(new TicketCriteria());
+            var actualTicket = await service.GetTickets<TicketModel, TicketCriteria>(new TicketCriteria());
 
             // Assert
             Assert.AreEqual(expectedTicket.Item1, actualTicket.TicketList);

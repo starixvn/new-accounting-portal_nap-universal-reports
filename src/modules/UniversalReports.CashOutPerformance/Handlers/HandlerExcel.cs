@@ -4,6 +4,7 @@ using OfficeOpenXml;
 using System.Threading;
 using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Criteria;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
 using UniversalReports.CashOutPerformance.ViewModels;
@@ -25,7 +26,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
         public async Task<ExcelPackage> Handle(TicketExcelRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<TicketCriteria>(request);
-            var reportData = await service.GetTickets(criteria);
+            var reportData = await service.GetTickets<TicketModel, TicketCriteria>(criteria);
             var excelModel = Mapper.Map<TicketViewExcelModel>(reportData);
             var excelPackage = ticketsExcelBuilder.Build(request.Title, excelModel);
             return excelPackage;

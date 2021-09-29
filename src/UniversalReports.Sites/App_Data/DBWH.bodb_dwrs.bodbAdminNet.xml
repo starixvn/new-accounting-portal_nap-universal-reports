@@ -193,6 +193,10 @@
   </Function>
   <Function Name="CashOutPerformance">
     <Setting Key="Acc_Rpt_COPerformance" SpName="Acc_Rpt_COPerformance" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_SportType" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_LiveStatus" SpName="Acc_Rpt_COPerformance_LiveStatus" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_BetType" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_Cust" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_LeagueSel" SpName="Acc_Rpt_COPerformance_LeagueSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

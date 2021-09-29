@@ -3,6 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using UniversalReports.CashOutPerformance.Controllers;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
@@ -47,10 +48,10 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
 
             // Act
             var controller = new CashOutPerformanceApiController(mediator);
-            await controller.Tickets(new TicketRequest());
+            await controller.Tickets(new TicketRequest<TicketModel>());
 
             // Assert
-            await mediator.Received().Send(Arg.Compat.Any<TicketRequest>());
+            await mediator.Received().Send(Arg.Compat.Any<TicketRequest<TicketModel>>());
         }
 
         [Test]

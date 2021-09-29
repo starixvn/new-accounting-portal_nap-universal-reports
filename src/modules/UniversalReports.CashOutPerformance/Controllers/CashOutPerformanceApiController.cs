@@ -2,6 +2,7 @@
 using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.Controllers
@@ -46,7 +47,39 @@ namespace UniversalReports.CashOutPerformance.Controllers
 
         [Route("tickets")]
         [HttpPost]
-        public async Task<IHttpActionResult> Tickets(TicketRequest request)
+        public async Task<IHttpActionResult> Tickets(TicketRequest<TicketModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("sportLevel")]
+        [HttpPost]
+        public async Task<IHttpActionResult> SportLevel(TicketRequest<SportLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("eventStatusLevel")]
+        [HttpPost]
+        public async Task<IHttpActionResult> EventStatusLevel(TicketRequest<EventStatusLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("betTypeLevel")]
+        [HttpPost]
+        public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("matchDetailLevel")]
+        [HttpPost]
+        public async Task<IHttpActionResult> MatchDetailLevel(TicketRequest<MatchDetailLevelModel> request)
         {
             var viewModel = await mediator.Send(request);
             return Json(viewModel);

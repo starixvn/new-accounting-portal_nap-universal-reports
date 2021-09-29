@@ -61,7 +61,7 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
         public async Task Handler_WithTicketRequest_ReturnRightTickets()
         {
             // Arrange
-            var expectedTicket = new TicketViewModel
+            var expectedTicket = new TicketViewModel<TicketModel>
             {
                 TicketList = new List<TicketModel>(),
                 TotalTicket = new TicketModel(),
@@ -69,11 +69,11 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
             };
 
             var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();
-            cashOutPerformanceService.GetTickets(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
+            cashOutPerformanceService.GetTickets<TicketModel, TicketCriteria>(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
             var handler = new Handler(cashOutPerformanceService);
 
             // Act
-            var actualTickets = await handler.Handle(new TicketRequest(), new CancellationToken());
+            var actualTickets = await handler.Handle(new TicketRequest<TicketModel>(), new CancellationToken());
 
             // Assert
             Assert.AreEqual(actualTickets, expectedTicket);

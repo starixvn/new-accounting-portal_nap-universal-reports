@@ -2,7 +2,7 @@
 
 namespace UniversalReports.CashOutPerformance.Models
 {
-    public class TicketModel
+    public class TicketModel : CommonTicketModel
     {
         public DateTime WLDate { get; set; }
 
@@ -39,17 +39,5 @@ namespace UniversalReports.CashOutPerformance.Models
         public decimal BBAmount { get; set; }
 
         public decimal MemberWL { get; set; }
-
-        public decimal COTurnover_RM { get; set; }
-
-        public decimal BBAmount_RM { get; set; }
-
-        public decimal MemberWL_RM { get; set; }
-
-        public decimal Comm_RM { get; set; }
-
-        public decimal COIncome_RM { get; set; }
-
-        public decimal TotalIncome_RM { get; set; }
     }
 }

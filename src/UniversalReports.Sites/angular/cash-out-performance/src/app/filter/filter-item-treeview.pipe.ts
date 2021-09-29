@@ -55,3 +55,25 @@ export class FilterGroupItemTreeviewPipe implements PipeTransform {
     return treeItems;
   }
 }
+
+@Pipe({
+  name: 'filterItemNameTreeview'
+})
+export class FilterItemNameTreeviewPipe implements PipeTransform {
+
+  transform(filterModels: FilterItemModel[]): TreeviewItem[] {
+    const treeItems: TreeviewItem[] = [];
+
+    if (_.isNil(filterModels)) {
+      return undefined;
+    }
+
+    filterModels.forEach(itemModel => {
+      const item = new TreeviewItem({ text: itemModel.Name, value: itemModel.Name });
+      treeItems.push(item);
+    });
+
+    return treeItems;
+  }
+
+}

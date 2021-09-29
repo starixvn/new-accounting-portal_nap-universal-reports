@@ -1,84 +1,127 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
-import { PaginationService } from 'nap-components/pagination';
-import { TicketViewModel } from '../common/model';
+import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Input, OnChanges, OnDestroy, OnInit, Renderer2,
+  ViewChild, ViewContainerRef } from '@angular/core';
 import { GridService } from './grid.service';
 import { FilterModel } from '../filter/filter.model';
 import * as _ from 'lodash';
+import { Grid, GridType } from './grid.model';
+import { MatchDetailGridComponent } from './match-detail-grid/match-detail-grid.component';
+import { SportGridComponent } from './sport-grid/sport-grid.component';
+import { EventStatusGridComponent } from './event-status-grid/event-status-grid.component';
+import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
+  entryComponents: [
+    MatchDetailGridComponent,
+    SportGridComponent,
+    EventStatusGridComponent,
+    BettypeGridComponent
+  ]
 })
-export class GridComponent implements OnChanges {
+export class GridComponent implements OnInit, OnChanges, OnDestroy {
   @Input() filterModel: FilterModel;
+  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  dataViewModel: TicketViewModel;
-  paginationInstance: PaginationInstance;
+  gridType = GridType.Sport;
   breadcrumbItems: string[];
-  originalPageSize = 100;
-
-  private paginatePipe: PaginatePipe;
+  private components: ComponentRef<Grid>[] = [];
 
   constructor(
-    private readonly service: GridService,
-    private readonly paginationService: PaginationService,
-    private readonly ngxPaginationService: NgxPaginationService) {
-    this.paginatePipe = new PaginatePipe(this.ngxPaginationService);
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private renderer: Renderer2,
+    private service: GridService
+  ) { }
+
+  ngOnInit(): void {
+    this.service.generate = (gridType: GridType,) => this.generate(gridType);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!this.filterModel) {
-      this.dataViewModel = null;
-      return;
-    }
+  ngOnDestroy(): void {
+    this.container.clear();
+  }
 
-    this.service.getTickets(this.filterModel).subscribe(data => {
-      this.dataViewModel = data;
-      const breadcrumb = this.Title;
-      this.breadcrumbItems = [breadcrumb];
-      this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total);
-      this.onPageChange();
+  ngOnChanges(): void {
+    this.breadcrumbItems = [];
+    while (this.components.length) {
+      const component = this.components.pop();
+      component.destroy();
+    }
+    this.gridType = GridType.Sport;
+    this.service.filterModel = this.filterModel;
+    this.createGridComponent();
+  }
+
+  private generate(gridType: GridType): void {
+    this.filterModel.isPageChanged = false;
+    this.gridType = gridType;
+    this.createGridComponent();
+  }
+
+  private getComponentFactory(): ComponentFactory<Grid> {
+    switch (this.gridType) {
+        case GridType.Sport:
+            return this.componentFactoryResolver.resolveComponentFactory(SportGridComponent);
+        case GridType.Event:
+            return this.componentFactoryResolver.resolveComponentFactory(EventStatusGridComponent);
+        case GridType.BetType:
+            return this.componentFactoryResolver.resolveComponentFactory(BettypeGridComponent);
+        case GridType.MatchDetail:
+            return this.componentFactoryResolver.resolveComponentFactory(MatchDetailGridComponent);
+        default:
+            throw new Error('Not implemented yet');
+    }
+  }
+
+  private createGridComponent(): void {
+    const factory = this.getComponentFactory();
+    const component = this.container.createComponent(factory);
+    this.components.push(component);
+
+    const grid = component.instance;
+    this.service.activeGrid = grid;
+    grid.query().subscribe({
+      complete: () => this.showGridAndBreadcrumb()
     });
   }
 
-  exportExcel(): void {
-    this.service.exportExcel(this.filterModel);
+  private showGridAndBreadcrumb(): void {
+    this.updateBreadcrumb();
+    this.showOnlyLastGrid();
   }
 
-  onPageChange(): void {
-    this.createPaging();
+  private updateBreadcrumb(): void {
+    this.breadcrumbItems = [];
+    this.components.forEach((component, index) => {
+      const componentTitle = component.instance.title.toUpperCase();
+      this.breadcrumbItems.push(componentTitle);
+    });
   }
 
-  private createPaging(): void {
-    if (this.filterModel.isPageChanged) {
-      this.paginationInstance.currentPage =
-        this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
-      this.filterModel.pageIndex = this.paginationInstance.currentPage;
-      this.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+  private showOnlyLastGrid(): void {
+    const length = this.components.length;
+    const currentComponent = this.components[length - 1];
+    this.renderer.removeAttribute(currentComponent.location.nativeElement, 'hidden');
 
-      this.service.getTickets(this.filterModel).subscribe(data => {
-        this.dataViewModel = data;
-        this.createPagingTransform();
-      });
+    if (length > 1) {
+      const lastComponent = this.components[length - 2];
+      this.renderer.setAttribute(lastComponent.location.nativeElement, 'hidden', 'hidden');
+    }
+  }
+
+  private destroyComponentsFrom(index: number): void {
+    while (this.components.length - 1 > index) {
+      const component = this.components.pop();
+      component.destroy();
     }
 
-    this.createPagingTransform();
+    this.service.activeGrid = this.components[this.components.length - 1].instance;
+    this.showGridAndBreadcrumb();
   }
 
-  private createPagingTransform(): void {
-    const paginateData = this.paginatePipe.transform(this.dataViewModel.TicketList, this.paginationInstance);
-    this.dataViewModel.TicketList = _.cloneDeep(paginateData);
-    this.filterModel.isPageChanged = true;
-    this.originalPageSize = this.paginationInstance.itemsPerPage;
-  }
-
-  get hasData(): boolean {
-    return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
-  }
-
-  get Title(): string {
-    return `Cash Out Performance Report From ${this.filterModel.startDate} To ${this.filterModel.endDate}`;
+  onBreadcrumbItemClick(event: number): void {
+    this.destroyComponentsFrom(event);
+    this.showGridAndBreadcrumb();
   }
 }

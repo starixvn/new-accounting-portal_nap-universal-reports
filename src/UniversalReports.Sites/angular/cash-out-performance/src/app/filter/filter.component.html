@@ -11,7 +11,7 @@
         </div>
         <div class="nap-col">
           <div class="nap-group">
-            <label>From Date</label>
+            <label class="width-190">From Date</label>
             <div class="nap-control">
               <nap-date-picker [(date)]="startDate" [minDate]="minStartDate" [maxDate]="endDate" (dateChange)="onDateChange()"></nap-date-picker>
             </div>
@@ -29,7 +29,7 @@
             <div class="nap-group">
             <label>Licensee</label>
             <div class="nap-control">
-                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | filterItemTreeview:licensees"
+                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | filterItemNameTreeview:licensees"
                 [config]="licenseeTreeviewConfig" (selectedChange)="selectedLicensees = $event">
                 </ngx-dropdown-treeview>
             </div>
@@ -49,7 +49,7 @@
         </div>
         <div class="nap-col">
           <div class="nap-group">
-          <label>League Group</label>
+          <label class="width-190">League Group</label>
           <div class="nap-control">
               <ngx-dropdown-treeview #leagueGroupDropdownTreeview [items]="leagueGroups | filterItemTreeview:leagueGroups"
               [config]="leagueGroupTreeviewConfig" (selectedChange)="selectedLeagueGroups = $event">
@@ -66,12 +66,45 @@
             </div>
           </div>
         </div>
-        <div class="nap-col col-buttons">
-            <label>&nbsp;</label>
-            <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
-              GENERATE
-            </button>
+    </div>
+    <div class="row">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>Status</label>
+          <div class="nap-control">
+            <nap-dropdown-select [items]="ticketStatusSelectItems" [(value)]="ticketStatus">
+            </nap-dropdown-select>
           </div>
+        </div>
+      </div>
+      <div class="nap-col">
+        <div class="nap-group">
+        <label class="width-190">Global Show Time (GMT+8)</label>
+        <div class="nap-control">
+            <ngx-dropdown-treeview #globalShowTimeDropdownTreeview [items]="globalShowTimes | filterItemTreeview:globalShowTimes"
+            [config]="globalShowTimeTreeviewConfig" (selectedChange)="selectedGlobalShowTime = $event">
+            </ngx-dropdown-treeview>
+        </div>
+        </div>
+      </div>
+      <div class="nap-col col-buttons">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+          GENERATE
+        </button>
+      </div>
+      <div class="nap-col">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+          {{ todayDateString }}
+        </button>
+      </div>
+      <div class="nap-col">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+          {{ yesterdayDateString }}
+        </button>
+      </div>
     </div>
 </div>
   
