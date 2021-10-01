@@ -45,6 +45,7 @@ export class BettypeGridComponent implements Grid {
   }
 
   exportExcel(): void {
+    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
     this.service.exportExcel(this.gridService.filterModel);
   }
 
@@ -81,8 +82,9 @@ export class BettypeGridComponent implements Grid {
 
   showMatchDetailLevel(betType: number, betTypeName: string): void{
     this.gridService.matchDetailTitle = betTypeName;
-    const sportBettypeList = this.gridService.filterModel.sportBettype.split(',').filter(x => x.split('_')[1] === betType.toString());
-    this.gridService.filterModel.sportBettype = sportBettypeList.join(',');
+    const sportBettypeList =
+      this.gridService.cachedSportBettypeForSport.split(',').filter(x => x.split('_')[1] === betType.toString()).join(',');
+    this.gridService.filterModel.sportBettype = sportBettypeList;
     this.gridService.generate(GridType.MatchDetail);
   }
 

@@ -84,7 +84,7 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             if (excelType != ExcelType.Match)
             {
-                sheet.Cells["A4"].Value = Enum.GetName(typeof(ExcelType), excelType);
+                sheet.Cells["A4"].Value = Enum.GetName(typeof(ExcelType), excelType).Replace("Event", "Live/Non-Live");
             }
         }
 

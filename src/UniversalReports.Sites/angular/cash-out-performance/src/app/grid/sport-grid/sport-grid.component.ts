@@ -45,6 +45,7 @@ export class SportGridComponent implements Grid {
   }
 
   exportExcel(): void {
+    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettype;
     this.service.exportExcel(this.gridService.filterModel);
   }
 
@@ -81,9 +82,11 @@ export class SportGridComponent implements Grid {
 
   showEventStatusLevel(sportType: number, sportName: string): void{
     this.gridService.eventTitle = sportName;
-    const sportBettypeList = this.gridService.orginalSportBettype.split(',').filter(x => x.split('_')[0] === sportType.toString());
-    this.gridService.filterModel.sportBettype = sportBettypeList.join(',');
-    this.gridService.cachedSportBettype = sportBettypeList.join(',');
+    const sportBettypeList =
+      this.gridService.orginalSportBettype.split(',').filter(x => x.split('_')[0] === sportType.toString()).join(',');
+    this.gridService.filterModel.sportBettype = sportBettypeList;
+    this.gridService.filterModel.liveIndicator = this.gridService.cachedLiveIndicator;
+    this.gridService.cachedSportBettypeForSport = sportBettypeList;
     this.gridService.generate(GridType.Event);
   }
 }

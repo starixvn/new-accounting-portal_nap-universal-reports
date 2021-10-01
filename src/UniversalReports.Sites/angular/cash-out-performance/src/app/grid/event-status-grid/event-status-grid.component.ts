@@ -45,6 +45,7 @@ export class EventStatusGridComponent implements Grid {
   }
 
   exportExcel(): void {
+    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
     this.service.exportExcel(this.gridService.filterModel);
   }
 
@@ -81,7 +82,8 @@ export class EventStatusGridComponent implements Grid {
 
   showBetTypeLevel(liveStatus: number): void{
     this.gridService.betTypeTitle = this.getliveNonLiveText(liveStatus);
-    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettype;
+    this.gridService.filterModel.liveIndicator = liveStatus;
+    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
     this.gridService.generate(GridType.BetType);
   }
 

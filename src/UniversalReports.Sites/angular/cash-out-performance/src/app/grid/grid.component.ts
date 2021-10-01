@@ -53,6 +53,8 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     if (this.filterModel !== undefined)
     {
       this.service.orginalSportBettype = this.filterModel.sportBettype;
+      this.service.cachedSportBettype = this.filterModel.sportBettype;
+      this.service.cachedLiveIndicator = this.filterModel.liveIndicator;
     }
     this.createGridComponent();
   }
