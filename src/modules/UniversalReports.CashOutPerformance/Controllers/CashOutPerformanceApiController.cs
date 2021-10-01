@@ -45,15 +45,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("tickets")]
-        [HttpPost]
-        public async Task<IHttpActionResult> Tickets(TicketRequest<TicketModel> request)
-        {
-            var viewModel = await mediator.Send(request);
-            return Json(viewModel);
-        }
-
-        [Route("sportLevel")]
+        [Route("sport-level")]
         [HttpPost]
         public async Task<IHttpActionResult> SportLevel(TicketRequest<SportLevelModel> request)
         {
@@ -61,7 +53,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("eventStatusLevel")]
+        [Route("event-status-level")]
         [HttpPost]
         public async Task<IHttpActionResult> EventStatusLevel(TicketRequest<EventStatusLevelModel> request)
         {
@@ -69,7 +61,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("betTypeLevel")]
+        [Route("bettype-level")]
         [HttpPost]
         public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
         {
@@ -77,7 +69,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("matchDetailLevel")]
+        [Route("match-detail-level")]
         [HttpPost]
         public async Task<IHttpActionResult> MatchDetailLevel(TicketRequest<MatchDetailLevelModel> request)
         {
@@ -85,9 +77,33 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("excel")]
+        [Route("excel-sport")]
         [HttpPost]
-        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest request)
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SportLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-event-status")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<EventStatusLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-bettype")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<BetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-match-detail")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<MatchDetailLevelModel> request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);

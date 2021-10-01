@@ -79,9 +79,10 @@ export class BettypeGridComponent implements Grid {
     return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
   }
 
-  showMatchDetailLevel(betType: number,betTypeName: string): void{
+  showMatchDetailLevel(betType: number, betTypeName: string): void{
     this.gridService.matchDetailTitle = betTypeName;
-    this.gridService.filterModel.betType = betType;
+    const sportBettypeList = this.gridService.filterModel.sportBettype.split(',').filter(x => x.split('_')[1] === betType.toString());
+    this.gridService.filterModel.sportBettype = sportBettypeList.join(',');
     this.gridService.generate(GridType.MatchDetail);
   }
 

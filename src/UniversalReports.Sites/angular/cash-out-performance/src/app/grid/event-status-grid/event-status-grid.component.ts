@@ -81,11 +81,12 @@ export class EventStatusGridComponent implements Grid {
 
   showBetTypeLevel(liveStatus: number): void{
     this.gridService.betTypeTitle = this.getliveNonLiveText(liveStatus);
+    this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettype;
     this.gridService.generate(GridType.BetType);
   }
 
   getliveNonLiveText(liveStatus: number): string {
-    const status = liveStatus === 0 ? "Non-Live" : "Live";
+    const status = liveStatus === 0 ? 'Non-Live' : 'Live';
     return `${this.gridService.eventTitle} ${status}`;
   }
 }

@@ -89,20 +89,20 @@
       </div>
       <div class="nap-col col-buttons">
         <label>&nbsp;</label>
-        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick('Warehouse', null)">
           GENERATE
         </button>
       </div>
       <div class="nap-col">
         <label>&nbsp;</label>
-        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
-          {{ todayDateString }}
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick('Bettrans', todayDate)">
+          {{ todayDate | date : 'MMM dd, YYYY' | uppercase}}
         </button>
       </div>
       <div class="nap-col">
         <label>&nbsp;</label>
-        <button type="button" class="btn btn-primary" (click)="onGenerateClick()">
-          {{ yesterdayDateString }}
+        <button type="button" class="btn btn-primary" (click)="onGenerateClick('Bettrans', yesterdayDate)">
+          {{ yesterdayDate | date : 'MMM dd, YYYY' | uppercase }}
         </button>
       </div>
     </div>

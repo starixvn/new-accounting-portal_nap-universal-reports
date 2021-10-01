@@ -16,7 +16,7 @@ export class SportGridService {
   constructor(private httpService: HttpService) { }
 
   getTickets(fiterModel: FilterModel): Observable<TicketViewModel<SportLevelModel>> {
-    return this.httpService.post<TicketViewModel<SportLevelModel>>(`${CommonConfig.API}sportLevel`, fiterModel);
+    return this.httpService.post<TicketViewModel<SportLevelModel>>(`${CommonConfig.API}sport-level`, fiterModel);
   }
 
   exportExcel(filterModel: FilterModel): void {
@@ -24,7 +24,7 @@ export class SportGridService {
 
     const fromDate = moment(excelQueryModel.startDate).format('YYYY_MM_DD');
     const toDate = moment(excelQueryModel.endDate).format('YYYY_MM_DD');
-    this.httpService.download(`${CommonConfig.API}excel`, excelQueryModel).subscribe(response => {
+    this.httpService.download(`${CommonConfig.API}excel-sport`, excelQueryModel).subscribe(response => {
       const fileName = `Cash_Out_Performance_Report_From_${fromDate}_To_${toDate}.xlsx`;
       Helper.downloadFile(response, fileName);
     });

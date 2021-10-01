@@ -16,7 +16,7 @@ export class MatchDetailGridService {
   constructor(private httpService: HttpService) { }
 
   getTickets(fiterModel: FilterModel): Observable<TicketViewModel<MatchDetailLevelModel>> {
-    return this.httpService.post<TicketViewModel<MatchDetailLevelModel>>(`${CommonConfig.API}matchDetailLevel`, fiterModel);
+    return this.httpService.post<TicketViewModel<MatchDetailLevelModel>>(`${CommonConfig.API}match-detail-level`, fiterModel);
   }
 
   exportExcel(filterModel: FilterModel): void {
@@ -24,7 +24,7 @@ export class MatchDetailGridService {
 
     const fromDate = moment(excelQueryModel.startDate).format('YYYY_MM_DD');
     const toDate = moment(excelQueryModel.endDate).format('YYYY_MM_DD');
-    this.httpService.download(`${CommonConfig.API}excel`, excelQueryModel).subscribe(response => {
+    this.httpService.download(`${CommonConfig.API}excel-match-detail`, excelQueryModel).subscribe(response => {
       const fileName = `Cash_Out_Performance_Report_From_${fromDate}_To_${toDate}.xlsx`;
       Helper.downloadFile(response, fileName);
     });

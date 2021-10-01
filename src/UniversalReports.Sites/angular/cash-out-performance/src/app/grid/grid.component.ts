@@ -50,6 +50,10 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     }
     this.gridType = GridType.Sport;
     this.service.filterModel = this.filterModel;
+    if (this.filterModel !== undefined)
+    {
+      this.service.orginalSportBettype = this.filterModel.sportBettype;
+    }
     this.createGridComponent();
   }
 
@@ -76,14 +80,17 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
 
   private createGridComponent(): void {
     const factory = this.getComponentFactory();
-    const component = this.container.createComponent(factory);
-    this.components.push(component);
+    if (this.container !== undefined)
+    {
+      const component = this.container.createComponent(factory);
+      this.components.push(component);
 
-    const grid = component.instance;
-    this.service.activeGrid = grid;
-    grid.query().subscribe({
-      complete: () => this.showGridAndBreadcrumb()
-    });
+      const grid = component.instance;
+      this.service.activeGrid = grid;
+      grid.query().subscribe({
+        complete: () => this.showGridAndBreadcrumb()
+      });
+    }
   }
 
   private showGridAndBreadcrumb(): void {
@@ -97,6 +104,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
       const componentTitle = component.instance.title.toUpperCase();
       this.breadcrumbItems.push(componentTitle);
     });
+    this.service.filterModel.breadCrumb = this.breadcrumbItems;
   }
 
   private showOnlyLastGrid(): void {
@@ -124,4 +132,13 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     this.destroyComponentsFrom(event);
     this.showGridAndBreadcrumb();
   }
+
+  exportExcel(): void {
+    if (this.components.length === 0) {
+        return;
+    }
+    const component = this.components[this.components.length - 1];
+    const grid = component.instance;
+    grid.exportExcel();
+}
 }

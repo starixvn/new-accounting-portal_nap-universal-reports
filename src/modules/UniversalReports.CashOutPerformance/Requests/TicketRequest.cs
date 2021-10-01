@@ -22,12 +22,10 @@ namespace UniversalReports.CashOutPerformance.Requests
 
         public byte LiveIndicator { get; set; }
 
-        public int SportType { get; set; }
-
-        public int BetType { get; set; }
-
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
+
+        public string Server { get; set; }
     }
 }

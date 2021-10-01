@@ -7,6 +7,8 @@ import { Grid, GridType } from './grid.model';
 })
 export class GridService {
   filterModel: FilterModel;
+  orginalSportBettype: string;
+  cachedSportBettype: string;
   activeGrid: Grid;
   eventTitle: string;
   betTypeTitle: string;

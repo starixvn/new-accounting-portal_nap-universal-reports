@@ -75,4 +75,5 @@ export interface ExcelQueryModel {
     pageSize: number;
     isPageChanged: boolean;
     title: string;
+    breadCrumb: string[];
   }

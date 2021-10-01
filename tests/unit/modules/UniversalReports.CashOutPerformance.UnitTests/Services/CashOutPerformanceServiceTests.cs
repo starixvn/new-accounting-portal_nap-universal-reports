@@ -55,24 +55,24 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Services
         //    Assert.AreEqual(expectedSports, actualSports);
         //}
 
-        [Test]
-        public async Task GetTickets_ValidTicketCriteria_ReturnRightTickets()
-        {
-            // Arrange
-            var expectedTicket = ValueTuple.Create<IEnumerable<TicketModel>, IEnumerable<TicketModel>, IEnumerable<int>>(
-                new List<TicketModel>(),
-                new List<TicketModel>(),
-                new List<int>());
+        //[Test]
+        //public async Task GetTickets_ValidTicketCriteria_ReturnRightTickets()
+        //{
+        //    // Arrange
+        //    var expectedTicket = ValueTuple.Create<IEnumerable<TicketModel>, IEnumerable<TicketModel>, IEnumerable<int>>(
+        //        new List<TicketModel>(),
+        //        new List<TicketModel>(),
+        //        new List<int>());
 
-            var repository = Substitute.For<IDynamicRepository>();
-            repository.FetchMultipleAsync<TicketModel, TicketModel, int>(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
-            var service = new CashOutPerformanceServiceImp(repository);
+        //    var repository = Substitute.For<IDynamicRepository>();
+        //    repository.FetchMultipleAsync<TicketModel, TicketModel, int>(Arg.Compat.Any<TicketCriteria>()).Returns(expectedTicket);
+        //    var service = new CashOutPerformanceServiceImp(repository);
 
-            // Act
-            var actualTicket = await service.GetTickets<TicketModel, TicketCriteria>(new TicketCriteria());
+        //    // Act
+        //    var actualTicket = await service.GetTickets<TicketModel, TicketCriteria>(new TicketCriteria());
 
-            // Assert
-            Assert.AreEqual(expectedTicket.Item1, actualTicket.TicketList);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedTicket.Item1, actualTicket.TicketList);
+        //}
     }
 }

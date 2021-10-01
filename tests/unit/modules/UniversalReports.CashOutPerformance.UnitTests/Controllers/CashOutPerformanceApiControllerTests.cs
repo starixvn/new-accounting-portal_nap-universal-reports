@@ -40,32 +40,32 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
             await mediator.Received().Send(Arg.Compat.Any<LicenseeRequest>());
         }
 
-        [Test]
-        public async Task Tickets_Always_CallMediatorSend()
-        {
-            // Arrange
-            var mediator = Substitute.For<IMediator>();
+        //[Test]
+        //public async Task Tickets_Always_CallMediatorSend()
+        //{
+        //    // Arrange
+        //    var mediator = Substitute.For<IMediator>();
 
-            // Act
-            var controller = new CashOutPerformanceApiController(mediator);
-            await controller.Tickets(new TicketRequest<TicketModel>());
+        //    // Act
+        //    var controller = new CashOutPerformanceApiController(mediator);
+        //    await controller.Tickets(new TicketRequest<TicketModel>());
 
-            // Assert
-            await mediator.Received().Send(Arg.Compat.Any<TicketRequest<TicketModel>>());
-        }
+        //    // Assert
+        //    await mediator.Received().Send(Arg.Compat.Any<TicketRequest<TicketModel>>());
+        //}
 
-        [Test]
-        public async Task TicketsExcel_Always_CallMediatorSend()
-        {
-            // Arrange
-            var mediator = Substitute.For<IMediator>();
+        //[Test]
+        //public async Task TicketsExcel_Always_CallMediatorSend()
+        //{
+        //    // Arrange
+        //    var mediator = Substitute.For<IMediator>();
 
-            // Act
-            var controller = new CashOutPerformanceApiController(mediator);
-            await controller.TicketsExcel(new TicketExcelRequest());
+        //    // Act
+        //    var controller = new CashOutPerformanceApiController(mediator);
+        //    await controller.TicketsExcel(new TicketExcelRequest());
 
-            // Assert
-            await mediator.Received().Send(Arg.Compat.Any<TicketExcelRequest>());
-        }
+        //    // Assert
+        //    await mediator.Received().Send(Arg.Compat.Any<TicketExcelRequest>());
+        //}
     }
 }

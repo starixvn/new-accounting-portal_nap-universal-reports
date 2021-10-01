@@ -1,4 +1,5 @@
-﻿using Fanex.Data.Repository;
+﻿using Fanex.Data;
+using Fanex.Data.Repository;
 using System;
 
 namespace UniversalReports.CashOutPerformance.Criteria
@@ -13,6 +14,8 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public string Sites { get; set; }
 
+        public string Leagues { get; set; }
+
         public string LeagueGroupIDs { get; set; }
 
         public string GlobalShowTime { get; set; }
@@ -23,7 +26,10 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public int PageSize { get; set; }
 
-        public override string GetSettingKey() => "Acc_Rpt_COPerformance_SportType";
+        [SpParam(Ignored = true)]
+        public string Server { get; set; }
+
+        public override string GetSettingKey() => $"Acc_Rpt_COPerformance_SportType_{Server}";
 
         public override bool IsValid() => true;
     }

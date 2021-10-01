@@ -25,8 +25,8 @@ export class FilterComponent implements OnInit {
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   ticketStatusSelectItems = this.filterService.getStatusSelectItems();
   ticketStatus: TicketStatus = TicketStatus.All;
-  todayDateString = CONFIG.date.today.format('MMM DD, YYYY').toUpperCase();
-  yesterdayDateString = CONFIG.date.yesterday.format('MMM DD, YYYY').toUpperCase();
+  todayDate = CONFIG.date.today;
+  yesterdayDate = CONFIG.date.yesterday;
 
   licensees: FilterItemModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
@@ -145,23 +145,34 @@ export class FilterComponent implements OnInit {
     this.timePeriod = TimePeriod.SpecificDate;
   }
 
-  async onGenerateClick(): Promise<void> {
-    await this.OnGenerate();
+  async onGenerateClick(dbServer: string, date: moment.Moment): Promise<void> {
+    await this.OnGenerate(dbServer, date);
   }
 
-  private async OnGenerate(): Promise<void> {
+  private async OnGenerate(dbServer: string, date: moment.Moment): Promise<void> {
     let model = null;
 
     if (await this.isValid()) {
-      model = this.createModel();
+      model = this.createModel(dbServer, date);
     }
 
     this.generated.emit(model);
   }
 
-  private createModel(): FilterModel {
-    const startDate = DateHelper.convertDateStructToMoment(this.startDate);
-    const endDate = DateHelper.convertDateStructToMoment(this.endDate);
+  private createModel(dbServer: string, date: moment.Moment): FilterModel {
+    let startDate: moment.Moment;
+    let endDate: moment.Moment;
+
+    if (date === null)
+    {
+      startDate = DateHelper.convertDateStructToMoment(this.startDate);
+      endDate = DateHelper.convertDateStructToMoment(this.endDate);
+    }
+    else
+    {
+      startDate = date;
+      endDate = date;
+    }
 
     return {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
@@ -175,8 +186,8 @@ export class FilterComponent implements OnInit {
       isPageChanged: false,
       globalShowTime: this.selectedGlobalShowTime.length === 24 ? '0' : this.selectedGlobalShowTime.join(','),
       liveIndicator: this.ticketStatus,
-      sportType: 0,
-      betType: 0
+      breadCrumb: [],
+      server: dbServer
     };
   }
 

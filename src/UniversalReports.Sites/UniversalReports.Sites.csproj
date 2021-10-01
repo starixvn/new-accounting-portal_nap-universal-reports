@@ -24,8 +24,8 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <FileUpgradeFlags>0</FileUpgradeFlags>
-    <UpgradeBackupLocation>D:\Nap-Report\master\nap-universal-reports\Backup22\</UpgradeBackupLocation>
+	<FileUpgradeFlags>0</FileUpgradeFlags>
+   <UpgradeBackupLocation>D:\Nap-Report\master\nap-universal-reports\Backup22\</UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
@@ -966,6 +966,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ExcelTemplate\CashOutPerformance\CashOutPerformance.xlsx" />
+    <Content Include="ExcelTemplate\CashOutPerformance\SimpleCashOutPerformance.xlsx" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_clearfix.scss" />

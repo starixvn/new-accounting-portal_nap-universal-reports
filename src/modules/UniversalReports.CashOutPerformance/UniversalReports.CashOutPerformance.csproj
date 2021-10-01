@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="CashOutPerformanceAttribute.cs" />
+    <Compile Include="Constants\ExcelType.cs" />
     <Compile Include="Controllers\CashOutPerformanceApiController.cs" />
     <Compile Include="Criteria\BetTypeLevelCriteria.cs" />
     <Compile Include="Criteria\EventStatusLevelCriteria.cs" />
@@ -117,20 +118,21 @@
     <Compile Include="Criteria\MatchDetailLevelCriteria.cs" />
     <Compile Include="Criteria\SportCriteria.cs" />
     <Compile Include="Criteria\SportLevelCriteria.cs" />
-    <Compile Include="Criteria\TicketCriteria.cs" />
     <Compile Include="Handlers\Handler.cs" />
     <Compile Include="Handlers\HandlerExcel.cs" />
+    <Compile Include="Models\BetTypeLevelExcelModel.cs" />
     <Compile Include="Models\BetTypeLevelModel.cs" />
     <Compile Include="Models\CommonTicketModel.cs" />
+    <Compile Include="Models\EventStatusLevelExcelModel.cs" />
     <Compile Include="Models\EventStatusLevelModel.cs" />
     <Compile Include="Models\FilterGroupItemModel.cs" />
     <Compile Include="Models\FilterItemModel.cs" />
     <Compile Include="Models\LeagueModel.cs" />
+    <Compile Include="Models\MatchDetailLevelExcelModel.cs" />
     <Compile Include="Models\MatchDetailLevelModel.cs" />
     <Compile Include="Models\SportBetTypeModel.cs" />
+    <Compile Include="Models\SportLevelExcelModel.cs" />
     <Compile Include="Models\SportLevelModel.cs" />
-    <Compile Include="Models\TicketExcelModel.cs" />
-    <Compile Include="Models\TicketModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\LeagueGroupRequest.cs" />
     <Compile Include="Requests\LeagueRequest.cs" />

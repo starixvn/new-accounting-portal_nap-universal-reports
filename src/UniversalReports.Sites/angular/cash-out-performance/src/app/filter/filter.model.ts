@@ -42,6 +42,6 @@ export interface FilterModel {
     isPageChanged: boolean;
     globalShowTime: string;
     liveIndicator: number;
-    sportType: number;
-    betType: number;
+    breadCrumb: string[];
+    server: string;
   }

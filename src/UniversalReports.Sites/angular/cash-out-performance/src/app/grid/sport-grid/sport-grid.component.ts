@@ -81,7 +81,9 @@ export class SportGridComponent implements Grid {
 
   showEventStatusLevel(sportType: number, sportName: string): void{
     this.gridService.eventTitle = sportName;
-    this.gridService.filterModel.sportType = sportType;
+    const sportBettypeList = this.gridService.orginalSportBettype.split(',').filter(x => x.split('_')[0] === sportType.toString());
+    this.gridService.filterModel.sportBettype = sportBettypeList.join(',');
+    this.gridService.cachedSportBettype = sportBettypeList.join(',');
     this.gridService.generate(GridType.Event);
   }
 }
