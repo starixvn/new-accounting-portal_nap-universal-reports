@@ -52,7 +52,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             var criteria = Mapper.Map<EventStatusLevelCriteria>(request);
             var reportData = await service.GetTickets<EventStatusLevelModel, EventStatusLevelCriteria>(criteria);
             var excelModel = Mapper.Map<TicketViewExcelModel<EventStatusLevelExcelModel>>(reportData);
-            var sportName = new CultureInfo("en-US").TextInfo.ToTitleCase(request.BreadCrumb.Last().ToLower());
+            var sportName = new CultureInfo("en-US").TextInfo.ToTitleCase(request.BreadCrumb.Last().ToLowerInvariant());
             foreach (var item in excelModel.TicketList)
             {
                 var status = item.LiveStatus == "0" ? "Non-Live" : "Live";

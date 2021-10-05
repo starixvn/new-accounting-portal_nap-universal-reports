@@ -4,20 +4,6 @@ namespace UniversalReports.CashOutPerformance.Models
 {
     public class EventStatusLevelExcelModel
     {
-        //private string liveStatus;
-
-        //[Cell("A5")]
-        //public string LiveStatus
-        //{
-        //    get
-        //    {
-        //        return liveStatus == "0" ? "Non-Live" : "Live";
-        //    }
-        //    set
-        //    {
-        //        liveStatus = value;
-        //    }
-        //}
         [Cell("A5")]
         public string LiveStatus { get; set; }
 
