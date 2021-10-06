@@ -2,6 +2,7 @@
 using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.Controllers
@@ -44,17 +45,65 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("tickets")]
+        [Route("sport-level")]
         [HttpPost]
-        public async Task<IHttpActionResult> Tickets(TicketRequest request)
+        public async Task<IHttpActionResult> SportLevel(TicketRequest<SportLevelModel> request)
         {
             var viewModel = await mediator.Send(request);
             return Json(viewModel);
         }
 
-        [Route("excel")]
+        [Route("event-status-level")]
         [HttpPost]
-        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest request)
+        public async Task<IHttpActionResult> EventStatusLevel(TicketRequest<EventStatusLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("bettype-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("match-detail-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> MatchDetailLevel(TicketRequest<MatchDetailLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("excel-sport")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SportLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-event-status")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<EventStatusLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-bettype")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<BetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-match-detail")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<MatchDetailLevelModel> request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);

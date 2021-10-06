@@ -14,7 +14,7 @@ namespace UniversalReports.CashOutPerformance.Services
 
         Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria);
 
-        Task<TicketViewModel> GetTickets(TicketCriteria criteria);
+        Task<TicketViewModel<T>> GetTickets<T, U>(U criteria);
 
         Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
 
@@ -53,10 +53,10 @@ namespace UniversalReports.CashOutPerformance.Services
             return result;
         }
 
-        public async Task<TicketViewModel> GetTickets(TicketCriteria criteria)
+        public async Task<TicketViewModel<T>> GetTickets<T, U>(U criteria)
         {
-            var (firstResultSet, secondResultSet, thirdResultSet) = await repository.FetchMultipleAsync<TicketModel, TicketModel, int>(criteria);
-            return new TicketViewModel
+            var (firstResultSet, secondResultSet, thirdResultSet) = await repository.FetchMultipleAsync<T, T, int>((ICriteria)criteria);
+            return new TicketViewModel<T>
             {
                 TicketList = firstResultSet,
                 TotalTicket = secondResultSet.FirstOrDefault(),

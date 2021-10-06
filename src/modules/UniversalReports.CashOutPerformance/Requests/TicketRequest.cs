@@ -4,7 +4,7 @@ using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Requests
 {
-    public class TicketRequest : IRequest<TicketViewModel>
+    public class TicketRequest<T> : IRequest<TicketViewModel<T>>
     {
         public DateTime StartDate { get; set; }
 
@@ -18,8 +18,14 @@ namespace UniversalReports.CashOutPerformance.Requests
 
         public string LeagueGroupIDs { get; set; }
 
+        public string GlobalShowTime { get; set; }
+
+        public byte LiveIndicator { get; set; }
+
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
+
+        public string Server { get; set; }
     }
 }

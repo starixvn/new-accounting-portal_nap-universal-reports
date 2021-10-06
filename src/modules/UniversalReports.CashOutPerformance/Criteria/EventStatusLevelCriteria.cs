@@ -1,9 +1,10 @@
-﻿using Fanex.Data.Repository;
+﻿using Fanex.Data;
+using Fanex.Data.Repository;
 using System;
 
 namespace UniversalReports.CashOutPerformance.Criteria
 {
-    public class TicketCriteria : CriteriaBase
+    public class EventStatusLevelCriteria : CriteriaBase
     {
         public DateTime StartDate { get; set; }
 
@@ -17,11 +18,18 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public string LeagueGroupIDs { get; set; }
 
+        public string GlobalShowTime { get; set; }
+
+        public byte LiveIndicator { get; set; }
+
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
 
-        public override string GetSettingKey() => "Acc_Rpt_COPerformance";
+        [SpParam(Ignored = true)]
+        public string Server { get; set; }
+
+        public override string GetSettingKey() => $"Acc_Rpt_COPerformance_LiveStatus_{Server}";
 
         public override bool IsValid() => true;
     }

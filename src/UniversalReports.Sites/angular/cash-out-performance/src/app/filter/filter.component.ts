@@ -6,7 +6,7 @@ import { DateFormat, DateHelper } from 'nap-components/date';
 import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TimePeriod } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TicketStatus, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
@@ -23,6 +23,10 @@ export class FilterComponent implements OnInit {
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
+  ticketStatusSelectItems = this.filterService.getStatusSelectItems();
+  ticketStatus: TicketStatus = TicketStatus.All;
+  todayDate = CONFIG.date.today;
+  yesterdayDate = CONFIG.date.yesterday;
 
   licensees: FilterItemModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
@@ -50,6 +54,15 @@ export class FilterComponent implements OnInit {
     maxHeight: 500
   });
   selectedLeagueGroups: number[] = [];
+
+  globalShowTimes: FilterItemModel[] = this.filterService.getGlobalShowTimeFilterItems();
+  globalShowTimeTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedGlobalShowTime: number[] = [];
 
   leagues = '';
   leagueName = '';
@@ -132,23 +145,34 @@ export class FilterComponent implements OnInit {
     this.timePeriod = TimePeriod.SpecificDate;
   }
 
-  async onGenerateClick(): Promise<void> {
-    await this.OnGenerate();
+  async onGenerateClick(dbServer: string, date: moment.Moment): Promise<void> {
+    await this.OnGenerate(dbServer, date);
   }
 
-  private async OnGenerate(): Promise<void> {
+  private async OnGenerate(dbServer: string, date: moment.Moment): Promise<void> {
     let model = null;
 
     if (await this.isValid()) {
-      model = this.createModel();
+      model = this.createModel(dbServer, date);
     }
 
     this.generated.emit(model);
   }
 
-  private createModel(): FilterModel {
-    const startDate = DateHelper.convertDateStructToMoment(this.startDate);
-    const endDate = DateHelper.convertDateStructToMoment(this.endDate);
+  private createModel(dbServer: string, date: moment.Moment): FilterModel {
+    let startDate: moment.Moment;
+    let endDate: moment.Moment;
+
+    if (date === null)
+    {
+      startDate = DateHelper.convertDateStructToMoment(this.startDate);
+      endDate = DateHelper.convertDateStructToMoment(this.endDate);
+    }
+    else
+    {
+      startDate = date;
+      endDate = date;
+    }
 
     return {
       startDate: DateHelper.formatMomentDate(startDate, DateFormat.Date),
@@ -160,6 +184,10 @@ export class FilterComponent implements OnInit {
       pageIndex: 1,
       pageSize: 100,
       isPageChanged: false,
+      globalShowTime: this.selectedGlobalShowTime.length === 24 ? '0' : this.selectedGlobalShowTime.join(','),
+      liveIndicator: this.ticketStatus,
+      breadCrumb: [],
+      server: dbServer
     };
   }
 
