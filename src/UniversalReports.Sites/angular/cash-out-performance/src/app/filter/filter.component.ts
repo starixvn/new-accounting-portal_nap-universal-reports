@@ -27,6 +27,7 @@ export class FilterComponent implements OnInit {
   ticketStatus: TicketStatus = TicketStatus.All;
   todayDate = CONFIG.date.today;
   yesterdayDate = CONFIG.date.yesterday;
+  isShowFullColumn = false;
 
   licensees: FilterItemModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
@@ -84,6 +85,10 @@ export class FilterComponent implements OnInit {
 
     this.filterService.getLeagueGroups().subscribe(leagueGroups => {
       this.leagueGroups = leagueGroups;
+    });
+
+    this.filterService.showFullColumn().subscribe(data => {
+      this.isShowFullColumn = data;
     });
   }
 
@@ -187,7 +192,8 @@ export class FilterComponent implements OnInit {
       globalShowTime: this.selectedGlobalShowTime.length === 24 ? '0' : this.selectedGlobalShowTime.join(','),
       liveIndicator: this.ticketStatus,
       breadCrumb: [],
-      server: dbServer
+      server: dbServer,
+      isShowFullColumn: this.isShowFullColumn
     };
   }
 

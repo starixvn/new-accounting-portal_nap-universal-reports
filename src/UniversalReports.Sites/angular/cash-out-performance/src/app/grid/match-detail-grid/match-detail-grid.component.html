@@ -1,7 +1,7 @@
 <ng-template #colgroup>
     <colgroup>
       <col style="width: 70px" />
-      <col style="width: 150px" />
+      <col *ngIf="isShowFullColumn" style="width: 150px" />
       <col style="width: 120px" />
       <col style="width: 120px" />
       <col style="width: 130px" />
@@ -11,8 +11,13 @@
       <col style="width: 320px" />
       <col style="width: 130px" />
       <col style="width: 130px" />
-      <col style="width: 100px" />
       <col style="width: 90px" />
+      <col style="width: 100px" />
+      <col style="width: 100px" />
+      <col style="width: 100px" />
+      <col style="width: 120px" />
+      <col style="width: 140px" />
+      <col style="width: 140px" />
       <col style="width: 100px" />
       <col style="width: 120px" />
       <col style="width: 120px" />
@@ -29,7 +34,7 @@
     <thead>
       <tr>
         <th scope="col">Date</th>
-        <th scope="col">Username</th>
+        <th *ngIf="isShowFullColumn" scope="col">Username</th>
         <th scope="col">Currency</th>
         <th scope="col">Original Ticket ID</th>
         <th scope="col">Cash Out Ticket ID</th>
@@ -39,9 +44,14 @@
         <th scope="col">Match</th>
         <th scope="col">Bet Time</th>
         <th scope="col">Cash Out Time</th>
-        <th scope="col">Bet Odds</th>
         <th scope="col">Bet Type</th>
         <th scope="col">Bet Choice</th>
+        <th scope="col">Bet Odds</th>
+        <th scope="col">Bet Score</th>
+        <th scope="col" class="bg-green">Current GoalLine</th>
+        <th scope="col" class="bg-green">Current Home Odds</th>
+        <th scope="col" class="bg-green">Current Away Odds</th>
+        <th scope="col" class="bg-green">Current Score</th>
         <th scope="col">Cash Out Turnover</th>
         <th scope="col">Buy Back Amount</th>
         <th scope="col">Member WL</th>
@@ -56,7 +66,7 @@
   </ng-template>
   <ng-template #rowItem let-item="item">
     <td class="text-center">{{ item.WLDate | date: 'yyyy-MM-dd' }}</td>
-    <td>{{ item.Username }}</td>
+    <td *ngIf="isShowFullColumn">{{ item.Username }}</td>
     <td class="text-center">{{ item.Currency }}</td>
     <td class="text-center">{{ item.OrigID }}</td>
     <td class="text-center">{{ item.BuyBackID }}</td>
@@ -66,9 +76,14 @@
     <td>{{ item.MatchName }}</td>
     <td class="text-center">{{ item.BetTime | date: 'yyyy-MM-dd hh:mm aaa' }}</td>
     <td class="text-center">{{ item.CashOutTime | date: 'yyyy-MM-dd hh:mm aaa' }}</td>
-    <td>{{ item.BetOdd }}</td>
     <td>{{ item.BetTypeName }}</td>
     <td>{{ item.BetChoice }}</td>
+    <td>{{ item.BetOdd }}</td>
+    <td>{{ item.BetScore }}</td>
+    <td>{{ item.CurrentGoalLine }}</td>
+    <td>{{ item.CurrentHomeOdds }}</td>
+    <td>{{ item.CurrentAwayOdds }}</td>
+    <td class="text-center">{{ item.CurrentScore }}</td>
     <td class="text-right" [napDecimalFormat]="item.COTurnover"></td>
     <td class="text-right" [napDecimalFormat]="item.BBAmount"></td>
     <td class="text-right red-positive" [napDecimalFormat]="item.MemberWL"></td>
@@ -81,7 +96,7 @@
   </ng-template>
   <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
     <div class="nap-grid">
-        <div style="width: 3210px">
+        <div [style.width]="isShowFullColumn ? '3810px' : '3660px'">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -103,7 +118,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th scope="col" class="no-data" colspan="23">
+                            <th scope="col" class="no-data" [attr.colspan]="isShowFullColumn ? 28 : 27">
                                 There is no data
                             </th>
                         </tr>
@@ -115,7 +130,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tfoot>
                         <tr class="font-weight-bold">
-                            <td colspan="17" class="text-right">Grand Total</td>
+                            <td [attr.colspan]="isShowFullColumn ? 22 : 21" class="text-right">Grand Total</td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.BBAmount_RM"></td>
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.MemberWL_RM"></td>
@@ -124,7 +139,7 @@
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.TotalIncome_RM"></td>
                         </tr>
                         <tr>
-                            <td colspan="23">
+                            <td [attr.colspan]="isShowFullColumn ? 28 : 27">
                                 <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                             </td>
                         </tr>
