@@ -11,7 +11,7 @@
     <col style="width: 80px" />
     <col style="width: 100px" />
     <col style="width: 150px" />
-    <col style="width: 150px" />
+    <col style="width: 300px" />
     <col style="width: 180px" />
   </colgroup>
 </ng-template>
@@ -58,12 +58,12 @@
 </ng-template>
 <div *ngIf="displayMember" [ngSwitch]="hasData">
   <div class="nap-grid">
-    <div style="width: 1710px;">
+    <div style="width: 1860px;">
       <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate">
       </nap-breadcrumb>
       <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
     </div>
-    <div style="width: 1710px;">
+    <div style="width: 1860px;">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
