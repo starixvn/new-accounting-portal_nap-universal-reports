@@ -28,6 +28,7 @@ export class SummaryGridComponent implements OnChanges {
   virtualRateData: VirtualRateModel[];
   virtualRateTitle: string;
   isSuperLevel: boolean;
+  maxHeight: string;
   private paginatePipe: PaginatePipe;
 
   constructor(
@@ -52,6 +53,7 @@ export class SummaryGridComponent implements OnChanges {
       this.breadcrumbItems = [breadcrumb];
       this.paginationInstance = this.paginationService.createPaginationInstance(this.summaryWinLosses.TotalItems);
       this.onPageChange();
+      this.adjustHeight();
     });
   }
 
@@ -149,5 +151,11 @@ export class SummaryGridComponent implements OnChanges {
     const instance = modalRef.componentInstance as VirtualRateGridComponent;
     instance.title = this.virtualRateTitle;
     instance.data = this.virtualRateData;
+  }
+
+  private adjustHeight(): void {
+    const screenHeight = window.innerHeight;
+    const maxHeight = screenHeight - 400;
+    this.maxHeight = `${maxHeight}px`;
   }
 }

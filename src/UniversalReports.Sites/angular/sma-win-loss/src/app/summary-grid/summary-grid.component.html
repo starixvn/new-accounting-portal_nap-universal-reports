@@ -74,7 +74,7 @@
           <ng-template [ngTemplateOutlet]="thead"></ng-template>
         </table>
       </div>
-      <div *ngSwitchCase="true" class="body">
+      <div *ngSwitchCase="true" class="body" [ngStyle]="{'max-height': maxHeight}">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
           <tbody>
