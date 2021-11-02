@@ -76,7 +76,8 @@ namespace UniversalReports.Sites
                 || request.Url.ToString().Contains("api/punter-analysis/filter/username-suggestion")
                 || request.Url.ToString().Contains("state-api/application/header")
                 || request.Url.ToString().Contains("api/sb-performance/check-full-view")
-                || request.Url.ToString().Contains("api/sma-win-loss/summary"))
+                || request.Url.ToString().Contains("api/sma-win-loss/summary")
+                || request.Url.ToString().Contains("api/cash-out-performance/common/check-full-view"))
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.ReadOnly);
             }

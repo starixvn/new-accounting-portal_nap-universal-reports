@@ -44,4 +44,5 @@ export interface FilterModel {
     liveIndicator: number;
     breadCrumb: string[];
     server: string;
+    isShowFullColumn: boolean;
   }

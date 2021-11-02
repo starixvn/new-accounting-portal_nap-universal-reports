@@ -29,6 +29,9 @@ namespace UniversalReports.CashOutPerformance.Criteria
         [SpParam(Ignored = true)]
         public string Server { get; set; }
 
+        [SpParam(Ignored = true)]
+        public bool IsShowFullColumn { get; set; }
+
         public override string GetSettingKey() => $"Acc_Rpt_COPerformance_Cust_{Server}";
 
         public override bool IsValid() => true;

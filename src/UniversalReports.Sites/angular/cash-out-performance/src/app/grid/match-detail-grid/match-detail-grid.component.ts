@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PaginationInstance, PaginatePipe, PaginationService as NgxPaginationService } from 'ngx-pagination';
 import { PaginationService } from 'nap-components/pagination';
 import { Observable } from 'rxjs';
-import { MatchDetailLevelModel, TicketModel, TicketViewModel } from '../../../app/common/model';
+import { MatchDetailLevelModel, TicketViewModel } from '../../../app/common/model';
 import { Grid } from '../grid.model';
 import { MatchDetailGridService } from './match-detail-grid.service';
 import { GridService } from '../grid.service';
@@ -30,6 +30,10 @@ export class MatchDetailGridComponent implements Grid {
 
   get title(): string {
     return this.gridService.matchDetailTitle;
+  }
+
+  get isShowFullColumn(): boolean {
+    return this.gridService.filterModel.isShowFullColumn;
   }
 
   query() {

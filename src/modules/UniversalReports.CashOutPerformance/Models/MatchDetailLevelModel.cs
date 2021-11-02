@@ -39,5 +39,15 @@ namespace UniversalReports.CashOutPerformance.Models
         public decimal BBAmount { get; set; }
 
         public decimal MemberWL { get; set; }
+
+        public string BetScore { get; set; }
+
+        public string CurrentGoalLine { get; set; }
+
+        public string CurrentHomeOdds { get; set; }
+
+        public string CurrentAwayOdds { get; set; }
+
+        public string CurrentScore { get; set; }
     }
 }

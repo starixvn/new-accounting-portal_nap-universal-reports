@@ -1,9 +1,7 @@
 ﻿using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.ViewModels;
 using UniversalReports.Core.Configurations;
@@ -12,7 +10,7 @@ namespace UniversalReports.CashOutPerformance.Services
 {
     public interface TicketsExcelBuilder<T>
     {
-        ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType);
+        ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn);
     }
 
     public class TicketsExcelBuilderImp<T> : TicketsExcelBuilder<T>
@@ -32,12 +30,12 @@ namespace UniversalReports.CashOutPerformance.Services
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType)
+        public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn)
         {
             string fileExcel = "CashOutPerformance.xlsx";
             string cellAddressOfTitle = "A1:W1";
             string cellAddressOfBreadCrumb = "A3:W3";
-            byte totalLength = 17;
+            byte totalLength = 22;
             if (excelType != ExcelType.Match)
             {
                 fileExcel = "SimpleCashOutPerformance.xlsx";
@@ -52,6 +50,7 @@ namespace UniversalReports.CashOutPerformance.Services
             sheet.ApplyVertical(model.TicketList, StartRowIndex);
             BuildTotalRow(model, totalLength);
             ClearTemplate();
+            RemoveUsernameColumn(IsShowFullColumn);
             return ExcelPackage;
         }
 
@@ -97,6 +96,15 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             ExcelPackage.Workbook.Worksheets.Delete("BodyTemplate");
             ExcelPackage.Workbook.Worksheets.Delete("TotalTemplate");
+        }
+
+        private void RemoveUsernameColumn(bool IsShowFullColumn)
+        {
+            if (!IsShowFullColumn)
+            {
+                sheet.DeleteColumn(2);
+                totalSheet.DeleteColumn(2);
+            }
         }
     }
 }

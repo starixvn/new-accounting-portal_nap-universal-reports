@@ -43,7 +43,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             var criteria = Mapper.Map<SportLevelCriteria>(request);
             var reportData = await service.GetTickets<SportLevelModel, SportLevelCriteria>(criteria);
             var excelModel = Mapper.Map<TicketViewExcelModel<SportLevelExcelModel>>(reportData);
-            var excelPackage = ticketsSportExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Sport);
+            var excelPackage = ticketsSportExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Sport, true);
             return excelPackage;
         }
 
@@ -58,7 +58,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
                 var status = item.LiveStatus == "0" ? "Non-Live" : "Live";
                 item.LiveStatus = $"{sportName} {status}";
             }
-            var excelPackage = ticketsEventExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Event);
+            var excelPackage = ticketsEventExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Event, true);
             return excelPackage;
         }
 
@@ -67,7 +67,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
             var reportData = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
             var excelModel = Mapper.Map<TicketViewExcelModel<BetTypeLevelExcelModel>>(reportData);
-            var excelPackage = ticketsBetTypeExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.BetType);
+            var excelPackage = ticketsBetTypeExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.BetType, true);
             return excelPackage;
         }
 
@@ -76,7 +76,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             var criteria = Mapper.Map<MatchDetailLevelCriteria>(request);
             var reportData = await service.GetTickets<MatchDetailLevelModel, MatchDetailLevelCriteria>(criteria);
             var excelModel = Mapper.Map<TicketViewExcelModel<MatchDetailLevelExcelModel>>(reportData);
-            var excelPackage = ticketsMatchExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Match);
+            var excelPackage = ticketsMatchExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Match, criteria.IsShowFullColumn);
             return excelPackage;
         }
     }

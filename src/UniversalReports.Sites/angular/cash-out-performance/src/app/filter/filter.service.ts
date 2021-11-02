@@ -85,4 +85,9 @@ export class FilterService {
     const url = this.url + 'leagueGroups';
     return this.httpService.post<FilterItemModel[]>(url);
   }
+
+  showFullColumn(): Observable<boolean> {
+    const url = this.url + 'common/check-full-view';
+    return this.httpService.post<boolean>(url);
+  }
 }

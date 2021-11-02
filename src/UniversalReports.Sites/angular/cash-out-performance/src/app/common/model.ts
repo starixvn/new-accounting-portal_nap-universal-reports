@@ -58,6 +58,11 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   COTurnover: number;
   BBAmount: number;
   MemberWL: number;
+  BetScore: string;
+  CurrentGoalLine: string;
+  CurrentHomeOdds: string;
+  CurrentAwayOdds: string;
+  CurrentScore: string;
 }
 
 export interface TicketViewModel<T> {
@@ -70,10 +75,16 @@ export interface ExcelQueryModel {
     startDate: string;
     endDate: string;
     sportBettype: string;
+    leagueGroupIDs: string;
     sites: string;
+    leagues: string;
     pageIndex: number;
     pageSize: number;
     isPageChanged: boolean;
-    title: string;
+    globalShowTime: string;
+    liveIndicator: number;
     breadCrumb: string[];
+    server: string;
+    isShowFullColumn: boolean;
+    title: string;
   }
