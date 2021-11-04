@@ -19,8 +19,27 @@ namespace UniversalReports.AbnormalBet.Model
         [Cell("E5")]
         public string Reason { get; set; }
 
-        [Cell("F5")]
         public decimal Odds { get; set; }
+
+        [Cell("F5")]
+        public dynamic OddsData
+        {
+            get
+            {
+                if (Sport == "-")
+                {
+                    return "-";
+                }
+                else
+                {
+                    return Odds;
+                }
+            }
+            set
+            {
+                OddsData = value;
+            }
+        }
 
         [Cell("G5")]
         public string Currency { get; set; }
@@ -28,8 +47,27 @@ namespace UniversalReports.AbnormalBet.Model
         [Cell("H5")]
         public decimal Stake { get; set; }
 
-        [Cell("I5")]
         public decimal HDP { get; set; }
+
+        [Cell("I5")]
+        public dynamic HDPData
+        {
+            get
+            {
+                if (Sport == "-")
+                {
+                    return "-";
+                }
+                else
+                {
+                    return HDP;
+                }
+            }
+            set
+            {
+                HDPData = value;
+            }
+        }
 
         [Cell("J5")]
         public string Score { get; set; }

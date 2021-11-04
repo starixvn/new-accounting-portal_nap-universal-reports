@@ -90,4 +90,8 @@ export class LicenseeGridComponent implements Grid {
   private get breadcrumbTitle(): string {
     return `Abnormal Bet From From ${this.filterModel.fromDate} To ${this.filterModel.toDate}`;
   }
+
+  isMixParlay(sport: string): boolean {
+    return sport === '-';
+  }
 }

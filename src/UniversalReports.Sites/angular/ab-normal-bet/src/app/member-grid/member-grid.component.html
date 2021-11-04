@@ -40,10 +40,12 @@
   <td class="text-center">{{ item.League }}</td>
   <td class="text-center">{{ item.Match }}</td>
   <td class="text-center">{{ item.Reason }}</td>
-  <td class="text-right" [napDecimalFormat]="item.Odds"></td>
+  <td *ngIf='isMixParlay(item.Sport)' class="text-right">-</td>
+  <td *ngIf='!isMixParlay(item.Sport)' class="text-right" [napDecimalFormat]="item.Odds"></td>
   <td class="text-center">{{ item.Currency }}</td>
   <td class="text-right" [napDecimalFormat]="item.Stake"></td>
-  <td class="text-right" [napDecimalFormat]="item.HDP"></td>
+  <td *ngIf='isMixParlay(item.Sport)' class="text-right">-</td>
+  <td *ngIf='!isMixParlay(item.Sport)' class="text-right" [napDecimalFormat]="item.HDP"></td>
   <td class="text-center">{{ item.Score }}</td>
   <td class="text-center">{{ item.TransTime }}</td>
   <td class="text-center">{{ item.IP }}</td>
