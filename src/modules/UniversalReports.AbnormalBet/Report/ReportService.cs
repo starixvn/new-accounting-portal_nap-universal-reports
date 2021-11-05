@@ -70,6 +70,7 @@ namespace UniversalReports.AbnormalBet.Report
 
             var locations = new List<string>();
             var ips = ip.Split(',').ToList();
+            const byte locationMinLength = 2;
             foreach (var i in ips)
             {
                 var location = await locationService.QueryIP(i);
@@ -80,7 +81,7 @@ namespace UniversalReports.AbnormalBet.Report
                     location.IpCity
                 };
 
-                locations.Add(string.Join(", ", list.Where(s => s.Length > 2)));
+                locations.Add(string.Join(", ", list.Where(s => s.Length > locationMinLength)));
             }
 
             return string.Join("; ", locations);

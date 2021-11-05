@@ -130,6 +130,7 @@
     <Compile Include="Filter\SiteHttpParameter.cs" />
     <Compile Include="Filter\Sport.cs" />
     <Compile Include="Filter\SportHttpParameter.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="SMAWinLossAttribute.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Filter\Currency.cs" />

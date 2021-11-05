@@ -1,4 +1,6 @@
-﻿namespace UniversalReports.SBPerformance.Main
+﻿using UniversalReports.SBPerformance.Constants;
+
+namespace UniversalReports.SBPerformance.Main
 {
     public class Entity
     {
@@ -19,7 +21,7 @@
             return new Entity
             {
                 Id = 0,
-                Name = "Total",
+                Name = TextConstant.Total,
                 BetCount = a.BetCount + b.BetCount,
                 RealIncome = a.RealIncome + b.RealIncome,
                 RealTurnover = a.RealTurnover + b.RealTurnover

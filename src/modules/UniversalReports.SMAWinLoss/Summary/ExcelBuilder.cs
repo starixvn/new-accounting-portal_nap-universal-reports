@@ -96,14 +96,16 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         private void BuildTotal(WinLossModel winlosses)
         {
+            int numberRowOfTotal = 0;
             var rowIndex = StartRowIndex + winlosses.UsernameWinLosses.Count;
             foreach (var item in winlosses.Total)
             {
                 BuildTotalRow(item, rowIndex);
                 rowIndex++;
+                numberRowOfTotal++;
             }
 
-            summarySheet.Cells[$"A{rowIndex - 3}:B{rowIndex - 1}"].Merge = true;
+            summarySheet.Cells[$"A{rowIndex - numberRowOfTotal}:B{rowIndex - 1}"].Merge = true;
         }
 
         private void BuildRow(UsernameWinLoss username, int rowIndex)

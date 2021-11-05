@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Common\SBPerformancePermissionController.cs" />
+    <Compile Include="Constants\TextConstant.cs" />
     <Compile Include="Main\Entity.cs" />
     <Compile Include="Main\MainHandler.cs" />
     <Compile Include="Main\SBPerformanceMainController.cs" />

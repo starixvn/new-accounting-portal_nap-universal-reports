@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.SumBetType
 
         public override string GetSettingKey() => $"HouseWinLoss-Soccer-BetType-{Source}";
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }

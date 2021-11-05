@@ -1,4 +1,6 @@
-﻿namespace UniversalReports.SBPerformance.MarginBySport
+﻿using UniversalReports.SBPerformance.Constants;
+
+namespace UniversalReports.SBPerformance.MarginBySport
 {
     public class MarginBySportEntity
     {
@@ -33,11 +35,11 @@
             return new MarginBySportEntity
             {
                 Id = 0,
-                Site = "Total",
-                League = "Total",
-                Event = "Total",
-                Match = "Total",
-                BetType = "Total",
+                Site = TextConstant.Total,
+                League = TextConstant.Total,
+                Event = TextConstant.Total,
+                Match = TextConstant.Total,
+                BetType = TextConstant.Total,
                 BetCount = a.BetCount + b.BetCount,
                 NoMatches = a.NoMatches + b.NoMatches,
                 NoBetTypes = a.NoBetTypes + b.NoBetTypes,

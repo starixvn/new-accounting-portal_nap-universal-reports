@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
     {
         public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-LiveStatus-{Source}";
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
     }
 }

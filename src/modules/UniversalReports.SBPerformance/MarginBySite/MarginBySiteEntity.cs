@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UniversalReports.SBPerformance.Constants;
 
 namespace UniversalReports.SBPerformance.MarginBySite
 {
@@ -39,11 +40,11 @@ namespace UniversalReports.SBPerformance.MarginBySite
             return new MarginBySiteEntity
             {
                 Id = 0,
-                Sport = "Total",
-                League = "Total",
-                Event = "Total",
-                Match = "Total",
-                BetType = "Total",
+                Sport = TextConstant.Total,
+                League = TextConstant.Total,
+                Event = TextConstant.Total,
+                Match = TextConstant.Total,
+                BetType = TextConstant.Total,
                 BetCount = a.BetCount + b.BetCount,
                 NoMatches = a.NoMatches + b.NoMatches,
                 NoBetTypes = a.NoBetTypes + b.NoBetTypes,

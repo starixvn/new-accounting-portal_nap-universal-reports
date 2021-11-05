@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
 
         public override string GetSettingKey() => $"HouseWinLoss-Soccer-MajorMinor-LiveStatus-{Source}";
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }
