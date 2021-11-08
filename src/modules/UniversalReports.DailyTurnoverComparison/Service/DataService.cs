@@ -122,7 +122,9 @@ namespace UniversalReports.DailyTurnoverComparison.Service
                 {
                     newRowByDate[columnName] = dataByDate.FirstOrDefault(s => s.SiteName == site).ActiveMembers;
                 }
+#pragma warning disable S126 // "if ... else if" constructs should end with "else" clauses
                 else if (columns[columnInex] == "ActiveMemberDiff")
+#pragma warning restore S126 // "if ... else if" constructs should end with "else" clauses
                 {
                     var value = dataByDate.FirstOrDefault(s => s.SiteName == site).ActiveMemberDiff;
                     AssignValueToColumn(newRowByDate, columnName, value);
