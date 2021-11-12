@@ -166,8 +166,8 @@
           "Name": "SMAWinLoss",
           "Value": 1664.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -252,8 +252,8 @@
           "Name": "SMAWinLoss",
           "Value": 10.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []
@@ -340,8 +340,8 @@
           "Name": "SMAWinLoss",
           "Value": 1674.0,
           "CssClass": null,
-          "CustomAttr": null,
-          "CellAlign": "right",
+          "CustomAttr": "0",
+          "CellAlign": "",
           "StartIndex": [],
           "EndIndex": [],
           "TextFont": []

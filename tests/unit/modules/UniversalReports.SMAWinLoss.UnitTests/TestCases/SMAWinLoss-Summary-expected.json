@@ -9,7 +9,7 @@
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 20.0
+          "Value": 20
         },
         {
           "Month": "Feb, 2020",
@@ -17,7 +17,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 20.0
+          "Value": 20
         },
         {
           "Month": "Apr, 2020",
@@ -57,7 +57,7 @@
         },
         {
           "Month": "Total",
-          "Value": 40.0
+          "Value": 40
         }
       ]
     },
@@ -70,7 +70,7 @@
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 10.0
+          "Value": 10
         },
         {
           "Month": "Feb, 2020",
@@ -78,7 +78,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 10.0
+          "Value": 10
         },
         {
           "Month": "Apr, 2020",
@@ -118,7 +118,7 @@
         },
         {
           "Month": "Total",
-          "Value": 20.0
+          "Value": 20
         }
       ]
     },
@@ -131,7 +131,7 @@
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 50.0
+          "Value": 50
         },
         {
           "Month": "Feb, 2020",
@@ -139,7 +139,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 50.0
+          "Value": 50
         },
         {
           "Month": "Apr, 2020",
@@ -179,7 +179,7 @@
         },
         {
           "Month": "Total",
-          "Value": 50.0
+          "Value": 50
         }
       ]
     },
@@ -192,7 +192,7 @@
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 100.0
+          "Value": 100
         },
         {
           "Month": "Feb, 2020",
@@ -200,7 +200,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 100.0
+          "Value": 100
         },
         {
           "Month": "Apr, 2020",
@@ -240,7 +240,7 @@
         },
         {
           "Month": "Total",
-          "Value": 100.0
+          "Value": 100
         }
       ]
     },
@@ -253,7 +253,7 @@
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 5.0
+          "Value": 5
         },
         {
           "Month": "Feb, 2020",
@@ -261,7 +261,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 5.0
+          "Value": 5
         },
         {
           "Month": "Apr, 2020",
@@ -301,7 +301,7 @@
         },
         {
           "Month": "Total",
-          "Value": 5.0
+          "Value": 5
         }
       ]
     }
@@ -312,11 +312,11 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Turnover",
-      "VirtualRate": "",
+      "VirtualRate": null,
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 20.0
+          "Value": 20
         },
         {
           "Month": "Feb, 2020",
@@ -324,7 +324,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 20.0
+          "Value": 20
         },
         {
           "Month": "Apr, 2020",
@@ -364,7 +364,7 @@
         },
         {
           "Month": "Total",
-          "Value": 40.0
+          "Value": 40
         }
       ]
     },
@@ -373,11 +373,11 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Income",
-      "VirtualRate": "",
+      "VirtualRate": null,
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 10.0
+          "Value": 10
         },
         {
           "Month": "Feb, 2020",
@@ -385,7 +385,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 10.0
+          "Value": 10
         },
         {
           "Month": "Apr, 2020",
@@ -425,7 +425,7 @@
         },
         {
           "Month": "Total",
-          "Value": 20.0
+          "Value": 20
         }
       ]
     },
@@ -434,11 +434,11 @@
       "Username": "Total",
       "Currency": null,
       "Name": "Real Margin (%)",
-      "VirtualRate": "",
+      "VirtualRate": null,
       "Months": [
         {
           "Month": "Jan, 2020",
-          "Value": 50.0
+          "Value": 50
         },
         {
           "Month": "Feb, 2020",
@@ -446,7 +446,7 @@
         },
         {
           "Month": "Mar, 2020",
-          "Value": 50.0
+          "Value": 50
         },
         {
           "Month": "Apr, 2020",
@@ -486,7 +486,7 @@
         },
         {
           "Month": "Total",
-          "Value": 50.0
+          "Value": 50
         }
       ]
     }
