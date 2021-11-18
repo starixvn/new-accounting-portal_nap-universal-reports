@@ -10,7 +10,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 {
     public interface DataService
     {
-        List<DataTable> Query(HttpRequestParameter httpPatam);
+        List<DataTable> Query(HttpRequestParameter httpParam);
     }
 
     public class DataServiceImp : DataService
@@ -18,6 +18,10 @@ namespace UniversalReports.DailyTurnoverComparison.Service
         private readonly DBService dBService;
         private readonly DateTimeService dateTimeService;
         private const int NumberOfLicenseePerSheet = 10;
+        private const byte SixHour = 6;
+        private const byte TwelveHour = 12;
+        private const byte EighteenHour = 18;
+        private const byte TwentyFourHour = 24;
 
         public DataServiceImp(DBService dBService, DateTimeService dateTimeService)
         {
@@ -27,10 +31,10 @@ namespace UniversalReports.DailyTurnoverComparison.Service
 
         private static Dictionary<int, string> HourFormat => new Dictionary<int, string>
         {
-            { 6, "00:00-05:59" },
-            { 12, "06:00-11:59" },
-            { 18, "12:00-17:59" },
-            { 24, "18:00-23:59" },
+            { SixHour, "00:00-05:59" },
+            { TwelveHour, "06:00-11:59" },
+            { EighteenHour, "12:00-17:59" },
+            { TwentyFourHour, "18:00-23:59" },
         };
 
         public List<DataTable> Query(HttpRequestParameter httpParam)
@@ -45,7 +49,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
         {
             var result = new List<DataTable>();
             var siteNames = source.Select(s => s.SiteName).Distinct().ToList();
-            var rowPerBatch = NumberOfLicenseePerSheet;
+            const int rowPerBatch = NumberOfLicenseePerSheet;
             var totalBatch = siteNames.Count / rowPerBatch + ((siteNames.Count % rowPerBatch) > 0 ? 1 : 0);
             for (var batchIndex = 0; batchIndex < totalBatch; batchIndex++)
             {
@@ -100,7 +104,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
             return dataTable;
         }
 
-        private void AssignValueToColumnBySite(DataRow newRowByDate, string site, List<string> columns, IGrouping<dynamic, TurnoverModel> dataByDate)
+        private static void AssignValueToColumnBySite(DataRow newRowByDate, string site, List<string> columns, IGrouping<dynamic, TurnoverModel> dataByDate)
         {
             for (var columnInex = 0; columnInex < columns.Count; columnInex++)
             {
@@ -118,7 +122,9 @@ namespace UniversalReports.DailyTurnoverComparison.Service
                 {
                     newRowByDate[columnName] = dataByDate.FirstOrDefault(s => s.SiteName == site).ActiveMembers;
                 }
+#pragma warning disable S126 // "if ... else if" constructs should end with "else" clauses
                 else if (columns[columnInex] == "ActiveMemberDiff")
+#pragma warning restore S126 // "if ... else if" constructs should end with "else" clauses
                 {
                     var value = dataByDate.FirstOrDefault(s => s.SiteName == site).ActiveMemberDiff;
                     AssignValueToColumn(newRowByDate, columnName, value);

@@ -22,7 +22,6 @@ namespace UniversalReports.SMAWinLoss.Filter
 
     public class FilterServiceImp : FilterService
     {
-        private const int startYear = 2020;
         private readonly IDynamicRepository repository;
 
         public FilterServiceImp(IDynamicRepository repository)

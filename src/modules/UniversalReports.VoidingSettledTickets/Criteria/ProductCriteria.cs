@@ -1,5 +1,6 @@
 ﻿using Fanex.Data.Repository;
 using System;
+using System.Globalization;
 
 namespace UniversalReports.VoidingSettledTickets.Criteria
 {
@@ -13,6 +14,6 @@ namespace UniversalReports.VoidingSettledTickets.Criteria
 
         public override string GetSettingKey() => "Acc_Rpt_VoidingSettledTicket";
 
-        public override bool IsValid() => !string.IsNullOrWhiteSpace(WinlostDate.ToString());
+        public override bool IsValid() => !string.IsNullOrWhiteSpace(WinlostDate.ToString(CultureInfo.InvariantCulture));
     }
 }

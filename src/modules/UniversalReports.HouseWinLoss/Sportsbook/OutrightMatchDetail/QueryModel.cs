@@ -13,7 +13,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.OutrightMatchDetail
 
         public int SportType { get; set; } = Constants.SportTypeSoccer;
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }

@@ -1,4 +1,6 @@
-﻿namespace UniversalReports.SBPerformance.TopWinningMember
+﻿using UniversalReports.SBPerformance.Constants;
+
+namespace UniversalReports.SBPerformance.TopWinningMember
 {
     public class TopWinningMemberEntity
     {
@@ -31,11 +33,11 @@
             return new TopWinningMemberEntity
             {
                 Id = 0,
-                League = "Total",
-                Event = "Total",
-                Match = "Total",
-                BetType = "Total",
-                Sport = "Total",
+                League = TextConstant.Total,
+                Event = TextConstant.Total,
+                Match = TextConstant.Total,
+                BetType = TextConstant.Total,
+                Sport = TextConstant.Total,
                 BetCount = a.BetCount + b.BetCount,
                 NoMatches = a.NoMatches + b.NoMatches,
                 NoBetTypes = a.NoBetTypes + b.NoBetTypes,

@@ -40,8 +40,27 @@ namespace UniversalReports.AbnormalBet.Model
         [Cell("L5")]
         public string BettingScore { get; set; }
 
-        [Cell("M5")]
         public decimal HDPOU { get; set; }
+
+        [Cell("M5")]
+        public dynamic HDPOUData
+        {
+            get
+            {
+                if (Sport == "-")
+                {
+                    return "-";
+                }
+                else
+                {
+                    return HDPOU;
+                }    
+            }
+            set
+            {
+                HDPOUData = value;
+            }
+        }
 
         [Cell("N5")]
         public string HTScore { get; set; }

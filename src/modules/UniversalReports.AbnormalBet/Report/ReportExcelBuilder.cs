@@ -29,20 +29,20 @@ namespace UniversalReports.AbnormalBet.Report
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(string title, IEnumerable<MemberExcelModel> memberExcelModel)
+        public ExcelPackage Build(string title, IEnumerable<MemberExcelModel> memberModel)
         {
             LoadMemberTemplate();
             BuilTitle(title, "A1:M2");
-            sheet.ApplyVertical(memberExcelModel, StartRowIndex);
+            sheet.ApplyVertical(memberModel, StartRowIndex);
             ClearTemplate();
             return ExcelPackage;
         }
 
-        public ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeExcelModel)
+        public ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeModel)
         {
             LoadLicenseeTemplate();
             BuilTitle(title, "A1:S2");
-            sheet.ApplyVertical(licenseeExcelModel, StartRowIndex);
+            sheet.ApplyVertical(licenseeModel, StartRowIndex);
             ClearTemplate();
             return ExcelPackage;
         }

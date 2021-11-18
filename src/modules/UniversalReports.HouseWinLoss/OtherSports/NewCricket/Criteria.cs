@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 

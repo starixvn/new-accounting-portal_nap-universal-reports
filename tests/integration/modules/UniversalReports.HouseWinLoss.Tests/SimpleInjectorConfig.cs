@@ -15,6 +15,8 @@ using MatchDetail = UniversalReports.HouseWinLoss.Common.MatchDetail;
 using MatchDetailByCode = UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
 using SiteWinLoss = UniversalReports.HouseWinLoss.Common.SiteWinLoss;
 using Soccers = UniversalReports.HouseWinLoss.Soccer;
+using Daily2hSoccerBettype = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType;
+using Daily2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 namespace UniversalReports.HouseWinLoss.Tests
 {
     public class SimpleInjectorConfig
@@ -85,6 +87,10 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Decorator.MatchGridOptionColumnDecoratorOutright, Decorator.MatchGridOptionColumnDecoratorOutright>();
 
             container.Register<CashOut.LiveNonLive.CashOutLiveNonLiveWinLossService, CashOut.LiveNonLive.CashOutLiveNonLiveWinLossServiceImp>();
+            container.Register<Daily2hSoccerBettype.BettypeGridOptionColumnDecorator, Daily2hSoccerBettype.BettypeGridOptionColumnDecoratorFull>();
+            container.Register<Daily2hSoccerMinor.MatchDetail.SoccerMinorMatchGridOptionColumnDecorator, Daily2hSoccerMinor.MatchDetail.SoccerMinorMatchGridOptionColumnDecoratorFull>();
+            container.Register<Daily2hSoccerMinor.OutrightMatchDetail.SoccerMinorMatchGridOptionColumnDecoratorOutright, Daily2hSoccerMinor.OutrightMatchDetail.SoccerMinorMatchGridOptionColumnDecoratorOutrightImp>();
+            container.Register<Daily2hSoccerMinor.MatchSortingService, Daily2hSoccerMinor.MatchSortingServiceImp>();
 
             container.Verify();
         }

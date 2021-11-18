@@ -42,7 +42,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
             {
                 var sheet = excelPackage.Workbook.Worksheets.Add($"Sheet{sheetNumber}");
                 RenderHeader(dataTable, template, sheet);
-                RenderData(dataTable, template, sheet);
+                RenderData(dataTable, sheet);
                 sheetNumber++;
             });
 
@@ -86,10 +86,10 @@ namespace UniversalReports.DailyTurnoverComparison.Service
             sheet.View.FreezePanes(5, 3);
         }
 
-        private void RenderData(DataTable dataTable, ExcelWorksheet template, ExcelWorksheet sheet)
+        private static void RenderData(DataTable dataTable, ExcelWorksheet sheet)
         {
             sheet.Cells["A5"].LoadFromDataTable(dataTable, false);
-            var startRowIndex = 5;
+            const byte startRowIndex = 5;
             var maxRowIndex = dataTable.Rows.Count + startRowIndex - 1;
             var totalColumn = dataTable.Columns.Count;
 

@@ -19,7 +19,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 
         public string BetTypeNonLiveTitle { get; set; }
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
     }

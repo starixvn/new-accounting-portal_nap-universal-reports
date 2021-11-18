@@ -1,4 +1,6 @@
-﻿namespace UniversalReports.SBPerformance.TopLosingLeague
+﻿using UniversalReports.SBPerformance.Constants;
+
+namespace UniversalReports.SBPerformance.TopLosingLeague
 {
     public class TopLosingLeagueEntity
     {
@@ -35,12 +37,12 @@
             return new TopLosingLeagueEntity
             {
                 Id = 0,
-                Site = "Total",
-                League = "Total",
-                Event = "Total",
-                Match = "Total",
-                BetType = "Total",
-                Username = "Total",
+                Site = TextConstant.Total,
+                League = TextConstant.Total,
+                Event = TextConstant.Total,
+                Match = TextConstant.Total,
+                BetType = TextConstant.Total,
+                Username = TextConstant.Total,
                 BetCount = a.BetCount + b.BetCount,
                 NoMatches = a.NoMatches + b.NoMatches,
                 NoBetTypes = a.NoBetTypes + b.NoBetTypes,

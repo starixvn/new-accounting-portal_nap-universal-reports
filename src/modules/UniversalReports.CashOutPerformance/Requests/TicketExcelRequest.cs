@@ -26,9 +26,9 @@ namespace UniversalReports.CashOutPerformance.Requests
 
         public string[] BreadCrumb { get; set; }
 
-        public int PageIndex { get; } = 0;
+        public int PageIndex { get; set; }
 
-        public int PageSize { get; } = 0;
+        public int PageSize { get; set; }
 
         public string Server { get; set; }
 

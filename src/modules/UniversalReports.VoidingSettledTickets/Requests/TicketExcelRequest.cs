@@ -16,8 +16,8 @@ namespace UniversalReports.VoidingSettledTickets.Requests
 
         public string productName { get; set; }
 
-        public int PageIndex { get; } = 0;
+        public int PageIndex { get; set; }
 
-        public int PageSize { get; } = 0;
+        public int PageSize { get; set; }
     }
 }

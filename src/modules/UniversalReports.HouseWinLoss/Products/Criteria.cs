@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.Products
     {
         public override string GetSettingKey() => $"HouseWinLoss-Products-{Source}";
 
-        public bool IsNoDraw { get; set; } = false;
+        public bool IsNoDraw { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using UniversalReports.SMAWinLoss.Constants;
 
 namespace UniversalReports.SMAWinLoss.Filter
 {
@@ -6,7 +7,7 @@ namespace UniversalReports.SMAWinLoss.Filter
     {
         public AvailableDatabaseCriteria()
         {
-            TaskId = 58;
+            TaskId = TaskIdConstant.DailyTask;
         }
 
         public int TaskId { get; }

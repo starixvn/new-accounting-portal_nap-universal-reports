@@ -12,6 +12,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
     public class DateTimeServiceImp : DateTimeService
     {
         private readonly DBService dBService;
+        private const sbyte minusDayNumber = -14;
 
         public DateTimeServiceImp(DBService dBService)
         {
@@ -22,7 +23,7 @@ namespace UniversalReports.DailyTurnoverComparison.Service
         {
             get
             {
-                return ToDate.AddDays(-14);
+                return ToDate.AddDays(minusDayNumber);
             }
         }
 

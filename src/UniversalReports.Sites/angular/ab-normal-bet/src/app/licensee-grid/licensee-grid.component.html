@@ -59,7 +59,8 @@
   <td class="text-center">{{ item.BetType }}</td>
   <td class="text-center">{{ item.Choice }}</td>
   <td class="text-center">{{ item.BettingScore }}</td>
-  <td class="text-right" [napDecimalFormat]="item.HDPOU"></td>
+  <td *ngIf='isMixParlay(item.Sport)' class="text-right">-</td>
+  <td *ngIf='!isMixParlay(item.Sport)' class="text-right" [napDecimalFormat]="item.HDPOU"></td>
   <td class="text-center">{{ item.HTScore }}</td>
   <td class="text-center">{{ item.FinalScore }}</td>
   <td class="text-right" [napDecimalFormat]="item.MemberTO"></td>

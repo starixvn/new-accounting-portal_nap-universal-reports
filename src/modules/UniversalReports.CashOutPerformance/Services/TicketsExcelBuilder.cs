@@ -100,10 +100,11 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private void RemoveUsernameColumn(bool IsShowFullColumn)
         {
+            const byte usernameColumnIndex = 2;
             if (!IsShowFullColumn)
             {
-                sheet.DeleteColumn(2);
-                totalSheet.DeleteColumn(2);
+                sheet.DeleteColumn(usernameColumnIndex);
+                totalSheet.DeleteColumn(usernameColumnIndex);
             }
         }
     }
