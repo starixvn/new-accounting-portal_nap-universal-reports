@@ -978,7 +978,7 @@ import moment from "moment";
                 getTitleFunction: "getSiteTitle"
             }
         },
-        "RNG War": {
+        "Funky Games": {
             mainView: "betType",
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
