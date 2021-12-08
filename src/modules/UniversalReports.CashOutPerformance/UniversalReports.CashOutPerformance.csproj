@@ -137,6 +137,7 @@
     <Compile Include="Models\LeagueModel.cs" />
     <Compile Include="Models\MatchDetailLevelExcelModel.cs" />
     <Compile Include="Models\MatchDetailLevelModel.cs" />
+    <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Models\SportBetTypeModel.cs" />
     <Compile Include="Models\SportLevelExcelModel.cs" />
     <Compile Include="Models\SportLevelModel.cs" />

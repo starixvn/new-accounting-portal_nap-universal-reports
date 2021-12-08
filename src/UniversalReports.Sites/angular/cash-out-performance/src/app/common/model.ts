@@ -63,6 +63,7 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   CurrentHomeOdds: string;
   CurrentAwayOdds: string;
   CurrentScore: string;
+  SiteGroup: string;
 }
 
 export interface TicketViewModel<T> {

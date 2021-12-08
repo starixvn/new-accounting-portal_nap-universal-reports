@@ -4,7 +4,7 @@ using UniversalReports.CashOutPerformance.Models;
 
 namespace UniversalReports.CashOutPerformance.Requests
 {
-    public class LicenseeRequest : IRequest<IEnumerable<FilterItemModel>>
+    public class LicenseeRequest : IRequest<IEnumerable<SiteModel>>
     {
     }
 }

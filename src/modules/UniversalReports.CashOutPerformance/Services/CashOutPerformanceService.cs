@@ -12,7 +12,7 @@ namespace UniversalReports.CashOutPerformance.Services
     {
         Task<IEnumerable<FilterGroupItemModel>> GetSportBettypes(SportCriteria criteria);
 
-        Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria);
+        Task<IEnumerable<SiteModel>> GetLicensees(LicenseeCriteria criteria);
 
         Task<TicketViewModel<T>> GetTickets<T, U>(U criteria);
 
@@ -30,9 +30,9 @@ namespace UniversalReports.CashOutPerformance.Services
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<FilterItemModel>> GetLicensees(LicenseeCriteria criteria)
+        public async Task<IEnumerable<SiteModel>> GetLicensees(LicenseeCriteria criteria)
         {
-            return await repository.FetchAsync<FilterItemModel>(criteria);
+            return await repository.FetchAsync<SiteModel>(criteria);
         }
 
         public async Task<IEnumerable<FilterGroupItemModel>> GetSportBettypes(SportCriteria criteria)

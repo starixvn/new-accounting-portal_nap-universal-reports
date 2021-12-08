@@ -20,10 +20,10 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
         public async Task Handler_WithLicenseeRequest_ReturnRightLicensees()
         {
             // Arrange
-            var expectedLicensees = new List<FilterItemModel>
+            var expectedLicensees = new List<SiteModel>
             {
-                new FilterItemModel { Id = 871, Name = "108betTest" },
-                new FilterItemModel { Id = 865, Name = "109betTest" }
+                new SiteModel { Id = 871, Name = "108betTest" },
+                new SiteModel { Id = 865, Name = "109betTest" }
             };
 
             var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();

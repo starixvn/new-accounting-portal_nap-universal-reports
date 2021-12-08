@@ -8,13 +8,15 @@ import { TreeviewModule } from 'ngx-treeview';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
 import { DateModule } from 'nap-components/date';
 import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
+import { SiteTreeviewPipe } from './site-treeview.pipe';
 
 @NgModule({
   declarations: [
     FilterComponent,
     FilterItemTreeviewPipe,
     FilterGroupItemTreeviewPipe,
-    FilterItemNameTreeviewPipe
+    FilterItemNameTreeviewPipe,
+    SiteTreeviewPipe
   ],
   imports: [
     CommonModule,

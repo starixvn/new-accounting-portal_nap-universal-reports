@@ -49,5 +49,7 @@ namespace UniversalReports.CashOutPerformance.Models
         public string CurrentAwayOdds { get; set; }
 
         public string CurrentScore { get; set; }
+
+        public string SiteGroup { get; set; }
     }
 }

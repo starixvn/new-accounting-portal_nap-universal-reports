@@ -27,9 +27,9 @@
           </div>
         <div class="nap-col" >
             <div class="nap-group">
-            <label>Licensee</label>
+            <label>Division</label>
             <div class="nap-control">
-                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | filterItemNameTreeview:licensees"
+                <ngx-dropdown-treeview #siteDropdownTreeview [items]="licensees | siteTreeview:licensees"
                 [config]="licenseeTreeviewConfig" (selectedChange)="selectedLicensees = $event">
                 </ngx-dropdown-treeview>
             </div>
@@ -107,4 +107,3 @@
       </div>
     </div>
 </div>
-  

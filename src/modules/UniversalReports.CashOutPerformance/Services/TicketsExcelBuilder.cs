@@ -33,9 +33,9 @@ namespace UniversalReports.CashOutPerformance.Services
         public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn)
         {
             string fileExcel = "CashOutPerformance.xlsx";
-            string cellAddressOfTitle = "A1:W1";
-            string cellAddressOfBreadCrumb = "A3:W3";
-            byte totalLength = 22;
+            string cellAddressOfTitle = "A1:AC1";
+            string cellAddressOfBreadCrumb = "A3:AC3";
+            byte totalLength = 23;
             if (excelType != ExcelType.Match)
             {
                 fileExcel = "SimpleCashOutPerformance.xlsx";

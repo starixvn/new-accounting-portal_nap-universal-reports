@@ -4,6 +4,7 @@
       <col *ngIf="isShowFullColumn" style="width: 150px" />
       <col style="width: 120px" />
       <col style="width: 120px" />
+      <col style="width: 120px" />
       <col style="width: 130px" />
       <col style="width: 150px" />
       <col style="width: 120px" />
@@ -35,6 +36,7 @@
       <tr>
         <th scope="col">Date</th>
         <th *ngIf="isShowFullColumn" scope="col">Username</th>
+        <th scope="col">Site Group</th>
         <th scope="col">Currency</th>
         <th scope="col">Original Ticket ID</th>
         <th scope="col">Cash Out Ticket ID</th>
@@ -67,6 +69,7 @@
   <ng-template #rowItem let-item="item">
     <td class="text-center">{{ item.WLDate | date: 'yyyy-MM-dd' }}</td>
     <td *ngIf="isShowFullColumn">{{ item.Username }}</td>
+    <td class="text-center">{{ item.SiteGroup }}</td>
     <td class="text-center">{{ item.Currency }}</td>
     <td class="text-center">{{ item.OrigID }}</td>
     <td class="text-center">{{ item.BuyBackID }}</td>
@@ -96,7 +99,7 @@
   </ng-template>
   <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
     <div class="nap-grid">
-        <div [style.width]="isShowFullColumn ? '3810px' : '3660px'">
+        <div [style.width]="isShowFullColumn ? '3930px' : '3780px'">
             <div class="header">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -118,7 +121,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th scope="col" class="no-data" [attr.colspan]="isShowFullColumn ? 28 : 27">
+                            <th scope="col" class="no-data" [attr.colspan]="isShowFullColumn ? 29 : 28">
                                 There is no data
                             </th>
                         </tr>
@@ -130,7 +133,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tfoot>
                         <tr class="font-weight-bold">
-                            <td [attr.colspan]="isShowFullColumn ? 22 : 21" class="text-right">Grand Total</td>
+                            <td [attr.colspan]="isShowFullColumn ? 23 : 22" class="text-right">Grand Total</td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                             <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.BBAmount_RM"></td>
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.MemberWL_RM"></td>
@@ -139,7 +142,7 @@
                             <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.TotalIncome_RM"></td>
                         </tr>
                         <tr>
-                            <td [attr.colspan]="isShowFullColumn ? 28 : 27">
+                            <td [attr.colspan]="isShowFullColumn ? 29 : 28">
                                 <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                             </td>
                         </tr>
@@ -149,4 +152,3 @@
         </div>
     </div>
   </div>
-  
