@@ -41,10 +41,10 @@ namespace UniversalReports.CashOutPerformance.Models
         public long OrigID { get; set; }
 
         [Cell("F5")]
-        public long BuyBackID { get; set; }
+        public string BuyBackID { get; set; }
 
         [Cell("G5")]
-        public long CashOutID { get; set; }
+        public string CashOutID { get; set; }
 
         [Cell("H5")]
         public string SportName { get; set; }

@@ -45,8 +45,8 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   Username: string;
   Currency: string;
   OrigID: number;
-  BuyBackID: number;
-  CashOutID: number;
+  BuyBackID: string;
+  CashOutID: string;
   SportName: string;
   LeagueName: string;
   MatchName: string;
