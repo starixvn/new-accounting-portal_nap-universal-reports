@@ -45,8 +45,8 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   Username: string;
   Currency: string;
   OrigID: number;
-  BuyBackID: number;
-  CashOutID: number;
+  BuyBackID: string;
+  CashOutID: string;
   SportName: string;
   LeagueName: string;
   MatchName: string;
@@ -63,6 +63,7 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   CurrentHomeOdds: string;
   CurrentAwayOdds: string;
   CurrentScore: string;
+  SiteGroup: string;
 }
 
 export interface TicketViewModel<T> {

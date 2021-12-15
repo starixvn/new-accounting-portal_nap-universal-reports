@@ -46,3 +46,7 @@ export interface FilterModel {
     server: string;
     isShowFullColumn: boolean;
   }
+
+  export interface SiteModel extends FilterItemModel {
+    IsDeposit: boolean;
+}

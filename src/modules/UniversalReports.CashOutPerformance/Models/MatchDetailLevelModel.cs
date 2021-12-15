@@ -12,9 +12,9 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public long OrigID { get; set; }
 
-        public long BuyBackID { get; set; }
+        public string BuyBackID { get; set; }
 
-        public long CashOutID { get; set; }
+        public string CashOutID { get; set; }
 
         public int SportType { get; set; }
 
@@ -49,5 +49,7 @@ namespace UniversalReports.CashOutPerformance.Models
         public string CurrentAwayOdds { get; set; }
 
         public string CurrentScore { get; set; }
+
+        public string SiteGroup { get; set; }
     }
 }

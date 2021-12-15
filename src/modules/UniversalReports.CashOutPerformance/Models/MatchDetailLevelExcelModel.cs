@@ -32,27 +32,30 @@ namespace UniversalReports.CashOutPerformance.Models
         public string Username { get; set; }
 
         [Cell("C5")]
-        public string Currency { get; set; }
+        public string SiteGroup { get; set; }
 
         [Cell("D5")]
-        public long OrigID { get; set; }
+        public string Currency { get; set; }
 
         [Cell("E5")]
-        public long BuyBackID { get; set; }
+        public long OrigID { get; set; }
 
         [Cell("F5")]
-        public long CashOutID { get; set; }
+        public string BuyBackID { get; set; }
 
         [Cell("G5")]
-        public string SportName { get; set; }
+        public string CashOutID { get; set; }
 
         [Cell("H5")]
-        public string LeagueName { get; set; }
+        public string SportName { get; set; }
 
         [Cell("I5")]
-        public string MatchName { get; set; }
+        public string LeagueName { get; set; }
 
         [Cell("J5")]
+        public string MatchName { get; set; }
+
+        [Cell("K5")]
         public string BetTime
         {
             get
@@ -71,7 +74,7 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("K5")]
+        [Cell("L5")]
         public string CashOutTime
         {
             get
@@ -90,55 +93,55 @@ namespace UniversalReports.CashOutPerformance.Models
             }
         }
 
-        [Cell("L5")]
+        [Cell("M5")]
         public string BetTypeName { get; set; }
 
-        [Cell("M5")]
+        [Cell("N5")]
         public string BetChoice { get; set; }
 
-        [Cell("N5")]
+        [Cell("O5")]
         public string BetOdd { get; set; }
 
-        [Cell("O5")]
+        [Cell("P5")]
         public string BetScore { get; set; }
 
-        [Cell("P5")]
+        [Cell("Q5")]
         public string CurrentGoalLine { get; set; }
 
-        [Cell("Q5")]
+        [Cell("R5")]
         public string CurrentHomeOdds { get; set; }
 
-        [Cell("R5")]
+        [Cell("S5")]
         public string CurrentAwayOdds { get; set; }
 
-        [Cell("S5")]
+        [Cell("T5")]
         public string CurrentScore { get; set; }
 
-        [Cell("T5")]
+        [Cell("U5")]
         public decimal COTurnover { get; set; }
 
-        [Cell("U5")]
+        [Cell("V5")]
         public decimal BBAmount { get; set; }
 
-        [Cell("V5")]
+        [Cell("W5")]
         public decimal MemberWL { get; set; }
 
-        [Cell("W5")]
+        [Cell("X5")]
         public decimal COTurnover_RM { get; set; }
 
-        [Cell("X5")]
+        [Cell("Y5")]
         public decimal BBAmount_RM { get; set; }
 
-        [Cell("Y5")]
+        [Cell("Z5")]
         public decimal MemberWL_RM { get; set; }
 
-        [Cell("Z5")]
+        [Cell("AA5")]
         public decimal Comm_RM { get; set; }
 
-        [Cell("AA5")]
+        [Cell("AB5")]
         public decimal COIncome_RM { get; set; }
 
-        [Cell("AB5")]
+        [Cell("AC5")]
         public decimal TotalIncome_RM { get; set; }
     }
 }

@@ -6,7 +6,7 @@ import { DateFormat, DateHelper } from 'nap-components/date';
 import { ToastService } from 'nap-components/toast';
 import { TreeviewConfig } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
-import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, TicketStatus, TimePeriod } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, SiteModel, TicketStatus, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 
@@ -29,14 +29,14 @@ export class FilterComponent implements OnInit {
   yesterdayDate = CONFIG.date.yesterday;
   isShowFullColumn = false;
 
-  licensees: FilterItemModel[] = [];
+  licensees: SiteModel[] = [];
   licenseeTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
     hasAllCheckBox: true,
     hasCollapseExpand: false,
     maxHeight: 500
   });
-  selectedLicensees: number[] = [];
+  selectedLicensees: string[] = [];
 
   sports: FilterGroupItemModel[] = [];
   sportTreeviewConfig = TreeviewConfig.create({

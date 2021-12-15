@@ -12,7 +12,7 @@ using UniversalReports.CashOutPerformance.ViewModels;
 namespace UniversalReports.CashOutPerformance.Handlers
 {
     public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterGroupItemModel>>,
-        IRequestHandler<LicenseeRequest, IEnumerable<FilterItemModel>>,
+        IRequestHandler<LicenseeRequest, IEnumerable<SiteModel>>,
         IRequestHandler<TicketRequest<SportLevelModel>, TicketViewModel<SportLevelModel>>,
         IRequestHandler<TicketRequest<EventStatusLevelModel>, TicketViewModel<EventStatusLevelModel>>,
         IRequestHandler<TicketRequest<BetTypeLevelModel>, TicketViewModel<BetTypeLevelModel>>,
@@ -33,7 +33,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
             return await service.GetSportBettypes(criteria);
         }
 
-        public async Task<IEnumerable<FilterItemModel>> Handle(LicenseeRequest request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<SiteModel>> Handle(LicenseeRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<LicenseeCriteria>(request);
             return await service.GetLicensees(criteria);
