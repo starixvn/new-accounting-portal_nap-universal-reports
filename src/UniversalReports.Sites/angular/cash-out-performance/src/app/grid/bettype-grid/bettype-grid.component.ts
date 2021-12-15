@@ -85,6 +85,7 @@ export class BettypeGridComponent implements Grid {
     const sportBettypeList =
       this.gridService.cachedSportBettypeForSport.split(',').filter(x => x.split('_')[1] === betType.toString()).join(',');
     this.gridService.filterModel.sportBettype = sportBettypeList;
+    this.gridService.filterModel.pageSize = this.originalPageSize;
     this.gridService.generate(GridType.MatchDetail);
   }
 

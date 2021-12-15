@@ -86,6 +86,7 @@ export class SportGridComponent implements Grid {
       this.gridService.orginalSportBettype.split(',').filter(x => x.split('_')[0] === sportType.toString()).join(',');
     this.gridService.filterModel.sportBettype = sportBettypeList;
     this.gridService.filterModel.liveIndicator = this.gridService.cachedLiveIndicator;
+    this.gridService.filterModel.pageSize = this.originalPageSize;
     this.gridService.cachedSportBettypeForSport = sportBettypeList;
     this.gridService.generate(GridType.Event);
   }

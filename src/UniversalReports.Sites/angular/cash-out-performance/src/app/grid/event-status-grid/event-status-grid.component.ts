@@ -84,6 +84,7 @@ export class EventStatusGridComponent implements Grid {
     this.gridService.betTypeTitle = this.getliveNonLiveText(liveStatus);
     this.gridService.filterModel.liveIndicator = liveStatus;
     this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
+    this.gridService.filterModel.pageSize = this.originalPageSize;
     this.gridService.generate(GridType.BetType);
   }
 
