@@ -24,8 +24,8 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-	<FileUpgradeFlags>0</FileUpgradeFlags>
-   <UpgradeBackupLocation>D:\Nap-Report\master\nap-universal-reports\Backup22\</UpgradeBackupLocation>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>D:\Projects\nap-universal-reports\Backup44\</UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
