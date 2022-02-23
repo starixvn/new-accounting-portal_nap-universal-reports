@@ -21,6 +21,8 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
 
+        public int IsCorners { get; set; } = Constants.CornersDefault;
+
         public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
     }
 }
