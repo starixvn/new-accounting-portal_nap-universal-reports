@@ -19,5 +19,7 @@
         public const int IsSabaSportDefault = 0;
 
         public const int IsAllSportDefault = 2;
+
+        public const int CornersDefault = 2;
     }
 }
