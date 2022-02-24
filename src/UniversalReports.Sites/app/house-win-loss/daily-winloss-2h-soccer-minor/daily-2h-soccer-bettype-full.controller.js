@@ -154,6 +154,7 @@ import angular from "angular";
             });
 
             data.isHedge = getHedgeParameters(data.sportType, betTypeName);
+            data.isCorners = getCornerParameters(betType, betTypeName);
 
             tab.goForward('site', data);
         }
@@ -167,6 +168,7 @@ import angular from "angular";
                 isLive: isLive
             });
             data.isHedge = getHedgeParameters(data.sportType, betTypeName);
+            data.isCorners = getCornerParameters(betType, betTypeName);
 
             tab.goForward('matchDetail', data);
         }
@@ -177,6 +179,14 @@ import angular from "angular";
             }
 
             return betTypeName && betTypeName.indexOf("(hedge)") > -1 ? 1 : 0;
+        }
+
+        function getCornerParameters(betType, betTypeName) {
+            if (betType !== 228 && betType !== 229) {
+                return 2;
+            }
+
+            return betTypeName && betTypeName.indexOf("(Corners)") > -1 ? 1 : 0;
         }
 
         function exportExcel() {

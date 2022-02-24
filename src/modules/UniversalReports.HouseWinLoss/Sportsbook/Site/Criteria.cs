@@ -15,6 +15,8 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public int IsHedge { get; set; } = Constants.HedgeDefault;
 
+        public int IsCorners { get; set; } = Constants.CornersDefault;
+
         public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
