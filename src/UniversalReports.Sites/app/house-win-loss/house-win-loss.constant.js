@@ -951,7 +951,7 @@ import moment from "moment";
                 getTitleFunction: "getSiteTitle"
             }
         },
-        "Saba.games": {
+        "SABA.games": {
             mainView: "sportType",
             sportType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
