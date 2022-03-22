@@ -24,6 +24,11 @@ export interface TicketModel extends CommonTicketModel {
     COTurnover: number;
     BBAmount: number;
     MemberWL: number;
+    ActualTurnover: number;
+    PotPayout: number;
+    HypGGR: number;
+    COProfit: number;
+    Margin: number;
   }
 
 export interface SportLevelModel extends CommonTicketModel {

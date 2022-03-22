@@ -4,25 +4,40 @@ namespace UniversalReports.CashOutPerformance.Models
 {
     public class SportLevelExcelModel
     {
-        [Cell("A5")]
+        [Cell("A6")]
         public string SportName { get; set; }
 
-        [Cell("B5")]
+        [Cell("B6")]
         public decimal COTurnover_RM { get; set; }
 
-        [Cell("C5")]
+        [Cell("C6")]
+        public decimal ActualTurnover { get; set; }
+
+        [Cell("D6")]
         public decimal BBAmount_RM { get; set; }
 
-        [Cell("D5")]
+        [Cell("E6")]
         public decimal MemberWL_RM { get; set; }
 
-        [Cell("E5")]
+        [Cell("F6")]
+        public decimal PotPayout { get; set; }
+
+        [Cell("G6")]
+        public decimal HypGGR { get; set; }
+
+        [Cell("H6")]
+        public decimal COProfit { get; set; }
+
+        [Cell("I6")]
+        public decimal Margin { get; set; }
+
+        [Cell("J6")]
         public decimal Comm_RM { get; set; }
 
-        [Cell("F5")]
+        [Cell("K6")]
         public decimal COIncome_RM { get; set; }
 
-        [Cell("G5")]
+        [Cell("L6")]
         public decimal TotalIncome_RM { get; set; }
     }
 }
