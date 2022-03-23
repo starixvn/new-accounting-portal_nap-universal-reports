@@ -24,6 +24,22 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public decimal? COProfit { get; set; }
 
-        public decimal? Margin => ActualTurnover == null || ActualTurnover == 0 ? 0 : COProfit / ActualTurnover;
+        public decimal? Margin
+        {
+            get
+            {
+                if (COProfit == null)
+                {
+                    return null;
+                }
+
+                if (COTurnover_RM == 0)
+                {
+                    return 0;
+                }
+
+                return COProfit / COTurnover_RM;
+            }
+        }
     }
 }
