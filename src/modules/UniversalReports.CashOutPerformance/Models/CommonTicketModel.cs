@@ -16,14 +16,14 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public decimal TotalIncome_RM { get; set; }
 
-        public decimal ActualTurnover { get; set; }
+        public decimal? ActualTurnover { get; set; }
 
-        public decimal PotPayout { get; set; }
+        public decimal? AssumedPayout { get; set; }
 
-        public decimal HypGGR { get; set; }
+        public decimal? HypGGR { get; set; }
 
-        public decimal COProfit { get; set; }
+        public decimal? COProfit { get; set; }
 
-        public decimal Margin => ActualTurnover == 0 ? 0 : COProfit / ActualTurnover;
+        public decimal? Margin => ActualTurnover == null || ActualTurnover == 0 ? 0 : COProfit / ActualTurnover;
     }
 }

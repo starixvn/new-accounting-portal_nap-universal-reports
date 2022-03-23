@@ -130,7 +130,7 @@ namespace UniversalReports.CashOutPerformance.Models
         public decimal COTurnover_RM { get; set; }
 
         [Cell("Y6")]
-        public decimal ActualTurnover { get; set; }
+        public decimal? ActualTurnover { get; set; }
 
         [Cell("Z6")]
         public decimal BBAmount_RM { get; set; }
@@ -139,16 +139,16 @@ namespace UniversalReports.CashOutPerformance.Models
         public decimal MemberWL_RM { get; set; }
 
         [Cell("AB6")]
-        public decimal PotPayout { get; set; }
+        public decimal? AssumedPayout { get; set; }
 
         [Cell("AC6")]
-        public decimal HypGGR { get; set; }
+        public decimal? HypGGR { get; set; }
 
         [Cell("AD6")]
-        public decimal COProfit { get; set; }
+        public decimal? COProfit { get; set; }
 
         [Cell("AE6")]
-        public decimal Margin { get; set; }
+        public decimal? Margin { get; set; }
 
         [Cell("AF6")]
         public decimal Comm_RM { get; set; }
