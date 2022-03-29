@@ -21,7 +21,7 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private ExcelWorksheet totalSheet;
 
-        private const int StartRowIndex = 5;
+        private const int StartRowIndex = 6;
 
         private ExcelPackage ExcelPackage { get; set; }
 
@@ -33,14 +33,14 @@ namespace UniversalReports.CashOutPerformance.Services
         public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn)
         {
             string fileExcel = "CashOutPerformance.xlsx";
-            string cellAddressOfTitle = "A1:AC1";
-            string cellAddressOfBreadCrumb = "A3:AC3";
+            string cellAddressOfTitle = "A1:AH1";
+            string cellAddressOfBreadCrumb = "A3:AH3";
             byte totalLength = 23;
             if (excelType != ExcelType.Match)
             {
                 fileExcel = "SimpleCashOutPerformance.xlsx";
-                cellAddressOfTitle = "A1:G1";
-                cellAddressOfBreadCrumb = "A3:G3";
+                cellAddressOfTitle = "A1:L1";
+                cellAddressOfBreadCrumb = "A3:L3";
                 totalLength = 1;
             }
             LoadTemplate(fileExcel);
@@ -83,7 +83,7 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             if (excelType != ExcelType.Match)
             {
-                sheet.Cells["A4"].Value = Enum.GetName(typeof(ExcelType), excelType).Replace("Event", "Live/Non-Live");
+                sheet.Cells["A5"].Value = Enum.GetName(typeof(ExcelType), excelType).Replace("Event", "Live/Non-Live");
             }
         }
 

@@ -5,6 +5,11 @@ export interface CommonTicketModel {
   Comm_RM: number;
   COIncome_RM: number;
   TotalIncome_RM: number;
+  ActualTurnover: number;
+  AssumedPayout: number;
+  HypGGR: number;
+  COProfit: number;
+  Margin: number;
 }
 export interface TicketModel extends CommonTicketModel {
     WLDate: Date;

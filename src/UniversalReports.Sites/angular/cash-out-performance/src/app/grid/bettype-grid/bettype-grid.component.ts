@@ -80,6 +80,10 @@ export class BettypeGridComponent implements Grid {
     return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
   }
 
+  isShowNotAvailable(data: number) : boolean {
+    return _.isNil(data);
+  }
+
   showMatchDetailLevel(betType: number, betTypeName: string): void{
     this.gridService.matchDetailTitle = betTypeName;
     const sportBettypeList =

@@ -81,4 +81,8 @@ export class MatchDetailGridComponent implements Grid {
   get hasData(): boolean {
     return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
   }
+
+  isShowNotAvailable(data: number) : boolean {
+    return _.isNil(data);
+  }
 }

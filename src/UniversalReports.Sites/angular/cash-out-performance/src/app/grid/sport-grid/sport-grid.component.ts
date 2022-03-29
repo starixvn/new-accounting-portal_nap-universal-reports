@@ -80,6 +80,10 @@ export class SportGridComponent implements Grid {
     return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
   }
 
+  isShowNotAvailable(data: number) : boolean {
+    return _.isNil(data);
+  }
+
   showEventStatusLevel(sportType: number, sportName: string): void{
     this.gridService.eventTitle = sportName;
     const sportBettypeList =
