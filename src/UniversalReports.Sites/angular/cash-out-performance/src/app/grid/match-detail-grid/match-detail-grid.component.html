@@ -117,7 +117,7 @@
   <td *ngIf="!isShowNotAvailable(item.COProfit)" class="text-right red-positive" [napDecimalFormat]="item.COProfit">
   </td>
   <td *ngIf="isShowNotAvailable(item.Margin)" class="text-right">&nbsp;</td>
-  <td *ngIf="!isShowNotAvailable(item.Margin)" class="text-right number" [napPercentFormat]="item.Margin"></td>
+  <td *ngIf="!isShowNotAvailable(item.Margin)" class="text-right number red-positive" [napPercentFormat]="item.Margin"></td>
   <td class="text-right" [napDecimalFormat]="item.Comm_RM"></td>
   <td class="text-right red-positive" [napDecimalFormat]="item.COIncome_RM"></td>
   <td class="text-right red-positive" [napDecimalFormat]="item.TotalIncome_RM"></td>
@@ -175,7 +175,7 @@
               <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.COProfit)" class="text-right red-positive"
                 [napDecimalFormat]="dataViewModel.TotalTicket.COProfit"></td>
               <td *ngIf="isShowNotAvailable(dataViewModel.TotalTicket.Margin)" class="text-right">&nbsp;</td>
-              <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.Margin)" class="text-right number"
+              <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.Margin)" class="text-right number red-positive"
                 [napPercentFormat]="dataViewModel.TotalTicket.Margin"></td>
               <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.Comm_RM"></td>
               <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.TotalTicket.COIncome_RM"></td>
