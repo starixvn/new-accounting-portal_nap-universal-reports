@@ -9,6 +9,6 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.MatchDetail
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-MatchDetail-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-MatchDetail";
     }
 }

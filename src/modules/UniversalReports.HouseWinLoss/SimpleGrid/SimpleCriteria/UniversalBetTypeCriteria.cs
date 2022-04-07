@@ -12,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public int IsLive { get; set; } = AllLiveAndNonLive;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Universal-BetType";
 
         public UniversalBetTypeCriteria Clone()
         {
@@ -23,8 +23,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
                 IsLive = IsLive,
                 StartDate = StartDate,
                 EndDate = EndDate,
-                NormalMode = NormalMode,
-                Source = Source
+                NormalMode = NormalMode
             };
         }
     }

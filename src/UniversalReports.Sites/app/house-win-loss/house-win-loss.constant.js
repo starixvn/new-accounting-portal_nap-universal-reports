@@ -424,7 +424,7 @@ import moment from "moment";
                 controller: "NGSportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "universal-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             league: {
@@ -432,7 +432,7 @@ import moment from "moment";
                 controller: "NGLeagueController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-league", mainColumnText: "League" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-drill-down", mainColumnText: "League" },
                 getTitleFunction: "getSportTypeTitle"
             },
             betType: {
@@ -440,7 +440,7 @@ import moment from "moment";
                 controller: "NGBetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-drill-down", mainColumnText: "Bet Type" },
                 getTitleFunction: "getLeagueTitle"
             },
             site: {
@@ -448,7 +448,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 3, type: "number-game-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "number-game-drill-down" },
                 getTitleFunction: "getSiteTitle"
             },
             matchDetail: {

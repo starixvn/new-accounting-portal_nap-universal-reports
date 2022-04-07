@@ -10,6 +10,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public string Site { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-VirtualSports-Site-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-VirtualSports-Site";
     }
 }

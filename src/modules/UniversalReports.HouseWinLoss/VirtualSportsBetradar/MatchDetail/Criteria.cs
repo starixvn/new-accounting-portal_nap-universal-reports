@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.VirtualSportsBetradar.MatchDetail
 
         public int BetType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-VirtualSportsBetradar-MatchDetail-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-VirtualSportsBetradar-MatchDetail";
     }
 }

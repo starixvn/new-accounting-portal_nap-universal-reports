@@ -9,6 +9,6 @@ namespace UniversalReports.HouseWinLoss.CashOut.MatchDetail
 
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-CashOut-MatchDetail-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-CashOut-MatchDetail";
     }
 }

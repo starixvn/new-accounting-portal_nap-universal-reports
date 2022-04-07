@@ -19,10 +19,12 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
+        public int PermissionProfileID { get; } = 1;
+
         public override string GetSettingKey()
         {
             const int betBuilderBetType = 38;
-            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-MatchDetail-{Source}" : $"HouseWinLoss-Sportsbook-MatchDetail-{Source}";
+            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-MatchDetail" : $"HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail";
         }
     }
 }

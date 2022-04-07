@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
         [SpParam(SqlParamName = "ProductId")]
         public int CasinoProductId { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Casino-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Casino-BetType";
     }
 }

@@ -6,7 +6,6 @@ using Fanex.Data.Repository;
 using Fanex.RemotingRef;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Tests.TestDoubles;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
@@ -41,7 +40,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<CommonServices.RemotingRef3rdServiceImp, RemotingRef3rdServiceStub>();
 
             container.Register<BalanceUpService, BalanceUpServiceImp>();
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>();
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>();

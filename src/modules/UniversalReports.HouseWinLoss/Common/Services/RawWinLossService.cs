@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Data.Repository;
+using System.Collections.Generic;
 using System.Linq;
-using Fanex.Data.Repository;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.Models;
 
@@ -16,17 +15,14 @@ namespace UniversalReports.HouseWinLoss.Common.Services
     {
         private readonly IDynamicRepository repository;
 
-        private readonly BalanceUpSourceChooser balanceUpSourceChooser;
 
-        public RawWinLossServiceImp(IDynamicRepository repository, BalanceUpSourceChooser balanceUpSourceChooser)
+        public RawWinLossServiceImp(IDynamicRepository repository)
         {
             this.repository = repository;
-            this.balanceUpSourceChooser = balanceUpSourceChooser;
         }
 
         public virtual List<WinLossRaw> Query(WinLossCriteria criteria)
         {
-            criteria.Source = balanceUpSourceChooser.Determine(criteria);
             return repository.Fetch<WinLossRaw>(criteria).ToList();
         }
     }

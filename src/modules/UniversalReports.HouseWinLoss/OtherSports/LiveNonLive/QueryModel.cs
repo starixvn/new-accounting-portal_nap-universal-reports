@@ -11,5 +11,9 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
         public bool NormalMode { get; set; } = true;
 
         public bool IsNoDraw { get; set; }
+
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }

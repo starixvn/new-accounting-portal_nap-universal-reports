@@ -4,6 +4,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 {
     public class BetTradeBetTypeCriteria : WinLossCriteria
     {
-        public override string GetSettingKey() => $"HouseWinLoss-Bettrade-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Bettrade-BetType";
     }
 }

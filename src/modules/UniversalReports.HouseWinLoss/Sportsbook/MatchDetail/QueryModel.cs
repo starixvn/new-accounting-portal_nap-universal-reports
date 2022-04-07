@@ -24,5 +24,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
         public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; }
     }
 }

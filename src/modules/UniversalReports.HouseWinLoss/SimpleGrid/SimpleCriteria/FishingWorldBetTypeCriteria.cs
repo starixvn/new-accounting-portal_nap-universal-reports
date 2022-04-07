@@ -14,7 +14,7 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public override string GetSettingKey()
         {
-            return $"HouseWinLoss-FishingWorld-BetType-{Source}";
+            return $"HouseWinLoss-FishingWorld-BetType";
         }
     }
 }

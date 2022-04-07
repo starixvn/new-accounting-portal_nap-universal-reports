@@ -1,6 +1,7 @@
-﻿using System.Web.Http;
-using AutoMapper;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.MatchDetailByCode;
 
 namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
@@ -16,14 +17,14 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<NumberGameDrilldownCriteria>(queryModel);
             return Json(criteria);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<NumberGameDrilldownCriteria>(queryModel);
             return Excel(criteria, queryModel.Title);
         }
     }

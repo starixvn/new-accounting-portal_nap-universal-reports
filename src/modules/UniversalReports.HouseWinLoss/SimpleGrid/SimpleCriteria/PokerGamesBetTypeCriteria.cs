@@ -12,6 +12,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public int IsLive { get; set; } = AllLiveAndNonLive;
 
-        public override string GetSettingKey() => $"HouseWinLoss-PokerGames-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-PokerGames-BetType";
     }
 }

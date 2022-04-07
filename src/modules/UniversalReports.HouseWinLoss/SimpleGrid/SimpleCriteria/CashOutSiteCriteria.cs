@@ -10,6 +10,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-CashOut-Site-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-CashOut-Site";
     }
 }

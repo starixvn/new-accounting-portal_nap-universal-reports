@@ -10,6 +10,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public bool IsFreePlay { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-ColossusBet-Site-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-ColossusBet-Site";
     }
 }

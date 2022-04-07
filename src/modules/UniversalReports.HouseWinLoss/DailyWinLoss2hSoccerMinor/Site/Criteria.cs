@@ -19,6 +19,6 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
 
         public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Site-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Site";
     }
 }

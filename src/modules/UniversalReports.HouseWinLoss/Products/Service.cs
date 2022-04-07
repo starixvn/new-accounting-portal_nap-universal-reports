@@ -17,15 +17,12 @@ namespace UniversalReports.HouseWinLoss.Products
 
         private readonly CalculationService calculationService;
 
-        private readonly PermissionFilterService permissionFilterService;
 
         public ServiceImp(
             RawWinLossService rawWinLossService,
-            PermissionFilterService permissionFilterService,
             CalculationService calculationService)
         {
             this.rawWinLossService = rawWinLossService;
-            this.permissionFilterService = permissionFilterService;
             this.calculationService = calculationService;
         }
 
@@ -33,16 +30,15 @@ namespace UniversalReports.HouseWinLoss.Products
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
             var rawWinLosses = rawWinLossService.Query(criteria);
-            var filteredRawWinLosses = permissionFilterService.Filter(rawWinLosses, queryModel.Permissions);
 
-            var rawSportsbookProducts = filteredRawWinLosses.Where(r => ProductConstant.NameSportsbook.Contains(r.GroupName));
-            var rawNonSportsbookProducts = filteredRawWinLosses.Where(r => !ProductConstant.NameSportsbook.Contains(r.GroupName) && r.GroupName != ProductConstant.RM);
-            var rawRMWinLosses = filteredRawWinLosses.Where(r => r.GroupName == ProductConstant.RM);
+            var rawSportsbookProducts = rawWinLosses.Where(r => ProductConstant.NameSportsbook.Contains(r.GroupName));
+            var rawNonSportsbookProducts = rawWinLosses.Where(r => !ProductConstant.NameSportsbook.Contains(r.GroupName) && r.GroupName != ProductConstant.RM);
+            var rawRMWinLosses = rawWinLosses.Where(r => r.GroupName == ProductConstant.RM);
 
             var sportsbookProducts = GetProductGroup(rawSportsbookProducts, "Sportsbook Total");
             var nonSportsbookProducts = GetProductGroup(rawNonSportsbookProducts, "Non-Sports Total");
             var sportsbookRMWinLosses = GetRMWinLoss(rawRMWinLosses);
-            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", filteredRawWinLosses);
+            var grandTotal = calculationService.CalculateSumWinLossSummary("Grand Total", rawWinLosses);
             grandTotal = CalculateGrandTotal(grandTotal, sportsbookRMWinLosses);
             var grandTotalWithoutCN88 = CalculateGrandTotalWithoutCN88(grandTotal);
 

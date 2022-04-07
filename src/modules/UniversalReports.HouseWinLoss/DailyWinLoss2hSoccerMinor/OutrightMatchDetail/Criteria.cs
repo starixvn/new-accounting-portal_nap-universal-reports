@@ -9,6 +9,6 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
 
         public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
 
-        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Outright-MatchDetail-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Outright-MatchDetail";
     }
 }

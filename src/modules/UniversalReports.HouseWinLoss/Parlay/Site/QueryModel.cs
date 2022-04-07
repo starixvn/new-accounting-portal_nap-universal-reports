@@ -11,6 +11,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
 
         public bool NormalMode { get; set; } = true;
 
-        public string Site { get; set; } = Constants.SiteDefault;
-    }
+        public string SiteType { get; set; } = Constants.SiteDefault;
+
+        public int PermissionProfileID { get; set; }     }
 }

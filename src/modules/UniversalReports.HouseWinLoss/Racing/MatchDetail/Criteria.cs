@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.Racing.MatchDetail
 
         public int BetType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Racing-MatchDetail-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Racing-MatchDetail";
     }
 }

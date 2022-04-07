@@ -18,14 +18,14 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
         public IHttpActionResult Json(QueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Json(criteria, queryModel.Site);
+            return Json(criteria, queryModel.SiteType);
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
             var criteria = Mapper.Map<Criteria>(queryModel);
-            return Excel(criteria, queryModel.Site, queryModel.Title, Constants.SheetName);
+            return Excel(criteria, queryModel.SiteType, queryModel.Title, Constants.SheetName);
         }
     }
 }

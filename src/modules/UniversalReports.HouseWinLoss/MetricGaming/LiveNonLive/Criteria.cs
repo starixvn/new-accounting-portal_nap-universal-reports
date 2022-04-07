@@ -4,6 +4,6 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
 {
     public class Criteria : WinLossCriteria
     {
-        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-BetType-LiveStatus-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-MetricGaming-BetType-LiveStatus";
     }
 }

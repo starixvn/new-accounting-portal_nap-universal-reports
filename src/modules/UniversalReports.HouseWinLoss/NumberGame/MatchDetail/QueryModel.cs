@@ -10,10 +10,16 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 
         public bool NormalMode { get; set; } = true;
 
+        public bool IsNoDraw { get; set; }
+
+        public int PermissionProfileID { get; } = 1;
+
+        public int SportType { get; set; }
+
         public int LeagueId { get; set; }
 
-        public int BetType { get; set; }
+        public int Bettype { get; set; }
 
-        public bool IsLive { get; set; }
+        public string SiteType { get; set; }
     }
 }

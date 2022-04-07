@@ -22,5 +22,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
         public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; }
     }
 }

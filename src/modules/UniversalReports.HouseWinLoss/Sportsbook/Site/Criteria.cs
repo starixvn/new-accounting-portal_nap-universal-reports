@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public int BetType { get; set; }
 
-        public string Site { get; set; }
+        public string SiteType { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
@@ -21,10 +21,12 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
+        public int PermissionProfileID { get; } = 1;
+
         public override string GetSettingKey()
         {
             const int betBuilderBetType = 38;
-            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-Site-{Source}" : $"HouseWinLoss-Sportsbook-Site-{Source}";
+            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-Site" : $"HouseWinlossByProducts_LvlN_Sportsbook_Site";
         }
     }
 }

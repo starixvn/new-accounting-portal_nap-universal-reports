@@ -5,6 +5,6 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
 {
     public class Criteria : WinLossCriteria
     {
-        public override string GetSettingKey() => $"HouseWinLoss-BetBuilder-SportType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-BetBuilder-SportType";
     }
 }

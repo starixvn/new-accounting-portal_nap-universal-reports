@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
             var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, string.Empty);
-            gridOptions = decorator.Build(gridOptions, queryModel.Site);
+            gridOptions = decorator.Build(gridOptions, queryModel.SiteType);
 
             return Json(gridOptions);
         }
@@ -39,7 +39,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
             var criteria = Mapper.Map<Criteria>(queryModel);
             var winlosses = service.Query(criteria);
             var gridOptions = builder.Build(winlosses, queryModel.Title);
-            gridOptions = decorator.Build(gridOptions, queryModel.Site);
+            gridOptions = decorator.Build(gridOptions, queryModel.SiteType);
 
             return new FanexExcelResult(gridOptions, Constants.SheetName);
         }

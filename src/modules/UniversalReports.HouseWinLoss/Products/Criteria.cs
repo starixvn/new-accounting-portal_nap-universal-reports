@@ -4,8 +4,10 @@ namespace UniversalReports.HouseWinLoss.Products
 {
     public class Criteria : WinLossCriteria
     {
-        public override string GetSettingKey() => $"HouseWinLoss-Products-{Source}";
+        public override string GetSettingKey() => $"HouseWinlossByProducts_Lvl1";
 
         public bool IsNoDraw { get; set; }
+
+        public int PermissionProfileID { get; } = 1;
     }
 }

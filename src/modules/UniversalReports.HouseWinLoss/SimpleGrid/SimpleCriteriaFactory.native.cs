@@ -30,9 +30,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
             { "colossusbet-site", typeof(ColossusSiteCriteria)},
             { "fishing-world-bet-type", typeof(FishingWorldBetTypeCriteria)},
             { "fishing-world-site", typeof(FishingWorldSiteCriteria)},
-            { "number-game-league", typeof(NumberGameLeagueCriteria)},
-            { "number-game-bet-type", typeof(NumberGameBetTypeCriteria)},
-            { "number-game-site", typeof(NumberGameSiteCriteria)},
             { "poker-games-bet-type", typeof(PokerGamesBetTypeCriteria)},
             { "poker-games-site", typeof(PokerGameSiteCriteria)},
             { "racing-bet-type", typeof(RacingBetTypeCriteria)},
@@ -48,7 +45,9 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid
             { "virtual-sports-site", typeof(VirtualSportsSiteCriteria)},
             { "virtual-sports-sport-type", typeof(VirtualSportsSportTypeCriteria)},
             { "non-sports-rng-sport-type", typeof(NonSportsRNGSportTypeCriteria)},
-            { "non-sports-rng-bet-type", typeof(NonSportsRNGBetTypeCriteria)}
+            { "non-sports-rng-bet-type", typeof(NonSportsRNGBetTypeCriteria)},
+            { "universal-second-level", typeof(UniversalSecondLevelCriteria)},
+            { "number-game-drill-down", typeof(NumberGameDrilldownCriteria)}
         };
 
         public WinLossCriteria CreateCriteria(Dictionary<string, object> queryModel)

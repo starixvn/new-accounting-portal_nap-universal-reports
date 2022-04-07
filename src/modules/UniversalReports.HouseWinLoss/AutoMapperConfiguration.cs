@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 
 namespace UniversalReports.HouseWinLoss
@@ -18,8 +19,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<MetricGaming.MatchDetail.QueryModel, MetricGaming.MatchDetail.Criteria>();
             cfg.CreateMap<MetricGaming.Site.ExcelQueryModel, MetricGaming.Site.Criteria>();
             cfg.CreateMap<MetricGaming.Site.QueryModel, MetricGaming.Site.Criteria>();
-            cfg.CreateMap<NumberGame.MatchDetail.ExcelQueryModel, NumberGame.MatchDetail.Criteria>();
-            cfg.CreateMap<NumberGame.MatchDetail.QueryModel, NumberGame.MatchDetail.Criteria>();
+            cfg.CreateMap<NumberGame.MatchDetail.ExcelQueryModel, NumberGameDrilldownCriteria>();
+            cfg.CreateMap<NumberGame.MatchDetail.QueryModel, NumberGameDrilldownCriteria>();
             cfg.CreateMap<OtherSports.BetType.ExcelQueryModel, OtherSports.BetType.Criteria>();
             cfg.CreateMap<OtherSports.BetType.QueryModel, OtherSports.BetType.Criteria>();
             cfg.CreateMap<OtherSports.LiveNonLive.ExcelQueryModel, OtherSports.SportType.Criteria>();

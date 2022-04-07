@@ -63,7 +63,7 @@ import angular from "angular";
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
-                site: site,
+                siteType: site,
                 isLive: isLive,
                 betTypeName: betTypeName,
                 mainColumnText: site,

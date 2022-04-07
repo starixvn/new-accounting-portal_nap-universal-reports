@@ -18,10 +18,10 @@ import numeral from "numeral";
         $scope.generateProduct = generateProduct;
         $scope.viewSetting = {};
 
-        function generateProduct(productName) {
+        function generateProduct(productName, productId) {
             var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data, { productName: productName });
+            angular.extend(data, { productName: productName, aliasProductID: productId });
             var level = houseWinlossService.getMainView(productName);
             tab.goForward(level, data);
         }
@@ -58,8 +58,9 @@ import numeral from "numeral";
                 var customAttr = productRow.CustomAttr;
                 if (customAttr === 'product') {
                     var productName = productRow.Columns[0].Value;
+                    var productId = parseInt(productRow.Columns[0].CustomAttr);
                     if(productName != 'SB Adjustment') {
-                        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\')">' + productName + '</a>';
+                        productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\',' + productId + '\)">' + productName + '</a>';
                     } else {
                         productRow.Columns[0].Value = productName;
                     }

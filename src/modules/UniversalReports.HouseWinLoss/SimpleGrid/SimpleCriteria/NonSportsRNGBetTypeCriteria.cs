@@ -8,6 +8,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
 
         public int SportType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-NonSportsRNG-BetType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-NonSportsRNG-BetType";
     }
 }

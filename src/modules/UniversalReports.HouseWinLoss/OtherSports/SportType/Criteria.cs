@@ -9,6 +9,8 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
 
         public bool IsNoDraw { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-OtherSports-SportType-LiveStatus-{Source}";
+        public int PermissionProfileID { get; } = 1;
+
+        public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_Sporttype";
     }
 }

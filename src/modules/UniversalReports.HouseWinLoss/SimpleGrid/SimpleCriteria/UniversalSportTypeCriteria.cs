@@ -6,6 +6,6 @@ namespace UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria
     {
         public int ProductId { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-Universal-SportType-{Source}";
+        public override string GetSettingKey() => $"HouseWinLoss-Universal-SportType";
     }
 }

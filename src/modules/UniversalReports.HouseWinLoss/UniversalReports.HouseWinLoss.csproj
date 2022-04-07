@@ -208,6 +208,11 @@
     <Compile Include="CashOut\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
+    <Compile Include="Common\Criteria\NumberGameDrilldownCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalSecondLevelCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartyMatchDetailCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartySiteCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartyBetTypeCriteria.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecorator.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecoratorFull.native.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecoratorFull.cs" />
@@ -236,9 +241,6 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.native.cs" />
     <Compile Include="SimpleGrid\SimpleCriteria\NonSportsRNGBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameLeagueCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameSiteCriteria.cs" />
     <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
     <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
     <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />
@@ -331,7 +333,6 @@
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
     <Compile Include="Common\Services\RawWinLossService.cs" />
@@ -351,7 +352,6 @@
     <Compile Include="Products\ExcelQueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />
     <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
-    <Compile Include="NumberGame\MatchDetail\Criteria.cs" />
     <Compile Include="Products\GridOptionsBuilder.cs" />
     <Compile Include="Products\ProductController.cs" />
     <Compile Include="Products\Criteria.cs" />
