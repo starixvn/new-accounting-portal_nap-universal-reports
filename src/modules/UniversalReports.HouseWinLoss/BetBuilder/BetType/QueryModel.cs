@@ -10,6 +10,14 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.BetType
 
         public bool NormalMode { get; set; } = true;
 
+        public bool IsNoDraw { get; set; }
+
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; } = 1;
+
+        public int IsLive { get; set; }
+
         public int SportType { get; set; }
     }
 }

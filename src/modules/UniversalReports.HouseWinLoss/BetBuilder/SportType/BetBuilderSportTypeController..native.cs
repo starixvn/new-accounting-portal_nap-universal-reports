@@ -2,6 +2,7 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
 {
@@ -19,14 +20,14 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             return Json(criteria, "Sport Type");
         }
 
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             return Excel(criteria, "Sport Type", queryModel.Title);
         }
     }

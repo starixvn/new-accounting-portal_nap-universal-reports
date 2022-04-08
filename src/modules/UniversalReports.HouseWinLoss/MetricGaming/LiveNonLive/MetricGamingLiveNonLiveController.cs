@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using AutoMapper;
-using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
@@ -39,7 +40,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
 
         private IEnumerable<GridOptions> BuildGridOptions(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), "Bet Type");
@@ -53,7 +54,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.LiveNonLive
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.BetTypeTitle);

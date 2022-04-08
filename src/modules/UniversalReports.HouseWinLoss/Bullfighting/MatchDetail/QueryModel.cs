@@ -13,5 +13,11 @@ namespace UniversalReports.HouseWinLoss.Bullfighting.MatchDetail
         public int SportType { get; set; }
 
         public int BetType { get; set; }
+
+        public int PermissionProfileID { get; set; }
+
+        public bool IsLive { get; set; }
+
+
     }
 }

@@ -21,10 +21,6 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.MatchDetail
 
         public int PermissionProfileID { get; } = 1;
 
-        public override string GetSettingKey()
-        {
-            const int betBuilderBetType = 38;
-            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-MatchDetail" : $"HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail";
-        }
+        public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail";
     }
 }

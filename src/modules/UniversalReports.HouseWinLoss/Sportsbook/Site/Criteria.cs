@@ -23,10 +23,6 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public int PermissionProfileID { get; } = 1;
 
-        public override string GetSettingKey()
-        {
-            const int betBuilderBetType = 38;
-            return BetType == betBuilderBetType ? $"HouseWinLoss-BetBuilder-Site" : $"HouseWinlossByProducts_LvlN_Sportsbook_Site";
-        }
+        public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_Site";
     }
 }

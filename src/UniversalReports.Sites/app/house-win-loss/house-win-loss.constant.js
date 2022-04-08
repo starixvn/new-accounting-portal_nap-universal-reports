@@ -370,7 +370,7 @@ import moment from "moment";
                 controller: "CasinoProductController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 2, type: "casino-product", mainColumnText: "3rd Party Product" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "3rd Party Product" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -378,7 +378,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 2, type: "casino-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getCasinoProductTitle"
             },
             site: {
@@ -386,7 +386,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 2, type: "casino-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -397,7 +397,7 @@ import moment from "moment";
                 controller: "CasinoProductController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 1, type: "casino-product", mainColumnText: "3rd Party Product" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "3rd Party Product" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -405,7 +405,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 1, type: "casino-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getCasinoProductTitle"
             },
             site: {
@@ -413,7 +413,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 1, type: "casino-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -467,7 +467,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -475,7 +475,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
@@ -495,7 +495,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -506,7 +506,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "bettrade-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -514,7 +514,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "bettrade-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -525,7 +525,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "racing-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -533,7 +533,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "racing-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
@@ -549,7 +549,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "racing-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -560,7 +560,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 7, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 7, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -568,7 +568,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 7, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 7, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -579,7 +579,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 8, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 8, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -587,7 +587,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 8, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 8, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -598,7 +598,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "colossusbet-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 15, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -606,7 +606,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "colossusbet-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 15, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -617,7 +617,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, type: "universal-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, isLive: 2, type: "universal-second-level", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -625,7 +625,7 @@ import moment from "moment";
                 controller: "NG2LiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             site: {
@@ -633,7 +633,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 23, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitleLive"
             }
         },
@@ -644,7 +644,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 24, isLive: 2, type: "fishing-world-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 24, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -652,7 +652,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 24, isLive: 2, type: "fishing-world-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 24, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -679,7 +679,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "cash-out-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -690,7 +690,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -698,7 +698,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 28, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -709,7 +709,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-betradar-sport-type", mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "universal-second-level", mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -717,7 +717,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 27, type: "virtual-sports-betradar-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             matchDetail: {
@@ -733,7 +733,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "virtual-sports-betradar-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -763,7 +763,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 30, sportType: 207, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -771,7 +771,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 30, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             },
             matchDetail: {
@@ -779,7 +779,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/bullfighting/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products", sportType: 207 },
+                mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getMatchDetailTitle"
             }
         },
@@ -790,7 +790,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 31, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 31, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -798,7 +798,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 31, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 31, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -809,7 +809,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 33, isLive: 2, type: "poker-games-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 33, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -817,7 +817,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 33, isLive: 2, type: "poker-games-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 33, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -843,15 +843,15 @@ import moment from "moment";
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SiteController",
                 service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/sportsbook/site",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "sportsbook-site" },
+                serviceBaseUrl: "api/house-win-loss-by-products/bet-builder/site",
+                mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getSiteTitle"
             },
             matchDetail: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
                 controller: "SportsbookMatchDetailController",
                 service: "sportsbookMatchDetailService",
-                serviceBaseUrl: 'api/house-win-loss-by-products/sportsbook/match-detail',
+                serviceBaseUrl: 'api/house-win-loss-by-products/bet-builder/match-detail',
                 mainParameters: { sheetName: "House Win Loss by Products" },
                 getTitleFunction: "getMatchDetailTitle"
             }
@@ -863,7 +863,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -871,7 +871,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 37, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -882,7 +882,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 38, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 38, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -890,7 +890,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 38, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 38, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -901,7 +901,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -909,7 +909,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -920,7 +920,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -928,7 +928,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 43, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -939,7 +939,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 40, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 40, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -947,7 +947,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 40, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 40, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -958,7 +958,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "non-sports-rng-sport-type", productId: 42, mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", productId: 42, mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -966,7 +966,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 42, type: "non-sports-rng-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 42, isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             site: {
@@ -974,7 +974,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -985,7 +985,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoProductId: 50, casinoType: 0, type: "casino-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 50, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -993,7 +993,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 50, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -1004,7 +1004,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 49, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 49, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -1012,7 +1012,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 49, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 49, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -1023,7 +1023,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 63, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 63, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -1031,7 +1031,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 63, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 63, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -1042,7 +1042,7 @@ import moment from "moment";
                 controller: "SportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", type: "non-sports-rng-sport-type", productId: 66, mainColumnText: "Sport Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", productId: 66, mainColumnText: "Sport Type" },
                 getTitleFunction: "getProductTitle"
             },
             betType: {
@@ -1050,7 +1050,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, type: "non-sports-rng-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 66, isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportTypeTitle"
             },
             site: {
@@ -1058,7 +1058,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", casinoType: 0, type: "casino-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
         },
@@ -1069,7 +1069,7 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 69, isLive: 2, type: "universal-bet-type", mainColumnText: "Bet Type" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 69, isLive: 2, type: "universal-second-level", mainColumnText: "Bet Type" },
                 getTitleFunction: "getProductTitle"
             },
             site: {
@@ -1077,7 +1077,7 @@ import moment from "moment";
                 controller: "SiteController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
-                mainParameters: { sheetName: "House Win Loss by Products", productId: 69, isLive: 2, type: "universal-site" },
+                mainParameters: { sheetName: "House Win Loss by Products", productId: 69, isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             },
         },

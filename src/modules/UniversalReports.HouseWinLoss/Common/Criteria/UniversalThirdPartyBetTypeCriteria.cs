@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UniversalReports.HouseWinLoss.Common.Criteria
+﻿namespace UniversalReports.HouseWinLoss.Common.Criteria
 {
-  public  class UniversalThirdPartyBetTypeCriteria : WinLossCriteria
+    public  class UniversalThirdPartyBetTypeCriteria : WinLossCriteria
     {
         public bool IsNoDraw { get; set; }
 

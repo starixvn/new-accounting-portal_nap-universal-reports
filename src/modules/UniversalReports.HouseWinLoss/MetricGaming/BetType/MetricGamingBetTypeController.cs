@@ -1,7 +1,8 @@
-﻿using System.Web.Http;
-using AutoMapper;
+﻿using AutoMapper;
+using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 
 namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
 {
@@ -19,7 +20,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalThirdPartyBetTypeCriteria>(queryModel);
             const int mainColumnWidth = 220;
             return Json(criteria, "Bet Type", mainColumnWidth);
         }
@@ -27,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.MetricGaming.BetType
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalThirdPartyBetTypeCriteria>(queryModel);
             const int mainColumnWidth = 220;
             return Excel(criteria, "Bet Type", queryModel.Title, mainColumnWidth);
         }
