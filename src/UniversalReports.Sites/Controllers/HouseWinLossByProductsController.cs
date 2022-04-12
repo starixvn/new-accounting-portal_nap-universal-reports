@@ -1,11 +1,12 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Fanex.NAP.Core.Business;
+﻿using Fanex.NAP.Core.Business;
 using Fanex.NAP.Core.Configuration;
 using Fanex.NAP.Core.Service.Interface;
 using Fanex.NAP.Core.Web.Attribute;
 using Fanex.NAP.Core.Web.Session;
+using System.Linq;
+using System.Web.Mvc;
 using UniversalReports.Core.BalanceUpServices;
+using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
@@ -16,10 +17,18 @@ namespace UniversalReports.Sites.Controllers
 
         private readonly ICurrentSession currentSession;
 
-        public HouseWinLossByProductsController(IUserService userService, ICurrentSession currentSession, BalanceUpService balanceUpService) : base(balanceUpService)
+        private readonly PermissionFilterService permissionService;
+
+        public HouseWinLossByProductsController(
+            IUserService userService, 
+            ICurrentSession currentSession,
+            BalanceUpService balanceUpService,
+            PermissionFilterService permissionService
+            ) : base(balanceUpService)
         {
             this.userService = userService;
             this.currentSession = currentSession;
+            this.permissionService = permissionService;
         }
 
         [NapAuth(FunctionKey = FunctionKeys.HouseWinLossByProducts, Policy = Constant.Policy.Read)]
@@ -28,12 +37,15 @@ namespace UniversalReports.Sites.Controllers
         {
             SetupGlobalJsObject();
 
-            ViewBag.ProductPermissions = this.userService.GetPermissions(
+           var productPermissions  = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,
                 FunctionKeys.HouseWinLossProductPermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
                 .Select(p => p.Function.Key);
+
+            ViewBag.ProductPermissions = productPermissions;
+            ViewBag.PermissionProfileID = permissionService.GetPermissionProfileId(productPermissions.FirstOrDefault());
             ViewBag.ModePermissions = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,

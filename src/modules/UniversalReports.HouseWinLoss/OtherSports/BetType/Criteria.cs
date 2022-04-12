@@ -13,7 +13,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.BetType
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_Bettype";
     }

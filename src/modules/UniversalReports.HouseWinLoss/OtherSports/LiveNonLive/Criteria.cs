@@ -10,6 +10,6 @@ namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
 
         public int AliasProductID { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
     }
 }

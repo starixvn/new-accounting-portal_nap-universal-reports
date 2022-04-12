@@ -14,7 +14,7 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.BetType
 
         public int AliasProductID { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public int IsLive { get; set; }
 

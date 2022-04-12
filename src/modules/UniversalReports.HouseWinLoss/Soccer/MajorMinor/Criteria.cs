@@ -13,6 +13,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.MajorMinor
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
     }
 }

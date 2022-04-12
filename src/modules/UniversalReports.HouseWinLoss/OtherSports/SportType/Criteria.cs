@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
 
         public bool IsNoDraw { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_Sporttype";
     }

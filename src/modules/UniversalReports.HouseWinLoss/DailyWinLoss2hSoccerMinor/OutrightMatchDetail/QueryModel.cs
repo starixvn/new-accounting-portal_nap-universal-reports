@@ -13,7 +13,19 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
 
         public int SportType { get; set; } = Constants.SportTypeSoccer;
 
-        public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
+        public int BetType { get; set; }
+
+        public int IsLive { get; set; } = Constants.LiveDefault;
+
+        public int IsHedge { get; set; } = Constants.HedgeDefault;
+
+        public int IsCorners { get; set; } = Constants.CornersDefault;
+
+        public bool IsNoDraw { get; set; }
+
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; }
 
         public string SortColumnName { get; set; }
 

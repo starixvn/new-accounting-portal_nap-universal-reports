@@ -24,8 +24,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>D:\Projects\nap-universal-reports\Backup44\</UpgradeBackupLocation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
@@ -618,6 +620,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\DBWH.bodb_Account.bodbAdminNet.xml" />
     <Content Include="App_Data\DBBAH.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
     <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />

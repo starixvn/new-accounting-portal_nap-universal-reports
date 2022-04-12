@@ -1,9 +1,8 @@
-using UniversalReports.HouseWinLoss.Common.Criteria;
-using UniversalReports.HouseWinLoss.Configuration;
+﻿using UniversalReports.HouseWinLoss.Configuration;
 
-namespace UniversalReports.HouseWinLoss.Sportsbook.OutrightMatchDetail
+namespace UniversalReports.HouseWinLoss.Common.Criteria
 {
-    public class Criteria : WinLossCriteria
+    public class UniversalSportbookMatchDetailCriteria : WinLossCriteria
     {
         public int SportType { get; set; }
 
@@ -19,7 +18,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.OutrightMatchDetail
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail";
     }

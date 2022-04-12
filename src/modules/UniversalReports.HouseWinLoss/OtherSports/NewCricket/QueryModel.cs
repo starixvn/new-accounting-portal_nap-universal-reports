@@ -18,5 +18,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.NewCricket
         public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; }
     }
 }

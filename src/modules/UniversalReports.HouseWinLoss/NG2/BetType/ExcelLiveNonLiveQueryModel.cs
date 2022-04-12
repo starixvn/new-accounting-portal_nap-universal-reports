@@ -10,11 +10,15 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
 
         public bool NormalMode { get; set; } = true;
 
-        public int ProductId { get; set; }
+        public bool IsNoDraw { get; set; }
 
-        public int SportType { get; set; }
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; set; } = 1;
 
         public int IsLive { get; set; }
+
+        public int SportType { get; set; }
 
         public string Title { get; set; }
 

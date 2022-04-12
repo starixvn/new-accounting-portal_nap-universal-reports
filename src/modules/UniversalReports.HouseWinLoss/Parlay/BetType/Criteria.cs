@@ -6,7 +6,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.BetType
     {
         public int AliasProductID { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public bool IsNoDraw { get; set; }
 

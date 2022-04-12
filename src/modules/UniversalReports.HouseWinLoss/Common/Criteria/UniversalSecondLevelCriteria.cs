@@ -6,7 +6,7 @@
 
         public int AliasProductID { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_Lvl2";
     }

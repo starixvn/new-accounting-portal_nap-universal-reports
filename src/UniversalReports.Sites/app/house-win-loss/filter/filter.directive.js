@@ -45,6 +45,7 @@ import moment from "moment";
         vm.dataMenuId = 487;
         vm.legentTitle = 'House Win Loss Legend';
         vm.turnover = false;
+        vm.permissionProfileID = parseInt(permissionProfileID);
 
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
@@ -86,14 +87,16 @@ import moment from "moment";
                     normalMode: vm.normalMode,
                     startDate: vm.date,
                     endDate: vm.date,
-                    isNoDraw: parseInt(vm.turnover) === 1
+                    isNoDraw: parseInt(vm.turnover) === 1,
+                    permissionProfileID: vm.permissionProfileID
                 };
             } else {
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.startDate,
                     endDate: vm.endDate,
-                    isNoDraw: parseInt(vm.turnover) === 1
+                    isNoDraw: parseInt(vm.turnover) === 1,
+                    permissionProfileID: vm.permissionProfileID
                 };
             }
         }

@@ -17,6 +17,6 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 
         public int Sporttype { get; } = Constants.SportTypeSoccer;
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
     }
 }

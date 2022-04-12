@@ -6,7 +6,7 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
     {
         public string SiteType { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Parlay";
     }

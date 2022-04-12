@@ -12,7 +12,7 @@ namespace UniversalReports.HouseWinLoss.NumberGame.MatchDetail
 
         public bool IsNoDraw { get; set; }
 
-        public int PermissionProfileID { get; } = 1;
+        public int PermissionProfileID { get; set; }
 
         public int SportType { get; set; }
 
