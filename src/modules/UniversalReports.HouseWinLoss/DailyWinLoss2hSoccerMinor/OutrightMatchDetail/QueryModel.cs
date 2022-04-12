@@ -25,7 +25,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
 
-        public int PermissionProfileID { get; set; }
+        public int PermissionProfileID { get; set; } = 1;
 
         public string SortColumnName { get; set; }
 

@@ -53,8 +53,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<Sportsbook.MatchDetail.QueryModel, UniversalSportbookMatchDetailCriteria>();
             cfg.CreateMap<Sportsbook.OutrightMatchDetail.ExcelQueryModel, UniversalSportbookMatchDetailCriteria>();
             cfg.CreateMap<Sportsbook.OutrightMatchDetail.QueryModel, UniversalSportbookMatchDetailCriteria>();
-            cfg.CreateMap<Sportsbook.Site.ExcelQueryModel, Sportsbook.Site.Criteria>();
-            cfg.CreateMap<Sportsbook.Site.QueryModel, Sportsbook.Site.Criteria>();
+            cfg.CreateMap<Sportsbook.Site.ExcelQueryModel, UniversalSportbookSiteCriteria>();
+            cfg.CreateMap<Sportsbook.Site.QueryModel, UniversalSportbookSiteCriteria>();
 
             cfg.CreateMap<NG2.BetType.ExcelLiveNonLiveQueryModel, UniversalThirdPartyBetTypeCriteria>();
             cfg.CreateMap<VirtualSports.RacingDetail.ExcelQueryModel, UniversalThirdPartyMatchDetailCriteria>();

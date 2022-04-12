@@ -9,7 +9,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
 
         public int BetType { get; set; }
 
-        public string Site { get; set; }
+        public string SiteType { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
@@ -18,6 +18,10 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.Site
         public int IsCorners { get; set; } = Constants.CornersDefault;
 
         public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
+
+        public int PermissionProfileID { get; set; }
+
+        public bool IsNoDraw { get; set; }
 
         public override string GetSettingKey() => $"HouseWinLoss-Sportsbook-Site";
     }

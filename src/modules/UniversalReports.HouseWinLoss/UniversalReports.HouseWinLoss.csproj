@@ -396,7 +396,7 @@
     <Compile Include="Common\MatchDetail\GridOptionsBuilder.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
-    <Compile Include="Sportsbook\Site\Criteria.cs" />
+    <Compile Include="Common\Criteria\UniversalSportbookSiteCriteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
     <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />

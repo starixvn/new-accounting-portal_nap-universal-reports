@@ -1,9 +1,9 @@
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 
-namespace UniversalReports.HouseWinLoss.Sportsbook.Site
+namespace UniversalReports.HouseWinLoss.Common.Criteria
 {
-    public class Criteria : WinLossCriteria
+    public class UniversalSportbookSiteCriteria : WinLossCriteria
     {
         public int SportType { get; set; }
 
