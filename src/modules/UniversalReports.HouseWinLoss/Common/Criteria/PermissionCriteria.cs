@@ -6,7 +6,7 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
     {
         public string FunctionKey { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-GetPermisionProfileID";
+        public override string GetSettingKey() => $"HouseWinlossByProducts-GetPermisionProfileID";
 
         public override bool IsValid() => true;
     }

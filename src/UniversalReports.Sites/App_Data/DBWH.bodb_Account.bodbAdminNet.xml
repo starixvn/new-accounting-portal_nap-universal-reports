@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions>
-  <Function Name="House Win Loss By Product">
-    <Setting Key="HouseWinLoss-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_Account.bodbAdminNet" />
-  </Function>
-</Functions>
