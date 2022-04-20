@@ -4,8 +4,6 @@ import moment from "moment";
 (function (angular) {
     "use strict";
 
-    var cricketProductId = 50;
-
     var templateSetting = {
         "Main": {
             mainView: "product",
@@ -309,17 +307,9 @@ import moment from "moment";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: function (data) {
-                    return data.sportType === cricketProductId
-                    ? 'BetTypeNewCricketController'
-                    : 'BetTypeController';
-                },
+                controller: "BetTypeController",
                 service: "remoteDataService",
-                serviceBaseUrl: function (data) {
-                    return data.sportType === cricketProductId
-                    ? 'api/house-win-loss-by-products/other-sports/new-cricket/bet-type'
-                    : 'api/house-win-loss-by-products/other-sports/bet-type';
-                },
+                serviceBaseUrl: "api/house-win-loss-by-products/other-sports/bet-type",
                 mainParameters: { sheetName: "House Win Loss by Products", type: "other-sports-bet-type", mainColumnText: "Bet Type" },
                 getTitleFunction: "getSportsbookBetTypeTitle"
             },

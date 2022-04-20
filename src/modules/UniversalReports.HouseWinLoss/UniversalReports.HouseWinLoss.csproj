@@ -299,14 +299,6 @@
     <Compile Include="NG2\BetType\ExcelLiveNonLiveQueryModel.cs" />
     <Compile Include="NG2\BetType\NG2BetTypeController.cs" />
     <Compile Include="OtherSports\LiveNonLive\OtherSportsLiveNonLiveWinLossService.cs" />
-    <Compile Include="OtherSports\NewCricket\ChargeCommissionModel.cs" />
-    <Compile Include="OtherSports\NewCricket\Criteria.cs" />
-    <Compile Include="OtherSports\NewCricket\ExcelQueryModel.cs" />
-    <Compile Include="OtherSports\NewCricket\GridOptionsBuilder.cs" />
-    <Compile Include="OtherSports\NewCricket\OtherSportNewCricketController.cs" />
-    <Compile Include="OtherSports\NewCricket\QueryModel.cs" />
-    <Compile Include="OtherSports\NewCricket\WinLossModel.cs" />
-    <Compile Include="OtherSports\NewCricket\WinLossService.cs" />
     <Compile Include="Parlay\Site\GridOptionsBuilder.cs" />
     <Compile Include="Parlay\Site\SiteModel.cs" />
     <Compile Include="Parlay\Site\SiteParlayModel.cs" />

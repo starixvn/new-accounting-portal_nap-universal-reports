@@ -71,8 +71,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<Parlay.Site.WinLossService, Parlay.Site.WinLossServiceImp>();
             container.Register<Parlay.Site.GridOptionsBuilder, Parlay.Site.GridOptionsBuilderImp>();
             container.Register<OtherSports.LiveNonLive.OtherSportsLiveNonLiveWinLossService, OtherSports.LiveNonLive.OtherSportsLiveNonLiveWinLossServiceImp>();
-            container.Register<OtherSports.NewCricket.WinLossService, OtherSports.NewCricket.WinLossServiceImp>();
-            container.Register<OtherSports.NewCricket.GridOptionsBuilder, OtherSports.NewCricket.GridOptionsBuilderImp>();
             container.Register<MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossService, MetricGaming.LiveNonLive.MetricGamingLiveNonLiveWinLossServiceImp>();
             container.Register<Decorator.GridOptionColumnDecorator, Decorator.GridOptionColumnDecoratorBasic>();
             container.Register<Decorator.GridOptionColumnDecoratorBasic, Decorator.GridOptionColumnDecoratorBasic>();
