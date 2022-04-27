@@ -1,8 +1,10 @@
 ﻿using Fanex.Data.Repository;
 using Linq.DynamicSum;
+using Olympus.FPSAPI.Client;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
@@ -16,9 +18,18 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
     {
         private readonly IDynamicRepository repository;
 
-        public AssociatedFacadeImp(IDynamicRepository repository)
+        private readonly FraudServiceWrapper fraudServiceWrapper;
+
+        private readonly ConfigurationService configurationService;
+
+        public AssociatedFacadeImp(
+            IDynamicRepository repository,
+            FraudServiceWrapper fraudServiceWrapper,
+            ConfigurationService configurationService)
         {
             this.repository = repository;
+            this.fraudServiceWrapper = fraudServiceWrapper;
+            this.configurationService = configurationService;
         }
 
         public async Task<SummaryEntity<AssociatedSummaryModel>> Query(HttpParameterJson request)
@@ -45,6 +56,12 @@ namespace UniversalReports.PunterAnalysis.AssociatedAccount
             };
 
             var summaries = await repository.FetchAsync<AssociatedSummaryModel>(criteria);
+
+            foreach (var item in summaries)
+            {
+                item.Category = await fraudServiceWrapper.GetCategory(configurationService.FraudSystemCategoryApi, item.CustId.ToString());
+            }
+
             return summaries.ToList();
         }
     }
