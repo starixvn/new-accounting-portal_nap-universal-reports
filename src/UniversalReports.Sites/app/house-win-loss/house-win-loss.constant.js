@@ -622,7 +622,7 @@ import moment from "moment";
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
-                controller: "NG2LiveNonLiveController",
+                controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
                 mainParameters: { sheetName: "House Win Loss by Products", productId: 23, isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
