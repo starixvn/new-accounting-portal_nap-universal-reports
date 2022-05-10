@@ -26,7 +26,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
                 new Columns { ColumnIndex = columnIndex++, Name = "SMAWinLoss", Value =  item.SMAWinLoss, CustomAttributes = sportTypeAttribute },
                  new Columns(columnIndex++, "ExtraPT", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
-                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                new Columns(columnIndex++, "VarianceIncome", item.Variance),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),

@@ -88,7 +88,7 @@ namespace UniversalReports.HouseWinLoss.Products
             {
                 winLoss.SMAWinLoss += item.SMAWinLoss;
                 winLoss.Commission += item.Commission;
-                winLoss.VarianceIncome += item.VarianceIncome;
+                winLoss.Variance += item.Variance;
                 winLoss.RealIncome += item.RealIncome;
                 winLoss.ExtraPT += item.ExtraPT;
             }
@@ -107,7 +107,7 @@ namespace UniversalReports.HouseWinLoss.Products
                 Commission = grandTotal.Total.Commission - grandTotal.CN88.Commission,
                 RealIncome = grandTotal.Total.RealIncome - grandTotal.CN88.RealIncome,
                 VirtualIncome = grandTotal.Total.VirtualIncome - grandTotal.CN88.VirtualIncome,
-                VarianceIncome = grandTotal.Total.VarianceIncome - grandTotal.CN88.VarianceIncome,
+                Variance = grandTotal.Total.Variance - grandTotal.CN88.Variance,
                 RealTurnover = grandTotal.Total.RealTurnover - grandTotal.CN88.RealTurnover,
                 VirtualTurnover = grandTotal.Total.VirtualTurnover - grandTotal.CN88.VirtualTurnover
             };
