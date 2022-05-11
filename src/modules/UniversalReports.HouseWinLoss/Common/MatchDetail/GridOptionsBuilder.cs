@@ -155,7 +155,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
                 new Columns(columnIndex++, "SMAWinLoss", item.ExtraPT),
                 new Columns(columnIndex++, "Commission", item.Commission),
-                new Columns(columnIndex++, "VarianceIncome", item.VarianceIncome),
+                new Columns(columnIndex++, "VarianceIncome", item.Variance),
                 new Columns(columnIndex++, "VirtualIncome", item.VirtualIncome),
                 new Columns(columnIndex++, "RealIncome", item.RealIncome),
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),

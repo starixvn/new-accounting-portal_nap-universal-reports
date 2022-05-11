@@ -36,7 +36,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public decimal VirtualIncome { get; set; }
 
-        public decimal VarianceIncome { get; set; }
+        public decimal Variance { get; set; }
 
         public decimal RealTurnover { get; set; }
 
@@ -67,7 +67,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 VirtualIncome = a.VirtualIncome + b.VirtualIncome,
                 RealTurnover = a.RealTurnover + b.RealTurnover,
                 VirtualTurnover = a.VirtualTurnover + b.VirtualTurnover,
-                VarianceIncome = a.VarianceIncome + b.VarianceIncome
+                Variance = a.Variance + b.Variance
             };
         }
     }
