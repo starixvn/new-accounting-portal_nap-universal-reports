@@ -15,6 +15,8 @@ namespace UniversalReports.HouseWinLoss.CashOut.MatchDetail
 
         public int SportType { get; set; }
 
+        public int BetType { get; set; }
+
         public int PermissionProfileID { get; set; }
     }
 }

@@ -117,7 +117,7 @@ import angular from "angular";
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var row = data.bodyRows[i];
                 var name = row.Columns[0].Value;
-                var isLive = parseInt(row.Columns[0].CustomAttr);
+                var isLive = name.includes('Non-Live') === true ? 0 : 1;
                 var betTypeId = parseInt(row.Columns[0].CustomAttr);
                 row.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateMatchDetail(' + isLive + ',\'' + name.replace(/'/g, "\\'") + '\',' + betTypeId + ')">' + name + '</a>';
                 for (var j = 0; j < row.SubRows.length; j++) {

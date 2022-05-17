@@ -17,7 +17,8 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
         {
             var columnIndex = 0;
             var customAttributes = $"{item.Id}";
-            var sabaSportCustomAttributes = $"{item.IsSabaSport}";
+            var isSabaSport = GetSabaSportValue(item.Id, item.Name);
+            var sabaSportCustomAttributes = $"{isSabaSport}";
             var sportTypeAttribute = $"{item.SportType}";
             var columns = new List<Columns>
             {
@@ -36,6 +37,23 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             };
 
             return new GridDataRow { Columns = columns };
+        }
+
+        private int GetSabaSportValue(int id, string name)
+        {
+            var isSabaSport = 0;
+            
+            if(id < 0)
+            {
+                isSabaSport = 1;
+            }
+
+            if(id < 0 && name.Contains("Basketball PinGoal"))
+            {
+                isSabaSport = 4;
+            }
+
+            return isSabaSport;
         }
     }
 }

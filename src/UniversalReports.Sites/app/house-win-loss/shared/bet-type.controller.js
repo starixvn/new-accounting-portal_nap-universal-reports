@@ -48,6 +48,10 @@ import angular from "angular";
             var betTypeName = betTypeRow.Columns[0].Value;
             var betTypeId = betTypeRow.Columns[0].CustomAttr;
 
+            if (isLive === null || isLive === undefined) {
+                isLive = betTypeName.includes('Live') === true ? 1 : 0;
+            }
+
             var isFreePlay = betTypeName === 'Colossus Bets (Free Play)';
 
             var template = houseWinlossService.getViewSetting(pane.data.productName, 'matchDetail', pane.data);
