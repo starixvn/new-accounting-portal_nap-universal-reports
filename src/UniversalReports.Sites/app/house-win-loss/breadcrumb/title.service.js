@@ -125,7 +125,7 @@ import angular from "angular";
         }
 
         function getSiteTitle(data) {
-            var site = data.site === undefined ? "ALL" : data.site;
+            var site = data.siteType === undefined ? "ALL" : data.siteType;
             return data.betTypeName
                 + ' | '
                 + site
@@ -136,7 +136,7 @@ import angular from "angular";
             return data.betTypeName
                 + getLiveText(data.isLive)
                 + '| '
-                + data.site + ' Site';
+                + data.siteType + ' Site';
         }
 
         function getMatchDetailTitle(data) {
