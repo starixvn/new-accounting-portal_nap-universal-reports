@@ -33,13 +33,13 @@ namespace UniversalReports.Sites.Controllers
                 NapSettings.Settings.SiteId,
                 FunctionKeys.CN88WinLossProductPermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
             ViewBag.ModePermissions = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,
                 FunctionKeys.CN88WinLossModePermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
             return View();
         }
     }

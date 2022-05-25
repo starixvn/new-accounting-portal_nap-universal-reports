@@ -28,7 +28,7 @@ namespace UniversalReports.SBPerformance.Common
                 NapSettings.Settings.SiteId,
                 "SBPerformanceMonitor")
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
             return Json(permissions.Contains("FullView"));
         }
     }

@@ -42,7 +42,7 @@ namespace UniversalReports.Sites.Controllers
                 NapSettings.Settings.SiteId,
                 FunctionKeys.HouseWinLossProductPermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
 
             ViewBag.ProductPermissions = productPermissions;
             ViewBag.PermissionProfileID = permissionService.GetPermissionProfileId(productPermissions.FirstOrDefault());
@@ -51,7 +51,7 @@ namespace UniversalReports.Sites.Controllers
                 NapSettings.Settings.SiteId,
                 FunctionKeys.HouseWinLossModePermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
             return View();
         }
     }
