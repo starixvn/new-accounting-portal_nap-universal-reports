@@ -14,16 +14,16 @@ import jQuery from "jquery";
         $interval(callback, 60000);
 
         function callback() {
-            var url = legacyService.resolveUrl('/UserLogin/Login/ReCheckLogin');
+            var url = legacyService.resolveUrl('/Auth/ReCheckIn');
             $.post(url, function (result) {
                 if (result.IsKickedOut === "1") {
                     alert('Another session has been logged in or your session is expired. Forced to logout!');
-                    window.location.href = legacyService.resolveUrl('/UserLogin/Login/LogOut');
+                    window.location.href = legacyService.resolveUrl('/Auth/LogOut');
                 }
             }).fail(function (request, textStatus, error) {
                 var result = $.parseJSON(request.responseText);
                 if (result.code == 999999) {
-                    window.location.href = legacyService.resolveUrl('/UserLogin/Common/Offline');
+                    window.location.href = legacyService.resolveUrl('/Auth/Offline');
                 }
             });;
         }
