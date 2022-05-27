@@ -1182,11 +1182,6 @@
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\voiding-settled-tickets\index.cshtml" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1197,6 +1192,11 @@
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\cash-out-performance\index.cshtml" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

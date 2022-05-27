@@ -1,4 +1,4 @@
-moment@2.22.2
+moment@2.29.3
 MIT
 Copyright (c) JS Foundation and other contributors
 
@@ -75,7 +75,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-nap-components@2.0.5
+nap-components@2.0.10
 ISC
 ISC
 
@@ -118,7 +118,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-nap-theme@2.0.6
+nap-theme@2.0.10
 MIT
 MIT
 
@@ -147,9 +147,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-lodash@4.17.10
+lodash@4.17.21
 MIT
-Copyright JS Foundation and other contributors <https://js.foundation/>
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
 Based on Underscore.js, copyright Jeremy Ashkenas,
 DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
@@ -201,9 +201,9 @@ terms above.
 MIT
 MIT
 
-core-js@2.5.7
+core-js@2.6.12
 MIT
-Copyright (c) 2014-2018 Denis Pushkarev
+Copyright (c) 2014-2020 Denis Pushkarev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -223,7 +223,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-zone.js@0.8.26
+zone.js@0.8.29
 MIT
 The MIT License
 
