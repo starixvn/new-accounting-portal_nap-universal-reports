@@ -1,19 +1,25 @@
 @import '~nap-theme/scss/filter';
-.filter-container {
-    .col-nap {
-        .group-nap {
-            &>label {
-                float: left;
-                width: 80px;
-                line-height: 25px;
-            }
-            &>.control-nap {
-                float: left;
-                width: 200px;
-            }
-        }
+.nap-col {
+  .nap-group {
+    &>label {
+      float: left;
+      width: 80px;
+      line-height: 25px;
     }
-    .col-buttons {
-        margin-left: 20px;
+    &>.nap-control {
+      float: left;
+      width: 150px;
     }
+    &>.form-control {
+      width: 150px;
+    }
+  }
+}
+
+.nap-col-exclude-test {
+  margin-left: 30px;
+}
+
+.col-buttons {
+  margin-left: 85px;
 }

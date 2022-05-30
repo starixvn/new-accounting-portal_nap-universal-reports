@@ -23,7 +23,7 @@ export class GridService {
     const toDate = model.toDate.replace(',', '').replace(/ /g, '_');
     this.httpService.download(url, model).subscribe(response => {
         const fileName = `Exchange_WinLoss_report_From_${fromDate}_To_${toDate}.xlsx`;
-        Helper.saveExcel(response, fileName);
+        Helper.downloadFile(response, fileName);
     });
   }
 }

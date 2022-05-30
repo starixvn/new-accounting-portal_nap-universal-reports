@@ -65,7 +65,7 @@
     <td class="text-right" [napDecimalFormat]="item.CompanyNetIncome"></td>
 </ng-template>
 <div *ngIf="exchangeModel" [ngSwitch]="exchangeModel.Entities.length > 0">
-    <div class="grid">
+    <div class="nap-grid">
         <div style="position: fixed; width: 1620px; margin: 0;">
             <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
             <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
@@ -82,7 +82,7 @@
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tbody>
                         <tr *ngFor="let item of displayExchange">
-                            <ng-template [ngTemplateOutlet]="rowItem" [ngOutletContext]="{ item: item }">
+                            <ng-template [ngTemplateOutlet]="rowItem" [ngTemplateOutletContext]="{ item: item }">
                             </ng-template>
                         </tr>
                     </tbody>

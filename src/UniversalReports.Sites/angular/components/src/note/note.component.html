@@ -1,7 +1,0 @@
-<div class="header" (click)="isCollapsed = !isCollapsed">
-    <i class="fa" [ngClass]="{'fa-plus-square': isCollapsed, 'fa-minus-square': !isCollapsed}" aria-hidden="true">
-    </i> Note
-</div>
-<div class="body">
-    <ng-content *ngIf="!isCollapsed"></ng-content>
-</div>

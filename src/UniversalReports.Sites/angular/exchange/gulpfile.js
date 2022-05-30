@@ -19,9 +19,9 @@ function transform(transformFolder) {
 }
 
 function getOutputFolder() {
-    let content = fs.readFileSync(path.resolve('./.angular-cli.json'), encoding);
+    let content = fs.readFileSync(path.resolve('./angular.json'), encoding);
     let json = JSON.parse(content);
-    return path.resolve(json.apps[0].outDir);
+    return path.resolve(json.projects['exchange'].architect["build"].options["outputPath"]);
 }
 
 function changeFileNames(outputFolder, transformFolder) {

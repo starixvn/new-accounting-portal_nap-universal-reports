@@ -29,16 +29,16 @@ export class FilterComponent implements OnInit {
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
-  licenseeTreeviewItems: TreeviewItem[];
-  sportTreeviewItems: TreeviewItem[];
-  treeviewConfig: TreeviewConfig = {
-    isShowAllCheckBox: true,
-    isShowCollapseExpand: true,
-    isShowFilter: true,
+  licenseeTreeviewItems: TreeviewItem[] = [];
+  sportTreeviewItems: TreeviewItem[] = [];
+  treeviewConfig = TreeviewConfig.create({
+    hasCollapseExpand: true,
+    hasAllCheckBox: true,
+    hasFilter: false,
     maxHeight: 500
-};
-  private selectedLicenseeTreeviewItems: DownlineTreeviewItem[];
-  private selectedSportTreeviewItems: DownlineTreeviewItem[];
+  });
+  private selectedLicenseeTreeviewItems: DownlineTreeviewItem[] = [];
+  private selectedSportTreeviewItems: DownlineTreeviewItem[]  = [];
 
   constructor(private filterService: FilterService, private toastService: ToastService) { }
 
