@@ -23,8 +23,8 @@ import angular from "angular";
     function controller(headerService, legacyService) {
         /*jshint validthis: true */
         var vm = this;
-        vm.changePasswordUrl = legacyService.resolveUrl('/UserControl/User/ChangePassword');
-        vm.logOutUrl = legacyService.resolveUrl('/UserLogin/Login/LogOut');
+        vm.changePasswordUrl = legacyService.resolveUrl('/Auth/ChangePassword');
+        vm.logOutUrl = legacyService.resolveUrl('/Auth/LogOut');
         vm.legacyUrl = napConfig.LegacyPath;
 
         headerService.getData().then(function (data) {

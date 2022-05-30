@@ -83,13 +83,15 @@ import moment from "moment";
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.date,
-                    endDate: vm.date
+                    endDate: vm.date,
+                    permissionProfileID: 1
                 };
             } else {
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.startDate,
-                    endDate: vm.endDate
+                    endDate: vm.endDate,
+                    permissionProfileID: 1
                 };
             }
         }
