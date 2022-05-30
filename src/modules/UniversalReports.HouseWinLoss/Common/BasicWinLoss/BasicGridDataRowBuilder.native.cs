@@ -41,7 +41,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 
         private int GetSabaSportValue(int id, string name)
         {
-            var isSabaSport = id;
+            var isSabaSport = 0;
             
             if(id < 0)
             {
